@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -31,10 +31,23 @@ class AsymmetricEncryptedSecretArgs:
         :param pulumi.Input[str] value: The value of the secret.
         :param pulumi.Input[str] encryption_cert_thumbprint: Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
         """
-        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
-        pulumi.set(__self__, "value", value)
+        AsymmetricEncryptedSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_algorithm=encryption_algorithm,
+            value=value,
+            encryption_cert_thumbprint=encryption_cert_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_algorithm: pulumi.Input['EncryptionAlgorithm'],
+             value: pulumi.Input[str],
+             encryption_cert_thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("encryption_algorithm", encryption_algorithm)
+        _setter("value", value)
         if encryption_cert_thumbprint is not None:
-            pulumi.set(__self__, "encryption_cert_thumbprint", encryption_cert_thumbprint)
+            _setter("encryption_cert_thumbprint", encryption_cert_thumbprint)
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
@@ -87,10 +100,25 @@ class BandwidthScheduleArgs:
         :param pulumi.Input['TimeArgs'] start: The start time of the schedule.
         :param pulumi.Input['TimeArgs'] stop: The stop time of the schedule.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "rate_in_mbps", rate_in_mbps)
-        pulumi.set(__self__, "start", start)
-        pulumi.set(__self__, "stop", stop)
+        BandwidthScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            rate_in_mbps=rate_in_mbps,
+            start=start,
+            stop=stop,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]],
+             rate_in_mbps: pulumi.Input[int],
+             start: pulumi.Input['TimeArgs'],
+             stop: pulumi.Input['TimeArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
+        _setter("rate_in_mbps", rate_in_mbps)
+        _setter("start", start)
+        _setter("stop", stop)
 
     @property
     @pulumi.getter
@@ -149,7 +177,16 @@ class ManagerIntrinsicSettingsArgs:
         Intrinsic settings which refers to the type of the StorSimple Manager.
         :param pulumi.Input['ManagerType'] type: The type of StorSimple Manager.
         """
-        pulumi.set(__self__, "type", type)
+        ManagerIntrinsicSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['ManagerType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -172,7 +209,16 @@ class ManagerSkuArgs:
         The Sku.
         :param pulumi.Input['ManagerSkuType'] name: Refers to the sku name which should be "Standard"
         """
-        pulumi.set(__self__, "name", name)
+        ManagerSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input['ManagerSkuType'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -199,10 +245,23 @@ class ScheduleRecurrenceArgs:
         :param pulumi.Input[int] recurrence_value: The recurrence value.
         :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] weekly_days_list: The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
-        pulumi.set(__self__, "recurrence_type", recurrence_type)
-        pulumi.set(__self__, "recurrence_value", recurrence_value)
+        ScheduleRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence_type=recurrence_type,
+            recurrence_value=recurrence_value,
+            weekly_days_list=weekly_days_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence_type: pulumi.Input['RecurrenceType'],
+             recurrence_value: pulumi.Input[int],
+             weekly_days_list: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recurrence_type", recurrence_type)
+        _setter("recurrence_value", recurrence_value)
         if weekly_days_list is not None:
-            pulumi.set(__self__, "weekly_days_list", weekly_days_list)
+            _setter("weekly_days_list", weekly_days_list)
 
     @property
     @pulumi.getter(name="recurrenceType")
@@ -253,9 +312,22 @@ class TimeArgs:
         :param pulumi.Input[int] minutes: The minute.
         :param pulumi.Input[int] seconds: The second.
         """
-        pulumi.set(__self__, "hours", hours)
-        pulumi.set(__self__, "minutes", minutes)
-        pulumi.set(__self__, "seconds", seconds)
+        TimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hours=hours,
+            minutes=minutes,
+            seconds=seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hours: pulumi.Input[int],
+             minutes: pulumi.Input[int],
+             seconds: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hours", hours)
+        _setter("minutes", minutes)
+        _setter("seconds", seconds)
 
     @property
     @pulumi.getter

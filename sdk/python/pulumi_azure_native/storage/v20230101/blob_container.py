@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,51 @@ class BlobContainerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the container as metadata.
         :param pulumi.Input['PublicAccess'] public_access: Specifies whether data in the container may be accessed publicly and the level of access.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BlobContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            container_name=container_name,
+            default_encryption_scope=default_encryption_scope,
+            deny_encryption_scope_override=deny_encryption_scope_override,
+            enable_nfs_v3_all_squash=enable_nfs_v3_all_squash,
+            enable_nfs_v3_root_squash=enable_nfs_v3_root_squash,
+            immutable_storage_with_versioning=immutable_storage_with_versioning,
+            metadata=metadata,
+            public_access=public_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             container_name: Optional[pulumi.Input[str]] = None,
+             default_encryption_scope: Optional[pulumi.Input[str]] = None,
+             deny_encryption_scope_override: Optional[pulumi.Input[bool]] = None,
+             enable_nfs_v3_all_squash: Optional[pulumi.Input[bool]] = None,
+             enable_nfs_v3_root_squash: Optional[pulumi.Input[bool]] = None,
+             immutable_storage_with_versioning: Optional[pulumi.Input['ImmutableStorageWithVersioningArgs']] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             public_access: Optional[pulumi.Input['PublicAccess']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if default_encryption_scope is not None:
-            pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
+            _setter("default_encryption_scope", default_encryption_scope)
         if deny_encryption_scope_override is not None:
-            pulumi.set(__self__, "deny_encryption_scope_override", deny_encryption_scope_override)
+            _setter("deny_encryption_scope_override", deny_encryption_scope_override)
         if enable_nfs_v3_all_squash is not None:
-            pulumi.set(__self__, "enable_nfs_v3_all_squash", enable_nfs_v3_all_squash)
+            _setter("enable_nfs_v3_all_squash", enable_nfs_v3_all_squash)
         if enable_nfs_v3_root_squash is not None:
-            pulumi.set(__self__, "enable_nfs_v3_root_squash", enable_nfs_v3_root_squash)
+            _setter("enable_nfs_v3_root_squash", enable_nfs_v3_root_squash)
         if immutable_storage_with_versioning is not None:
-            pulumi.set(__self__, "immutable_storage_with_versioning", immutable_storage_with_versioning)
+            _setter("immutable_storage_with_versioning", immutable_storage_with_versioning)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if public_access is not None:
-            pulumi.set(__self__, "public_access", public_access)
+            _setter("public_access", public_access)
 
     @property
     @pulumi.getter(name="accountName")
@@ -231,6 +258,10 @@ class BlobContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BlobContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -263,6 +294,11 @@ class BlobContainer(pulumi.CustomResource):
             __props__.__dict__["deny_encryption_scope_override"] = deny_encryption_scope_override
             __props__.__dict__["enable_nfs_v3_all_squash"] = enable_nfs_v3_all_squash
             __props__.__dict__["enable_nfs_v3_root_squash"] = enable_nfs_v3_root_squash
+            if not isinstance(immutable_storage_with_versioning, ImmutableStorageWithVersioningArgs):
+                immutable_storage_with_versioning = immutable_storage_with_versioning or {}
+                def _setter(key, value):
+                    immutable_storage_with_versioning[key] = value
+                ImmutableStorageWithVersioningArgs._configure(_setter, **immutable_storage_with_versioning)
             __props__.__dict__["immutable_storage_with_versioning"] = immutable_storage_with_versioning
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["public_access"] = public_access

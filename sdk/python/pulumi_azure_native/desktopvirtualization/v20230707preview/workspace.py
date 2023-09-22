@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,31 +43,64 @@ class WorkspaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            application_group_references=application_group_references,
+            description=description,
+            friendly_name=friendly_name,
+            identity=identity,
+            kind=kind,
+            location=location,
+            managed_by=managed_by,
+            plan=plan,
+            public_network_access=public_network_access,
+            sku=sku,
+            tags=tags,
+            workspace_name=workspace_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             application_group_references: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if application_group_references is not None:
-            pulumi.set(__self__, "application_group_references", application_group_references)
+            _setter("application_group_references", application_group_references)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -271,6 +304,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -301,15 +338,30 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["application_group_references"] = application_group_references
             __props__.__dict__["description"] = description
             __props__.__dict__["friendly_name"] = friendly_name
+            if not isinstance(identity, ResourceModelWithAllowedPropertySetIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceModelWithAllowedPropertySetIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
+            if not isinstance(plan, ResourceModelWithAllowedPropertySetPlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                ResourceModelWithAllowedPropertySetPlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, ResourceModelWithAllowedPropertySetSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ResourceModelWithAllowedPropertySetSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workspace_name"] = workspace_name

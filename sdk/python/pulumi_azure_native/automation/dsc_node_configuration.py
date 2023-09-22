@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,41 @@ class DscNodeConfigurationArgs:
         :param pulumi.Input[str] node_configuration_name: The Dsc node configuration name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
+        DscNodeConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            configuration=configuration,
+            resource_group_name=resource_group_name,
+            source=source,
+            increment_node_configuration_build=increment_node_configuration_build,
+            name=name,
+            node_configuration_name=node_configuration_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             configuration: pulumi.Input['DscConfigurationAssociationPropertyArgs'],
+             resource_group_name: pulumi.Input[str],
+             source: pulumi.Input['ContentSourceArgs'],
+             increment_node_configuration_build: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_configuration_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("configuration", configuration)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source", source)
         if increment_node_configuration_build is not None:
-            pulumi.set(__self__, "increment_node_configuration_build", increment_node_configuration_build)
+            _setter("increment_node_configuration_build", increment_node_configuration_build)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_configuration_name is not None:
-            pulumi.set(__self__, "node_configuration_name", node_configuration_name)
+            _setter("node_configuration_name", node_configuration_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -195,6 +218,10 @@ class DscNodeConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DscNodeConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -220,6 +247,11 @@ class DscNodeConfiguration(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
+            if not isinstance(configuration, DscConfigurationAssociationPropertyArgs):
+                configuration = configuration or {}
+                def _setter(key, value):
+                    configuration[key] = value
+                DscConfigurationAssociationPropertyArgs._configure(_setter, **configuration)
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
@@ -229,6 +261,11 @@ class DscNodeConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(source, ContentSourceArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                ContentSourceArgs._configure(_setter, **source)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

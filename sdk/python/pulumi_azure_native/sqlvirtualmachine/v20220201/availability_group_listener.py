@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,47 @@ class AvailabilityGroupListenerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MultiSubnetIpConfigurationArgs']]] multi_subnet_ip_configurations: List of multi subnet IP configurations for an AG listener.
         :param pulumi.Input[int] port: Listener port.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_virtual_machine_group_name", sql_virtual_machine_group_name)
+        AvailabilityGroupListenerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sql_virtual_machine_group_name=sql_virtual_machine_group_name,
+            availability_group_configuration=availability_group_configuration,
+            availability_group_listener_name=availability_group_listener_name,
+            availability_group_name=availability_group_name,
+            create_default_availability_group_if_not_exist=create_default_availability_group_if_not_exist,
+            load_balancer_configurations=load_balancer_configurations,
+            multi_subnet_ip_configurations=multi_subnet_ip_configurations,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sql_virtual_machine_group_name: pulumi.Input[str],
+             availability_group_configuration: Optional[pulumi.Input['AgConfigurationArgs']] = None,
+             availability_group_listener_name: Optional[pulumi.Input[str]] = None,
+             availability_group_name: Optional[pulumi.Input[str]] = None,
+             create_default_availability_group_if_not_exist: Optional[pulumi.Input[bool]] = None,
+             load_balancer_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerConfigurationArgs']]]] = None,
+             multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MultiSubnetIpConfigurationArgs']]]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sql_virtual_machine_group_name", sql_virtual_machine_group_name)
         if availability_group_configuration is not None:
-            pulumi.set(__self__, "availability_group_configuration", availability_group_configuration)
+            _setter("availability_group_configuration", availability_group_configuration)
         if availability_group_listener_name is not None:
-            pulumi.set(__self__, "availability_group_listener_name", availability_group_listener_name)
+            _setter("availability_group_listener_name", availability_group_listener_name)
         if availability_group_name is not None:
-            pulumi.set(__self__, "availability_group_name", availability_group_name)
+            _setter("availability_group_name", availability_group_name)
         if create_default_availability_group_if_not_exist is not None:
-            pulumi.set(__self__, "create_default_availability_group_if_not_exist", create_default_availability_group_if_not_exist)
+            _setter("create_default_availability_group_if_not_exist", create_default_availability_group_if_not_exist)
         if load_balancer_configurations is not None:
-            pulumi.set(__self__, "load_balancer_configurations", load_balancer_configurations)
+            _setter("load_balancer_configurations", load_balancer_configurations)
         if multi_subnet_ip_configurations is not None:
-            pulumi.set(__self__, "multi_subnet_ip_configurations", multi_subnet_ip_configurations)
+            _setter("multi_subnet_ip_configurations", multi_subnet_ip_configurations)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -213,6 +238,10 @@ class AvailabilityGroupListener(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AvailabilityGroupListenerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -236,6 +265,11 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AvailabilityGroupListenerArgs.__new__(AvailabilityGroupListenerArgs)
 
+            if not isinstance(availability_group_configuration, AgConfigurationArgs):
+                availability_group_configuration = availability_group_configuration or {}
+                def _setter(key, value):
+                    availability_group_configuration[key] = value
+                AgConfigurationArgs._configure(_setter, **availability_group_configuration)
             __props__.__dict__["availability_group_configuration"] = availability_group_configuration
             __props__.__dict__["availability_group_listener_name"] = availability_group_listener_name
             __props__.__dict__["availability_group_name"] = availability_group_name

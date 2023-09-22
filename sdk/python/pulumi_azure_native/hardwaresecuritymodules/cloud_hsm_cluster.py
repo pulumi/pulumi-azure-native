@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -43,27 +43,56 @@ class CloudHsmClusterArgs:
         :param pulumi.Input['CloudHsmClusterSkuArgs'] sku: SKU details
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CloudHsmClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            auto_generated_domain_name_label_scope=auto_generated_domain_name_label_scope,
+            cloud_hsm_cluster_name=cloud_hsm_cluster_name,
+            hsms=hsms,
+            location=location,
+            private_endpoint_connections=private_endpoint_connections,
+            provisioning_state=provisioning_state,
+            public_network_access=public_network_access,
+            security_domain=security_domain,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
+             cloud_hsm_cluster_name: Optional[pulumi.Input[str]] = None,
+             hsms: Optional[pulumi.Input[Sequence[pulumi.Input['CloudHsmPropertiesArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             security_domain: Optional[pulumi.Input['CloudHsmClusterSecurityDomainPropertiesArgs']] = None,
+             sku: Optional[pulumi.Input['CloudHsmClusterSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if auto_generated_domain_name_label_scope is not None:
-            pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
+            _setter("auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if cloud_hsm_cluster_name is not None:
-            pulumi.set(__self__, "cloud_hsm_cluster_name", cloud_hsm_cluster_name)
+            _setter("cloud_hsm_cluster_name", cloud_hsm_cluster_name)
         if hsms is not None:
-            pulumi.set(__self__, "hsms", hsms)
+            _setter("hsms", hsms)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if security_domain is not None:
-            pulumi.set(__self__, "security_domain", security_domain)
+            _setter("security_domain", security_domain)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -255,6 +284,10 @@ class CloudHsmCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudHsmClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -290,7 +323,17 @@ class CloudHsmCluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(security_domain, CloudHsmClusterSecurityDomainPropertiesArgs):
+                security_domain = security_domain or {}
+                def _setter(key, value):
+                    security_domain[key] = value
+                CloudHsmClusterSecurityDomainPropertiesArgs._configure(_setter, **security_domain)
             __props__.__dict__["security_domain"] = security_domain
+            if not isinstance(sku, CloudHsmClusterSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                CloudHsmClusterSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -84,67 +84,138 @@ class ThreatIntelligenceIndicatorArgs:
         :param pulumi.Input[str] valid_from: Valid from
         :param pulumi.Input[str] valid_until: Valid until
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ThreatIntelligenceIndicatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            confidence=confidence,
+            created=created,
+            created_by_ref=created_by_ref,
+            defanged=defanged,
+            description=description,
+            display_name=display_name,
+            extensions=extensions,
+            external_id=external_id,
+            external_last_updated_time_utc=external_last_updated_time_utc,
+            external_references=external_references,
+            granular_markings=granular_markings,
+            indicator_types=indicator_types,
+            kill_chain_phases=kill_chain_phases,
+            labels=labels,
+            language=language,
+            last_updated_time_utc=last_updated_time_utc,
+            modified=modified,
+            name=name,
+            object_marking_refs=object_marking_refs,
+            parsed_pattern=parsed_pattern,
+            pattern=pattern,
+            pattern_type=pattern_type,
+            pattern_version=pattern_version,
+            revoked=revoked,
+            source=source,
+            threat_intelligence_tags=threat_intelligence_tags,
+            threat_types=threat_types,
+            valid_from=valid_from,
+            valid_until=valid_until,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[Union[str, 'ThreatIntelligenceResourceKindEnum']],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             confidence: Optional[pulumi.Input[int]] = None,
+             created: Optional[pulumi.Input[str]] = None,
+             created_by_ref: Optional[pulumi.Input[str]] = None,
+             defanged: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             extensions: Optional[Any] = None,
+             external_id: Optional[pulumi.Input[str]] = None,
+             external_last_updated_time_utc: Optional[pulumi.Input[str]] = None,
+             external_references: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceExternalReferenceArgs']]]] = None,
+             granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceGranularMarkingModelArgs']]]] = None,
+             indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceKillChainPhaseArgs']]]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             last_updated_time_utc: Optional[pulumi.Input[str]] = None,
+             modified: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternArgs']]]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             pattern_type: Optional[pulumi.Input[str]] = None,
+             pattern_version: Optional[pulumi.Input[str]] = None,
+             revoked: Optional[pulumi.Input[bool]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             threat_intelligence_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             threat_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             valid_from: Optional[pulumi.Input[str]] = None,
+             valid_until: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if confidence is not None:
-            pulumi.set(__self__, "confidence", confidence)
+            _setter("confidence", confidence)
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if created_by_ref is not None:
-            pulumi.set(__self__, "created_by_ref", created_by_ref)
+            _setter("created_by_ref", created_by_ref)
         if defanged is not None:
-            pulumi.set(__self__, "defanged", defanged)
+            _setter("defanged", defanged)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if external_last_updated_time_utc is not None:
-            pulumi.set(__self__, "external_last_updated_time_utc", external_last_updated_time_utc)
+            _setter("external_last_updated_time_utc", external_last_updated_time_utc)
         if external_references is not None:
-            pulumi.set(__self__, "external_references", external_references)
+            _setter("external_references", external_references)
         if granular_markings is not None:
-            pulumi.set(__self__, "granular_markings", granular_markings)
+            _setter("granular_markings", granular_markings)
         if indicator_types is not None:
-            pulumi.set(__self__, "indicator_types", indicator_types)
+            _setter("indicator_types", indicator_types)
         if kill_chain_phases is not None:
-            pulumi.set(__self__, "kill_chain_phases", kill_chain_phases)
+            _setter("kill_chain_phases", kill_chain_phases)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if last_updated_time_utc is not None:
-            pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
+            _setter("last_updated_time_utc", last_updated_time_utc)
         if modified is not None:
-            pulumi.set(__self__, "modified", modified)
+            _setter("modified", modified)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if object_marking_refs is not None:
-            pulumi.set(__self__, "object_marking_refs", object_marking_refs)
+            _setter("object_marking_refs", object_marking_refs)
         if parsed_pattern is not None:
-            pulumi.set(__self__, "parsed_pattern", parsed_pattern)
+            _setter("parsed_pattern", parsed_pattern)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if pattern_type is not None:
-            pulumi.set(__self__, "pattern_type", pattern_type)
+            _setter("pattern_type", pattern_type)
         if pattern_version is not None:
-            pulumi.set(__self__, "pattern_version", pattern_version)
+            _setter("pattern_version", pattern_version)
         if revoked is not None:
-            pulumi.set(__self__, "revoked", revoked)
+            _setter("revoked", revoked)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if threat_intelligence_tags is not None:
-            pulumi.set(__self__, "threat_intelligence_tags", threat_intelligence_tags)
+            _setter("threat_intelligence_tags", threat_intelligence_tags)
         if threat_types is not None:
-            pulumi.set(__self__, "threat_types", threat_types)
+            _setter("threat_types", threat_types)
         if valid_from is not None:
-            pulumi.set(__self__, "valid_from", valid_from)
+            _setter("valid_from", valid_from)
         if valid_until is not None:
-            pulumi.set(__self__, "valid_until", valid_until)
+            _setter("valid_until", valid_until)
 
     @property
     @pulumi.getter
@@ -626,6 +697,10 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThreatIntelligenceIndicatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

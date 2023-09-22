@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,33 +52,72 @@ class MetadataArgs:
         :param pulumi.Input['MetadataSupportArgs'] support: Support information for the metadata - type, name, contact information
         :param pulumi.Input[str] version: Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "parent_id", parent_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        MetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            parent_id=parent_id,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            author=author,
+            categories=categories,
+            content_id=content_id,
+            dependencies=dependencies,
+            first_publish_date=first_publish_date,
+            last_publish_date=last_publish_date,
+            metadata_name=metadata_name,
+            providers=providers,
+            source=source,
+            support=support,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[Union[str, 'Kind']],
+             operational_insights_resource_provider: pulumi.Input[str],
+             parent_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
+             categories: Optional[pulumi.Input['MetadataCategoriesArgs']] = None,
+             content_id: Optional[pulumi.Input[str]] = None,
+             dependencies: Optional[pulumi.Input['MetadataDependenciesArgs']] = None,
+             first_publish_date: Optional[pulumi.Input[str]] = None,
+             last_publish_date: Optional[pulumi.Input[str]] = None,
+             metadata_name: Optional[pulumi.Input[str]] = None,
+             providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source: Optional[pulumi.Input['MetadataSourceArgs']] = None,
+             support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", kind)
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("parent_id", parent_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if author is not None:
-            pulumi.set(__self__, "author", author)
+            _setter("author", author)
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if content_id is not None:
-            pulumi.set(__self__, "content_id", content_id)
+            _setter("content_id", content_id)
         if dependencies is not None:
-            pulumi.set(__self__, "dependencies", dependencies)
+            _setter("dependencies", dependencies)
         if first_publish_date is not None:
-            pulumi.set(__self__, "first_publish_date", first_publish_date)
+            _setter("first_publish_date", first_publish_date)
         if last_publish_date is not None:
-            pulumi.set(__self__, "last_publish_date", last_publish_date)
+            _setter("last_publish_date", last_publish_date)
         if metadata_name is not None:
-            pulumi.set(__self__, "metadata_name", metadata_name)
+            _setter("metadata_name", metadata_name)
         if providers is not None:
-            pulumi.set(__self__, "providers", providers)
+            _setter("providers", providers)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if support is not None:
-            pulumi.set(__self__, "support", support)
+            _setter("support", support)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -336,6 +375,10 @@ class Metadata(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetadataArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -366,9 +409,24 @@ class Metadata(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MetadataArgs.__new__(MetadataArgs)
 
+            if not isinstance(author, MetadataAuthorArgs):
+                author = author or {}
+                def _setter(key, value):
+                    author[key] = value
+                MetadataAuthorArgs._configure(_setter, **author)
             __props__.__dict__["author"] = author
+            if not isinstance(categories, MetadataCategoriesArgs):
+                categories = categories or {}
+                def _setter(key, value):
+                    categories[key] = value
+                MetadataCategoriesArgs._configure(_setter, **categories)
             __props__.__dict__["categories"] = categories
             __props__.__dict__["content_id"] = content_id
+            if not isinstance(dependencies, MetadataDependenciesArgs):
+                dependencies = dependencies or {}
+                def _setter(key, value):
+                    dependencies[key] = value
+                MetadataDependenciesArgs._configure(_setter, **dependencies)
             __props__.__dict__["dependencies"] = dependencies
             __props__.__dict__["first_publish_date"] = first_publish_date
             if kind is None and not opts.urn:
@@ -386,7 +444,17 @@ class Metadata(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(source, MetadataSourceArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                MetadataSourceArgs._configure(_setter, **source)
             __props__.__dict__["source"] = source
+            if not isinstance(support, MetadataSupportArgs):
+                support = support or {}
+                def _setter(key, value):
+                    support[key] = value
+                MetadataSupportArgs._configure(_setter, **support)
             __props__.__dict__["support"] = support
             __props__.__dict__["version"] = version
             if workspace_name is None and not opts.urn:

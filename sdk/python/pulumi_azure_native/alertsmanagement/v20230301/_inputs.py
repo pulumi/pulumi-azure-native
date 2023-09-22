@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -25,10 +25,21 @@ class PrometheusRuleGroupActionArgs:
         :param pulumi.Input[str] action_group_id: The resource id of the action group to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] action_properties: The properties of an action group object.
         """
+        PrometheusRuleGroupActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            action_properties=action_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: Optional[pulumi.Input[str]] = None,
+             action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action_group_id is not None:
-            pulumi.set(__self__, "action_group_id", action_group_id)
+            _setter("action_group_id", action_group_id)
         if action_properties is not None:
-            pulumi.set(__self__, "action_properties", action_properties)
+            _setter("action_properties", action_properties)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -65,10 +76,21 @@ class PrometheusRuleResolveConfigurationArgs:
         :param pulumi.Input[bool] auto_resolved: Enable alert auto-resolution.
         :param pulumi.Input[str] time_to_resolve: Alert auto-resolution timeout.
         """
+        PrometheusRuleResolveConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_resolved=auto_resolved,
+            time_to_resolve=time_to_resolve,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_resolved: Optional[pulumi.Input[bool]] = None,
+             time_to_resolve: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_resolved is not None:
-            pulumi.set(__self__, "auto_resolved", auto_resolved)
+            _setter("auto_resolved", auto_resolved)
         if time_to_resolve is not None:
-            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+            _setter("time_to_resolve", time_to_resolve)
 
     @property
     @pulumi.getter(name="autoResolved")
@@ -121,25 +143,52 @@ class PrometheusRuleArgs:
         :param pulumi.Input['PrometheusRuleResolveConfigurationArgs'] resolve_configuration: Defines the configuration for resolving fired alerts. Only relevant for alerts.
         :param pulumi.Input[int] severity: The severity of the alerts fired by the rule. Must be between 0 and 4.
         """
-        pulumi.set(__self__, "expression", expression)
+        PrometheusRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            actions=actions,
+            alert=alert,
+            annotations=annotations,
+            enabled=enabled,
+            for_=for_,
+            labels=labels,
+            record=record,
+            resolve_configuration=resolve_configuration,
+            severity=severity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['PrometheusRuleGroupActionArgs']]]] = None,
+             alert: Optional[pulumi.Input[str]] = None,
+             annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             for_: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             record: Optional[pulumi.Input[str]] = None,
+             resolve_configuration: Optional[pulumi.Input['PrometheusRuleResolveConfigurationArgs']] = None,
+             severity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expression", expression)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if alert is not None:
-            pulumi.set(__self__, "alert", alert)
+            _setter("alert", alert)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if for_ is not None:
-            pulumi.set(__self__, "for_", for_)
+            _setter("for_", for_)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if record is not None:
-            pulumi.set(__self__, "record", record)
+            _setter("record", record)
         if resolve_configuration is not None:
-            pulumi.set(__self__, "resolve_configuration", resolve_configuration)
+            _setter("resolve_configuration", resolve_configuration)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
 
     @property
     @pulumi.getter

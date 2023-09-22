@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -56,13 +56,32 @@ class PlanResponse(dict):
         :param str stack_type: Stack type (classic or arm)
         :param str accessibility: Plan accessibility
         """
-        pulumi.set(__self__, "alt_stack_reference", alt_stack_reference)
-        pulumi.set(__self__, "plan_display_name", plan_display_name)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "sku_id", sku_id)
-        pulumi.set(__self__, "stack_type", stack_type)
+        PlanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alt_stack_reference=alt_stack_reference,
+            plan_display_name=plan_display_name,
+            plan_id=plan_id,
+            sku_id=sku_id,
+            stack_type=stack_type,
+            accessibility=accessibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alt_stack_reference: str,
+             plan_display_name: str,
+             plan_id: str,
+             sku_id: str,
+             stack_type: str,
+             accessibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alt_stack_reference", alt_stack_reference)
+        _setter("plan_display_name", plan_display_name)
+        _setter("plan_id", plan_id)
+        _setter("sku_id", sku_id)
+        _setter("stack_type", stack_type)
         if accessibility is not None:
-            pulumi.set(__self__, "accessibility", accessibility)
+            _setter("accessibility", accessibility)
 
     @property
     @pulumi.getter(name="altStackReference")

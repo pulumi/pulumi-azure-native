@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,44 @@ class PolicyArgs:
         :param pulumi.Input['SkuArgs'] sku: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            custom_rules=custom_rules,
+            location=location,
+            managed_rules=managed_rules,
+            policy_name=policy_name,
+            policy_settings=policy_settings,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             custom_rules: Optional[pulumi.Input['CustomRuleListArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_rules: Optional[pulumi.Input['ManagedRuleSetListArgs']] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             policy_settings: Optional[pulumi.Input['FrontDoorPolicySettingsArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_rules is not None:
-            pulumi.set(__self__, "managed_rules", managed_rules)
+            _setter("managed_rules", managed_rules)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if policy_settings is not None:
-            pulumi.set(__self__, "policy_settings", policy_settings)
+            _setter("policy_settings", policy_settings)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +219,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,14 +245,34 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
+            if not isinstance(custom_rules, CustomRuleListArgs):
+                custom_rules = custom_rules or {}
+                def _setter(key, value):
+                    custom_rules[key] = value
+                CustomRuleListArgs._configure(_setter, **custom_rules)
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["location"] = location
+            if not isinstance(managed_rules, ManagedRuleSetListArgs):
+                managed_rules = managed_rules or {}
+                def _setter(key, value):
+                    managed_rules[key] = value
+                ManagedRuleSetListArgs._configure(_setter, **managed_rules)
             __props__.__dict__["managed_rules"] = managed_rules
             __props__.__dict__["policy_name"] = policy_name
+            if not isinstance(policy_settings, FrontDoorPolicySettingsArgs):
+                policy_settings = policy_settings or {}
+                def _setter(key, value):
+                    policy_settings[key] = value
+                FrontDoorPolicySettingsArgs._configure(_setter, **policy_settings)
             __props__.__dict__["policy_settings"] = policy_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None

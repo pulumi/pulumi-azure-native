@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,51 @@ class DatabaseArgs:
         :param pulumi.Input['PersistenceArgs'] persistence: Persistence settings
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            client_protocol=client_protocol,
+            clustering_policy=clustering_policy,
+            database_name=database_name,
+            eviction_policy=eviction_policy,
+            geo_replication=geo_replication,
+            modules=modules,
+            persistence=persistence,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             client_protocol: Optional[pulumi.Input[Union[str, 'Protocol']]] = None,
+             clustering_policy: Optional[pulumi.Input[Union[str, 'ClusteringPolicy']]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicy']]] = None,
+             geo_replication: Optional[pulumi.Input['DatabasePropertiesGeoReplicationArgs']] = None,
+             modules: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleArgs']]]] = None,
+             persistence: Optional[pulumi.Input['PersistenceArgs']] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if client_protocol is not None:
-            pulumi.set(__self__, "client_protocol", client_protocol)
+            _setter("client_protocol", client_protocol)
         if clustering_policy is not None:
-            pulumi.set(__self__, "clustering_policy", clustering_policy)
+            _setter("clustering_policy", clustering_policy)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if geo_replication is not None:
-            pulumi.set(__self__, "geo_replication", geo_replication)
+            _setter("geo_replication", geo_replication)
         if modules is not None:
-            pulumi.set(__self__, "modules", modules)
+            _setter("modules", modules)
         if persistence is not None:
-            pulumi.set(__self__, "persistence", persistence)
+            _setter("persistence", persistence)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -233,6 +260,10 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -264,8 +295,18 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["clustering_policy"] = clustering_policy
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["eviction_policy"] = eviction_policy
+            if not isinstance(geo_replication, DatabasePropertiesGeoReplicationArgs):
+                geo_replication = geo_replication or {}
+                def _setter(key, value):
+                    geo_replication[key] = value
+                DatabasePropertiesGeoReplicationArgs._configure(_setter, **geo_replication)
             __props__.__dict__["geo_replication"] = geo_replication
             __props__.__dict__["modules"] = modules
+            if not isinstance(persistence, PersistenceArgs):
+                persistence = persistence or {}
+                def _setter(key, value):
+                    persistence[key] = value
+                PersistenceArgs._configure(_setter, **persistence)
             __props__.__dict__["persistence"] = persistence
             __props__.__dict__["port"] = port
             if resource_group_name is None and not opts.urn:

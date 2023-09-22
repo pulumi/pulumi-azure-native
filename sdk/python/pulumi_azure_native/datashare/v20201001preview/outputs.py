@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -52,11 +52,24 @@ class ADLSGen2StorageAccountPathResponse(dict):
         :param str consumer_path: Gets or sets the path on the consumer side where the dataset is to be mapped.
         :param str provider_path: Gets or sets the path to file/folder within the container.
         """
-        pulumi.set(__self__, "container_name", container_name)
+        ADLSGen2StorageAccountPathResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            consumer_path=consumer_path,
+            provider_path=provider_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: str,
+             consumer_path: Optional[str] = None,
+             provider_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_name", container_name)
         if consumer_path is not None:
-            pulumi.set(__self__, "consumer_path", consumer_path)
+            _setter("consumer_path", consumer_path)
         if provider_path is not None:
-            pulumi.set(__self__, "provider_path", provider_path)
+            _setter("provider_path", provider_path)
 
     @property
     @pulumi.getter(name="containerName")
@@ -119,11 +132,24 @@ class BlobStorageAccountPathResponse(dict):
         :param str consumer_path: Gets or sets the path on the consumer side where the dataset is to be mapped.
         :param str provider_path: Gets or sets the path to file/folder within the container.
         """
-        pulumi.set(__self__, "container_name", container_name)
+        BlobStorageAccountPathResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            consumer_path=consumer_path,
+            provider_path=provider_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: str,
+             consumer_path: Optional[str] = None,
+             provider_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_name", container_name)
         if consumer_path is not None:
-            pulumi.set(__self__, "consumer_path", consumer_path)
+            _setter("consumer_path", consumer_path)
         if provider_path is not None:
-            pulumi.set(__self__, "provider_path", provider_path)
+            _setter("provider_path", provider_path)
 
     @property
     @pulumi.getter(name="containerName")
@@ -198,18 +224,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

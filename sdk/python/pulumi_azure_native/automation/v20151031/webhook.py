@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,23 +39,50 @@ class WebhookArgs:
         :param pulumi.Input[str] uri: Gets or sets the uri.
         :param pulumi.Input[str] webhook_name: The webhook name.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            expiry_time=expiry_time,
+            is_enabled=is_enabled,
+            parameters=parameters,
+            run_on=run_on,
+            runbook=runbook,
+            uri=uri,
+            webhook_name=webhook_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             expiry_time: Optional[pulumi.Input[str]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             run_on: Optional[pulumi.Input[str]] = None,
+             runbook: Optional[pulumi.Input['RunbookAssociationPropertyArgs']] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             webhook_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if expiry_time is not None:
-            pulumi.set(__self__, "expiry_time", expiry_time)
+            _setter("expiry_time", expiry_time)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if run_on is not None:
-            pulumi.set(__self__, "run_on", run_on)
+            _setter("run_on", run_on)
         if runbook is not None:
-            pulumi.set(__self__, "runbook", runbook)
+            _setter("runbook", runbook)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
         if webhook_name is not None:
-            pulumi.set(__self__, "webhook_name", webhook_name)
+            _setter("webhook_name", webhook_name)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -229,6 +256,10 @@ class Webhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -266,6 +297,11 @@ class Webhook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["run_on"] = run_on
+            if not isinstance(runbook, RunbookAssociationPropertyArgs):
+                runbook = runbook or {}
+                def _setter(key, value):
+                    runbook[key] = value
+                RunbookAssociationPropertyArgs._configure(_setter, **runbook)
             __props__.__dict__["runbook"] = runbook
             __props__.__dict__["uri"] = uri
             __props__.__dict__["webhook_name"] = webhook_name

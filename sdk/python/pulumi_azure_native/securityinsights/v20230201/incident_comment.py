@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,12 +28,29 @@ class IncidentCommentArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] incident_comment_id: Incident comment ID
         """
-        pulumi.set(__self__, "incident_id", incident_id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        IncidentCommentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_id=incident_id,
+            message=message,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            incident_comment_id=incident_comment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_id: pulumi.Input[str],
+             message: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             incident_comment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("incident_id", incident_id)
+        _setter("message", message)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if incident_comment_id is not None:
-            pulumi.set(__self__, "incident_comment_id", incident_comment_id)
+            _setter("incident_comment_id", incident_comment_id)
 
     @property
     @pulumi.getter(name="incidentId")
@@ -137,6 +154,10 @@ class IncidentComment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IncidentCommentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -26,12 +26,27 @@ class EnvironmentTypeArgs:
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dev_center_name", dev_center_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EnvironmentTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dev_center_name=dev_center_name,
+            resource_group_name=resource_group_name,
+            environment_type_name=environment_type_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dev_center_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             environment_type_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dev_center_name", dev_center_name)
+        _setter("resource_group_name", resource_group_name)
         if environment_type_name is not None:
-            pulumi.set(__self__, "environment_type_name", environment_type_name)
+            _setter("environment_type_name", environment_type_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="devCenterName")
@@ -121,6 +136,10 @@ class EnvironmentType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

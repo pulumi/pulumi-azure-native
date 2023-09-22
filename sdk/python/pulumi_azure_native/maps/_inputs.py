@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,7 +24,16 @@ class CreatorPropertiesArgs:
         Creator resource properties
         :param pulumi.Input[int] storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
         """
-        pulumi.set(__self__, "storage_units", storage_units)
+        CreatorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_units=storage_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_units: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_units", storage_units)
 
     @property
     @pulumi.getter(name="storageUnits")
@@ -47,10 +56,19 @@ class MapsAccountPropertiesArgs:
         Additional Map account properties
         :param pulumi.Input[bool] disable_local_auth: Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
         """
+        MapsAccountPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_local_auth=disable_local_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
 
     @property
     @pulumi.getter(name="disableLocalAuth")
@@ -73,7 +91,16 @@ class SkuArgs:
         The SKU of the Maps Account.
         :param pulumi.Input[Union[str, 'Name']] name: The name of the SKU, in standard format (such as S0).
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'Name']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter

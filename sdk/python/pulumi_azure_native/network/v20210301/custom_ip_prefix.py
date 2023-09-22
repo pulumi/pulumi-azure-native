@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,60 @@ class CustomIPPrefixArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CustomIPPrefixArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            authorization_message=authorization_message,
+            cidr=cidr,
+            commissioned_state=commissioned_state,
+            custom_ip_prefix_name=custom_ip_prefix_name,
+            custom_ip_prefix_parent=custom_ip_prefix_parent,
+            extended_location=extended_location,
+            id=id,
+            location=location,
+            signed_message=signed_message,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             authorization_message: Optional[pulumi.Input[str]] = None,
+             cidr: Optional[pulumi.Input[str]] = None,
+             commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
+             custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+             custom_ip_prefix_parent: Optional[pulumi.Input['CustomIpPrefixArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             signed_message: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if authorization_message is not None:
-            pulumi.set(__self__, "authorization_message", authorization_message)
+            _setter("authorization_message", authorization_message)
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if commissioned_state is not None:
-            pulumi.set(__self__, "commissioned_state", commissioned_state)
+            _setter("commissioned_state", commissioned_state)
         if custom_ip_prefix_name is not None:
-            pulumi.set(__self__, "custom_ip_prefix_name", custom_ip_prefix_name)
+            _setter("custom_ip_prefix_name", custom_ip_prefix_name)
         if custom_ip_prefix_parent is not None:
-            pulumi.set(__self__, "custom_ip_prefix_parent", custom_ip_prefix_parent)
+            _setter("custom_ip_prefix_parent", custom_ip_prefix_parent)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if signed_message is not None:
-            pulumi.set(__self__, "signed_message", signed_message)
+            _setter("signed_message", signed_message)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -268,6 +299,10 @@ class CustomIPPrefix(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomIPPrefixArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -298,7 +333,17 @@ class CustomIPPrefix(pulumi.CustomResource):
             __props__.__dict__["cidr"] = cidr
             __props__.__dict__["commissioned_state"] = commissioned_state
             __props__.__dict__["custom_ip_prefix_name"] = custom_ip_prefix_name
+            if not isinstance(custom_ip_prefix_parent, CustomIpPrefixArgs):
+                custom_ip_prefix_parent = custom_ip_prefix_parent or {}
+                def _setter(key, value):
+                    custom_ip_prefix_parent[key] = value
+                CustomIpPrefixArgs._configure(_setter, **custom_ip_prefix_parent)
             __props__.__dict__["custom_ip_prefix_parent"] = custom_ip_prefix_parent
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location

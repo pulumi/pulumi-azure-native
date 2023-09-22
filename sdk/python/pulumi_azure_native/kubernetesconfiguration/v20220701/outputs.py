@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,8 +36,19 @@ class ErrorAdditionalInfoResponse(dict):
         :param Any info: The additional info.
         :param str type: The additional info type.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        ErrorAdditionalInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Any,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -92,11 +103,28 @@ class ErrorDetailResponse(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+             code: str,
+             details: Sequence['outputs.ErrorDetailResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("additional_info", additional_info)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -173,10 +201,23 @@ class ExtensionResponseAksAssignedIdentity(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ExtensionResponseAksAssignedIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -239,18 +280,35 @@ class ExtensionStatusResponse(dict):
         :param str message: Detailed message of the status from the Extension.
         :param str time: DateLiteral (per ISO8601) noting the time of installation status.
         """
+        ExtensionStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            display_status=display_status,
+            level=level,
+            message=message,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             display_status: Optional[str] = None,
+             level: Optional[str] = None,
+             message: Optional[str] = None,
+             time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
+            _setter("display_status", display_status)
         if level is None:
             level = 'Information'
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -327,10 +385,23 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -385,8 +456,17 @@ class ScopeClusterResponse(dict):
         Specifies that the scope of the extension is Cluster
         :param str release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
         """
+        ScopeClusterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            release_namespace=release_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             release_namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if release_namespace is not None:
-            pulumi.set(__self__, "release_namespace", release_namespace)
+            _setter("release_namespace", release_namespace)
 
     @property
     @pulumi.getter(name="releaseNamespace")
@@ -425,8 +505,17 @@ class ScopeNamespaceResponse(dict):
         Specifies that the scope of the extension is Namespace
         :param str target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         """
+        ScopeNamespaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="targetNamespace")
@@ -450,10 +539,21 @@ class ScopeResponse(dict):
         :param 'ScopeClusterResponse' cluster: Specifies that the scope of the extension is Cluster
         :param 'ScopeNamespaceResponse' namespace: Specifies that the scope of the extension is Namespace
         """
+        ScopeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster=cluster,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster: Optional['outputs.ScopeClusterResponse'] = None,
+             namespace: Optional['outputs.ScopeNamespaceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster is not None:
-            pulumi.set(__self__, "cluster", cluster)
+            _setter("cluster", cluster)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -520,18 +620,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

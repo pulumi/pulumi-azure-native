@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,27 +46,60 @@ class LabArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] title: The title of the lab.
         """
-        pulumi.set(__self__, "auto_shutdown_profile", auto_shutdown_profile)
-        pulumi.set(__self__, "connection_profile", connection_profile)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "security_profile", security_profile)
-        pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+        LabArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_shutdown_profile=auto_shutdown_profile,
+            connection_profile=connection_profile,
+            resource_group_name=resource_group_name,
+            security_profile=security_profile,
+            virtual_machine_profile=virtual_machine_profile,
+            description=description,
+            lab_name=lab_name,
+            lab_plan_id=lab_plan_id,
+            location=location,
+            network_profile=network_profile,
+            roster_profile=roster_profile,
+            tags=tags,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_shutdown_profile: pulumi.Input['AutoShutdownProfileArgs'],
+             connection_profile: pulumi.Input['ConnectionProfileArgs'],
+             resource_group_name: pulumi.Input[str],
+             security_profile: pulumi.Input['SecurityProfileArgs'],
+             virtual_machine_profile: pulumi.Input['VirtualMachineProfileArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             lab_name: Optional[pulumi.Input[str]] = None,
+             lab_plan_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['LabNetworkProfileArgs']] = None,
+             roster_profile: Optional[pulumi.Input['RosterProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_shutdown_profile", auto_shutdown_profile)
+        _setter("connection_profile", connection_profile)
+        _setter("resource_group_name", resource_group_name)
+        _setter("security_profile", security_profile)
+        _setter("virtual_machine_profile", virtual_machine_profile)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if lab_name is not None:
-            pulumi.set(__self__, "lab_name", lab_name)
+            _setter("lab_name", lab_name)
         if lab_plan_id is not None:
-            pulumi.set(__self__, "lab_plan_id", lab_plan_id)
+            _setter("lab_plan_id", lab_plan_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if roster_profile is not None:
-            pulumi.set(__self__, "roster_profile", roster_profile)
+            _setter("roster_profile", roster_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter(name="autoShutdownProfile")
@@ -282,6 +315,10 @@ class Lab(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LabArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -309,9 +346,19 @@ class Lab(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LabArgs.__new__(LabArgs)
 
+            if not isinstance(auto_shutdown_profile, AutoShutdownProfileArgs):
+                auto_shutdown_profile = auto_shutdown_profile or {}
+                def _setter(key, value):
+                    auto_shutdown_profile[key] = value
+                AutoShutdownProfileArgs._configure(_setter, **auto_shutdown_profile)
             if auto_shutdown_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_shutdown_profile'")
             __props__.__dict__["auto_shutdown_profile"] = auto_shutdown_profile
+            if not isinstance(connection_profile, ConnectionProfileArgs):
+                connection_profile = connection_profile or {}
+                def _setter(key, value):
+                    connection_profile[key] = value
+                ConnectionProfileArgs._configure(_setter, **connection_profile)
             if connection_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_profile'")
             __props__.__dict__["connection_profile"] = connection_profile
@@ -319,16 +366,36 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["lab_plan_id"] = lab_plan_id
             __props__.__dict__["location"] = location
+            if not isinstance(network_profile, LabNetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                LabNetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(roster_profile, RosterProfileArgs):
+                roster_profile = roster_profile or {}
+                def _setter(key, value):
+                    roster_profile[key] = value
+                RosterProfileArgs._configure(_setter, **roster_profile)
             __props__.__dict__["roster_profile"] = roster_profile
+            if not isinstance(security_profile, SecurityProfileArgs):
+                security_profile = security_profile or {}
+                def _setter(key, value):
+                    security_profile[key] = value
+                SecurityProfileArgs._configure(_setter, **security_profile)
             if security_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'security_profile'")
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["title"] = title
+            if not isinstance(virtual_machine_profile, VirtualMachineProfileArgs):
+                virtual_machine_profile = virtual_machine_profile or {}
+                def _setter(key, value):
+                    virtual_machine_profile[key] = value
+                VirtualMachineProfileArgs._configure(_setter, **virtual_machine_profile)
             if virtual_machine_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_profile'")
             __props__.__dict__["virtual_machine_profile"] = virtual_machine_profile

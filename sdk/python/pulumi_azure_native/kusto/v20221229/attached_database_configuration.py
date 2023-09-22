@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,21 +40,48 @@ class AttachedDatabaseConfigurationArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing specifications
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "default_principals_modification_kind", default_principals_modification_kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AttachedDatabaseConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            cluster_resource_id=cluster_resource_id,
+            database_name=database_name,
+            default_principals_modification_kind=default_principals_modification_kind,
+            resource_group_name=resource_group_name,
+            attached_database_configuration_name=attached_database_configuration_name,
+            database_name_override=database_name_override,
+            database_name_prefix=database_name_prefix,
+            location=location,
+            table_level_sharing_properties=table_level_sharing_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             cluster_resource_id: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             default_principals_modification_kind: pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']],
+             resource_group_name: pulumi.Input[str],
+             attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
+             database_name_override: Optional[pulumi.Input[str]] = None,
+             database_name_prefix: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             table_level_sharing_properties: Optional[pulumi.Input['TableLevelSharingPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("cluster_resource_id", cluster_resource_id)
+        _setter("database_name", database_name)
+        _setter("default_principals_modification_kind", default_principals_modification_kind)
+        _setter("resource_group_name", resource_group_name)
         if attached_database_configuration_name is not None:
-            pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
+            _setter("attached_database_configuration_name", attached_database_configuration_name)
         if database_name_override is not None:
-            pulumi.set(__self__, "database_name_override", database_name_override)
+            _setter("database_name_override", database_name_override)
         if database_name_prefix is not None:
-            pulumi.set(__self__, "database_name_prefix", database_name_prefix)
+            _setter("database_name_prefix", database_name_prefix)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if table_level_sharing_properties is not None:
-            pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
+            _setter("table_level_sharing_properties", table_level_sharing_properties)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -228,6 +255,10 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AttachedDatabaseConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -271,6 +302,11 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(table_level_sharing_properties, TableLevelSharingPropertiesArgs):
+                table_level_sharing_properties = table_level_sharing_properties or {}
+                def _setter(key, value):
+                    table_level_sharing_properties[key] = value
+                TableLevelSharingPropertiesArgs._configure(_setter, **table_level_sharing_properties)
             __props__.__dict__["table_level_sharing_properties"] = table_level_sharing_properties
             __props__.__dict__["attached_database_names"] = None
             __props__.__dict__["name"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,14 +32,33 @@ class ReplicationProtectedItemArgs:
         :param pulumi.Input['EnableProtectionInputPropertiesArgs'] properties: Enable protection input properties.
         :param pulumi.Input[str] replicated_protected_item_name: A name for the replication protected item.
         """
-        pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "protection_container_name", protection_container_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        ReplicationProtectedItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_name=fabric_name,
+            protection_container_name=protection_container_name,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            properties=properties,
+            replicated_protected_item_name=replicated_protected_item_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_name: pulumi.Input[str],
+             protection_container_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             properties: Optional[pulumi.Input['EnableProtectionInputPropertiesArgs']] = None,
+             replicated_protected_item_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fabric_name", fabric_name)
+        _setter("protection_container_name", protection_container_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if replicated_protected_item_name is not None:
-            pulumi.set(__self__, "replicated_protected_item_name", replicated_protected_item_name)
+            _setter("replicated_protected_item_name", replicated_protected_item_name)
 
     @property
     @pulumi.getter(name="fabricName")
@@ -157,6 +176,10 @@ class ReplicationProtectedItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationProtectedItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,6 +203,11 @@ class ReplicationProtectedItem(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
+            if not isinstance(properties, EnableProtectionInputPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                EnableProtectionInputPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'protection_container_name'")

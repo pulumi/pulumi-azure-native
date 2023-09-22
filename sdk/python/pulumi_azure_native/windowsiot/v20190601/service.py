@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ServiceArgs', 'Service']
@@ -33,21 +33,44 @@ class ServiceArgs:
         :param pulumi.Input[float] quantity: Windows IoT Device Service device allocation,
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            admin_domain_name=admin_domain_name,
+            billing_domain_name=billing_domain_name,
+            device_name=device_name,
+            location=location,
+            notes=notes,
+            quantity=quantity,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             admin_domain_name: Optional[pulumi.Input[str]] = None,
+             billing_domain_name: Optional[pulumi.Input[str]] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             quantity: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if admin_domain_name is not None:
-            pulumi.set(__self__, "admin_domain_name", admin_domain_name)
+            _setter("admin_domain_name", admin_domain_name)
         if billing_domain_name is not None:
-            pulumi.set(__self__, "billing_domain_name", billing_domain_name)
+            _setter("billing_domain_name", billing_domain_name)
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if quantity is not None:
-            pulumi.set(__self__, "quantity", quantity)
+            _setter("quantity", quantity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -193,6 +216,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

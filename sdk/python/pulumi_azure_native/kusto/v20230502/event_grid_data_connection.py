@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -53,35 +53,76 @@ class EventGridDataConnectionArgs:
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "consumer_group", consumer_group)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
-        pulumi.set(__self__, "kind", 'EventGrid')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        EventGridDataConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            consumer_group=consumer_group,
+            database_name=database_name,
+            event_hub_resource_id=event_hub_resource_id,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            storage_account_resource_id=storage_account_resource_id,
+            blob_storage_event_type=blob_storage_event_type,
+            data_connection_name=data_connection_name,
+            data_format=data_format,
+            database_routing=database_routing,
+            event_grid_resource_id=event_grid_resource_id,
+            ignore_first_record=ignore_first_record,
+            location=location,
+            managed_identity_resource_id=managed_identity_resource_id,
+            mapping_rule_name=mapping_rule_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             consumer_group: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             event_hub_resource_id: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_account_resource_id: pulumi.Input[str],
+             blob_storage_event_type: Optional[pulumi.Input[Union[str, 'BlobStorageEventType']]] = None,
+             data_connection_name: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[Union[str, 'EventGridDataFormat']]] = None,
+             database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
+             event_grid_resource_id: Optional[pulumi.Input[str]] = None,
+             ignore_first_record: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("consumer_group", consumer_group)
+        _setter("database_name", database_name)
+        _setter("event_hub_resource_id", event_hub_resource_id)
+        _setter("kind", 'EventGrid')
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_resource_id", storage_account_resource_id)
         if blob_storage_event_type is not None:
-            pulumi.set(__self__, "blob_storage_event_type", blob_storage_event_type)
+            _setter("blob_storage_event_type", blob_storage_event_type)
         if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
+            _setter("data_connection_name", data_connection_name)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if database_routing is None:
             database_routing = 'Single'
         if database_routing is not None:
-            pulumi.set(__self__, "database_routing", database_routing)
+            _setter("database_routing", database_routing)
         if event_grid_resource_id is not None:
-            pulumi.set(__self__, "event_grid_resource_id", event_grid_resource_id)
+            _setter("event_grid_resource_id", event_grid_resource_id)
         if ignore_first_record is not None:
-            pulumi.set(__self__, "ignore_first_record", ignore_first_record)
+            _setter("ignore_first_record", ignore_first_record)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_identity_resource_id is not None:
-            pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
+            _setter("managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -355,6 +396,10 @@ class EventGridDataConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventGridDataConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

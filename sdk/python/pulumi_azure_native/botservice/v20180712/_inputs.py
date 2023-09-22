@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,11 +30,26 @@ class EnterpriseChannelNodeArgs:
         :param pulumi.Input[str] name: The name of the Enterprise Channel Node.
         :param pulumi.Input[Union[str, 'EnterpriseChannelNodeState']] state: The current state of the Enterprise Channel Node.
         """
-        pulumi.set(__self__, "azure_location", azure_location)
-        pulumi.set(__self__, "azure_sku", azure_sku)
-        pulumi.set(__self__, "name", name)
+        EnterpriseChannelNodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_location=azure_location,
+            azure_sku=azure_sku,
+            name=name,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_location: pulumi.Input[str],
+             azure_sku: pulumi.Input[str],
+             name: pulumi.Input[str],
+             state: Optional[pulumi.Input[Union[str, 'EnterpriseChannelNodeState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_location", azure_location)
+        _setter("azure_sku", azure_sku)
+        _setter("name", name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="azureLocation")
@@ -95,9 +110,20 @@ class EnterpriseChannelPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]] nodes: The nodes associated with the Enterprise Channel.
         :param pulumi.Input[Union[str, 'EnterpriseChannelState']] state: The current state of the Enterprise Channel.
         """
-        pulumi.set(__self__, "nodes", nodes)
+        EnterpriseChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nodes=nodes,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nodes: pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]],
+             state: Optional[pulumi.Input[Union[str, 'EnterpriseChannelState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("nodes", nodes)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -132,7 +158,16 @@ class SkuArgs:
         The SKU of the cognitive services account.
         :param pulumi.Input[Union[str, 'SkuName']] name: The sku name
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter

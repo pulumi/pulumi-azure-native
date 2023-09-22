@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -73,20 +73,47 @@ class CollectorPolicyResponse(dict):
         :param str location: Resource location.
         :param Mapping[str, str] tags: Resource tags.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        CollectorPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            emission_policies=emission_policies,
+            ingestion_policy=ingestion_policy,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             name: str,
+             provisioning_state: str,
+             system_data: 'outputs.TrackedResourceResponseSystemData',
+             type: str,
+             emission_policies: Optional[Sequence['outputs.EmissionPoliciesPropertiesFormatResponse']] = None,
+             ingestion_policy: Optional['outputs.IngestionPolicyPropertiesFormatResponse'] = None,
+             location: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if emission_policies is not None:
-            pulumi.set(__self__, "emission_policies", emission_policies)
+            _setter("emission_policies", emission_policies)
         if ingestion_policy is not None:
-            pulumi.set(__self__, "ingestion_policy", ingestion_policy)
+            _setter("ingestion_policy", ingestion_policy)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -201,10 +228,21 @@ class EmissionPoliciesPropertiesFormatResponse(dict):
         :param Sequence['EmissionPolicyDestinationResponse'] emission_destinations: Emission policy destinations.
         :param str emission_type: Emission format type.
         """
+        EmissionPoliciesPropertiesFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            emission_destinations=emission_destinations,
+            emission_type=emission_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             emission_destinations: Optional[Sequence['outputs.EmissionPolicyDestinationResponse']] = None,
+             emission_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if emission_destinations is not None:
-            pulumi.set(__self__, "emission_destinations", emission_destinations)
+            _setter("emission_destinations", emission_destinations)
         if emission_type is not None:
-            pulumi.set(__self__, "emission_type", emission_type)
+            _setter("emission_type", emission_type)
 
     @property
     @pulumi.getter(name="emissionDestinations")
@@ -251,8 +289,17 @@ class EmissionPolicyDestinationResponse(dict):
         Emission policy destination properties.
         :param str destination_type: Emission destination type.
         """
+        EmissionPolicyDestinationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_type=destination_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_type is not None:
-            pulumi.set(__self__, "destination_type", destination_type)
+            _setter("destination_type", destination_type)
 
     @property
     @pulumi.getter(name="destinationType")
@@ -295,10 +342,21 @@ class IngestionPolicyPropertiesFormatResponse(dict):
         :param Sequence['IngestionSourcesPropertiesFormatResponse'] ingestion_sources: Ingestion Sources.
         :param str ingestion_type: The ingestion type.
         """
+        IngestionPolicyPropertiesFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ingestion_sources=ingestion_sources,
+            ingestion_type=ingestion_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ingestion_sources: Optional[Sequence['outputs.IngestionSourcesPropertiesFormatResponse']] = None,
+             ingestion_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ingestion_sources is not None:
-            pulumi.set(__self__, "ingestion_sources", ingestion_sources)
+            _setter("ingestion_sources", ingestion_sources)
         if ingestion_type is not None:
-            pulumi.set(__self__, "ingestion_type", ingestion_type)
+            _setter("ingestion_type", ingestion_type)
 
     @property
     @pulumi.getter(name="ingestionSources")
@@ -349,10 +407,21 @@ class IngestionSourcesPropertiesFormatResponse(dict):
         :param str resource_id: Resource ID.
         :param str source_type: Ingestion source type.
         """
+        IngestionSourcesPropertiesFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            source_type=source_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             source_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -382,7 +451,16 @@ class ResourceReferenceResponse(dict):
         Resource reference properties.
         :param str id: Resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        ResourceReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -437,16 +515,33 @@ class TrackedResourceResponseSystemData(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        TrackedResourceResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

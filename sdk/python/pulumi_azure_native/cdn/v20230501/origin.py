@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -48,32 +48,69 @@ class OriginArgs:
         :param pulumi.Input[str] private_link_resource_id: The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
         :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
-        pulumi.set(__self__, "endpoint_name", endpoint_name)
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_name=endpoint_name,
+            host_name=host_name,
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            enabled=enabled,
+            http_port=http_port,
+            https_port=https_port,
+            origin_host_header=origin_host_header,
+            origin_name=origin_name,
+            priority=priority,
+            private_link_alias=private_link_alias,
+            private_link_approval_message=private_link_approval_message,
+            private_link_location=private_link_location,
+            private_link_resource_id=private_link_resource_id,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_name: pulumi.Input[str],
+             host_name: pulumi.Input[str],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             http_port: Optional[pulumi.Input[int]] = None,
+             https_port: Optional[pulumi.Input[int]] = None,
+             origin_host_header: Optional[pulumi.Input[str]] = None,
+             origin_name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             private_link_alias: Optional[pulumi.Input[str]] = None,
+             private_link_approval_message: Optional[pulumi.Input[str]] = None,
+             private_link_location: Optional[pulumi.Input[str]] = None,
+             private_link_resource_id: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_name", endpoint_name)
+        _setter("host_name", host_name)
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if http_port is not None:
-            pulumi.set(__self__, "http_port", http_port)
+            _setter("http_port", http_port)
         if https_port is not None:
-            pulumi.set(__self__, "https_port", https_port)
+            _setter("https_port", https_port)
         if origin_host_header is not None:
-            pulumi.set(__self__, "origin_host_header", origin_host_header)
+            _setter("origin_host_header", origin_host_header)
         if origin_name is not None:
-            pulumi.set(__self__, "origin_name", origin_name)
+            _setter("origin_name", origin_name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if private_link_alias is not None:
-            pulumi.set(__self__, "private_link_alias", private_link_alias)
+            _setter("private_link_alias", private_link_alias)
         if private_link_approval_message is not None:
-            pulumi.set(__self__, "private_link_approval_message", private_link_approval_message)
+            _setter("private_link_approval_message", private_link_approval_message)
         if private_link_location is not None:
-            pulumi.set(__self__, "private_link_location", private_link_location)
+            _setter("private_link_location", private_link_location)
         if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+            _setter("private_link_resource_id", private_link_resource_id)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -317,6 +354,10 @@ class Origin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OriginArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

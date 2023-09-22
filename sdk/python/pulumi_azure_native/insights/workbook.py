@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,28 +46,61 @@ class WorkbookArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] version: Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serialized_data", serialized_data)
+        WorkbookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            serialized_data=serialized_data,
+            description=description,
+            identity=identity,
+            kind=kind,
+            location=location,
+            resource_name=resource_name,
+            source_id=source_id,
+            storage_uri=storage_uri,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             serialized_data: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['WorkbookResourceIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'WorkbookSharedTypeKind']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             source_id: Optional[pulumi.Input[str]] = None,
+             storage_uri: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("serialized_data", serialized_data)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if source_id is not None:
-            pulumi.set(__self__, "source_id", source_id)
+            _setter("source_id", source_id)
         if storage_uri is not None:
-            pulumi.set(__self__, "storage_uri", storage_uri)
+            _setter("storage_uri", storage_uri)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -285,6 +318,10 @@ class Workbook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkbookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -319,6 +356,11 @@ class Workbook(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if not isinstance(identity, WorkbookResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                WorkbookResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

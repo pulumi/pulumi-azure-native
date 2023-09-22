@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,15 +30,32 @@ class VMInstanceGuestAgentArgs:
         :param pulumi.Input[str] private_link_scope_resource_id: The resource id of the private link scope this machine is assigned to, if any.
         :param pulumi.Input[Union[str, 'ProvisioningAction']] provisioning_action: Gets or sets the guest agent provisioning action.
         """
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        VMInstanceGuestAgentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_uri=resource_uri,
+            credentials=credentials,
+            http_proxy_config=http_proxy_config,
+            private_link_scope_resource_id=private_link_scope_resource_id,
+            provisioning_action=provisioning_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_uri: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['GuestCredentialArgs']] = None,
+             http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
+             private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
+             provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_uri", resource_uri)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if http_proxy_config is not None:
-            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+            _setter("http_proxy_config", http_proxy_config)
         if private_link_scope_resource_id is not None:
-            pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
+            _setter("private_link_scope_resource_id", private_link_scope_resource_id)
         if provisioning_action is not None:
-            pulumi.set(__self__, "provisioning_action", provisioning_action)
+            _setter("provisioning_action", provisioning_action)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -142,6 +159,10 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VMInstanceGuestAgentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -161,7 +182,17 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VMInstanceGuestAgentArgs.__new__(VMInstanceGuestAgentArgs)
 
+            if not isinstance(credentials, GuestCredentialArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                GuestCredentialArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = credentials
+            if not isinstance(http_proxy_config, HttpProxyConfigurationArgs):
+                http_proxy_config = http_proxy_config or {}
+                def _setter(key, value):
+                    http_proxy_config[key] = value
+                HttpProxyConfigurationArgs._configure(_setter, **http_proxy_config)
             __props__.__dict__["http_proxy_config"] = http_proxy_config
             __props__.__dict__["private_link_scope_resource_id"] = private_link_scope_resource_id
             __props__.__dict__["provisioning_action"] = provisioning_action

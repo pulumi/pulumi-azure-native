@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -57,11 +57,26 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -136,13 +151,28 @@ class PrimaryRegionPropertiesResponse(dict):
         :param Sequence[str] allowed_signaling_source_address_prefixes: The allowed source IP address or CIDR ranges for signaling
         :param Sequence[str] esrp_addresses: IP address to use to contact the ESRP from this region
         """
-        pulumi.set(__self__, "operator_addresses", operator_addresses)
+        PrimaryRegionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_addresses=operator_addresses,
+            allowed_media_source_address_prefixes=allowed_media_source_address_prefixes,
+            allowed_signaling_source_address_prefixes=allowed_signaling_source_address_prefixes,
+            esrp_addresses=esrp_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_addresses: Sequence[str],
+             allowed_media_source_address_prefixes: Optional[Sequence[str]] = None,
+             allowed_signaling_source_address_prefixes: Optional[Sequence[str]] = None,
+             esrp_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_addresses", operator_addresses)
         if allowed_media_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
+            _setter("allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
         if allowed_signaling_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
+            _setter("allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
         if esrp_addresses is not None:
-            pulumi.set(__self__, "esrp_addresses", esrp_addresses)
+            _setter("esrp_addresses", esrp_addresses)
 
     @property
     @pulumi.getter(name="operatorAddresses")
@@ -207,8 +237,19 @@ class ServiceRegionPropertiesResponse(dict):
         :param str name: The name of the region in which the resources needed for Teams Calling will be deployed.
         :param 'PrimaryRegionPropertiesResponse' primary_region_properties: The configuration used in this region as primary, and other regions as backup.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "primary_region_properties", primary_region_properties)
+        ServiceRegionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            primary_region_properties=primary_region_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             primary_region_properties: 'outputs.PrimaryRegionPropertiesResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("primary_region_properties", primary_region_properties)
 
     @property
     @pulumi.getter
@@ -275,18 +316,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -369,8 +429,19 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

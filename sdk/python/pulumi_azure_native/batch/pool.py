@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -61,44 +61,91 @@ class PoolArgs:
         :param pulumi.Input[int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         :param pulumi.Input[str] vm_size: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            application_licenses=application_licenses,
+            application_packages=application_packages,
+            certificates=certificates,
+            deployment_configuration=deployment_configuration,
+            display_name=display_name,
+            identity=identity,
+            inter_node_communication=inter_node_communication,
+            metadata=metadata,
+            mount_configuration=mount_configuration,
+            network_configuration=network_configuration,
+            pool_name=pool_name,
+            scale_settings=scale_settings,
+            start_task=start_task,
+            target_node_communication_mode=target_node_communication_mode,
+            task_scheduling_policy=task_scheduling_policy,
+            task_slots_per_node=task_slots_per_node,
+            user_accounts=user_accounts,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             application_licenses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             application_packages: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPackageReferenceArgs']]]] = None,
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgs']]]] = None,
+             deployment_configuration: Optional[pulumi.Input['DeploymentConfigurationArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['BatchPoolIdentityArgs']] = None,
+             inter_node_communication: Optional[pulumi.Input['InterNodeCommunicationState']] = None,
+             metadata: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]]] = None,
+             mount_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['MountConfigurationArgs']]]] = None,
+             network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
+             start_task: Optional[pulumi.Input['StartTaskArgs']] = None,
+             target_node_communication_mode: Optional[pulumi.Input['NodeCommunicationMode']] = None,
+             task_scheduling_policy: Optional[pulumi.Input['TaskSchedulingPolicyArgs']] = None,
+             task_slots_per_node: Optional[pulumi.Input[int]] = None,
+             user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccountArgs']]]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if application_licenses is not None:
-            pulumi.set(__self__, "application_licenses", application_licenses)
+            _setter("application_licenses", application_licenses)
         if application_packages is not None:
-            pulumi.set(__self__, "application_packages", application_packages)
+            _setter("application_packages", application_packages)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if deployment_configuration is not None:
-            pulumi.set(__self__, "deployment_configuration", deployment_configuration)
+            _setter("deployment_configuration", deployment_configuration)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inter_node_communication is not None:
-            pulumi.set(__self__, "inter_node_communication", inter_node_communication)
+            _setter("inter_node_communication", inter_node_communication)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if mount_configuration is not None:
-            pulumi.set(__self__, "mount_configuration", mount_configuration)
+            _setter("mount_configuration", mount_configuration)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if pool_name is not None:
-            pulumi.set(__self__, "pool_name", pool_name)
+            _setter("pool_name", pool_name)
         if scale_settings is not None:
-            pulumi.set(__self__, "scale_settings", scale_settings)
+            _setter("scale_settings", scale_settings)
         if start_task is not None:
-            pulumi.set(__self__, "start_task", start_task)
+            _setter("start_task", start_task)
         if target_node_communication_mode is not None:
-            pulumi.set(__self__, "target_node_communication_mode", target_node_communication_mode)
+            _setter("target_node_communication_mode", target_node_communication_mode)
         if task_scheduling_policy is not None:
-            pulumi.set(__self__, "task_scheduling_policy", task_scheduling_policy)
+            _setter("task_scheduling_policy", task_scheduling_policy)
         if task_slots_per_node is not None:
-            pulumi.set(__self__, "task_slots_per_node", task_slots_per_node)
+            _setter("task_slots_per_node", task_slots_per_node)
         if user_accounts is not None:
-            pulumi.set(__self__, "user_accounts", user_accounts)
+            _setter("user_accounts", user_accounts)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="accountName")
@@ -414,6 +461,10 @@ class Pool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -454,20 +505,50 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["application_licenses"] = application_licenses
             __props__.__dict__["application_packages"] = application_packages
             __props__.__dict__["certificates"] = certificates
+            if not isinstance(deployment_configuration, DeploymentConfigurationArgs):
+                deployment_configuration = deployment_configuration or {}
+                def _setter(key, value):
+                    deployment_configuration[key] = value
+                DeploymentConfigurationArgs._configure(_setter, **deployment_configuration)
             __props__.__dict__["deployment_configuration"] = deployment_configuration
             __props__.__dict__["display_name"] = display_name
+            if not isinstance(identity, BatchPoolIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                BatchPoolIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inter_node_communication"] = inter_node_communication
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["mount_configuration"] = mount_configuration
+            if not isinstance(network_configuration, NetworkConfigurationArgs):
+                network_configuration = network_configuration or {}
+                def _setter(key, value):
+                    network_configuration[key] = value
+                NetworkConfigurationArgs._configure(_setter, **network_configuration)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["pool_name"] = pool_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(scale_settings, ScaleSettingsArgs):
+                scale_settings = scale_settings or {}
+                def _setter(key, value):
+                    scale_settings[key] = value
+                ScaleSettingsArgs._configure(_setter, **scale_settings)
             __props__.__dict__["scale_settings"] = scale_settings
+            if not isinstance(start_task, StartTaskArgs):
+                start_task = start_task or {}
+                def _setter(key, value):
+                    start_task[key] = value
+                StartTaskArgs._configure(_setter, **start_task)
             __props__.__dict__["start_task"] = start_task
             __props__.__dict__["target_node_communication_mode"] = target_node_communication_mode
+            if not isinstance(task_scheduling_policy, TaskSchedulingPolicyArgs):
+                task_scheduling_policy = task_scheduling_policy or {}
+                def _setter(key, value):
+                    task_scheduling_policy[key] = value
+                TaskSchedulingPolicyArgs._configure(_setter, **task_scheduling_policy)
             __props__.__dict__["task_scheduling_policy"] = task_scheduling_policy
             __props__.__dict__["task_slots_per_node"] = task_slots_per_node
             __props__.__dict__["user_accounts"] = user_accounts

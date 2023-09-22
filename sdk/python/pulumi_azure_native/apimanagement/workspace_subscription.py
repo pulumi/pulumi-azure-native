@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -46,27 +46,60 @@ class WorkspaceSubscriptionArgs:
         :param pulumi.Input[str] sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         :param pulumi.Input['SubscriptionState'] state: Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            scope=scope,
+            service_name=service_name,
+            workspace_id=workspace_id,
+            allow_tracing=allow_tracing,
+            app_type=app_type,
+            notify=notify,
+            owner_id=owner_id,
+            primary_key=primary_key,
+            secondary_key=secondary_key,
+            sid=sid,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             scope: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             allow_tracing: Optional[pulumi.Input[bool]] = None,
+             app_type: Optional[pulumi.Input[str]] = None,
+             notify: Optional[pulumi.Input[bool]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             sid: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input['SubscriptionState']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scope", scope)
+        _setter("service_name", service_name)
+        _setter("workspace_id", workspace_id)
         if allow_tracing is not None:
-            pulumi.set(__self__, "allow_tracing", allow_tracing)
+            _setter("allow_tracing", allow_tracing)
         if app_type is not None:
-            pulumi.set(__self__, "app_type", app_type)
+            _setter("app_type", app_type)
         if notify is not None:
-            pulumi.set(__self__, "notify", notify)
+            _setter("notify", notify)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="displayName")
@@ -288,6 +321,10 @@ class WorkspaceSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

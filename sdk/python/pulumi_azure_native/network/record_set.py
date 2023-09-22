@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,37 +53,78 @@ class RecordSetArgs:
         :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]] txt_records: The list of TXT records in the record set.
         """
-        pulumi.set(__self__, "record_type", record_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "zone_name", zone_name)
+        RecordSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            record_type=record_type,
+            resource_group_name=resource_group_name,
+            zone_name=zone_name,
+            a_records=a_records,
+            aaaa_records=aaaa_records,
+            caa_records=caa_records,
+            cname_record=cname_record,
+            metadata=metadata,
+            mx_records=mx_records,
+            ns_records=ns_records,
+            ptr_records=ptr_records,
+            relative_record_set_name=relative_record_set_name,
+            soa_record=soa_record,
+            srv_records=srv_records,
+            target_resource=target_resource,
+            ttl=ttl,
+            txt_records=txt_records,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             record_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             zone_name: pulumi.Input[str],
+             a_records: Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]] = None,
+             aaaa_records: Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]] = None,
+             caa_records: Optional[pulumi.Input[Sequence[pulumi.Input['CaaRecordArgs']]]] = None,
+             cname_record: Optional[pulumi.Input['CnameRecordArgs']] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             mx_records: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]] = None,
+             ns_records: Optional[pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]]] = None,
+             ptr_records: Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]] = None,
+             relative_record_set_name: Optional[pulumi.Input[str]] = None,
+             soa_record: Optional[pulumi.Input['SoaRecordArgs']] = None,
+             srv_records: Optional[pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]]] = None,
+             target_resource: Optional[pulumi.Input['SubResourceArgs']] = None,
+             ttl: Optional[pulumi.Input[float]] = None,
+             txt_records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("record_type", record_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("zone_name", zone_name)
         if a_records is not None:
-            pulumi.set(__self__, "a_records", a_records)
+            _setter("a_records", a_records)
         if aaaa_records is not None:
-            pulumi.set(__self__, "aaaa_records", aaaa_records)
+            _setter("aaaa_records", aaaa_records)
         if caa_records is not None:
-            pulumi.set(__self__, "caa_records", caa_records)
+            _setter("caa_records", caa_records)
         if cname_record is not None:
-            pulumi.set(__self__, "cname_record", cname_record)
+            _setter("cname_record", cname_record)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if mx_records is not None:
-            pulumi.set(__self__, "mx_records", mx_records)
+            _setter("mx_records", mx_records)
         if ns_records is not None:
-            pulumi.set(__self__, "ns_records", ns_records)
+            _setter("ns_records", ns_records)
         if ptr_records is not None:
-            pulumi.set(__self__, "ptr_records", ptr_records)
+            _setter("ptr_records", ptr_records)
         if relative_record_set_name is not None:
-            pulumi.set(__self__, "relative_record_set_name", relative_record_set_name)
+            _setter("relative_record_set_name", relative_record_set_name)
         if soa_record is not None:
-            pulumi.set(__self__, "soa_record", soa_record)
+            _setter("soa_record", soa_record)
         if srv_records is not None:
-            pulumi.set(__self__, "srv_records", srv_records)
+            _setter("srv_records", srv_records)
         if target_resource is not None:
-            pulumi.set(__self__, "target_resource", target_resource)
+            _setter("target_resource", target_resource)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if txt_records is not None:
-            pulumi.set(__self__, "txt_records", txt_records)
+            _setter("txt_records", txt_records)
 
     @property
     @pulumi.getter(name="recordType")
@@ -357,6 +398,10 @@ class RecordSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RecordSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -391,6 +436,11 @@ class RecordSet(pulumi.CustomResource):
             __props__.__dict__["a_records"] = a_records
             __props__.__dict__["aaaa_records"] = aaaa_records
             __props__.__dict__["caa_records"] = caa_records
+            if not isinstance(cname_record, CnameRecordArgs):
+                cname_record = cname_record or {}
+                def _setter(key, value):
+                    cname_record[key] = value
+                CnameRecordArgs._configure(_setter, **cname_record)
             __props__.__dict__["cname_record"] = cname_record
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["mx_records"] = mx_records
@@ -403,8 +453,18 @@ class RecordSet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(soa_record, SoaRecordArgs):
+                soa_record = soa_record or {}
+                def _setter(key, value):
+                    soa_record[key] = value
+                SoaRecordArgs._configure(_setter, **soa_record)
             __props__.__dict__["soa_record"] = soa_record
             __props__.__dict__["srv_records"] = srv_records
+            if not isinstance(target_resource, SubResourceArgs):
+                target_resource = target_resource or {}
+                def _setter(key, value):
+                    target_resource[key] = value
+                SubResourceArgs._configure(_setter, **target_resource)
             __props__.__dict__["target_resource"] = target_resource
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["txt_records"] = txt_records

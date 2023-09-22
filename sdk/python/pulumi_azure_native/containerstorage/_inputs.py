@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -31,7 +31,16 @@ class AssignmentArgs:
         Assignment Properties
         :param pulumi.Input[str] id: Resource id for the assigned resource
         """
-        pulumi.set(__self__, "id", id)
+        AssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -58,12 +67,25 @@ class AzureDiskArgs:
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption specifies the encryption configuration for the Azure Disk pool
         :param pulumi.Input[Union[str, 'AzureDiskSkuName']] sku_name: Sku name
         """
+        AzureDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disks=disks,
+            encryption=encryption,
+            sku_name=sku_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None,
+             encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+             sku_name: Optional[pulumi.Input[Union[str, 'AzureDiskSkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disks is not None:
-            pulumi.set(__self__, "disks", disks)
+            _setter("disks", disks)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
 
     @property
     @pulumi.getter
@@ -112,8 +134,19 @@ class DiskArgs:
         :param pulumi.Input[str] id: ID is the disk identifier visible to the OS. It is typically the WWN or disk ID in formats such as eui.e8238fa6bf530001001b448b45263379 or 0x5002cf6cbc5dd460
         :param pulumi.Input[str] reference: Reference is the location of the disk in an external system.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "reference", reference)
+        DiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            reference=reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             reference: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("reference", reference)
 
     @property
     @pulumi.getter
@@ -150,10 +183,21 @@ class ElasticSanArgs:
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption specifies the encryption configuration for the Azure Disk pool
         :param pulumi.Input[Union[str, 'ElasticSanSkuName']] sku_name: Sku name
         """
+        ElasticSanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption=encryption,
+            sku_name=sku_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+             sku_name: Optional[pulumi.Input[Union[str, 'ElasticSanSkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
 
     @property
     @pulumi.getter
@@ -192,10 +236,23 @@ class EncryptionArgs:
         :param pulumi.Input[str] key_vault_uri: The URI of the key vault.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        EncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: pulumi.Input[str],
+             key_vault_uri: pulumi.Input[str],
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter(name="keyName")
@@ -244,12 +301,23 @@ class EphemeralDiskArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] disks: Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
         :param pulumi.Input[float] replicas: The number of data copies. Default 3.
         """
+        EphemeralDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disks=disks,
+            replicas=replicas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None,
+             replicas: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disks is not None:
-            pulumi.set(__self__, "disks", disks)
+            _setter("disks", disks)
         if replicas is None:
             replicas = 3
         if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+            _setter("replicas", replicas)
 
     @property
     @pulumi.getter
@@ -286,9 +354,20 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -327,12 +406,25 @@ class PoolTypeArgs:
         :param pulumi.Input['ElasticSanArgs'] elastic_san: Elastic San Pool Properties
         :param pulumi.Input['EphemeralDiskArgs'] ephemeral_disk: Ephemeral Pool Properties
         """
+        PoolTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_disk=azure_disk,
+            elastic_san=elastic_san,
+            ephemeral_disk=ephemeral_disk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_disk: Optional[pulumi.Input['AzureDiskArgs']] = None,
+             elastic_san: Optional[pulumi.Input['ElasticSanArgs']] = None,
+             ephemeral_disk: Optional[pulumi.Input['EphemeralDiskArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_disk is not None:
-            pulumi.set(__self__, "azure_disk", azure_disk)
+            _setter("azure_disk", azure_disk)
         if elastic_san is not None:
-            pulumi.set(__self__, "elastic_san", elastic_san)
+            _setter("elastic_san", elastic_san)
         if ephemeral_disk is not None:
-            pulumi.set(__self__, "ephemeral_disk", ephemeral_disk)
+            _setter("ephemeral_disk", ephemeral_disk)
 
     @property
     @pulumi.getter(name="azureDisk")
@@ -379,10 +471,19 @@ class RequestsArgs:
         Requests for capacity for the pool.
         :param pulumi.Input[float] storage: Requested capacity of the pool in GiB.
         """
+        RequestsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage=storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if storage is None:
             storage = 1024
         if storage is not None:
-            pulumi.set(__self__, "storage", storage)
+            _setter("storage", storage)
 
     @property
     @pulumi.getter
@@ -405,8 +506,17 @@ class ResourcesArgs:
         Resource Requests for the pool.
         :param pulumi.Input['RequestsArgs'] requests: Requests for capacity for the pool.
         """
+        ResourcesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            requests=requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             requests: Optional[pulumi.Input['RequestsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if requests is not None:
-            pulumi.set(__self__, "requests", requests)
+            _setter("requests", requests)
 
     @property
     @pulumi.getter

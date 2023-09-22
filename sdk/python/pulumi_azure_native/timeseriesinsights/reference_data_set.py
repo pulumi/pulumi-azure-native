@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,38 @@ class ReferenceDataSetArgs:
         :param pulumi.Input[str] reference_data_set_name: Name of the reference data set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
-        pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "key_properties", key_properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ReferenceDataSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_name=environment_name,
+            key_properties=key_properties,
+            resource_group_name=resource_group_name,
+            data_string_comparison_behavior=data_string_comparison_behavior,
+            location=location,
+            reference_data_set_name=reference_data_set_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_name: pulumi.Input[str],
+             key_properties: pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]],
+             resource_group_name: pulumi.Input[str],
+             data_string_comparison_behavior: Optional[pulumi.Input[Union[str, 'DataStringComparisonBehavior']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             reference_data_set_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment_name", environment_name)
+        _setter("key_properties", key_properties)
+        _setter("resource_group_name", resource_group_name)
         if data_string_comparison_behavior is not None:
-            pulumi.set(__self__, "data_string_comparison_behavior", data_string_comparison_behavior)
+            _setter("data_string_comparison_behavior", data_string_comparison_behavior)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if reference_data_set_name is not None:
-            pulumi.set(__self__, "reference_data_set_name", reference_data_set_name)
+            _setter("reference_data_set_name", reference_data_set_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -178,6 +199,10 @@ class ReferenceDataSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReferenceDataSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

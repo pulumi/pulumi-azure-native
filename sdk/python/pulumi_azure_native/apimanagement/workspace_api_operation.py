@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,25 +45,58 @@ class WorkspaceApiOperationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResponseContractArgs']]] responses: Array of Operation responses.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]] template_parameters: Collection of URL template parameters.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "url_template", url_template)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceApiOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            display_name=display_name,
+            method=method,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            url_template=url_template,
+            workspace_id=workspace_id,
+            description=description,
+            operation_id=operation_id,
+            policies=policies,
+            request=request,
+            responses=responses,
+            template_parameters=template_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             method: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             url_template: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             operation_id: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input[str]] = None,
+             request: Optional[pulumi.Input['RequestContractArgs']] = None,
+             responses: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseContractArgs']]]] = None,
+             template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
+        _setter("display_name", display_name)
+        _setter("method", method)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("url_template", url_template)
+        _setter("workspace_id", workspace_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if operation_id is not None:
-            pulumi.set(__self__, "operation_id", operation_id)
+            _setter("operation_id", operation_id)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if responses is not None:
-            pulumi.set(__self__, "responses", responses)
+            _setter("responses", responses)
         if template_parameters is not None:
-            pulumi.set(__self__, "template_parameters", template_parameters)
+            _setter("template_parameters", template_parameters)
 
     @property
     @pulumi.getter(name="apiId")
@@ -281,6 +314,10 @@ class WorkspaceApiOperation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceApiOperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -320,6 +357,11 @@ class WorkspaceApiOperation(pulumi.CustomResource):
             __props__.__dict__["method"] = method
             __props__.__dict__["operation_id"] = operation_id
             __props__.__dict__["policies"] = policies
+            if not isinstance(request, RequestContractArgs):
+                request = request or {}
+                def _setter(key, value):
+                    request[key] = value
+                RequestContractArgs._configure(_setter, **request)
             __props__.__dict__["request"] = request
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

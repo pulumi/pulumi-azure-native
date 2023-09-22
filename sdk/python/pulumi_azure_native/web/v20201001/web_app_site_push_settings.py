@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -35,17 +35,38 @@ class WebAppSitePushSettingsArgs:
                '_', '@', '#', '.', ':', '-'. 
                Validation should be performed at the PushRequestHandler.
         """
-        pulumi.set(__self__, "is_push_enabled", is_push_enabled)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppSitePushSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_push_enabled=is_push_enabled,
+            name=name,
+            resource_group_name=resource_group_name,
+            dynamic_tags_json=dynamic_tags_json,
+            kind=kind,
+            tag_whitelist_json=tag_whitelist_json,
+            tags_requiring_auth=tags_requiring_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_push_enabled: pulumi.Input[bool],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             dynamic_tags_json: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             tag_whitelist_json: Optional[pulumi.Input[str]] = None,
+             tags_requiring_auth: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_push_enabled", is_push_enabled)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if dynamic_tags_json is not None:
-            pulumi.set(__self__, "dynamic_tags_json", dynamic_tags_json)
+            _setter("dynamic_tags_json", dynamic_tags_json)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if tag_whitelist_json is not None:
-            pulumi.set(__self__, "tag_whitelist_json", tag_whitelist_json)
+            _setter("tag_whitelist_json", tag_whitelist_json)
         if tags_requiring_auth is not None:
-            pulumi.set(__self__, "tags_requiring_auth", tags_requiring_auth)
+            _setter("tags_requiring_auth", tags_requiring_auth)
 
     @property
     @pulumi.getter(name="isPushEnabled")
@@ -183,6 +204,10 @@ class WebAppSitePushSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppSitePushSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

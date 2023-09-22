@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -72,56 +72,115 @@ class AgentPoolArgs:
         :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        AgentPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            agent_pool_name=agent_pool_name,
+            availability_zones=availability_zones,
+            count=count,
+            enable_auto_scaling=enable_auto_scaling,
+            enable_node_public_ip=enable_node_public_ip,
+            max_count=max_count,
+            max_pods=max_pods,
+            min_count=min_count,
+            mode=mode,
+            node_image_version=node_image_version,
+            node_labels=node_labels,
+            node_taints=node_taints,
+            orchestrator_version=orchestrator_version,
+            os_disk_size_gb=os_disk_size_gb,
+            os_type=os_type,
+            proximity_placement_group_id=proximity_placement_group_id,
+            scale_set_eviction_policy=scale_set_eviction_policy,
+            scale_set_priority=scale_set_priority,
+            spot_max_price=spot_max_price,
+            tags=tags,
+            type=type,
+            upgrade_settings=upgrade_settings,
+            vm_size=vm_size,
+            vnet_subnet_id=vnet_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             agent_pool_name: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             count: Optional[pulumi.Input[int]] = None,
+             enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+             max_count: Optional[pulumi.Input[int]] = None,
+             max_pods: Optional[pulumi.Input[int]] = None,
+             min_count: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]] = None,
+             node_image_version: Optional[pulumi.Input[str]] = None,
+             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             orchestrator_version: Optional[pulumi.Input[str]] = None,
+             os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+             os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
+             scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
+             spot_max_price: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
+             upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None,
+             vm_size: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]] = None,
+             vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if agent_pool_name is not None:
-            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+            _setter("agent_pool_name", agent_pool_name)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if enable_auto_scaling is not None:
-            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+            _setter("enable_auto_scaling", enable_auto_scaling)
         if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+            _setter("enable_node_public_ip", enable_node_public_ip)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
+            _setter("max_pods", max_pods)
         if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
+            _setter("min_count", min_count)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if node_image_version is not None:
-            pulumi.set(__self__, "node_image_version", node_image_version)
+            _setter("node_image_version", node_image_version)
         if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
+            _setter("node_labels", node_labels)
         if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
+            _setter("node_taints", node_taints)
         if orchestrator_version is not None:
-            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
+            _setter("orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
-            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+            _setter("os_disk_size_gb", os_disk_size_gb)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if proximity_placement_group_id is not None:
-            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+            _setter("proximity_placement_group_id", proximity_placement_group_id)
         if scale_set_eviction_policy is not None:
-            pulumi.set(__self__, "scale_set_eviction_policy", scale_set_eviction_policy)
+            _setter("scale_set_eviction_policy", scale_set_eviction_policy)
         if scale_set_priority is not None:
-            pulumi.set(__self__, "scale_set_priority", scale_set_priority)
+            _setter("scale_set_priority", scale_set_priority)
         if spot_max_price is not None:
-            pulumi.set(__self__, "spot_max_price", spot_max_price)
+            _setter("spot_max_price", spot_max_price)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if upgrade_settings is not None:
-            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+            _setter("upgrade_settings", upgrade_settings)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
         if vnet_subnet_id is not None:
-            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+            _setter("vnet_subnet_id", vnet_subnet_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -519,6 +578,10 @@ class AgentPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgentPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -586,6 +649,11 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
+            if not isinstance(upgrade_settings, AgentPoolUpgradeSettingsArgs):
+                upgrade_settings = upgrade_settings or {}
+                def _setter(key, value):
+                    upgrade_settings[key] = value
+                AgentPoolUpgradeSettingsArgs._configure(_setter, **upgrade_settings)
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,48 @@ class WorkflowArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] workflow_name: The workflow name.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkflowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            definition=definition,
+            integration_account=integration_account,
+            location=location,
+            parameters=parameters,
+            sku=sku,
+            state=state,
+            tags=tags,
+            workflow_name=workflow_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             definition: Optional[Any] = None,
+             integration_account: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workflow_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if definition is not None:
-            pulumi.set(__self__, "definition", definition)
+            _setter("definition", definition)
         if integration_account is not None:
-            pulumi.set(__self__, "integration_account", integration_account)
+            _setter("integration_account", integration_account)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workflow_name is not None:
-            pulumi.set(__self__, "workflow_name", workflow_name)
+            _setter("workflow_name", workflow_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -214,6 +239,10 @@ class Workflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -238,12 +267,22 @@ class Workflow(pulumi.CustomResource):
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
             __props__.__dict__["definition"] = definition
+            if not isinstance(integration_account, ResourceReferenceArgs):
+                integration_account = integration_account or {}
+                def _setter(key, value):
+                    integration_account[key] = value
+                ResourceReferenceArgs._configure(_setter, **integration_account)
             __props__.__dict__["integration_account"] = integration_account
             __props__.__dict__["location"] = location
             __props__.__dict__["parameters"] = parameters
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags

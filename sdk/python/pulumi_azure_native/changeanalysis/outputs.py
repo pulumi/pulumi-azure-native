@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -55,12 +55,25 @@ class AzureMonitorWorkspacePropertiesResponse(dict):
         :param str workspace_id: The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
         :param str workspace_resource_id: The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
         """
+        AzureMonitorWorkspacePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_change_details=include_change_details,
+            workspace_id=workspace_id,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_change_details: Optional[str] = None,
+             workspace_id: Optional[str] = None,
+             workspace_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if include_change_details is not None:
-            pulumi.set(__self__, "include_change_details", include_change_details)
+            _setter("include_change_details", include_change_details)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
         if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+            _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="includeChangeDetails")
@@ -98,8 +111,17 @@ class ConfigurationProfileResourcePropertiesResponse(dict):
         The properties of a configuration profile.
         :param 'NotificationSettingsResponse' notifications: Settings of change notification configuration for a subscription.
         """
+        ConfigurationProfileResourcePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notifications=notifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notifications: Optional['outputs.NotificationSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
 
     @property
     @pulumi.getter
@@ -142,10 +164,21 @@ class NotificationSettingsResponse(dict):
         :param str activation_state: The state of notifications feature.
         :param 'AzureMonitorWorkspacePropertiesResponse' azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
         """
+        NotificationSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_state=activation_state,
+            azure_monitor_workspace_properties=azure_monitor_workspace_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_state: Optional[str] = None,
+             azure_monitor_workspace_properties: Optional['outputs.AzureMonitorWorkspacePropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if activation_state is not None:
-            pulumi.set(__self__, "activation_state", activation_state)
+            _setter("activation_state", activation_state)
         if azure_monitor_workspace_properties is not None:
-            pulumi.set(__self__, "azure_monitor_workspace_properties", azure_monitor_workspace_properties)
+            _setter("azure_monitor_workspace_properties", azure_monitor_workspace_properties)
 
     @property
     @pulumi.getter(name="activationState")
@@ -198,10 +231,23 @@ class ResourceIdentityResponse(dict):
         :param str tenant_id: The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
         :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ResourceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -276,12 +322,31 @@ class SystemDataResponse(dict):
         :param str last_modified_by: A string identifier for the identity that last modified the resource
         :param str last_modified_by_type: The type of identity that last modified the resource: user, application, managedIdentity, key
         """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "created_by", created_by)
-        pulumi.set(__self__, "created_by_type", created_by_type)
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: str,
+             created_by: str,
+             created_by_type: str,
+             last_modified_at: str,
+             last_modified_by: str,
+             last_modified_by_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("created_at", created_at)
+        _setter("created_by", created_by)
+        _setter("created_by_type", created_by_type)
+        _setter("last_modified_at", last_modified_at)
+        _setter("last_modified_by", last_modified_by)
+        _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

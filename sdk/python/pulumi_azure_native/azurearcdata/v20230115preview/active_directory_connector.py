@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,26 @@ class ActiveDirectoryConnectorArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group
         :param pulumi.Input[str] active_directory_connector_name: The name of the Active Directory connector instance
         """
-        pulumi.set(__self__, "data_controller_name", data_controller_name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ActiveDirectoryConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_controller_name=data_controller_name,
+            properties=properties,
+            resource_group_name=resource_group_name,
+            active_directory_connector_name=active_directory_connector_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_controller_name: pulumi.Input[str],
+             properties: pulumi.Input['ActiveDirectoryConnectorPropertiesArgs'],
+             resource_group_name: pulumi.Input[str],
+             active_directory_connector_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_controller_name", data_controller_name)
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
         if active_directory_connector_name is not None:
-            pulumi.set(__self__, "active_directory_connector_name", active_directory_connector_name)
+            _setter("active_directory_connector_name", active_directory_connector_name)
 
     @property
     @pulumi.getter(name="dataControllerName")
@@ -122,6 +137,10 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActiveDirectoryConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +163,11 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
             if data_controller_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_controller_name'")
             __props__.__dict__["data_controller_name"] = data_controller_name
+            if not isinstance(properties, ActiveDirectoryConnectorPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ActiveDirectoryConnectorPropertiesArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

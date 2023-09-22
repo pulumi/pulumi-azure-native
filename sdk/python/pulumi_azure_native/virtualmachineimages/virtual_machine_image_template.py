@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,30 +46,63 @@ class VirtualMachineImageTemplateArgs:
         :param pulumi.Input['ImageTemplatePropertiesValidateArgs'] validate: Configuration options and list of validations to be performed on the resulting image.
         :param pulumi.Input['ImageTemplateVmProfileArgs'] vm_profile: Describes how virtual machine is set up to build images
         """
-        pulumi.set(__self__, "distribute", distribute)
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
+        VirtualMachineImageTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            distribute=distribute,
+            identity=identity,
+            resource_group_name=resource_group_name,
+            source=source,
+            build_timeout_in_minutes=build_timeout_in_minutes,
+            customize=customize,
+            image_template_name=image_template_name,
+            location=location,
+            optimize=optimize,
+            staging_resource_group=staging_resource_group,
+            tags=tags,
+            validate=validate,
+            vm_profile=vm_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             distribute: pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateManagedImageDistributorArgs', 'ImageTemplateSharedImageDistributorArgs', 'ImageTemplateVhdDistributorArgs']]]],
+             identity: pulumi.Input['ImageTemplateIdentityArgs'],
+             resource_group_name: pulumi.Input[str],
+             source: pulumi.Input[Union['ImageTemplateManagedImageSourceArgs', 'ImageTemplatePlatformImageSourceArgs', 'ImageTemplateSharedImageVersionSourceArgs']],
+             build_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             customize: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]]] = None,
+             image_template_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             optimize: Optional[pulumi.Input['ImageTemplatePropertiesOptimizeArgs']] = None,
+             staging_resource_group: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             validate: Optional[pulumi.Input['ImageTemplatePropertiesValidateArgs']] = None,
+             vm_profile: Optional[pulumi.Input['ImageTemplateVmProfileArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("distribute", distribute)
+        _setter("identity", identity)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source", source)
         if build_timeout_in_minutes is None:
             build_timeout_in_minutes = 0
         if build_timeout_in_minutes is not None:
-            pulumi.set(__self__, "build_timeout_in_minutes", build_timeout_in_minutes)
+            _setter("build_timeout_in_minutes", build_timeout_in_minutes)
         if customize is not None:
-            pulumi.set(__self__, "customize", customize)
+            _setter("customize", customize)
         if image_template_name is not None:
-            pulumi.set(__self__, "image_template_name", image_template_name)
+            _setter("image_template_name", image_template_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if optimize is not None:
-            pulumi.set(__self__, "optimize", optimize)
+            _setter("optimize", optimize)
         if staging_resource_group is not None:
-            pulumi.set(__self__, "staging_resource_group", staging_resource_group)
+            _setter("staging_resource_group", staging_resource_group)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validate is not None:
-            pulumi.set(__self__, "validate", validate)
+            _setter("validate", validate)
         if vm_profile is not None:
-            pulumi.set(__self__, "vm_profile", vm_profile)
+            _setter("vm_profile", vm_profile)
 
     @property
     @pulumi.getter
@@ -287,6 +320,10 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineImageTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -321,11 +358,21 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             if distribute is None and not opts.urn:
                 raise TypeError("Missing required property 'distribute'")
             __props__.__dict__["distribute"] = distribute
+            if not isinstance(identity, ImageTemplateIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ImageTemplateIdentityArgs._configure(_setter, **identity)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_template_name"] = image_template_name
             __props__.__dict__["location"] = location
+            if not isinstance(optimize, ImageTemplatePropertiesOptimizeArgs):
+                optimize = optimize or {}
+                def _setter(key, value):
+                    optimize[key] = value
+                ImageTemplatePropertiesOptimizeArgs._configure(_setter, **optimize)
             __props__.__dict__["optimize"] = optimize
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -335,7 +382,17 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["staging_resource_group"] = staging_resource_group
             __props__.__dict__["tags"] = tags
+            if not isinstance(validate, ImageTemplatePropertiesValidateArgs):
+                validate = validate or {}
+                def _setter(key, value):
+                    validate[key] = value
+                ImageTemplatePropertiesValidateArgs._configure(_setter, **validate)
             __props__.__dict__["validate"] = validate
+            if not isinstance(vm_profile, ImageTemplateVmProfileArgs):
+                vm_profile = vm_profile or {}
+                def _setter(key, value):
+                    vm_profile[key] = value
+                ImageTemplateVmProfileArgs._configure(_setter, **vm_profile)
             __props__.__dict__["vm_profile"] = vm_profile
             __props__.__dict__["exact_staging_resource_group"] = None
             __props__.__dict__["last_run_status"] = None

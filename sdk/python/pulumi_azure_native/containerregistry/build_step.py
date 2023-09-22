@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -26,11 +26,26 @@ class BuildStepArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[str] step_name: The name of a build step for a container registry build task.
         """
-        pulumi.set(__self__, "build_task_name", build_task_name)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BuildStepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_task_name=build_task_name,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            step_name=step_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_task_name: pulumi.Input[str],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             step_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("build_task_name", build_task_name)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if step_name is not None:
-            pulumi.set(__self__, "step_name", step_name)
+            _setter("step_name", step_name)
 
     @property
     @pulumi.getter(name="buildTaskName")
@@ -122,6 +137,10 @@ class BuildStep(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BuildStepArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

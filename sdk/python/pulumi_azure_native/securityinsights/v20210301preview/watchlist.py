@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -68,47 +68,102 @@ class WatchlistArgs:
         :param pulumi.Input[int] watchlist_items_count: The number of Watchlist Items in the Watchlist
         :param pulumi.Input[str] watchlist_type: The type of the watchlist
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "items_search_key", items_search_key)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "provider", provider)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        WatchlistArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            items_search_key=items_search_key,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            provider=provider,
+            resource_group_name=resource_group_name,
+            source=source,
+            workspace_name=workspace_name,
+            content_type=content_type,
+            created=created,
+            created_by=created_by,
+            default_duration=default_duration,
+            description=description,
+            is_deleted=is_deleted,
+            labels=labels,
+            number_of_lines_to_skip=number_of_lines_to_skip,
+            raw_content=raw_content,
+            tenant_id=tenant_id,
+            updated=updated,
+            updated_by=updated_by,
+            upload_status=upload_status,
+            watchlist_alias=watchlist_alias,
+            watchlist_id=watchlist_id,
+            watchlist_items_count=watchlist_items_count,
+            watchlist_type=watchlist_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             items_search_key: pulumi.Input[str],
+             operational_insights_resource_provider: pulumi.Input[str],
+             provider: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             source: pulumi.Input[Union[str, 'Source']],
+             workspace_name: pulumi.Input[str],
+             content_type: Optional[pulumi.Input[str]] = None,
+             created: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input['WatchlistUserInfoArgs']] = None,
+             default_duration: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             is_deleted: Optional[pulumi.Input[bool]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             number_of_lines_to_skip: Optional[pulumi.Input[int]] = None,
+             raw_content: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             updated: Optional[pulumi.Input[str]] = None,
+             updated_by: Optional[pulumi.Input['WatchlistUserInfoArgs']] = None,
+             upload_status: Optional[pulumi.Input[str]] = None,
+             watchlist_alias: Optional[pulumi.Input[str]] = None,
+             watchlist_id: Optional[pulumi.Input[str]] = None,
+             watchlist_items_count: Optional[pulumi.Input[int]] = None,
+             watchlist_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("items_search_key", items_search_key)
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("provider", provider)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source", source)
+        _setter("workspace_name", workspace_name)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if default_duration is not None:
-            pulumi.set(__self__, "default_duration", default_duration)
+            _setter("default_duration", default_duration)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_deleted is not None:
-            pulumi.set(__self__, "is_deleted", is_deleted)
+            _setter("is_deleted", is_deleted)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if number_of_lines_to_skip is not None:
-            pulumi.set(__self__, "number_of_lines_to_skip", number_of_lines_to_skip)
+            _setter("number_of_lines_to_skip", number_of_lines_to_skip)
         if raw_content is not None:
-            pulumi.set(__self__, "raw_content", raw_content)
+            _setter("raw_content", raw_content)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if updated is not None:
-            pulumi.set(__self__, "updated", updated)
+            _setter("updated", updated)
         if updated_by is not None:
-            pulumi.set(__self__, "updated_by", updated_by)
+            _setter("updated_by", updated_by)
         if upload_status is not None:
-            pulumi.set(__self__, "upload_status", upload_status)
+            _setter("upload_status", upload_status)
         if watchlist_alias is not None:
-            pulumi.set(__self__, "watchlist_alias", watchlist_alias)
+            _setter("watchlist_alias", watchlist_alias)
         if watchlist_id is not None:
-            pulumi.set(__self__, "watchlist_id", watchlist_id)
+            _setter("watchlist_id", watchlist_id)
         if watchlist_items_count is not None:
-            pulumi.set(__self__, "watchlist_items_count", watchlist_items_count)
+            _setter("watchlist_items_count", watchlist_items_count)
         if watchlist_type is not None:
-            pulumi.set(__self__, "watchlist_type", watchlist_type)
+            _setter("watchlist_type", watchlist_type)
 
     @property
     @pulumi.getter(name="displayName")
@@ -478,6 +533,10 @@ class Watchlist(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WatchlistArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -518,6 +577,11 @@ class Watchlist(pulumi.CustomResource):
 
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["created"] = created
+            if not isinstance(created_by, WatchlistUserInfoArgs):
+                created_by = created_by or {}
+                def _setter(key, value):
+                    created_by[key] = value
+                WatchlistUserInfoArgs._configure(_setter, **created_by)
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["default_duration"] = default_duration
             __props__.__dict__["description"] = description
@@ -545,6 +609,11 @@ class Watchlist(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["updated"] = updated
+            if not isinstance(updated_by, WatchlistUserInfoArgs):
+                updated_by = updated_by or {}
+                def _setter(key, value):
+                    updated_by[key] = value
+                WatchlistUserInfoArgs._configure(_setter, **updated_by)
             __props__.__dict__["updated_by"] = updated_by
             __props__.__dict__["upload_status"] = upload_status
             __props__.__dict__["watchlist_alias"] = watchlist_alias

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -42,11 +42,24 @@ class AssessmentStatusArgs:
         :param pulumi.Input[str] cause: Programmatic code for the cause of the assessment status
         :param pulumi.Input[str] description: Human readable description of the assessment status
         """
-        pulumi.set(__self__, "code", code)
+        AssessmentStatusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            cause=cause,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: pulumi.Input[Union[str, 'AssessmentStatusCode']],
+             cause: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
         if cause is not None:
-            pulumi.set(__self__, "cause", cause)
+            _setter("cause", cause)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -94,7 +107,16 @@ class AzureResourceDetailsArgs:
         :param pulumi.Input[str] source: The platform where the assessed resource resides
                Expected value is 'Azure'.
         """
-        pulumi.set(__self__, "source", 'Azure')
+        AzureResourceDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", 'Azure')
 
     @property
     @pulumi.getter
@@ -121,10 +143,23 @@ class JitNetworkAccessPolicyVirtualMachineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPortRuleArgs']]] ports: Port configurations for the virtual machine
         :param pulumi.Input[str] public_ip_address: Public IP address of the Azure Firewall that is linked to this policy, if applicable
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ports", ports)
+        JitNetworkAccessPolicyVirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            ports=ports,
+            public_ip_address=public_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             ports: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPortRuleArgs']]],
+             public_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("ports", ports)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter
@@ -176,13 +211,30 @@ class JitNetworkAccessPortRuleArgs:
         :param pulumi.Input[str] allowed_source_address_prefix: Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
         """
-        pulumi.set(__self__, "max_request_access_duration", max_request_access_duration)
-        pulumi.set(__self__, "number", number)
-        pulumi.set(__self__, "protocol", protocol)
+        JitNetworkAccessPortRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_request_access_duration=max_request_access_duration,
+            number=number,
+            protocol=protocol,
+            allowed_source_address_prefix=allowed_source_address_prefix,
+            allowed_source_address_prefixes=allowed_source_address_prefixes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_request_access_duration: pulumi.Input[str],
+             number: pulumi.Input[int],
+             protocol: pulumi.Input[Union[str, 'Protocol']],
+             allowed_source_address_prefix: Optional[pulumi.Input[str]] = None,
+             allowed_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_request_access_duration", max_request_access_duration)
+        _setter("number", number)
+        _setter("protocol", protocol)
         if allowed_source_address_prefix is not None:
-            pulumi.set(__self__, "allowed_source_address_prefix", allowed_source_address_prefix)
+            _setter("allowed_source_address_prefix", allowed_source_address_prefix)
         if allowed_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_source_address_prefixes", allowed_source_address_prefixes)
+            _setter("allowed_source_address_prefixes", allowed_source_address_prefixes)
 
     @property
     @pulumi.getter(name="maxRequestAccessDuration")
@@ -257,16 +309,37 @@ class JitNetworkAccessRequestPortArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
         :param pulumi.Input[int] mapped_port: The port which is mapped to this port's `number` in the Azure Firewall, if applicable
         """
-        pulumi.set(__self__, "end_time_utc", end_time_utc)
-        pulumi.set(__self__, "number", number)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_reason", status_reason)
+        JitNetworkAccessRequestPortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time_utc=end_time_utc,
+            number=number,
+            status=status,
+            status_reason=status_reason,
+            allowed_source_address_prefix=allowed_source_address_prefix,
+            allowed_source_address_prefixes=allowed_source_address_prefixes,
+            mapped_port=mapped_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time_utc: pulumi.Input[str],
+             number: pulumi.Input[int],
+             status: pulumi.Input[Union[str, 'Status']],
+             status_reason: pulumi.Input[Union[str, 'StatusReason']],
+             allowed_source_address_prefix: Optional[pulumi.Input[str]] = None,
+             allowed_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mapped_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_time_utc", end_time_utc)
+        _setter("number", number)
+        _setter("status", status)
+        _setter("status_reason", status_reason)
         if allowed_source_address_prefix is not None:
-            pulumi.set(__self__, "allowed_source_address_prefix", allowed_source_address_prefix)
+            _setter("allowed_source_address_prefix", allowed_source_address_prefix)
         if allowed_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_source_address_prefixes", allowed_source_address_prefixes)
+            _setter("allowed_source_address_prefixes", allowed_source_address_prefixes)
         if mapped_port is not None:
-            pulumi.set(__self__, "mapped_port", mapped_port)
+            _setter("mapped_port", mapped_port)
 
     @property
     @pulumi.getter(name="endTimeUtc")
@@ -359,8 +432,19 @@ class JitNetworkAccessRequestVirtualMachineArgs:
         :param pulumi.Input[str] id: Resource ID of the virtual machine that is linked to this policy
         :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestPortArgs']]] ports: The ports that were opened for the virtual machine
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ports", ports)
+        JitNetworkAccessRequestVirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             ports: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestPortArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("ports", ports)
 
     @property
     @pulumi.getter
@@ -399,11 +483,26 @@ class JitNetworkAccessRequestArgs:
         :param pulumi.Input[str] start_time_utc: The start time of the request in UTC
         :param pulumi.Input[str] justification: The justification for making the initiate request
         """
-        pulumi.set(__self__, "requestor", requestor)
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
-        pulumi.set(__self__, "virtual_machines", virtual_machines)
+        JitNetworkAccessRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            requestor=requestor,
+            start_time_utc=start_time_utc,
+            virtual_machines=virtual_machines,
+            justification=justification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             requestor: pulumi.Input[str],
+             start_time_utc: pulumi.Input[str],
+             virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]],
+             justification: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("requestor", requestor)
+        _setter("start_time_utc", start_time_utc)
+        _setter("virtual_machines", virtual_machines)
         if justification is not None:
-            pulumi.set(__self__, "justification", justification)
+            _setter("justification", justification)
 
     @property
     @pulumi.getter
@@ -468,11 +567,28 @@ class OnPremiseResourceDetailsArgs:
         :param pulumi.Input[str] vmuuid: The unique Id of the machine
         :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
         """
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "source", 'OnPremise')
-        pulumi.set(__self__, "source_computer_id", source_computer_id)
-        pulumi.set(__self__, "vmuuid", vmuuid)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        OnPremiseResourceDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            machine_name=machine_name,
+            source=source,
+            source_computer_id=source_computer_id,
+            vmuuid=vmuuid,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             machine_name: pulumi.Input[str],
+             source: pulumi.Input[str],
+             source_computer_id: pulumi.Input[str],
+             vmuuid: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("machine_name", machine_name)
+        _setter("source", 'OnPremise')
+        _setter("source_computer_id", source_computer_id)
+        _setter("vmuuid", vmuuid)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="machineName")
@@ -557,13 +673,34 @@ class OnPremiseSqlResourceDetailsArgs:
         :param pulumi.Input[str] vmuuid: The unique Id of the machine
         :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "source", 'OnPremiseSql')
-        pulumi.set(__self__, "source_computer_id", source_computer_id)
-        pulumi.set(__self__, "vmuuid", vmuuid)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        OnPremiseSqlResourceDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            machine_name=machine_name,
+            server_name=server_name,
+            source=source,
+            source_computer_id=source_computer_id,
+            vmuuid=vmuuid,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             machine_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             source: pulumi.Input[str],
+             source_computer_id: pulumi.Input[str],
+             vmuuid: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("machine_name", machine_name)
+        _setter("server_name", server_name)
+        _setter("source", 'OnPremiseSql')
+        _setter("source_computer_id", source_computer_id)
+        _setter("vmuuid", vmuuid)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -673,24 +810,49 @@ class PathRecommendationArgs:
         :param pulumi.Input['PublisherInfoArgs'] publisher_info: Represents the publisher information of a process/rule
         :param pulumi.Input[str] type: The type of the rule to be allowed
         """
+        PathRecommendationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            common=common,
+            configuration_status=configuration_status,
+            file_type=file_type,
+            path=path,
+            publisher_info=publisher_info,
+            type=type,
+            user_sids=user_sids,
+            usernames=usernames,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             common: Optional[pulumi.Input[bool]] = None,
+             configuration_status: Optional[pulumi.Input[str]] = None,
+             file_type: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             publisher_info: Optional[pulumi.Input['PublisherInfoArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_sids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             usernames: Optional[pulumi.Input[Sequence[pulumi.Input['UserRecommendationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if common is not None:
-            pulumi.set(__self__, "common", common)
+            _setter("common", common)
         if configuration_status is not None:
-            pulumi.set(__self__, "configuration_status", configuration_status)
+            _setter("configuration_status", configuration_status)
         if file_type is not None:
-            pulumi.set(__self__, "file_type", file_type)
+            _setter("file_type", file_type)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if publisher_info is not None:
-            pulumi.set(__self__, "publisher_info", publisher_info)
+            _setter("publisher_info", publisher_info)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_sids is not None:
-            pulumi.set(__self__, "user_sids", user_sids)
+            _setter("user_sids", user_sids)
         if usernames is not None:
-            pulumi.set(__self__, "usernames", usernames)
+            _setter("usernames", usernames)
 
     @property
     @pulumi.getter
@@ -809,14 +971,29 @@ class ProtectionModeArgs:
         :param pulumi.Input[str] msi: The application control policy enforcement/protection mode of the machine group
         :param pulumi.Input[str] script: The application control policy enforcement/protection mode of the machine group
         """
+        ProtectionModeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exe=exe,
+            executable=executable,
+            msi=msi,
+            script=script,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exe: Optional[pulumi.Input[str]] = None,
+             executable: Optional[pulumi.Input[str]] = None,
+             msi: Optional[pulumi.Input[str]] = None,
+             script: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exe is not None:
-            pulumi.set(__self__, "exe", exe)
+            _setter("exe", exe)
         if executable is not None:
-            pulumi.set(__self__, "executable", executable)
+            _setter("executable", executable)
         if msi is not None:
-            pulumi.set(__self__, "msi", msi)
+            _setter("msi", msi)
         if script is not None:
-            pulumi.set(__self__, "script", script)
+            _setter("script", script)
 
     @property
     @pulumi.getter
@@ -881,14 +1058,29 @@ class PublisherInfoArgs:
         :param pulumi.Input[str] publisher_name: The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
         :param pulumi.Input[str] version: The binary file version taken from the file's version resource
         """
+        PublisherInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            binary_name=binary_name,
+            product_name=product_name,
+            publisher_name=publisher_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             binary_name: Optional[pulumi.Input[str]] = None,
+             product_name: Optional[pulumi.Input[str]] = None,
+             publisher_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if binary_name is not None:
-            pulumi.set(__self__, "binary_name", binary_name)
+            _setter("binary_name", binary_name)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
         if publisher_name is not None:
-            pulumi.set(__self__, "publisher_name", publisher_name)
+            _setter("publisher_name", publisher_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="binaryName")
@@ -951,10 +1143,23 @@ class SecurityAssessmentMetadataPartnerDataArgs:
         :param pulumi.Input[str] secret: Secret to authenticate the partner and verify it created the assessment - write only
         :param pulumi.Input[str] product_name: Name of the product of the partner that created the assessment
         """
-        pulumi.set(__self__, "partner_name", partner_name)
-        pulumi.set(__self__, "secret", secret)
+        SecurityAssessmentMetadataPartnerDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_name=partner_name,
+            secret=secret,
+            product_name=product_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_name: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             product_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("partner_name", partner_name)
+        _setter("secret", secret)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
 
     @property
     @pulumi.getter(name="partnerName")
@@ -1019,25 +1224,54 @@ class SecurityAssessmentMetadataPropertiesArgs:
         :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
         :param pulumi.Input[Union[str, 'UserImpact']] user_impact: The user impact of the assessment
         """
-        pulumi.set(__self__, "assessment_type", assessment_type)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "severity", severity)
+        SecurityAssessmentMetadataPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_type=assessment_type,
+            display_name=display_name,
+            severity=severity,
+            categories=categories,
+            description=description,
+            implementation_effort=implementation_effort,
+            partner_data=partner_data,
+            preview=preview,
+            remediation_description=remediation_description,
+            threats=threats,
+            user_impact=user_impact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_type: pulumi.Input[Union[str, 'AssessmentType']],
+             display_name: pulumi.Input[str],
+             severity: pulumi.Input[Union[str, 'Severity']],
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
+             partner_data: Optional[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgs']] = None,
+             preview: Optional[pulumi.Input[bool]] = None,
+             remediation_description: Optional[pulumi.Input[str]] = None,
+             threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
+             user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assessment_type", assessment_type)
+        _setter("display_name", display_name)
+        _setter("severity", severity)
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if implementation_effort is not None:
-            pulumi.set(__self__, "implementation_effort", implementation_effort)
+            _setter("implementation_effort", implementation_effort)
         if partner_data is not None:
-            pulumi.set(__self__, "partner_data", partner_data)
+            _setter("partner_data", partner_data)
         if preview is not None:
-            pulumi.set(__self__, "preview", preview)
+            _setter("preview", preview)
         if remediation_description is not None:
-            pulumi.set(__self__, "remediation_description", remediation_description)
+            _setter("remediation_description", remediation_description)
         if threats is not None:
-            pulumi.set(__self__, "threats", threats)
+            _setter("threats", threats)
         if user_impact is not None:
-            pulumi.set(__self__, "user_impact", user_impact)
+            _setter("user_impact", user_impact)
 
     @property
     @pulumi.getter(name="assessmentType")
@@ -1176,8 +1410,19 @@ class SecurityAssessmentPartnerDataArgs:
         :param pulumi.Input[str] partner_name: Name of the company of the partner
         :param pulumi.Input[str] secret: secret to authenticate the partner - write only
         """
-        pulumi.set(__self__, "partner_name", partner_name)
-        pulumi.set(__self__, "secret", secret)
+        SecurityAssessmentPartnerDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_name=partner_name,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_name: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("partner_name", partner_name)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter(name="partnerName")
@@ -1214,10 +1459,21 @@ class UserRecommendationArgs:
         :param pulumi.Input[str] recommendation_action: The recommendation action of the machine or rule
         :param pulumi.Input[str] username: Represents a user that is recommended to be allowed for a certain rule
         """
+        UserRecommendationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recommendation_action=recommendation_action,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recommendation_action: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if recommendation_action is not None:
-            pulumi.set(__self__, "recommendation_action", recommendation_action)
+            _setter("recommendation_action", recommendation_action)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="recommendationAction")
@@ -1258,14 +1514,29 @@ class VmRecommendationArgs:
         :param pulumi.Input[str] recommendation_action: The recommendation action of the machine or rule
         :param pulumi.Input[str] resource_id: The full resource id of the machine
         """
+        VmRecommendationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_status=configuration_status,
+            enforcement_support=enforcement_support,
+            recommendation_action=recommendation_action,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_status: Optional[pulumi.Input[str]] = None,
+             enforcement_support: Optional[pulumi.Input[str]] = None,
+             recommendation_action: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if configuration_status is not None:
-            pulumi.set(__self__, "configuration_status", configuration_status)
+            _setter("configuration_status", configuration_status)
         if enforcement_support is not None:
-            pulumi.set(__self__, "enforcement_support", enforcement_support)
+            _setter("enforcement_support", enforcement_support)
         if recommendation_action is not None:
-            pulumi.set(__self__, "recommendation_action", recommendation_action)
+            _setter("recommendation_action", recommendation_action)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="configurationStatus")

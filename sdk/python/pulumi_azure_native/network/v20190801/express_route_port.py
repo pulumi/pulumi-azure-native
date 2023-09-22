@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,27 +42,56 @@ class ExpressRoutePortArgs:
         :param pulumi.Input[str] resource_guid: The resource GUID property of the express route port resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExpressRoutePortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            bandwidth_in_gbps=bandwidth_in_gbps,
+            encapsulation=encapsulation,
+            express_route_port_name=express_route_port_name,
+            id=id,
+            identity=identity,
+            links=links,
+            location=location,
+            peering_location=peering_location,
+            resource_guid=resource_guid,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+             encapsulation: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']]] = None,
+             express_route_port_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteLinkArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             peering_location: Optional[pulumi.Input[str]] = None,
+             resource_guid: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if bandwidth_in_gbps is not None:
-            pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+            _setter("bandwidth_in_gbps", bandwidth_in_gbps)
         if encapsulation is not None:
-            pulumi.set(__self__, "encapsulation", encapsulation)
+            _setter("encapsulation", encapsulation)
         if express_route_port_name is not None:
-            pulumi.set(__self__, "express_route_port_name", express_route_port_name)
+            _setter("express_route_port_name", express_route_port_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if peering_location is not None:
-            pulumi.set(__self__, "peering_location", peering_location)
+            _setter("peering_location", peering_location)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -250,6 +279,10 @@ class ExpressRoutePort(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRoutePortArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -279,6 +312,11 @@ class ExpressRoutePort(pulumi.CustomResource):
             __props__.__dict__["encapsulation"] = encapsulation
             __props__.__dict__["express_route_port_name"] = express_route_port_name
             __props__.__dict__["id"] = id
+            if not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["links"] = links
             __props__.__dict__["location"] = location

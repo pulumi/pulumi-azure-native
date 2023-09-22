@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,27 @@ class TableServicePropertiesArgs:
         :param pulumi.Input['CorsRulesArgs'] cors: Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
         :param pulumi.Input[str] table_service_name: The name of the Table Service within the specified storage account. Table Service Name must be 'default'
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TableServicePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            cors=cors,
+            table_service_name=table_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
+             table_service_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if table_service_name is not None:
-            pulumi.set(__self__, "table_service_name", table_service_name)
+            _setter("table_service_name", table_service_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -125,6 +140,10 @@ class TableServiceProperties(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableServicePropertiesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -146,6 +165,11 @@ class TableServiceProperties(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if not isinstance(cors, CorsRulesArgs):
+                cors = cors or {}
+                def _setter(key, value):
+                    cors[key] = value
+                CorsRulesArgs._configure(_setter, **cors)
             __props__.__dict__["cors"] = cors
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

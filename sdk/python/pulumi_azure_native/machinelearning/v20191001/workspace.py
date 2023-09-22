@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,42 @@ class WorkspaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] workspace_name: The name of the machine learning workspace.
         """
-        pulumi.set(__self__, "owner_email", owner_email)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_storage_account_id", user_storage_account_id)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            owner_email=owner_email,
+            resource_group_name=resource_group_name,
+            user_storage_account_id=user_storage_account_id,
+            key_vault_identifier_id=key_vault_identifier_id,
+            location=location,
+            sku=sku,
+            tags=tags,
+            workspace_name=workspace_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             owner_email: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             user_storage_account_id: pulumi.Input[str],
+             key_vault_identifier_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("owner_email", owner_email)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_storage_account_id", user_storage_account_id)
         if key_vault_identifier_id is not None:
-            pulumi.set(__self__, "key_vault_identifier_id", key_vault_identifier_id)
+            _setter("key_vault_identifier_id", key_vault_identifier_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="ownerEmail")
@@ -193,6 +216,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -223,6 +250,11 @@ class Workspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             if user_storage_account_id is None and not opts.urn:

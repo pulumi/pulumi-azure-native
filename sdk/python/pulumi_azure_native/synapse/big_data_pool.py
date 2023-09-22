@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -64,48 +64,99 @@ class BigDataPoolArgs:
         :param pulumi.Input[str] spark_version: The Apache Spark version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        BigDataPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            auto_pause=auto_pause,
+            auto_scale=auto_scale,
+            big_data_pool_name=big_data_pool_name,
+            custom_libraries=custom_libraries,
+            default_spark_log_folder=default_spark_log_folder,
+            dynamic_executor_allocation=dynamic_executor_allocation,
+            force=force,
+            is_autotune_enabled=is_autotune_enabled,
+            is_compute_isolation_enabled=is_compute_isolation_enabled,
+            library_requirements=library_requirements,
+            location=location,
+            node_count=node_count,
+            node_size=node_size,
+            node_size_family=node_size_family,
+            provisioning_state=provisioning_state,
+            session_level_packages_enabled=session_level_packages_enabled,
+            spark_config_properties=spark_config_properties,
+            spark_events_folder=spark_events_folder,
+            spark_version=spark_version,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             auto_pause: Optional[pulumi.Input['AutoPausePropertiesArgs']] = None,
+             auto_scale: Optional[pulumi.Input['AutoScalePropertiesArgs']] = None,
+             big_data_pool_name: Optional[pulumi.Input[str]] = None,
+             custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input['LibraryInfoArgs']]]] = None,
+             default_spark_log_folder: Optional[pulumi.Input[str]] = None,
+             dynamic_executor_allocation: Optional[pulumi.Input['DynamicExecutorAllocationArgs']] = None,
+             force: Optional[pulumi.Input[bool]] = None,
+             is_autotune_enabled: Optional[pulumi.Input[bool]] = None,
+             is_compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+             library_requirements: Optional[pulumi.Input['LibraryRequirementsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             node_count: Optional[pulumi.Input[int]] = None,
+             node_size: Optional[pulumi.Input[Union[str, 'NodeSize']]] = None,
+             node_size_family: Optional[pulumi.Input[Union[str, 'NodeSizeFamily']]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
+             spark_config_properties: Optional[pulumi.Input['SparkConfigPropertiesArgs']] = None,
+             spark_events_folder: Optional[pulumi.Input[str]] = None,
+             spark_version: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if auto_pause is not None:
-            pulumi.set(__self__, "auto_pause", auto_pause)
+            _setter("auto_pause", auto_pause)
         if auto_scale is not None:
-            pulumi.set(__self__, "auto_scale", auto_scale)
+            _setter("auto_scale", auto_scale)
         if big_data_pool_name is not None:
-            pulumi.set(__self__, "big_data_pool_name", big_data_pool_name)
+            _setter("big_data_pool_name", big_data_pool_name)
         if custom_libraries is not None:
-            pulumi.set(__self__, "custom_libraries", custom_libraries)
+            _setter("custom_libraries", custom_libraries)
         if default_spark_log_folder is not None:
-            pulumi.set(__self__, "default_spark_log_folder", default_spark_log_folder)
+            _setter("default_spark_log_folder", default_spark_log_folder)
         if dynamic_executor_allocation is not None:
-            pulumi.set(__self__, "dynamic_executor_allocation", dynamic_executor_allocation)
+            _setter("dynamic_executor_allocation", dynamic_executor_allocation)
         if force is not None:
-            pulumi.set(__self__, "force", force)
+            _setter("force", force)
         if is_autotune_enabled is not None:
-            pulumi.set(__self__, "is_autotune_enabled", is_autotune_enabled)
+            _setter("is_autotune_enabled", is_autotune_enabled)
         if is_compute_isolation_enabled is not None:
-            pulumi.set(__self__, "is_compute_isolation_enabled", is_compute_isolation_enabled)
+            _setter("is_compute_isolation_enabled", is_compute_isolation_enabled)
         if library_requirements is not None:
-            pulumi.set(__self__, "library_requirements", library_requirements)
+            _setter("library_requirements", library_requirements)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if node_size is not None:
-            pulumi.set(__self__, "node_size", node_size)
+            _setter("node_size", node_size)
         if node_size_family is not None:
-            pulumi.set(__self__, "node_size_family", node_size_family)
+            _setter("node_size_family", node_size_family)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if session_level_packages_enabled is not None:
-            pulumi.set(__self__, "session_level_packages_enabled", session_level_packages_enabled)
+            _setter("session_level_packages_enabled", session_level_packages_enabled)
         if spark_config_properties is not None:
-            pulumi.set(__self__, "spark_config_properties", spark_config_properties)
+            _setter("spark_config_properties", spark_config_properties)
         if spark_events_folder is not None:
-            pulumi.set(__self__, "spark_events_folder", spark_events_folder)
+            _setter("spark_events_folder", spark_events_folder)
         if spark_version is not None:
-            pulumi.set(__self__, "spark_version", spark_version)
+            _setter("spark_version", spark_version)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -449,6 +500,10 @@ class BigDataPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BigDataPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -485,15 +540,35 @@ class BigDataPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BigDataPoolArgs.__new__(BigDataPoolArgs)
 
+            if not isinstance(auto_pause, AutoPausePropertiesArgs):
+                auto_pause = auto_pause or {}
+                def _setter(key, value):
+                    auto_pause[key] = value
+                AutoPausePropertiesArgs._configure(_setter, **auto_pause)
             __props__.__dict__["auto_pause"] = auto_pause
+            if not isinstance(auto_scale, AutoScalePropertiesArgs):
+                auto_scale = auto_scale or {}
+                def _setter(key, value):
+                    auto_scale[key] = value
+                AutoScalePropertiesArgs._configure(_setter, **auto_scale)
             __props__.__dict__["auto_scale"] = auto_scale
             __props__.__dict__["big_data_pool_name"] = big_data_pool_name
             __props__.__dict__["custom_libraries"] = custom_libraries
             __props__.__dict__["default_spark_log_folder"] = default_spark_log_folder
+            if not isinstance(dynamic_executor_allocation, DynamicExecutorAllocationArgs):
+                dynamic_executor_allocation = dynamic_executor_allocation or {}
+                def _setter(key, value):
+                    dynamic_executor_allocation[key] = value
+                DynamicExecutorAllocationArgs._configure(_setter, **dynamic_executor_allocation)
             __props__.__dict__["dynamic_executor_allocation"] = dynamic_executor_allocation
             __props__.__dict__["force"] = force
             __props__.__dict__["is_autotune_enabled"] = is_autotune_enabled
             __props__.__dict__["is_compute_isolation_enabled"] = is_compute_isolation_enabled
+            if not isinstance(library_requirements, LibraryRequirementsArgs):
+                library_requirements = library_requirements or {}
+                def _setter(key, value):
+                    library_requirements[key] = value
+                LibraryRequirementsArgs._configure(_setter, **library_requirements)
             __props__.__dict__["library_requirements"] = library_requirements
             __props__.__dict__["location"] = location
             __props__.__dict__["node_count"] = node_count
@@ -504,6 +579,11 @@ class BigDataPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["session_level_packages_enabled"] = session_level_packages_enabled
+            if not isinstance(spark_config_properties, SparkConfigPropertiesArgs):
+                spark_config_properties = spark_config_properties or {}
+                def _setter(key, value):
+                    spark_config_properties[key] = value
+                SparkConfigPropertiesArgs._configure(_setter, **spark_config_properties)
             __props__.__dict__["spark_config_properties"] = spark_config_properties
             __props__.__dict__["spark_events_folder"] = spark_events_folder
             __props__.__dict__["spark_version"] = spark_version

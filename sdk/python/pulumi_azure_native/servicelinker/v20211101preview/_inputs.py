@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,11 +33,24 @@ class SecretAuthInfoArgs:
         :param pulumi.Input[str] name: Username or account name for secret auth.
         :param pulumi.Input[str] secret: Password or account key for secret auth.
         """
-        pulumi.set(__self__, "auth_type", 'secret')
+        SecretAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            name=name,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'secret')
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="authType")
@@ -85,8 +98,17 @@ class SecretStoreArgs:
         An option to store secret value in secure place
         :param pulumi.Input[str] key_vault_id: The key vault id to store secret
         """
+        SecretStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -116,10 +138,25 @@ class ServicePrincipalCertificateAuthInfoArgs:
         :param pulumi.Input[str] client_id: Application clientId for servicePrincipal auth.
         :param pulumi.Input[str] principal_id: Principal Id for servicePrincipal auth.
         """
-        pulumi.set(__self__, "auth_type", 'servicePrincipalCertificate')
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        ServicePrincipalCertificateAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            certificate=certificate,
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             certificate: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             principal_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'servicePrincipalCertificate')
+        _setter("certificate", certificate)
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="authType")
@@ -186,10 +223,25 @@ class ServicePrincipalSecretAuthInfoArgs:
         :param pulumi.Input[str] principal_id: Principal Id for servicePrincipal auth.
         :param pulumi.Input[str] secret: Secret for servicePrincipal auth.
         """
-        pulumi.set(__self__, "auth_type", 'servicePrincipalSecret')
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "secret", secret)
+        ServicePrincipalSecretAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            client_id=client_id,
+            principal_id=principal_id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             principal_id: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'servicePrincipalSecret')
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter(name="authType")
@@ -250,7 +302,16 @@ class SystemAssignedIdentityAuthInfoArgs:
         :param pulumi.Input[str] auth_type: The authentication type.
                Expected value is 'systemAssignedIdentity'.
         """
-        pulumi.set(__self__, "auth_type", 'systemAssignedIdentity')
+        SystemAssignedIdentityAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'systemAssignedIdentity')
 
     @property
     @pulumi.getter(name="authType")
@@ -279,9 +340,22 @@ class UserAssignedIdentityAuthInfoArgs:
         :param pulumi.Input[str] client_id: Client Id for userAssignedIdentity.
         :param pulumi.Input[str] subscription_id: Subscription id for userAssignedIdentity.
         """
-        pulumi.set(__self__, "auth_type", 'userAssignedIdentity')
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        UserAssignedIdentityAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            client_id=client_id,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             subscription_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'userAssignedIdentity')
+        _setter("client_id", client_id)
+        _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="authType")
@@ -329,8 +403,17 @@ class VNetSolutionArgs:
         The VNet solution for linker
         :param pulumi.Input[Union[str, 'VNetSolutionType']] type: Type of VNet solution.
         """
+        VNetSolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'VNetSolutionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,40 @@ class SecurityPartnerProviderArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SecurityPartnerProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            id=id,
+            location=location,
+            security_partner_provider_name=security_partner_provider_name,
+            security_provider_name=security_provider_name,
+            tags=tags,
+            virtual_hub=virtual_hub,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             security_partner_provider_name: Optional[pulumi.Input[str]] = None,
+             security_provider_name: Optional[pulumi.Input[Union[str, 'SecurityProviderName']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if security_partner_provider_name is not None:
-            pulumi.set(__self__, "security_partner_provider_name", security_partner_provider_name)
+            _setter("security_partner_provider_name", security_partner_provider_name)
         if security_provider_name is not None:
-            pulumi.set(__self__, "security_provider_name", security_provider_name)
+            _setter("security_provider_name", security_provider_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -180,6 +201,10 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityPartnerProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -209,6 +234,11 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             __props__.__dict__["security_partner_provider_name"] = security_partner_provider_name
             __props__.__dict__["security_provider_name"] = security_provider_name
             __props__.__dict__["tags"] = tags
+            if not isinstance(virtual_hub, SubResourceArgs):
+                virtual_hub = virtual_hub or {}
+                def _setter(key, value):
+                    virtual_hub[key] = value
+                SubResourceArgs._configure(_setter, **virtual_hub)
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["connection_status"] = None
             __props__.__dict__["etag"] = None

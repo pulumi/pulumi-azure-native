@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,15 +30,34 @@ class WorkloadNetworkDhcpArgs:
         :param pulumi.Input[str] display_name: Display name of the DHCP entity.
         :param pulumi.Input[float] revision: NSX revision number.
         """
-        pulumi.set(__self__, "dhcp_type", dhcp_type)
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkloadNetworkDhcpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dhcp_type=dhcp_type,
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            dhcp_id=dhcp_id,
+            display_name=display_name,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dhcp_type: pulumi.Input[Union[str, 'DhcpTypeEnum']],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             dhcp_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dhcp_type", dhcp_type)
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if dhcp_id is not None:
-            pulumi.set(__self__, "dhcp_id", dhcp_id)
+            _setter("dhcp_id", dhcp_id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
 
     @property
     @pulumi.getter(name="dhcpType")
@@ -156,6 +175,10 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadNetworkDhcpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

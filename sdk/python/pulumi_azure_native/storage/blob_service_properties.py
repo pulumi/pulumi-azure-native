@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,28 +44,59 @@ class BlobServicePropertiesArgs:
         :param pulumi.Input['LastAccessTimeTrackingPolicyArgs'] last_access_time_tracking_policy: The blob service property to configure last access time based tracking policy.
         :param pulumi.Input['RestorePolicyPropertiesArgs'] restore_policy: The blob service properties for blob restore policy.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BlobServicePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            automatic_snapshot_policy_enabled=automatic_snapshot_policy_enabled,
+            blob_services_name=blob_services_name,
+            change_feed=change_feed,
+            container_delete_retention_policy=container_delete_retention_policy,
+            cors=cors,
+            default_service_version=default_service_version,
+            delete_retention_policy=delete_retention_policy,
+            is_versioning_enabled=is_versioning_enabled,
+            last_access_time_tracking_policy=last_access_time_tracking_policy,
+            restore_policy=restore_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             automatic_snapshot_policy_enabled: Optional[pulumi.Input[bool]] = None,
+             blob_services_name: Optional[pulumi.Input[str]] = None,
+             change_feed: Optional[pulumi.Input['ChangeFeedArgs']] = None,
+             container_delete_retention_policy: Optional[pulumi.Input['DeleteRetentionPolicyArgs']] = None,
+             cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
+             default_service_version: Optional[pulumi.Input[str]] = None,
+             delete_retention_policy: Optional[pulumi.Input['DeleteRetentionPolicyArgs']] = None,
+             is_versioning_enabled: Optional[pulumi.Input[bool]] = None,
+             last_access_time_tracking_policy: Optional[pulumi.Input['LastAccessTimeTrackingPolicyArgs']] = None,
+             restore_policy: Optional[pulumi.Input['RestorePolicyPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if automatic_snapshot_policy_enabled is not None:
-            pulumi.set(__self__, "automatic_snapshot_policy_enabled", automatic_snapshot_policy_enabled)
+            _setter("automatic_snapshot_policy_enabled", automatic_snapshot_policy_enabled)
         if blob_services_name is not None:
-            pulumi.set(__self__, "blob_services_name", blob_services_name)
+            _setter("blob_services_name", blob_services_name)
         if change_feed is not None:
-            pulumi.set(__self__, "change_feed", change_feed)
+            _setter("change_feed", change_feed)
         if container_delete_retention_policy is not None:
-            pulumi.set(__self__, "container_delete_retention_policy", container_delete_retention_policy)
+            _setter("container_delete_retention_policy", container_delete_retention_policy)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if default_service_version is not None:
-            pulumi.set(__self__, "default_service_version", default_service_version)
+            _setter("default_service_version", default_service_version)
         if delete_retention_policy is not None:
-            pulumi.set(__self__, "delete_retention_policy", delete_retention_policy)
+            _setter("delete_retention_policy", delete_retention_policy)
         if is_versioning_enabled is not None:
-            pulumi.set(__self__, "is_versioning_enabled", is_versioning_enabled)
+            _setter("is_versioning_enabled", is_versioning_enabled)
         if last_access_time_tracking_policy is not None:
-            pulumi.set(__self__, "last_access_time_tracking_policy", last_access_time_tracking_policy)
+            _setter("last_access_time_tracking_policy", last_access_time_tracking_policy)
         if restore_policy is not None:
-            pulumi.set(__self__, "restore_policy", restore_policy)
+            _setter("restore_policy", restore_policy)
 
     @property
     @pulumi.getter(name="accountName")
@@ -269,6 +300,10 @@ class BlobServiceProperties(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BlobServicePropertiesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -300,16 +335,46 @@ class BlobServiceProperties(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["automatic_snapshot_policy_enabled"] = automatic_snapshot_policy_enabled
             __props__.__dict__["blob_services_name"] = blob_services_name
+            if not isinstance(change_feed, ChangeFeedArgs):
+                change_feed = change_feed or {}
+                def _setter(key, value):
+                    change_feed[key] = value
+                ChangeFeedArgs._configure(_setter, **change_feed)
             __props__.__dict__["change_feed"] = change_feed
+            if not isinstance(container_delete_retention_policy, DeleteRetentionPolicyArgs):
+                container_delete_retention_policy = container_delete_retention_policy or {}
+                def _setter(key, value):
+                    container_delete_retention_policy[key] = value
+                DeleteRetentionPolicyArgs._configure(_setter, **container_delete_retention_policy)
             __props__.__dict__["container_delete_retention_policy"] = container_delete_retention_policy
+            if not isinstance(cors, CorsRulesArgs):
+                cors = cors or {}
+                def _setter(key, value):
+                    cors[key] = value
+                CorsRulesArgs._configure(_setter, **cors)
             __props__.__dict__["cors"] = cors
             __props__.__dict__["default_service_version"] = default_service_version
+            if not isinstance(delete_retention_policy, DeleteRetentionPolicyArgs):
+                delete_retention_policy = delete_retention_policy or {}
+                def _setter(key, value):
+                    delete_retention_policy[key] = value
+                DeleteRetentionPolicyArgs._configure(_setter, **delete_retention_policy)
             __props__.__dict__["delete_retention_policy"] = delete_retention_policy
             __props__.__dict__["is_versioning_enabled"] = is_versioning_enabled
+            if not isinstance(last_access_time_tracking_policy, LastAccessTimeTrackingPolicyArgs):
+                last_access_time_tracking_policy = last_access_time_tracking_policy or {}
+                def _setter(key, value):
+                    last_access_time_tracking_policy[key] = value
+                LastAccessTimeTrackingPolicyArgs._configure(_setter, **last_access_time_tracking_policy)
             __props__.__dict__["last_access_time_tracking_policy"] = last_access_time_tracking_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(restore_policy, RestorePolicyPropertiesArgs):
+                restore_policy = restore_policy or {}
+                def _setter(key, value):
+                    restore_policy[key] = value
+                RestorePolicyPropertiesArgs._configure(_setter, **restore_policy)
             __props__.__dict__["restore_policy"] = restore_policy
             __props__.__dict__["name"] = None
             __props__.__dict__["sku"] = None

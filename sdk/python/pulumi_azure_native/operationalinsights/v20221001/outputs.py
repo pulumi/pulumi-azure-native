@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -72,18 +72,39 @@ class ColumnResponse(dict):
         :param str name: Column name.
         :param str type: Column data type.
         """
-        pulumi.set(__self__, "is_default_display", is_default_display)
-        pulumi.set(__self__, "is_hidden", is_hidden)
+        ColumnResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_default_display=is_default_display,
+            is_hidden=is_hidden,
+            data_type_hint=data_type_hint,
+            description=description,
+            display_name=display_name,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_default_display: bool,
+             is_hidden: bool,
+             data_type_hint: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_default_display", is_default_display)
+        _setter("is_hidden", is_hidden)
         if data_type_hint is not None:
-            pulumi.set(__self__, "data_type_hint", data_type_hint)
+            _setter("data_type_hint", data_type_hint)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="isDefaultDisplay")
@@ -180,11 +201,26 @@ class IdentityResponse(dict):
         :param str type: Type of managed service identity.
         :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -251,10 +287,21 @@ class PrivateLinkScopedResourceResponse(dict):
         :param str resource_id: The full resource Id of the private link scope resource.
         :param str scope_id: The private link scope unique Identifier.
         """
+        PrivateLinkScopedResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            scope_id=scope_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             scope_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if scope_id is not None:
-            pulumi.set(__self__, "scope_id", scope_id)
+            _setter("scope_id", scope_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -313,13 +360,28 @@ class RestoredLogsResponse(dict):
         :param str source_table: The table to restore data from.
         :param str start_restore_time: The timestamp to start the restore from (UTC).
         """
-        pulumi.set(__self__, "azure_async_operation_id", azure_async_operation_id)
+        RestoredLogsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_async_operation_id=azure_async_operation_id,
+            end_restore_time=end_restore_time,
+            source_table=source_table,
+            start_restore_time=start_restore_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_async_operation_id: str,
+             end_restore_time: Optional[str] = None,
+             source_table: Optional[str] = None,
+             start_restore_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_async_operation_id", azure_async_operation_id)
         if end_restore_time is not None:
-            pulumi.set(__self__, "end_restore_time", end_restore_time)
+            _setter("end_restore_time", end_restore_time)
         if source_table is not None:
-            pulumi.set(__self__, "source_table", source_table)
+            _setter("source_table", source_table)
         if start_restore_time is not None:
-            pulumi.set(__self__, "start_restore_time", start_restore_time)
+            _setter("start_restore_time", start_restore_time)
 
     @property
     @pulumi.getter(name="azureAsyncOperationId")
@@ -388,9 +450,22 @@ class ResultStatisticsResponse(dict):
         :param float progress: Search job completion percentage.
         :param float scanned_gb: Search job: Amount of scanned data.
         """
-        pulumi.set(__self__, "ingested_records", ingested_records)
-        pulumi.set(__self__, "progress", progress)
-        pulumi.set(__self__, "scanned_gb", scanned_gb)
+        ResultStatisticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ingested_records=ingested_records,
+            progress=progress,
+            scanned_gb=scanned_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ingested_records: int,
+             progress: float,
+             scanned_gb: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ingested_records", ingested_records)
+        _setter("progress", progress)
+        _setter("scanned_gb", scanned_gb)
 
     @property
     @pulumi.getter(name="ingestedRecords")
@@ -471,21 +546,50 @@ class SchemaResponse(dict):
         :param str display_name: Table display name.
         :param str name: Table name.
         """
-        pulumi.set(__self__, "categories", categories)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "solutions", solutions)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "standard_columns", standard_columns)
-        pulumi.set(__self__, "table_sub_type", table_sub_type)
-        pulumi.set(__self__, "table_type", table_type)
+        SchemaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            categories=categories,
+            labels=labels,
+            solutions=solutions,
+            source=source,
+            standard_columns=standard_columns,
+            table_sub_type=table_sub_type,
+            table_type=table_type,
+            columns=columns,
+            description=description,
+            display_name=display_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             categories: Sequence[str],
+             labels: Sequence[str],
+             solutions: Sequence[str],
+             source: str,
+             standard_columns: Sequence['outputs.ColumnResponse'],
+             table_sub_type: str,
+             table_type: str,
+             columns: Optional[Sequence['outputs.ColumnResponse']] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("categories", categories)
+        _setter("labels", labels)
+        _setter("solutions", solutions)
+        _setter("source", source)
+        _setter("standard_columns", standard_columns)
+        _setter("table_sub_type", table_sub_type)
+        _setter("table_type", table_type)
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -622,18 +726,39 @@ class SearchResultsResponse(dict):
         :param str query: Search job query.
         :param str start_search_time: The timestamp to start the search from (UTC)
         """
-        pulumi.set(__self__, "azure_async_operation_id", azure_async_operation_id)
-        pulumi.set(__self__, "source_table", source_table)
+        SearchResultsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_async_operation_id=azure_async_operation_id,
+            source_table=source_table,
+            description=description,
+            end_search_time=end_search_time,
+            limit=limit,
+            query=query,
+            start_search_time=start_search_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_async_operation_id: str,
+             source_table: str,
+             description: Optional[str] = None,
+             end_search_time: Optional[str] = None,
+             limit: Optional[int] = None,
+             query: Optional[str] = None,
+             start_search_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_async_operation_id", azure_async_operation_id)
+        _setter("source_table", source_table)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_search_time is not None:
-            pulumi.set(__self__, "end_search_time", end_search_time)
+            _setter("end_search_time", end_search_time)
         if limit is not None:
-            pulumi.set(__self__, "limit", limit)
+            _setter("limit", limit)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if start_search_time is not None:
-            pulumi.set(__self__, "start_search_time", start_search_time)
+            _setter("start_search_time", start_search_time)
 
     @property
     @pulumi.getter(name="azureAsyncOperationId")
@@ -740,18 +865,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -834,8 +978,19 @@ class UserIdentityPropertiesResponse(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserIdentityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -890,10 +1045,23 @@ class WorkspaceCappingResponse(dict):
         :param str quota_next_reset_time: The time when the quota will be rest.
         :param float daily_quota_gb: The workspace daily quota for ingestion.
         """
-        pulumi.set(__self__, "data_ingestion_status", data_ingestion_status)
-        pulumi.set(__self__, "quota_next_reset_time", quota_next_reset_time)
+        WorkspaceCappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_ingestion_status=data_ingestion_status,
+            quota_next_reset_time=quota_next_reset_time,
+            daily_quota_gb=daily_quota_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_ingestion_status: str,
+             quota_next_reset_time: str,
+             daily_quota_gb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_ingestion_status", data_ingestion_status)
+        _setter("quota_next_reset_time", quota_next_reset_time)
         if daily_quota_gb is not None:
-            pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
+            _setter("daily_quota_gb", daily_quota_gb)
 
     @property
     @pulumi.getter(name="dataIngestionStatus")
@@ -964,16 +1132,33 @@ class WorkspaceFeaturesResponse(dict):
         :param bool enable_log_access_using_only_resource_permissions: Flag that indicate which permission to use - resource or workspace or both.
         :param bool immediate_purge_data_on30_days: Flag that describes if we want to remove the data after 30 days.
         """
+        WorkspaceFeaturesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_resource_id=cluster_resource_id,
+            disable_local_auth=disable_local_auth,
+            enable_data_export=enable_data_export,
+            enable_log_access_using_only_resource_permissions=enable_log_access_using_only_resource_permissions,
+            immediate_purge_data_on30_days=immediate_purge_data_on30_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_resource_id: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             enable_data_export: Optional[bool] = None,
+             enable_log_access_using_only_resource_permissions: Optional[bool] = None,
+             immediate_purge_data_on30_days: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_resource_id is not None:
-            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+            _setter("cluster_resource_id", cluster_resource_id)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if enable_data_export is not None:
-            pulumi.set(__self__, "enable_data_export", enable_data_export)
+            _setter("enable_data_export", enable_data_export)
         if enable_log_access_using_only_resource_permissions is not None:
-            pulumi.set(__self__, "enable_log_access_using_only_resource_permissions", enable_log_access_using_only_resource_permissions)
+            _setter("enable_log_access_using_only_resource_permissions", enable_log_access_using_only_resource_permissions)
         if immediate_purge_data_on30_days is not None:
-            pulumi.set(__self__, "immediate_purge_data_on30_days", immediate_purge_data_on30_days)
+            _setter("immediate_purge_data_on30_days", immediate_purge_data_on30_days)
 
     @property
     @pulumi.getter(name="clusterResourceId")
@@ -1050,10 +1235,23 @@ class WorkspaceSkuResponse(dict):
         :param str name: The name of the SKU.
         :param int capacity_reservation_level: The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
-        pulumi.set(__self__, "last_sku_update", last_sku_update)
-        pulumi.set(__self__, "name", name)
+        WorkspaceSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_sku_update=last_sku_update,
+            name=name,
+            capacity_reservation_level=capacity_reservation_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_sku_update: str,
+             name: str,
+             capacity_reservation_level: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last_sku_update", last_sku_update)
+        _setter("name", name)
         if capacity_reservation_level is not None:
-            pulumi.set(__self__, "capacity_reservation_level", capacity_reservation_level)
+            _setter("capacity_reservation_level", capacity_reservation_level)
 
     @property
     @pulumi.getter(name="lastSkuUpdate")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -73,55 +73,114 @@ class AKSServiceArgs:
         :param pulumi.Input[float] traffic_percentile: The amount of traffic variant receives.
         :param pulumi.Input[Union[str, 'VariantType']] type: The type of the variant.
         """
-        pulumi.set(__self__, "compute_type", 'AKS')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        AKSServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            aad_auth_enabled=aad_auth_enabled,
+            app_insights_enabled=app_insights_enabled,
+            auth_enabled=auth_enabled,
+            auto_scaler=auto_scaler,
+            compute_name=compute_name,
+            container_resource_requirements=container_resource_requirements,
+            data_collection=data_collection,
+            description=description,
+            environment_image_request=environment_image_request,
+            is_default=is_default,
+            keys=keys,
+            kv_tags=kv_tags,
+            liveness_probe_requirements=liveness_probe_requirements,
+            location=location,
+            max_concurrent_requests_per_container=max_concurrent_requests_per_container,
+            max_queue_wait_ms=max_queue_wait_ms,
+            namespace=namespace,
+            num_replicas=num_replicas,
+            properties=properties,
+            scoring_timeout_ms=scoring_timeout_ms,
+            service_name=service_name,
+            traffic_percentile=traffic_percentile,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             app_insights_enabled: Optional[pulumi.Input[bool]] = None,
+             auth_enabled: Optional[pulumi.Input[bool]] = None,
+             auto_scaler: Optional[pulumi.Input['AKSServiceCreateRequestAutoScalerArgs']] = None,
+             compute_name: Optional[pulumi.Input[str]] = None,
+             container_resource_requirements: Optional[pulumi.Input['ContainerResourceRequirementsArgs']] = None,
+             data_collection: Optional[pulumi.Input['AKSServiceCreateRequestDataCollectionArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_image_request: Optional[pulumi.Input['CreateServiceRequestEnvironmentImageRequestArgs']] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             keys: Optional[pulumi.Input['CreateServiceRequestKeysArgs']] = None,
+             kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             liveness_probe_requirements: Optional[pulumi.Input['AKSServiceCreateRequestLivenessProbeRequirementsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_concurrent_requests_per_container: Optional[pulumi.Input[int]] = None,
+             max_queue_wait_ms: Optional[pulumi.Input[int]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             num_replicas: Optional[pulumi.Input[int]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             scoring_timeout_ms: Optional[pulumi.Input[int]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             traffic_percentile: Optional[pulumi.Input[float]] = None,
+             type: Optional[pulumi.Input[Union[str, 'VariantType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'AKS')
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if aad_auth_enabled is not None:
-            pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
+            _setter("aad_auth_enabled", aad_auth_enabled)
         if app_insights_enabled is not None:
-            pulumi.set(__self__, "app_insights_enabled", app_insights_enabled)
+            _setter("app_insights_enabled", app_insights_enabled)
         if auth_enabled is not None:
-            pulumi.set(__self__, "auth_enabled", auth_enabled)
+            _setter("auth_enabled", auth_enabled)
         if auto_scaler is not None:
-            pulumi.set(__self__, "auto_scaler", auto_scaler)
+            _setter("auto_scaler", auto_scaler)
         if compute_name is not None:
-            pulumi.set(__self__, "compute_name", compute_name)
+            _setter("compute_name", compute_name)
         if container_resource_requirements is not None:
-            pulumi.set(__self__, "container_resource_requirements", container_resource_requirements)
+            _setter("container_resource_requirements", container_resource_requirements)
         if data_collection is not None:
-            pulumi.set(__self__, "data_collection", data_collection)
+            _setter("data_collection", data_collection)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_image_request is not None:
-            pulumi.set(__self__, "environment_image_request", environment_image_request)
+            _setter("environment_image_request", environment_image_request)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
         if kv_tags is not None:
-            pulumi.set(__self__, "kv_tags", kv_tags)
+            _setter("kv_tags", kv_tags)
         if liveness_probe_requirements is not None:
-            pulumi.set(__self__, "liveness_probe_requirements", liveness_probe_requirements)
+            _setter("liveness_probe_requirements", liveness_probe_requirements)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_concurrent_requests_per_container is not None:
-            pulumi.set(__self__, "max_concurrent_requests_per_container", max_concurrent_requests_per_container)
+            _setter("max_concurrent_requests_per_container", max_concurrent_requests_per_container)
         if max_queue_wait_ms is not None:
-            pulumi.set(__self__, "max_queue_wait_ms", max_queue_wait_ms)
+            _setter("max_queue_wait_ms", max_queue_wait_ms)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if num_replicas is not None:
-            pulumi.set(__self__, "num_replicas", num_replicas)
+            _setter("num_replicas", num_replicas)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if scoring_timeout_ms is not None:
-            pulumi.set(__self__, "scoring_timeout_ms", scoring_timeout_ms)
+            _setter("scoring_timeout_ms", scoring_timeout_ms)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if traffic_percentile is not None:
-            pulumi.set(__self__, "traffic_percentile", traffic_percentile)
+            _setter("traffic_percentile", traffic_percentile)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="computeType")
@@ -521,6 +580,10 @@ class AKSService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AKSServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -564,18 +627,48 @@ class AKSService(pulumi.CustomResource):
             __props__.__dict__["aad_auth_enabled"] = aad_auth_enabled
             __props__.__dict__["app_insights_enabled"] = app_insights_enabled
             __props__.__dict__["auth_enabled"] = auth_enabled
+            if not isinstance(auto_scaler, AKSServiceCreateRequestAutoScalerArgs):
+                auto_scaler = auto_scaler or {}
+                def _setter(key, value):
+                    auto_scaler[key] = value
+                AKSServiceCreateRequestAutoScalerArgs._configure(_setter, **auto_scaler)
             __props__.__dict__["auto_scaler"] = auto_scaler
             __props__.__dict__["compute_name"] = compute_name
             if compute_type is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_type'")
             __props__.__dict__["compute_type"] = 'AKS'
+            if not isinstance(container_resource_requirements, ContainerResourceRequirementsArgs):
+                container_resource_requirements = container_resource_requirements or {}
+                def _setter(key, value):
+                    container_resource_requirements[key] = value
+                ContainerResourceRequirementsArgs._configure(_setter, **container_resource_requirements)
             __props__.__dict__["container_resource_requirements"] = container_resource_requirements
+            if not isinstance(data_collection, AKSServiceCreateRequestDataCollectionArgs):
+                data_collection = data_collection or {}
+                def _setter(key, value):
+                    data_collection[key] = value
+                AKSServiceCreateRequestDataCollectionArgs._configure(_setter, **data_collection)
             __props__.__dict__["data_collection"] = data_collection
             __props__.__dict__["description"] = description
+            if not isinstance(environment_image_request, CreateServiceRequestEnvironmentImageRequestArgs):
+                environment_image_request = environment_image_request or {}
+                def _setter(key, value):
+                    environment_image_request[key] = value
+                CreateServiceRequestEnvironmentImageRequestArgs._configure(_setter, **environment_image_request)
             __props__.__dict__["environment_image_request"] = environment_image_request
             __props__.__dict__["is_default"] = is_default
+            if not isinstance(keys, CreateServiceRequestKeysArgs):
+                keys = keys or {}
+                def _setter(key, value):
+                    keys[key] = value
+                CreateServiceRequestKeysArgs._configure(_setter, **keys)
             __props__.__dict__["keys"] = keys
             __props__.__dict__["kv_tags"] = kv_tags
+            if not isinstance(liveness_probe_requirements, AKSServiceCreateRequestLivenessProbeRequirementsArgs):
+                liveness_probe_requirements = liveness_probe_requirements or {}
+                def _setter(key, value):
+                    liveness_probe_requirements[key] = value
+                AKSServiceCreateRequestLivenessProbeRequirementsArgs._configure(_setter, **liveness_probe_requirements)
             __props__.__dict__["liveness_probe_requirements"] = liveness_probe_requirements
             __props__.__dict__["location"] = location
             __props__.__dict__["max_concurrent_requests_per_container"] = max_concurrent_requests_per_container

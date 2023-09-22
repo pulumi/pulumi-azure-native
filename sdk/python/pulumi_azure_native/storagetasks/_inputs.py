@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,7 +26,16 @@ class ElseConditionArgs:
         The else block of storage task operation
         :param pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]] operations: List of operations to execute in the else block
         """
-        pulumi.set(__self__, "operations", operations)
+        ElseConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operations=operations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operations", operations)
 
     @property
     @pulumi.getter
@@ -51,8 +60,19 @@ class IfConditionArgs:
         :param pulumi.Input[str] condition: The condition predicate which is composed of object properties, eg: blob and container properties.
         :param pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]] operations: List of operations to execute when the condition predicate satisfies.
         """
-        pulumi.set(__self__, "condition", condition)
-        pulumi.set(__self__, "operations", operations)
+        IfConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition=condition,
+            operations=operations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition: pulumi.Input[str],
+             operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("condition", condition)
+        _setter("operations", operations)
 
     @property
     @pulumi.getter
@@ -89,9 +109,20 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -128,9 +159,20 @@ class StorageTaskActionArgs:
         :param pulumi.Input['IfConditionArgs'] if_: The if block of storage task operation
         :param pulumi.Input['ElseConditionArgs'] else_: The else block of storage task operation
         """
-        pulumi.set(__self__, "if_", if_)
+        StorageTaskActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            if_=if_,
+            else_=else_,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             if_: pulumi.Input['IfConditionArgs'],
+             else_: Optional[pulumi.Input['ElseConditionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("if_", if_)
         if else_ is not None:
-            pulumi.set(__self__, "else_", else_)
+            _setter("else_", else_)
 
     @property
     @pulumi.getter(name="if")
@@ -171,13 +213,28 @@ class StorageTaskOperationArgs:
         :param pulumi.Input['OnSuccess'] on_success: Action to be taken when the operation is successful for a object.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value parameters for the operation.
         """
-        pulumi.set(__self__, "name", name)
+        StorageTaskOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            on_failure=on_failure,
+            on_success=on_success,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'StorageTaskOperationName']],
+             on_failure: Optional[pulumi.Input['OnFailure']] = None,
+             on_success: Optional[pulumi.Input['OnSuccess']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if on_failure is not None:
-            pulumi.set(__self__, "on_failure", on_failure)
+            _setter("on_failure", on_failure)
         if on_success is not None:
-            pulumi.set(__self__, "on_success", on_success)
+            _setter("on_success", on_success)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter

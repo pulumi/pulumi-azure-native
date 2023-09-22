@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,24 +44,55 @@ class KubernetesClusterArgs:
         :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "control_plane_node_configuration", control_plane_node_configuration)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "initial_agent_pool_configurations", initial_agent_pool_configurations)
-        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
-        pulumi.set(__self__, "network_configuration", network_configuration)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        KubernetesClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_plane_node_configuration=control_plane_node_configuration,
+            extended_location=extended_location,
+            initial_agent_pool_configurations=initial_agent_pool_configurations,
+            kubernetes_version=kubernetes_version,
+            network_configuration=network_configuration,
+            resource_group_name=resource_group_name,
+            aad_configuration=aad_configuration,
+            administrator_configuration=administrator_configuration,
+            kubernetes_cluster_name=kubernetes_cluster_name,
+            location=location,
+            managed_resource_group_configuration=managed_resource_group_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_plane_node_configuration: pulumi.Input['ControlPlaneNodeConfigurationArgs'],
+             extended_location: pulumi.Input['ExtendedLocationArgs'],
+             initial_agent_pool_configurations: pulumi.Input[Sequence[pulumi.Input['InitialAgentPoolConfigurationArgs']]],
+             kubernetes_version: pulumi.Input[str],
+             network_configuration: pulumi.Input['NetworkConfigurationArgs'],
+             resource_group_name: pulumi.Input[str],
+             aad_configuration: Optional[pulumi.Input['AadConfigurationArgs']] = None,
+             administrator_configuration: Optional[pulumi.Input['AdministratorConfigurationArgs']] = None,
+             kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("control_plane_node_configuration", control_plane_node_configuration)
+        _setter("extended_location", extended_location)
+        _setter("initial_agent_pool_configurations", initial_agent_pool_configurations)
+        _setter("kubernetes_version", kubernetes_version)
+        _setter("network_configuration", network_configuration)
+        _setter("resource_group_name", resource_group_name)
         if aad_configuration is not None:
-            pulumi.set(__self__, "aad_configuration", aad_configuration)
+            _setter("aad_configuration", aad_configuration)
         if administrator_configuration is not None:
-            pulumi.set(__self__, "administrator_configuration", administrator_configuration)
+            _setter("administrator_configuration", administrator_configuration)
         if kubernetes_cluster_name is not None:
-            pulumi.set(__self__, "kubernetes_cluster_name", kubernetes_cluster_name)
+            _setter("kubernetes_cluster_name", kubernetes_cluster_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+            _setter("managed_resource_group_configuration", managed_resource_group_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="controlPlaneNodeConfiguration")
@@ -263,6 +294,10 @@ class KubernetesCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KubernetesClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -289,11 +324,31 @@ class KubernetesCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KubernetesClusterArgs.__new__(KubernetesClusterArgs)
 
+            if not isinstance(aad_configuration, AadConfigurationArgs):
+                aad_configuration = aad_configuration or {}
+                def _setter(key, value):
+                    aad_configuration[key] = value
+                AadConfigurationArgs._configure(_setter, **aad_configuration)
             __props__.__dict__["aad_configuration"] = aad_configuration
+            if not isinstance(administrator_configuration, AdministratorConfigurationArgs):
+                administrator_configuration = administrator_configuration or {}
+                def _setter(key, value):
+                    administrator_configuration[key] = value
+                AdministratorConfigurationArgs._configure(_setter, **administrator_configuration)
             __props__.__dict__["administrator_configuration"] = administrator_configuration
+            if not isinstance(control_plane_node_configuration, ControlPlaneNodeConfigurationArgs):
+                control_plane_node_configuration = control_plane_node_configuration or {}
+                def _setter(key, value):
+                    control_plane_node_configuration[key] = value
+                ControlPlaneNodeConfigurationArgs._configure(_setter, **control_plane_node_configuration)
             if control_plane_node_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'control_plane_node_configuration'")
             __props__.__dict__["control_plane_node_configuration"] = control_plane_node_configuration
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
@@ -305,7 +360,17 @@ class KubernetesCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kubernetes_version'")
             __props__.__dict__["kubernetes_version"] = kubernetes_version
             __props__.__dict__["location"] = location
+            if not isinstance(managed_resource_group_configuration, ManagedResourceGroupConfigurationArgs):
+                managed_resource_group_configuration = managed_resource_group_configuration or {}
+                def _setter(key, value):
+                    managed_resource_group_configuration[key] = value
+                ManagedResourceGroupConfigurationArgs._configure(_setter, **managed_resource_group_configuration)
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
+            if not isinstance(network_configuration, NetworkConfigurationArgs):
+                network_configuration = network_configuration or {}
+                def _setter(key, value):
+                    network_configuration[key] = value
+                NetworkConfigurationArgs._configure(_setter, **network_configuration)
             if network_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'network_configuration'")
             __props__.__dict__["network_configuration"] = network_configuration

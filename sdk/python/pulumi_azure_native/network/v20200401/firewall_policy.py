@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,44 @@ class FirewallPolicyArgs:
         :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
         :param pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs'] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FirewallPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            base_policy=base_policy,
+            firewall_policy_name=firewall_policy_name,
+            id=id,
+            location=location,
+            tags=tags,
+            threat_intel_mode=threat_intel_mode,
+            threat_intel_whitelist=threat_intel_whitelist,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             base_policy: Optional[pulumi.Input['SubResourceArgs']] = None,
+             firewall_policy_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
+             threat_intel_whitelist: Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if base_policy is not None:
-            pulumi.set(__self__, "base_policy", base_policy)
+            _setter("base_policy", base_policy)
         if firewall_policy_name is not None:
-            pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
+            _setter("firewall_policy_name", firewall_policy_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_intel_mode is not None:
-            pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+            _setter("threat_intel_mode", threat_intel_mode)
         if threat_intel_whitelist is not None:
-            pulumi.set(__self__, "threat_intel_whitelist", threat_intel_whitelist)
+            _setter("threat_intel_whitelist", threat_intel_whitelist)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +219,10 @@ class FirewallPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,6 +245,11 @@ class FirewallPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
 
+            if not isinstance(base_policy, SubResourceArgs):
+                base_policy = base_policy or {}
+                def _setter(key, value):
+                    base_policy[key] = value
+                SubResourceArgs._configure(_setter, **base_policy)
             __props__.__dict__["base_policy"] = base_policy
             __props__.__dict__["firewall_policy_name"] = firewall_policy_name
             __props__.__dict__["id"] = id
@@ -227,6 +259,11 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_intel_mode"] = threat_intel_mode
+            if not isinstance(threat_intel_whitelist, FirewallPolicyThreatIntelWhitelistArgs):
+                threat_intel_whitelist = threat_intel_whitelist or {}
+                def _setter(key, value):
+                    threat_intel_whitelist[key] = value
+                FirewallPolicyThreatIntelWhitelistArgs._configure(_setter, **threat_intel_whitelist)
             __props__.__dict__["threat_intel_whitelist"] = threat_intel_whitelist
             __props__.__dict__["child_policies"] = None
             __props__.__dict__["etag"] = None

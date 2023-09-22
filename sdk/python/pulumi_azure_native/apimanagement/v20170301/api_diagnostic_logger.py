@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,12 +28,29 @@ class ApiDiagnosticLoggerArgs:
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] loggerid: Logger identifier. Must be unique in the API Management service instance.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "diagnostic_id", diagnostic_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        ApiDiagnosticLoggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            diagnostic_id=diagnostic_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            loggerid=loggerid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             diagnostic_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             loggerid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
+        _setter("diagnostic_id", diagnostic_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if loggerid is not None:
-            pulumi.set(__self__, "loggerid", loggerid)
+            _setter("loggerid", loggerid)
 
     @property
     @pulumi.getter(name="apiId")
@@ -137,6 +154,10 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiDiagnosticLoggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

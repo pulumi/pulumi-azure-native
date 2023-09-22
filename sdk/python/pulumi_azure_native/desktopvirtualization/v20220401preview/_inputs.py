@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,14 +34,29 @@ class AgentUpdatePropertiesArgs:
         :param pulumi.Input[Union[str, 'SessionHostComponentUpdateType']] type: The type of maintenance for session host components.
         :param pulumi.Input[bool] use_session_host_local_time: Whether to use localTime of the virtual machine.
         """
+        AgentUpdatePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maintenance_window_time_zone=maintenance_window_time_zone,
+            maintenance_windows=maintenance_windows,
+            type=type,
+            use_session_host_local_time=use_session_host_local_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maintenance_window_time_zone: Optional[pulumi.Input[str]] = None,
+             maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]] = None,
+             type: Optional[pulumi.Input[Union[str, 'SessionHostComponentUpdateType']]] = None,
+             use_session_host_local_time: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if maintenance_window_time_zone is not None:
-            pulumi.set(__self__, "maintenance_window_time_zone", maintenance_window_time_zone)
+            _setter("maintenance_window_time_zone", maintenance_window_time_zone)
         if maintenance_windows is not None:
-            pulumi.set(__self__, "maintenance_windows", maintenance_windows)
+            _setter("maintenance_windows", maintenance_windows)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if use_session_host_local_time is not None:
-            pulumi.set(__self__, "use_session_host_local_time", use_session_host_local_time)
+            _setter("use_session_host_local_time", use_session_host_local_time)
 
     @property
     @pulumi.getter(name="maintenanceWindowTimeZone")
@@ -102,10 +117,21 @@ class MaintenanceWindowPropertiesArgs:
         :param pulumi.Input['DayOfWeek'] day_of_week: Day of the week.
         :param pulumi.Input[int] hour: The update start hour of the day. (0 - 23)
         """
+        MaintenanceWindowPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            hour=hour,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: Optional[pulumi.Input['DayOfWeek']] = None,
+             hour: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if hour is not None:
-            pulumi.set(__self__, "hour", hour)
+            _setter("hour", hour)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -142,10 +168,21 @@ class MigrationRequestPropertiesArgs:
         :param pulumi.Input[str] migration_path: The path to the legacy object to migrate.
         :param pulumi.Input[Union[str, 'Operation']] operation: The type of operation for migration.
         """
+        MigrationRequestPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            migration_path=migration_path,
+            operation=operation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             migration_path: Optional[pulumi.Input[str]] = None,
+             operation: Optional[pulumi.Input[Union[str, 'Operation']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if migration_path is not None:
-            pulumi.set(__self__, "migration_path", migration_path)
+            _setter("migration_path", migration_path)
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
 
     @property
     @pulumi.getter(name="migrationPath")
@@ -184,12 +221,25 @@ class RegistrationInfoArgs:
         :param pulumi.Input[Union[str, 'RegistrationTokenOperation']] registration_token_operation: The type of resetting the token.
         :param pulumi.Input[str] token: The registration token base64 encoded string.
         """
+        RegistrationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_time=expiration_time,
+            registration_token_operation=registration_token_operation,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_time: Optional[pulumi.Input[str]] = None,
+             registration_token_operation: Optional[pulumi.Input[Union[str, 'RegistrationTokenOperation']]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expiration_time is not None:
-            pulumi.set(__self__, "expiration_time", expiration_time)
+            _setter("expiration_time", expiration_time)
         if registration_token_operation is not None:
-            pulumi.set(__self__, "registration_token_operation", registration_token_operation)
+            _setter("registration_token_operation", registration_token_operation)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
 
     @property
     @pulumi.getter(name="expirationTime")
@@ -235,8 +285,17 @@ class ResourceModelWithAllowedPropertySetIdentityArgs:
         """
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
+        ResourceModelWithAllowedPropertySetIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -266,13 +325,30 @@ class ResourceModelWithAllowedPropertySetPlanArgs:
         :param pulumi.Input[str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[str] version: The version of the desired product/artifact.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
+        ResourceModelWithAllowedPropertySetPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            promotion_code=promotion_code,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             product: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             promotion_code: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -350,15 +426,32 @@ class ResourceModelWithAllowedPropertySetSkuArgs:
         :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceModelWithAllowedPropertySetSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input['SkuTier']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

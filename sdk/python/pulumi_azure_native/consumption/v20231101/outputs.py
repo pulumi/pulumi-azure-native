@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,9 +36,22 @@ class BudgetComparisonExpressionResponse(dict):
         :param str operator: The operator to use for comparison.
         :param Sequence[str] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        BudgetComparisonExpressionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             operator: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -78,10 +91,21 @@ class BudgetFilterPropertiesResponse(dict):
         :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
         :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
+        BudgetFilterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+             tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -132,12 +156,25 @@ class BudgetFilterResponse(dict):
         :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
         :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
+        BudgetFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimensions=dimensions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[Sequence['outputs.BudgetFilterPropertiesResponse']] = None,
+             dimensions: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+             tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="and")
@@ -196,9 +233,20 @@ class BudgetTimePeriodResponse(dict):
         :param str start_date: The start date for the budget.
         :param str end_date: The end date for the budget. If not provided, we default this to 10 years from the start date.
         """
-        pulumi.set(__self__, "start_date", start_date)
+        BudgetTimePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            start_date=start_date,
+            end_date=end_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             start_date: str,
+             end_date: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("start_date", start_date)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
 
     @property
     @pulumi.getter(name="startDate")
@@ -230,8 +278,19 @@ class CurrentSpendResponse(dict):
         :param float amount: The total amount of cost which is being tracked by the budget.
         :param str unit: The unit of measure for the budget amount.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "unit", unit)
+        CurrentSpendResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: float,
+             unit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("amount", amount)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -263,8 +322,19 @@ class ForecastSpendResponse(dict):
         :param float amount: The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
         :param str unit: The unit of measure for the budget amount.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "unit", unit)
+        ForecastSpendResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: float,
+             unit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("amount", amount)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -331,20 +401,43 @@ class NotificationResponse(dict):
         :param str locale: Language in which the recipient will receive the notification
         :param str threshold_type: The type of threshold
         """
-        pulumi.set(__self__, "contact_emails", contact_emails)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
+        NotificationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_emails=contact_emails,
+            enabled=enabled,
+            operator=operator,
+            threshold=threshold,
+            contact_groups=contact_groups,
+            contact_roles=contact_roles,
+            locale=locale,
+            threshold_type=threshold_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_emails: Sequence[str],
+             enabled: bool,
+             operator: str,
+             threshold: float,
+             contact_groups: Optional[Sequence[str]] = None,
+             contact_roles: Optional[Sequence[str]] = None,
+             locale: Optional[str] = None,
+             threshold_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_emails", contact_emails)
+        _setter("enabled", enabled)
+        _setter("operator", operator)
+        _setter("threshold", threshold)
         if contact_groups is not None:
-            pulumi.set(__self__, "contact_groups", contact_groups)
+            _setter("contact_groups", contact_groups)
         if contact_roles is not None:
-            pulumi.set(__self__, "contact_roles", contact_roles)
+            _setter("contact_roles", contact_roles)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if threshold_type is None:
             threshold_type = 'Actual'
         if threshold_type is not None:
-            pulumi.set(__self__, "threshold_type", threshold_type)
+            _setter("threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="contactEmails")

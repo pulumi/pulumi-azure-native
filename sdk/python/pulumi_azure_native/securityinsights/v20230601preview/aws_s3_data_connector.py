@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,15 +37,38 @@ class AwsS3DataConnectorArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
         """
-        pulumi.set(__self__, "data_types", data_types)
-        pulumi.set(__self__, "destination_table", destination_table)
-        pulumi.set(__self__, "kind", 'AmazonWebServicesS3')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "sqs_urls", sqs_urls)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        AwsS3DataConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_types=data_types,
+            destination_table=destination_table,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            role_arn=role_arn,
+            sqs_urls=sqs_urls,
+            workspace_name=workspace_name,
+            data_connector_id=data_connector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_types: pulumi.Input['AwsS3DataConnectorDataTypesArgs'],
+             destination_table: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             sqs_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+             workspace_name: pulumi.Input[str],
+             data_connector_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_types", data_types)
+        _setter("destination_table", destination_table)
+        _setter("kind", 'AmazonWebServicesS3')
+        _setter("resource_group_name", resource_group_name)
+        _setter("role_arn", role_arn)
+        _setter("sqs_urls", sqs_urls)
+        _setter("workspace_name", workspace_name)
         if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
+            _setter("data_connector_id", data_connector_id)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -193,6 +216,10 @@ class AwsS3DataConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AwsS3DataConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -216,6 +243,11 @@ class AwsS3DataConnector(pulumi.CustomResource):
             __props__ = AwsS3DataConnectorArgs.__new__(AwsS3DataConnectorArgs)
 
             __props__.__dict__["data_connector_id"] = data_connector_id
+            if not isinstance(data_types, AwsS3DataConnectorDataTypesArgs):
+                data_types = data_types or {}
+                def _setter(key, value):
+                    data_types[key] = value
+                AwsS3DataConnectorDataTypesArgs._configure(_setter, **data_types)
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types

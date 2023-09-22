@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,32 @@ class RestorePointCollectionArgs:
         :param pulumi.Input['RestorePointCollectionSourcePropertiesArgs'] source: The properties of the source resource that this restore point collection is created from.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RestorePointCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            location=location,
+            restore_point_collection_name=restore_point_collection_name,
+            source=source,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             restore_point_collection_name: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['RestorePointCollectionSourcePropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if restore_point_collection_name is not None:
-            pulumi.set(__self__, "restore_point_collection_name", restore_point_collection_name)
+            _setter("restore_point_collection_name", restore_point_collection_name)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -143,6 +160,10 @@ class RestorePointCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RestorePointCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -167,6 +188,11 @@ class RestorePointCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restore_point_collection_name"] = restore_point_collection_name
+            if not isinstance(source, RestorePointCollectionSourcePropertiesArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                RestorePointCollectionSourcePropertiesArgs._configure(_setter, **source)
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

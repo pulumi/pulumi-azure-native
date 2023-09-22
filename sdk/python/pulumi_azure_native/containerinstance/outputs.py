@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -89,12 +89,27 @@ class AzureFileVolumeResponse(dict):
         :param bool read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
         :param str storage_account_key: The storage account access key used to access the Azure File share.
         """
-        pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        AzureFileVolumeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            share_name=share_name,
+            storage_account_name=storage_account_name,
+            read_only=read_only,
+            storage_account_key=storage_account_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             share_name: str,
+             storage_account_name: str,
+             read_only: Optional[bool] = None,
+             storage_account_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("share_name", share_name)
+        _setter("storage_account_name", storage_account_name)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
 
     @property
     @pulumi.getter(name="shareName")
@@ -157,8 +172,17 @@ class ConfidentialComputePropertiesResponse(dict):
         The properties for confidential container group
         :param str cce_policy: The base64 encoded confidential compute enforcement policy
         """
+        ConfidentialComputePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cce_policy=cce_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cce_policy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cce_policy is not None:
-            pulumi.set(__self__, "cce_policy", cce_policy)
+            _setter("cce_policy", cce_policy)
 
     @property
     @pulumi.getter(name="ccePolicy")
@@ -180,8 +204,17 @@ class ContainerExecResponse(dict):
         The container execution command, for liveness or readiness probe
         :param Sequence[str] command: The commands to execute within the container.
         """
+        ContainerExecResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command=command,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if command is not None:
-            pulumi.set(__self__, "command", command)
+            _setter("command", command)
 
     @property
     @pulumi.getter
@@ -220,8 +253,17 @@ class ContainerGroupDiagnosticsResponse(dict):
         Container group diagnostic information.
         :param 'LogAnalyticsResponse' log_analytics: Container group log analytics information.
         """
+        ContainerGroupDiagnosticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics=log_analytics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics: Optional['outputs.LogAnalyticsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if log_analytics is not None:
-            pulumi.set(__self__, "log_analytics", log_analytics)
+            _setter("log_analytics", log_analytics)
 
     @property
     @pulumi.getter(name="logAnalytics")
@@ -270,12 +312,27 @@ class ContainerGroupIdentityResponse(dict):
         :param str type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
         :param Mapping[str, 'UserAssignedIdentitiesResponse'] user_assigned_identities: The list of user identities associated with the container group.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ContainerGroupIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -323,8 +380,19 @@ class ContainerGroupPropertiesResponseInstanceView(dict):
         :param Sequence['EventResponse'] events: The events of this container group.
         :param str state: The state of the container group. Only valid in response.
         """
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "state", state)
+        ContainerGroupPropertiesResponseInstanceView._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            events=events,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             events: Sequence['outputs.EventResponse'],
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("events", events)
+        _setter("state", state)
 
     @property
     @pulumi.getter
@@ -356,9 +424,20 @@ class ContainerGroupSubnetIdResponse(dict):
         :param str id: Resource ID of virtual network and subnet.
         :param str name: Friendly name for the subnet.
         """
-        pulumi.set(__self__, "id", id)
+        ContainerGroupSubnetIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -411,13 +490,28 @@ class ContainerHttpGetResponse(dict):
         :param str path: The path to probe.
         :param str scheme: The scheme.
         """
-        pulumi.set(__self__, "port", port)
+        ContainerHttpGetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            http_headers=http_headers,
+            path=path,
+            scheme=scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             http_headers: Optional[Sequence['outputs.HttpHeaderResponse']] = None,
+             path: Optional[str] = None,
+             scheme: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
         if http_headers is not None:
-            pulumi.set(__self__, "http_headers", http_headers)
+            _setter("http_headers", http_headers)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
+            _setter("scheme", scheme)
 
     @property
     @pulumi.getter
@@ -465,9 +559,20 @@ class ContainerPortResponse(dict):
         :param int port: The port number exposed within the container group.
         :param str protocol: The protocol associated with the port.
         """
-        pulumi.set(__self__, "port", port)
+        ContainerPortResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -538,20 +643,41 @@ class ContainerProbeResponse(dict):
         :param int success_threshold: The success threshold.
         :param int timeout_seconds: The timeout seconds.
         """
+        ContainerProbeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exec_=exec_,
+            failure_threshold=failure_threshold,
+            http_get=http_get,
+            initial_delay_seconds=initial_delay_seconds,
+            period_seconds=period_seconds,
+            success_threshold=success_threshold,
+            timeout_seconds=timeout_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exec_: Optional['outputs.ContainerExecResponse'] = None,
+             failure_threshold: Optional[int] = None,
+             http_get: Optional['outputs.ContainerHttpGetResponse'] = None,
+             initial_delay_seconds: Optional[int] = None,
+             period_seconds: Optional[int] = None,
+             success_threshold: Optional[int] = None,
+             timeout_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exec_ is not None:
-            pulumi.set(__self__, "exec_", exec_)
+            _setter("exec_", exec_)
         if failure_threshold is not None:
-            pulumi.set(__self__, "failure_threshold", failure_threshold)
+            _setter("failure_threshold", failure_threshold)
         if http_get is not None:
-            pulumi.set(__self__, "http_get", http_get)
+            _setter("http_get", http_get)
         if initial_delay_seconds is not None:
-            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+            _setter("initial_delay_seconds", initial_delay_seconds)
         if period_seconds is not None:
-            pulumi.set(__self__, "period_seconds", period_seconds)
+            _setter("period_seconds", period_seconds)
         if success_threshold is not None:
-            pulumi.set(__self__, "success_threshold", success_threshold)
+            _setter("success_threshold", success_threshold)
         if timeout_seconds is not None:
-            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+            _setter("timeout_seconds", timeout_seconds)
 
     @property
     @pulumi.getter(name="exec")
@@ -648,10 +774,25 @@ class ContainerPropertiesResponseInstanceView(dict):
         :param 'ContainerStateResponse' previous_state: Previous container instance state.
         :param int restart_count: The number of times that the container instance has been restarted.
         """
-        pulumi.set(__self__, "current_state", current_state)
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "previous_state", previous_state)
-        pulumi.set(__self__, "restart_count", restart_count)
+        ContainerPropertiesResponseInstanceView._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_state=current_state,
+            events=events,
+            previous_state=previous_state,
+            restart_count=restart_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_state: 'outputs.ContainerStateResponse',
+             events: Sequence['outputs.EventResponse'],
+             previous_state: 'outputs.ContainerStateResponse',
+             restart_count: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("current_state", current_state)
+        _setter("events", events)
+        _setter("previous_state", previous_state)
+        _setter("restart_count", restart_count)
 
     @property
     @pulumi.getter(name="currentState")
@@ -744,24 +885,53 @@ class ContainerResponse(dict):
         :param 'SecurityContextDefinitionResponse' security_context: The container security properties.
         :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the container instance.
         """
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "instance_view", instance_view)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resources", resources)
+        ContainerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image=image,
+            instance_view=instance_view,
+            name=name,
+            resources=resources,
+            command=command,
+            environment_variables=environment_variables,
+            liveness_probe=liveness_probe,
+            ports=ports,
+            readiness_probe=readiness_probe,
+            security_context=security_context,
+            volume_mounts=volume_mounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image: str,
+             instance_view: 'outputs.ContainerPropertiesResponseInstanceView',
+             name: str,
+             resources: 'outputs.ResourceRequirementsResponse',
+             command: Optional[Sequence[str]] = None,
+             environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
+             liveness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+             ports: Optional[Sequence['outputs.ContainerPortResponse']] = None,
+             readiness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+             security_context: Optional['outputs.SecurityContextDefinitionResponse'] = None,
+             volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("image", image)
+        _setter("instance_view", instance_view)
+        _setter("name", name)
+        _setter("resources", resources)
         if command is not None:
-            pulumi.set(__self__, "command", command)
+            _setter("command", command)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if liveness_probe is not None:
-            pulumi.set(__self__, "liveness_probe", liveness_probe)
+            _setter("liveness_probe", liveness_probe)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
         if readiness_probe is not None:
-            pulumi.set(__self__, "readiness_probe", readiness_probe)
+            _setter("readiness_probe", readiness_probe)
         if security_context is not None:
-            pulumi.set(__self__, "security_context", security_context)
+            _setter("security_context", security_context)
         if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
+            _setter("volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter
@@ -894,11 +1064,28 @@ class ContainerStateResponse(dict):
         :param str start_time: The date-time when the container instance state started.
         :param str state: The state of the container instance.
         """
-        pulumi.set(__self__, "detail_status", detail_status)
-        pulumi.set(__self__, "exit_code", exit_code)
-        pulumi.set(__self__, "finish_time", finish_time)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "state", state)
+        ContainerStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detail_status=detail_status,
+            exit_code=exit_code,
+            finish_time=finish_time,
+            start_time=start_time,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detail_status: str,
+             exit_code: int,
+             finish_time: str,
+             start_time: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("detail_status", detail_status)
+        _setter("exit_code", exit_code)
+        _setter("finish_time", finish_time)
+        _setter("start_time", start_time)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="detailStatus")
@@ -979,13 +1166,30 @@ class DeploymentExtensionSpecResponse(dict):
         :param Any protected_settings: Protected settings for the extension.
         :param Any settings: Settings for the extension.
         """
-        pulumi.set(__self__, "extension_type", extension_type)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        DeploymentExtensionSpecResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension_type=extension_type,
+            name=name,
+            version=version,
+            protected_settings=protected_settings,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension_type: str,
+             name: str,
+             version: str,
+             protected_settings: Optional[Any] = None,
+             settings: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extension_type", extension_type)
+        _setter("name", name)
+        _setter("version", version)
         if protected_settings is not None:
-            pulumi.set(__self__, "protected_settings", protected_settings)
+            _setter("protected_settings", protected_settings)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter(name="extensionType")
@@ -1062,11 +1266,24 @@ class DnsConfigurationResponse(dict):
         :param str options: The DNS options for the container group.
         :param str search_domains: The DNS search domains for hostname lookup in the container group.
         """
-        pulumi.set(__self__, "name_servers", name_servers)
+        DnsConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name_servers=name_servers,
+            options=options,
+            search_domains=search_domains,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name_servers: Sequence[str],
+             options: Optional[str] = None,
+             search_domains: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name_servers", name_servers)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if search_domains is not None:
-            pulumi.set(__self__, "search_domains", search_domains)
+            _setter("search_domains", search_domains)
 
     @property
     @pulumi.getter(name="nameServers")
@@ -1131,11 +1348,26 @@ class EncryptionPropertiesResponse(dict):
         :param str vault_base_url: The keyvault base url.
         :param str identity: The keyvault managed identity.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_version", key_version)
-        pulumi.set(__self__, "vault_base_url", vault_base_url)
+        EncryptionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_version=key_version,
+            vault_base_url=vault_base_url,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: str,
+             key_version: str,
+             vault_base_url: str,
+             identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("key_version", key_version)
+        _setter("vault_base_url", vault_base_url)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter(name="keyName")
@@ -1202,11 +1434,24 @@ class EnvironmentVariableResponse(dict):
         :param str secure_value: The value of the secure environment variable.
         :param str value: The value of the environment variable.
         """
-        pulumi.set(__self__, "name", name)
+        EnvironmentVariableResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secure_value=secure_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             secure_value: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if secure_value is not None:
-            pulumi.set(__self__, "secure_value", secure_value)
+            _setter("secure_value", secure_value)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1273,12 +1518,31 @@ class EventResponse(dict):
         :param str name: The event name.
         :param str type: The event type.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "first_timestamp", first_timestamp)
-        pulumi.set(__self__, "last_timestamp", last_timestamp)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        EventResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            first_timestamp=first_timestamp,
+            last_timestamp=last_timestamp,
+            message=message,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: int,
+             first_timestamp: str,
+             last_timestamp: str,
+             message: str,
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("count", count)
+        _setter("first_timestamp", first_timestamp)
+        _setter("last_timestamp", last_timestamp)
+        _setter("message", message)
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1344,11 +1608,24 @@ class GitRepoVolumeResponse(dict):
         :param str directory: Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
         :param str revision: Commit hash for the specified revision.
         """
-        pulumi.set(__self__, "repository", repository)
+        GitRepoVolumeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            directory=directory,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: str,
+             directory: Optional[str] = None,
+             revision: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository", repository)
         if directory is not None:
-            pulumi.set(__self__, "directory", directory)
+            _setter("directory", directory)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
 
     @property
     @pulumi.getter
@@ -1388,8 +1665,19 @@ class GpuResourceResponse(dict):
         :param int count: The count of the GPU resource.
         :param str sku: The SKU of the GPU resource.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "sku", sku)
+        GpuResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: int,
+             sku: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("count", count)
+        _setter("sku", sku)
 
     @property
     @pulumi.getter
@@ -1421,10 +1709,21 @@ class HttpHeaderResponse(dict):
         :param str name: The header name.
         :param str value: The header value.
         """
+        HttpHeaderResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1479,15 +1778,32 @@ class ImageRegistryCredentialResponse(dict):
         :param str password: The password for the private registry.
         :param str username: The username for the private registry.
         """
-        pulumi.set(__self__, "server", server)
+        ImageRegistryCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server=server,
+            identity=identity,
+            identity_url=identity_url,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server: str,
+             identity: Optional[str] = None,
+             identity_url: Optional[str] = None,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server", server)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if identity_url is not None:
-            pulumi.set(__self__, "identity_url", identity_url)
+            _setter("identity_url", identity_url)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1576,18 +1892,39 @@ class InitContainerDefinitionResponse(dict):
         :param 'SecurityContextDefinitionResponse' security_context: The container security properties.
         :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the init container.
         """
-        pulumi.set(__self__, "instance_view", instance_view)
-        pulumi.set(__self__, "name", name)
+        InitContainerDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_view=instance_view,
+            name=name,
+            command=command,
+            environment_variables=environment_variables,
+            image=image,
+            security_context=security_context,
+            volume_mounts=volume_mounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_view: 'outputs.InitContainerPropertiesDefinitionResponseInstanceView',
+             name: str,
+             command: Optional[Sequence[str]] = None,
+             environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
+             image: Optional[str] = None,
+             security_context: Optional['outputs.SecurityContextDefinitionResponse'] = None,
+             volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_view", instance_view)
+        _setter("name", name)
         if command is not None:
-            pulumi.set(__self__, "command", command)
+            _setter("command", command)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if security_context is not None:
-            pulumi.set(__self__, "security_context", security_context)
+            _setter("security_context", security_context)
         if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
+            _setter("volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter(name="instanceView")
@@ -1684,10 +2021,25 @@ class InitContainerPropertiesDefinitionResponseInstanceView(dict):
         :param 'ContainerStateResponse' previous_state: The previous state of the init container.
         :param int restart_count: The number of times that the init container has been restarted.
         """
-        pulumi.set(__self__, "current_state", current_state)
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "previous_state", previous_state)
-        pulumi.set(__self__, "restart_count", restart_count)
+        InitContainerPropertiesDefinitionResponseInstanceView._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_state=current_state,
+            events=events,
+            previous_state=previous_state,
+            restart_count=restart_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_state: 'outputs.ContainerStateResponse',
+             events: Sequence['outputs.EventResponse'],
+             previous_state: 'outputs.ContainerStateResponse',
+             restart_count: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("current_state", current_state)
+        _setter("events", events)
+        _setter("previous_state", previous_state)
+        _setter("restart_count", restart_count)
 
     @property
     @pulumi.getter(name="currentState")
@@ -1762,17 +2114,36 @@ class IpAddressResponse(dict):
         :param str dns_name_label: The Dns name label for the IP.
         :param str ip: The IP exposed to the public internet.
         """
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "ports", ports)
-        pulumi.set(__self__, "type", type)
+        IpAddressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            ports=ports,
+            type=type,
+            auto_generated_domain_name_label_scope=auto_generated_domain_name_label_scope,
+            dns_name_label=dns_name_label,
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: str,
+             ports: Sequence['outputs.PortResponse'],
+             type: str,
+             auto_generated_domain_name_label_scope: Optional[str] = None,
+             dns_name_label: Optional[str] = None,
+             ip: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fqdn", fqdn)
+        _setter("ports", ports)
+        _setter("type", type)
         if auto_generated_domain_name_label_scope is None:
             auto_generated_domain_name_label_scope = 'Unsecure'
         if auto_generated_domain_name_label_scope is not None:
-            pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
+            _setter("auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if dns_name_label is not None:
-            pulumi.set(__self__, "dns_name_label", dns_name_label)
+            _setter("dns_name_label", dns_name_label)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -1865,14 +2236,31 @@ class LogAnalyticsResponse(dict):
         :param Mapping[str, str] metadata: Metadata for log analytics.
         :param str workspace_resource_id: The workspace resource id for log analytics
         """
-        pulumi.set(__self__, "workspace_id", workspace_id)
-        pulumi.set(__self__, "workspace_key", workspace_key)
+        LogAnalyticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            workspace_id=workspace_id,
+            workspace_key=workspace_key,
+            log_type=log_type,
+            metadata=metadata,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             workspace_id: str,
+             workspace_key: str,
+             log_type: Optional[str] = None,
+             metadata: Optional[Mapping[str, str]] = None,
+             workspace_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("workspace_id", workspace_id)
+        _setter("workspace_key", workspace_key)
         if log_type is not None:
-            pulumi.set(__self__, "log_type", log_type)
+            _setter("log_type", log_type)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+            _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="workspaceId")
@@ -1928,9 +2316,20 @@ class PortResponse(dict):
         :param int port: The port number.
         :param str protocol: The protocol associated with the port.
         """
-        pulumi.set(__self__, "port", port)
+        PortResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -1981,12 +2380,25 @@ class ResourceLimitsResponse(dict):
         :param 'GpuResourceResponse' gpu: The GPU limit of this container instance.
         :param float memory_in_gb: The memory limit in GB of this container instance.
         """
+        ResourceLimitsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            gpu=gpu,
+            memory_in_gb=memory_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[float] = None,
+             gpu: Optional['outputs.GpuResourceResponse'] = None,
+             memory_in_gb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if gpu is not None:
-            pulumi.set(__self__, "gpu", gpu)
+            _setter("gpu", gpu)
         if memory_in_gb is not None:
-            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+            _setter("memory_in_gb", memory_in_gb)
 
     @property
     @pulumi.getter
@@ -2045,10 +2457,23 @@ class ResourceRequestsResponse(dict):
         :param float memory_in_gb: The memory request in GB of this container instance.
         :param 'GpuResourceResponse' gpu: The GPU request of this container instance.
         """
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+        ResourceRequestsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory_in_gb=memory_in_gb,
+            gpu=gpu,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: float,
+             memory_in_gb: float,
+             gpu: Optional['outputs.GpuResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cpu", cpu)
+        _setter("memory_in_gb", memory_in_gb)
         if gpu is not None:
-            pulumi.set(__self__, "gpu", gpu)
+            _setter("gpu", gpu)
 
     @property
     @pulumi.getter
@@ -2088,9 +2513,20 @@ class ResourceRequirementsResponse(dict):
         :param 'ResourceRequestsResponse' requests: The resource requests of this container instance.
         :param 'ResourceLimitsResponse' limits: The resource limits of this container instance.
         """
-        pulumi.set(__self__, "requests", requests)
+        ResourceRequirementsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            requests=requests,
+            limits=limits,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             requests: 'outputs.ResourceRequestsResponse',
+             limits: Optional['outputs.ResourceLimitsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("requests", requests)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
 
     @property
     @pulumi.getter
@@ -2122,10 +2558,21 @@ class SecurityContextCapabilitiesDefinitionResponse(dict):
         :param Sequence[str] add: The capabilities to add to the container.
         :param Sequence[str] drop: The capabilities to drop from the container.
         """
+        SecurityContextCapabilitiesDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add=add,
+            drop=drop,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add: Optional[Sequence[str]] = None,
+             drop: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if add is not None:
-            pulumi.set(__self__, "add", add)
+            _setter("add", add)
         if drop is not None:
-            pulumi.set(__self__, "drop", drop)
+            _setter("drop", drop)
 
     @property
     @pulumi.getter
@@ -2188,18 +2635,37 @@ class SecurityContextDefinitionResponse(dict):
         :param int run_as_user: Sets the User UID for the container.
         :param str seccomp_profile: a base64 encoded string containing the contents of the JSON in the seccomp profile
         """
+        SecurityContextDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_privilege_escalation=allow_privilege_escalation,
+            capabilities=capabilities,
+            privileged=privileged,
+            run_as_group=run_as_group,
+            run_as_user=run_as_user,
+            seccomp_profile=seccomp_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_privilege_escalation: Optional[bool] = None,
+             capabilities: Optional['outputs.SecurityContextCapabilitiesDefinitionResponse'] = None,
+             privileged: Optional[bool] = None,
+             run_as_group: Optional[int] = None,
+             run_as_user: Optional[int] = None,
+             seccomp_profile: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_privilege_escalation is not None:
-            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
+            _setter("allow_privilege_escalation", allow_privilege_escalation)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if privileged is not None:
-            pulumi.set(__self__, "privileged", privileged)
+            _setter("privileged", privileged)
         if run_as_group is not None:
-            pulumi.set(__self__, "run_as_group", run_as_group)
+            _setter("run_as_group", run_as_group)
         if run_as_user is not None:
-            pulumi.set(__self__, "run_as_user", run_as_user)
+            _setter("run_as_user", run_as_user)
         if seccomp_profile is not None:
-            pulumi.set(__self__, "seccomp_profile", seccomp_profile)
+            _setter("seccomp_profile", seccomp_profile)
 
     @property
     @pulumi.getter(name="allowPrivilegeEscalation")
@@ -2282,8 +2748,19 @@ class UserAssignedIdentitiesResponse(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentitiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2336,10 +2813,23 @@ class VolumeMountResponse(dict):
         :param str name: The name of the volume mount.
         :param bool read_only: The flag indicating whether the volume mount is read-only.
         """
-        pulumi.set(__self__, "mount_path", mount_path)
-        pulumi.set(__self__, "name", name)
+        VolumeMountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_path=mount_path,
+            name=name,
+            read_only=read_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_path: str,
+             name: str,
+             read_only: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mount_path", mount_path)
+        _setter("name", name)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -2406,15 +2896,32 @@ class VolumeResponse(dict):
         :param 'GitRepoVolumeResponse' git_repo: The git repo volume.
         :param Mapping[str, str] secret: The secret volume.
         """
-        pulumi.set(__self__, "name", name)
+        VolumeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            azure_file=azure_file,
+            empty_dir=empty_dir,
+            git_repo=git_repo,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             azure_file: Optional['outputs.AzureFileVolumeResponse'] = None,
+             empty_dir: Optional[Any] = None,
+             git_repo: Optional['outputs.GitRepoVolumeResponse'] = None,
+             secret: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if azure_file is not None:
-            pulumi.set(__self__, "azure_file", azure_file)
+            _setter("azure_file", azure_file)
         if empty_dir is not None:
-            pulumi.set(__self__, "empty_dir", empty_dir)
+            _setter("empty_dir", empty_dir)
         if git_repo is not None:
-            pulumi.set(__self__, "git_repo", git_repo)
+            _setter("git_repo", git_repo)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter

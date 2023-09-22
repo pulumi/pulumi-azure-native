@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,29 +46,62 @@ class DiagnosticArgs:
         :param pulumi.Input['SamplingSettingsArgs'] sampling: Sampling settings for Diagnostic.
         :param pulumi.Input[Union[str, 'Verbosity']] verbosity: The verbosity level applied to traces emitted by trace policies.
         """
-        pulumi.set(__self__, "logger_id", logger_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        DiagnosticArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logger_id=logger_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            always_log=always_log,
+            backend=backend,
+            diagnostic_id=diagnostic_id,
+            frontend=frontend,
+            http_correlation_protocol=http_correlation_protocol,
+            log_client_ip=log_client_ip,
+            metrics=metrics,
+            operation_name_format=operation_name_format,
+            sampling=sampling,
+            verbosity=verbosity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logger_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             always_log: Optional[pulumi.Input[Union[str, 'AlwaysLog']]] = None,
+             backend: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']] = None,
+             diagnostic_id: Optional[pulumi.Input[str]] = None,
+             frontend: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']] = None,
+             http_correlation_protocol: Optional[pulumi.Input[Union[str, 'HttpCorrelationProtocol']]] = None,
+             log_client_ip: Optional[pulumi.Input[bool]] = None,
+             metrics: Optional[pulumi.Input[bool]] = None,
+             operation_name_format: Optional[pulumi.Input[Union[str, 'OperationNameFormat']]] = None,
+             sampling: Optional[pulumi.Input['SamplingSettingsArgs']] = None,
+             verbosity: Optional[pulumi.Input[Union[str, 'Verbosity']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("logger_id", logger_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if always_log is not None:
-            pulumi.set(__self__, "always_log", always_log)
+            _setter("always_log", always_log)
         if backend is not None:
-            pulumi.set(__self__, "backend", backend)
+            _setter("backend", backend)
         if diagnostic_id is not None:
-            pulumi.set(__self__, "diagnostic_id", diagnostic_id)
+            _setter("diagnostic_id", diagnostic_id)
         if frontend is not None:
-            pulumi.set(__self__, "frontend", frontend)
+            _setter("frontend", frontend)
         if http_correlation_protocol is not None:
-            pulumi.set(__self__, "http_correlation_protocol", http_correlation_protocol)
+            _setter("http_correlation_protocol", http_correlation_protocol)
         if log_client_ip is not None:
-            pulumi.set(__self__, "log_client_ip", log_client_ip)
+            _setter("log_client_ip", log_client_ip)
         if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
+            _setter("metrics", metrics)
         if operation_name_format is not None:
-            pulumi.set(__self__, "operation_name_format", operation_name_format)
+            _setter("operation_name_format", operation_name_format)
         if sampling is not None:
-            pulumi.set(__self__, "sampling", sampling)
+            _setter("sampling", sampling)
         if verbosity is not None:
-            pulumi.set(__self__, "verbosity", verbosity)
+            _setter("verbosity", verbosity)
 
     @property
     @pulumi.getter(name="loggerId")
@@ -284,6 +317,10 @@ class Diagnostic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiagnosticArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -312,8 +349,18 @@ class Diagnostic(pulumi.CustomResource):
             __props__ = DiagnosticArgs.__new__(DiagnosticArgs)
 
             __props__.__dict__["always_log"] = always_log
+            if not isinstance(backend, PipelineDiagnosticSettingsArgs):
+                backend = backend or {}
+                def _setter(key, value):
+                    backend[key] = value
+                PipelineDiagnosticSettingsArgs._configure(_setter, **backend)
             __props__.__dict__["backend"] = backend
             __props__.__dict__["diagnostic_id"] = diagnostic_id
+            if not isinstance(frontend, PipelineDiagnosticSettingsArgs):
+                frontend = frontend or {}
+                def _setter(key, value):
+                    frontend[key] = value
+                PipelineDiagnosticSettingsArgs._configure(_setter, **frontend)
             __props__.__dict__["frontend"] = frontend
             __props__.__dict__["http_correlation_protocol"] = http_correlation_protocol
             __props__.__dict__["log_client_ip"] = log_client_ip
@@ -325,6 +372,11 @@ class Diagnostic(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sampling, SamplingSettingsArgs):
+                sampling = sampling or {}
+                def _setter(key, value):
+                    sampling[key] = value
+                SamplingSettingsArgs._configure(_setter, **sampling)
             __props__.__dict__["sampling"] = sampling
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

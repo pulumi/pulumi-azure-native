@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,35 @@ class AddressArgs:
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping details for the address.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_details=contact_details,
+            resource_group_name=resource_group_name,
+            address_name=address_name,
+            location=location,
+            shipping_address=shipping_address,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_details: pulumi.Input['ContactDetailsArgs'],
+             resource_group_name: pulumi.Input[str],
+             address_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_details", contact_details)
+        _setter("resource_group_name", resource_group_name)
         if address_name is not None:
-            pulumi.set(__self__, "address_name", address_name)
+            _setter("address_name", address_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="contactDetails")
@@ -161,6 +180,10 @@ class Address(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AddressArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,6 +205,11 @@ class Address(pulumi.CustomResource):
             __props__ = AddressArgs.__new__(AddressArgs)
 
             __props__.__dict__["address_name"] = address_name
+            if not isinstance(contact_details, ContactDetailsArgs):
+                contact_details = contact_details or {}
+                def _setter(key, value):
+                    contact_details[key] = value
+                ContactDetailsArgs._configure(_setter, **contact_details)
             if contact_details is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_details'")
             __props__.__dict__["contact_details"] = contact_details
@@ -189,6 +217,11 @@ class Address(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(shipping_address, ShippingAddressArgs):
+                shipping_address = shipping_address or {}
+                def _setter(key, value):
+                    shipping_address[key] = value
+                ShippingAddressArgs._configure(_setter, **shipping_address)
             __props__.__dict__["shipping_address"] = shipping_address
             __props__.__dict__["tags"] = tags
             __props__.__dict__["address_validation_status"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -33,14 +33,35 @@ class BandwidthScheduleArgs:
         :param pulumi.Input[str] stop: The stop time of the schedule in UTC.
         :param pulumi.Input[str] name: The bandwidth schedule name which needs to be added/updated.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "rate_in_mbps", rate_in_mbps)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "start", start)
-        pulumi.set(__self__, "stop", stop)
+        BandwidthScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            device_name=device_name,
+            rate_in_mbps=rate_in_mbps,
+            resource_group_name=resource_group_name,
+            start=start,
+            stop=stop,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]],
+             device_name: pulumi.Input[str],
+             rate_in_mbps: pulumi.Input[int],
+             resource_group_name: pulumi.Input[str],
+             start: pulumi.Input[str],
+             stop: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
+        _setter("device_name", device_name)
+        _setter("rate_in_mbps", rate_in_mbps)
+        _setter("resource_group_name", resource_group_name)
+        _setter("start", start)
+        _setter("stop", stop)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -172,6 +193,10 @@ class BandwidthSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BandwidthScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

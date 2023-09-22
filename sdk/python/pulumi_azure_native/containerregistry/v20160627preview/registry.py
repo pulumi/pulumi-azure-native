@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,18 +31,37 @@ class RegistryArgs:
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account", storage_account)
+        RegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_account=storage_account,
+            admin_user_enabled=admin_user_enabled,
+            location=location,
+            registry_name=registry_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             storage_account: pulumi.Input['StorageAccountPropertiesArgs'],
+             admin_user_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account", storage_account)
         if admin_user_enabled is None:
             admin_user_enabled = False
         if admin_user_enabled is not None:
-            pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
+            _setter("admin_user_enabled", admin_user_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -160,6 +179,10 @@ class Registry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -188,6 +211,11 @@ class Registry(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(storage_account, StorageAccountPropertiesArgs):
+                storage_account = storage_account or {}
+                def _setter(key, value):
+                    storage_account[key] = value
+                StorageAccountPropertiesArgs._configure(_setter, **storage_account)
             if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__.__dict__["storage_account"] = storage_account

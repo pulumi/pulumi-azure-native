@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -82,65 +82,134 @@ class StorageAccountArgs:
         :param pulumi.Input['SasPolicyArgs'] sas_policy: SasPolicy assigned to the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        StorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            access_tier=access_tier,
+            account_name=account_name,
+            allow_blob_public_access=allow_blob_public_access,
+            allow_cross_tenant_replication=allow_cross_tenant_replication,
+            allow_shared_key_access=allow_shared_key_access,
+            allowed_copy_scope=allowed_copy_scope,
+            azure_files_identity_based_authentication=azure_files_identity_based_authentication,
+            custom_domain=custom_domain,
+            default_to_o_auth_authentication=default_to_o_auth_authentication,
+            dns_endpoint_type=dns_endpoint_type,
+            enable_https_traffic_only=enable_https_traffic_only,
+            enable_nfs_v3=enable_nfs_v3,
+            encryption=encryption,
+            extended_location=extended_location,
+            identity=identity,
+            immutable_storage_with_versioning=immutable_storage_with_versioning,
+            is_hns_enabled=is_hns_enabled,
+            is_local_user_enabled=is_local_user_enabled,
+            is_sftp_enabled=is_sftp_enabled,
+            key_policy=key_policy,
+            large_file_shares_state=large_file_shares_state,
+            location=location,
+            minimum_tls_version=minimum_tls_version,
+            network_rule_set=network_rule_set,
+            public_network_access=public_network_access,
+            routing_preference=routing_preference,
+            sas_policy=sas_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[Union[str, 'Kind']],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['SkuArgs'],
+             access_tier: Optional[pulumi.Input['AccessTier']] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+             allow_cross_tenant_replication: Optional[pulumi.Input[bool]] = None,
+             allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
+             allowed_copy_scope: Optional[pulumi.Input[Union[str, 'AllowedCopyScope']]] = None,
+             azure_files_identity_based_authentication: Optional[pulumi.Input['AzureFilesIdentityBasedAuthenticationArgs']] = None,
+             custom_domain: Optional[pulumi.Input['CustomDomainArgs']] = None,
+             default_to_o_auth_authentication: Optional[pulumi.Input[bool]] = None,
+             dns_endpoint_type: Optional[pulumi.Input[Union[str, 'DnsEndpointType']]] = None,
+             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+             enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
+             encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             immutable_storage_with_versioning: Optional[pulumi.Input['ImmutableStorageAccountArgs']] = None,
+             is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+             is_local_user_enabled: Optional[pulumi.Input[bool]] = None,
+             is_sftp_enabled: Optional[pulumi.Input[bool]] = None,
+             key_policy: Optional[pulumi.Input['KeyPolicyArgs']] = None,
+             large_file_shares_state: Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
+             network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             routing_preference: Optional[pulumi.Input['RoutingPreferenceArgs']] = None,
+             sas_policy: Optional[pulumi.Input['SasPolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if access_tier is not None:
-            pulumi.set(__self__, "access_tier", access_tier)
+            _setter("access_tier", access_tier)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if allow_blob_public_access is not None:
-            pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
+            _setter("allow_blob_public_access", allow_blob_public_access)
         if allow_cross_tenant_replication is not None:
-            pulumi.set(__self__, "allow_cross_tenant_replication", allow_cross_tenant_replication)
+            _setter("allow_cross_tenant_replication", allow_cross_tenant_replication)
         if allow_shared_key_access is not None:
-            pulumi.set(__self__, "allow_shared_key_access", allow_shared_key_access)
+            _setter("allow_shared_key_access", allow_shared_key_access)
         if allowed_copy_scope is not None:
-            pulumi.set(__self__, "allowed_copy_scope", allowed_copy_scope)
+            _setter("allowed_copy_scope", allowed_copy_scope)
         if azure_files_identity_based_authentication is not None:
-            pulumi.set(__self__, "azure_files_identity_based_authentication", azure_files_identity_based_authentication)
+            _setter("azure_files_identity_based_authentication", azure_files_identity_based_authentication)
         if custom_domain is not None:
-            pulumi.set(__self__, "custom_domain", custom_domain)
+            _setter("custom_domain", custom_domain)
         if default_to_o_auth_authentication is not None:
-            pulumi.set(__self__, "default_to_o_auth_authentication", default_to_o_auth_authentication)
+            _setter("default_to_o_auth_authentication", default_to_o_auth_authentication)
         if dns_endpoint_type is not None:
-            pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
+            _setter("dns_endpoint_type", dns_endpoint_type)
         if enable_https_traffic_only is not None:
-            pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
+            _setter("enable_https_traffic_only", enable_https_traffic_only)
         if enable_nfs_v3 is not None:
-            pulumi.set(__self__, "enable_nfs_v3", enable_nfs_v3)
+            _setter("enable_nfs_v3", enable_nfs_v3)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if immutable_storage_with_versioning is not None:
-            pulumi.set(__self__, "immutable_storage_with_versioning", immutable_storage_with_versioning)
+            _setter("immutable_storage_with_versioning", immutable_storage_with_versioning)
         if is_hns_enabled is not None:
-            pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
+            _setter("is_hns_enabled", is_hns_enabled)
         if is_local_user_enabled is not None:
-            pulumi.set(__self__, "is_local_user_enabled", is_local_user_enabled)
+            _setter("is_local_user_enabled", is_local_user_enabled)
         if is_sftp_enabled is not None:
-            pulumi.set(__self__, "is_sftp_enabled", is_sftp_enabled)
+            _setter("is_sftp_enabled", is_sftp_enabled)
         if key_policy is not None:
-            pulumi.set(__self__, "key_policy", key_policy)
+            _setter("key_policy", key_policy)
         if large_file_shares_state is not None:
-            pulumi.set(__self__, "large_file_shares_state", large_file_shares_state)
+            _setter("large_file_shares_state", large_file_shares_state)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if network_rule_set is not None:
-            pulumi.set(__self__, "network_rule_set", network_rule_set)
+            _setter("network_rule_set", network_rule_set)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if routing_preference is not None:
-            pulumi.set(__self__, "routing_preference", routing_preference)
+            _setter("routing_preference", routing_preference)
         if sas_policy is not None:
-            pulumi.set(__self__, "sas_policy", sas_policy)
+            _setter("sas_policy", sas_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -608,6 +677,10 @@ class StorageAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -659,19 +732,54 @@ class StorageAccount(pulumi.CustomResource):
             __props__.__dict__["allow_cross_tenant_replication"] = allow_cross_tenant_replication
             __props__.__dict__["allow_shared_key_access"] = allow_shared_key_access
             __props__.__dict__["allowed_copy_scope"] = allowed_copy_scope
+            if not isinstance(azure_files_identity_based_authentication, AzureFilesIdentityBasedAuthenticationArgs):
+                azure_files_identity_based_authentication = azure_files_identity_based_authentication or {}
+                def _setter(key, value):
+                    azure_files_identity_based_authentication[key] = value
+                AzureFilesIdentityBasedAuthenticationArgs._configure(_setter, **azure_files_identity_based_authentication)
             __props__.__dict__["azure_files_identity_based_authentication"] = azure_files_identity_based_authentication
+            if not isinstance(custom_domain, CustomDomainArgs):
+                custom_domain = custom_domain or {}
+                def _setter(key, value):
+                    custom_domain[key] = value
+                CustomDomainArgs._configure(_setter, **custom_domain)
             __props__.__dict__["custom_domain"] = custom_domain
             __props__.__dict__["default_to_o_auth_authentication"] = default_to_o_auth_authentication
             __props__.__dict__["dns_endpoint_type"] = dns_endpoint_type
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
             __props__.__dict__["enable_nfs_v3"] = enable_nfs_v3
+            if not isinstance(encryption, EncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                EncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
+            if not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if not isinstance(immutable_storage_with_versioning, ImmutableStorageAccountArgs):
+                immutable_storage_with_versioning = immutable_storage_with_versioning or {}
+                def _setter(key, value):
+                    immutable_storage_with_versioning[key] = value
+                ImmutableStorageAccountArgs._configure(_setter, **immutable_storage_with_versioning)
             __props__.__dict__["immutable_storage_with_versioning"] = immutable_storage_with_versioning
             __props__.__dict__["is_hns_enabled"] = is_hns_enabled
             __props__.__dict__["is_local_user_enabled"] = is_local_user_enabled
             __props__.__dict__["is_sftp_enabled"] = is_sftp_enabled
+            if not isinstance(key_policy, KeyPolicyArgs):
+                key_policy = key_policy or {}
+                def _setter(key, value):
+                    key_policy[key] = value
+                KeyPolicyArgs._configure(_setter, **key_policy)
             __props__.__dict__["key_policy"] = key_policy
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -679,13 +787,33 @@ class StorageAccount(pulumi.CustomResource):
             __props__.__dict__["large_file_shares_state"] = large_file_shares_state
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
+            if not isinstance(network_rule_set, NetworkRuleSetArgs):
+                network_rule_set = network_rule_set or {}
+                def _setter(key, value):
+                    network_rule_set[key] = value
+                NetworkRuleSetArgs._configure(_setter, **network_rule_set)
             __props__.__dict__["network_rule_set"] = network_rule_set
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(routing_preference, RoutingPreferenceArgs):
+                routing_preference = routing_preference or {}
+                def _setter(key, value):
+                    routing_preference[key] = value
+                RoutingPreferenceArgs._configure(_setter, **routing_preference)
             __props__.__dict__["routing_preference"] = routing_preference
+            if not isinstance(sas_policy, SasPolicyArgs):
+                sas_policy = sas_policy or {}
+                def _setter(key, value):
+                    sas_policy[key] = value
+                SasPolicyArgs._configure(_setter, **sas_policy)
             __props__.__dict__["sas_policy"] = sas_policy
+            if not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

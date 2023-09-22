@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,30 +46,63 @@ class ApplicationArgs:
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            application_definition_id=application_definition_id,
+            application_name=application_name,
+            identity=identity,
+            jit_access_policy=jit_access_policy,
+            location=location,
+            managed_by=managed_by,
+            managed_resource_group_id=managed_resource_group_id,
+            parameters=parameters,
+            plan=plan,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             application_definition_id: Optional[pulumi.Input[str]] = None,
+             application_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             jit_access_policy: Optional[pulumi.Input['ApplicationJitAccessPolicyArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_id: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[Any] = None,
+             plan: Optional[pulumi.Input['PlanArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
         if application_definition_id is not None:
-            pulumi.set(__self__, "application_definition_id", application_definition_id)
+            _setter("application_definition_id", application_definition_id)
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if jit_access_policy is not None:
-            pulumi.set(__self__, "jit_access_policy", jit_access_policy)
+            _setter("jit_access_policy", jit_access_policy)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if managed_resource_group_id is not None:
-            pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
+            _setter("managed_resource_group_id", managed_resource_group_id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -285,6 +318,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -314,7 +351,17 @@ class Application(pulumi.CustomResource):
 
             __props__.__dict__["application_definition_id"] = application_definition_id
             __props__.__dict__["application_name"] = application_name
+            if not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if not isinstance(jit_access_policy, ApplicationJitAccessPolicyArgs):
+                jit_access_policy = jit_access_policy or {}
+                def _setter(key, value):
+                    jit_access_policy[key] = value
+                ApplicationJitAccessPolicyArgs._configure(_setter, **jit_access_policy)
             __props__.__dict__["jit_access_policy"] = jit_access_policy
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -323,10 +370,20 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["managed_resource_group_id"] = managed_resource_group_id
             __props__.__dict__["parameters"] = parameters
+            if not isinstance(plan, PlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                PlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["artifacts"] = None

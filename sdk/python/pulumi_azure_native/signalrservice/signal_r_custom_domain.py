@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,29 @@ class SignalRCustomDomainArgs:
         :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input[str] name: Custom domain name.
         """
-        pulumi.set(__self__, "custom_certificate", custom_certificate)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        SignalRCustomDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_certificate=custom_certificate,
+            domain_name=domain_name,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_certificate: pulumi.Input['ResourceReferenceArgs'],
+             domain_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_certificate", custom_certificate)
+        _setter("domain_name", domain_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="customCertificate")
@@ -140,6 +157,10 @@ class SignalRCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SignalRCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -159,6 +180,11 @@ class SignalRCustomDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SignalRCustomDomainArgs.__new__(SignalRCustomDomainArgs)
 
+            if not isinstance(custom_certificate, ResourceReferenceArgs):
+                custom_certificate = custom_certificate or {}
+                def _setter(key, value):
+                    custom_certificate[key] = value
+                ResourceReferenceArgs._configure(_setter, **custom_certificate)
             if custom_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_certificate'")
             __props__.__dict__["custom_certificate"] = custom_certificate

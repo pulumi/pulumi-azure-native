@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,35 @@ class PrivateEndpointConnectionArgs:
         :param pulumi.Input['TagsResourceArgs'] private_link_connection_tags: Updated tag information to set into the PrivateLinkConnection instance.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Approval state of the private link connection.
         """
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_name=policy_name,
+            resource_group_name=resource_group_name,
+            private_endpoint=private_endpoint,
+            private_endpoint_connection_name=private_endpoint_connection_name,
+            private_link_connection_tags=private_link_connection_tags,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+             private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+             private_link_connection_tags: Optional[pulumi.Input['TagsResourceArgs']] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_name", policy_name)
+        _setter("resource_group_name", resource_group_name)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_endpoint_connection_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+            _setter("private_endpoint_connection_name", private_endpoint_connection_name)
         if private_link_connection_tags is not None:
-            pulumi.set(__self__, "private_link_connection_tags", private_link_connection_tags)
+            _setter("private_link_connection_tags", private_link_connection_tags)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="policyName")
@@ -159,6 +178,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateEndpointConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,9 +205,24 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
+            if not isinstance(private_endpoint, PrivateEndpointArgs):
+                private_endpoint = private_endpoint or {}
+                def _setter(key, value):
+                    private_endpoint[key] = value
+                PrivateEndpointArgs._configure(_setter, **private_endpoint)
             __props__.__dict__["private_endpoint"] = private_endpoint
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
+            if not isinstance(private_link_connection_tags, TagsResourceArgs):
+                private_link_connection_tags = private_link_connection_tags or {}
+                def _setter(key, value):
+                    private_link_connection_tags[key] = value
+                TagsResourceArgs._configure(_setter, **private_link_connection_tags)
             __props__.__dict__["private_link_connection_tags"] = private_link_connection_tags
+            if not isinstance(private_link_service_connection_state, PrivateLinkServiceConnectionStateArgs):
+                private_link_service_connection_state = private_link_service_connection_state or {}
+                def _setter(key, value):
+                    private_link_service_connection_state[key] = value
+                PrivateLinkServiceConnectionStateArgs._configure(_setter, **private_link_service_connection_state)
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

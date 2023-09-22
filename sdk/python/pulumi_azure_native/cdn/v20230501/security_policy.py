@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,27 @@ class SecurityPolicyArgs:
         :param pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs'] parameters: object which contains security policy parameters
         :param pulumi.Input[str] security_policy_name: Name of the security policy under the profile.
         """
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SecurityPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            parameters=parameters,
+            security_policy_name=security_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs']] = None,
+             security_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if security_policy_name is not None:
-            pulumi.set(__self__, "security_policy_name", security_policy_name)
+            _setter("security_policy_name", security_policy_name)
 
     @property
     @pulumi.getter(name="profileName")
@@ -122,6 +137,10 @@ class SecurityPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -140,6 +159,11 @@ class SecurityPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityPolicyArgs.__new__(SecurityPolicyArgs)
 
+            if not isinstance(parameters, SecurityPolicyWebApplicationFirewallParametersArgs):
+                parameters = parameters or {}
+                def _setter(key, value):
+                    parameters[key] = value
+                SecurityPolicyWebApplicationFirewallParametersArgs._configure(_setter, **parameters)
             __props__.__dict__["parameters"] = parameters
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")

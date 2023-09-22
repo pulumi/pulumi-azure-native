@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,27 @@ class ConfigurationProfileHCRPAssignmentArgs:
         :param pulumi.Input[str] configuration_profile_assignment_name: Name of the configuration profile assignment. Only default is supported.
         :param pulumi.Input['ConfigurationProfileAssignmentPropertiesArgs'] properties: Properties of the configuration profile assignment.
         """
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConfigurationProfileHCRPAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            machine_name=machine_name,
+            resource_group_name=resource_group_name,
+            configuration_profile_assignment_name=configuration_profile_assignment_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             machine_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             configuration_profile_assignment_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ConfigurationProfileAssignmentPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("machine_name", machine_name)
+        _setter("resource_group_name", resource_group_name)
         if configuration_profile_assignment_name is not None:
-            pulumi.set(__self__, "configuration_profile_assignment_name", configuration_profile_assignment_name)
+            _setter("configuration_profile_assignment_name", configuration_profile_assignment_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="machineName")
@@ -124,6 +139,10 @@ class ConfigurationProfileHCRPAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationProfileHCRPAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -146,6 +165,11 @@ class ConfigurationProfileHCRPAssignment(pulumi.CustomResource):
             if machine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'machine_name'")
             __props__.__dict__["machine_name"] = machine_name
+            if not isinstance(properties, ConfigurationProfileAssignmentPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ConfigurationProfileAssignmentPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

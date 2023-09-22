@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,11 +58,26 @@ class DataPoolEncryptionResponse(dict):
         :param str user_assigned_identity: The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
         :param str key_version: The version of Key Vault key
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+        DataPoolEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            user_assigned_identity=user_assigned_identity,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: str,
+             key_vault_uri: str,
+             user_assigned_identity: str,
+             key_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("user_assigned_identity", user_assigned_identity)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -133,13 +148,28 @@ class DataPoolLocationResponse(dict):
         :param int storage_account_count: The amount of storage accounts provisioned per Data Pool. Default: 5
         :param 'StorageSkuResponse' storage_sku: The Storage SKU. Default: Standard_ZRS.
         """
-        pulumi.set(__self__, "name", name)
+        DataPoolLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            encryption=encryption,
+            storage_account_count=storage_account_count,
+            storage_sku=storage_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             encryption: Optional['outputs.DataPoolEncryptionResponse'] = None,
+             storage_account_count: Optional[int] = None,
+             storage_sku: Optional['outputs.StorageSkuResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if storage_account_count is not None:
-            pulumi.set(__self__, "storage_account_count", storage_account_count)
+            _setter("storage_account_count", storage_account_count)
         if storage_sku is not None:
-            pulumi.set(__self__, "storage_sku", storage_sku)
+            _setter("storage_sku", storage_sku)
 
     @property
     @pulumi.getter
@@ -185,7 +215,16 @@ class StorageSkuResponse(dict):
         The Storage SKU.
         :param str name: The SKU name
         """
-        pulumi.set(__self__, "name", name)
+        StorageSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -244,18 +283,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,43 @@ class NetworkToNetworkInterconnectArgs:
         :param pulumi.Input[str] network_to_network_interconnect_name: Name of the NetworkToNetworkInterconnectName
         :param pulumi.Input[Union[str, 'NniType']] nni_type: Type of NNI used. Example: CE | NPB
         """
-        pulumi.set(__self__, "is_management_type", is_management_type)
-        pulumi.set(__self__, "network_fabric_name", network_fabric_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "use_option_b", use_option_b)
+        NetworkToNetworkInterconnectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_management_type=is_management_type,
+            network_fabric_name=network_fabric_name,
+            resource_group_name=resource_group_name,
+            use_option_b=use_option_b,
+            layer2_configuration=layer2_configuration,
+            layer3_configuration=layer3_configuration,
+            network_to_network_interconnect_name=network_to_network_interconnect_name,
+            nni_type=nni_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_management_type: pulumi.Input[Union[str, 'BooleanEnumProperty']],
+             network_fabric_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             use_option_b: pulumi.Input[Union[str, 'BooleanEnumProperty']],
+             layer2_configuration: Optional[pulumi.Input['Layer2ConfigurationArgs']] = None,
+             layer3_configuration: Optional[pulumi.Input['Layer3ConfigurationArgs']] = None,
+             network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None,
+             nni_type: Optional[pulumi.Input[Union[str, 'NniType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_management_type", is_management_type)
+        _setter("network_fabric_name", network_fabric_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("use_option_b", use_option_b)
         if layer2_configuration is not None:
-            pulumi.set(__self__, "layer2_configuration", layer2_configuration)
+            _setter("layer2_configuration", layer2_configuration)
         if layer3_configuration is not None:
-            pulumi.set(__self__, "layer3_configuration", layer3_configuration)
+            _setter("layer3_configuration", layer3_configuration)
         if network_to_network_interconnect_name is not None:
-            pulumi.set(__self__, "network_to_network_interconnect_name", network_to_network_interconnect_name)
+            _setter("network_to_network_interconnect_name", network_to_network_interconnect_name)
         if nni_type is None:
             nni_type = 'CE'
         if nni_type is not None:
-            pulumi.set(__self__, "nni_type", nni_type)
+            _setter("nni_type", nni_type)
 
     @property
     @pulumi.getter(name="isManagementType")
@@ -195,6 +218,10 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkToNetworkInterconnectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -220,7 +247,17 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
             if is_management_type is None and not opts.urn:
                 raise TypeError("Missing required property 'is_management_type'")
             __props__.__dict__["is_management_type"] = is_management_type
+            if not isinstance(layer2_configuration, Layer2ConfigurationArgs):
+                layer2_configuration = layer2_configuration or {}
+                def _setter(key, value):
+                    layer2_configuration[key] = value
+                Layer2ConfigurationArgs._configure(_setter, **layer2_configuration)
             __props__.__dict__["layer2_configuration"] = layer2_configuration
+            if not isinstance(layer3_configuration, Layer3ConfigurationArgs):
+                layer3_configuration = layer3_configuration or {}
+                def _setter(key, value):
+                    layer3_configuration[key] = value
+                Layer3ConfigurationArgs._configure(_setter, **layer3_configuration)
             __props__.__dict__["layer3_configuration"] = layer3_configuration
             if network_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_fabric_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,41 @@ class IntegrationAccountPartnerArgs:
         :param pulumi.Input[str] partner_name: The integration account partner name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "partner_type", partner_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IntegrationAccountPartnerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            integration_account_name=integration_account_name,
+            partner_type=partner_type,
+            resource_group_name=resource_group_name,
+            location=location,
+            metadata=metadata,
+            partner_name=partner_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: pulumi.Input['PartnerContentArgs'],
+             integration_account_name: pulumi.Input[str],
+             partner_type: pulumi.Input[Union[str, 'PartnerType']],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             partner_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("integration_account_name", integration_account_name)
+        _setter("partner_type", partner_type)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if partner_name is not None:
-            pulumi.set(__self__, "partner_name", partner_name)
+            _setter("partner_name", partner_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -195,6 +218,10 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountPartnerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -217,6 +244,11 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationAccountPartnerArgs.__new__(IntegrationAccountPartnerArgs)
 
+            if not isinstance(content, PartnerContentArgs):
+                content = content or {}
+                def _setter(key, value):
+                    content[key] = value
+                PartnerContentArgs._configure(_setter, **content)
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,28 +43,59 @@ class BackupPolicyArgs:
         :param pulumi.Input[int] weekly_backups_to_keep: Weekly backups count to keep
         :param pulumi.Input[int] yearly_backups_to_keep: Yearly backups count to keep
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BackupPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            backup_policy_name=backup_policy_name,
+            daily_backups_to_keep=daily_backups_to_keep,
+            enabled=enabled,
+            location=location,
+            monthly_backups_to_keep=monthly_backups_to_keep,
+            tags=tags,
+            volume_backups=volume_backups,
+            volumes_assigned=volumes_assigned,
+            weekly_backups_to_keep=weekly_backups_to_keep,
+            yearly_backups_to_keep=yearly_backups_to_keep,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             backup_policy_name: Optional[pulumi.Input[str]] = None,
+             daily_backups_to_keep: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             monthly_backups_to_keep: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             volume_backups: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeBackupsArgs']]]] = None,
+             volumes_assigned: Optional[pulumi.Input[int]] = None,
+             weekly_backups_to_keep: Optional[pulumi.Input[int]] = None,
+             yearly_backups_to_keep: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if backup_policy_name is not None:
-            pulumi.set(__self__, "backup_policy_name", backup_policy_name)
+            _setter("backup_policy_name", backup_policy_name)
         if daily_backups_to_keep is not None:
-            pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
+            _setter("daily_backups_to_keep", daily_backups_to_keep)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if monthly_backups_to_keep is not None:
-            pulumi.set(__self__, "monthly_backups_to_keep", monthly_backups_to_keep)
+            _setter("monthly_backups_to_keep", monthly_backups_to_keep)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_backups is not None:
-            pulumi.set(__self__, "volume_backups", volume_backups)
+            _setter("volume_backups", volume_backups)
         if volumes_assigned is not None:
-            pulumi.set(__self__, "volumes_assigned", volumes_assigned)
+            _setter("volumes_assigned", volumes_assigned)
         if weekly_backups_to_keep is not None:
-            pulumi.set(__self__, "weekly_backups_to_keep", weekly_backups_to_keep)
+            _setter("weekly_backups_to_keep", weekly_backups_to_keep)
         if yearly_backups_to_keep is not None:
-            pulumi.set(__self__, "yearly_backups_to_keep", yearly_backups_to_keep)
+            _setter("yearly_backups_to_keep", yearly_backups_to_keep)
 
     @property
     @pulumi.getter(name="accountName")
@@ -266,6 +297,10 @@ class BackupPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

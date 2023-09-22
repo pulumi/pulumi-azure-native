@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,8 +26,17 @@ class ConfigurationIdentityArgs:
         Identity for the managed cluster.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
         """
+        ConfigurationIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -58,18 +67,35 @@ class ExtensionStatusArgs:
         :param pulumi.Input[str] message: Detailed message of the status from the Extension instance.
         :param pulumi.Input[str] time: DateLiteral (per ISO8601) noting the time of installation status.
         """
+        ExtensionStatusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            display_status=display_status,
+            level=level,
+            message=message,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[pulumi.Input[str]] = None,
+             display_status: Optional[pulumi.Input[str]] = None,
+             level: Optional[pulumi.Input[Union[str, 'LevelType']]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
+            _setter("display_status", display_status)
         if level is None:
             level = 'Information'
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -140,8 +166,17 @@ class ScopeClusterArgs:
         Specifies that the scope of the extensionInstance is Cluster
         :param pulumi.Input[str] release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
         """
+        ScopeClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            release_namespace=release_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             release_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if release_namespace is not None:
-            pulumi.set(__self__, "release_namespace", release_namespace)
+            _setter("release_namespace", release_namespace)
 
     @property
     @pulumi.getter(name="releaseNamespace")
@@ -164,8 +199,17 @@ class ScopeNamespaceArgs:
         Specifies that the scope of the extensionInstance is Namespace
         :param pulumi.Input[str] target_namespace: Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
         """
+        ScopeNamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="targetNamespace")
@@ -190,10 +234,21 @@ class ScopeArgs:
         :param pulumi.Input['ScopeClusterArgs'] cluster: Specifies that the scope of the extensionInstance is Cluster
         :param pulumi.Input['ScopeNamespaceArgs'] namespace: Specifies that the scope of the extensionInstance is Namespace
         """
+        ScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster=cluster,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster: Optional[pulumi.Input['ScopeClusterArgs']] = None,
+             namespace: Optional[pulumi.Input['ScopeNamespaceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster is not None:
-            pulumi.set(__self__, "cluster", cluster)
+            _setter("cluster", cluster)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter

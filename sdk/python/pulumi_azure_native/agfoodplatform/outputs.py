@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -60,8 +60,19 @@ class ApiKeyAuthCredentialsResponse(dict):
         :param str kind: Enum for different types of AuthCredentials supported.
                Expected value is 'ApiKeyAuthCredentials'.
         """
-        pulumi.set(__self__, "api_key", api_key)
-        pulumi.set(__self__, "kind", 'ApiKeyAuthCredentials')
+        ApiKeyAuthCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: 'outputs.KeyVaultPropertiesResponse',
+             kind: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key", api_key)
+        _setter("kind", 'ApiKeyAuthCredentials')
 
     @property
     @pulumi.getter(name="apiKey")
@@ -109,8 +120,17 @@ class ApiPropertiesResponse(dict):
         Api properties.
         :param int api_freshness_time_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
         """
+        ApiPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_freshness_time_in_minutes=api_freshness_time_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_freshness_time_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_freshness_time_in_minutes is not None:
-            pulumi.set(__self__, "api_freshness_time_in_minutes", api_freshness_time_in_minutes)
+            _setter("api_freshness_time_in_minutes", api_freshness_time_in_minutes)
 
     @property
     @pulumi.getter(name="apiFreshnessTimeInMinutes")
@@ -132,7 +152,16 @@ class DataConnectorPropertiesResponse(dict):
         DataConnector Properties.
         :param Union['ApiKeyAuthCredentialsResponse', 'OAuthClientCredentialsResponse'] credentials: AuthCredentials abstract base class for Auth Purpose.
         """
-        pulumi.set(__self__, "credentials", credentials)
+        DataConnectorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Any,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("credentials", credentials)
 
     @property
     @pulumi.getter
@@ -156,8 +185,19 @@ class ErrorAdditionalInfoResponse(dict):
         :param Any info: The additional info.
         :param str type: The additional info type.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        ErrorAdditionalInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Any,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -212,11 +252,28 @@ class ErrorDetailResponse(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+             code: str,
+             details: Sequence['outputs.ErrorDetailResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("additional_info", additional_info)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -270,8 +327,17 @@ class ErrorResponseResponse(dict):
         Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
         :param 'ErrorDetailResponse' error: The error object.
         """
+        ErrorResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ErrorDetailResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
 
     @property
     @pulumi.getter
@@ -316,10 +382,23 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource. The value must be an UUID.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -382,9 +461,22 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_vault_uri: Uri of the key vault.
         :param str key_version: Version of Key Vault key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "key_version", key_version)
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: str,
+             key_vault_uri: str,
+             key_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -446,9 +538,22 @@ class OAuthClientCredentialsResponse(dict):
         :param str kind: Enum for different types of AuthCredentials supported.
                Expected value is 'OAuthClientCredentials'.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "kind", 'OAuthClientCredentials')
+        OAuthClientCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             client_secret: 'outputs.KeyVaultPropertiesResponse',
+             kind: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("kind", 'OAuthClientCredentials')
 
     @property
     @pulumi.getter(name="clientId")
@@ -526,15 +631,38 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
         """
-        pulumi.set(__self__, "group_ids", group_ids)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Sequence[str],
+             id: str,
+             name: str,
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_ids", group_ids)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -612,7 +740,16 @@ class PrivateEndpointResponse(dict):
         The private endpoint resource.
         :param str id: The ARM identifier for private endpoint.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -655,12 +792,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -721,11 +871,24 @@ class SensorIntegrationResponse(dict):
         :param str enabled: Sensor integration enable state.
         :param 'ErrorResponseResponse' provisioning_info: Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        SensorIntegrationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            enabled=enabled,
+            provisioning_info=provisioning_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             enabled: Optional[str] = None,
+             provisioning_info: Optional['outputs.ErrorResponseResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provisioning_state", provisioning_state)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if provisioning_info is not None:
-            pulumi.set(__self__, "provisioning_info", provisioning_info)
+            _setter("provisioning_info", provisioning_info)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -808,15 +971,38 @@ class SolutionPropertiesResponse(dict):
         :param str term_id: SaaS application Term Id.
         :param str role_assignment_id: Role Assignment Id.
         """
-        pulumi.set(__self__, "marketplace_publisher_id", marketplace_publisher_id)
-        pulumi.set(__self__, "offer_id", offer_id)
-        pulumi.set(__self__, "partner_id", partner_id)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
-        pulumi.set(__self__, "saas_subscription_name", saas_subscription_name)
-        pulumi.set(__self__, "term_id", term_id)
+        SolutionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            marketplace_publisher_id=marketplace_publisher_id,
+            offer_id=offer_id,
+            partner_id=partner_id,
+            plan_id=plan_id,
+            saas_subscription_id=saas_subscription_id,
+            saas_subscription_name=saas_subscription_name,
+            term_id=term_id,
+            role_assignment_id=role_assignment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             marketplace_publisher_id: str,
+             offer_id: str,
+             partner_id: str,
+             plan_id: str,
+             saas_subscription_id: str,
+             saas_subscription_name: str,
+             term_id: str,
+             role_assignment_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("marketplace_publisher_id", marketplace_publisher_id)
+        _setter("offer_id", offer_id)
+        _setter("partner_id", partner_id)
+        _setter("plan_id", plan_id)
+        _setter("saas_subscription_id", saas_subscription_id)
+        _setter("saas_subscription_name", saas_subscription_name)
+        _setter("term_id", term_id)
         if role_assignment_id is not None:
-            pulumi.set(__self__, "role_assignment_id", role_assignment_id)
+            _setter("role_assignment_id", role_assignment_id)
 
     @property
     @pulumi.getter(name="marketplacePublisherId")
@@ -931,18 +1117,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

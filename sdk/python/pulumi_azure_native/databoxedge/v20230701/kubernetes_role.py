@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,15 +37,38 @@ class KubernetesRoleArgs:
         :param pulumi.Input[Union[str, 'RoleStatus']] role_status: Role status.
         :param pulumi.Input[str] name: The role name.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "host_platform", host_platform)
-        pulumi.set(__self__, "kind", 'Kubernetes')
-        pulumi.set(__self__, "kubernetes_cluster_info", kubernetes_cluster_info)
-        pulumi.set(__self__, "kubernetes_role_resources", kubernetes_role_resources)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role_status", role_status)
+        KubernetesRoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            host_platform=host_platform,
+            kind=kind,
+            kubernetes_cluster_info=kubernetes_cluster_info,
+            kubernetes_role_resources=kubernetes_role_resources,
+            resource_group_name=resource_group_name,
+            role_status=role_status,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             host_platform: pulumi.Input[Union[str, 'PlatformType']],
+             kind: pulumi.Input[str],
+             kubernetes_cluster_info: pulumi.Input['KubernetesClusterInfoArgs'],
+             kubernetes_role_resources: pulumi.Input['KubernetesRoleResourcesArgs'],
+             resource_group_name: pulumi.Input[str],
+             role_status: pulumi.Input[Union[str, 'RoleStatus']],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_name", device_name)
+        _setter("host_platform", host_platform)
+        _setter("kind", 'Kubernetes')
+        _setter("kubernetes_cluster_info", kubernetes_cluster_info)
+        _setter("kubernetes_role_resources", kubernetes_role_resources)
+        _setter("resource_group_name", resource_group_name)
+        _setter("role_status", role_status)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -207,6 +230,10 @@ class KubernetesRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KubernetesRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -238,9 +265,19 @@ class KubernetesRole(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Kubernetes'
+            if not isinstance(kubernetes_cluster_info, KubernetesClusterInfoArgs):
+                kubernetes_cluster_info = kubernetes_cluster_info or {}
+                def _setter(key, value):
+                    kubernetes_cluster_info[key] = value
+                KubernetesClusterInfoArgs._configure(_setter, **kubernetes_cluster_info)
             if kubernetes_cluster_info is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_info'")
             __props__.__dict__["kubernetes_cluster_info"] = kubernetes_cluster_info
+            if not isinstance(kubernetes_role_resources, KubernetesRoleResourcesArgs):
+                kubernetes_role_resources = kubernetes_role_resources or {}
+                def _setter(key, value):
+                    kubernetes_role_resources[key] = value
+                KubernetesRoleResourcesArgs._configure(_setter, **kubernetes_role_resources)
             if kubernetes_role_resources is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_role_resources'")
             __props__.__dict__["kubernetes_role_resources"] = kubernetes_role_resources

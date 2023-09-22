@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,20 +34,43 @@ class WorkloadNetworkPortMirroringArgs:
         :param pulumi.Input[float] revision: NSX revision number.
         :param pulumi.Input[str] source: Source VM Group.
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkloadNetworkPortMirroringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            destination=destination,
+            direction=direction,
+            display_name=display_name,
+            port_mirroring_id=port_mirroring_id,
+            revision=revision,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             destination: Optional[pulumi.Input[str]] = None,
+             direction: Optional[pulumi.Input[Union[str, 'PortMirroringDirectionEnum']]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             port_mirroring_id: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[float]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if port_mirroring_id is not None:
-            pulumi.set(__self__, "port_mirroring_id", port_mirroring_id)
+            _setter("port_mirroring_id", port_mirroring_id)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -193,6 +216,10 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadNetworkPortMirroringArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

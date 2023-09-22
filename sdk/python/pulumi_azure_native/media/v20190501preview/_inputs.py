@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,10 +35,21 @@ class CrossSiteAccessPoliciesArgs:
         :param pulumi.Input[str] client_access_policy: The content of clientaccesspolicy.xml used by Silverlight.
         :param pulumi.Input[str] cross_domain_policy: The content of crossdomain.xml used by Silverlight.
         """
+        CrossSiteAccessPoliciesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_access_policy=client_access_policy,
+            cross_domain_policy=cross_domain_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_access_policy: Optional[pulumi.Input[str]] = None,
+             cross_domain_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_access_policy is not None:
-            pulumi.set(__self__, "client_access_policy", client_access_policy)
+            _setter("client_access_policy", client_access_policy)
         if cross_domain_policy is not None:
-            pulumi.set(__self__, "cross_domain_policy", cross_domain_policy)
+            _setter("cross_domain_policy", cross_domain_policy)
 
     @property
     @pulumi.getter(name="clientAccessPolicy")
@@ -73,8 +84,17 @@ class IPAccessControlArgs:
         The IP access control.
         :param pulumi.Input[Sequence[pulumi.Input['IPRangeArgs']]] allow: The IP allow list.
         """
+        IPAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional[pulumi.Input[Sequence[pulumi.Input['IPRangeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
 
     @property
     @pulumi.getter
@@ -101,12 +121,25 @@ class IPRangeArgs:
         :param pulumi.Input[str] name: The friendly name for the IP address range.
         :param pulumi.Input[int] subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
         """
+        IPRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            name=name,
+            subnet_prefix_length=subnet_prefix_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subnet_prefix_length: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet_prefix_length is not None:
-            pulumi.set(__self__, "subnet_prefix_length", subnet_prefix_length)
+            _setter("subnet_prefix_length", subnet_prefix_length)
 
     @property
     @pulumi.getter
@@ -155,10 +188,21 @@ class LiveEventEncodingArgs:
         :param pulumi.Input[Union[str, 'LiveEventEncodingType']] encoding_type: The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
         :param pulumi.Input[str] preset_name: The encoding preset name.  This value is specified at creation time and cannot be updated.
         """
+        LiveEventEncodingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoding_type=encoding_type,
+            preset_name=preset_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoding_type: Optional[pulumi.Input[Union[str, 'LiveEventEncodingType']]] = None,
+             preset_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if preset_name is not None:
-            pulumi.set(__self__, "preset_name", preset_name)
+            _setter("preset_name", preset_name)
 
     @property
     @pulumi.getter(name="encodingType")
@@ -195,10 +239,21 @@ class LiveEventEndpointArgs:
         :param pulumi.Input[str] protocol: The endpoint protocol.
         :param pulumi.Input[str] url: The endpoint URL.
         """
+        LiveEventEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -233,8 +288,17 @@ class LiveEventInputAccessControlArgs:
         The IP access control for Live Event Input.
         :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
         """
+        LiveEventInputAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[pulumi.Input['IPAccessControlArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -261,12 +325,25 @@ class LiveEventInputTrackSelectionArgs:
         :param pulumi.Input[str] property: Property name to select.
         :param pulumi.Input[str] value: Property value to select.
         """
+        LiveEventInputTrackSelectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            property=property,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: Optional[pulumi.Input[str]] = None,
+             property: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
         if property is not None:
-            pulumi.set(__self__, "property", property)
+            _setter("property", property)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -321,15 +398,32 @@ class LiveEventInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The input endpoints for the Live Event.
         :param pulumi.Input[str] key_frame_interval_duration: ISO 8601 timespan duration of the key frame interval duration.
         """
-        pulumi.set(__self__, "streaming_protocol", streaming_protocol)
+        LiveEventInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            streaming_protocol=streaming_protocol,
+            access_control=access_control,
+            access_token=access_token,
+            endpoints=endpoints,
+            key_frame_interval_duration=key_frame_interval_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             streaming_protocol: pulumi.Input[Union[str, 'LiveEventInputProtocol']],
+             access_control: Optional[pulumi.Input['LiveEventInputAccessControlArgs']] = None,
+             access_token: Optional[pulumi.Input[str]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]] = None,
+             key_frame_interval_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("streaming_protocol", streaming_protocol)
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if key_frame_interval_duration is not None:
-            pulumi.set(__self__, "key_frame_interval_duration", key_frame_interval_duration)
+            _setter("key_frame_interval_duration", key_frame_interval_duration)
 
     @property
     @pulumi.getter(name="streamingProtocol")
@@ -400,7 +494,16 @@ class LiveEventOutputTranscriptionTrackArgs:
         Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
         :param pulumi.Input[str] track_name: The output track name.
         """
-        pulumi.set(__self__, "track_name", track_name)
+        LiveEventOutputTranscriptionTrackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            track_name=track_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             track_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("track_name", track_name)
 
     @property
     @pulumi.getter(name="trackName")
@@ -423,8 +526,17 @@ class LiveEventPreviewAccessControlArgs:
         The IP access control for Live Event preview.
         :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
         """
+        LiveEventPreviewAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[pulumi.Input['IPAccessControlArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -455,16 +567,33 @@ class LiveEventPreviewArgs:
         :param pulumi.Input[str] preview_locator: The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
         :param pulumi.Input[str] streaming_policy_name: The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
         """
+        LiveEventPreviewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control=access_control,
+            alternative_media_id=alternative_media_id,
+            endpoints=endpoints,
+            preview_locator=preview_locator,
+            streaming_policy_name=streaming_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control: Optional[pulumi.Input['LiveEventPreviewAccessControlArgs']] = None,
+             alternative_media_id: Optional[pulumi.Input[str]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]] = None,
+             preview_locator: Optional[pulumi.Input[str]] = None,
+             streaming_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if alternative_media_id is not None:
-            pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+            _setter("alternative_media_id", alternative_media_id)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if preview_locator is not None:
-            pulumi.set(__self__, "preview_locator", preview_locator)
+            _setter("preview_locator", preview_locator)
         if streaming_policy_name is not None:
-            pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+            _setter("streaming_policy_name", streaming_policy_name)
 
     @property
     @pulumi.getter(name="accessControl")
@@ -539,12 +668,25 @@ class LiveEventTranscriptionArgs:
         :param pulumi.Input[str] language: Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
         :param pulumi.Input['LiveEventOutputTranscriptionTrackArgs'] output_transcription_track: Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
         """
+        LiveEventTranscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_track_selection=input_track_selection,
+            language=language,
+            output_transcription_track=output_transcription_track,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_track_selection: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             output_transcription_track: Optional[pulumi.Input['LiveEventOutputTranscriptionTrackArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if input_track_selection is not None:
-            pulumi.set(__self__, "input_track_selection", input_track_selection)
+            _setter("input_track_selection", input_track_selection)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if output_transcription_track is not None:
-            pulumi.set(__self__, "output_transcription_track", output_transcription_track)
+            _setter("output_transcription_track", output_transcription_track)
 
     @property
     @pulumi.getter(name="inputTrackSelection")

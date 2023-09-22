@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -119,7 +119,16 @@ class AccountKeyMetadataResponse(dict):
         The metadata related to an access key for a given database account.
         :param str generation_time: Generation time in UTC of the key in ISO-8601 format. If the value is missing from the object, it means that the last key regeneration was triggered before 2022-06-18.
         """
-        pulumi.set(__self__, "generation_time", generation_time)
+        AccountKeyMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            generation_time=generation_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             generation_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("generation_time", generation_time)
 
     @property
     @pulumi.getter(name="generationTime")
@@ -158,8 +167,17 @@ class AnalyticalStorageConfigurationResponse(dict):
         Analytical storage specific properties.
         :param str schema_type: Describes the types of schema for analytical storage.
         """
+        AnalyticalStorageConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_type=schema_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if schema_type is not None:
-            pulumi.set(__self__, "schema_type", schema_type)
+            _setter("schema_type", schema_type)
 
     @property
     @pulumi.getter(name="schemaType")
@@ -194,8 +212,17 @@ class ApiPropertiesResponse(dict):
         """
         :param str server_version: Describes the ServerVersion of an a MongoDB account.
         """
+        ApiPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_version=server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
 
     @property
     @pulumi.getter(name="serverVersion")
@@ -230,8 +257,17 @@ class AutoscaleSettingsResponse(dict):
         """
         :param int max_throughput: Represents maximum throughput, the resource can scale up to.
         """
+        AutoscaleSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -276,12 +312,25 @@ class BackupPolicyMigrationStateResponse(dict):
         :param str status: Describes the status of migration between backup policy types.
         :param str target_type: Describes the target backup policy type of the backup policy migration.
         """
+        BackupPolicyMigrationStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            start_time=start_time,
+            status=status,
+            target_type=target_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             start_time: Optional[str] = None,
+             status: Optional[str] = None,
+             target_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
 
     @property
     @pulumi.getter(name="startTime")
@@ -319,8 +368,17 @@ class CapabilityResponse(dict):
         Cosmos DB capability object
         :param str name: Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
         """
+        CapabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -359,8 +417,17 @@ class CapacityResponse(dict):
         The object that represents all properties related to capacity enforcement on an account.
         :param int total_throughput_limit: The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
         """
+        CapacityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            total_throughput_limit=total_throughput_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             total_throughput_limit: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if total_throughput_limit is not None:
-            pulumi.set(__self__, "total_throughput_limit", total_throughput_limit)
+            _setter("total_throughput_limit", total_throughput_limit)
 
     @property
     @pulumi.getter(name="totalThroughputLimit")
@@ -397,10 +464,21 @@ class CassandraKeyspaceGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        CassandraKeyspaceGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -432,10 +510,25 @@ class CassandraKeyspaceGetPropertiesResponseResource(dict):
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        CassandraKeyspaceGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
 
     @property
     @pulumi.getter
@@ -481,8 +574,17 @@ class CassandraPartitionKeyResponse(dict):
         Cosmos DB Cassandra table partition key
         :param str name: Name of the Cosmos DB Cassandra table partition key
         """
+        CassandraPartitionKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -527,12 +629,25 @@ class CassandraSchemaResponse(dict):
         :param Sequence['ColumnResponse'] columns: List of Cassandra table columns.
         :param Sequence['CassandraPartitionKeyResponse'] partition_keys: List of partition key.
         """
+        CassandraSchemaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_keys=cluster_keys,
+            columns=columns,
+            partition_keys=partition_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_keys: Optional[Sequence['outputs.ClusterKeyResponse']] = None,
+             columns: Optional[Sequence['outputs.ColumnResponse']] = None,
+             partition_keys: Optional[Sequence['outputs.CassandraPartitionKeyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_keys is not None:
-            pulumi.set(__self__, "cluster_keys", cluster_keys)
+            _setter("cluster_keys", cluster_keys)
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if partition_keys is not None:
-            pulumi.set(__self__, "partition_keys", partition_keys)
+            _setter("partition_keys", partition_keys)
 
     @property
     @pulumi.getter(name="clusterKeys")
@@ -585,10 +700,21 @@ class CassandraTableGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        CassandraTableGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -645,16 +771,37 @@ class CassandraTableGetPropertiesResponseResource(dict):
         :param int default_ttl: Time to live of the Cosmos DB Cassandra table
         :param 'CassandraSchemaResponse' schema: Schema of the Cosmos DB Cassandra table
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        CassandraTableGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            analytical_storage_ttl=analytical_storage_ttl,
+            default_ttl=default_ttl,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             analytical_storage_ttl: Optional[int] = None,
+             default_ttl: Optional[int] = None,
+             schema: Optional['outputs.CassandraSchemaResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
 
     @property
     @pulumi.getter
@@ -739,10 +886,21 @@ class CassandraViewGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        CassandraViewGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -793,11 +951,28 @@ class CassandraViewGetPropertiesResponseResource(dict):
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param str view_definition: View Definition of the Cosmos DB Cassandra view
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
-        pulumi.set(__self__, "view_definition", view_definition)
+        CassandraViewGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            view_definition=view_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             view_definition: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
+        _setter("view_definition", view_definition)
 
     @property
     @pulumi.getter
@@ -878,10 +1053,25 @@ class ClientEncryptionIncludedPathResponse(dict):
         :param str encryption_type: The type of encryption to be performed. Eg - Deterministic, Randomized.
         :param str path: Path that needs to be encrypted.
         """
-        pulumi.set(__self__, "client_encryption_key_id", client_encryption_key_id)
-        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
-        pulumi.set(__self__, "encryption_type", encryption_type)
-        pulumi.set(__self__, "path", path)
+        ClientEncryptionIncludedPathResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_encryption_key_id=client_encryption_key_id,
+            encryption_algorithm=encryption_algorithm,
+            encryption_type=encryption_type,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_encryption_key_id: str,
+             encryption_algorithm: str,
+             encryption_type: str,
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_encryption_key_id", client_encryption_key_id)
+        _setter("encryption_algorithm", encryption_algorithm)
+        _setter("encryption_type", encryption_type)
+        _setter("path", path)
 
     @property
     @pulumi.getter(name="clientEncryptionKeyId")
@@ -948,8 +1138,19 @@ class ClientEncryptionPolicyResponse(dict):
         :param Sequence['ClientEncryptionIncludedPathResponse'] included_paths: Paths of the item that need encryption along with path-specific settings.
         :param int policy_format_version: Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption. 
         """
-        pulumi.set(__self__, "included_paths", included_paths)
-        pulumi.set(__self__, "policy_format_version", policy_format_version)
+        ClientEncryptionPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            included_paths=included_paths,
+            policy_format_version=policy_format_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             included_paths: Sequence['outputs.ClientEncryptionIncludedPathResponse'],
+             policy_format_version: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("included_paths", included_paths)
+        _setter("policy_format_version", policy_format_version)
 
     @property
     @pulumi.getter(name="includedPaths")
@@ -998,10 +1199,21 @@ class ClusterKeyResponse(dict):
         :param str name: Name of the Cosmos DB Cassandra table cluster key
         :param str order_by: Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
         """
+        ClusterKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            order_by=order_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             order_by: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if order_by is not None:
-            pulumi.set(__self__, "order_by", order_by)
+            _setter("order_by", order_by)
 
     @property
     @pulumi.getter
@@ -1033,10 +1245,21 @@ class ColumnResponse(dict):
         :param str name: Name of the Cosmos DB Cassandra table column
         :param str type: Type of the Cosmos DB Cassandra table column
         """
+        ColumnResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1064,10 +1287,21 @@ class CompositePathResponse(dict):
         :param str order: Sort order for composite paths.
         :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
+        CompositePathResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            order=order,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             order: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1120,14 +1354,27 @@ class ConflictResolutionPolicyResponse(dict):
         :param str conflict_resolution_procedure: The procedure to resolve conflicts in the case of custom mode.
         :param str mode: Indicates the conflict resolution mode.
         """
+        ConflictResolutionPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conflict_resolution_path=conflict_resolution_path,
+            conflict_resolution_procedure=conflict_resolution_procedure,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conflict_resolution_path: Optional[str] = None,
+             conflict_resolution_procedure: Optional[str] = None,
+             mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if conflict_resolution_path is not None:
-            pulumi.set(__self__, "conflict_resolution_path", conflict_resolution_path)
+            _setter("conflict_resolution_path", conflict_resolution_path)
         if conflict_resolution_procedure is not None:
-            pulumi.set(__self__, "conflict_resolution_procedure", conflict_resolution_procedure)
+            _setter("conflict_resolution_procedure", conflict_resolution_procedure)
         if mode is None:
             mode = 'LastWriterWins'
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter(name="conflictResolutionPath")
@@ -1167,8 +1414,19 @@ class ConnectionStringResponse(dict):
         :param str connection_string: Value of the connection string
         :param str description: Description of the connection string
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "description", description)
+        ConnectionStringResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: str,
+             description: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("description", description)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -1223,11 +1481,24 @@ class ConsistencyPolicyResponse(dict):
         :param int max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         :param float max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
-        pulumi.set(__self__, "default_consistency_level", default_consistency_level)
+        ConsistencyPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_consistency_level=default_consistency_level,
+            max_interval_in_seconds=max_interval_in_seconds,
+            max_staleness_prefix=max_staleness_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_consistency_level: str,
+             max_interval_in_seconds: Optional[int] = None,
+             max_staleness_prefix: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_consistency_level", default_consistency_level)
         if max_interval_in_seconds is not None:
-            pulumi.set(__self__, "max_interval_in_seconds", max_interval_in_seconds)
+            _setter("max_interval_in_seconds", max_interval_in_seconds)
         if max_staleness_prefix is not None:
-            pulumi.set(__self__, "max_staleness_prefix", max_staleness_prefix)
+            _setter("max_staleness_prefix", max_staleness_prefix)
 
     @property
     @pulumi.getter(name="defaultConsistencyLevel")
@@ -1288,15 +1559,30 @@ class ContainerPartitionKeyResponse(dict):
         :param Sequence[str] paths: List of paths using which data within the container can be partitioned
         :param int version: Indicates the version of the partition key definition
         """
-        pulumi.set(__self__, "system_key", system_key)
+        ContainerPartitionKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            system_key=system_key,
+            kind=kind,
+            paths=paths,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             system_key: bool,
+             kind: Optional[str] = None,
+             paths: Optional[Sequence[str]] = None,
+             version: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("system_key", system_key)
         if kind is None:
             kind = 'Hash'
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if paths is not None:
-            pulumi.set(__self__, "paths", paths)
+            _setter("paths", paths)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="systemKey")
@@ -1366,11 +1652,24 @@ class ContinuousModeBackupPolicyResponse(dict):
         :param 'ContinuousModePropertiesResponse' continuous_mode_properties: Configuration values for continuous mode backup
         :param 'BackupPolicyMigrationStateResponse' migration_state: The object representing the state of the migration between the backup policies.
         """
-        pulumi.set(__self__, "type", 'Continuous')
+        ContinuousModeBackupPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            continuous_mode_properties=continuous_mode_properties,
+            migration_state=migration_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             continuous_mode_properties: Optional['outputs.ContinuousModePropertiesResponse'] = None,
+             migration_state: Optional['outputs.BackupPolicyMigrationStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Continuous')
         if continuous_mode_properties is not None:
-            pulumi.set(__self__, "continuous_mode_properties", continuous_mode_properties)
+            _setter("continuous_mode_properties", continuous_mode_properties)
         if migration_state is not None:
-            pulumi.set(__self__, "migration_state", migration_state)
+            _setter("migration_state", migration_state)
 
     @property
     @pulumi.getter
@@ -1409,8 +1708,17 @@ class ContinuousModePropertiesResponse(dict):
         Configuration values for periodic mode backup
         :param str tier: Enum to indicate type of Continuos backup mode
         """
+        ContinuousModePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1465,15 +1773,32 @@ class CorsPolicyResponse(dict):
         :param str exposed_headers: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
         :param float max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        CorsPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            exposed_headers=exposed_headers,
+            max_age_in_seconds=max_age_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: str,
+             allowed_headers: Optional[str] = None,
+             allowed_methods: Optional[str] = None,
+             exposed_headers: Optional[str] = None,
+             max_age_in_seconds: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_origins", allowed_origins)
         if allowed_headers is not None:
-            pulumi.set(__self__, "allowed_headers", allowed_headers)
+            _setter("allowed_headers", allowed_headers)
         if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
+            _setter("allowed_methods", allowed_methods)
         if exposed_headers is not None:
-            pulumi.set(__self__, "exposed_headers", exposed_headers)
+            _setter("exposed_headers", exposed_headers)
         if max_age_in_seconds is not None:
-            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+            _setter("max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -1533,10 +1858,25 @@ class DatabaseAccountConnectionStringResponse(dict):
         :param str key_kind: Kind of the connection string key
         :param str type: Type of the connection string
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "key_kind", key_kind)
-        pulumi.set(__self__, "type", type)
+        DatabaseAccountConnectionStringResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            description=description,
+            key_kind=key_kind,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: str,
+             description: str,
+             key_kind: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("description", description)
+        _setter("key_kind", key_kind)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -1611,10 +1951,25 @@ class DatabaseAccountKeysMetadataResponse(dict):
         :param 'AccountKeyMetadataResponse' secondary_master_key: The metadata related to the Secondary Read-Write Key for the given Cosmos DB database account.
         :param 'AccountKeyMetadataResponse' secondary_readonly_master_key: The metadata related to the Secondary Read-Only Key for the given Cosmos DB database account.
         """
-        pulumi.set(__self__, "primary_master_key", primary_master_key)
-        pulumi.set(__self__, "primary_readonly_master_key", primary_readonly_master_key)
-        pulumi.set(__self__, "secondary_master_key", secondary_master_key)
-        pulumi.set(__self__, "secondary_readonly_master_key", secondary_readonly_master_key)
+        DatabaseAccountKeysMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_master_key=primary_master_key,
+            primary_readonly_master_key=primary_readonly_master_key,
+            secondary_master_key=secondary_master_key,
+            secondary_readonly_master_key=secondary_readonly_master_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_master_key: 'outputs.AccountKeyMetadataResponse',
+             primary_readonly_master_key: 'outputs.AccountKeyMetadataResponse',
+             secondary_master_key: 'outputs.AccountKeyMetadataResponse',
+             secondary_readonly_master_key: 'outputs.AccountKeyMetadataResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("primary_master_key", primary_master_key)
+        _setter("primary_readonly_master_key", primary_readonly_master_key)
+        _setter("secondary_master_key", secondary_master_key)
+        _setter("secondary_readonly_master_key", secondary_readonly_master_key)
 
     @property
     @pulumi.getter(name="primaryMasterKey")
@@ -1681,10 +2036,21 @@ class DatabaseRestoreResourceResponse(dict):
         :param Sequence[str] collection_names: The names of the collections available for restore.
         :param str database_name: The name of the database available for restore.
         """
+        DatabaseRestoreResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection_names=collection_names,
+            database_name=database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection_names: Optional[Sequence[str]] = None,
+             database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if collection_names is not None:
-            pulumi.set(__self__, "collection_names", collection_names)
+            _setter("collection_names", collection_names)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
 
     @property
     @pulumi.getter(name="collectionNames")
@@ -1731,8 +2097,17 @@ class DiagnosticLogSettingsResponse(dict):
         Indicates what diagnostic log settings are to be enabled.
         :param str enable_full_text_query: Describe the level of detail with which queries are to be logged.
         """
+        DiagnosticLogSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_full_text_query=enable_full_text_query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_full_text_query: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_full_text_query is not None:
-            pulumi.set(__self__, "enable_full_text_query", enable_full_text_query)
+            _setter("enable_full_text_query", enable_full_text_query)
 
     @property
     @pulumi.getter(name="enableFullTextQuery")
@@ -1750,8 +2125,17 @@ class ExcludedPathResponse(dict):
         """
         :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
+        ExcludedPathResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1796,11 +2180,24 @@ class FailoverPolicyResponse(dict):
         :param int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         :param str location_name: The name of the region in which the database account exists.
         """
-        pulumi.set(__self__, "id", id)
+        FailoverPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            failover_priority=failover_priority,
+            location_name=location_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             failover_priority: Optional[int] = None,
+             location_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if failover_priority is not None:
-            pulumi.set(__self__, "failover_priority", failover_priority)
+            _setter("failover_priority", failover_priority)
         if location_name is not None:
-            pulumi.set(__self__, "location_name", location_name)
+            _setter("location_name", location_name)
 
     @property
     @pulumi.getter
@@ -1853,10 +2250,21 @@ class GraphResourceGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        GraphResourceGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -1882,7 +2290,16 @@ class GraphResourceGetPropertiesResponseResource(dict):
         """
         :param str id: Name of the Cosmos DB Graph
         """
-        pulumi.set(__self__, "id", id)
+        GraphResourceGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1919,10 +2336,21 @@ class GremlinDatabaseGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        GremlinDatabaseGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -1977,14 +2405,33 @@ class GremlinDatabaseGetPropertiesResponseResource(dict):
         :param str create_mode: Enum to indicate the mode of resource creation.
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        GremlinDatabaseGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            create_mode=create_mode,
+            restore_parameters=restore_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             create_mode: Optional[str] = None,
+             restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -2067,10 +2514,21 @@ class GremlinDatabaseRestoreResourceResponse(dict):
         :param str database_name: The name of the gremlin database available for restore.
         :param Sequence[str] graph_names: The names of the graphs available for restore.
         """
+        GremlinDatabaseRestoreResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            graph_names=graph_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             graph_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if graph_names is not None:
-            pulumi.set(__self__, "graph_names", graph_names)
+            _setter("graph_names", graph_names)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2115,10 +2573,21 @@ class GremlinGraphGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        GremlinGraphGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -2197,26 +2666,57 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        GremlinGraphGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            analytical_storage_ttl=analytical_storage_ttl,
+            conflict_resolution_policy=conflict_resolution_policy,
+            create_mode=create_mode,
+            default_ttl=default_ttl,
+            indexing_policy=indexing_policy,
+            partition_key=partition_key,
+            restore_parameters=restore_parameters,
+            unique_key_policy=unique_key_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             analytical_storage_ttl: Optional[float] = None,
+             conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
+             create_mode: Optional[str] = None,
+             default_ttl: Optional[int] = None,
+             indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
+             partition_key: Optional['outputs.ContainerPartitionKeyResponse'] = None,
+             restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
+             unique_key_policy: Optional['outputs.UniqueKeyPolicyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if conflict_resolution_policy is not None:
-            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+            _setter("conflict_resolution_policy", conflict_resolution_policy)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if indexing_policy is not None:
-            pulumi.set(__self__, "indexing_policy", indexing_policy)
+            _setter("indexing_policy", indexing_policy)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
         if unique_key_policy is not None:
-            pulumi.set(__self__, "unique_key_policy", unique_key_policy)
+            _setter("unique_key_policy", unique_key_policy)
 
     @property
     @pulumi.getter
@@ -2328,10 +2828,21 @@ class IncludedPathResponse(dict):
         :param Sequence['IndexesResponse'] indexes: List of indexes for this path
         :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
+        IncludedPathResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            indexes=indexes,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             indexes: Optional[Sequence['outputs.IndexesResponse']] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if indexes is not None:
-            pulumi.set(__self__, "indexes", indexes)
+            _setter("indexes", indexes)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -2382,16 +2893,29 @@ class IndexesResponse(dict):
         :param str kind: Indicates the type of index.
         :param int precision: The precision of the index. -1 is maximum precision.
         """
+        IndexesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            kind=kind,
+            precision=precision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[str] = None,
+             kind: Optional[str] = None,
+             precision: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_type is None:
             data_type = 'String'
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if kind is None:
             kind = 'Hash'
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if precision is not None:
-            pulumi.set(__self__, "precision", precision)
+            _setter("precision", precision)
 
     @property
     @pulumi.getter(name="dataType")
@@ -2464,20 +2988,39 @@ class IndexingPolicyResponse(dict):
         :param str indexing_mode: Indicates the indexing mode.
         :param Sequence['SpatialSpecResponse'] spatial_indexes: List of spatial specifics
         """
+        IndexingPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatic=automatic,
+            composite_indexes=composite_indexes,
+            excluded_paths=excluded_paths,
+            included_paths=included_paths,
+            indexing_mode=indexing_mode,
+            spatial_indexes=spatial_indexes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatic: Optional[bool] = None,
+             composite_indexes: Optional[Sequence[Sequence['outputs.CompositePathResponse']]] = None,
+             excluded_paths: Optional[Sequence['outputs.ExcludedPathResponse']] = None,
+             included_paths: Optional[Sequence['outputs.IncludedPathResponse']] = None,
+             indexing_mode: Optional[str] = None,
+             spatial_indexes: Optional[Sequence['outputs.SpatialSpecResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automatic is not None:
-            pulumi.set(__self__, "automatic", automatic)
+            _setter("automatic", automatic)
         if composite_indexes is not None:
-            pulumi.set(__self__, "composite_indexes", composite_indexes)
+            _setter("composite_indexes", composite_indexes)
         if excluded_paths is not None:
-            pulumi.set(__self__, "excluded_paths", excluded_paths)
+            _setter("excluded_paths", excluded_paths)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
         if indexing_mode is None:
             indexing_mode = 'consistent'
         if indexing_mode is not None:
-            pulumi.set(__self__, "indexing_mode", indexing_mode)
+            _setter("indexing_mode", indexing_mode)
         if spatial_indexes is not None:
-            pulumi.set(__self__, "spatial_indexes", spatial_indexes)
+            _setter("spatial_indexes", spatial_indexes)
 
     @property
     @pulumi.getter
@@ -2556,8 +3099,17 @@ class IpAddressOrRangeResponse(dict):
         IpAddressOrRange object
         :param str ip_address_or_range: A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
         """
+        IpAddressOrRangeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address_or_range=ip_address_or_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address_or_range: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_address_or_range is not None:
-            pulumi.set(__self__, "ip_address_or_range", ip_address_or_range)
+            _setter("ip_address_or_range", ip_address_or_range)
 
     @property
     @pulumi.getter(name="ipAddressOrRange")
@@ -2614,15 +3166,34 @@ class LocationResponse(dict):
         :param bool is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
         :param str location_name: The name of the region.
         """
-        pulumi.set(__self__, "document_endpoint", document_endpoint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        LocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            document_endpoint=document_endpoint,
+            id=id,
+            provisioning_state=provisioning_state,
+            failover_priority=failover_priority,
+            is_zone_redundant=is_zone_redundant,
+            location_name=location_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             document_endpoint: str,
+             id: str,
+             provisioning_state: str,
+             failover_priority: Optional[int] = None,
+             is_zone_redundant: Optional[bool] = None,
+             location_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("document_endpoint", document_endpoint)
+        _setter("id", id)
+        _setter("provisioning_state", provisioning_state)
         if failover_priority is not None:
-            pulumi.set(__self__, "failover_priority", failover_priority)
+            _setter("failover_priority", failover_priority)
         if is_zone_redundant is not None:
-            pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
+            _setter("is_zone_redundant", is_zone_redundant)
         if location_name is not None:
-            pulumi.set(__self__, "location_name", location_name)
+            _setter("location_name", location_name)
 
     @property
     @pulumi.getter(name="documentEndpoint")
@@ -2711,12 +3282,27 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -2779,8 +3365,19 @@ class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        ManagedServiceIdentityResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2833,9 +3430,22 @@ class MaterializedViewDefinitionResponse(dict):
         :param str source_collection_id: The name of the source container on which the Materialized View will be created.
         :param str source_collection_rid: An unique identifier for the source collection. This is a system generated property.
         """
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "source_collection_id", source_collection_id)
-        pulumi.set(__self__, "source_collection_rid", source_collection_rid)
+        MaterializedViewDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            source_collection_id=source_collection_id,
+            source_collection_rid=source_collection_rid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: str,
+             source_collection_id: str,
+             source_collection_rid: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("definition", definition)
+        _setter("source_collection_id", source_collection_id)
+        _setter("source_collection_rid", source_collection_rid)
 
     @property
     @pulumi.getter
@@ -2888,10 +3498,21 @@ class MongoDBCollectionGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        MongoDBCollectionGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -2956,20 +3577,45 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param Mapping[str, str] shard_key: A key-value pair of shard keys to be applied for the request.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        MongoDBCollectionGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            analytical_storage_ttl=analytical_storage_ttl,
+            create_mode=create_mode,
+            indexes=indexes,
+            restore_parameters=restore_parameters,
+            shard_key=shard_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             analytical_storage_ttl: Optional[int] = None,
+             create_mode: Optional[str] = None,
+             indexes: Optional[Sequence['outputs.MongoIndexResponse']] = None,
+             restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
+             shard_key: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if indexes is not None:
-            pulumi.set(__self__, "indexes", indexes)
+            _setter("indexes", indexes)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
         if shard_key is not None:
-            pulumi.set(__self__, "shard_key", shard_key)
+            _setter("shard_key", shard_key)
 
     @property
     @pulumi.getter
@@ -3070,10 +3716,21 @@ class MongoDBDatabaseGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        MongoDBDatabaseGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -3128,14 +3785,33 @@ class MongoDBDatabaseGetPropertiesResponseResource(dict):
         :param str create_mode: Enum to indicate the mode of resource creation.
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        MongoDBDatabaseGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            create_mode=create_mode,
+            restore_parameters=restore_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             create_mode: Optional[str] = None,
+             restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -3197,8 +3873,17 @@ class MongoIndexKeysResponse(dict):
         Cosmos DB MongoDB collection resource object
         :param Sequence[str] keys: List of keys for each MongoDB collection in the Azure Cosmos DB service
         """
+        MongoIndexKeysResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            keys=keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             keys: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
 
     @property
     @pulumi.getter
@@ -3239,10 +3924,21 @@ class MongoIndexOptionsResponse(dict):
         :param int expire_after_seconds: Expire after seconds
         :param bool unique: Is unique or not
         """
+        MongoIndexOptionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expire_after_seconds=expire_after_seconds,
+            unique=unique,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expire_after_seconds: Optional[int] = None,
+             unique: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expire_after_seconds is not None:
-            pulumi.set(__self__, "expire_after_seconds", expire_after_seconds)
+            _setter("expire_after_seconds", expire_after_seconds)
         if unique is not None:
-            pulumi.set(__self__, "unique", unique)
+            _setter("unique", unique)
 
     @property
     @pulumi.getter(name="expireAfterSeconds")
@@ -3274,10 +3970,21 @@ class MongoIndexResponse(dict):
         :param 'MongoIndexKeysResponse' key: Cosmos DB MongoDB collection index keys
         :param 'MongoIndexOptionsResponse' options: Cosmos DB MongoDB collection index key options
         """
+        MongoIndexResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            options=options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional['outputs.MongoIndexKeysResponse'] = None,
+             options: Optional['outputs.MongoIndexOptionsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
 
     @property
     @pulumi.getter
@@ -3336,16 +4043,33 @@ class NodeGroupSpecResponse(dict):
         :param int node_count: The number of nodes in the node group.
         :param str sku: The resource sku for the node group. This defines the size of CPU and memory that is provisioned for each node. Example values: 'M30', 'M40'.
         """
+        NodeGroupSpecResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_size_gb=disk_size_gb,
+            enable_ha=enable_ha,
+            kind=kind,
+            node_count=node_count,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_size_gb: Optional[float] = None,
+             enable_ha: Optional[bool] = None,
+             kind: Optional[str] = None,
+             node_count: Optional[int] = None,
+             sku: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if enable_ha is not None:
-            pulumi.set(__self__, "enable_ha", enable_ha)
+            _setter("enable_ha", enable_ha)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
 
     @property
     @pulumi.getter(name="diskSizeGB")
@@ -3423,11 +4147,24 @@ class PeriodicModeBackupPolicyResponse(dict):
         :param 'BackupPolicyMigrationStateResponse' migration_state: The object representing the state of the migration between the backup policies.
         :param 'PeriodicModePropertiesResponse' periodic_mode_properties: Configuration values for periodic mode backup
         """
-        pulumi.set(__self__, "type", 'Periodic')
+        PeriodicModeBackupPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            migration_state=migration_state,
+            periodic_mode_properties=periodic_mode_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             migration_state: Optional['outputs.BackupPolicyMigrationStateResponse'] = None,
+             periodic_mode_properties: Optional['outputs.PeriodicModePropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Periodic')
         if migration_state is not None:
-            pulumi.set(__self__, "migration_state", migration_state)
+            _setter("migration_state", migration_state)
         if periodic_mode_properties is not None:
-            pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
+            _setter("periodic_mode_properties", periodic_mode_properties)
 
     @property
     @pulumi.getter
@@ -3491,12 +4228,25 @@ class PeriodicModePropertiesResponse(dict):
         :param int backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
         :param str backup_storage_redundancy: Enum to indicate type of backup residency
         """
+        PeriodicModePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_interval_in_minutes=backup_interval_in_minutes,
+            backup_retention_interval_in_hours=backup_retention_interval_in_hours,
+            backup_storage_redundancy=backup_storage_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_interval_in_minutes: Optional[int] = None,
+             backup_retention_interval_in_hours: Optional[int] = None,
+             backup_storage_redundancy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup_interval_in_minutes is not None:
-            pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
+            _setter("backup_interval_in_minutes", backup_interval_in_minutes)
         if backup_retention_interval_in_hours is not None:
-            pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+            _setter("backup_retention_interval_in_hours", backup_retention_interval_in_hours)
         if backup_storage_redundancy is not None:
-            pulumi.set(__self__, "backup_storage_redundancy", backup_storage_redundancy)
+            _setter("backup_storage_redundancy", backup_storage_redundancy)
 
     @property
     @pulumi.getter(name="backupIntervalInMinutes")
@@ -3569,17 +4319,38 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         :param str provisioning_state: Provisioning state of the private endpoint.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            type=type,
+            group_id=group_id,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             type: str,
+             group_id: Optional[str] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -3649,8 +4420,17 @@ class PrivateEndpointPropertyResponse(dict):
         Private endpoint which the connection belongs to.
         :param str id: Resource id of the private endpoint.
         """
+        PrivateEndpointPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3693,11 +4473,24 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         :param str description: The private link service connection description.
         :param str status: The private link service connection status.
         """
-        pulumi.set(__self__, "actions_required", actions_required)
+        PrivateLinkServiceConnectionStatePropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: str,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -3756,10 +4549,21 @@ class ResourceRestoreParametersResponse(dict):
         :param str restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
         """
+        ResourceRestoreParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            restore_source=restore_source,
+            restore_timestamp_in_utc=restore_timestamp_in_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             restore_source: Optional[str] = None,
+             restore_timestamp_in_utc: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if restore_source is not None:
-            pulumi.set(__self__, "restore_source", restore_source)
+            _setter("restore_source", restore_source)
         if restore_timestamp_in_utc is not None:
-            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+            _setter("restore_timestamp_in_utc", restore_timestamp_in_utc)
 
     @property
     @pulumi.getter(name="restoreSource")
@@ -3830,20 +4634,41 @@ class RestoreParametersResponse(dict):
         :param str source_backup_location: The source backup location for restore.
         :param Sequence[str] tables_to_restore: List of specific tables available for restore.
         """
+        RestoreParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases_to_restore=databases_to_restore,
+            gremlin_databases_to_restore=gremlin_databases_to_restore,
+            restore_mode=restore_mode,
+            restore_source=restore_source,
+            restore_timestamp_in_utc=restore_timestamp_in_utc,
+            source_backup_location=source_backup_location,
+            tables_to_restore=tables_to_restore,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases_to_restore: Optional[Sequence['outputs.DatabaseRestoreResourceResponse']] = None,
+             gremlin_databases_to_restore: Optional[Sequence['outputs.GremlinDatabaseRestoreResourceResponse']] = None,
+             restore_mode: Optional[str] = None,
+             restore_source: Optional[str] = None,
+             restore_timestamp_in_utc: Optional[str] = None,
+             source_backup_location: Optional[str] = None,
+             tables_to_restore: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if databases_to_restore is not None:
-            pulumi.set(__self__, "databases_to_restore", databases_to_restore)
+            _setter("databases_to_restore", databases_to_restore)
         if gremlin_databases_to_restore is not None:
-            pulumi.set(__self__, "gremlin_databases_to_restore", gremlin_databases_to_restore)
+            _setter("gremlin_databases_to_restore", gremlin_databases_to_restore)
         if restore_mode is not None:
-            pulumi.set(__self__, "restore_mode", restore_mode)
+            _setter("restore_mode", restore_mode)
         if restore_source is not None:
-            pulumi.set(__self__, "restore_source", restore_source)
+            _setter("restore_source", restore_source)
         if restore_timestamp_in_utc is not None:
-            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+            _setter("restore_timestamp_in_utc", restore_timestamp_in_utc)
         if source_backup_location is not None:
-            pulumi.set(__self__, "source_backup_location", source_backup_location)
+            _setter("source_backup_location", source_backup_location)
         if tables_to_restore is not None:
-            pulumi.set(__self__, "tables_to_restore", tables_to_restore)
+            _setter("tables_to_restore", tables_to_restore)
 
     @property
     @pulumi.getter(name="databasesToRestore")
@@ -3911,10 +4736,21 @@ class SpatialSpecResponse(dict):
         :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         :param Sequence[str] types: List of path's spatial type
         """
+        SpatialSpecResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            types=types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[str] = None,
+             types: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if types is not None:
-            pulumi.set(__self__, "types", types)
+            _setter("types", types)
 
     @property
     @pulumi.getter
@@ -3959,10 +4795,21 @@ class SqlContainerGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        SqlContainerGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -4049,30 +4896,65 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        SqlContainerGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            analytical_storage_ttl=analytical_storage_ttl,
+            client_encryption_policy=client_encryption_policy,
+            conflict_resolution_policy=conflict_resolution_policy,
+            create_mode=create_mode,
+            default_ttl=default_ttl,
+            indexing_policy=indexing_policy,
+            materialized_view_definition=materialized_view_definition,
+            partition_key=partition_key,
+            restore_parameters=restore_parameters,
+            unique_key_policy=unique_key_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             analytical_storage_ttl: Optional[float] = None,
+             client_encryption_policy: Optional['outputs.ClientEncryptionPolicyResponse'] = None,
+             conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
+             create_mode: Optional[str] = None,
+             default_ttl: Optional[int] = None,
+             indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
+             materialized_view_definition: Optional['outputs.MaterializedViewDefinitionResponse'] = None,
+             partition_key: Optional['outputs.ContainerPartitionKeyResponse'] = None,
+             restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
+             unique_key_policy: Optional['outputs.UniqueKeyPolicyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if client_encryption_policy is not None:
-            pulumi.set(__self__, "client_encryption_policy", client_encryption_policy)
+            _setter("client_encryption_policy", client_encryption_policy)
         if conflict_resolution_policy is not None:
-            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+            _setter("conflict_resolution_policy", conflict_resolution_policy)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if indexing_policy is not None:
-            pulumi.set(__self__, "indexing_policy", indexing_policy)
+            _setter("indexing_policy", indexing_policy)
         if materialized_view_definition is not None:
-            pulumi.set(__self__, "materialized_view_definition", materialized_view_definition)
+            _setter("materialized_view_definition", materialized_view_definition)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
         if unique_key_policy is not None:
-            pulumi.set(__self__, "unique_key_policy", unique_key_policy)
+            _setter("unique_key_policy", unique_key_policy)
 
     @property
     @pulumi.getter
@@ -4213,10 +5095,21 @@ class SqlDatabaseGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        SqlDatabaseGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -4275,18 +5168,41 @@ class SqlDatabaseGetPropertiesResponseResource(dict):
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param str users: A system generated property that specifies the addressable path of the users resource.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        SqlDatabaseGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            colls=colls,
+            create_mode=create_mode,
+            restore_parameters=restore_parameters,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             colls: Optional[str] = None,
+             create_mode: Optional[str] = None,
+             restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
+             users: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if colls is not None:
-            pulumi.set(__self__, "colls", colls)
+            _setter("colls", colls)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter
@@ -4368,12 +5284,29 @@ class SqlStoredProcedureGetPropertiesResponseResource(dict):
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param str body: Body of the Stored Procedure
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        SqlStoredProcedureGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            body=body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             body: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
 
     @property
     @pulumi.getter
@@ -4454,16 +5387,37 @@ class SqlTriggerGetPropertiesResponseResource(dict):
         :param str trigger_operation: The operation the trigger is associated with
         :param str trigger_type: Type of the Trigger
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        SqlTriggerGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            body=body,
+            trigger_operation=trigger_operation,
+            trigger_type=trigger_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             body: Optional[str] = None,
+             trigger_operation: Optional[str] = None,
+             trigger_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if trigger_operation is not None:
-            pulumi.set(__self__, "trigger_operation", trigger_operation)
+            _setter("trigger_operation", trigger_operation)
         if trigger_type is not None:
-            pulumi.set(__self__, "trigger_type", trigger_type)
+            _setter("trigger_type", trigger_type)
 
     @property
     @pulumi.getter
@@ -4537,12 +5491,29 @@ class SqlUserDefinedFunctionGetPropertiesResponseResource(dict):
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param str body: Body of the User Defined Function
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        SqlUserDefinedFunctionGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            body=body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             body: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
 
     @property
     @pulumi.getter
@@ -4633,18 +5604,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -4721,10 +5711,21 @@ class TableGetPropertiesResponseOptions(dict):
         :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
         :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
         """
+        TableGetPropertiesResponseOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_settings=autoscale_settings,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+             throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -4779,14 +5780,33 @@ class TableGetPropertiesResponseResource(dict):
         :param str create_mode: Enum to indicate the mode of resource creation.
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
+        TableGetPropertiesResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            rid=rid,
+            ts=ts,
+            create_mode=create_mode,
+            restore_parameters=restore_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             rid: str,
+             ts: float,
+             create_mode: Optional[str] = None,
+             restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("rid", rid)
+        _setter("ts", ts)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -4865,8 +5885,17 @@ class UniqueKeyPolicyResponse(dict):
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         :param Sequence['UniqueKeyResponse'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         """
+        UniqueKeyPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unique_keys=unique_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unique_keys: Optional[Sequence['outputs.UniqueKeyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if unique_keys is not None:
-            pulumi.set(__self__, "unique_keys", unique_keys)
+            _setter("unique_keys", unique_keys)
 
     @property
     @pulumi.getter(name="uniqueKeys")
@@ -4888,8 +5917,17 @@ class UniqueKeyResponse(dict):
         The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         :param Sequence[str] paths: List of paths must be unique for each document in the Azure Cosmos DB service
         """
+        UniqueKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            paths=paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if paths is not None:
-            pulumi.set(__self__, "paths", paths)
+            _setter("paths", paths)
 
     @property
     @pulumi.getter
@@ -4930,10 +5968,21 @@ class VirtualNetworkRuleResponse(dict):
         :param str id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
         :param bool ignore_missing_v_net_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
         """
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            ignore_missing_v_net_service_endpoint=ignore_missing_v_net_service_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             ignore_missing_v_net_service_endpoint: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ignore_missing_v_net_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
+            _setter("ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
 
     @property
     @pulumi.getter

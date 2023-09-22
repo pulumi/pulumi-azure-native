@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -38,25 +38,54 @@ class AssessmentsMetadataSubscriptionArgs:
         :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
         :param pulumi.Input[Union[str, 'UserImpact']] user_impact: The user impact of the assessment
         """
-        pulumi.set(__self__, "assessment_type", assessment_type)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "severity", severity)
+        AssessmentsMetadataSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_type=assessment_type,
+            display_name=display_name,
+            severity=severity,
+            assessment_metadata_name=assessment_metadata_name,
+            categories=categories,
+            description=description,
+            implementation_effort=implementation_effort,
+            preview=preview,
+            remediation_description=remediation_description,
+            threats=threats,
+            user_impact=user_impact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_type: pulumi.Input[Union[str, 'AssessmentType']],
+             display_name: pulumi.Input[str],
+             severity: pulumi.Input[Union[str, 'Severity']],
+             assessment_metadata_name: Optional[pulumi.Input[str]] = None,
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
+             preview: Optional[pulumi.Input[bool]] = None,
+             remediation_description: Optional[pulumi.Input[str]] = None,
+             threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
+             user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assessment_type", assessment_type)
+        _setter("display_name", display_name)
+        _setter("severity", severity)
         if assessment_metadata_name is not None:
-            pulumi.set(__self__, "assessment_metadata_name", assessment_metadata_name)
+            _setter("assessment_metadata_name", assessment_metadata_name)
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if implementation_effort is not None:
-            pulumi.set(__self__, "implementation_effort", implementation_effort)
+            _setter("implementation_effort", implementation_effort)
         if preview is not None:
-            pulumi.set(__self__, "preview", preview)
+            _setter("preview", preview)
         if remediation_description is not None:
-            pulumi.set(__self__, "remediation_description", remediation_description)
+            _setter("remediation_description", remediation_description)
         if threats is not None:
-            pulumi.set(__self__, "threats", threats)
+            _setter("threats", threats)
         if user_impact is not None:
-            pulumi.set(__self__, "user_impact", user_impact)
+            _setter("user_impact", user_impact)
 
     @property
     @pulumi.getter(name="assessmentType")
@@ -238,6 +267,10 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentsMetadataSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

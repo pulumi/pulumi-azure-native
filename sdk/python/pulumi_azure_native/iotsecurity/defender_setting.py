@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,10 +28,25 @@ class DefenderSettingArgs:
         :param pulumi.Input[Union[str, 'OnboardingKind']] onboarding_kind: The kind of onboarding for the subscription
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sentinel_workspace_resource_ids: Sentinel Workspace Resource Ids
         """
-        pulumi.set(__self__, "device_quota", device_quota)
-        pulumi.set(__self__, "mde_integration", mde_integration)
-        pulumi.set(__self__, "onboarding_kind", onboarding_kind)
-        pulumi.set(__self__, "sentinel_workspace_resource_ids", sentinel_workspace_resource_ids)
+        DefenderSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_quota=device_quota,
+            mde_integration=mde_integration,
+            onboarding_kind=onboarding_kind,
+            sentinel_workspace_resource_ids=sentinel_workspace_resource_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_quota: pulumi.Input[int],
+             mde_integration: pulumi.Input['DefenderSettingsPropertiesMdeIntegrationArgs'],
+             onboarding_kind: pulumi.Input[Union[str, 'OnboardingKind']],
+             sentinel_workspace_resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_quota", device_quota)
+        _setter("mde_integration", mde_integration)
+        _setter("onboarding_kind", onboarding_kind)
+        _setter("sentinel_workspace_resource_ids", sentinel_workspace_resource_ids)
 
     @property
     @pulumi.getter(name="deviceQuota")
@@ -123,6 +138,10 @@ class DefenderSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DefenderSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +163,11 @@ class DefenderSetting(pulumi.CustomResource):
             if device_quota is None and not opts.urn:
                 raise TypeError("Missing required property 'device_quota'")
             __props__.__dict__["device_quota"] = device_quota
+            if not isinstance(mde_integration, DefenderSettingsPropertiesMdeIntegrationArgs):
+                mde_integration = mde_integration or {}
+                def _setter(key, value):
+                    mde_integration[key] = value
+                DefenderSettingsPropertiesMdeIntegrationArgs._configure(_setter, **mde_integration)
             if mde_integration is None and not opts.urn:
                 raise TypeError("Missing required property 'mde_integration'")
             __props__.__dict__["mde_integration"] = mde_integration

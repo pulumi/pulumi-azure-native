@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,24 +38,49 @@ class RegistryArgs:
         :param pulumi.Input['StorageAccountPropertiesArgs'] storage_account: The properties of the storage account for the container registry. Only applicable to Classic SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        RegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            admin_user_enabled=admin_user_enabled,
+            location=location,
+            network_rule_set=network_rule_set,
+            policies=policies,
+            registry_name=registry_name,
+            storage_account=storage_account,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['SkuArgs'],
+             admin_user_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+             policies: Optional[pulumi.Input['PoliciesArgs']] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             storage_account: Optional[pulumi.Input['StorageAccountPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if admin_user_enabled is None:
             admin_user_enabled = False
         if admin_user_enabled is not None:
-            pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
+            _setter("admin_user_enabled", admin_user_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_rule_set is not None:
-            pulumi.set(__self__, "network_rule_set", network_rule_set)
+            _setter("network_rule_set", network_rule_set)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
         if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
+            _setter("storage_account", storage_account)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -215,6 +240,10 @@ class Registry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,15 +271,35 @@ class Registry(pulumi.CustomResource):
                 admin_user_enabled = False
             __props__.__dict__["admin_user_enabled"] = admin_user_enabled
             __props__.__dict__["location"] = location
+            if not isinstance(network_rule_set, NetworkRuleSetArgs):
+                network_rule_set = network_rule_set or {}
+                def _setter(key, value):
+                    network_rule_set[key] = value
+                NetworkRuleSetArgs._configure(_setter, **network_rule_set)
             __props__.__dict__["network_rule_set"] = network_rule_set
+            if not isinstance(policies, PoliciesArgs):
+                policies = policies or {}
+                def _setter(key, value):
+                    policies[key] = value
+                PoliciesArgs._configure(_setter, **policies)
             __props__.__dict__["policies"] = policies
             __props__.__dict__["registry_name"] = registry_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            if not isinstance(storage_account, StorageAccountPropertiesArgs):
+                storage_account = storage_account or {}
+                def _setter(key, value):
+                    storage_account[key] = value
+                StorageAccountPropertiesArgs._configure(_setter, **storage_account)
             __props__.__dict__["storage_account"] = storage_account
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_date"] = None

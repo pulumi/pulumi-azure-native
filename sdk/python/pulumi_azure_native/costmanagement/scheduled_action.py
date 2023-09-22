@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,21 +40,48 @@ class ScheduledActionArgs:
         :param pulumi.Input[str] notification_email: Email address of the point of contact that should get the unsubscribe requests and notification emails.
         :param pulumi.Input[str] scope: For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "notification", notification)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "view_id", view_id)
+        ScheduledActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            notification=notification,
+            schedule=schedule,
+            status=status,
+            view_id=view_id,
+            file_destination=file_destination,
+            kind=kind,
+            name=name,
+            notification_email=notification_email,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             notification: pulumi.Input['NotificationPropertiesArgs'],
+             schedule: pulumi.Input['SchedulePropertiesArgs'],
+             status: pulumi.Input[Union[str, 'ScheduledActionStatus']],
+             view_id: pulumi.Input[str],
+             file_destination: Optional[pulumi.Input['FileDestinationArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'ScheduledActionKind']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_email: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("notification", notification)
+        _setter("schedule", schedule)
+        _setter("status", status)
+        _setter("view_id", view_id)
         if file_destination is not None:
-            pulumi.set(__self__, "file_destination", file_destination)
+            _setter("file_destination", file_destination)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_email is not None:
-            pulumi.set(__self__, "notification_email", notification_email)
+            _setter("notification_email", notification_email)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="displayName")
@@ -230,6 +257,10 @@ class ScheduledAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -257,13 +288,28 @@ class ScheduledAction(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if not isinstance(file_destination, FileDestinationArgs):
+                file_destination = file_destination or {}
+                def _setter(key, value):
+                    file_destination[key] = value
+                FileDestinationArgs._configure(_setter, **file_destination)
             __props__.__dict__["file_destination"] = file_destination
             __props__.__dict__["kind"] = kind
             __props__.__dict__["name"] = name
+            if not isinstance(notification, NotificationPropertiesArgs):
+                notification = notification or {}
+                def _setter(key, value):
+                    notification[key] = value
+                NotificationPropertiesArgs._configure(_setter, **notification)
             if notification is None and not opts.urn:
                 raise TypeError("Missing required property 'notification'")
             __props__.__dict__["notification"] = notification
             __props__.__dict__["notification_email"] = notification_email
+            if not isinstance(schedule, SchedulePropertiesArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                SchedulePropertiesArgs._configure(_setter, **schedule)
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -49,31 +49,64 @@ class KubeEnvironmentArgs:
         :param pulumi.Input[str] static_ip: Static IP of the KubeEnvironment
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        KubeEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            aks_resource_id=aks_resource_id,
+            app_logs_configuration=app_logs_configuration,
+            arc_configuration=arc_configuration,
+            container_apps_configuration=container_apps_configuration,
+            environment_type=environment_type,
+            extended_location=extended_location,
+            internal_load_balancer_enabled=internal_load_balancer_enabled,
+            kind=kind,
+            location=location,
+            name=name,
+            static_ip=static_ip,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             aks_resource_id: Optional[pulumi.Input[str]] = None,
+             app_logs_configuration: Optional[pulumi.Input['AppLogsConfigurationArgs']] = None,
+             arc_configuration: Optional[pulumi.Input['ArcConfigurationArgs']] = None,
+             container_apps_configuration: Optional[pulumi.Input['ContainerAppsConfigurationArgs']] = None,
+             environment_type: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             static_ip: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if aks_resource_id is not None:
-            pulumi.set(__self__, "aks_resource_id", aks_resource_id)
+            _setter("aks_resource_id", aks_resource_id)
         if app_logs_configuration is not None:
-            pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
+            _setter("app_logs_configuration", app_logs_configuration)
         if arc_configuration is not None:
-            pulumi.set(__self__, "arc_configuration", arc_configuration)
+            _setter("arc_configuration", arc_configuration)
         if container_apps_configuration is not None:
-            pulumi.set(__self__, "container_apps_configuration", container_apps_configuration)
+            _setter("container_apps_configuration", container_apps_configuration)
         if environment_type is not None:
-            pulumi.set(__self__, "environment_type", environment_type)
+            _setter("environment_type", environment_type)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if internal_load_balancer_enabled is not None:
-            pulumi.set(__self__, "internal_load_balancer_enabled", internal_load_balancer_enabled)
+            _setter("internal_load_balancer_enabled", internal_load_balancer_enabled)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if static_ip is not None:
-            pulumi.set(__self__, "static_ip", static_ip)
+            _setter("static_ip", static_ip)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -293,6 +326,10 @@ class KubeEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KubeEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -321,10 +358,30 @@ class KubeEnvironment(pulumi.CustomResource):
             __props__ = KubeEnvironmentArgs.__new__(KubeEnvironmentArgs)
 
             __props__.__dict__["aks_resource_id"] = aks_resource_id
+            if not isinstance(app_logs_configuration, AppLogsConfigurationArgs):
+                app_logs_configuration = app_logs_configuration or {}
+                def _setter(key, value):
+                    app_logs_configuration[key] = value
+                AppLogsConfigurationArgs._configure(_setter, **app_logs_configuration)
             __props__.__dict__["app_logs_configuration"] = app_logs_configuration
+            if not isinstance(arc_configuration, ArcConfigurationArgs):
+                arc_configuration = arc_configuration or {}
+                def _setter(key, value):
+                    arc_configuration[key] = value
+                ArcConfigurationArgs._configure(_setter, **arc_configuration)
             __props__.__dict__["arc_configuration"] = arc_configuration
+            if not isinstance(container_apps_configuration, ContainerAppsConfigurationArgs):
+                container_apps_configuration = container_apps_configuration or {}
+                def _setter(key, value):
+                    container_apps_configuration[key] = value
+                ContainerAppsConfigurationArgs._configure(_setter, **container_apps_configuration)
             __props__.__dict__["container_apps_configuration"] = container_apps_configuration
             __props__.__dict__["environment_type"] = environment_type
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
             __props__.__dict__["kind"] = kind

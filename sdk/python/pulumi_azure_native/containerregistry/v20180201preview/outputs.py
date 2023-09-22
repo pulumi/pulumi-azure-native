@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,16 +39,33 @@ class BaseImageDependencyResponse(dict):
         :param str tag: The tag name.
         :param str type: The type of the base image dependency.
         """
+        BaseImageDependencyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            digest=digest,
+            registry=registry,
+            repository=repository,
+            tag=tag,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             digest: Optional[str] = None,
+             registry: Optional[str] = None,
+             repository: Optional[str] = None,
+             tag: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if digest is not None:
-            pulumi.set(__self__, "digest", digest)
+            _setter("digest", digest)
         if registry is not None:
-            pulumi.set(__self__, "registry", registry)
+            _setter("registry", registry)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -125,13 +142,28 @@ class BuildArgumentResponse(dict):
         :param str value: The value of the argument.
         :param bool is_secret: Flag to indicate whether the argument represents a secret and want to be removed from build logs.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        BuildArgumentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            value=value,
+            is_secret=is_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             value: str,
+             is_secret: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
+        _setter("value", value)
         if is_secret is None:
             is_secret = False
         if is_secret is not None:
-            pulumi.set(__self__, "is_secret", is_secret)
+            _setter("is_secret", is_secret)
 
     @property
     @pulumi.getter
@@ -231,29 +263,58 @@ class DockerBuildStepResponse(dict):
         :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
         :param bool no_cache: The value of this property indicates whether the image cache is enabled or not.
         """
-        pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", 'Docker')
+        DockerBuildStepResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_image_dependencies=base_image_dependencies,
+            provisioning_state=provisioning_state,
+            type=type,
+            base_image_trigger=base_image_trigger,
+            branch=branch,
+            build_arguments=build_arguments,
+            context_path=context_path,
+            docker_file_path=docker_file_path,
+            image_names=image_names,
+            is_push_enabled=is_push_enabled,
+            no_cache=no_cache,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_image_dependencies: Sequence['outputs.BaseImageDependencyResponse'],
+             provisioning_state: str,
+             type: str,
+             base_image_trigger: Optional[str] = None,
+             branch: Optional[str] = None,
+             build_arguments: Optional[Sequence['outputs.BuildArgumentResponse']] = None,
+             context_path: Optional[str] = None,
+             docker_file_path: Optional[str] = None,
+             image_names: Optional[Sequence[str]] = None,
+             is_push_enabled: Optional[bool] = None,
+             no_cache: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_image_dependencies", base_image_dependencies)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", 'Docker')
         if base_image_trigger is not None:
-            pulumi.set(__self__, "base_image_trigger", base_image_trigger)
+            _setter("base_image_trigger", base_image_trigger)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if build_arguments is not None:
-            pulumi.set(__self__, "build_arguments", build_arguments)
+            _setter("build_arguments", build_arguments)
         if context_path is not None:
-            pulumi.set(__self__, "context_path", context_path)
+            _setter("context_path", context_path)
         if docker_file_path is not None:
-            pulumi.set(__self__, "docker_file_path", docker_file_path)
+            _setter("docker_file_path", docker_file_path)
         if image_names is not None:
-            pulumi.set(__self__, "image_names", image_names)
+            _setter("image_names", image_names)
         if is_push_enabled is None:
             is_push_enabled = True
         if is_push_enabled is not None:
-            pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+            _setter("is_push_enabled", is_push_enabled)
         if no_cache is None:
             no_cache = False
         if no_cache is not None:
-            pulumi.set(__self__, "no_cache", no_cache)
+            _setter("no_cache", no_cache)
 
     @property
     @pulumi.getter(name="baseImageDependencies")
@@ -375,9 +436,20 @@ class PlatformPropertiesResponse(dict):
         :param str os_type: The operating system type required for the build.
         :param int cpu: The CPU configuration in terms of number of cores required for the build.
         """
-        pulumi.set(__self__, "os_type", os_type)
+        PlatformPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            cpu=cpu,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: str,
+             cpu: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os_type", os_type)
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
 
     @property
     @pulumi.getter(name="osType")
@@ -436,15 +508,32 @@ class SourceControlAuthInfoResponse(dict):
         :param str scope: The scope of the access token.
         :param str token_type: The type of Auth token.
         """
-        pulumi.set(__self__, "token", token)
+        SourceControlAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+            expires_in=expires_in,
+            refresh_token=refresh_token,
+            scope=scope,
+            token_type=token_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: str,
+             expires_in: Optional[int] = None,
+             refresh_token: Optional[str] = None,
+             scope: Optional[str] = None,
+             token_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("token", token)
         if expires_in is not None:
-            pulumi.set(__self__, "expires_in", expires_in)
+            _setter("expires_in", expires_in)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if token_type is not None:
-            pulumi.set(__self__, "token_type", token_type)
+            _setter("token_type", token_type)
 
     @property
     @pulumi.getter
@@ -527,14 +616,29 @@ class SourceRepositoryPropertiesResponse(dict):
         :param bool is_commit_trigger_enabled: The value of this property indicates whether the source control commit trigger is enabled or not.
         :param 'SourceControlAuthInfoResponse' source_control_auth_properties: The authorization properties for accessing the source code repository.
         """
-        pulumi.set(__self__, "repository_url", repository_url)
-        pulumi.set(__self__, "source_control_type", source_control_type)
+        SourceRepositoryPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_url=repository_url,
+            source_control_type=source_control_type,
+            is_commit_trigger_enabled=is_commit_trigger_enabled,
+            source_control_auth_properties=source_control_auth_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_url: str,
+             source_control_type: str,
+             is_commit_trigger_enabled: Optional[bool] = None,
+             source_control_auth_properties: Optional['outputs.SourceControlAuthInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_url", repository_url)
+        _setter("source_control_type", source_control_type)
         if is_commit_trigger_enabled is None:
             is_commit_trigger_enabled = False
         if is_commit_trigger_enabled is not None:
-            pulumi.set(__self__, "is_commit_trigger_enabled", is_commit_trigger_enabled)
+            _setter("is_commit_trigger_enabled", is_commit_trigger_enabled)
         if source_control_auth_properties is not None:
-            pulumi.set(__self__, "source_control_auth_properties", source_control_auth_properties)
+            _setter("source_control_auth_properties", source_control_auth_properties)
 
     @property
     @pulumi.getter(name="repositoryUrl")

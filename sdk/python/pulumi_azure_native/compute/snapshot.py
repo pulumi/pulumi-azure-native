@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -66,50 +66,103 @@ class SnapshotArgs:
         :param pulumi.Input[bool] supports_hibernation: Indicates the OS on a snapshot supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "creation_data", creation_data)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_data=creation_data,
+            resource_group_name=resource_group_name,
+            completion_percent=completion_percent,
+            copy_completion_error=copy_completion_error,
+            data_access_auth_mode=data_access_auth_mode,
+            disk_access_id=disk_access_id,
+            disk_size_gb=disk_size_gb,
+            encryption=encryption,
+            encryption_settings_collection=encryption_settings_collection,
+            extended_location=extended_location,
+            hyper_v_generation=hyper_v_generation,
+            incremental=incremental,
+            location=location,
+            network_access_policy=network_access_policy,
+            os_type=os_type,
+            public_network_access=public_network_access,
+            purchase_plan=purchase_plan,
+            security_profile=security_profile,
+            sku=sku,
+            snapshot_name=snapshot_name,
+            supported_capabilities=supported_capabilities,
+            supports_hibernation=supports_hibernation,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_data: pulumi.Input['CreationDataArgs'],
+             resource_group_name: pulumi.Input[str],
+             completion_percent: Optional[pulumi.Input[float]] = None,
+             copy_completion_error: Optional[pulumi.Input['CopyCompletionErrorArgs']] = None,
+             data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
+             disk_access_id: Optional[pulumi.Input[str]] = None,
+             disk_size_gb: Optional[pulumi.Input[int]] = None,
+             encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+             encryption_settings_collection: Optional[pulumi.Input['EncryptionSettingsCollectionArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
+             incremental: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
+             os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             purchase_plan: Optional[pulumi.Input['PurchasePlanArgs']] = None,
+             security_profile: Optional[pulumi.Input['DiskSecurityProfileArgs']] = None,
+             sku: Optional[pulumi.Input['SnapshotSkuArgs']] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             supported_capabilities: Optional[pulumi.Input['SupportedCapabilitiesArgs']] = None,
+             supports_hibernation: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("creation_data", creation_data)
+        _setter("resource_group_name", resource_group_name)
         if completion_percent is not None:
-            pulumi.set(__self__, "completion_percent", completion_percent)
+            _setter("completion_percent", completion_percent)
         if copy_completion_error is not None:
-            pulumi.set(__self__, "copy_completion_error", copy_completion_error)
+            _setter("copy_completion_error", copy_completion_error)
         if data_access_auth_mode is not None:
-            pulumi.set(__self__, "data_access_auth_mode", data_access_auth_mode)
+            _setter("data_access_auth_mode", data_access_auth_mode)
         if disk_access_id is not None:
-            pulumi.set(__self__, "disk_access_id", disk_access_id)
+            _setter("disk_access_id", disk_access_id)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if encryption_settings_collection is not None:
-            pulumi.set(__self__, "encryption_settings_collection", encryption_settings_collection)
+            _setter("encryption_settings_collection", encryption_settings_collection)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if hyper_v_generation is not None:
-            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+            _setter("hyper_v_generation", hyper_v_generation)
         if incremental is not None:
-            pulumi.set(__self__, "incremental", incremental)
+            _setter("incremental", incremental)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_access_policy is not None:
-            pulumi.set(__self__, "network_access_policy", network_access_policy)
+            _setter("network_access_policy", network_access_policy)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if purchase_plan is not None:
-            pulumi.set(__self__, "purchase_plan", purchase_plan)
+            _setter("purchase_plan", purchase_plan)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if supported_capabilities is not None:
-            pulumi.set(__self__, "supported_capabilities", supported_capabilities)
+            _setter("supported_capabilities", supported_capabilities)
         if supports_hibernation is not None:
-            pulumi.set(__self__, "supports_hibernation", supports_hibernation)
+            _setter("supports_hibernation", supports_hibernation)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="creationData")
@@ -467,6 +520,10 @@ class Snapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -505,15 +562,40 @@ class Snapshot(pulumi.CustomResource):
             __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
             __props__.__dict__["completion_percent"] = completion_percent
+            if not isinstance(copy_completion_error, CopyCompletionErrorArgs):
+                copy_completion_error = copy_completion_error or {}
+                def _setter(key, value):
+                    copy_completion_error[key] = value
+                CopyCompletionErrorArgs._configure(_setter, **copy_completion_error)
             __props__.__dict__["copy_completion_error"] = copy_completion_error
+            if not isinstance(creation_data, CreationDataArgs):
+                creation_data = creation_data or {}
+                def _setter(key, value):
+                    creation_data[key] = value
+                CreationDataArgs._configure(_setter, **creation_data)
             if creation_data is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_data'")
             __props__.__dict__["creation_data"] = creation_data
             __props__.__dict__["data_access_auth_mode"] = data_access_auth_mode
             __props__.__dict__["disk_access_id"] = disk_access_id
             __props__.__dict__["disk_size_gb"] = disk_size_gb
+            if not isinstance(encryption, EncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                EncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if not isinstance(encryption_settings_collection, EncryptionSettingsCollectionArgs):
+                encryption_settings_collection = encryption_settings_collection or {}
+                def _setter(key, value):
+                    encryption_settings_collection[key] = value
+                EncryptionSettingsCollectionArgs._configure(_setter, **encryption_settings_collection)
             __props__.__dict__["encryption_settings_collection"] = encryption_settings_collection
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["incremental"] = incremental
@@ -521,13 +603,33 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["network_access_policy"] = network_access_policy
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["public_network_access"] = public_network_access
+            if not isinstance(purchase_plan, PurchasePlanArgs):
+                purchase_plan = purchase_plan or {}
+                def _setter(key, value):
+                    purchase_plan[key] = value
+                PurchasePlanArgs._configure(_setter, **purchase_plan)
             __props__.__dict__["purchase_plan"] = purchase_plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(security_profile, DiskSecurityProfileArgs):
+                security_profile = security_profile or {}
+                def _setter(key, value):
+                    security_profile[key] = value
+                DiskSecurityProfileArgs._configure(_setter, **security_profile)
             __props__.__dict__["security_profile"] = security_profile
+            if not isinstance(sku, SnapshotSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SnapshotSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["snapshot_name"] = snapshot_name
+            if not isinstance(supported_capabilities, SupportedCapabilitiesArgs):
+                supported_capabilities = supported_capabilities or {}
+                def _setter(key, value):
+                    supported_capabilities[key] = value
+                SupportedCapabilitiesArgs._configure(_setter, **supported_capabilities)
             __props__.__dict__["supported_capabilities"] = supported_capabilities
             __props__.__dict__["supports_hibernation"] = supports_hibernation
             __props__.__dict__["tags"] = tags

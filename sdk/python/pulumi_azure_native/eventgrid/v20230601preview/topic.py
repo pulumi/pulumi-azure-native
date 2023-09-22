@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,45 +54,84 @@ class TopicArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input[str] topic_name: Name of the topic.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            data_residency_boundary=data_residency_boundary,
+            disable_local_auth=disable_local_auth,
+            event_type_info=event_type_info,
+            extended_location=extended_location,
+            identity=identity,
+            inbound_ip_rules=inbound_ip_rules,
+            input_schema=input_schema,
+            input_schema_mapping=input_schema_mapping,
+            kind=kind,
+            location=location,
+            minimum_tls_version_allowed=minimum_tls_version_allowed,
+            public_network_access=public_network_access,
+            sku=sku,
+            tags=tags,
+            topic_name=topic_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             event_type_info: Optional[pulumi.Input['EventTypeInfoArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityInfoArgs']] = None,
+             inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
+             input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
+             input_schema_mapping: Optional[pulumi.Input['JsonInputSchemaMappingArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'ResourceKind']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             topic_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if data_residency_boundary is not None:
-            pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
+            _setter("data_residency_boundary", data_residency_boundary)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if event_type_info is not None:
-            pulumi.set(__self__, "event_type_info", event_type_info)
+            _setter("event_type_info", event_type_info)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inbound_ip_rules is not None:
-            pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
+            _setter("inbound_ip_rules", inbound_ip_rules)
         if input_schema is None:
             input_schema = 'EventGridSchema'
         if input_schema is not None:
-            pulumi.set(__self__, "input_schema", input_schema)
+            _setter("input_schema", input_schema)
         if input_schema_mapping is not None:
-            pulumi.set(__self__, "input_schema_mapping", input_schema_mapping)
+            _setter("input_schema_mapping", input_schema_mapping)
         if kind is None:
             kind = 'Azure'
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimum_tls_version_allowed is not None:
-            pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
+            _setter("minimum_tls_version_allowed", minimum_tls_version_allowed)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
+            _setter("topic_name", topic_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -354,6 +393,10 @@ class Topic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -388,13 +431,33 @@ class Topic(pulumi.CustomResource):
             if disable_local_auth is None:
                 disable_local_auth = False
             __props__.__dict__["disable_local_auth"] = disable_local_auth
+            if not isinstance(event_type_info, EventTypeInfoArgs):
+                event_type_info = event_type_info or {}
+                def _setter(key, value):
+                    event_type_info[key] = value
+                EventTypeInfoArgs._configure(_setter, **event_type_info)
             __props__.__dict__["event_type_info"] = event_type_info
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
+            if not isinstance(identity, IdentityInfoArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityInfoArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             if input_schema is None:
                 input_schema = 'EventGridSchema'
             __props__.__dict__["input_schema"] = input_schema
+            if not isinstance(input_schema_mapping, JsonInputSchemaMappingArgs):
+                input_schema_mapping = input_schema_mapping or {}
+                def _setter(key, value):
+                    input_schema_mapping[key] = value
+                JsonInputSchemaMappingArgs._configure(_setter, **input_schema_mapping)
             __props__.__dict__["input_schema_mapping"] = input_schema_mapping
             if kind is None:
                 kind = 'Azure'
@@ -407,6 +470,11 @@ class Topic(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, ResourceSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ResourceSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topic_name"] = topic_name

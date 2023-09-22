@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,18 +35,41 @@ class LoggerArgs:
         :param pulumi.Input[str] logger_id: Logger identifier. Must be unique in the API Management service instance.
         :param pulumi.Input[str] resource_id: Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "logger_type", logger_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        LoggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            logger_type=logger_type,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            description=description,
+            is_buffered=is_buffered,
+            logger_id=logger_id,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             logger_type: pulumi.Input[Union[str, 'LoggerType']],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             is_buffered: Optional[pulumi.Input[bool]] = None,
+             logger_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("credentials", credentials)
+        _setter("logger_type", logger_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_buffered is not None:
-            pulumi.set(__self__, "is_buffered", is_buffered)
+            _setter("is_buffered", is_buffered)
         if logger_id is not None:
-            pulumi.set(__self__, "logger_id", logger_id)
+            _setter("logger_id", logger_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter
@@ -194,6 +217,10 @@ class Logger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

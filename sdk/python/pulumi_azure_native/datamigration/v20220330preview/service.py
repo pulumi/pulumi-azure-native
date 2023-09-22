@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,27 +39,56 @@ class ServiceArgs:
         :param pulumi.Input[str] virtual_nic_id: The ID of the Microsoft.Network/networkInterfaces resource which the service have
         :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
-        pulumi.set(__self__, "group_name", group_name)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            auto_stop_delay=auto_stop_delay,
+            delete_resources_on_stop=delete_resources_on_stop,
+            kind=kind,
+            location=location,
+            public_key=public_key,
+            service_name=service_name,
+            sku=sku,
+            tags=tags,
+            virtual_nic_id=virtual_nic_id,
+            virtual_subnet_id=virtual_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: pulumi.Input[str],
+             auto_stop_delay: Optional[pulumi.Input[str]] = None,
+             delete_resources_on_stop: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ServiceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_nic_id: Optional[pulumi.Input[str]] = None,
+             virtual_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_name", group_name)
         if auto_stop_delay is not None:
-            pulumi.set(__self__, "auto_stop_delay", auto_stop_delay)
+            _setter("auto_stop_delay", auto_stop_delay)
         if delete_resources_on_stop is not None:
-            pulumi.set(__self__, "delete_resources_on_stop", delete_resources_on_stop)
+            _setter("delete_resources_on_stop", delete_resources_on_stop)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_nic_id is not None:
-            pulumi.set(__self__, "virtual_nic_id", virtual_nic_id)
+            _setter("virtual_nic_id", virtual_nic_id)
         if virtual_subnet_id is not None:
-            pulumi.set(__self__, "virtual_subnet_id", virtual_subnet_id)
+            _setter("virtual_subnet_id", virtual_subnet_id)
 
     @property
     @pulumi.getter(name="groupName")
@@ -239,6 +268,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -273,6 +306,11 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["public_key"] = public_key
             __props__.__dict__["service_name"] = service_name
+            if not isinstance(sku, ServiceSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ServiceSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_nic_id"] = virtual_nic_id

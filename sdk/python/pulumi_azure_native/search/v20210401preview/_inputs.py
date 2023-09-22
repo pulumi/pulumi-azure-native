@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,8 +28,17 @@ class DataPlaneAadOrApiKeyAuthOptionArgs:
         Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
         :param pulumi.Input['AadAuthFailureMode'] aad_auth_failure_mode: Describes what response the data plane API of a Search service would send for requests that failed authentication.
         """
+        DataPlaneAadOrApiKeyAuthOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_auth_failure_mode=aad_auth_failure_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_auth_failure_mode: Optional[pulumi.Input['AadAuthFailureMode']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aad_auth_failure_mode is not None:
-            pulumi.set(__self__, "aad_auth_failure_mode", aad_auth_failure_mode)
+            _setter("aad_auth_failure_mode", aad_auth_failure_mode)
 
     @property
     @pulumi.getter(name="aadAuthFailureMode")
@@ -54,10 +63,21 @@ class DataPlaneAuthOptionsArgs:
         :param pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs'] aad_or_api_key: Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
         :param Any api_key_only: Indicates that only the API key needs to be used for authentication.
         """
+        DataPlaneAuthOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_or_api_key=aad_or_api_key,
+            api_key_only=api_key_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_or_api_key: Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']] = None,
+             api_key_only: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aad_or_api_key is not None:
-            pulumi.set(__self__, "aad_or_api_key", aad_or_api_key)
+            _setter("aad_or_api_key", aad_or_api_key)
         if api_key_only is not None:
-            pulumi.set(__self__, "api_key_only", api_key_only)
+            _setter("api_key_only", api_key_only)
 
     @property
     @pulumi.getter(name="aadOrApiKey")
@@ -92,8 +112,17 @@ class EncryptionWithCmkArgs:
         Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
         :param pulumi.Input['SearchEncryptionWithCmk'] enforcement: Describes how a search service should enforce having one or more non customer encrypted resources.
         """
+        EncryptionWithCmkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enforcement=enforcement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enforcement: Optional[pulumi.Input['SearchEncryptionWithCmk']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enforcement is not None:
-            pulumi.set(__self__, "enforcement", enforcement)
+            _setter("enforcement", enforcement)
 
     @property
     @pulumi.getter
@@ -118,9 +147,20 @@ class IdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "type", type)
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'IdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -155,8 +195,17 @@ class IpRuleArgs:
         The IP restriction rule of the Azure Cognitive Search service.
         :param pulumi.Input[str] value: Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
         """
+        IpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -181,10 +230,21 @@ class NetworkRuleSetArgs:
         :param pulumi.Input[Union[str, 'SearchBypass']] bypass: Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
         :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
         """
+        NetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass=bypass,
+            ip_rules=ip_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass: Optional[pulumi.Input[Union[str, 'SearchBypass']]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bypass is not None:
-            pulumi.set(__self__, "bypass", bypass)
+            _setter("bypass", bypass)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
 
     @property
     @pulumi.getter
@@ -219,8 +279,17 @@ class SkuArgs:
         Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
         :param pulumi.Input[Union[str, 'SkuName']] name: The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter

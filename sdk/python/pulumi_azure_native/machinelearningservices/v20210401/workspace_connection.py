@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -36,22 +36,47 @@ class WorkspaceConnectionArgs:
         :param pulumi.Input[str] value: Value details of the workspace connection.
         :param pulumi.Input[Union[str, 'ValueFormat']] value_format: format for the workspace connection value
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        WorkspaceConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            auth_type=auth_type,
+            category=category,
+            connection_name=connection_name,
+            name=name,
+            target=target,
+            value=value,
+            value_format=value_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             auth_type: Optional[pulumi.Input[str]] = None,
+             category: Optional[pulumi.Input[str]] = None,
+             connection_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             value_format: Optional[pulumi.Input[Union[str, 'ValueFormat']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+            _setter("value_format", value_format)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -211,6 +236,10 @@ class WorkspaceConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -86,15 +86,30 @@ class A2AContainerMappingInputArgs:
         :param pulumi.Input[str] automation_account_arm_id: The automation account arm id.
         :param pulumi.Input[Union[str, 'AutomationAccountAuthenticationType']] automation_account_authentication_type: A value indicating the type authentication to use for automation Account.
         """
-        pulumi.set(__self__, "instance_type", 'A2A')
+        A2AContainerMappingInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            agent_auto_update_status=agent_auto_update_status,
+            automation_account_arm_id=automation_account_arm_id,
+            automation_account_authentication_type=automation_account_authentication_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             agent_auto_update_status: Optional[pulumi.Input[Union[str, 'AgentAutoUpdateStatus']]] = None,
+             automation_account_arm_id: Optional[pulumi.Input[str]] = None,
+             automation_account_authentication_type: Optional[pulumi.Input[Union[str, 'AutomationAccountAuthenticationType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'A2A')
         if agent_auto_update_status is not None:
-            pulumi.set(__self__, "agent_auto_update_status", agent_auto_update_status)
+            _setter("agent_auto_update_status", agent_auto_update_status)
         if automation_account_arm_id is not None:
-            pulumi.set(__self__, "automation_account_arm_id", automation_account_arm_id)
+            _setter("automation_account_arm_id", automation_account_arm_id)
         if automation_account_authentication_type is None:
             automation_account_authentication_type = 'RunAsAccount'
         if automation_account_authentication_type is not None:
-            pulumi.set(__self__, "automation_account_authentication_type", automation_account_authentication_type)
+            _setter("automation_account_authentication_type", automation_account_authentication_type)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -159,11 +174,24 @@ class A2ACrossClusterMigrationEnableProtectionInputArgs:
         :param pulumi.Input[str] fabric_object_id: The fabric specific object Id of the virtual machine.
         :param pulumi.Input[str] recovery_container_id: The recovery container Id.
         """
-        pulumi.set(__self__, "instance_type", 'A2ACrossClusterMigration')
+        A2ACrossClusterMigrationEnableProtectionInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            fabric_object_id=fabric_object_id,
+            recovery_container_id=recovery_container_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             fabric_object_id: Optional[pulumi.Input[str]] = None,
+             recovery_container_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'A2ACrossClusterMigration')
         if fabric_object_id is not None:
-            pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+            _setter("fabric_object_id", fabric_object_id)
         if recovery_container_id is not None:
-            pulumi.set(__self__, "recovery_container_id", recovery_container_id)
+            _setter("recovery_container_id", recovery_container_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -212,7 +240,16 @@ class A2ACrossClusterMigrationPolicyCreationInputArgs:
         :param pulumi.Input[str] instance_type: The class type.
                Expected value is 'A2ACrossClusterMigration'.
         """
-        pulumi.set(__self__, "instance_type", 'A2ACrossClusterMigration')
+        A2ACrossClusterMigrationPolicyCreationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'A2ACrossClusterMigration')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -273,42 +310,87 @@ class A2AEnableProtectionInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]] vm_disks: The list of vm disk details.
         :param pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]] vm_managed_disks: The list of vm managed disk details.
         """
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "instance_type", 'A2A')
+        A2AEnableProtectionInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_object_id=fabric_object_id,
+            instance_type=instance_type,
+            disk_encryption_info=disk_encryption_info,
+            multi_vm_group_id=multi_vm_group_id,
+            multi_vm_group_name=multi_vm_group_name,
+            recovery_availability_set_id=recovery_availability_set_id,
+            recovery_availability_zone=recovery_availability_zone,
+            recovery_azure_network_id=recovery_azure_network_id,
+            recovery_boot_diag_storage_account_id=recovery_boot_diag_storage_account_id,
+            recovery_capacity_reservation_group_id=recovery_capacity_reservation_group_id,
+            recovery_cloud_service_id=recovery_cloud_service_id,
+            recovery_container_id=recovery_container_id,
+            recovery_extended_location=recovery_extended_location,
+            recovery_proximity_placement_group_id=recovery_proximity_placement_group_id,
+            recovery_resource_group_id=recovery_resource_group_id,
+            recovery_subnet_name=recovery_subnet_name,
+            recovery_virtual_machine_scale_set_id=recovery_virtual_machine_scale_set_id,
+            vm_disks=vm_disks,
+            vm_managed_disks=vm_managed_disks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_object_id: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             disk_encryption_info: Optional[pulumi.Input['DiskEncryptionInfoArgs']] = None,
+             multi_vm_group_id: Optional[pulumi.Input[str]] = None,
+             multi_vm_group_name: Optional[pulumi.Input[str]] = None,
+             recovery_availability_set_id: Optional[pulumi.Input[str]] = None,
+             recovery_availability_zone: Optional[pulumi.Input[str]] = None,
+             recovery_azure_network_id: Optional[pulumi.Input[str]] = None,
+             recovery_boot_diag_storage_account_id: Optional[pulumi.Input[str]] = None,
+             recovery_capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             recovery_cloud_service_id: Optional[pulumi.Input[str]] = None,
+             recovery_container_id: Optional[pulumi.Input[str]] = None,
+             recovery_extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             recovery_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             recovery_resource_group_id: Optional[pulumi.Input[str]] = None,
+             recovery_subnet_name: Optional[pulumi.Input[str]] = None,
+             recovery_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+             vm_disks: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmDiskInputDetailsArgs']]]] = None,
+             vm_managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['A2AVmManagedDiskInputDetailsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("instance_type", 'A2A')
         if disk_encryption_info is not None:
-            pulumi.set(__self__, "disk_encryption_info", disk_encryption_info)
+            _setter("disk_encryption_info", disk_encryption_info)
         if multi_vm_group_id is not None:
-            pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
+            _setter("multi_vm_group_id", multi_vm_group_id)
         if multi_vm_group_name is not None:
-            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+            _setter("multi_vm_group_name", multi_vm_group_name)
         if recovery_availability_set_id is not None:
-            pulumi.set(__self__, "recovery_availability_set_id", recovery_availability_set_id)
+            _setter("recovery_availability_set_id", recovery_availability_set_id)
         if recovery_availability_zone is not None:
-            pulumi.set(__self__, "recovery_availability_zone", recovery_availability_zone)
+            _setter("recovery_availability_zone", recovery_availability_zone)
         if recovery_azure_network_id is not None:
-            pulumi.set(__self__, "recovery_azure_network_id", recovery_azure_network_id)
+            _setter("recovery_azure_network_id", recovery_azure_network_id)
         if recovery_boot_diag_storage_account_id is not None:
-            pulumi.set(__self__, "recovery_boot_diag_storage_account_id", recovery_boot_diag_storage_account_id)
+            _setter("recovery_boot_diag_storage_account_id", recovery_boot_diag_storage_account_id)
         if recovery_capacity_reservation_group_id is not None:
-            pulumi.set(__self__, "recovery_capacity_reservation_group_id", recovery_capacity_reservation_group_id)
+            _setter("recovery_capacity_reservation_group_id", recovery_capacity_reservation_group_id)
         if recovery_cloud_service_id is not None:
-            pulumi.set(__self__, "recovery_cloud_service_id", recovery_cloud_service_id)
+            _setter("recovery_cloud_service_id", recovery_cloud_service_id)
         if recovery_container_id is not None:
-            pulumi.set(__self__, "recovery_container_id", recovery_container_id)
+            _setter("recovery_container_id", recovery_container_id)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
         if recovery_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "recovery_proximity_placement_group_id", recovery_proximity_placement_group_id)
+            _setter("recovery_proximity_placement_group_id", recovery_proximity_placement_group_id)
         if recovery_resource_group_id is not None:
-            pulumi.set(__self__, "recovery_resource_group_id", recovery_resource_group_id)
+            _setter("recovery_resource_group_id", recovery_resource_group_id)
         if recovery_subnet_name is not None:
-            pulumi.set(__self__, "recovery_subnet_name", recovery_subnet_name)
+            _setter("recovery_subnet_name", recovery_subnet_name)
         if recovery_virtual_machine_scale_set_id is not None:
-            pulumi.set(__self__, "recovery_virtual_machine_scale_set_id", recovery_virtual_machine_scale_set_id)
+            _setter("recovery_virtual_machine_scale_set_id", recovery_virtual_machine_scale_set_id)
         if vm_disks is not None:
-            pulumi.set(__self__, "vm_disks", vm_disks)
+            _setter("vm_disks", vm_disks)
         if vm_managed_disks is not None:
-            pulumi.set(__self__, "vm_managed_disks", vm_managed_disks)
+            _setter("vm_managed_disks", vm_managed_disks)
 
     @property
     @pulumi.getter(name="fabricObjectId")
@@ -557,14 +639,31 @@ class A2APolicyCreationInputArgs:
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         """
-        pulumi.set(__self__, "instance_type", 'A2A')
-        pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+        A2APolicyCreationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            multi_vm_sync_status=multi_vm_sync_status,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            recovery_point_history=recovery_point_history,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             multi_vm_sync_status: pulumi.Input[Union[str, 'SetMultiVmSyncStatus']],
+             app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_point_history: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'A2A')
+        _setter("multi_vm_sync_status", multi_vm_sync_status)
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -640,9 +739,22 @@ class A2AVmDiskInputDetailsArgs:
         :param pulumi.Input[str] primary_staging_azure_storage_account_id: The primary staging storage account Id.
         :param pulumi.Input[str] recovery_azure_storage_account_id: The recovery VHD storage account Id.
         """
-        pulumi.set(__self__, "disk_uri", disk_uri)
-        pulumi.set(__self__, "primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
-        pulumi.set(__self__, "recovery_azure_storage_account_id", recovery_azure_storage_account_id)
+        A2AVmDiskInputDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_uri=disk_uri,
+            primary_staging_azure_storage_account_id=primary_staging_azure_storage_account_id,
+            recovery_azure_storage_account_id=recovery_azure_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_uri: pulumi.Input[str],
+             primary_staging_azure_storage_account_id: pulumi.Input[str],
+             recovery_azure_storage_account_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_uri", disk_uri)
+        _setter("primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
+        _setter("recovery_azure_storage_account_id", recovery_azure_storage_account_id)
 
     @property
     @pulumi.getter(name="diskUri")
@@ -701,17 +813,38 @@ class A2AVmManagedDiskInputDetailsArgs:
         :param pulumi.Input[str] recovery_replica_disk_account_type: The replica disk type. Its an optional value and will be same as source disk type if not user provided.
         :param pulumi.Input[str] recovery_target_disk_account_type: The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
         """
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
-        pulumi.set(__self__, "recovery_resource_group_id", recovery_resource_group_id)
+        A2AVmManagedDiskInputDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_id=disk_id,
+            primary_staging_azure_storage_account_id=primary_staging_azure_storage_account_id,
+            recovery_resource_group_id=recovery_resource_group_id,
+            disk_encryption_info=disk_encryption_info,
+            recovery_disk_encryption_set_id=recovery_disk_encryption_set_id,
+            recovery_replica_disk_account_type=recovery_replica_disk_account_type,
+            recovery_target_disk_account_type=recovery_target_disk_account_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_id: pulumi.Input[str],
+             primary_staging_azure_storage_account_id: pulumi.Input[str],
+             recovery_resource_group_id: pulumi.Input[str],
+             disk_encryption_info: Optional[pulumi.Input['DiskEncryptionInfoArgs']] = None,
+             recovery_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             recovery_replica_disk_account_type: Optional[pulumi.Input[str]] = None,
+             recovery_target_disk_account_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_id", disk_id)
+        _setter("primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
+        _setter("recovery_resource_group_id", recovery_resource_group_id)
         if disk_encryption_info is not None:
-            pulumi.set(__self__, "disk_encryption_info", disk_encryption_info)
+            _setter("disk_encryption_info", disk_encryption_info)
         if recovery_disk_encryption_set_id is not None:
-            pulumi.set(__self__, "recovery_disk_encryption_set_id", recovery_disk_encryption_set_id)
+            _setter("recovery_disk_encryption_set_id", recovery_disk_encryption_set_id)
         if recovery_replica_disk_account_type is not None:
-            pulumi.set(__self__, "recovery_replica_disk_account_type", recovery_replica_disk_account_type)
+            _setter("recovery_replica_disk_account_type", recovery_replica_disk_account_type)
         if recovery_target_disk_account_type is not None:
-            pulumi.set(__self__, "recovery_target_disk_account_type", recovery_target_disk_account_type)
+            _setter("recovery_target_disk_account_type", recovery_target_disk_account_type)
 
     @property
     @pulumi.getter(name="diskId")
@@ -816,15 +949,34 @@ class AddRecoveryServicesProviderInputPropertiesArgs:
         :param pulumi.Input['IdentityProviderInputArgs'] data_plane_authentication_identity_input: The identity provider input for data plane authentication.
         :param pulumi.Input[str] machine_id: The Id of the machine where the provider is getting added.
         """
-        pulumi.set(__self__, "authentication_identity_input", authentication_identity_input)
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "resource_access_identity_input", resource_access_identity_input)
+        AddRecoveryServicesProviderInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_identity_input=authentication_identity_input,
+            machine_name=machine_name,
+            resource_access_identity_input=resource_access_identity_input,
+            bios_id=bios_id,
+            data_plane_authentication_identity_input=data_plane_authentication_identity_input,
+            machine_id=machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_identity_input: pulumi.Input['IdentityProviderInputArgs'],
+             machine_name: pulumi.Input[str],
+             resource_access_identity_input: pulumi.Input['IdentityProviderInputArgs'],
+             bios_id: Optional[pulumi.Input[str]] = None,
+             data_plane_authentication_identity_input: Optional[pulumi.Input['IdentityProviderInputArgs']] = None,
+             machine_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication_identity_input", authentication_identity_input)
+        _setter("machine_name", machine_name)
+        _setter("resource_access_identity_input", resource_access_identity_input)
         if bios_id is not None:
-            pulumi.set(__self__, "bios_id", bios_id)
+            _setter("bios_id", bios_id)
         if data_plane_authentication_identity_input is not None:
-            pulumi.set(__self__, "data_plane_authentication_identity_input", data_plane_authentication_identity_input)
+            _setter("data_plane_authentication_identity_input", data_plane_authentication_identity_input)
         if machine_id is not None:
-            pulumi.set(__self__, "machine_id", machine_id)
+            _setter("machine_id", machine_id)
 
     @property
     @pulumi.getter(name="authenticationIdentityInput")
@@ -915,16 +1067,33 @@ class AddVCenterRequestPropertiesArgs:
         :param pulumi.Input[str] process_server_id: The process server Id from where the discovery is orchestrated.
         :param pulumi.Input[str] run_as_account_id: The account Id which has privileges to discover the vCenter.
         """
+        AddVCenterRequestPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            friendly_name=friendly_name,
+            ip_address=ip_address,
+            port=port,
+            process_server_id=process_server_id,
+            run_as_account_id=run_as_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             process_server_id: Optional[pulumi.Input[str]] = None,
+             run_as_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -998,9 +1167,20 @@ class AzureFabricCreationInputArgs:
                Expected value is 'Azure'.
         :param pulumi.Input[str] location: The Location.
         """
-        pulumi.set(__self__, "instance_type", 'Azure')
+        AzureFabricCreationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'Azure')
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1039,8 +1219,19 @@ class AzureToAzureCreateNetworkMappingInputArgs:
                Expected value is 'AzureToAzure'.
         :param pulumi.Input[str] primary_network_id: The primary azure vnet Id.
         """
-        pulumi.set(__self__, "instance_type", 'AzureToAzure')
-        pulumi.set(__self__, "primary_network_id", primary_network_id)
+        AzureToAzureCreateNetworkMappingInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            primary_network_id=primary_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             primary_network_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'AzureToAzure')
+        _setter("primary_network_id", primary_network_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1080,11 +1271,24 @@ class CreateNetworkMappingInputPropertiesArgs:
         :param pulumi.Input[Union['AzureToAzureCreateNetworkMappingInputArgs', 'VmmToAzureCreateNetworkMappingInputArgs', 'VmmToVmmCreateNetworkMappingInputArgs']] fabric_specific_details: Fabric specific input properties.
         :param pulumi.Input[str] recovery_fabric_name: Recovery fabric Name.
         """
-        pulumi.set(__self__, "recovery_network_id", recovery_network_id)
+        CreateNetworkMappingInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recovery_network_id=recovery_network_id,
+            fabric_specific_details=fabric_specific_details,
+            recovery_fabric_name=recovery_fabric_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recovery_network_id: pulumi.Input[str],
+             fabric_specific_details: Optional[pulumi.Input[Union['AzureToAzureCreateNetworkMappingInputArgs', 'VmmToAzureCreateNetworkMappingInputArgs', 'VmmToVmmCreateNetworkMappingInputArgs']]] = None,
+             recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recovery_network_id", recovery_network_id)
         if fabric_specific_details is not None:
-            pulumi.set(__self__, "fabric_specific_details", fabric_specific_details)
+            _setter("fabric_specific_details", fabric_specific_details)
         if recovery_fabric_name is not None:
-            pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
+            _setter("recovery_fabric_name", recovery_fabric_name)
 
     @property
     @pulumi.getter(name="recoveryNetworkId")
@@ -1131,8 +1335,17 @@ class CreatePolicyInputPropertiesArgs:
         Policy creation properties.
         :param pulumi.Input[Union['A2ACrossClusterMigrationPolicyCreationInputArgs', 'A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'InMageRcmFailbackPolicyCreationInputArgs', 'InMageRcmPolicyCreationInputArgs', 'VMwareCbtPolicyCreationInputArgs']] provider_specific_input: The ReplicationProviderSettings.
         """
+        CreatePolicyInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_specific_input=provider_specific_input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_specific_input: Optional[pulumi.Input[Union['A2ACrossClusterMigrationPolicyCreationInputArgs', 'A2APolicyCreationInputArgs', 'HyperVReplicaAzurePolicyInputArgs', 'HyperVReplicaBluePolicyInputArgs', 'HyperVReplicaPolicyInputArgs', 'InMageAzureV2PolicyInputArgs', 'InMagePolicyInputArgs', 'InMageRcmFailbackPolicyCreationInputArgs', 'InMageRcmPolicyCreationInputArgs', 'VMwareCbtPolicyCreationInputArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if provider_specific_input is not None:
-            pulumi.set(__self__, "provider_specific_input", provider_specific_input)
+            _setter("provider_specific_input", provider_specific_input)
 
     @property
     @pulumi.getter(name="providerSpecificInput")
@@ -1159,12 +1372,25 @@ class CreateProtectionContainerMappingInputPropertiesArgs:
         :param pulumi.Input[Union['A2AContainerMappingInputArgs', 'VMwareCbtContainerMappingInputArgs']] provider_specific_input: Provider specific input for pairing.
         :param pulumi.Input[str] target_protection_container_id: The target unique protection container name.
         """
+        CreateProtectionContainerMappingInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            provider_specific_input=provider_specific_input,
+            target_protection_container_id=target_protection_container_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: Optional[pulumi.Input[str]] = None,
+             provider_specific_input: Optional[pulumi.Input[Union['A2AContainerMappingInputArgs', 'VMwareCbtContainerMappingInputArgs']]] = None,
+             target_protection_container_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if provider_specific_input is not None:
-            pulumi.set(__self__, "provider_specific_input", provider_specific_input)
+            _setter("provider_specific_input", provider_specific_input)
         if target_protection_container_id is not None:
-            pulumi.set(__self__, "target_protection_container_id", target_protection_container_id)
+            _setter("target_protection_container_id", target_protection_container_id)
 
     @property
     @pulumi.getter(name="policyId")
@@ -1219,13 +1445,30 @@ class CreateRecoveryPlanInputPropertiesArgs:
         :param pulumi.Input[Union[str, 'FailoverDeploymentModel']] failover_deployment_model: The failover deployment model.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanA2AInputArgs']]] provider_specific_input: The provider specific input.
         """
-        pulumi.set(__self__, "groups", groups)
-        pulumi.set(__self__, "primary_fabric_id", primary_fabric_id)
-        pulumi.set(__self__, "recovery_fabric_id", recovery_fabric_id)
+        CreateRecoveryPlanInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            primary_fabric_id=primary_fabric_id,
+            recovery_fabric_id=recovery_fabric_id,
+            failover_deployment_model=failover_deployment_model,
+            provider_specific_input=provider_specific_input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]],
+             primary_fabric_id: pulumi.Input[str],
+             recovery_fabric_id: pulumi.Input[str],
+             failover_deployment_model: Optional[pulumi.Input[Union[str, 'FailoverDeploymentModel']]] = None,
+             provider_specific_input: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanA2AInputArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("groups", groups)
+        _setter("primary_fabric_id", primary_fabric_id)
+        _setter("recovery_fabric_id", recovery_fabric_id)
         if failover_deployment_model is not None:
-            pulumi.set(__self__, "failover_deployment_model", failover_deployment_model)
+            _setter("failover_deployment_model", failover_deployment_model)
         if provider_specific_input is not None:
-            pulumi.set(__self__, "provider_specific_input", provider_specific_input)
+            _setter("provider_specific_input", provider_specific_input)
 
     @property
     @pulumi.getter
@@ -1298,10 +1541,21 @@ class DiskEncryptionInfoArgs:
         :param pulumi.Input['DiskEncryptionKeyInfoArgs'] disk_encryption_key_info: The recovery KeyVault reference for secret.
         :param pulumi.Input['KeyEncryptionKeyInfoArgs'] key_encryption_key_info: The recovery KeyVault reference for key.
         """
+        DiskEncryptionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_key_info=disk_encryption_key_info,
+            key_encryption_key_info=key_encryption_key_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_key_info: Optional[pulumi.Input['DiskEncryptionKeyInfoArgs']] = None,
+             key_encryption_key_info: Optional[pulumi.Input['KeyEncryptionKeyInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_encryption_key_info is not None:
-            pulumi.set(__self__, "disk_encryption_key_info", disk_encryption_key_info)
+            _setter("disk_encryption_key_info", disk_encryption_key_info)
         if key_encryption_key_info is not None:
-            pulumi.set(__self__, "key_encryption_key_info", key_encryption_key_info)
+            _setter("key_encryption_key_info", key_encryption_key_info)
 
     @property
     @pulumi.getter(name="diskEncryptionKeyInfo")
@@ -1338,10 +1592,21 @@ class DiskEncryptionKeyInfoArgs:
         :param pulumi.Input[str] key_vault_resource_arm_id: The KeyVault resource ARM id for secret.
         :param pulumi.Input[str] secret_identifier: The secret url / identifier.
         """
+        DiskEncryptionKeyInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_resource_arm_id=key_vault_resource_arm_id,
+            secret_identifier=secret_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_resource_arm_id: Optional[pulumi.Input[str]] = None,
+             secret_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_vault_resource_arm_id is not None:
-            pulumi.set(__self__, "key_vault_resource_arm_id", key_vault_resource_arm_id)
+            _setter("key_vault_resource_arm_id", key_vault_resource_arm_id)
         if secret_identifier is not None:
-            pulumi.set(__self__, "secret_identifier", secret_identifier)
+            _setter("secret_identifier", secret_identifier)
 
     @property
     @pulumi.getter(name="keyVaultResourceArmId")
@@ -1378,8 +1643,19 @@ class EnableMigrationInputPropertiesArgs:
         :param pulumi.Input[str] policy_id: The policy Id.
         :param pulumi.Input['VMwareCbtEnableMigrationInputArgs'] provider_specific_details: The provider specific details.
         """
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+        EnableMigrationInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            provider_specific_details=provider_specific_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: pulumi.Input[str],
+             provider_specific_details: pulumi.Input['VMwareCbtEnableMigrationInputArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_id", policy_id)
+        _setter("provider_specific_details", provider_specific_details)
 
     @property
     @pulumi.getter(name="policyId")
@@ -1418,12 +1694,25 @@ class EnableProtectionInputPropertiesArgs:
         :param pulumi.Input[str] protectable_item_id: The protectable item Id.
         :param pulumi.Input[Union['A2ACrossClusterMigrationEnableProtectionInputArgs', 'A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'InMageRcmEnableProtectionInputArgs']] provider_specific_details: The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
         """
+        EnableProtectionInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            protectable_item_id=protectable_item_id,
+            provider_specific_details=provider_specific_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: Optional[pulumi.Input[str]] = None,
+             protectable_item_id: Optional[pulumi.Input[str]] = None,
+             provider_specific_details: Optional[pulumi.Input[Union['A2ACrossClusterMigrationEnableProtectionInputArgs', 'A2AEnableProtectionInputArgs', 'HyperVReplicaAzureEnableProtectionInputArgs', 'InMageAzureV2EnableProtectionInputArgs', 'InMageEnableProtectionInputArgs', 'InMageRcmEnableProtectionInputArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if protectable_item_id is not None:
-            pulumi.set(__self__, "protectable_item_id", protectable_item_id)
+            _setter("protectable_item_id", protectable_item_id)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
 
     @property
     @pulumi.getter(name="policyId")
@@ -1472,8 +1761,19 @@ class ExtendedLocationArgs:
         :param pulumi.Input[str] name: The name of the extended location.
         :param pulumi.Input[Union[str, 'ExtendedLocationType']] type: The extended location type.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'ExtendedLocationType']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1508,8 +1808,17 @@ class FabricCreationInputPropertiesArgs:
         Properties of site details provided during the time of site creation.
         :param pulumi.Input[Union['AzureFabricCreationInputArgs', 'InMageRcmFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']] custom_details: Fabric provider specific creation input.
         """
+        FabricCreationInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_details=custom_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_details: Optional[pulumi.Input[Union['AzureFabricCreationInputArgs', 'InMageRcmFabricCreationInputArgs', 'VMwareV2FabricCreationInputArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_details is not None:
-            pulumi.set(__self__, "custom_details", custom_details)
+            _setter("custom_details", custom_details)
 
     @property
     @pulumi.getter(name="customDetails")
@@ -1538,14 +1847,29 @@ class HyperVReplicaAzureDiskInputDetailsArgs:
         :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The DiskType.
         :param pulumi.Input[str] log_storage_account_id: The LogStorageAccountId.
         """
+        HyperVReplicaAzureDiskInputDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            disk_type=disk_type,
+            log_storage_account_id=log_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             disk_id: Optional[pulumi.Input[str]] = None,
+             disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
+             log_storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if log_storage_account_id is not None:
-            pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+            _setter("log_storage_account_id", log_storage_account_id)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -1661,63 +1985,128 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
         :param pulumi.Input[str] vhd_id: The OS disk VHD id associated with VM.
         :param pulumi.Input[str] vm_name: The VM Name.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaAzure')
+        HyperVReplicaAzureEnableProtectionInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_type=disk_type,
+            disks_to_include=disks_to_include,
+            disks_to_include_for_managed_disks=disks_to_include_for_managed_disks,
+            enable_rdp_on_target_option=enable_rdp_on_target_option,
+            hv_host_vm_id=hv_host_vm_id,
+            license_type=license_type,
+            log_storage_account_id=log_storage_account_id,
+            os_type=os_type,
+            seed_managed_disk_tags=seed_managed_disk_tags,
+            sql_server_license_type=sql_server_license_type,
+            target_availability_set_id=target_availability_set_id,
+            target_availability_zone=target_availability_zone,
+            target_azure_network_id=target_azure_network_id,
+            target_azure_subnet_id=target_azure_subnet_id,
+            target_azure_v1_resource_group_id=target_azure_v1_resource_group_id,
+            target_azure_v2_resource_group_id=target_azure_v2_resource_group_id,
+            target_azure_vm_name=target_azure_vm_name,
+            target_managed_disk_tags=target_managed_disk_tags,
+            target_nic_tags=target_nic_tags,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_storage_account_id=target_storage_account_id,
+            target_vm_size=target_vm_size,
+            target_vm_tags=target_vm_tags,
+            use_managed_disks=use_managed_disks,
+            use_managed_disks_for_replication=use_managed_disks_for_replication,
+            vhd_id=vhd_id,
+            vm_name=vm_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
+             disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             disks_to_include_for_managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['HyperVReplicaAzureDiskInputDetailsArgs']]]] = None,
+             enable_rdp_on_target_option: Optional[pulumi.Input[str]] = None,
+             hv_host_vm_id: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
+             log_storage_account_id: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             seed_managed_disk_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             sql_server_license_type: Optional[pulumi.Input[Union[str, 'SqlServerLicenseType']]] = None,
+             target_availability_set_id: Optional[pulumi.Input[str]] = None,
+             target_availability_zone: Optional[pulumi.Input[str]] = None,
+             target_azure_network_id: Optional[pulumi.Input[str]] = None,
+             target_azure_subnet_id: Optional[pulumi.Input[str]] = None,
+             target_azure_v1_resource_group_id: Optional[pulumi.Input[str]] = None,
+             target_azure_v2_resource_group_id: Optional[pulumi.Input[str]] = None,
+             target_azure_vm_name: Optional[pulumi.Input[str]] = None,
+             target_managed_disk_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_nic_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             target_storage_account_id: Optional[pulumi.Input[str]] = None,
+             target_vm_size: Optional[pulumi.Input[str]] = None,
+             target_vm_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_managed_disks: Optional[pulumi.Input[str]] = None,
+             use_managed_disks_for_replication: Optional[pulumi.Input[str]] = None,
+             vhd_id: Optional[pulumi.Input[str]] = None,
+             vm_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplicaAzure')
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if disks_to_include is not None:
-            pulumi.set(__self__, "disks_to_include", disks_to_include)
+            _setter("disks_to_include", disks_to_include)
         if disks_to_include_for_managed_disks is not None:
-            pulumi.set(__self__, "disks_to_include_for_managed_disks", disks_to_include_for_managed_disks)
+            _setter("disks_to_include_for_managed_disks", disks_to_include_for_managed_disks)
         if enable_rdp_on_target_option is not None:
-            pulumi.set(__self__, "enable_rdp_on_target_option", enable_rdp_on_target_option)
+            _setter("enable_rdp_on_target_option", enable_rdp_on_target_option)
         if hv_host_vm_id is not None:
-            pulumi.set(__self__, "hv_host_vm_id", hv_host_vm_id)
+            _setter("hv_host_vm_id", hv_host_vm_id)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if log_storage_account_id is not None:
-            pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+            _setter("log_storage_account_id", log_storage_account_id)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if seed_managed_disk_tags is not None:
-            pulumi.set(__self__, "seed_managed_disk_tags", seed_managed_disk_tags)
+            _setter("seed_managed_disk_tags", seed_managed_disk_tags)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if target_availability_set_id is not None:
-            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+            _setter("target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_azure_network_id is not None:
-            pulumi.set(__self__, "target_azure_network_id", target_azure_network_id)
+            _setter("target_azure_network_id", target_azure_network_id)
         if target_azure_subnet_id is not None:
-            pulumi.set(__self__, "target_azure_subnet_id", target_azure_subnet_id)
+            _setter("target_azure_subnet_id", target_azure_subnet_id)
         if target_azure_v1_resource_group_id is not None:
-            pulumi.set(__self__, "target_azure_v1_resource_group_id", target_azure_v1_resource_group_id)
+            _setter("target_azure_v1_resource_group_id", target_azure_v1_resource_group_id)
         if target_azure_v2_resource_group_id is not None:
-            pulumi.set(__self__, "target_azure_v2_resource_group_id", target_azure_v2_resource_group_id)
+            _setter("target_azure_v2_resource_group_id", target_azure_v2_resource_group_id)
         if target_azure_vm_name is not None:
-            pulumi.set(__self__, "target_azure_vm_name", target_azure_vm_name)
+            _setter("target_azure_vm_name", target_azure_vm_name)
         if target_managed_disk_tags is not None:
-            pulumi.set(__self__, "target_managed_disk_tags", target_managed_disk_tags)
+            _setter("target_managed_disk_tags", target_managed_disk_tags)
         if target_nic_tags is not None:
-            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+            _setter("target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_storage_account_id is not None:
-            pulumi.set(__self__, "target_storage_account_id", target_storage_account_id)
+            _setter("target_storage_account_id", target_storage_account_id)
         if target_vm_size is not None:
-            pulumi.set(__self__, "target_vm_size", target_vm_size)
+            _setter("target_vm_size", target_vm_size)
         if target_vm_tags is not None:
-            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+            _setter("target_vm_tags", target_vm_tags)
         if use_managed_disks is not None:
-            pulumi.set(__self__, "use_managed_disks", use_managed_disks)
+            _setter("use_managed_disks", use_managed_disks)
         if use_managed_disks_for_replication is not None:
-            pulumi.set(__self__, "use_managed_disks_for_replication", use_managed_disks_for_replication)
+            _setter("use_managed_disks_for_replication", use_managed_disks_for_replication)
         if vhd_id is not None:
-            pulumi.set(__self__, "vhd_id", vhd_id)
+            _setter("vhd_id", vhd_id)
         if vm_name is not None:
-            pulumi.set(__self__, "vm_name", vm_name)
+            _setter("vm_name", vm_name)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2088,17 +2477,36 @@ class HyperVReplicaAzurePolicyInputArgs:
         :param pulumi.Input[int] replication_interval: The replication interval.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_accounts: The list of storage accounts to which the VMs in the primary cloud can replicate to.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaAzure')
+        HyperVReplicaAzurePolicyInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            online_replication_start_time=online_replication_start_time,
+            recovery_point_history_duration=recovery_point_history_duration,
+            replication_interval=replication_interval,
+            storage_accounts=storage_accounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
+             online_replication_start_time: Optional[pulumi.Input[str]] = None,
+             recovery_point_history_duration: Optional[pulumi.Input[int]] = None,
+             replication_interval: Optional[pulumi.Input[int]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplicaAzure')
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_point_history_duration is not None:
-            pulumi.set(__self__, "recovery_point_history_duration", recovery_point_history_duration)
+            _setter("recovery_point_history_duration", recovery_point_history_duration)
         if replication_interval is not None:
-            pulumi.set(__self__, "replication_interval", replication_interval)
+            _setter("replication_interval", replication_interval)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2205,29 +2613,60 @@ class HyperVReplicaBluePolicyInputArgs:
         :param pulumi.Input[int] replication_frequency_in_seconds: A value indicating the replication interval.
         :param pulumi.Input[int] replication_port: A value indicating the recovery HTTPS port.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012R2')
+        HyperVReplicaBluePolicyInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            allowed_authentication_type=allowed_authentication_type,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            compression=compression,
+            initial_replication_method=initial_replication_method,
+            offline_replication_export_path=offline_replication_export_path,
+            offline_replication_import_path=offline_replication_import_path,
+            online_replication_start_time=online_replication_start_time,
+            recovery_points=recovery_points,
+            replica_deletion=replica_deletion,
+            replication_frequency_in_seconds=replication_frequency_in_seconds,
+            replication_port=replication_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             allowed_authentication_type: Optional[pulumi.Input[int]] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
+             compression: Optional[pulumi.Input[str]] = None,
+             initial_replication_method: Optional[pulumi.Input[str]] = None,
+             offline_replication_export_path: Optional[pulumi.Input[str]] = None,
+             offline_replication_import_path: Optional[pulumi.Input[str]] = None,
+             online_replication_start_time: Optional[pulumi.Input[str]] = None,
+             recovery_points: Optional[pulumi.Input[int]] = None,
+             replica_deletion: Optional[pulumi.Input[str]] = None,
+             replication_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+             replication_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplica2012R2')
         if allowed_authentication_type is not None:
-            pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
+            _setter("allowed_authentication_type", allowed_authentication_type)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if initial_replication_method is not None:
-            pulumi.set(__self__, "initial_replication_method", initial_replication_method)
+            _setter("initial_replication_method", initial_replication_method)
         if offline_replication_export_path is not None:
-            pulumi.set(__self__, "offline_replication_export_path", offline_replication_export_path)
+            _setter("offline_replication_export_path", offline_replication_export_path)
         if offline_replication_import_path is not None:
-            pulumi.set(__self__, "offline_replication_import_path", offline_replication_import_path)
+            _setter("offline_replication_import_path", offline_replication_import_path)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_points is not None:
-            pulumi.set(__self__, "recovery_points", recovery_points)
+            _setter("recovery_points", recovery_points)
         if replica_deletion is not None:
-            pulumi.set(__self__, "replica_deletion", replica_deletion)
+            _setter("replica_deletion", replica_deletion)
         if replication_frequency_in_seconds is not None:
-            pulumi.set(__self__, "replication_frequency_in_seconds", replication_frequency_in_seconds)
+            _setter("replication_frequency_in_seconds", replication_frequency_in_seconds)
         if replication_port is not None:
-            pulumi.set(__self__, "replication_port", replication_port)
+            _setter("replication_port", replication_port)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2404,27 +2843,56 @@ class HyperVReplicaPolicyInputArgs:
         :param pulumi.Input[str] replica_deletion: A value indicating whether the VM has to be auto deleted.
         :param pulumi.Input[int] replication_port: A value indicating the recovery HTTPS port.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012')
+        HyperVReplicaPolicyInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            allowed_authentication_type=allowed_authentication_type,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            compression=compression,
+            initial_replication_method=initial_replication_method,
+            offline_replication_export_path=offline_replication_export_path,
+            offline_replication_import_path=offline_replication_import_path,
+            online_replication_start_time=online_replication_start_time,
+            recovery_points=recovery_points,
+            replica_deletion=replica_deletion,
+            replication_port=replication_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             allowed_authentication_type: Optional[pulumi.Input[int]] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
+             compression: Optional[pulumi.Input[str]] = None,
+             initial_replication_method: Optional[pulumi.Input[str]] = None,
+             offline_replication_export_path: Optional[pulumi.Input[str]] = None,
+             offline_replication_import_path: Optional[pulumi.Input[str]] = None,
+             online_replication_start_time: Optional[pulumi.Input[str]] = None,
+             recovery_points: Optional[pulumi.Input[int]] = None,
+             replica_deletion: Optional[pulumi.Input[str]] = None,
+             replication_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplica2012')
         if allowed_authentication_type is not None:
-            pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
+            _setter("allowed_authentication_type", allowed_authentication_type)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if initial_replication_method is not None:
-            pulumi.set(__self__, "initial_replication_method", initial_replication_method)
+            _setter("initial_replication_method", initial_replication_method)
         if offline_replication_export_path is not None:
-            pulumi.set(__self__, "offline_replication_export_path", offline_replication_export_path)
+            _setter("offline_replication_export_path", offline_replication_export_path)
         if offline_replication_import_path is not None:
-            pulumi.set(__self__, "offline_replication_import_path", offline_replication_import_path)
+            _setter("offline_replication_import_path", offline_replication_import_path)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_points is not None:
-            pulumi.set(__self__, "recovery_points", recovery_points)
+            _setter("recovery_points", recovery_points)
         if replica_deletion is not None:
-            pulumi.set(__self__, "replica_deletion", replica_deletion)
+            _setter("replica_deletion", replica_deletion)
         if replication_port is not None:
-            pulumi.set(__self__, "replication_port", replication_port)
+            _setter("replication_port", replication_port)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2576,11 +3044,28 @@ class IdentityProviderInputArgs:
         :param pulumi.Input[str] object_id: The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         :param pulumi.Input[str] tenant_id: The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         """
-        pulumi.set(__self__, "aad_authority", aad_authority)
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "audience", audience)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityProviderInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_authority=aad_authority,
+            application_id=application_id,
+            audience=audience,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_authority: pulumi.Input[str],
+             application_id: pulumi.Input[str],
+             audience: pulumi.Input[str],
+             object_id: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aad_authority", aad_authority)
+        _setter("application_id", application_id)
+        _setter("audience", audience)
+        _setter("object_id", object_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aadAuthority")
@@ -2657,14 +3142,29 @@ class InMageAzureV2DiskInputDetailsArgs:
         :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The DiskType.
         :param pulumi.Input[str] log_storage_account_id: The LogStorageAccountId.
         """
+        InMageAzureV2DiskInputDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            disk_type=disk_type,
+            log_storage_account_id=log_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             disk_id: Optional[pulumi.Input[str]] = None,
+             disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
+             log_storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if log_storage_account_id is not None:
-            pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+            _setter("log_storage_account_id", log_storage_account_id)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -2776,59 +3276,120 @@ class InMageAzureV2EnableProtectionInputArgs:
         :param pulumi.Input[str] target_vm_size: The target VM size.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_vm_tags: The target VM tags.
         """
-        pulumi.set(__self__, "instance_type", 'InMageAzureV2')
+        InMageAzureV2EnableProtectionInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_type=disk_type,
+            disks_to_include=disks_to_include,
+            enable_rdp_on_target_option=enable_rdp_on_target_option,
+            license_type=license_type,
+            log_storage_account_id=log_storage_account_id,
+            master_target_id=master_target_id,
+            multi_vm_group_id=multi_vm_group_id,
+            multi_vm_group_name=multi_vm_group_name,
+            process_server_id=process_server_id,
+            run_as_account_id=run_as_account_id,
+            seed_managed_disk_tags=seed_managed_disk_tags,
+            sql_server_license_type=sql_server_license_type,
+            storage_account_id=storage_account_id,
+            target_availability_set_id=target_availability_set_id,
+            target_availability_zone=target_availability_zone,
+            target_azure_network_id=target_azure_network_id,
+            target_azure_subnet_id=target_azure_subnet_id,
+            target_azure_v1_resource_group_id=target_azure_v1_resource_group_id,
+            target_azure_v2_resource_group_id=target_azure_v2_resource_group_id,
+            target_azure_vm_name=target_azure_vm_name,
+            target_managed_disk_tags=target_managed_disk_tags,
+            target_nic_tags=target_nic_tags,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_vm_size=target_vm_size,
+            target_vm_tags=target_vm_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
+             disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]]] = None,
+             enable_rdp_on_target_option: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
+             log_storage_account_id: Optional[pulumi.Input[str]] = None,
+             master_target_id: Optional[pulumi.Input[str]] = None,
+             multi_vm_group_id: Optional[pulumi.Input[str]] = None,
+             multi_vm_group_name: Optional[pulumi.Input[str]] = None,
+             process_server_id: Optional[pulumi.Input[str]] = None,
+             run_as_account_id: Optional[pulumi.Input[str]] = None,
+             seed_managed_disk_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             sql_server_license_type: Optional[pulumi.Input[Union[str, 'SqlServerLicenseType']]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             target_availability_set_id: Optional[pulumi.Input[str]] = None,
+             target_availability_zone: Optional[pulumi.Input[str]] = None,
+             target_azure_network_id: Optional[pulumi.Input[str]] = None,
+             target_azure_subnet_id: Optional[pulumi.Input[str]] = None,
+             target_azure_v1_resource_group_id: Optional[pulumi.Input[str]] = None,
+             target_azure_v2_resource_group_id: Optional[pulumi.Input[str]] = None,
+             target_azure_vm_name: Optional[pulumi.Input[str]] = None,
+             target_managed_disk_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_nic_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             target_vm_size: Optional[pulumi.Input[str]] = None,
+             target_vm_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageAzureV2')
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if disks_to_include is not None:
-            pulumi.set(__self__, "disks_to_include", disks_to_include)
+            _setter("disks_to_include", disks_to_include)
         if enable_rdp_on_target_option is not None:
-            pulumi.set(__self__, "enable_rdp_on_target_option", enable_rdp_on_target_option)
+            _setter("enable_rdp_on_target_option", enable_rdp_on_target_option)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if log_storage_account_id is not None:
-            pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+            _setter("log_storage_account_id", log_storage_account_id)
         if master_target_id is not None:
-            pulumi.set(__self__, "master_target_id", master_target_id)
+            _setter("master_target_id", master_target_id)
         if multi_vm_group_id is not None:
-            pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
+            _setter("multi_vm_group_id", multi_vm_group_id)
         if multi_vm_group_name is not None:
-            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+            _setter("multi_vm_group_name", multi_vm_group_name)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
         if seed_managed_disk_tags is not None:
-            pulumi.set(__self__, "seed_managed_disk_tags", seed_managed_disk_tags)
+            _setter("seed_managed_disk_tags", seed_managed_disk_tags)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if target_availability_set_id is not None:
-            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+            _setter("target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_azure_network_id is not None:
-            pulumi.set(__self__, "target_azure_network_id", target_azure_network_id)
+            _setter("target_azure_network_id", target_azure_network_id)
         if target_azure_subnet_id is not None:
-            pulumi.set(__self__, "target_azure_subnet_id", target_azure_subnet_id)
+            _setter("target_azure_subnet_id", target_azure_subnet_id)
         if target_azure_v1_resource_group_id is not None:
-            pulumi.set(__self__, "target_azure_v1_resource_group_id", target_azure_v1_resource_group_id)
+            _setter("target_azure_v1_resource_group_id", target_azure_v1_resource_group_id)
         if target_azure_v2_resource_group_id is not None:
-            pulumi.set(__self__, "target_azure_v2_resource_group_id", target_azure_v2_resource_group_id)
+            _setter("target_azure_v2_resource_group_id", target_azure_v2_resource_group_id)
         if target_azure_vm_name is not None:
-            pulumi.set(__self__, "target_azure_vm_name", target_azure_vm_name)
+            _setter("target_azure_vm_name", target_azure_vm_name)
         if target_managed_disk_tags is not None:
-            pulumi.set(__self__, "target_managed_disk_tags", target_managed_disk_tags)
+            _setter("target_managed_disk_tags", target_managed_disk_tags)
         if target_nic_tags is not None:
-            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+            _setter("target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_vm_size is not None:
-            pulumi.set(__self__, "target_vm_size", target_vm_size)
+            _setter("target_vm_size", target_vm_size)
         if target_vm_tags is not None:
-            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+            _setter("target_vm_tags", target_vm_tags)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -3175,16 +3736,35 @@ class InMageAzureV2PolicyInputArgs:
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMageAzureV2')
-        pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+        InMageAzureV2PolicyInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            multi_vm_sync_status=multi_vm_sync_status,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             multi_vm_sync_status: pulumi.Input[Union[str, 'SetMultiVmSyncStatus']],
+             app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_point_history: Optional[pulumi.Input[int]] = None,
+             recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageAzureV2')
+        _setter("multi_vm_sync_status", multi_vm_sync_status)
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -3270,10 +3850,21 @@ class InMageDiskExclusionInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]] disk_signature_options: The guest disk signature based option for disk exclusion.
         :param pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]] volume_options: The volume label based option for disk exclusion.
         """
+        InMageDiskExclusionInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_signature_options=disk_signature_options,
+            volume_options=volume_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_signature_options: Optional[pulumi.Input[Sequence[pulumi.Input['InMageDiskSignatureExclusionOptionsArgs']]]] = None,
+             volume_options: Optional[pulumi.Input[Sequence[pulumi.Input['InMageVolumeExclusionOptionsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_signature_options is not None:
-            pulumi.set(__self__, "disk_signature_options", disk_signature_options)
+            _setter("disk_signature_options", disk_signature_options)
         if volume_options is not None:
-            pulumi.set(__self__, "volume_options", volume_options)
+            _setter("volume_options", volume_options)
 
     @property
     @pulumi.getter(name="diskSignatureOptions")
@@ -3308,8 +3899,17 @@ class InMageDiskSignatureExclusionOptionsArgs:
         Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
         :param pulumi.Input[str] disk_signature: The guest signature of disk to be excluded from replication.
         """
+        InMageDiskSignatureExclusionOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_signature=disk_signature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_signature: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_signature is not None:
-            pulumi.set(__self__, "disk_signature", disk_signature)
+            _setter("disk_signature", disk_signature)
 
     @property
     @pulumi.getter(name="diskSignature")
@@ -3353,22 +3953,51 @@ class InMageEnableProtectionInputArgs:
         :param pulumi.Input[str] run_as_account_id: The CS account Id.
         :param pulumi.Input[str] vm_friendly_name: The VM Name.
         """
-        pulumi.set(__self__, "instance_type", 'InMage')
-        pulumi.set(__self__, "master_target_id", master_target_id)
-        pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
-        pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
-        pulumi.set(__self__, "process_server_id", process_server_id)
-        pulumi.set(__self__, "retention_drive", retention_drive)
+        InMageEnableProtectionInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            master_target_id=master_target_id,
+            multi_vm_group_id=multi_vm_group_id,
+            multi_vm_group_name=multi_vm_group_name,
+            process_server_id=process_server_id,
+            retention_drive=retention_drive,
+            datastore_name=datastore_name,
+            disk_exclusion_input=disk_exclusion_input,
+            disks_to_include=disks_to_include,
+            run_as_account_id=run_as_account_id,
+            vm_friendly_name=vm_friendly_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             master_target_id: pulumi.Input[str],
+             multi_vm_group_id: pulumi.Input[str],
+             multi_vm_group_name: pulumi.Input[str],
+             process_server_id: pulumi.Input[str],
+             retention_drive: pulumi.Input[str],
+             datastore_name: Optional[pulumi.Input[str]] = None,
+             disk_exclusion_input: Optional[pulumi.Input['InMageDiskExclusionInputArgs']] = None,
+             disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             run_as_account_id: Optional[pulumi.Input[str]] = None,
+             vm_friendly_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMage')
+        _setter("master_target_id", master_target_id)
+        _setter("multi_vm_group_id", multi_vm_group_id)
+        _setter("multi_vm_group_name", multi_vm_group_name)
+        _setter("process_server_id", process_server_id)
+        _setter("retention_drive", retention_drive)
         if datastore_name is not None:
-            pulumi.set(__self__, "datastore_name", datastore_name)
+            _setter("datastore_name", datastore_name)
         if disk_exclusion_input is not None:
-            pulumi.set(__self__, "disk_exclusion_input", disk_exclusion_input)
+            _setter("disk_exclusion_input", disk_exclusion_input)
         if disks_to_include is not None:
-            pulumi.set(__self__, "disks_to_include", disks_to_include)
+            _setter("disks_to_include", disks_to_include)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
         if vm_friendly_name is not None:
-            pulumi.set(__self__, "vm_friendly_name", vm_friendly_name)
+            _setter("vm_friendly_name", vm_friendly_name)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -3521,14 +4150,31 @@ class InMagePolicyInputArgs:
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param pulumi.Input[int] recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMage')
-        pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+        InMagePolicyInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            multi_vm_sync_status=multi_vm_sync_status,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             multi_vm_sync_status: pulumi.Input[Union[str, 'SetMultiVmSyncStatus']],
+             app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_point_history: Optional[pulumi.Input[int]] = None,
+             recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMage')
+        _setter("multi_vm_sync_status", multi_vm_sync_status)
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -3606,11 +4252,26 @@ class InMageRcmDiskInputArgs:
         :param pulumi.Input[str] log_storage_account_id: The log storage account ARM Id.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM Id.
         """
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_type", disk_type)
-        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+        InMageRcmDiskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_id=disk_id,
+            disk_type=disk_type,
+            log_storage_account_id=log_storage_account_id,
+            disk_encryption_set_id=disk_encryption_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_id: pulumi.Input[str],
+             disk_type: pulumi.Input[Union[str, 'DiskAccountType']],
+             log_storage_account_id: pulumi.Input[str],
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_id", disk_id)
+        _setter("disk_type", disk_type)
+        _setter("log_storage_account_id", log_storage_account_id)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
 
     @property
     @pulumi.getter(name="diskId")
@@ -3673,10 +4334,23 @@ class InMageRcmDisksDefaultInputArgs:
         :param pulumi.Input[str] log_storage_account_id: The log storage account ARM Id.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM Id.
         """
-        pulumi.set(__self__, "disk_type", disk_type)
-        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+        InMageRcmDisksDefaultInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_type=disk_type,
+            log_storage_account_id=log_storage_account_id,
+            disk_encryption_set_id=disk_encryption_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_type: pulumi.Input[Union[str, 'DiskAccountType']],
+             log_storage_account_id: pulumi.Input[str],
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_type", disk_type)
+        _setter("log_storage_account_id", log_storage_account_id)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
 
     @property
     @pulumi.getter(name="diskType")
@@ -3760,40 +4434,85 @@ class InMageRcmEnableProtectionInputArgs:
         :param pulumi.Input[str] test_network_id: The selected test network ARM Id.
         :param pulumi.Input[str] test_subnet_name: The selected test subnet name.
         """
-        pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
-        pulumi.set(__self__, "process_server_id", process_server_id)
-        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        InMageRcmEnableProtectionInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_discovery_machine_id=fabric_discovery_machine_id,
+            instance_type=instance_type,
+            process_server_id=process_server_id,
+            target_resource_group_id=target_resource_group_id,
+            disks_default=disks_default,
+            disks_to_include=disks_to_include,
+            license_type=license_type,
+            multi_vm_group_name=multi_vm_group_name,
+            run_as_account_id=run_as_account_id,
+            target_availability_set_id=target_availability_set_id,
+            target_availability_zone=target_availability_zone,
+            target_boot_diagnostics_storage_account_id=target_boot_diagnostics_storage_account_id,
+            target_network_id=target_network_id,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_subnet_name=target_subnet_name,
+            target_vm_name=target_vm_name,
+            target_vm_size=target_vm_size,
+            test_network_id=test_network_id,
+            test_subnet_name=test_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_discovery_machine_id: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             process_server_id: pulumi.Input[str],
+             target_resource_group_id: pulumi.Input[str],
+             disks_default: Optional[pulumi.Input['InMageRcmDisksDefaultInputArgs']] = None,
+             disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
+             multi_vm_group_name: Optional[pulumi.Input[str]] = None,
+             run_as_account_id: Optional[pulumi.Input[str]] = None,
+             target_availability_set_id: Optional[pulumi.Input[str]] = None,
+             target_availability_zone: Optional[pulumi.Input[str]] = None,
+             target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[str]] = None,
+             target_network_id: Optional[pulumi.Input[str]] = None,
+             target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             target_subnet_name: Optional[pulumi.Input[str]] = None,
+             target_vm_name: Optional[pulumi.Input[str]] = None,
+             target_vm_size: Optional[pulumi.Input[str]] = None,
+             test_network_id: Optional[pulumi.Input[str]] = None,
+             test_subnet_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fabric_discovery_machine_id", fabric_discovery_machine_id)
+        _setter("instance_type", 'InMageRcm')
+        _setter("process_server_id", process_server_id)
+        _setter("target_resource_group_id", target_resource_group_id)
         if disks_default is not None:
-            pulumi.set(__self__, "disks_default", disks_default)
+            _setter("disks_default", disks_default)
         if disks_to_include is not None:
-            pulumi.set(__self__, "disks_to_include", disks_to_include)
+            _setter("disks_to_include", disks_to_include)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if multi_vm_group_name is not None:
-            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+            _setter("multi_vm_group_name", multi_vm_group_name)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
         if target_availability_set_id is not None:
-            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+            _setter("target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_boot_diagnostics_storage_account_id is not None:
-            pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+            _setter("target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_subnet_name is not None:
-            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+            _setter("target_subnet_name", target_subnet_name)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if target_vm_size is not None:
-            pulumi.set(__self__, "target_vm_size", target_vm_size)
+            _setter("target_vm_size", target_vm_size)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
         if test_subnet_name is not None:
-            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+            _setter("test_subnet_name", test_subnet_name)
 
     @property
     @pulumi.getter(name="fabricDiscoveryMachineId")
@@ -4040,10 +4759,25 @@ class InMageRcmFabricCreationInputArgs:
         :param pulumi.Input['IdentityProviderInputArgs'] source_agent_identity: The identity provider input for source agent authentication.
         :param pulumi.Input[str] vmware_site_id: The ARM Id of the VMware site.
         """
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
-        pulumi.set(__self__, "physical_site_id", physical_site_id)
-        pulumi.set(__self__, "source_agent_identity", source_agent_identity)
-        pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+        InMageRcmFabricCreationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            physical_site_id=physical_site_id,
+            source_agent_identity=source_agent_identity,
+            vmware_site_id=vmware_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             physical_site_id: pulumi.Input[str],
+             source_agent_identity: pulumi.Input['IdentityProviderInputArgs'],
+             vmware_site_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageRcm')
+        _setter("physical_site_id", physical_site_id)
+        _setter("source_agent_identity", source_agent_identity)
+        _setter("vmware_site_id", vmware_site_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -4108,11 +4842,24 @@ class InMageRcmFailbackPolicyCreationInputArgs:
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         """
-        pulumi.set(__self__, "instance_type", 'InMageRcmFailback')
+        InMageRcmFailbackPolicyCreationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageRcmFailback')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -4169,15 +4916,32 @@ class InMageRcmPolicyCreationInputArgs:
         :param pulumi.Input[str] enable_multi_vm_sync: A value indicating whether multi-VM sync has to be enabled.
         :param pulumi.Input[int] recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
+        InMageRcmPolicyCreationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            enable_multi_vm_sync=enable_multi_vm_sync,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             enable_multi_vm_sync: Optional[pulumi.Input[str]] = None,
+             recovery_point_history_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageRcm')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if enable_multi_vm_sync is not None:
-            pulumi.set(__self__, "enable_multi_vm_sync", enable_multi_vm_sync)
+            _setter("enable_multi_vm_sync", enable_multi_vm_sync)
         if recovery_point_history_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+            _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -4251,10 +5015,21 @@ class InMageVolumeExclusionOptionsArgs:
         :param pulumi.Input[str] only_exclude_if_single_volume: The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
         :param pulumi.Input[str] volume_label: The volume label. The disk having any volume with this label will be excluded from replication.
         """
+        InMageVolumeExclusionOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            only_exclude_if_single_volume=only_exclude_if_single_volume,
+            volume_label=volume_label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             only_exclude_if_single_volume: Optional[pulumi.Input[str]] = None,
+             volume_label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if only_exclude_if_single_volume is not None:
-            pulumi.set(__self__, "only_exclude_if_single_volume", only_exclude_if_single_volume)
+            _setter("only_exclude_if_single_volume", only_exclude_if_single_volume)
         if volume_label is not None:
-            pulumi.set(__self__, "volume_label", volume_label)
+            _setter("volume_label", volume_label)
 
     @property
     @pulumi.getter(name="onlyExcludeIfSingleVolume")
@@ -4291,10 +5066,21 @@ class KeyEncryptionKeyInfoArgs:
         :param pulumi.Input[str] key_identifier: The key URL / identifier.
         :param pulumi.Input[str] key_vault_resource_arm_id: The KeyVault resource ARM Id for key.
         """
+        KeyEncryptionKeyInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+            key_vault_resource_arm_id=key_vault_resource_arm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: Optional[pulumi.Input[str]] = None,
+             key_vault_resource_arm_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
         if key_vault_resource_arm_id is not None:
-            pulumi.set(__self__, "key_vault_resource_arm_id", key_vault_resource_arm_id)
+            _setter("key_vault_resource_arm_id", key_vault_resource_arm_id)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -4338,15 +5124,32 @@ class RecoveryPlanA2AInputArgs:
         :param pulumi.Input['ExtendedLocationArgs'] recovery_extended_location: The recovery extended location.
         :param pulumi.Input[str] recovery_zone: The recovery zone.
         """
-        pulumi.set(__self__, "instance_type", 'A2A')
+        RecoveryPlanA2AInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            primary_extended_location=primary_extended_location,
+            primary_zone=primary_zone,
+            recovery_extended_location=recovery_extended_location,
+            recovery_zone=recovery_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             primary_extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             primary_zone: Optional[pulumi.Input[str]] = None,
+             recovery_extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             recovery_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'A2A')
         if primary_extended_location is not None:
-            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+            _setter("primary_extended_location", primary_extended_location)
         if primary_zone is not None:
-            pulumi.set(__self__, "primary_zone", primary_zone)
+            _setter("primary_zone", primary_zone)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
         if recovery_zone is not None:
-            pulumi.set(__self__, "recovery_zone", recovery_zone)
+            _setter("recovery_zone", recovery_zone)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -4424,10 +5227,25 @@ class RecoveryPlanActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PossibleOperationsDirections']]]] failover_directions: The list of failover directions.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ReplicationProtectedItemOperation']]]] failover_types: The list of failover types.
         """
-        pulumi.set(__self__, "action_name", action_name)
-        pulumi.set(__self__, "custom_details", custom_details)
-        pulumi.set(__self__, "failover_directions", failover_directions)
-        pulumi.set(__self__, "failover_types", failover_types)
+        RecoveryPlanActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_name=action_name,
+            custom_details=custom_details,
+            failover_directions=failover_directions,
+            failover_types=failover_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_name: pulumi.Input[str],
+             custom_details: pulumi.Input[Union['RecoveryPlanAutomationRunbookActionDetailsArgs', 'RecoveryPlanManualActionDetailsArgs', 'RecoveryPlanScriptActionDetailsArgs']],
+             failover_directions: pulumi.Input[Sequence[pulumi.Input[Union[str, 'PossibleOperationsDirections']]]],
+             failover_types: pulumi.Input[Sequence[pulumi.Input[Union[str, 'ReplicationProtectedItemOperation']]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_name", action_name)
+        _setter("custom_details", custom_details)
+        _setter("failover_directions", failover_directions)
+        _setter("failover_types", failover_types)
 
     @property
     @pulumi.getter(name="actionName")
@@ -4493,12 +5311,27 @@ class RecoveryPlanAutomationRunbookActionDetailsArgs:
         :param pulumi.Input[str] runbook_id: The runbook ARM Id.
         :param pulumi.Input[str] timeout: The runbook timeout.
         """
-        pulumi.set(__self__, "fabric_location", fabric_location)
-        pulumi.set(__self__, "instance_type", 'AutomationRunbookActionDetails')
+        RecoveryPlanAutomationRunbookActionDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_location=fabric_location,
+            instance_type=instance_type,
+            runbook_id=runbook_id,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_location: pulumi.Input[Union[str, 'RecoveryPlanActionLocation']],
+             instance_type: pulumi.Input[str],
+             runbook_id: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fabric_location", fabric_location)
+        _setter("instance_type", 'AutomationRunbookActionDetails')
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="fabricLocation")
@@ -4564,13 +5397,28 @@ class RecoveryPlanGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]] replication_protected_items: The list of protected items.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]] start_group_actions: The start group actions.
         """
-        pulumi.set(__self__, "group_type", group_type)
+        RecoveryPlanGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_type=group_type,
+            end_group_actions=end_group_actions,
+            replication_protected_items=replication_protected_items,
+            start_group_actions=start_group_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_type: pulumi.Input[Union[str, 'RecoveryPlanGroupType']],
+             end_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None,
+             replication_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]]] = None,
+             start_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_type", group_type)
         if end_group_actions is not None:
-            pulumi.set(__self__, "end_group_actions", end_group_actions)
+            _setter("end_group_actions", end_group_actions)
         if replication_protected_items is not None:
-            pulumi.set(__self__, "replication_protected_items", replication_protected_items)
+            _setter("replication_protected_items", replication_protected_items)
         if start_group_actions is not None:
-            pulumi.set(__self__, "start_group_actions", start_group_actions)
+            _setter("start_group_actions", start_group_actions)
 
     @property
     @pulumi.getter(name="groupType")
@@ -4632,9 +5480,20 @@ class RecoveryPlanManualActionDetailsArgs:
                Expected value is 'ManualActionDetails'.
         :param pulumi.Input[str] description: The manual action description.
         """
-        pulumi.set(__self__, "instance_type", 'ManualActionDetails')
+        RecoveryPlanManualActionDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'ManualActionDetails')
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -4672,10 +5531,21 @@ class RecoveryPlanProtectedItemArgs:
         :param pulumi.Input[str] id: The ARM Id of the recovery plan protected item.
         :param pulumi.Input[str] virtual_machine_id: The virtual machine Id.
         """
+        RecoveryPlanProtectedItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            virtual_machine_id=virtual_machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+            _setter("virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -4717,11 +5587,26 @@ class RecoveryPlanScriptActionDetailsArgs:
         :param pulumi.Input[str] path: The script path.
         :param pulumi.Input[str] timeout: The script timeout.
         """
-        pulumi.set(__self__, "fabric_location", fabric_location)
-        pulumi.set(__self__, "instance_type", 'ScriptActionDetails')
-        pulumi.set(__self__, "path", path)
+        RecoveryPlanScriptActionDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_location=fabric_location,
+            instance_type=instance_type,
+            path=path,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_location: pulumi.Input[Union[str, 'RecoveryPlanActionLocation']],
+             instance_type: pulumi.Input[str],
+             path: pulumi.Input[str],
+             timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fabric_location", fabric_location)
+        _setter("instance_type", 'ScriptActionDetails')
+        _setter("path", path)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="fabricLocation")
@@ -4781,8 +5666,17 @@ class StorageMappingInputPropertiesArgs:
         Storage mapping input properties.
         :param pulumi.Input[str] target_storage_classification_id: The ID of the storage object.
         """
+        StorageMappingInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_storage_classification_id=target_storage_classification_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_storage_classification_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if target_storage_classification_id is not None:
-            pulumi.set(__self__, "target_storage_classification_id", target_storage_classification_id)
+            _setter("target_storage_classification_id", target_storage_classification_id)
 
     @property
     @pulumi.getter(name="targetStorageClassificationId")
@@ -4818,17 +5712,38 @@ class VMwareCbtContainerMappingInputArgs:
         :param pulumi.Input[str] service_bus_connection_string_secret_name: The secret name of the service bus connection string.
         :param pulumi.Input[str] storage_account_sas_secret_name: The secret name of the storage account.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareCbt')
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "target_location", target_location)
+        VMwareCbtContainerMappingInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            storage_account_id=storage_account_id,
+            target_location=target_location,
+            key_vault_id=key_vault_id,
+            key_vault_uri=key_vault_uri,
+            service_bus_connection_string_secret_name=service_bus_connection_string_secret_name,
+            storage_account_sas_secret_name=storage_account_sas_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             storage_account_id: pulumi.Input[str],
+             target_location: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             service_bus_connection_string_secret_name: Optional[pulumi.Input[str]] = None,
+             storage_account_sas_secret_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VMwareCbt')
+        _setter("storage_account_id", storage_account_id)
+        _setter("target_location", target_location)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if service_bus_connection_string_secret_name is not None:
-            pulumi.set(__self__, "service_bus_connection_string_secret_name", service_bus_connection_string_secret_name)
+            _setter("service_bus_connection_string_secret_name", service_bus_connection_string_secret_name)
         if storage_account_sas_secret_name is not None:
-            pulumi.set(__self__, "storage_account_sas_secret_name", storage_account_sas_secret_name)
+            _setter("storage_account_sas_secret_name", storage_account_sas_secret_name)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -4934,14 +5849,33 @@ class VMwareCbtDiskInputArgs:
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM Id.
         :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         """
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
-        pulumi.set(__self__, "log_storage_account_sas_secret_name", log_storage_account_sas_secret_name)
+        VMwareCbtDiskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_id=disk_id,
+            is_os_disk=is_os_disk,
+            log_storage_account_id=log_storage_account_id,
+            log_storage_account_sas_secret_name=log_storage_account_sas_secret_name,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_type=disk_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_id: pulumi.Input[str],
+             is_os_disk: pulumi.Input[str],
+             log_storage_account_id: pulumi.Input[str],
+             log_storage_account_sas_secret_name: pulumi.Input[str],
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_id", disk_id)
+        _setter("is_os_disk", is_os_disk)
+        _setter("log_storage_account_id", log_storage_account_id)
+        _setter("log_storage_account_sas_secret_name", log_storage_account_sas_secret_name)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
 
     @property
     @pulumi.getter(name="diskId")
@@ -5075,51 +6009,110 @@ class VMwareCbtEnableMigrationInputArgs:
         :param pulumi.Input[str] test_network_id: The selected test network ARM Id.
         :param pulumi.Input[str] test_subnet_name: The selected test subnet name.
         """
-        pulumi.set(__self__, "data_mover_run_as_account_id", data_mover_run_as_account_id)
-        pulumi.set(__self__, "disks_to_include", disks_to_include)
-        pulumi.set(__self__, "instance_type", 'VMwareCbt')
-        pulumi.set(__self__, "snapshot_run_as_account_id", snapshot_run_as_account_id)
-        pulumi.set(__self__, "target_network_id", target_network_id)
-        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
-        pulumi.set(__self__, "vmware_machine_id", vmware_machine_id)
+        VMwareCbtEnableMigrationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_mover_run_as_account_id=data_mover_run_as_account_id,
+            disks_to_include=disks_to_include,
+            instance_type=instance_type,
+            snapshot_run_as_account_id=snapshot_run_as_account_id,
+            target_network_id=target_network_id,
+            target_resource_group_id=target_resource_group_id,
+            vmware_machine_id=vmware_machine_id,
+            confidential_vm_key_vault_id=confidential_vm_key_vault_id,
+            license_type=license_type,
+            perform_auto_resync=perform_auto_resync,
+            perform_sql_bulk_registration=perform_sql_bulk_registration,
+            seed_disk_tags=seed_disk_tags,
+            sql_server_license_type=sql_server_license_type,
+            target_availability_set_id=target_availability_set_id,
+            target_availability_zone=target_availability_zone,
+            target_boot_diagnostics_storage_account_id=target_boot_diagnostics_storage_account_id,
+            target_disk_tags=target_disk_tags,
+            target_nic_tags=target_nic_tags,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_subnet_name=target_subnet_name,
+            target_vm_name=target_vm_name,
+            target_vm_security_profile=target_vm_security_profile,
+            target_vm_size=target_vm_size,
+            target_vm_tags=target_vm_tags,
+            test_network_id=test_network_id,
+            test_subnet_name=test_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_mover_run_as_account_id: pulumi.Input[str],
+             disks_to_include: pulumi.Input[Sequence[pulumi.Input['VMwareCbtDiskInputArgs']]],
+             instance_type: pulumi.Input[str],
+             snapshot_run_as_account_id: pulumi.Input[str],
+             target_network_id: pulumi.Input[str],
+             target_resource_group_id: pulumi.Input[str],
+             vmware_machine_id: pulumi.Input[str],
+             confidential_vm_key_vault_id: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
+             perform_auto_resync: Optional[pulumi.Input[str]] = None,
+             perform_sql_bulk_registration: Optional[pulumi.Input[str]] = None,
+             seed_disk_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             sql_server_license_type: Optional[pulumi.Input[Union[str, 'SqlServerLicenseType']]] = None,
+             target_availability_set_id: Optional[pulumi.Input[str]] = None,
+             target_availability_zone: Optional[pulumi.Input[str]] = None,
+             target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[str]] = None,
+             target_disk_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_nic_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             target_subnet_name: Optional[pulumi.Input[str]] = None,
+             target_vm_name: Optional[pulumi.Input[str]] = None,
+             target_vm_security_profile: Optional[pulumi.Input['VMwareCbtSecurityProfilePropertiesArgs']] = None,
+             target_vm_size: Optional[pulumi.Input[str]] = None,
+             target_vm_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             test_network_id: Optional[pulumi.Input[str]] = None,
+             test_subnet_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_mover_run_as_account_id", data_mover_run_as_account_id)
+        _setter("disks_to_include", disks_to_include)
+        _setter("instance_type", 'VMwareCbt')
+        _setter("snapshot_run_as_account_id", snapshot_run_as_account_id)
+        _setter("target_network_id", target_network_id)
+        _setter("target_resource_group_id", target_resource_group_id)
+        _setter("vmware_machine_id", vmware_machine_id)
         if confidential_vm_key_vault_id is not None:
-            pulumi.set(__self__, "confidential_vm_key_vault_id", confidential_vm_key_vault_id)
+            _setter("confidential_vm_key_vault_id", confidential_vm_key_vault_id)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if perform_auto_resync is not None:
-            pulumi.set(__self__, "perform_auto_resync", perform_auto_resync)
+            _setter("perform_auto_resync", perform_auto_resync)
         if perform_sql_bulk_registration is not None:
-            pulumi.set(__self__, "perform_sql_bulk_registration", perform_sql_bulk_registration)
+            _setter("perform_sql_bulk_registration", perform_sql_bulk_registration)
         if seed_disk_tags is not None:
-            pulumi.set(__self__, "seed_disk_tags", seed_disk_tags)
+            _setter("seed_disk_tags", seed_disk_tags)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if target_availability_set_id is not None:
-            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+            _setter("target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_boot_diagnostics_storage_account_id is not None:
-            pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+            _setter("target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
         if target_disk_tags is not None:
-            pulumi.set(__self__, "target_disk_tags", target_disk_tags)
+            _setter("target_disk_tags", target_disk_tags)
         if target_nic_tags is not None:
-            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+            _setter("target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_subnet_name is not None:
-            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+            _setter("target_subnet_name", target_subnet_name)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if target_vm_security_profile is not None:
-            pulumi.set(__self__, "target_vm_security_profile", target_vm_security_profile)
+            _setter("target_vm_security_profile", target_vm_security_profile)
         if target_vm_size is not None:
-            pulumi.set(__self__, "target_vm_size", target_vm_size)
+            _setter("target_vm_size", target_vm_size)
         if target_vm_tags is not None:
-            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+            _setter("target_vm_tags", target_vm_tags)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
         if test_subnet_name is not None:
-            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+            _setter("test_subnet_name", test_subnet_name)
 
     @property
     @pulumi.getter(name="dataMoverRunAsAccountId")
@@ -5450,13 +6443,28 @@ class VMwareCbtPolicyCreationInputArgs:
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareCbt')
+        VMwareCbtPolicyCreationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_point_history_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VMwareCbt')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if recovery_point_history_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+            _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5524,16 +6532,33 @@ class VMwareCbtSecurityProfilePropertiesArgs:
         :param pulumi.Input[str] is_target_vm_tpm_enabled: A value indicating whether trusted platform module to be enabled.
         :param pulumi.Input[Union[str, 'SecurityType']] target_vm_security_type: The target VM security type.
         """
+        VMwareCbtSecurityProfilePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_target_vm_confidential_encryption_enabled=is_target_vm_confidential_encryption_enabled,
+            is_target_vm_integrity_monitoring_enabled=is_target_vm_integrity_monitoring_enabled,
+            is_target_vm_secure_boot_enabled=is_target_vm_secure_boot_enabled,
+            is_target_vm_tpm_enabled=is_target_vm_tpm_enabled,
+            target_vm_security_type=target_vm_security_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_target_vm_confidential_encryption_enabled: Optional[pulumi.Input[str]] = None,
+             is_target_vm_integrity_monitoring_enabled: Optional[pulumi.Input[str]] = None,
+             is_target_vm_secure_boot_enabled: Optional[pulumi.Input[str]] = None,
+             is_target_vm_tpm_enabled: Optional[pulumi.Input[str]] = None,
+             target_vm_security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_target_vm_confidential_encryption_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_confidential_encryption_enabled", is_target_vm_confidential_encryption_enabled)
+            _setter("is_target_vm_confidential_encryption_enabled", is_target_vm_confidential_encryption_enabled)
         if is_target_vm_integrity_monitoring_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_integrity_monitoring_enabled", is_target_vm_integrity_monitoring_enabled)
+            _setter("is_target_vm_integrity_monitoring_enabled", is_target_vm_integrity_monitoring_enabled)
         if is_target_vm_secure_boot_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_secure_boot_enabled", is_target_vm_secure_boot_enabled)
+            _setter("is_target_vm_secure_boot_enabled", is_target_vm_secure_boot_enabled)
         if is_target_vm_tpm_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_tpm_enabled", is_target_vm_tpm_enabled)
+            _setter("is_target_vm_tpm_enabled", is_target_vm_tpm_enabled)
         if target_vm_security_type is not None:
-            pulumi.set(__self__, "target_vm_security_type", target_vm_security_type)
+            _setter("target_vm_security_type", target_vm_security_type)
 
     @property
     @pulumi.getter(name="isTargetVmConfidentialEncryptionEnabled")
@@ -5611,12 +6636,27 @@ class VMwareV2FabricCreationInputArgs:
         :param pulumi.Input[str] physical_site_id: The ARM Id of the physical site.
         :param pulumi.Input[str] vmware_site_id: The ARM Id of the VMware site.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareV2')
-        pulumi.set(__self__, "migration_solution_id", migration_solution_id)
+        VMwareV2FabricCreationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            migration_solution_id=migration_solution_id,
+            physical_site_id=physical_site_id,
+            vmware_site_id=vmware_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             migration_solution_id: pulumi.Input[str],
+             physical_site_id: Optional[pulumi.Input[str]] = None,
+             vmware_site_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VMwareV2')
+        _setter("migration_solution_id", migration_solution_id)
         if physical_site_id is not None:
-            pulumi.set(__self__, "physical_site_id", physical_site_id)
+            _setter("physical_site_id", physical_site_id)
         if vmware_site_id is not None:
-            pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+            _setter("vmware_site_id", vmware_site_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5677,7 +6717,16 @@ class VmmToAzureCreateNetworkMappingInputArgs:
         :param pulumi.Input[str] instance_type: The instance type.
                Expected value is 'VmmToAzure'.
         """
-        pulumi.set(__self__, "instance_type", 'VmmToAzure')
+        VmmToAzureCreateNetworkMappingInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VmmToAzure')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5702,7 +6751,16 @@ class VmmToVmmCreateNetworkMappingInputArgs:
         :param pulumi.Input[str] instance_type: The instance type.
                Expected value is 'VmmToVmm'.
         """
-        pulumi.set(__self__, "instance_type", 'VmmToVmm')
+        VmmToVmmCreateNetworkMappingInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VmmToVmm')
 
     @property
     @pulumi.getter(name="instanceType")

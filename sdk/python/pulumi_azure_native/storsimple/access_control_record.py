@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -28,13 +28,30 @@ class AccessControlRecordArgs:
         :param pulumi.Input[str] access_control_record_name: The name of the access control record.
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         """
-        pulumi.set(__self__, "initiator_name", initiator_name)
-        pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccessControlRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initiator_name=initiator_name,
+            manager_name=manager_name,
+            resource_group_name=resource_group_name,
+            access_control_record_name=access_control_record_name,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initiator_name: pulumi.Input[str],
+             manager_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             access_control_record_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input['Kind']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("initiator_name", initiator_name)
+        _setter("manager_name", manager_name)
+        _setter("resource_group_name", resource_group_name)
         if access_control_record_name is not None:
-            pulumi.set(__self__, "access_control_record_name", access_control_record_name)
+            _setter("access_control_record_name", access_control_record_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter(name="initiatorName")
@@ -140,6 +157,10 @@ class AccessControlRecord(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessControlRecordArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

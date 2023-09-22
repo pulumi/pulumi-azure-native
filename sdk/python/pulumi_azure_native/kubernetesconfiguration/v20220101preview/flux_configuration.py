@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,34 +46,67 @@ class FluxConfigurationArgs:
         :param pulumi.Input[Union[str, 'SourceKindType']] source_kind: Source Kind to pull the configuration data from.
         :param pulumi.Input[bool] suspend: Whether this configuration should suspend its reconciliation of its kustomizations and sources.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_resource_name", cluster_resource_name)
-        pulumi.set(__self__, "cluster_rp", cluster_rp)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FluxConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            cluster_resource_name=cluster_resource_name,
+            cluster_rp=cluster_rp,
+            resource_group_name=resource_group_name,
+            bucket=bucket,
+            configuration_protected_settings=configuration_protected_settings,
+            flux_configuration_name=flux_configuration_name,
+            git_repository=git_repository,
+            kustomizations=kustomizations,
+            namespace=namespace,
+            scope=scope,
+            source_kind=source_kind,
+            suspend=suspend,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             cluster_resource_name: pulumi.Input[str],
+             cluster_rp: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             bucket: Optional[pulumi.Input['BucketDefinitionArgs']] = None,
+             configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             flux_configuration_name: Optional[pulumi.Input[str]] = None,
+             git_repository: Optional[pulumi.Input['GitRepositoryDefinitionArgs']] = None,
+             kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
+             source_kind: Optional[pulumi.Input[Union[str, 'SourceKindType']]] = None,
+             suspend: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("cluster_resource_name", cluster_resource_name)
+        _setter("cluster_rp", cluster_rp)
+        _setter("resource_group_name", resource_group_name)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if configuration_protected_settings is not None:
-            pulumi.set(__self__, "configuration_protected_settings", configuration_protected_settings)
+            _setter("configuration_protected_settings", configuration_protected_settings)
         if flux_configuration_name is not None:
-            pulumi.set(__self__, "flux_configuration_name", flux_configuration_name)
+            _setter("flux_configuration_name", flux_configuration_name)
         if git_repository is not None:
-            pulumi.set(__self__, "git_repository", git_repository)
+            _setter("git_repository", git_repository)
         if kustomizations is not None:
-            pulumi.set(__self__, "kustomizations", kustomizations)
+            _setter("kustomizations", kustomizations)
         if namespace is None:
             namespace = 'default'
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if source_kind is None:
             source_kind = 'GitRepository'
         if source_kind is not None:
-            pulumi.set(__self__, "source_kind", source_kind)
+            _setter("source_kind", source_kind)
         if suspend is None:
             suspend = False
         if suspend is not None:
-            pulumi.set(__self__, "suspend", suspend)
+            _setter("suspend", suspend)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -289,6 +322,10 @@ class FluxConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FluxConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -316,6 +353,11 @@ class FluxConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FluxConfigurationArgs.__new__(FluxConfigurationArgs)
 
+            if not isinstance(bucket, BucketDefinitionArgs):
+                bucket = bucket or {}
+                def _setter(key, value):
+                    bucket[key] = value
+                BucketDefinitionArgs._configure(_setter, **bucket)
             __props__.__dict__["bucket"] = bucket
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
@@ -328,6 +370,11 @@ class FluxConfiguration(pulumi.CustomResource):
             __props__.__dict__["cluster_rp"] = cluster_rp
             __props__.__dict__["configuration_protected_settings"] = configuration_protected_settings
             __props__.__dict__["flux_configuration_name"] = flux_configuration_name
+            if not isinstance(git_repository, GitRepositoryDefinitionArgs):
+                git_repository = git_repository or {}
+                def _setter(key, value):
+                    git_repository[key] = value
+                GitRepositoryDefinitionArgs._configure(_setter, **git_repository)
             __props__.__dict__["git_repository"] = git_repository
             __props__.__dict__["kustomizations"] = kustomizations
             if namespace is None:

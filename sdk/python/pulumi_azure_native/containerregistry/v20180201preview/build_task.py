@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,23 +40,50 @@ class BuildTaskArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[int] timeout: Build timeout in seconds.
         """
-        pulumi.set(__self__, "alias", alias)
-        pulumi.set(__self__, "platform", platform)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_repository", source_repository)
+        BuildTaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            platform=platform,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            source_repository=source_repository,
+            build_task_name=build_task_name,
+            location=location,
+            status=status,
+            tags=tags,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: pulumi.Input[str],
+             platform: pulumi.Input['PlatformPropertiesArgs'],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             source_repository: pulumi.Input['SourceRepositoryPropertiesArgs'],
+             build_task_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'BuildTaskStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alias", alias)
+        _setter("platform", platform)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_repository", source_repository)
         if build_task_name is not None:
-            pulumi.set(__self__, "build_task_name", build_task_name)
+            _setter("build_task_name", build_task_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is None:
             timeout = 3600
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -230,6 +257,10 @@ class BuildTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BuildTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -259,6 +290,11 @@ class BuildTask(pulumi.CustomResource):
             __props__.__dict__["alias"] = alias
             __props__.__dict__["build_task_name"] = build_task_name
             __props__.__dict__["location"] = location
+            if not isinstance(platform, PlatformPropertiesArgs):
+                platform = platform or {}
+                def _setter(key, value):
+                    platform[key] = value
+                PlatformPropertiesArgs._configure(_setter, **platform)
             if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")
             __props__.__dict__["platform"] = platform
@@ -268,6 +304,11 @@ class BuildTask(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(source_repository, SourceRepositoryPropertiesArgs):
+                source_repository = source_repository or {}
+                def _setter(key, value):
+                    source_repository[key] = value
+                SourceRepositoryPropertiesArgs._configure(_setter, **source_repository)
             if source_repository is None and not opts.urn:
                 raise TypeError("Missing required property 'source_repository'")
             __props__.__dict__["source_repository"] = source_repository

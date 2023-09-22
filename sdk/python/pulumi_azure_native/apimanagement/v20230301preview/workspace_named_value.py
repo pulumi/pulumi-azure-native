@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,20 +37,45 @@ class WorkspaceNamedValueArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Optional tags that when provided can be used to filter the NamedValue list.
         :param pulumi.Input[str] value: Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceNamedValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            workspace_id=workspace_id,
+            key_vault=key_vault,
+            named_value_id=named_value_id,
+            secret=secret,
+            tags=tags,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             key_vault: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']] = None,
+             named_value_id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("workspace_id", workspace_id)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if named_value_id is not None:
-            pulumi.set(__self__, "named_value_id", named_value_id)
+            _setter("named_value_id", named_value_id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -210,6 +235,10 @@ class WorkspaceNamedValue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceNamedValueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -236,6 +265,11 @@ class WorkspaceNamedValue(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if not isinstance(key_vault, KeyVaultContractCreatePropertiesArgs):
+                key_vault = key_vault or {}
+                def _setter(key, value):
+                    key_vault[key] = value
+                KeyVaultContractCreatePropertiesArgs._configure(_setter, **key_vault)
             __props__.__dict__["key_vault"] = key_vault
             __props__.__dict__["named_value_id"] = named_value_id
             if resource_group_name is None and not opts.urn:

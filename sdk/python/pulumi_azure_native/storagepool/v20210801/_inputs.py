@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,8 +27,19 @@ class AclArgs:
         :param pulumi.Input[str] initiator_iqn: iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mapped_luns: List of LUN names mapped to the ACL.
         """
-        pulumi.set(__self__, "initiator_iqn", initiator_iqn)
-        pulumi.set(__self__, "mapped_luns", mapped_luns)
+        AclArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initiator_iqn=initiator_iqn,
+            mapped_luns=mapped_luns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initiator_iqn: pulumi.Input[str],
+             mapped_luns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("initiator_iqn", initiator_iqn)
+        _setter("mapped_luns", mapped_luns)
 
     @property
     @pulumi.getter(name="initiatorIqn")
@@ -63,7 +74,16 @@ class DiskArgs:
         Azure Managed Disk to attach to the Disk Pool.
         :param pulumi.Input[str] id: Unique Azure Resource ID of the Managed Disk.
         """
-        pulumi.set(__self__, "id", id)
+        DiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -88,8 +108,19 @@ class IscsiLunArgs:
         :param pulumi.Input[str] managed_disk_azure_resource_id: Azure Resource ID of the Managed Disk.
         :param pulumi.Input[str] name: User defined name for iSCSI LUN; example: "lun0"
         """
-        pulumi.set(__self__, "managed_disk_azure_resource_id", managed_disk_azure_resource_id)
-        pulumi.set(__self__, "name", name)
+        IscsiLunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_disk_azure_resource_id=managed_disk_azure_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_disk_azure_resource_id: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("managed_disk_azure_resource_id", managed_disk_azure_resource_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="managedDiskAzureResourceId")
@@ -126,9 +157,20 @@ class SkuArgs:
         :param pulumi.Input[str] name: Sku name
         :param pulumi.Input[str] tier: Sku tier
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

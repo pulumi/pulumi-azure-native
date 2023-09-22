@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -39,22 +39,47 @@ class ExpressRouteGatewayArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_hub", virtual_hub)
+        ExpressRouteGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_hub=virtual_hub,
+            allow_non_virtual_wan_traffic=allow_non_virtual_wan_traffic,
+            auto_scale_configuration=auto_scale_configuration,
+            express_route_connections=express_route_connections,
+            express_route_gateway_name=express_route_gateway_name,
+            id=id,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_hub: pulumi.Input['VirtualHubIdArgs'],
+             allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
+             auto_scale_configuration: Optional[pulumi.Input['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] = None,
+             express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]]] = None,
+             express_route_gateway_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_hub", virtual_hub)
         if allow_non_virtual_wan_traffic is not None:
-            pulumi.set(__self__, "allow_non_virtual_wan_traffic", allow_non_virtual_wan_traffic)
+            _setter("allow_non_virtual_wan_traffic", allow_non_virtual_wan_traffic)
         if auto_scale_configuration is not None:
-            pulumi.set(__self__, "auto_scale_configuration", auto_scale_configuration)
+            _setter("auto_scale_configuration", auto_scale_configuration)
         if express_route_connections is not None:
-            pulumi.set(__self__, "express_route_connections", express_route_connections)
+            _setter("express_route_connections", express_route_connections)
         if express_route_gateway_name is not None:
-            pulumi.set(__self__, "express_route_gateway_name", express_route_gateway_name)
+            _setter("express_route_gateway_name", express_route_gateway_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -218,6 +243,10 @@ class ExpressRouteGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRouteGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,6 +271,11 @@ class ExpressRouteGateway(pulumi.CustomResource):
             __props__ = ExpressRouteGatewayArgs.__new__(ExpressRouteGatewayArgs)
 
             __props__.__dict__["allow_non_virtual_wan_traffic"] = allow_non_virtual_wan_traffic
+            if not isinstance(auto_scale_configuration, ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs):
+                auto_scale_configuration = auto_scale_configuration or {}
+                def _setter(key, value):
+                    auto_scale_configuration[key] = value
+                ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs._configure(_setter, **auto_scale_configuration)
             __props__.__dict__["auto_scale_configuration"] = auto_scale_configuration
             __props__.__dict__["express_route_connections"] = express_route_connections
             __props__.__dict__["express_route_gateway_name"] = express_route_gateway_name
@@ -251,6 +285,11 @@ class ExpressRouteGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if not isinstance(virtual_hub, VirtualHubIdArgs):
+                virtual_hub = virtual_hub or {}
+                def _setter(key, value):
+                    virtual_hub[key] = value
+                VirtualHubIdArgs._configure(_setter, **virtual_hub)
             if virtual_hub is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub'")
             __props__.__dict__["virtual_hub"] = virtual_hub

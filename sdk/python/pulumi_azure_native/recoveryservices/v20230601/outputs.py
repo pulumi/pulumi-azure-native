@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -186,19 +186,40 @@ class A2ACrossClusterMigrationReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'A2ACrossClusterMigration')
+        A2ACrossClusterMigrationReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            fabric_object_id=fabric_object_id,
+            lifecycle_id=lifecycle_id,
+            os_type=os_type,
+            primary_fabric_location=primary_fabric_location,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             fabric_object_id: Optional[str] = None,
+             lifecycle_id: Optional[str] = None,
+             os_type: Optional[str] = None,
+             primary_fabric_location: Optional[str] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'A2ACrossClusterMigration')
         if fabric_object_id is not None:
-            pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+            _setter("fabric_object_id", fabric_object_id)
         if lifecycle_id is not None:
-            pulumi.set(__self__, "lifecycle_id", lifecycle_id)
+            _setter("lifecycle_id", lifecycle_id)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if primary_fabric_location is not None:
-            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+            _setter("primary_fabric_location", primary_fabric_location)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -290,10 +311,21 @@ class A2AExtendedLocationDetailsResponse(dict):
         :param 'ExtendedLocationResponse' primary_extended_location: The primary ExtendedLocation.
         :param 'ExtendedLocationResponse' recovery_extended_location: The recovery ExtendedLocation.
         """
+        A2AExtendedLocationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_extended_location=primary_extended_location,
+            recovery_extended_location=recovery_extended_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if primary_extended_location is not None:
-            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+            _setter("primary_extended_location", primary_extended_location)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
 
     @property
     @pulumi.getter(name="primaryExtendedLocation")
@@ -384,30 +416,61 @@ class A2AFabricSpecificLocationDetailsResponse(dict):
         :param str recovery_fabric_location: The recovery fabric location info.
         :param str recovery_zone: The target zone info.
         """
+        A2AFabricSpecificLocationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initial_primary_extended_location=initial_primary_extended_location,
+            initial_primary_fabric_location=initial_primary_fabric_location,
+            initial_primary_zone=initial_primary_zone,
+            initial_recovery_extended_location=initial_recovery_extended_location,
+            initial_recovery_fabric_location=initial_recovery_fabric_location,
+            initial_recovery_zone=initial_recovery_zone,
+            primary_extended_location=primary_extended_location,
+            primary_fabric_location=primary_fabric_location,
+            primary_zone=primary_zone,
+            recovery_extended_location=recovery_extended_location,
+            recovery_fabric_location=recovery_fabric_location,
+            recovery_zone=recovery_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initial_primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             initial_primary_fabric_location: Optional[str] = None,
+             initial_primary_zone: Optional[str] = None,
+             initial_recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             initial_recovery_fabric_location: Optional[str] = None,
+             initial_recovery_zone: Optional[str] = None,
+             primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             primary_fabric_location: Optional[str] = None,
+             primary_zone: Optional[str] = None,
+             recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             recovery_fabric_location: Optional[str] = None,
+             recovery_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if initial_primary_extended_location is not None:
-            pulumi.set(__self__, "initial_primary_extended_location", initial_primary_extended_location)
+            _setter("initial_primary_extended_location", initial_primary_extended_location)
         if initial_primary_fabric_location is not None:
-            pulumi.set(__self__, "initial_primary_fabric_location", initial_primary_fabric_location)
+            _setter("initial_primary_fabric_location", initial_primary_fabric_location)
         if initial_primary_zone is not None:
-            pulumi.set(__self__, "initial_primary_zone", initial_primary_zone)
+            _setter("initial_primary_zone", initial_primary_zone)
         if initial_recovery_extended_location is not None:
-            pulumi.set(__self__, "initial_recovery_extended_location", initial_recovery_extended_location)
+            _setter("initial_recovery_extended_location", initial_recovery_extended_location)
         if initial_recovery_fabric_location is not None:
-            pulumi.set(__self__, "initial_recovery_fabric_location", initial_recovery_fabric_location)
+            _setter("initial_recovery_fabric_location", initial_recovery_fabric_location)
         if initial_recovery_zone is not None:
-            pulumi.set(__self__, "initial_recovery_zone", initial_recovery_zone)
+            _setter("initial_recovery_zone", initial_recovery_zone)
         if primary_extended_location is not None:
-            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+            _setter("primary_extended_location", primary_extended_location)
         if primary_fabric_location is not None:
-            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+            _setter("primary_fabric_location", primary_fabric_location)
         if primary_zone is not None:
-            pulumi.set(__self__, "primary_zone", primary_zone)
+            _setter("primary_zone", primary_zone)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
         if recovery_fabric_location is not None:
-            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+            _setter("recovery_fabric_location", recovery_fabric_location)
         if recovery_zone is not None:
-            pulumi.set(__self__, "recovery_zone", recovery_zone)
+            _setter("recovery_zone", recovery_zone)
 
     @property
     @pulumi.getter(name="initialPrimaryExtendedLocation")
@@ -555,17 +618,36 @@ class A2APolicyDetailsResponse(dict):
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'A2A')
+        A2APolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            multi_vm_sync_status=multi_vm_sync_status,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             recovery_point_history: Optional[int] = None,
+             recovery_point_threshold_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'A2A')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -733,52 +815,105 @@ class A2AProtectedDiskDetailsResponse(dict):
         :param str secret_identifier: The secret URL / identifier (BEK).
         :param str tfo_disk_name: The test failover name for the managed disk.
         """
+        A2AProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_disk_level_operation=allowed_disk_level_operation,
+            data_pending_at_source_agent_in_mb=data_pending_at_source_agent_in_mb,
+            data_pending_in_staging_storage_account_in_mb=data_pending_in_staging_storage_account_in_mb,
+            dek_key_vault_arm_id=dek_key_vault_arm_id,
+            disk_capacity_in_bytes=disk_capacity_in_bytes,
+            disk_name=disk_name,
+            disk_state=disk_state,
+            disk_type=disk_type,
+            disk_uri=disk_uri,
+            failover_disk_name=failover_disk_name,
+            is_disk_encrypted=is_disk_encrypted,
+            is_disk_key_encrypted=is_disk_key_encrypted,
+            kek_key_vault_arm_id=kek_key_vault_arm_id,
+            key_identifier=key_identifier,
+            monitoring_job_type=monitoring_job_type,
+            monitoring_percentage_completion=monitoring_percentage_completion,
+            primary_disk_azure_storage_account_id=primary_disk_azure_storage_account_id,
+            primary_staging_azure_storage_account_id=primary_staging_azure_storage_account_id,
+            recovery_azure_storage_account_id=recovery_azure_storage_account_id,
+            recovery_disk_uri=recovery_disk_uri,
+            resync_required=resync_required,
+            secret_identifier=secret_identifier,
+            tfo_disk_name=tfo_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_disk_level_operation: Optional[Sequence[str]] = None,
+             data_pending_at_source_agent_in_mb: Optional[float] = None,
+             data_pending_in_staging_storage_account_in_mb: Optional[float] = None,
+             dek_key_vault_arm_id: Optional[str] = None,
+             disk_capacity_in_bytes: Optional[float] = None,
+             disk_name: Optional[str] = None,
+             disk_state: Optional[str] = None,
+             disk_type: Optional[str] = None,
+             disk_uri: Optional[str] = None,
+             failover_disk_name: Optional[str] = None,
+             is_disk_encrypted: Optional[bool] = None,
+             is_disk_key_encrypted: Optional[bool] = None,
+             kek_key_vault_arm_id: Optional[str] = None,
+             key_identifier: Optional[str] = None,
+             monitoring_job_type: Optional[str] = None,
+             monitoring_percentage_completion: Optional[int] = None,
+             primary_disk_azure_storage_account_id: Optional[str] = None,
+             primary_staging_azure_storage_account_id: Optional[str] = None,
+             recovery_azure_storage_account_id: Optional[str] = None,
+             recovery_disk_uri: Optional[str] = None,
+             resync_required: Optional[bool] = None,
+             secret_identifier: Optional[str] = None,
+             tfo_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_disk_level_operation is not None:
-            pulumi.set(__self__, "allowed_disk_level_operation", allowed_disk_level_operation)
+            _setter("allowed_disk_level_operation", allowed_disk_level_operation)
         if data_pending_at_source_agent_in_mb is not None:
-            pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+            _setter("data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
         if data_pending_in_staging_storage_account_in_mb is not None:
-            pulumi.set(__self__, "data_pending_in_staging_storage_account_in_mb", data_pending_in_staging_storage_account_in_mb)
+            _setter("data_pending_in_staging_storage_account_in_mb", data_pending_in_staging_storage_account_in_mb)
         if dek_key_vault_arm_id is not None:
-            pulumi.set(__self__, "dek_key_vault_arm_id", dek_key_vault_arm_id)
+            _setter("dek_key_vault_arm_id", dek_key_vault_arm_id)
         if disk_capacity_in_bytes is not None:
-            pulumi.set(__self__, "disk_capacity_in_bytes", disk_capacity_in_bytes)
+            _setter("disk_capacity_in_bytes", disk_capacity_in_bytes)
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_state is not None:
-            pulumi.set(__self__, "disk_state", disk_state)
+            _setter("disk_state", disk_state)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if disk_uri is not None:
-            pulumi.set(__self__, "disk_uri", disk_uri)
+            _setter("disk_uri", disk_uri)
         if failover_disk_name is not None:
-            pulumi.set(__self__, "failover_disk_name", failover_disk_name)
+            _setter("failover_disk_name", failover_disk_name)
         if is_disk_encrypted is not None:
-            pulumi.set(__self__, "is_disk_encrypted", is_disk_encrypted)
+            _setter("is_disk_encrypted", is_disk_encrypted)
         if is_disk_key_encrypted is not None:
-            pulumi.set(__self__, "is_disk_key_encrypted", is_disk_key_encrypted)
+            _setter("is_disk_key_encrypted", is_disk_key_encrypted)
         if kek_key_vault_arm_id is not None:
-            pulumi.set(__self__, "kek_key_vault_arm_id", kek_key_vault_arm_id)
+            _setter("kek_key_vault_arm_id", kek_key_vault_arm_id)
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
         if monitoring_job_type is not None:
-            pulumi.set(__self__, "monitoring_job_type", monitoring_job_type)
+            _setter("monitoring_job_type", monitoring_job_type)
         if monitoring_percentage_completion is not None:
-            pulumi.set(__self__, "monitoring_percentage_completion", monitoring_percentage_completion)
+            _setter("monitoring_percentage_completion", monitoring_percentage_completion)
         if primary_disk_azure_storage_account_id is not None:
-            pulumi.set(__self__, "primary_disk_azure_storage_account_id", primary_disk_azure_storage_account_id)
+            _setter("primary_disk_azure_storage_account_id", primary_disk_azure_storage_account_id)
         if primary_staging_azure_storage_account_id is not None:
-            pulumi.set(__self__, "primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
+            _setter("primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
         if recovery_azure_storage_account_id is not None:
-            pulumi.set(__self__, "recovery_azure_storage_account_id", recovery_azure_storage_account_id)
+            _setter("recovery_azure_storage_account_id", recovery_azure_storage_account_id)
         if recovery_disk_uri is not None:
-            pulumi.set(__self__, "recovery_disk_uri", recovery_disk_uri)
+            _setter("recovery_disk_uri", recovery_disk_uri)
         if resync_required is not None:
-            pulumi.set(__self__, "resync_required", resync_required)
+            _setter("resync_required", resync_required)
         if secret_identifier is not None:
-            pulumi.set(__self__, "secret_identifier", secret_identifier)
+            _setter("secret_identifier", secret_identifier)
         if tfo_disk_name is not None:
-            pulumi.set(__self__, "tfo_disk_name", tfo_disk_name)
+            _setter("tfo_disk_name", tfo_disk_name)
 
     @property
     @pulumi.getter(name="allowedDiskLevelOperation")
@@ -1101,62 +1236,125 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
         :param str secret_identifier: The secret URL / identifier (BEK).
         :param str tfo_disk_name: The test failover name for the managed disk.
         """
+        A2AProtectedManagedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_disk_level_operation=allowed_disk_level_operation,
+            data_pending_at_source_agent_in_mb=data_pending_at_source_agent_in_mb,
+            data_pending_in_staging_storage_account_in_mb=data_pending_in_staging_storage_account_in_mb,
+            dek_key_vault_arm_id=dek_key_vault_arm_id,
+            disk_capacity_in_bytes=disk_capacity_in_bytes,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_state=disk_state,
+            disk_type=disk_type,
+            failover_disk_name=failover_disk_name,
+            is_disk_encrypted=is_disk_encrypted,
+            is_disk_key_encrypted=is_disk_key_encrypted,
+            kek_key_vault_arm_id=kek_key_vault_arm_id,
+            key_identifier=key_identifier,
+            monitoring_job_type=monitoring_job_type,
+            monitoring_percentage_completion=monitoring_percentage_completion,
+            primary_disk_encryption_set_id=primary_disk_encryption_set_id,
+            primary_staging_azure_storage_account_id=primary_staging_azure_storage_account_id,
+            recovery_disk_encryption_set_id=recovery_disk_encryption_set_id,
+            recovery_orignal_target_disk_id=recovery_orignal_target_disk_id,
+            recovery_replica_disk_account_type=recovery_replica_disk_account_type,
+            recovery_replica_disk_id=recovery_replica_disk_id,
+            recovery_resource_group_id=recovery_resource_group_id,
+            recovery_target_disk_account_type=recovery_target_disk_account_type,
+            recovery_target_disk_id=recovery_target_disk_id,
+            resync_required=resync_required,
+            secret_identifier=secret_identifier,
+            tfo_disk_name=tfo_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_disk_level_operation: Optional[Sequence[str]] = None,
+             data_pending_at_source_agent_in_mb: Optional[float] = None,
+             data_pending_in_staging_storage_account_in_mb: Optional[float] = None,
+             dek_key_vault_arm_id: Optional[str] = None,
+             disk_capacity_in_bytes: Optional[float] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             disk_state: Optional[str] = None,
+             disk_type: Optional[str] = None,
+             failover_disk_name: Optional[str] = None,
+             is_disk_encrypted: Optional[bool] = None,
+             is_disk_key_encrypted: Optional[bool] = None,
+             kek_key_vault_arm_id: Optional[str] = None,
+             key_identifier: Optional[str] = None,
+             monitoring_job_type: Optional[str] = None,
+             monitoring_percentage_completion: Optional[int] = None,
+             primary_disk_encryption_set_id: Optional[str] = None,
+             primary_staging_azure_storage_account_id: Optional[str] = None,
+             recovery_disk_encryption_set_id: Optional[str] = None,
+             recovery_orignal_target_disk_id: Optional[str] = None,
+             recovery_replica_disk_account_type: Optional[str] = None,
+             recovery_replica_disk_id: Optional[str] = None,
+             recovery_resource_group_id: Optional[str] = None,
+             recovery_target_disk_account_type: Optional[str] = None,
+             recovery_target_disk_id: Optional[str] = None,
+             resync_required: Optional[bool] = None,
+             secret_identifier: Optional[str] = None,
+             tfo_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_disk_level_operation is not None:
-            pulumi.set(__self__, "allowed_disk_level_operation", allowed_disk_level_operation)
+            _setter("allowed_disk_level_operation", allowed_disk_level_operation)
         if data_pending_at_source_agent_in_mb is not None:
-            pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+            _setter("data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
         if data_pending_in_staging_storage_account_in_mb is not None:
-            pulumi.set(__self__, "data_pending_in_staging_storage_account_in_mb", data_pending_in_staging_storage_account_in_mb)
+            _setter("data_pending_in_staging_storage_account_in_mb", data_pending_in_staging_storage_account_in_mb)
         if dek_key_vault_arm_id is not None:
-            pulumi.set(__self__, "dek_key_vault_arm_id", dek_key_vault_arm_id)
+            _setter("dek_key_vault_arm_id", dek_key_vault_arm_id)
         if disk_capacity_in_bytes is not None:
-            pulumi.set(__self__, "disk_capacity_in_bytes", disk_capacity_in_bytes)
+            _setter("disk_capacity_in_bytes", disk_capacity_in_bytes)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_state is not None:
-            pulumi.set(__self__, "disk_state", disk_state)
+            _setter("disk_state", disk_state)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if failover_disk_name is not None:
-            pulumi.set(__self__, "failover_disk_name", failover_disk_name)
+            _setter("failover_disk_name", failover_disk_name)
         if is_disk_encrypted is not None:
-            pulumi.set(__self__, "is_disk_encrypted", is_disk_encrypted)
+            _setter("is_disk_encrypted", is_disk_encrypted)
         if is_disk_key_encrypted is not None:
-            pulumi.set(__self__, "is_disk_key_encrypted", is_disk_key_encrypted)
+            _setter("is_disk_key_encrypted", is_disk_key_encrypted)
         if kek_key_vault_arm_id is not None:
-            pulumi.set(__self__, "kek_key_vault_arm_id", kek_key_vault_arm_id)
+            _setter("kek_key_vault_arm_id", kek_key_vault_arm_id)
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
         if monitoring_job_type is not None:
-            pulumi.set(__self__, "monitoring_job_type", monitoring_job_type)
+            _setter("monitoring_job_type", monitoring_job_type)
         if monitoring_percentage_completion is not None:
-            pulumi.set(__self__, "monitoring_percentage_completion", monitoring_percentage_completion)
+            _setter("monitoring_percentage_completion", monitoring_percentage_completion)
         if primary_disk_encryption_set_id is not None:
-            pulumi.set(__self__, "primary_disk_encryption_set_id", primary_disk_encryption_set_id)
+            _setter("primary_disk_encryption_set_id", primary_disk_encryption_set_id)
         if primary_staging_azure_storage_account_id is not None:
-            pulumi.set(__self__, "primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
+            _setter("primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
         if recovery_disk_encryption_set_id is not None:
-            pulumi.set(__self__, "recovery_disk_encryption_set_id", recovery_disk_encryption_set_id)
+            _setter("recovery_disk_encryption_set_id", recovery_disk_encryption_set_id)
         if recovery_orignal_target_disk_id is not None:
-            pulumi.set(__self__, "recovery_orignal_target_disk_id", recovery_orignal_target_disk_id)
+            _setter("recovery_orignal_target_disk_id", recovery_orignal_target_disk_id)
         if recovery_replica_disk_account_type is not None:
-            pulumi.set(__self__, "recovery_replica_disk_account_type", recovery_replica_disk_account_type)
+            _setter("recovery_replica_disk_account_type", recovery_replica_disk_account_type)
         if recovery_replica_disk_id is not None:
-            pulumi.set(__self__, "recovery_replica_disk_id", recovery_replica_disk_id)
+            _setter("recovery_replica_disk_id", recovery_replica_disk_id)
         if recovery_resource_group_id is not None:
-            pulumi.set(__self__, "recovery_resource_group_id", recovery_resource_group_id)
+            _setter("recovery_resource_group_id", recovery_resource_group_id)
         if recovery_target_disk_account_type is not None:
-            pulumi.set(__self__, "recovery_target_disk_account_type", recovery_target_disk_account_type)
+            _setter("recovery_target_disk_account_type", recovery_target_disk_account_type)
         if recovery_target_disk_id is not None:
-            pulumi.set(__self__, "recovery_target_disk_id", recovery_target_disk_id)
+            _setter("recovery_target_disk_id", recovery_target_disk_id)
         if resync_required is not None:
-            pulumi.set(__self__, "resync_required", resync_required)
+            _setter("resync_required", resync_required)
         if secret_identifier is not None:
-            pulumi.set(__self__, "secret_identifier", secret_identifier)
+            _setter("secret_identifier", secret_identifier)
         if tfo_disk_name is not None:
-            pulumi.set(__self__, "tfo_disk_name", tfo_disk_name)
+            _setter("tfo_disk_name", tfo_disk_name)
 
     @property
     @pulumi.getter(name="allowedDiskLevelOperation")
@@ -1432,19 +1630,38 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
         :param str job_schedule_name: The job schedule arm name.
         :param str schedule_name: The schedule arm name.
         """
-        pulumi.set(__self__, "instance_type", 'A2A')
+        A2AProtectionContainerMappingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            agent_auto_update_status=agent_auto_update_status,
+            automation_account_arm_id=automation_account_arm_id,
+            automation_account_authentication_type=automation_account_authentication_type,
+            job_schedule_name=job_schedule_name,
+            schedule_name=schedule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             agent_auto_update_status: Optional[str] = None,
+             automation_account_arm_id: Optional[str] = None,
+             automation_account_authentication_type: Optional[str] = None,
+             job_schedule_name: Optional[str] = None,
+             schedule_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'A2A')
         if agent_auto_update_status is not None:
-            pulumi.set(__self__, "agent_auto_update_status", agent_auto_update_status)
+            _setter("agent_auto_update_status", agent_auto_update_status)
         if automation_account_arm_id is not None:
-            pulumi.set(__self__, "automation_account_arm_id", automation_account_arm_id)
+            _setter("automation_account_arm_id", automation_account_arm_id)
         if automation_account_authentication_type is None:
             automation_account_authentication_type = 'RunAsAccount'
         if automation_account_authentication_type is not None:
-            pulumi.set(__self__, "automation_account_authentication_type", automation_account_authentication_type)
+            _setter("automation_account_authentication_type", automation_account_authentication_type)
         if job_schedule_name is not None:
-            pulumi.set(__self__, "job_schedule_name", job_schedule_name)
+            _setter("job_schedule_name", job_schedule_name)
         if schedule_name is not None:
-            pulumi.set(__self__, "schedule_name", schedule_name)
+            _setter("schedule_name", schedule_name)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1741,107 +1958,224 @@ class A2AReplicationDetailsResponse(dict):
         :param str vm_protection_state_description: The protection state description for the vm.
         :param 'AzureToAzureVmSyncedConfigDetailsResponse' vm_synced_config_details: The synced configuration details.
         """
-        pulumi.set(__self__, "agent_certificate_expiry_date", agent_certificate_expiry_date)
-        pulumi.set(__self__, "churn_option_selected", churn_option_selected)
-        pulumi.set(__self__, "initial_primary_fabric_location", initial_primary_fabric_location)
-        pulumi.set(__self__, "initial_primary_zone", initial_primary_zone)
-        pulumi.set(__self__, "initial_recovery_fabric_location", initial_recovery_fabric_location)
-        pulumi.set(__self__, "initial_recovery_zone", initial_recovery_zone)
-        pulumi.set(__self__, "instance_type", 'A2A')
-        pulumi.set(__self__, "recovery_azure_generation", recovery_azure_generation)
-        pulumi.set(__self__, "vm_encryption_type", vm_encryption_type)
+        A2AReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_certificate_expiry_date=agent_certificate_expiry_date,
+            churn_option_selected=churn_option_selected,
+            initial_primary_fabric_location=initial_primary_fabric_location,
+            initial_primary_zone=initial_primary_zone,
+            initial_recovery_fabric_location=initial_recovery_fabric_location,
+            initial_recovery_zone=initial_recovery_zone,
+            instance_type=instance_type,
+            recovery_azure_generation=recovery_azure_generation,
+            vm_encryption_type=vm_encryption_type,
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            auto_protection_of_data_disk=auto_protection_of_data_disk,
+            fabric_object_id=fabric_object_id,
+            initial_primary_extended_location=initial_primary_extended_location,
+            initial_recovery_extended_location=initial_recovery_extended_location,
+            is_replication_agent_certificate_update_required=is_replication_agent_certificate_update_required,
+            is_replication_agent_update_required=is_replication_agent_update_required,
+            last_heartbeat=last_heartbeat,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            lifecycle_id=lifecycle_id,
+            management_id=management_id,
+            monitoring_job_type=monitoring_job_type,
+            monitoring_percentage_completion=monitoring_percentage_completion,
+            multi_vm_group_create_option=multi_vm_group_create_option,
+            multi_vm_group_id=multi_vm_group_id,
+            multi_vm_group_name=multi_vm_group_name,
+            os_type=os_type,
+            primary_availability_zone=primary_availability_zone,
+            primary_extended_location=primary_extended_location,
+            primary_fabric_location=primary_fabric_location,
+            protected_disks=protected_disks,
+            protected_managed_disks=protected_managed_disks,
+            recovery_availability_set=recovery_availability_set,
+            recovery_availability_zone=recovery_availability_zone,
+            recovery_azure_resource_group_id=recovery_azure_resource_group_id,
+            recovery_azure_vm_name=recovery_azure_vm_name,
+            recovery_azure_vm_size=recovery_azure_vm_size,
+            recovery_boot_diag_storage_account_id=recovery_boot_diag_storage_account_id,
+            recovery_capacity_reservation_group_id=recovery_capacity_reservation_group_id,
+            recovery_cloud_service=recovery_cloud_service,
+            recovery_extended_location=recovery_extended_location,
+            recovery_fabric_location=recovery_fabric_location,
+            recovery_fabric_object_id=recovery_fabric_object_id,
+            recovery_proximity_placement_group_id=recovery_proximity_placement_group_id,
+            recovery_virtual_machine_scale_set_id=recovery_virtual_machine_scale_set_id,
+            rpo_in_seconds=rpo_in_seconds,
+            selected_recovery_azure_network_id=selected_recovery_azure_network_id,
+            selected_tfo_azure_network_id=selected_tfo_azure_network_id,
+            test_failover_recovery_fabric_object_id=test_failover_recovery_fabric_object_id,
+            tfo_azure_vm_name=tfo_azure_vm_name,
+            unprotected_disks=unprotected_disks,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+            vm_synced_config_details=vm_synced_config_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_certificate_expiry_date: str,
+             churn_option_selected: str,
+             initial_primary_fabric_location: str,
+             initial_primary_zone: str,
+             initial_recovery_fabric_location: str,
+             initial_recovery_zone: str,
+             instance_type: str,
+             recovery_azure_generation: str,
+             vm_encryption_type: str,
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             auto_protection_of_data_disk: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             initial_primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             initial_recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             is_replication_agent_certificate_update_required: Optional[bool] = None,
+             is_replication_agent_update_required: Optional[bool] = None,
+             last_heartbeat: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             lifecycle_id: Optional[str] = None,
+             management_id: Optional[str] = None,
+             monitoring_job_type: Optional[str] = None,
+             monitoring_percentage_completion: Optional[int] = None,
+             multi_vm_group_create_option: Optional[str] = None,
+             multi_vm_group_id: Optional[str] = None,
+             multi_vm_group_name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             primary_availability_zone: Optional[str] = None,
+             primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             primary_fabric_location: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.A2AProtectedDiskDetailsResponse']] = None,
+             protected_managed_disks: Optional[Sequence['outputs.A2AProtectedManagedDiskDetailsResponse']] = None,
+             recovery_availability_set: Optional[str] = None,
+             recovery_availability_zone: Optional[str] = None,
+             recovery_azure_resource_group_id: Optional[str] = None,
+             recovery_azure_vm_name: Optional[str] = None,
+             recovery_azure_vm_size: Optional[str] = None,
+             recovery_boot_diag_storage_account_id: Optional[str] = None,
+             recovery_capacity_reservation_group_id: Optional[str] = None,
+             recovery_cloud_service: Optional[str] = None,
+             recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             recovery_fabric_location: Optional[str] = None,
+             recovery_fabric_object_id: Optional[str] = None,
+             recovery_proximity_placement_group_id: Optional[str] = None,
+             recovery_virtual_machine_scale_set_id: Optional[str] = None,
+             rpo_in_seconds: Optional[float] = None,
+             selected_recovery_azure_network_id: Optional[str] = None,
+             selected_tfo_azure_network_id: Optional[str] = None,
+             test_failover_recovery_fabric_object_id: Optional[str] = None,
+             tfo_azure_vm_name: Optional[str] = None,
+             unprotected_disks: Optional[Sequence['outputs.A2AUnprotectedDiskDetailsResponse']] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             vm_synced_config_details: Optional['outputs.AzureToAzureVmSyncedConfigDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_certificate_expiry_date", agent_certificate_expiry_date)
+        _setter("churn_option_selected", churn_option_selected)
+        _setter("initial_primary_fabric_location", initial_primary_fabric_location)
+        _setter("initial_primary_zone", initial_primary_zone)
+        _setter("initial_recovery_fabric_location", initial_recovery_fabric_location)
+        _setter("initial_recovery_zone", initial_recovery_zone)
+        _setter("instance_type", 'A2A')
+        _setter("recovery_azure_generation", recovery_azure_generation)
+        _setter("vm_encryption_type", vm_encryption_type)
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if auto_protection_of_data_disk is not None:
-            pulumi.set(__self__, "auto_protection_of_data_disk", auto_protection_of_data_disk)
+            _setter("auto_protection_of_data_disk", auto_protection_of_data_disk)
         if fabric_object_id is not None:
-            pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+            _setter("fabric_object_id", fabric_object_id)
         if initial_primary_extended_location is not None:
-            pulumi.set(__self__, "initial_primary_extended_location", initial_primary_extended_location)
+            _setter("initial_primary_extended_location", initial_primary_extended_location)
         if initial_recovery_extended_location is not None:
-            pulumi.set(__self__, "initial_recovery_extended_location", initial_recovery_extended_location)
+            _setter("initial_recovery_extended_location", initial_recovery_extended_location)
         if is_replication_agent_certificate_update_required is not None:
-            pulumi.set(__self__, "is_replication_agent_certificate_update_required", is_replication_agent_certificate_update_required)
+            _setter("is_replication_agent_certificate_update_required", is_replication_agent_certificate_update_required)
         if is_replication_agent_update_required is not None:
-            pulumi.set(__self__, "is_replication_agent_update_required", is_replication_agent_update_required)
+            _setter("is_replication_agent_update_required", is_replication_agent_update_required)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if lifecycle_id is not None:
-            pulumi.set(__self__, "lifecycle_id", lifecycle_id)
+            _setter("lifecycle_id", lifecycle_id)
         if management_id is not None:
-            pulumi.set(__self__, "management_id", management_id)
+            _setter("management_id", management_id)
         if monitoring_job_type is not None:
-            pulumi.set(__self__, "monitoring_job_type", monitoring_job_type)
+            _setter("monitoring_job_type", monitoring_job_type)
         if monitoring_percentage_completion is not None:
-            pulumi.set(__self__, "monitoring_percentage_completion", monitoring_percentage_completion)
+            _setter("monitoring_percentage_completion", monitoring_percentage_completion)
         if multi_vm_group_create_option is not None:
-            pulumi.set(__self__, "multi_vm_group_create_option", multi_vm_group_create_option)
+            _setter("multi_vm_group_create_option", multi_vm_group_create_option)
         if multi_vm_group_id is not None:
-            pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
+            _setter("multi_vm_group_id", multi_vm_group_id)
         if multi_vm_group_name is not None:
-            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+            _setter("multi_vm_group_name", multi_vm_group_name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if primary_availability_zone is not None:
-            pulumi.set(__self__, "primary_availability_zone", primary_availability_zone)
+            _setter("primary_availability_zone", primary_availability_zone)
         if primary_extended_location is not None:
-            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+            _setter("primary_extended_location", primary_extended_location)
         if primary_fabric_location is not None:
-            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+            _setter("primary_fabric_location", primary_fabric_location)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if protected_managed_disks is not None:
-            pulumi.set(__self__, "protected_managed_disks", protected_managed_disks)
+            _setter("protected_managed_disks", protected_managed_disks)
         if recovery_availability_set is not None:
-            pulumi.set(__self__, "recovery_availability_set", recovery_availability_set)
+            _setter("recovery_availability_set", recovery_availability_set)
         if recovery_availability_zone is not None:
-            pulumi.set(__self__, "recovery_availability_zone", recovery_availability_zone)
+            _setter("recovery_availability_zone", recovery_availability_zone)
         if recovery_azure_resource_group_id is not None:
-            pulumi.set(__self__, "recovery_azure_resource_group_id", recovery_azure_resource_group_id)
+            _setter("recovery_azure_resource_group_id", recovery_azure_resource_group_id)
         if recovery_azure_vm_name is not None:
-            pulumi.set(__self__, "recovery_azure_vm_name", recovery_azure_vm_name)
+            _setter("recovery_azure_vm_name", recovery_azure_vm_name)
         if recovery_azure_vm_size is not None:
-            pulumi.set(__self__, "recovery_azure_vm_size", recovery_azure_vm_size)
+            _setter("recovery_azure_vm_size", recovery_azure_vm_size)
         if recovery_boot_diag_storage_account_id is not None:
-            pulumi.set(__self__, "recovery_boot_diag_storage_account_id", recovery_boot_diag_storage_account_id)
+            _setter("recovery_boot_diag_storage_account_id", recovery_boot_diag_storage_account_id)
         if recovery_capacity_reservation_group_id is not None:
-            pulumi.set(__self__, "recovery_capacity_reservation_group_id", recovery_capacity_reservation_group_id)
+            _setter("recovery_capacity_reservation_group_id", recovery_capacity_reservation_group_id)
         if recovery_cloud_service is not None:
-            pulumi.set(__self__, "recovery_cloud_service", recovery_cloud_service)
+            _setter("recovery_cloud_service", recovery_cloud_service)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
         if recovery_fabric_location is not None:
-            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+            _setter("recovery_fabric_location", recovery_fabric_location)
         if recovery_fabric_object_id is not None:
-            pulumi.set(__self__, "recovery_fabric_object_id", recovery_fabric_object_id)
+            _setter("recovery_fabric_object_id", recovery_fabric_object_id)
         if recovery_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "recovery_proximity_placement_group_id", recovery_proximity_placement_group_id)
+            _setter("recovery_proximity_placement_group_id", recovery_proximity_placement_group_id)
         if recovery_virtual_machine_scale_set_id is not None:
-            pulumi.set(__self__, "recovery_virtual_machine_scale_set_id", recovery_virtual_machine_scale_set_id)
+            _setter("recovery_virtual_machine_scale_set_id", recovery_virtual_machine_scale_set_id)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if selected_recovery_azure_network_id is not None:
-            pulumi.set(__self__, "selected_recovery_azure_network_id", selected_recovery_azure_network_id)
+            _setter("selected_recovery_azure_network_id", selected_recovery_azure_network_id)
         if selected_tfo_azure_network_id is not None:
-            pulumi.set(__self__, "selected_tfo_azure_network_id", selected_tfo_azure_network_id)
+            _setter("selected_tfo_azure_network_id", selected_tfo_azure_network_id)
         if test_failover_recovery_fabric_object_id is not None:
-            pulumi.set(__self__, "test_failover_recovery_fabric_object_id", test_failover_recovery_fabric_object_id)
+            _setter("test_failover_recovery_fabric_object_id", test_failover_recovery_fabric_object_id)
         if tfo_azure_vm_name is not None:
-            pulumi.set(__self__, "tfo_azure_vm_name", tfo_azure_vm_name)
+            _setter("tfo_azure_vm_name", tfo_azure_vm_name)
         if unprotected_disks is not None:
-            pulumi.set(__self__, "unprotected_disks", unprotected_disks)
+            _setter("unprotected_disks", unprotected_disks)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
         if vm_synced_config_details is not None:
-            pulumi.set(__self__, "vm_synced_config_details", vm_synced_config_details)
+            _setter("vm_synced_config_details", vm_synced_config_details)
 
     @property
     @pulumi.getter(name="agentCertificateExpiryDate")
@@ -2317,10 +2651,21 @@ class A2AUnprotectedDiskDetailsResponse(dict):
         :param str disk_auto_protection_status: A value indicating whether the disk auto protection is enabled.
         :param int disk_lun_id: The source lun Id for the data disk.
         """
+        A2AUnprotectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_auto_protection_status=disk_auto_protection_status,
+            disk_lun_id=disk_lun_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_auto_protection_status: Optional[str] = None,
+             disk_lun_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_auto_protection_status is not None:
-            pulumi.set(__self__, "disk_auto_protection_status", disk_auto_protection_status)
+            _setter("disk_auto_protection_status", disk_auto_protection_status)
         if disk_lun_id is not None:
-            pulumi.set(__self__, "disk_lun_id", disk_lun_id)
+            _setter("disk_lun_id", disk_lun_id)
 
     @property
     @pulumi.getter(name="diskAutoProtectionStatus")
@@ -2352,10 +2697,21 @@ class A2AZoneDetailsResponse(dict):
         :param str source: Source zone info.
         :param str target: The target zone info.
         """
+        A2AZoneDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: Optional[str] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter
@@ -2414,11 +2770,28 @@ class AgentDetailsResponse(dict):
         :param str fqdn: The machine FQDN.
         :param str machine_id: The Id of the machine to which the agent is registered.
         """
-        pulumi.set(__self__, "agent_id", agent_id)
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "disks", disks)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "machine_id", machine_id)
+        AgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_id=agent_id,
+            bios_id=bios_id,
+            disks=disks,
+            fqdn=fqdn,
+            machine_id=machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_id: str,
+             bios_id: str,
+             disks: Sequence['outputs.AgentDiskDetailsResponse'],
+             fqdn: str,
+             machine_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_id", agent_id)
+        _setter("bios_id", bios_id)
+        _setter("disks", disks)
+        _setter("fqdn", fqdn)
+        _setter("machine_id", machine_id)
 
     @property
     @pulumi.getter(name="agentId")
@@ -2505,11 +2878,28 @@ class AgentDiskDetailsResponse(dict):
         :param str is_os_disk: A value indicating whether the disk is the OS disk.
         :param int lun_id: The lun of disk.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "lun_id", lun_id)
+        AgentDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            is_os_disk=is_os_disk,
+            lun_id=lun_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: float,
+             disk_id: str,
+             disk_name: str,
+             is_os_disk: str,
+             lun_id: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("disk_id", disk_id)
+        _setter("disk_name", disk_name)
+        _setter("is_os_disk", is_os_disk)
+        _setter("lun_id", lun_id)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -2600,12 +2990,31 @@ class ApplianceMonitoringDetailsResponse(dict):
         :param 'ApplianceResourceDetailsResponse' network_bandwidth: The appliance network bandwidth details.
         :param 'ApplianceResourceDetailsResponse' ram_details: The appliance RAM details.
         """
-        pulumi.set(__self__, "cpu_details", cpu_details)
-        pulumi.set(__self__, "datastore_snapshot", datastore_snapshot)
-        pulumi.set(__self__, "disks_replication_details", disks_replication_details)
-        pulumi.set(__self__, "esxi_nfc_buffer", esxi_nfc_buffer)
-        pulumi.set(__self__, "network_bandwidth", network_bandwidth)
-        pulumi.set(__self__, "ram_details", ram_details)
+        ApplianceMonitoringDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_details=cpu_details,
+            datastore_snapshot=datastore_snapshot,
+            disks_replication_details=disks_replication_details,
+            esxi_nfc_buffer=esxi_nfc_buffer,
+            network_bandwidth=network_bandwidth,
+            ram_details=ram_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_details: 'outputs.ApplianceResourceDetailsResponse',
+             datastore_snapshot: Sequence['outputs.DataStoreUtilizationDetailsResponse'],
+             disks_replication_details: 'outputs.ApplianceResourceDetailsResponse',
+             esxi_nfc_buffer: 'outputs.ApplianceResourceDetailsResponse',
+             network_bandwidth: 'outputs.ApplianceResourceDetailsResponse',
+             ram_details: 'outputs.ApplianceResourceDetailsResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cpu_details", cpu_details)
+        _setter("datastore_snapshot", datastore_snapshot)
+        _setter("disks_replication_details", disks_replication_details)
+        _setter("esxi_nfc_buffer", esxi_nfc_buffer)
+        _setter("network_bandwidth", network_bandwidth)
+        _setter("ram_details", ram_details)
 
     @property
     @pulumi.getter(name="cpuDetails")
@@ -2692,10 +3101,25 @@ class ApplianceResourceDetailsResponse(dict):
         :param str status: A value indicating the status of appliance resource.
         :param float total_utilization: A value indicating the total utilization percentage for all processes on the appliance.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "process_utilization", process_utilization)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "total_utilization", total_utilization)
+        ApplianceResourceDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            process_utilization=process_utilization,
+            status=status,
+            total_utilization=total_utilization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: float,
+             process_utilization: float,
+             status: str,
+             total_utilization: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("process_utilization", process_utilization)
+        _setter("status", status)
+        _setter("total_utilization", total_utilization)
 
     @property
     @pulumi.getter
@@ -2775,17 +3199,36 @@ class AzureFabricSpecificDetailsResponse(dict):
         :param Sequence['A2AFabricSpecificLocationDetailsResponse'] location_details: The location details.
         :param Sequence['A2AZoneDetailsResponse'] zones: The zones.
         """
-        pulumi.set(__self__, "instance_type", 'Azure')
+        AzureFabricSpecificDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            container_ids=container_ids,
+            extended_locations=extended_locations,
+            location=location,
+            location_details=location_details,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             container_ids: Optional[Sequence[str]] = None,
+             extended_locations: Optional[Sequence['outputs.A2AExtendedLocationDetailsResponse']] = None,
+             location: Optional[str] = None,
+             location_details: Optional[Sequence['outputs.A2AFabricSpecificLocationDetailsResponse']] = None,
+             zones: Optional[Sequence['outputs.A2AZoneDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'Azure')
         if container_ids is not None:
-            pulumi.set(__self__, "container_ids", container_ids)
+            _setter("container_ids", container_ids)
         if extended_locations is not None:
-            pulumi.set(__self__, "extended_locations", extended_locations)
+            _setter("extended_locations", extended_locations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if location_details is not None:
-            pulumi.set(__self__, "location_details", location_details)
+            _setter("location_details", location_details)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2874,11 +3317,24 @@ class AzureToAzureNetworkMappingSettingsResponse(dict):
         :param str primary_fabric_location: The primary fabric location.
         :param str recovery_fabric_location: The recovery fabric location.
         """
-        pulumi.set(__self__, "instance_type", 'AzureToAzure')
+        AzureToAzureNetworkMappingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            primary_fabric_location=primary_fabric_location,
+            recovery_fabric_location=recovery_fabric_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             primary_fabric_location: Optional[str] = None,
+             recovery_fabric_location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'AzureToAzure')
         if primary_fabric_location is not None:
-            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+            _setter("primary_fabric_location", primary_fabric_location)
         if recovery_fabric_location is not None:
-            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+            _setter("recovery_fabric_location", recovery_fabric_location)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2936,10 +3392,21 @@ class AzureToAzureVmSyncedConfigDetailsResponse(dict):
         :param Sequence['InputEndpointResponse'] input_endpoints: The Azure VM input endpoints.
         :param Mapping[str, str] tags: The Azure VM tags.
         """
+        AzureToAzureVmSyncedConfigDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_endpoints=input_endpoints,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_endpoints: Optional[Sequence['outputs.InputEndpointResponse']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if input_endpoints is not None:
-            pulumi.set(__self__, "input_endpoints", input_endpoints)
+            _setter("input_endpoints", input_endpoints)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="inputEndpoints")
@@ -3022,26 +3489,53 @@ class AzureVmDiskDetailsResponse(dict):
         :param str vhd_name: VHD name.
         :param str vhd_type: VHD type.
         """
+        AzureVmDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_target_disk_name=custom_target_disk_name,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            lun_id=lun_id,
+            max_size_mb=max_size_mb,
+            target_disk_location=target_disk_location,
+            target_disk_name=target_disk_name,
+            vhd_id=vhd_id,
+            vhd_name=vhd_name,
+            vhd_type=vhd_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_target_disk_name: Optional[str] = None,
+             disk_encryption_set_id: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             lun_id: Optional[str] = None,
+             max_size_mb: Optional[str] = None,
+             target_disk_location: Optional[str] = None,
+             target_disk_name: Optional[str] = None,
+             vhd_id: Optional[str] = None,
+             vhd_name: Optional[str] = None,
+             vhd_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_target_disk_name is not None:
-            pulumi.set(__self__, "custom_target_disk_name", custom_target_disk_name)
+            _setter("custom_target_disk_name", custom_target_disk_name)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if lun_id is not None:
-            pulumi.set(__self__, "lun_id", lun_id)
+            _setter("lun_id", lun_id)
         if max_size_mb is not None:
-            pulumi.set(__self__, "max_size_mb", max_size_mb)
+            _setter("max_size_mb", max_size_mb)
         if target_disk_location is not None:
-            pulumi.set(__self__, "target_disk_location", target_disk_location)
+            _setter("target_disk_location", target_disk_location)
         if target_disk_name is not None:
-            pulumi.set(__self__, "target_disk_name", target_disk_name)
+            _setter("target_disk_name", target_disk_name)
         if vhd_id is not None:
-            pulumi.set(__self__, "vhd_id", vhd_id)
+            _setter("vhd_id", vhd_id)
         if vhd_name is not None:
-            pulumi.set(__self__, "vhd_name", vhd_name)
+            _setter("vhd_name", vhd_name)
         if vhd_type is not None:
-            pulumi.set(__self__, "vhd_type", vhd_type)
+            _setter("vhd_type", vhd_type)
 
     @property
     @pulumi.getter(name="customTargetDiskName")
@@ -3164,10 +3658,25 @@ class CriticalJobHistoryDetailsResponse(dict):
         :param str job_status: The job state.
         :param str start_time: The start time of the job.
         """
-        pulumi.set(__self__, "job_id", job_id)
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "job_status", job_status)
-        pulumi.set(__self__, "start_time", start_time)
+        CriticalJobHistoryDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_id=job_id,
+            job_name=job_name,
+            job_status=job_status,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_id: str,
+             job_name: str,
+             job_status: str,
+             start_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_id", job_id)
+        _setter("job_name", job_name)
+        _setter("job_status", job_status)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="jobId")
@@ -3238,9 +3747,22 @@ class CurrentJobDetailsResponse(dict):
         :param str job_name: The job name.
         :param str start_time: The start time of the job.
         """
-        pulumi.set(__self__, "job_id", job_id)
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "start_time", start_time)
+        CurrentJobDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_id=job_id,
+            job_name=job_name,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_id: str,
+             job_name: str,
+             start_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_id", job_id)
+        _setter("job_name", job_name)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="jobId")
@@ -3303,12 +3825,25 @@ class CurrentScenarioDetailsResponse(dict):
         :param str scenario_name: Scenario name.
         :param str start_time: Start time of the workflow.
         """
+        CurrentScenarioDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_id=job_id,
+            scenario_name=scenario_name,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_id: Optional[str] = None,
+             scenario_name: Optional[str] = None,
+             start_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if job_id is not None:
-            pulumi.set(__self__, "job_id", job_id)
+            _setter("job_id", job_id)
         if scenario_name is not None:
-            pulumi.set(__self__, "scenario_name", scenario_name)
+            _setter("scenario_name", scenario_name)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="jobId")
@@ -3373,16 +3908,33 @@ class DataStoreResponse(dict):
         :param str type: The type of data store.
         :param str uuid: The uuid of data store.
         """
+        DataStoreResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            free_space=free_space,
+            symbolic_name=symbolic_name,
+            type=type,
+            uuid=uuid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[str] = None,
+             free_space: Optional[str] = None,
+             symbolic_name: Optional[str] = None,
+             type: Optional[str] = None,
+             uuid: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if free_space is not None:
-            pulumi.set(__self__, "free_space", free_space)
+            _setter("free_space", free_space)
         if symbolic_name is not None:
-            pulumi.set(__self__, "symbolic_name", symbolic_name)
+            _setter("symbolic_name", symbolic_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if uuid is not None:
-            pulumi.set(__self__, "uuid", uuid)
+            _setter("uuid", uuid)
 
     @property
     @pulumi.getter
@@ -3461,9 +4013,22 @@ class DataStoreUtilizationDetailsResponse(dict):
         :param float total_snapshots_created: The total snapshots created for server migration in the datastore.
         :param float total_snapshots_supported: The total count of snapshots supported by the datastore.
         """
-        pulumi.set(__self__, "data_store_name", data_store_name)
-        pulumi.set(__self__, "total_snapshots_created", total_snapshots_created)
-        pulumi.set(__self__, "total_snapshots_supported", total_snapshots_supported)
+        DataStoreUtilizationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_store_name=data_store_name,
+            total_snapshots_created=total_snapshots_created,
+            total_snapshots_supported=total_snapshots_supported,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_store_name: str,
+             total_snapshots_created: float,
+             total_snapshots_supported: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_store_name", data_store_name)
+        _setter("total_snapshots_created", total_snapshots_created)
+        _setter("total_snapshots_supported", total_snapshots_supported)
 
     @property
     @pulumi.getter(name="dataStoreName")
@@ -3530,14 +4095,29 @@ class DiskDetailsResponse(dict):
         :param str vhd_name: The VHD name.
         :param str vhd_type: The type of the volume.
         """
+        DiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_size_mb=max_size_mb,
+            vhd_id=vhd_id,
+            vhd_name=vhd_name,
+            vhd_type=vhd_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_size_mb: Optional[float] = None,
+             vhd_id: Optional[str] = None,
+             vhd_name: Optional[str] = None,
+             vhd_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_size_mb is not None:
-            pulumi.set(__self__, "max_size_mb", max_size_mb)
+            _setter("max_size_mb", max_size_mb)
         if vhd_id is not None:
-            pulumi.set(__self__, "vhd_id", vhd_id)
+            _setter("vhd_id", vhd_id)
         if vhd_name is not None:
-            pulumi.set(__self__, "vhd_name", vhd_name)
+            _setter("vhd_name", vhd_name)
         if vhd_type is not None:
-            pulumi.set(__self__, "vhd_type", vhd_type)
+            _setter("vhd_type", vhd_type)
 
     @property
     @pulumi.getter(name="maxSizeMB")
@@ -3624,15 +4204,40 @@ class DraDetailsResponse(dict):
         :param int reverse_protected_item_count: The count of protected items which are protected in reverse direction.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "forward_protected_item_count", forward_protected_item_count)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "reverse_protected_item_count", reverse_protected_item_count)
-        pulumi.set(__self__, "version", version)
+        DraDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            forward_protected_item_count=forward_protected_item_count,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            reverse_protected_item_count=reverse_protected_item_count,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: str,
+             forward_protected_item_count: int,
+             health: str,
+             health_errors: Sequence['outputs.HealthErrorResponse'],
+             id: str,
+             last_heartbeat_utc: str,
+             name: str,
+             reverse_protected_item_count: int,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bios_id", bios_id)
+        _setter("forward_protected_item_count", forward_protected_item_count)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("reverse_protected_item_count", reverse_protected_item_count)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -3743,12 +4348,25 @@ class EncryptionDetailsResponse(dict):
         :param str kek_cert_thumbprint: The key encryption key certificate thumbprint.
         :param str kek_state: The key encryption key state for the Vmm.
         """
+        EncryptionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kek_cert_expiry_date=kek_cert_expiry_date,
+            kek_cert_thumbprint=kek_cert_thumbprint,
+            kek_state=kek_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kek_cert_expiry_date: Optional[str] = None,
+             kek_cert_thumbprint: Optional[str] = None,
+             kek_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kek_cert_expiry_date is not None:
-            pulumi.set(__self__, "kek_cert_expiry_date", kek_cert_expiry_date)
+            _setter("kek_cert_expiry_date", kek_cert_expiry_date)
         if kek_cert_thumbprint is not None:
-            pulumi.set(__self__, "kek_cert_thumbprint", kek_cert_thumbprint)
+            _setter("kek_cert_thumbprint", kek_cert_thumbprint)
         if kek_state is not None:
-            pulumi.set(__self__, "kek_state", kek_state)
+            _setter("kek_state", kek_state)
 
     @property
     @pulumi.getter(name="kekCertExpiryDate")
@@ -3788,8 +4406,19 @@ class ExtendedLocationResponse(dict):
         :param str name: The name of the extended location.
         :param str type: The extended location type.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ExtendedLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3862,22 +4491,45 @@ class FabricPropertiesResponse(dict):
         :param str internal_identifier: Dra Registration Id.
         :param 'EncryptionDetailsResponse' rollover_encryption_details: Rollover encryption details for the fabric.
         """
+        FabricPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bcdr_state=bcdr_state,
+            custom_details=custom_details,
+            encryption_details=encryption_details,
+            friendly_name=friendly_name,
+            health=health,
+            health_error_details=health_error_details,
+            internal_identifier=internal_identifier,
+            rollover_encryption_details=rollover_encryption_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bcdr_state: Optional[str] = None,
+             custom_details: Optional[Any] = None,
+             encryption_details: Optional['outputs.EncryptionDetailsResponse'] = None,
+             friendly_name: Optional[str] = None,
+             health: Optional[str] = None,
+             health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             internal_identifier: Optional[str] = None,
+             rollover_encryption_details: Optional['outputs.EncryptionDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bcdr_state is not None:
-            pulumi.set(__self__, "bcdr_state", bcdr_state)
+            _setter("bcdr_state", bcdr_state)
         if custom_details is not None:
-            pulumi.set(__self__, "custom_details", custom_details)
+            _setter("custom_details", custom_details)
         if encryption_details is not None:
-            pulumi.set(__self__, "encryption_details", encryption_details)
+            _setter("encryption_details", encryption_details)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health is not None:
-            pulumi.set(__self__, "health", health)
+            _setter("health", health)
         if health_error_details is not None:
-            pulumi.set(__self__, "health_error_details", health_error_details)
+            _setter("health_error_details", health_error_details)
         if internal_identifier is not None:
-            pulumi.set(__self__, "internal_identifier", internal_identifier)
+            _setter("internal_identifier", internal_identifier)
         if rollover_encryption_details is not None:
-            pulumi.set(__self__, "rollover_encryption_details", rollover_encryption_details)
+            _setter("rollover_encryption_details", rollover_encryption_details)
 
     @property
     @pulumi.getter(name="bcdrState")
@@ -3998,14 +4650,37 @@ class GatewayOperationDetailsResponse(dict):
         :param float upload_speed: A value indicating the upload speed in bytes per second.
         :param float vmware_read_throughput: A value indicating the VMware read throughput in bytes per second.
         """
-        pulumi.set(__self__, "data_stores", data_stores)
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "progress_percentage", progress_percentage)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "time_elapsed", time_elapsed)
-        pulumi.set(__self__, "time_remaining", time_remaining)
-        pulumi.set(__self__, "upload_speed", upload_speed)
-        pulumi.set(__self__, "vmware_read_throughput", vmware_read_throughput)
+        GatewayOperationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_stores=data_stores,
+            host_name=host_name,
+            progress_percentage=progress_percentage,
+            state=state,
+            time_elapsed=time_elapsed,
+            time_remaining=time_remaining,
+            upload_speed=upload_speed,
+            vmware_read_throughput=vmware_read_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_stores: Sequence[str],
+             host_name: str,
+             progress_percentage: int,
+             state: str,
+             time_elapsed: float,
+             time_remaining: float,
+             upload_speed: float,
+             vmware_read_throughput: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_stores", data_stores)
+        _setter("host_name", host_name)
+        _setter("progress_percentage", progress_percentage)
+        _setter("state", state)
+        _setter("time_elapsed", time_elapsed)
+        _setter("time_remaining", time_remaining)
+        _setter("upload_speed", upload_speed)
+        _setter("vmware_read_throughput", vmware_read_throughput)
 
     @property
     @pulumi.getter(name="dataStores")
@@ -4156,36 +4831,73 @@ class HealthErrorResponse(dict):
         :param str recovery_provider_error_message: DRA error message.
         :param str summary_message: Summary message of the entity.
         """
+        HealthErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time_utc=creation_time_utc,
+            customer_resolvability=customer_resolvability,
+            entity_id=entity_id,
+            error_category=error_category,
+            error_code=error_code,
+            error_id=error_id,
+            error_level=error_level,
+            error_message=error_message,
+            error_source=error_source,
+            error_type=error_type,
+            inner_health_errors=inner_health_errors,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+            recovery_provider_error_message=recovery_provider_error_message,
+            summary_message=summary_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time_utc: Optional[str] = None,
+             customer_resolvability: Optional[str] = None,
+             entity_id: Optional[str] = None,
+             error_category: Optional[str] = None,
+             error_code: Optional[str] = None,
+             error_id: Optional[str] = None,
+             error_level: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_source: Optional[str] = None,
+             error_type: Optional[str] = None,
+             inner_health_errors: Optional[Sequence['outputs.InnerHealthErrorResponse']] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             recovery_provider_error_message: Optional[str] = None,
+             summary_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if creation_time_utc is not None:
-            pulumi.set(__self__, "creation_time_utc", creation_time_utc)
+            _setter("creation_time_utc", creation_time_utc)
         if customer_resolvability is not None:
-            pulumi.set(__self__, "customer_resolvability", customer_resolvability)
+            _setter("customer_resolvability", customer_resolvability)
         if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
+            _setter("entity_id", entity_id)
         if error_category is not None:
-            pulumi.set(__self__, "error_category", error_category)
+            _setter("error_category", error_category)
         if error_code is not None:
-            pulumi.set(__self__, "error_code", error_code)
+            _setter("error_code", error_code)
         if error_id is not None:
-            pulumi.set(__self__, "error_id", error_id)
+            _setter("error_id", error_id)
         if error_level is not None:
-            pulumi.set(__self__, "error_level", error_level)
+            _setter("error_level", error_level)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if error_source is not None:
-            pulumi.set(__self__, "error_source", error_source)
+            _setter("error_source", error_source)
         if error_type is not None:
-            pulumi.set(__self__, "error_type", error_type)
+            _setter("error_type", error_type)
         if inner_health_errors is not None:
-            pulumi.set(__self__, "inner_health_errors", inner_health_errors)
+            _setter("inner_health_errors", inner_health_errors)
         if possible_causes is not None:
-            pulumi.set(__self__, "possible_causes", possible_causes)
+            _setter("possible_causes", possible_causes)
         if recommended_action is not None:
-            pulumi.set(__self__, "recommended_action", recommended_action)
+            _setter("recommended_action", recommended_action)
         if recovery_provider_error_message is not None:
-            pulumi.set(__self__, "recovery_provider_error_message", recovery_provider_error_message)
+            _setter("recovery_provider_error_message", recovery_provider_error_message)
         if summary_message is not None:
-            pulumi.set(__self__, "summary_message", summary_message)
+            _setter("summary_message", summary_message)
 
     @property
     @pulumi.getter(name="creationTimeUtc")
@@ -4340,9 +5052,22 @@ class HyperVHostDetailsResponse(dict):
         :param str mars_agent_version: The Mars agent version.
         :param str name: The Hyper-V host name.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "mars_agent_version", mars_agent_version)
-        pulumi.set(__self__, "name", name)
+        HyperVHostDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            mars_agent_version=mars_agent_version,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             mars_agent_version: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("mars_agent_version", mars_agent_version)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4409,14 +5134,29 @@ class HyperVReplicaAzureManagedDiskDetailsResponse(dict):
         :param str replica_disk_type: The replica disk type.
         :param str seed_managed_disk_id: Seed managed disk Id.
         """
+        HyperVReplicaAzureManagedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            replica_disk_type=replica_disk_type,
+            seed_managed_disk_id=seed_managed_disk_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             replica_disk_type: Optional[str] = None,
+             seed_managed_disk_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if replica_disk_type is not None:
-            pulumi.set(__self__, "replica_disk_type", replica_disk_type)
+            _setter("replica_disk_type", replica_disk_type)
         if seed_managed_disk_id is not None:
-            pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
+            _setter("seed_managed_disk_id", seed_managed_disk_id)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -4502,19 +5242,40 @@ class HyperVReplicaAzurePolicyDetailsResponse(dict):
         :param int recovery_point_history_duration_in_hours: The duration (in hours) to which point the recovery history needs to be maintained.
         :param int replication_interval: The replication interval.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaAzure')
+        HyperVReplicaAzurePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            active_storage_account_id=active_storage_account_id,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            encryption=encryption,
+            online_replication_start_time=online_replication_start_time,
+            recovery_point_history_duration_in_hours=recovery_point_history_duration_in_hours,
+            replication_interval=replication_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             active_storage_account_id: Optional[str] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
+             encryption: Optional[str] = None,
+             online_replication_start_time: Optional[str] = None,
+             recovery_point_history_duration_in_hours: Optional[int] = None,
+             replication_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplicaAzure')
         if active_storage_account_id is not None:
-            pulumi.set(__self__, "active_storage_account_id", active_storage_account_id)
+            _setter("active_storage_account_id", active_storage_account_id)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_point_history_duration_in_hours is not None:
-            pulumi.set(__self__, "recovery_point_history_duration_in_hours", recovery_point_history_duration_in_hours)
+            _setter("recovery_point_history_duration_in_hours", recovery_point_history_duration_in_hours)
         if replication_interval is not None:
-            pulumi.set(__self__, "replication_interval", replication_interval)
+            _setter("replication_interval", replication_interval)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -4737,74 +5498,151 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaAzure')
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
+        HyperVReplicaAzureReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            last_recovery_point_received=last_recovery_point_received,
+            all_available_os_upgrade_configurations=all_available_os_upgrade_configurations,
+            azure_vm_disk_details=azure_vm_disk_details,
+            enable_rdp_on_target_option=enable_rdp_on_target_option,
+            encryption=encryption,
+            initial_replication_details=initial_replication_details,
+            last_replicated_time=last_replicated_time,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            license_type=license_type,
+            o_s_details=o_s_details,
+            protected_managed_disks=protected_managed_disks,
+            recovery_availability_set_id=recovery_availability_set_id,
+            recovery_azure_log_storage_account_id=recovery_azure_log_storage_account_id,
+            recovery_azure_resource_group_id=recovery_azure_resource_group_id,
+            recovery_azure_storage_account=recovery_azure_storage_account,
+            recovery_azure_vm_size=recovery_azure_vm_size,
+            recovery_azure_vm_name=recovery_azure_vm_name,
+            rpo_in_seconds=rpo_in_seconds,
+            seed_managed_disk_tags=seed_managed_disk_tags,
+            selected_recovery_azure_network_id=selected_recovery_azure_network_id,
+            selected_source_nic_id=selected_source_nic_id,
+            source_vm_cpu_count=source_vm_cpu_count,
+            source_vm_ram_size_in_mb=source_vm_ram_size_in_mb,
+            sql_server_license_type=sql_server_license_type,
+            target_availability_zone=target_availability_zone,
+            target_managed_disk_tags=target_managed_disk_tags,
+            target_nic_tags=target_nic_tags,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_vm_tags=target_vm_tags,
+            use_managed_disks=use_managed_disks,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             last_recovery_point_received: str,
+             all_available_os_upgrade_configurations: Optional[Sequence['outputs.OSUpgradeSupportedVersionsResponse']] = None,
+             azure_vm_disk_details: Optional[Sequence['outputs.AzureVmDiskDetailsResponse']] = None,
+             enable_rdp_on_target_option: Optional[str] = None,
+             encryption: Optional[str] = None,
+             initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             last_replicated_time: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             license_type: Optional[str] = None,
+             o_s_details: Optional['outputs.OSDetailsResponse'] = None,
+             protected_managed_disks: Optional[Sequence['outputs.HyperVReplicaAzureManagedDiskDetailsResponse']] = None,
+             recovery_availability_set_id: Optional[str] = None,
+             recovery_azure_log_storage_account_id: Optional[str] = None,
+             recovery_azure_resource_group_id: Optional[str] = None,
+             recovery_azure_storage_account: Optional[str] = None,
+             recovery_azure_vm_size: Optional[str] = None,
+             recovery_azure_vm_name: Optional[str] = None,
+             rpo_in_seconds: Optional[float] = None,
+             seed_managed_disk_tags: Optional[Mapping[str, str]] = None,
+             selected_recovery_azure_network_id: Optional[str] = None,
+             selected_source_nic_id: Optional[str] = None,
+             source_vm_cpu_count: Optional[int] = None,
+             source_vm_ram_size_in_mb: Optional[int] = None,
+             sql_server_license_type: Optional[str] = None,
+             target_availability_zone: Optional[str] = None,
+             target_managed_disk_tags: Optional[Mapping[str, str]] = None,
+             target_nic_tags: Optional[Mapping[str, str]] = None,
+             target_proximity_placement_group_id: Optional[str] = None,
+             target_vm_tags: Optional[Mapping[str, str]] = None,
+             use_managed_disks: Optional[str] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplicaAzure')
+        _setter("last_recovery_point_received", last_recovery_point_received)
         if all_available_os_upgrade_configurations is not None:
-            pulumi.set(__self__, "all_available_os_upgrade_configurations", all_available_os_upgrade_configurations)
+            _setter("all_available_os_upgrade_configurations", all_available_os_upgrade_configurations)
         if azure_vm_disk_details is not None:
-            pulumi.set(__self__, "azure_vm_disk_details", azure_vm_disk_details)
+            _setter("azure_vm_disk_details", azure_vm_disk_details)
         if enable_rdp_on_target_option is not None:
-            pulumi.set(__self__, "enable_rdp_on_target_option", enable_rdp_on_target_option)
+            _setter("enable_rdp_on_target_option", enable_rdp_on_target_option)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if initial_replication_details is not None:
-            pulumi.set(__self__, "initial_replication_details", initial_replication_details)
+            _setter("initial_replication_details", initial_replication_details)
         if last_replicated_time is not None:
-            pulumi.set(__self__, "last_replicated_time", last_replicated_time)
+            _setter("last_replicated_time", last_replicated_time)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if o_s_details is not None:
-            pulumi.set(__self__, "o_s_details", o_s_details)
+            _setter("o_s_details", o_s_details)
         if protected_managed_disks is not None:
-            pulumi.set(__self__, "protected_managed_disks", protected_managed_disks)
+            _setter("protected_managed_disks", protected_managed_disks)
         if recovery_availability_set_id is not None:
-            pulumi.set(__self__, "recovery_availability_set_id", recovery_availability_set_id)
+            _setter("recovery_availability_set_id", recovery_availability_set_id)
         if recovery_azure_log_storage_account_id is not None:
-            pulumi.set(__self__, "recovery_azure_log_storage_account_id", recovery_azure_log_storage_account_id)
+            _setter("recovery_azure_log_storage_account_id", recovery_azure_log_storage_account_id)
         if recovery_azure_resource_group_id is not None:
-            pulumi.set(__self__, "recovery_azure_resource_group_id", recovery_azure_resource_group_id)
+            _setter("recovery_azure_resource_group_id", recovery_azure_resource_group_id)
         if recovery_azure_storage_account is not None:
-            pulumi.set(__self__, "recovery_azure_storage_account", recovery_azure_storage_account)
+            _setter("recovery_azure_storage_account", recovery_azure_storage_account)
         if recovery_azure_vm_size is not None:
-            pulumi.set(__self__, "recovery_azure_vm_size", recovery_azure_vm_size)
+            _setter("recovery_azure_vm_size", recovery_azure_vm_size)
         if recovery_azure_vm_name is not None:
-            pulumi.set(__self__, "recovery_azure_vm_name", recovery_azure_vm_name)
+            _setter("recovery_azure_vm_name", recovery_azure_vm_name)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if seed_managed_disk_tags is not None:
-            pulumi.set(__self__, "seed_managed_disk_tags", seed_managed_disk_tags)
+            _setter("seed_managed_disk_tags", seed_managed_disk_tags)
         if selected_recovery_azure_network_id is not None:
-            pulumi.set(__self__, "selected_recovery_azure_network_id", selected_recovery_azure_network_id)
+            _setter("selected_recovery_azure_network_id", selected_recovery_azure_network_id)
         if selected_source_nic_id is not None:
-            pulumi.set(__self__, "selected_source_nic_id", selected_source_nic_id)
+            _setter("selected_source_nic_id", selected_source_nic_id)
         if source_vm_cpu_count is not None:
-            pulumi.set(__self__, "source_vm_cpu_count", source_vm_cpu_count)
+            _setter("source_vm_cpu_count", source_vm_cpu_count)
         if source_vm_ram_size_in_mb is not None:
-            pulumi.set(__self__, "source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
+            _setter("source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_managed_disk_tags is not None:
-            pulumi.set(__self__, "target_managed_disk_tags", target_managed_disk_tags)
+            _setter("target_managed_disk_tags", target_managed_disk_tags)
         if target_nic_tags is not None:
-            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+            _setter("target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_vm_tags is not None:
-            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+            _setter("target_vm_tags", target_vm_tags)
         if use_managed_disks is not None:
-            pulumi.set(__self__, "use_managed_disks", use_managed_disks)
+            _setter("use_managed_disks", use_managed_disks)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5155,27 +5993,56 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
         :param str replica_deletion_option: A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud.
         :param int replication_port: A value indicating the recovery HTTPS port.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaBasePolicyDetails')
+        HyperVReplicaBasePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            allowed_authentication_type=allowed_authentication_type,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            compression=compression,
+            initial_replication_method=initial_replication_method,
+            offline_replication_export_path=offline_replication_export_path,
+            offline_replication_import_path=offline_replication_import_path,
+            online_replication_start_time=online_replication_start_time,
+            recovery_points=recovery_points,
+            replica_deletion_option=replica_deletion_option,
+            replication_port=replication_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             allowed_authentication_type: Optional[int] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
+             compression: Optional[str] = None,
+             initial_replication_method: Optional[str] = None,
+             offline_replication_export_path: Optional[str] = None,
+             offline_replication_import_path: Optional[str] = None,
+             online_replication_start_time: Optional[str] = None,
+             recovery_points: Optional[int] = None,
+             replica_deletion_option: Optional[str] = None,
+             replication_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplicaBasePolicyDetails')
         if allowed_authentication_type is not None:
-            pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
+            _setter("allowed_authentication_type", allowed_authentication_type)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if initial_replication_method is not None:
-            pulumi.set(__self__, "initial_replication_method", initial_replication_method)
+            _setter("initial_replication_method", initial_replication_method)
         if offline_replication_export_path is not None:
-            pulumi.set(__self__, "offline_replication_export_path", offline_replication_export_path)
+            _setter("offline_replication_export_path", offline_replication_export_path)
         if offline_replication_import_path is not None:
-            pulumi.set(__self__, "offline_replication_import_path", offline_replication_import_path)
+            _setter("offline_replication_import_path", offline_replication_import_path)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_points is not None:
-            pulumi.set(__self__, "recovery_points", recovery_points)
+            _setter("recovery_points", recovery_points)
         if replica_deletion_option is not None:
-            pulumi.set(__self__, "replica_deletion_option", replica_deletion_option)
+            _setter("replica_deletion_option", replica_deletion_option)
         if replication_port is not None:
-            pulumi.set(__self__, "replication_port", replication_port)
+            _setter("replication_port", replication_port)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5324,21 +6191,44 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaBaseReplicationDetails')
+        HyperVReplicaBaseReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            initial_replication_details=initial_replication_details,
+            last_replicated_time=last_replicated_time,
+            v_m_disk_details=v_m_disk_details,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             last_replicated_time: Optional[str] = None,
+             v_m_disk_details: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplicaBaseReplicationDetails')
         if initial_replication_details is not None:
-            pulumi.set(__self__, "initial_replication_details", initial_replication_details)
+            _setter("initial_replication_details", initial_replication_details)
         if last_replicated_time is not None:
-            pulumi.set(__self__, "last_replicated_time", last_replicated_time)
+            _setter("last_replicated_time", last_replicated_time)
         if v_m_disk_details is not None:
-            pulumi.set(__self__, "v_m_disk_details", v_m_disk_details)
+            _setter("v_m_disk_details", v_m_disk_details)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5477,29 +6367,60 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
         :param int replication_frequency_in_seconds: A value indicating the replication interval.
         :param int replication_port: A value indicating the recovery HTTPS port.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012R2')
+        HyperVReplicaBluePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            allowed_authentication_type=allowed_authentication_type,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            compression=compression,
+            initial_replication_method=initial_replication_method,
+            offline_replication_export_path=offline_replication_export_path,
+            offline_replication_import_path=offline_replication_import_path,
+            online_replication_start_time=online_replication_start_time,
+            recovery_points=recovery_points,
+            replica_deletion_option=replica_deletion_option,
+            replication_frequency_in_seconds=replication_frequency_in_seconds,
+            replication_port=replication_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             allowed_authentication_type: Optional[int] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
+             compression: Optional[str] = None,
+             initial_replication_method: Optional[str] = None,
+             offline_replication_export_path: Optional[str] = None,
+             offline_replication_import_path: Optional[str] = None,
+             online_replication_start_time: Optional[str] = None,
+             recovery_points: Optional[int] = None,
+             replica_deletion_option: Optional[str] = None,
+             replication_frequency_in_seconds: Optional[int] = None,
+             replication_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplica2012R2')
         if allowed_authentication_type is not None:
-            pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
+            _setter("allowed_authentication_type", allowed_authentication_type)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if initial_replication_method is not None:
-            pulumi.set(__self__, "initial_replication_method", initial_replication_method)
+            _setter("initial_replication_method", initial_replication_method)
         if offline_replication_export_path is not None:
-            pulumi.set(__self__, "offline_replication_export_path", offline_replication_export_path)
+            _setter("offline_replication_export_path", offline_replication_export_path)
         if offline_replication_import_path is not None:
-            pulumi.set(__self__, "offline_replication_import_path", offline_replication_import_path)
+            _setter("offline_replication_import_path", offline_replication_import_path)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_points is not None:
-            pulumi.set(__self__, "recovery_points", recovery_points)
+            _setter("recovery_points", recovery_points)
         if replica_deletion_option is not None:
-            pulumi.set(__self__, "replica_deletion_option", replica_deletion_option)
+            _setter("replica_deletion_option", replica_deletion_option)
         if replication_frequency_in_seconds is not None:
-            pulumi.set(__self__, "replication_frequency_in_seconds", replication_frequency_in_seconds)
+            _setter("replication_frequency_in_seconds", replication_frequency_in_seconds)
         if replication_port is not None:
-            pulumi.set(__self__, "replication_port", replication_port)
+            _setter("replication_port", replication_port)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5656,21 +6577,44 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012R2')
+        HyperVReplicaBlueReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            initial_replication_details=initial_replication_details,
+            last_replicated_time=last_replicated_time,
+            v_m_disk_details=v_m_disk_details,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             last_replicated_time: Optional[str] = None,
+             v_m_disk_details: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplica2012R2')
         if initial_replication_details is not None:
-            pulumi.set(__self__, "initial_replication_details", initial_replication_details)
+            _setter("initial_replication_details", initial_replication_details)
         if last_replicated_time is not None:
-            pulumi.set(__self__, "last_replicated_time", last_replicated_time)
+            _setter("last_replicated_time", last_replicated_time)
         if v_m_disk_details is not None:
-            pulumi.set(__self__, "v_m_disk_details", v_m_disk_details)
+            _setter("v_m_disk_details", v_m_disk_details)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5805,27 +6749,56 @@ class HyperVReplicaPolicyDetailsResponse(dict):
         :param str replica_deletion_option: A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
         :param int replication_port: A value indicating the recovery HTTPS port.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012')
+        HyperVReplicaPolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            allowed_authentication_type=allowed_authentication_type,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            compression=compression,
+            initial_replication_method=initial_replication_method,
+            offline_replication_export_path=offline_replication_export_path,
+            offline_replication_import_path=offline_replication_import_path,
+            online_replication_start_time=online_replication_start_time,
+            recovery_points=recovery_points,
+            replica_deletion_option=replica_deletion_option,
+            replication_port=replication_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             allowed_authentication_type: Optional[int] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
+             compression: Optional[str] = None,
+             initial_replication_method: Optional[str] = None,
+             offline_replication_export_path: Optional[str] = None,
+             offline_replication_import_path: Optional[str] = None,
+             online_replication_start_time: Optional[str] = None,
+             recovery_points: Optional[int] = None,
+             replica_deletion_option: Optional[str] = None,
+             replication_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplica2012')
         if allowed_authentication_type is not None:
-            pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
+            _setter("allowed_authentication_type", allowed_authentication_type)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if initial_replication_method is not None:
-            pulumi.set(__self__, "initial_replication_method", initial_replication_method)
+            _setter("initial_replication_method", initial_replication_method)
         if offline_replication_export_path is not None:
-            pulumi.set(__self__, "offline_replication_export_path", offline_replication_export_path)
+            _setter("offline_replication_export_path", offline_replication_export_path)
         if offline_replication_import_path is not None:
-            pulumi.set(__self__, "offline_replication_import_path", offline_replication_import_path)
+            _setter("offline_replication_import_path", offline_replication_import_path)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_points is not None:
-            pulumi.set(__self__, "recovery_points", recovery_points)
+            _setter("recovery_points", recovery_points)
         if replica_deletion_option is not None:
-            pulumi.set(__self__, "replica_deletion_option", replica_deletion_option)
+            _setter("replica_deletion_option", replica_deletion_option)
         if replication_port is not None:
-            pulumi.set(__self__, "replication_port", replication_port)
+            _setter("replication_port", replication_port)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5974,21 +6947,44 @@ class HyperVReplicaReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012')
+        HyperVReplicaReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            initial_replication_details=initial_replication_details,
+            last_replicated_time=last_replicated_time,
+            v_m_disk_details=v_m_disk_details,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             last_replicated_time: Optional[str] = None,
+             v_m_disk_details: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVReplica2012')
         if initial_replication_details is not None:
-            pulumi.set(__self__, "initial_replication_details", initial_replication_details)
+            _setter("initial_replication_details", initial_replication_details)
         if last_replicated_time is not None:
-            pulumi.set(__self__, "last_replicated_time", last_replicated_time)
+            _setter("last_replicated_time", last_replicated_time)
         if v_m_disk_details is not None:
-            pulumi.set(__self__, "v_m_disk_details", v_m_disk_details)
+            _setter("v_m_disk_details", v_m_disk_details)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6089,9 +7085,20 @@ class HyperVSiteDetailsResponse(dict):
                Expected value is 'HyperVSite'.
         :param Sequence['HyperVHostDetailsResponse'] hyper_v_hosts: The list of Hyper-V hosts associated with the fabric.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVSite')
+        HyperVSiteDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            hyper_v_hosts=hyper_v_hosts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             hyper_v_hosts: Optional[Sequence['outputs.HyperVHostDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'HyperVSite')
         if hyper_v_hosts is not None:
-            pulumi.set(__self__, "hyper_v_hosts", hyper_v_hosts)
+            _setter("hyper_v_hosts", hyper_v_hosts)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6172,36 +7179,73 @@ class IPConfigDetailsResponse(dict):
                  tfo_public_ip_address_id: Optional[str] = None,
                  tfo_static_ip_address: Optional[str] = None,
                  tfo_subnet_name: Optional[str] = None):
+        IPConfigDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address_type=ip_address_type,
+            is_primary=is_primary,
+            is_seleted_for_failover=is_seleted_for_failover,
+            name=name,
+            recovery_ip_address_type=recovery_ip_address_type,
+            recovery_lb_backend_address_pool_ids=recovery_lb_backend_address_pool_ids,
+            recovery_public_ip_address_id=recovery_public_ip_address_id,
+            recovery_static_ip_address=recovery_static_ip_address,
+            recovery_subnet_name=recovery_subnet_name,
+            static_ip_address=static_ip_address,
+            subnet_name=subnet_name,
+            tfo_lb_backend_address_pool_ids=tfo_lb_backend_address_pool_ids,
+            tfo_public_ip_address_id=tfo_public_ip_address_id,
+            tfo_static_ip_address=tfo_static_ip_address,
+            tfo_subnet_name=tfo_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address_type: Optional[str] = None,
+             is_primary: Optional[bool] = None,
+             is_seleted_for_failover: Optional[bool] = None,
+             name: Optional[str] = None,
+             recovery_ip_address_type: Optional[str] = None,
+             recovery_lb_backend_address_pool_ids: Optional[Sequence[str]] = None,
+             recovery_public_ip_address_id: Optional[str] = None,
+             recovery_static_ip_address: Optional[str] = None,
+             recovery_subnet_name: Optional[str] = None,
+             static_ip_address: Optional[str] = None,
+             subnet_name: Optional[str] = None,
+             tfo_lb_backend_address_pool_ids: Optional[Sequence[str]] = None,
+             tfo_public_ip_address_id: Optional[str] = None,
+             tfo_static_ip_address: Optional[str] = None,
+             tfo_subnet_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if is_primary is not None:
-            pulumi.set(__self__, "is_primary", is_primary)
+            _setter("is_primary", is_primary)
         if is_seleted_for_failover is not None:
-            pulumi.set(__self__, "is_seleted_for_failover", is_seleted_for_failover)
+            _setter("is_seleted_for_failover", is_seleted_for_failover)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recovery_ip_address_type is not None:
-            pulumi.set(__self__, "recovery_ip_address_type", recovery_ip_address_type)
+            _setter("recovery_ip_address_type", recovery_ip_address_type)
         if recovery_lb_backend_address_pool_ids is not None:
-            pulumi.set(__self__, "recovery_lb_backend_address_pool_ids", recovery_lb_backend_address_pool_ids)
+            _setter("recovery_lb_backend_address_pool_ids", recovery_lb_backend_address_pool_ids)
         if recovery_public_ip_address_id is not None:
-            pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
+            _setter("recovery_public_ip_address_id", recovery_public_ip_address_id)
         if recovery_static_ip_address is not None:
-            pulumi.set(__self__, "recovery_static_ip_address", recovery_static_ip_address)
+            _setter("recovery_static_ip_address", recovery_static_ip_address)
         if recovery_subnet_name is not None:
-            pulumi.set(__self__, "recovery_subnet_name", recovery_subnet_name)
+            _setter("recovery_subnet_name", recovery_subnet_name)
         if static_ip_address is not None:
-            pulumi.set(__self__, "static_ip_address", static_ip_address)
+            _setter("static_ip_address", static_ip_address)
         if subnet_name is not None:
-            pulumi.set(__self__, "subnet_name", subnet_name)
+            _setter("subnet_name", subnet_name)
         if tfo_lb_backend_address_pool_ids is not None:
-            pulumi.set(__self__, "tfo_lb_backend_address_pool_ids", tfo_lb_backend_address_pool_ids)
+            _setter("tfo_lb_backend_address_pool_ids", tfo_lb_backend_address_pool_ids)
         if tfo_public_ip_address_id is not None:
-            pulumi.set(__self__, "tfo_public_ip_address_id", tfo_public_ip_address_id)
+            _setter("tfo_public_ip_address_id", tfo_public_ip_address_id)
         if tfo_static_ip_address is not None:
-            pulumi.set(__self__, "tfo_static_ip_address", tfo_static_ip_address)
+            _setter("tfo_static_ip_address", tfo_static_ip_address)
         if tfo_subnet_name is not None:
-            pulumi.set(__self__, "tfo_subnet_name", tfo_subnet_name)
+            _setter("tfo_subnet_name", tfo_subnet_name)
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -6321,16 +7365,33 @@ class IdentityProviderDetailsResponse(dict):
         :param str object_id: The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         :param str tenant_id: The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         """
+        IdentityProviderDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_authority=aad_authority,
+            application_id=application_id,
+            audience=audience,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_authority: Optional[str] = None,
+             application_id: Optional[str] = None,
+             audience: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aad_authority is not None:
-            pulumi.set(__self__, "aad_authority", aad_authority)
+            _setter("aad_authority", aad_authority)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aadAuthority")
@@ -6413,14 +7474,29 @@ class InMageAgentDetailsResponse(dict):
         :param str agent_version: The agent version.
         :param str post_update_reboot_status: A value indicating whether reboot is required after update is applied.
         """
+        InMageAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_expiry_date=agent_expiry_date,
+            agent_update_status=agent_update_status,
+            agent_version=agent_version,
+            post_update_reboot_status=post_update_reboot_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_expiry_date: Optional[str] = None,
+             agent_update_status: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             post_update_reboot_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_update_status is not None:
-            pulumi.set(__self__, "agent_update_status", agent_update_status)
+            _setter("agent_update_status", agent_update_status)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if post_update_reboot_status is not None:
-            pulumi.set(__self__, "post_update_reboot_status", post_update_reboot_status)
+            _setter("post_update_reboot_status", post_update_reboot_status)
 
     @property
     @pulumi.getter(name="agentExpiryDate")
@@ -6499,16 +7575,33 @@ class InMageAzureV2ManagedDiskDetailsResponse(dict):
         :param str seed_managed_disk_id: Seed managed disk Id.
         :param str target_disk_name: The target disk name.
         """
+        InMageAzureV2ManagedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            replica_disk_type=replica_disk_type,
+            seed_managed_disk_id=seed_managed_disk_id,
+            target_disk_name=target_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             replica_disk_type: Optional[str] = None,
+             seed_managed_disk_id: Optional[str] = None,
+             target_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if replica_disk_type is not None:
-            pulumi.set(__self__, "replica_disk_type", replica_disk_type)
+            _setter("replica_disk_type", replica_disk_type)
         if seed_managed_disk_id is not None:
-            pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
+            _setter("seed_managed_disk_id", seed_managed_disk_id)
         if target_disk_name is not None:
-            pulumi.set(__self__, "target_disk_name", target_disk_name)
+            _setter("target_disk_name", target_disk_name)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -6600,17 +7693,36 @@ class InMageAzureV2PolicyDetailsResponse(dict):
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMageAzureV2')
+        InMageAzureV2PolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            multi_vm_sync_status=multi_vm_sync_status,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             recovery_point_history: Optional[int] = None,
+             recovery_point_threshold_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageAzureV2')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6778,52 +7890,105 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
         :param float source_data_in_mega_bytes: The source data transit in MB.
         :param float target_data_in_mega_bytes: The target data transit in MB.
         """
+        InMageAzureV2ProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_capacity_in_bytes=disk_capacity_in_bytes,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_resized=disk_resized,
+            file_system_capacity_in_bytes=file_system_capacity_in_bytes,
+            health_error_code=health_error_code,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            progress_health=progress_health,
+            progress_status=progress_status,
+            protection_stage=protection_stage,
+            ps_data_in_mega_bytes=ps_data_in_mega_bytes,
+            resync_duration_in_seconds=resync_duration_in_seconds,
+            resync_last15_minutes_transferred_bytes=resync_last15_minutes_transferred_bytes,
+            resync_last_data_transfer_time_utc=resync_last_data_transfer_time_utc,
+            resync_processed_bytes=resync_processed_bytes,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_start_time=resync_start_time,
+            resync_total_transferred_bytes=resync_total_transferred_bytes,
+            rpo_in_seconds=rpo_in_seconds,
+            seconds_to_take_switch_provider=seconds_to_take_switch_provider,
+            source_data_in_mega_bytes=source_data_in_mega_bytes,
+            target_data_in_mega_bytes=target_data_in_mega_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_capacity_in_bytes: Optional[float] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             disk_resized: Optional[str] = None,
+             file_system_capacity_in_bytes: Optional[float] = None,
+             health_error_code: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             progress_health: Optional[str] = None,
+             progress_status: Optional[str] = None,
+             protection_stage: Optional[str] = None,
+             ps_data_in_mega_bytes: Optional[float] = None,
+             resync_duration_in_seconds: Optional[float] = None,
+             resync_last15_minutes_transferred_bytes: Optional[float] = None,
+             resync_last_data_transfer_time_utc: Optional[str] = None,
+             resync_processed_bytes: Optional[float] = None,
+             resync_progress_percentage: Optional[int] = None,
+             resync_required: Optional[str] = None,
+             resync_start_time: Optional[str] = None,
+             resync_total_transferred_bytes: Optional[float] = None,
+             rpo_in_seconds: Optional[float] = None,
+             seconds_to_take_switch_provider: Optional[float] = None,
+             source_data_in_mega_bytes: Optional[float] = None,
+             target_data_in_mega_bytes: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_capacity_in_bytes is not None:
-            pulumi.set(__self__, "disk_capacity_in_bytes", disk_capacity_in_bytes)
+            _setter("disk_capacity_in_bytes", disk_capacity_in_bytes)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_resized is not None:
-            pulumi.set(__self__, "disk_resized", disk_resized)
+            _setter("disk_resized", disk_resized)
         if file_system_capacity_in_bytes is not None:
-            pulumi.set(__self__, "file_system_capacity_in_bytes", file_system_capacity_in_bytes)
+            _setter("file_system_capacity_in_bytes", file_system_capacity_in_bytes)
         if health_error_code is not None:
-            pulumi.set(__self__, "health_error_code", health_error_code)
+            _setter("health_error_code", health_error_code)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if progress_health is not None:
-            pulumi.set(__self__, "progress_health", progress_health)
+            _setter("progress_health", progress_health)
         if progress_status is not None:
-            pulumi.set(__self__, "progress_status", progress_status)
+            _setter("progress_status", progress_status)
         if protection_stage is not None:
-            pulumi.set(__self__, "protection_stage", protection_stage)
+            _setter("protection_stage", protection_stage)
         if ps_data_in_mega_bytes is not None:
-            pulumi.set(__self__, "ps_data_in_mega_bytes", ps_data_in_mega_bytes)
+            _setter("ps_data_in_mega_bytes", ps_data_in_mega_bytes)
         if resync_duration_in_seconds is not None:
-            pulumi.set(__self__, "resync_duration_in_seconds", resync_duration_in_seconds)
+            _setter("resync_duration_in_seconds", resync_duration_in_seconds)
         if resync_last15_minutes_transferred_bytes is not None:
-            pulumi.set(__self__, "resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
+            _setter("resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
         if resync_last_data_transfer_time_utc is not None:
-            pulumi.set(__self__, "resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
+            _setter("resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
         if resync_processed_bytes is not None:
-            pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
+            _setter("resync_processed_bytes", resync_processed_bytes)
         if resync_progress_percentage is not None:
-            pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
+            _setter("resync_progress_percentage", resync_progress_percentage)
         if resync_required is not None:
-            pulumi.set(__self__, "resync_required", resync_required)
+            _setter("resync_required", resync_required)
         if resync_start_time is not None:
-            pulumi.set(__self__, "resync_start_time", resync_start_time)
+            _setter("resync_start_time", resync_start_time)
         if resync_total_transferred_bytes is not None:
-            pulumi.set(__self__, "resync_total_transferred_bytes", resync_total_transferred_bytes)
+            _setter("resync_total_transferred_bytes", resync_total_transferred_bytes)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if seconds_to_take_switch_provider is not None:
-            pulumi.set(__self__, "seconds_to_take_switch_provider", seconds_to_take_switch_provider)
+            _setter("seconds_to_take_switch_provider", seconds_to_take_switch_provider)
         if source_data_in_mega_bytes is not None:
-            pulumi.set(__self__, "source_data_in_mega_bytes", source_data_in_mega_bytes)
+            _setter("source_data_in_mega_bytes", source_data_in_mega_bytes)
         if target_data_in_mega_bytes is not None:
-            pulumi.set(__self__, "target_data_in_mega_bytes", target_data_in_mega_bytes)
+            _setter("target_data_in_mega_bytes", target_data_in_mega_bytes)
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
@@ -7317,145 +8482,294 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'InMageAzureV2')
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
-        pulumi.set(__self__, "os_name", os_name)
+        InMageAzureV2ReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            last_recovery_point_received=last_recovery_point_received,
+            os_name=os_name,
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            all_available_os_upgrade_configurations=all_available_os_upgrade_configurations,
+            azure_vm_disk_details=azure_vm_disk_details,
+            azure_vm_generation=azure_vm_generation,
+            compressed_data_rate_in_mb=compressed_data_rate_in_mb,
+            datastores=datastores,
+            discovery_type=discovery_type,
+            disk_resized=disk_resized,
+            enable_rdp_on_target_option=enable_rdp_on_target_option,
+            firmware_type=firmware_type,
+            infrastructure_vm_id=infrastructure_vm_id,
+            ip_address=ip_address,
+            is_additional_stats_available=is_additional_stats_available,
+            is_agent_update_required=is_agent_update_required,
+            is_reboot_after_update_required=is_reboot_after_update_required,
+            last_heartbeat=last_heartbeat,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            last_update_received_time=last_update_received_time,
+            license_type=license_type,
+            master_target_id=master_target_id,
+            multi_vm_group_id=multi_vm_group_id,
+            multi_vm_group_name=multi_vm_group_name,
+            multi_vm_sync_status=multi_vm_sync_status,
+            os_disk_id=os_disk_id,
+            os_type=os_type,
+            os_version=os_version,
+            process_server_id=process_server_id,
+            process_server_name=process_server_name,
+            protected_disks=protected_disks,
+            protected_managed_disks=protected_managed_disks,
+            protection_stage=protection_stage,
+            recovery_availability_set_id=recovery_availability_set_id,
+            recovery_azure_log_storage_account_id=recovery_azure_log_storage_account_id,
+            recovery_azure_resource_group_id=recovery_azure_resource_group_id,
+            recovery_azure_storage_account=recovery_azure_storage_account,
+            recovery_azure_vm_name=recovery_azure_vm_name,
+            recovery_azure_vm_size=recovery_azure_vm_size,
+            replica_id=replica_id,
+            resync_progress_percentage=resync_progress_percentage,
+            rpo_in_seconds=rpo_in_seconds,
+            seed_managed_disk_tags=seed_managed_disk_tags,
+            selected_recovery_azure_network_id=selected_recovery_azure_network_id,
+            selected_source_nic_id=selected_source_nic_id,
+            selected_tfo_azure_network_id=selected_tfo_azure_network_id,
+            source_vm_cpu_count=source_vm_cpu_count,
+            source_vm_ram_size_in_mb=source_vm_ram_size_in_mb,
+            sql_server_license_type=sql_server_license_type,
+            supported_os_versions=supported_os_versions,
+            switch_provider_blocking_error_details=switch_provider_blocking_error_details,
+            switch_provider_details=switch_provider_details,
+            target_availability_zone=target_availability_zone,
+            target_managed_disk_tags=target_managed_disk_tags,
+            target_nic_tags=target_nic_tags,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_vm_id=target_vm_id,
+            target_vm_tags=target_vm_tags,
+            total_data_transferred=total_data_transferred,
+            total_progress_health=total_progress_health,
+            uncompressed_data_rate_in_mb=uncompressed_data_rate_in_mb,
+            use_managed_disks=use_managed_disks,
+            v_center_infrastructure_id=v_center_infrastructure_id,
+            validation_errors=validation_errors,
+            vhd_name=vhd_name,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             last_recovery_point_received: str,
+             os_name: str,
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             all_available_os_upgrade_configurations: Optional[Sequence['outputs.OSUpgradeSupportedVersionsResponse']] = None,
+             azure_vm_disk_details: Optional[Sequence['outputs.AzureVmDiskDetailsResponse']] = None,
+             azure_vm_generation: Optional[str] = None,
+             compressed_data_rate_in_mb: Optional[float] = None,
+             datastores: Optional[Sequence[str]] = None,
+             discovery_type: Optional[str] = None,
+             disk_resized: Optional[str] = None,
+             enable_rdp_on_target_option: Optional[str] = None,
+             firmware_type: Optional[str] = None,
+             infrastructure_vm_id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             is_additional_stats_available: Optional[bool] = None,
+             is_agent_update_required: Optional[str] = None,
+             is_reboot_after_update_required: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             last_update_received_time: Optional[str] = None,
+             license_type: Optional[str] = None,
+             master_target_id: Optional[str] = None,
+             multi_vm_group_id: Optional[str] = None,
+             multi_vm_group_name: Optional[str] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             os_disk_id: Optional[str] = None,
+             os_type: Optional[str] = None,
+             os_version: Optional[str] = None,
+             process_server_id: Optional[str] = None,
+             process_server_name: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.InMageAzureV2ProtectedDiskDetailsResponse']] = None,
+             protected_managed_disks: Optional[Sequence['outputs.InMageAzureV2ManagedDiskDetailsResponse']] = None,
+             protection_stage: Optional[str] = None,
+             recovery_availability_set_id: Optional[str] = None,
+             recovery_azure_log_storage_account_id: Optional[str] = None,
+             recovery_azure_resource_group_id: Optional[str] = None,
+             recovery_azure_storage_account: Optional[str] = None,
+             recovery_azure_vm_name: Optional[str] = None,
+             recovery_azure_vm_size: Optional[str] = None,
+             replica_id: Optional[str] = None,
+             resync_progress_percentage: Optional[int] = None,
+             rpo_in_seconds: Optional[float] = None,
+             seed_managed_disk_tags: Optional[Mapping[str, str]] = None,
+             selected_recovery_azure_network_id: Optional[str] = None,
+             selected_source_nic_id: Optional[str] = None,
+             selected_tfo_azure_network_id: Optional[str] = None,
+             source_vm_cpu_count: Optional[int] = None,
+             source_vm_ram_size_in_mb: Optional[int] = None,
+             sql_server_license_type: Optional[str] = None,
+             supported_os_versions: Optional[Sequence[str]] = None,
+             switch_provider_blocking_error_details: Optional[Sequence['outputs.InMageAzureV2SwitchProviderBlockingErrorDetailsResponse']] = None,
+             switch_provider_details: Optional['outputs.InMageAzureV2SwitchProviderDetailsResponse'] = None,
+             target_availability_zone: Optional[str] = None,
+             target_managed_disk_tags: Optional[Mapping[str, str]] = None,
+             target_nic_tags: Optional[Mapping[str, str]] = None,
+             target_proximity_placement_group_id: Optional[str] = None,
+             target_vm_id: Optional[str] = None,
+             target_vm_tags: Optional[Mapping[str, str]] = None,
+             total_data_transferred: Optional[float] = None,
+             total_progress_health: Optional[str] = None,
+             uncompressed_data_rate_in_mb: Optional[float] = None,
+             use_managed_disks: Optional[str] = None,
+             v_center_infrastructure_id: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             vhd_name: Optional[str] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageAzureV2')
+        _setter("last_recovery_point_received", last_recovery_point_received)
+        _setter("os_name", os_name)
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if all_available_os_upgrade_configurations is not None:
-            pulumi.set(__self__, "all_available_os_upgrade_configurations", all_available_os_upgrade_configurations)
+            _setter("all_available_os_upgrade_configurations", all_available_os_upgrade_configurations)
         if azure_vm_disk_details is not None:
-            pulumi.set(__self__, "azure_vm_disk_details", azure_vm_disk_details)
+            _setter("azure_vm_disk_details", azure_vm_disk_details)
         if azure_vm_generation is not None:
-            pulumi.set(__self__, "azure_vm_generation", azure_vm_generation)
+            _setter("azure_vm_generation", azure_vm_generation)
         if compressed_data_rate_in_mb is not None:
-            pulumi.set(__self__, "compressed_data_rate_in_mb", compressed_data_rate_in_mb)
+            _setter("compressed_data_rate_in_mb", compressed_data_rate_in_mb)
         if datastores is not None:
-            pulumi.set(__self__, "datastores", datastores)
+            _setter("datastores", datastores)
         if discovery_type is not None:
-            pulumi.set(__self__, "discovery_type", discovery_type)
+            _setter("discovery_type", discovery_type)
         if disk_resized is not None:
-            pulumi.set(__self__, "disk_resized", disk_resized)
+            _setter("disk_resized", disk_resized)
         if enable_rdp_on_target_option is not None:
-            pulumi.set(__self__, "enable_rdp_on_target_option", enable_rdp_on_target_option)
+            _setter("enable_rdp_on_target_option", enable_rdp_on_target_option)
         if firmware_type is not None:
-            pulumi.set(__self__, "firmware_type", firmware_type)
+            _setter("firmware_type", firmware_type)
         if infrastructure_vm_id is not None:
-            pulumi.set(__self__, "infrastructure_vm_id", infrastructure_vm_id)
+            _setter("infrastructure_vm_id", infrastructure_vm_id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if is_additional_stats_available is not None:
-            pulumi.set(__self__, "is_additional_stats_available", is_additional_stats_available)
+            _setter("is_additional_stats_available", is_additional_stats_available)
         if is_agent_update_required is not None:
-            pulumi.set(__self__, "is_agent_update_required", is_agent_update_required)
+            _setter("is_agent_update_required", is_agent_update_required)
         if is_reboot_after_update_required is not None:
-            pulumi.set(__self__, "is_reboot_after_update_required", is_reboot_after_update_required)
+            _setter("is_reboot_after_update_required", is_reboot_after_update_required)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if last_update_received_time is not None:
-            pulumi.set(__self__, "last_update_received_time", last_update_received_time)
+            _setter("last_update_received_time", last_update_received_time)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if master_target_id is not None:
-            pulumi.set(__self__, "master_target_id", master_target_id)
+            _setter("master_target_id", master_target_id)
         if multi_vm_group_id is not None:
-            pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
+            _setter("multi_vm_group_id", multi_vm_group_id)
         if multi_vm_group_name is not None:
-            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+            _setter("multi_vm_group_name", multi_vm_group_name)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if os_disk_id is not None:
-            pulumi.set(__self__, "os_disk_id", os_disk_id)
+            _setter("os_disk_id", os_disk_id)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if process_server_name is not None:
-            pulumi.set(__self__, "process_server_name", process_server_name)
+            _setter("process_server_name", process_server_name)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if protected_managed_disks is not None:
-            pulumi.set(__self__, "protected_managed_disks", protected_managed_disks)
+            _setter("protected_managed_disks", protected_managed_disks)
         if protection_stage is not None:
-            pulumi.set(__self__, "protection_stage", protection_stage)
+            _setter("protection_stage", protection_stage)
         if recovery_availability_set_id is not None:
-            pulumi.set(__self__, "recovery_availability_set_id", recovery_availability_set_id)
+            _setter("recovery_availability_set_id", recovery_availability_set_id)
         if recovery_azure_log_storage_account_id is not None:
-            pulumi.set(__self__, "recovery_azure_log_storage_account_id", recovery_azure_log_storage_account_id)
+            _setter("recovery_azure_log_storage_account_id", recovery_azure_log_storage_account_id)
         if recovery_azure_resource_group_id is not None:
-            pulumi.set(__self__, "recovery_azure_resource_group_id", recovery_azure_resource_group_id)
+            _setter("recovery_azure_resource_group_id", recovery_azure_resource_group_id)
         if recovery_azure_storage_account is not None:
-            pulumi.set(__self__, "recovery_azure_storage_account", recovery_azure_storage_account)
+            _setter("recovery_azure_storage_account", recovery_azure_storage_account)
         if recovery_azure_vm_name is not None:
-            pulumi.set(__self__, "recovery_azure_vm_name", recovery_azure_vm_name)
+            _setter("recovery_azure_vm_name", recovery_azure_vm_name)
         if recovery_azure_vm_size is not None:
-            pulumi.set(__self__, "recovery_azure_vm_size", recovery_azure_vm_size)
+            _setter("recovery_azure_vm_size", recovery_azure_vm_size)
         if replica_id is not None:
-            pulumi.set(__self__, "replica_id", replica_id)
+            _setter("replica_id", replica_id)
         if resync_progress_percentage is not None:
-            pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
+            _setter("resync_progress_percentage", resync_progress_percentage)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if seed_managed_disk_tags is not None:
-            pulumi.set(__self__, "seed_managed_disk_tags", seed_managed_disk_tags)
+            _setter("seed_managed_disk_tags", seed_managed_disk_tags)
         if selected_recovery_azure_network_id is not None:
-            pulumi.set(__self__, "selected_recovery_azure_network_id", selected_recovery_azure_network_id)
+            _setter("selected_recovery_azure_network_id", selected_recovery_azure_network_id)
         if selected_source_nic_id is not None:
-            pulumi.set(__self__, "selected_source_nic_id", selected_source_nic_id)
+            _setter("selected_source_nic_id", selected_source_nic_id)
         if selected_tfo_azure_network_id is not None:
-            pulumi.set(__self__, "selected_tfo_azure_network_id", selected_tfo_azure_network_id)
+            _setter("selected_tfo_azure_network_id", selected_tfo_azure_network_id)
         if source_vm_cpu_count is not None:
-            pulumi.set(__self__, "source_vm_cpu_count", source_vm_cpu_count)
+            _setter("source_vm_cpu_count", source_vm_cpu_count)
         if source_vm_ram_size_in_mb is not None:
-            pulumi.set(__self__, "source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
+            _setter("source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if supported_os_versions is not None:
-            pulumi.set(__self__, "supported_os_versions", supported_os_versions)
+            _setter("supported_os_versions", supported_os_versions)
         if switch_provider_blocking_error_details is not None:
-            pulumi.set(__self__, "switch_provider_blocking_error_details", switch_provider_blocking_error_details)
+            _setter("switch_provider_blocking_error_details", switch_provider_blocking_error_details)
         if switch_provider_details is not None:
-            pulumi.set(__self__, "switch_provider_details", switch_provider_details)
+            _setter("switch_provider_details", switch_provider_details)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_managed_disk_tags is not None:
-            pulumi.set(__self__, "target_managed_disk_tags", target_managed_disk_tags)
+            _setter("target_managed_disk_tags", target_managed_disk_tags)
         if target_nic_tags is not None:
-            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+            _setter("target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_vm_id is not None:
-            pulumi.set(__self__, "target_vm_id", target_vm_id)
+            _setter("target_vm_id", target_vm_id)
         if target_vm_tags is not None:
-            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+            _setter("target_vm_tags", target_vm_tags)
         if total_data_transferred is not None:
-            pulumi.set(__self__, "total_data_transferred", total_data_transferred)
+            _setter("total_data_transferred", total_data_transferred)
         if total_progress_health is not None:
-            pulumi.set(__self__, "total_progress_health", total_progress_health)
+            _setter("total_progress_health", total_progress_health)
         if uncompressed_data_rate_in_mb is not None:
-            pulumi.set(__self__, "uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
+            _setter("uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
         if use_managed_disks is not None:
-            pulumi.set(__self__, "use_managed_disks", use_managed_disks)
+            _setter("use_managed_disks", use_managed_disks)
         if v_center_infrastructure_id is not None:
-            pulumi.set(__self__, "v_center_infrastructure_id", v_center_infrastructure_id)
+            _setter("v_center_infrastructure_id", v_center_infrastructure_id)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
         if vhd_name is not None:
-            pulumi.set(__self__, "vhd_name", vhd_name)
+            _setter("vhd_name", vhd_name)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -8075,12 +9389,31 @@ class InMageAzureV2SwitchProviderBlockingErrorDetailsResponse(dict):
         :param str possible_causes: The possible causes.
         :param str recommended_action: The recommended action.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
-        pulumi.set(__self__, "error_tags", error_tags)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
+        InMageAzureV2SwitchProviderBlockingErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            error_message_parameters=error_message_parameters,
+            error_tags=error_tags,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: str,
+             error_message: str,
+             error_message_parameters: Mapping[str, str],
+             error_tags: Mapping[str, str],
+             possible_causes: str,
+             recommended_action: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("error_message_parameters", error_message_parameters)
+        _setter("error_tags", error_tags)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -8171,10 +9504,25 @@ class InMageAzureV2SwitchProviderDetailsResponse(dict):
         :param str target_resource_id: The target resource Id.
         :param str target_vault_id: The target vault Id.
         """
-        pulumi.set(__self__, "target_appliance_id", target_appliance_id)
-        pulumi.set(__self__, "target_fabric_id", target_fabric_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "target_vault_id", target_vault_id)
+        InMageAzureV2SwitchProviderDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_appliance_id=target_appliance_id,
+            target_fabric_id=target_fabric_id,
+            target_resource_id=target_resource_id,
+            target_vault_id=target_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_appliance_id: str,
+             target_fabric_id: str,
+             target_resource_id: str,
+             target_vault_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_appliance_id", target_appliance_id)
+        _setter("target_fabric_id", target_fabric_id)
+        _setter("target_resource_id", target_resource_id)
+        _setter("target_vault_id", target_vault_id)
 
     @property
     @pulumi.getter(name="targetApplianceId")
@@ -8254,15 +9602,32 @@ class InMageBasePolicyDetailsResponse(dict):
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMageBasePolicyDetails')
+        InMageBasePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            multi_vm_sync_status=multi_vm_sync_status,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             recovery_point_history: Optional[int] = None,
+             recovery_point_threshold_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageBasePolicyDetails')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -8354,12 +9719,31 @@ class InMageFabricSwitchProviderBlockingErrorDetailsResponse(dict):
         :param str possible_causes: The possible causes.
         :param str recommended_action: The recommended action.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
-        pulumi.set(__self__, "error_tags", error_tags)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
+        InMageFabricSwitchProviderBlockingErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            error_message_parameters=error_message_parameters,
+            error_tags=error_tags,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: str,
+             error_message: str,
+             error_message_parameters: Mapping[str, str],
+             error_tags: Mapping[str, str],
+             possible_causes: str,
+             recommended_action: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("error_message_parameters", error_message_parameters)
+        _setter("error_tags", error_tags)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -8455,15 +9839,32 @@ class InMagePolicyDetailsResponse(dict):
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMage')
+        InMagePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            multi_vm_sync_status=multi_vm_sync_status,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             recovery_point_history: Optional[int] = None,
+             recovery_point_threshold_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMage')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -8619,50 +10020,101 @@ class InMageProtectedDiskDetailsResponse(dict):
         :param float source_data_in_mb: The source data transit in MB.
         :param float target_data_in_mb: The target data transit in MB.
         """
+        InMageProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_capacity_in_bytes=disk_capacity_in_bytes,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_resized=disk_resized,
+            file_system_capacity_in_bytes=file_system_capacity_in_bytes,
+            health_error_code=health_error_code,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            progress_health=progress_health,
+            progress_status=progress_status,
+            protection_stage=protection_stage,
+            ps_data_in_mb=ps_data_in_mb,
+            resync_duration_in_seconds=resync_duration_in_seconds,
+            resync_last15_minutes_transferred_bytes=resync_last15_minutes_transferred_bytes,
+            resync_last_data_transfer_time_utc=resync_last_data_transfer_time_utc,
+            resync_processed_bytes=resync_processed_bytes,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_start_time=resync_start_time,
+            resync_total_transferred_bytes=resync_total_transferred_bytes,
+            rpo_in_seconds=rpo_in_seconds,
+            source_data_in_mb=source_data_in_mb,
+            target_data_in_mb=target_data_in_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_capacity_in_bytes: Optional[float] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             disk_resized: Optional[str] = None,
+             file_system_capacity_in_bytes: Optional[float] = None,
+             health_error_code: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             progress_health: Optional[str] = None,
+             progress_status: Optional[str] = None,
+             protection_stage: Optional[str] = None,
+             ps_data_in_mb: Optional[float] = None,
+             resync_duration_in_seconds: Optional[float] = None,
+             resync_last15_minutes_transferred_bytes: Optional[float] = None,
+             resync_last_data_transfer_time_utc: Optional[str] = None,
+             resync_processed_bytes: Optional[float] = None,
+             resync_progress_percentage: Optional[int] = None,
+             resync_required: Optional[str] = None,
+             resync_start_time: Optional[str] = None,
+             resync_total_transferred_bytes: Optional[float] = None,
+             rpo_in_seconds: Optional[float] = None,
+             source_data_in_mb: Optional[float] = None,
+             target_data_in_mb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_capacity_in_bytes is not None:
-            pulumi.set(__self__, "disk_capacity_in_bytes", disk_capacity_in_bytes)
+            _setter("disk_capacity_in_bytes", disk_capacity_in_bytes)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_resized is not None:
-            pulumi.set(__self__, "disk_resized", disk_resized)
+            _setter("disk_resized", disk_resized)
         if file_system_capacity_in_bytes is not None:
-            pulumi.set(__self__, "file_system_capacity_in_bytes", file_system_capacity_in_bytes)
+            _setter("file_system_capacity_in_bytes", file_system_capacity_in_bytes)
         if health_error_code is not None:
-            pulumi.set(__self__, "health_error_code", health_error_code)
+            _setter("health_error_code", health_error_code)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if progress_health is not None:
-            pulumi.set(__self__, "progress_health", progress_health)
+            _setter("progress_health", progress_health)
         if progress_status is not None:
-            pulumi.set(__self__, "progress_status", progress_status)
+            _setter("progress_status", progress_status)
         if protection_stage is not None:
-            pulumi.set(__self__, "protection_stage", protection_stage)
+            _setter("protection_stage", protection_stage)
         if ps_data_in_mb is not None:
-            pulumi.set(__self__, "ps_data_in_mb", ps_data_in_mb)
+            _setter("ps_data_in_mb", ps_data_in_mb)
         if resync_duration_in_seconds is not None:
-            pulumi.set(__self__, "resync_duration_in_seconds", resync_duration_in_seconds)
+            _setter("resync_duration_in_seconds", resync_duration_in_seconds)
         if resync_last15_minutes_transferred_bytes is not None:
-            pulumi.set(__self__, "resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
+            _setter("resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
         if resync_last_data_transfer_time_utc is not None:
-            pulumi.set(__self__, "resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
+            _setter("resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
         if resync_processed_bytes is not None:
-            pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
+            _setter("resync_processed_bytes", resync_processed_bytes)
         if resync_progress_percentage is not None:
-            pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
+            _setter("resync_progress_percentage", resync_progress_percentage)
         if resync_required is not None:
-            pulumi.set(__self__, "resync_required", resync_required)
+            _setter("resync_required", resync_required)
         if resync_start_time is not None:
-            pulumi.set(__self__, "resync_start_time", resync_start_time)
+            _setter("resync_start_time", resync_start_time)
         if resync_total_transferred_bytes is not None:
-            pulumi.set(__self__, "resync_total_transferred_bytes", resync_total_transferred_bytes)
+            _setter("resync_total_transferred_bytes", resync_total_transferred_bytes)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if source_data_in_mb is not None:
-            pulumi.set(__self__, "source_data_in_mb", source_data_in_mb)
+            _setter("source_data_in_mb", source_data_in_mb)
         if target_data_in_mb is not None:
-            pulumi.set(__self__, "target_data_in_mb", target_data_in_mb)
+            _setter("target_data_in_mb", target_data_in_mb)
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
@@ -8889,12 +10341,31 @@ class InMageRcmAgentUpgradeBlockingErrorDetailsResponse(dict):
         :param str possible_causes: The possible causes.
         :param str recommended_action: The recommended action.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
-        pulumi.set(__self__, "error_tags", error_tags)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
+        InMageRcmAgentUpgradeBlockingErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            error_message_parameters=error_message_parameters,
+            error_tags=error_tags,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: str,
+             error_message: str,
+             error_message_parameters: Mapping[str, str],
+             error_tags: Mapping[str, str],
+             possible_causes: str,
+             recommended_action: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("error_message_parameters", error_message_parameters)
+        _setter("error_tags", error_tags)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -9015,18 +10486,49 @@ class InMageRcmDiscoveredProtectedVmDetailsResponse(dict):
         :param str vm_fqdn: The VM fqdn.
         :param str vmware_tools_status: The VMware tools status.
         """
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "datastores", datastores)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
-        pulumi.set(__self__, "is_deleted", is_deleted)
-        pulumi.set(__self__, "last_discovery_time_in_utc", last_discovery_time_in_utc)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "power_status", power_status)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
-        pulumi.set(__self__, "v_center_fqdn", v_center_fqdn)
-        pulumi.set(__self__, "v_center_id", v_center_id)
-        pulumi.set(__self__, "vm_fqdn", vm_fqdn)
-        pulumi.set(__self__, "vmware_tools_status", vmware_tools_status)
+        InMageRcmDiscoveredProtectedVmDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            datastores=datastores,
+            ip_addresses=ip_addresses,
+            is_deleted=is_deleted,
+            last_discovery_time_in_utc=last_discovery_time_in_utc,
+            os_name=os_name,
+            power_status=power_status,
+            updated_timestamp=updated_timestamp,
+            v_center_fqdn=v_center_fqdn,
+            v_center_id=v_center_id,
+            vm_fqdn=vm_fqdn,
+            vmware_tools_status=vmware_tools_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: str,
+             datastores: Sequence[str],
+             ip_addresses: Sequence[str],
+             is_deleted: bool,
+             last_discovery_time_in_utc: str,
+             os_name: str,
+             power_status: str,
+             updated_timestamp: str,
+             v_center_fqdn: str,
+             v_center_id: str,
+             vm_fqdn: str,
+             vmware_tools_status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("created_timestamp", created_timestamp)
+        _setter("datastores", datastores)
+        _setter("ip_addresses", ip_addresses)
+        _setter("is_deleted", is_deleted)
+        _setter("last_discovery_time_in_utc", last_discovery_time_in_utc)
+        _setter("os_name", os_name)
+        _setter("power_status", power_status)
+        _setter("updated_timestamp", updated_timestamp)
+        _setter("v_center_fqdn", v_center_fqdn)
+        _setter("v_center_id", v_center_id)
+        _setter("vm_fqdn", vm_fqdn)
+        _setter("vmware_tools_status", vmware_tools_status)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -9216,24 +10718,65 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
         :param str vmware_site_id: The ARM Id of the VMware site.
         :param 'IdentityProviderDetailsResponse' source_agent_identity_details: The source agent identity details.
         """
-        pulumi.set(__self__, "agent_details", agent_details)
-        pulumi.set(__self__, "control_plane_uri", control_plane_uri)
-        pulumi.set(__self__, "data_plane_uri", data_plane_uri)
-        pulumi.set(__self__, "dras", dras)
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
-        pulumi.set(__self__, "mars_agents", mars_agents)
-        pulumi.set(__self__, "physical_site_id", physical_site_id)
-        pulumi.set(__self__, "process_servers", process_servers)
-        pulumi.set(__self__, "push_installers", push_installers)
-        pulumi.set(__self__, "rcm_proxies", rcm_proxies)
-        pulumi.set(__self__, "replication_agents", replication_agents)
-        pulumi.set(__self__, "reprotect_agents", reprotect_agents)
-        pulumi.set(__self__, "service_container_id", service_container_id)
-        pulumi.set(__self__, "service_endpoint", service_endpoint)
-        pulumi.set(__self__, "service_resource_id", service_resource_id)
-        pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+        InMageRcmFabricSpecificDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_details=agent_details,
+            control_plane_uri=control_plane_uri,
+            data_plane_uri=data_plane_uri,
+            dras=dras,
+            instance_type=instance_type,
+            mars_agents=mars_agents,
+            physical_site_id=physical_site_id,
+            process_servers=process_servers,
+            push_installers=push_installers,
+            rcm_proxies=rcm_proxies,
+            replication_agents=replication_agents,
+            reprotect_agents=reprotect_agents,
+            service_container_id=service_container_id,
+            service_endpoint=service_endpoint,
+            service_resource_id=service_resource_id,
+            vmware_site_id=vmware_site_id,
+            source_agent_identity_details=source_agent_identity_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_details: Sequence['outputs.AgentDetailsResponse'],
+             control_plane_uri: str,
+             data_plane_uri: str,
+             dras: Sequence['outputs.DraDetailsResponse'],
+             instance_type: str,
+             mars_agents: Sequence['outputs.MarsAgentDetailsResponse'],
+             physical_site_id: str,
+             process_servers: Sequence['outputs.ProcessServerDetailsResponse'],
+             push_installers: Sequence['outputs.PushInstallerDetailsResponse'],
+             rcm_proxies: Sequence['outputs.RcmProxyDetailsResponse'],
+             replication_agents: Sequence['outputs.ReplicationAgentDetailsResponse'],
+             reprotect_agents: Sequence['outputs.ReprotectAgentDetailsResponse'],
+             service_container_id: str,
+             service_endpoint: str,
+             service_resource_id: str,
+             vmware_site_id: str,
+             source_agent_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_details", agent_details)
+        _setter("control_plane_uri", control_plane_uri)
+        _setter("data_plane_uri", data_plane_uri)
+        _setter("dras", dras)
+        _setter("instance_type", 'InMageRcm')
+        _setter("mars_agents", mars_agents)
+        _setter("physical_site_id", physical_site_id)
+        _setter("process_servers", process_servers)
+        _setter("push_installers", push_installers)
+        _setter("rcm_proxies", rcm_proxies)
+        _setter("replication_agents", replication_agents)
+        _setter("reprotect_agents", reprotect_agents)
+        _setter("service_container_id", service_container_id)
+        _setter("service_endpoint", service_endpoint)
+        _setter("service_resource_id", service_resource_id)
+        _setter("vmware_site_id", vmware_site_id)
         if source_agent_identity_details is not None:
-            pulumi.set(__self__, "source_agent_identity_details", source_agent_identity_details)
+            _setter("source_agent_identity_details", source_agent_identity_details)
 
     @property
     @pulumi.getter(name="agentDetails")
@@ -9443,18 +10986,49 @@ class InMageRcmFailbackDiscoveredProtectedVmDetailsResponse(dict):
         :param str vm_fqdn: The VM fqdn.
         :param str vmware_tools_status: The VMware tools status.
         """
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "datastores", datastores)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
-        pulumi.set(__self__, "is_deleted", is_deleted)
-        pulumi.set(__self__, "last_discovery_time_in_utc", last_discovery_time_in_utc)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "power_status", power_status)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
-        pulumi.set(__self__, "v_center_fqdn", v_center_fqdn)
-        pulumi.set(__self__, "v_center_id", v_center_id)
-        pulumi.set(__self__, "vm_fqdn", vm_fqdn)
-        pulumi.set(__self__, "vmware_tools_status", vmware_tools_status)
+        InMageRcmFailbackDiscoveredProtectedVmDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            datastores=datastores,
+            ip_addresses=ip_addresses,
+            is_deleted=is_deleted,
+            last_discovery_time_in_utc=last_discovery_time_in_utc,
+            os_name=os_name,
+            power_status=power_status,
+            updated_timestamp=updated_timestamp,
+            v_center_fqdn=v_center_fqdn,
+            v_center_id=v_center_id,
+            vm_fqdn=vm_fqdn,
+            vmware_tools_status=vmware_tools_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: str,
+             datastores: Sequence[str],
+             ip_addresses: Sequence[str],
+             is_deleted: bool,
+             last_discovery_time_in_utc: str,
+             os_name: str,
+             power_status: str,
+             updated_timestamp: str,
+             v_center_fqdn: str,
+             v_center_id: str,
+             vm_fqdn: str,
+             vmware_tools_status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("created_timestamp", created_timestamp)
+        _setter("datastores", datastores)
+        _setter("ip_addresses", ip_addresses)
+        _setter("is_deleted", is_deleted)
+        _setter("last_discovery_time_in_utc", last_discovery_time_in_utc)
+        _setter("os_name", os_name)
+        _setter("power_status", power_status)
+        _setter("updated_timestamp", updated_timestamp)
+        _setter("v_center_fqdn", v_center_fqdn)
+        _setter("v_center_id", v_center_id)
+        _setter("vm_fqdn", vm_fqdn)
+        _setter("vmware_tools_status", vmware_tools_status)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -9611,15 +11185,40 @@ class InMageRcmFailbackMobilityAgentDetailsResponse(dict):
         :param Sequence[str] reasons_blocking_upgrade: The whether update is possible or not.
         :param str version: The agent version.
         """
-        pulumi.set(__self__, "agent_version_expiry_date", agent_version_expiry_date)
-        pulumi.set(__self__, "driver_version", driver_version)
-        pulumi.set(__self__, "driver_version_expiry_date", driver_version_expiry_date)
-        pulumi.set(__self__, "is_upgradeable", is_upgradeable)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
-        pulumi.set(__self__, "latest_version", latest_version)
-        pulumi.set(__self__, "reasons_blocking_upgrade", reasons_blocking_upgrade)
-        pulumi.set(__self__, "version", version)
+        InMageRcmFailbackMobilityAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version_expiry_date=agent_version_expiry_date,
+            driver_version=driver_version,
+            driver_version_expiry_date=driver_version_expiry_date,
+            is_upgradeable=is_upgradeable,
+            last_heartbeat_utc=last_heartbeat_utc,
+            latest_upgradable_version_without_reboot=latest_upgradable_version_without_reboot,
+            latest_version=latest_version,
+            reasons_blocking_upgrade=reasons_blocking_upgrade,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version_expiry_date: str,
+             driver_version: str,
+             driver_version_expiry_date: str,
+             is_upgradeable: str,
+             last_heartbeat_utc: str,
+             latest_upgradable_version_without_reboot: str,
+             latest_version: str,
+             reasons_blocking_upgrade: Sequence[str],
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_version_expiry_date", agent_version_expiry_date)
+        _setter("driver_version", driver_version)
+        _setter("driver_version_expiry_date", driver_version_expiry_date)
+        _setter("is_upgradeable", is_upgradeable)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
+        _setter("latest_version", latest_version)
+        _setter("reasons_blocking_upgrade", reasons_blocking_upgrade)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="agentVersionExpiryDate")
@@ -9734,10 +11333,25 @@ class InMageRcmFailbackNicDetailsResponse(dict):
         :param str network_name: The network name.
         :param str source_ip_address: The IP address.
         """
-        pulumi.set(__self__, "adapter_type", adapter_type)
-        pulumi.set(__self__, "mac_address", mac_address)
-        pulumi.set(__self__, "network_name", network_name)
-        pulumi.set(__self__, "source_ip_address", source_ip_address)
+        InMageRcmFailbackNicDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adapter_type=adapter_type,
+            mac_address=mac_address,
+            network_name=network_name,
+            source_ip_address=source_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adapter_type: str,
+             mac_address: str,
+             network_name: str,
+             source_ip_address: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("adapter_type", adapter_type)
+        _setter("mac_address", mac_address)
+        _setter("network_name", network_name)
+        _setter("source_ip_address", source_ip_address)
 
     @property
     @pulumi.getter(name="adapterType")
@@ -9809,11 +11423,24 @@ class InMageRcmFailbackPolicyDetailsResponse(dict):
         :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMageRcmFailback')
+        InMageRcmFailbackPolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageRcmFailback')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -9909,19 +11536,48 @@ class InMageRcmFailbackProtectedDiskDetailsResponse(dict):
         :param 'InMageRcmFailbackSyncDetailsResponse' ir_details: The initial replication details.
         :param 'InMageRcmFailbackSyncDetailsResponse' resync_details: The resync details.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
-        pulumi.set(__self__, "data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "disk_uuid", disk_uuid)
-        pulumi.set(__self__, "is_initial_replication_complete", is_initial_replication_complete)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "last_sync_time", last_sync_time)
+        InMageRcmFailbackProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            data_pending_at_source_agent_in_mb=data_pending_at_source_agent_in_mb,
+            data_pending_in_log_data_store_in_mb=data_pending_in_log_data_store_in_mb,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_uuid=disk_uuid,
+            is_initial_replication_complete=is_initial_replication_complete,
+            is_os_disk=is_os_disk,
+            last_sync_time=last_sync_time,
+            ir_details=ir_details,
+            resync_details=resync_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: float,
+             data_pending_at_source_agent_in_mb: float,
+             data_pending_in_log_data_store_in_mb: float,
+             disk_id: str,
+             disk_name: str,
+             disk_uuid: str,
+             is_initial_replication_complete: str,
+             is_os_disk: str,
+             last_sync_time: str,
+             ir_details: Optional['outputs.InMageRcmFailbackSyncDetailsResponse'] = None,
+             resync_details: Optional['outputs.InMageRcmFailbackSyncDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+        _setter("data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
+        _setter("disk_id", disk_id)
+        _setter("disk_name", disk_name)
+        _setter("disk_uuid", disk_uuid)
+        _setter("is_initial_replication_complete", is_initial_replication_complete)
+        _setter("is_os_disk", is_os_disk)
+        _setter("last_sync_time", last_sync_time)
         if ir_details is not None:
-            pulumi.set(__self__, "ir_details", ir_details)
+            _setter("ir_details", ir_details)
         if resync_details is not None:
-            pulumi.set(__self__, "resync_details", resync_details)
+            _setter("resync_details", resync_details)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -10157,40 +11813,107 @@ class InMageRcmFailbackReplicationDetailsResponse(dict):
         :param Sequence['InMageRcmFailbackProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param Sequence['InMageRcmFailbackNicDetailsResponse'] vm_nics: The network details.
         """
-        pulumi.set(__self__, "azure_virtual_machine_id", azure_virtual_machine_id)
-        pulumi.set(__self__, "initial_replication_processed_bytes", initial_replication_processed_bytes)
-        pulumi.set(__self__, "initial_replication_progress_health", initial_replication_progress_health)
-        pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
-        pulumi.set(__self__, "initial_replication_transferred_bytes", initial_replication_transferred_bytes)
-        pulumi.set(__self__, "instance_type", 'InMageRcmFailback')
-        pulumi.set(__self__, "internal_identifier", internal_identifier)
-        pulumi.set(__self__, "is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
-        pulumi.set(__self__, "last_planned_failover_start_time", last_planned_failover_start_time)
-        pulumi.set(__self__, "last_planned_failover_status", last_planned_failover_status)
-        pulumi.set(__self__, "last_used_policy_friendly_name", last_used_policy_friendly_name)
-        pulumi.set(__self__, "last_used_policy_id", last_used_policy_id)
-        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
-        pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "reprotect_agent_id", reprotect_agent_id)
-        pulumi.set(__self__, "reprotect_agent_name", reprotect_agent_name)
-        pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
-        pulumi.set(__self__, "resync_progress_health", resync_progress_health)
-        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
-        pulumi.set(__self__, "resync_required", resync_required)
-        pulumi.set(__self__, "resync_state", resync_state)
-        pulumi.set(__self__, "resync_transferred_bytes", resync_transferred_bytes)
-        pulumi.set(__self__, "target_data_store_name", target_data_store_name)
-        pulumi.set(__self__, "target_vm_name", target_vm_name)
-        pulumi.set(__self__, "targetv_center_id", targetv_center_id)
+        InMageRcmFailbackReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_virtual_machine_id=azure_virtual_machine_id,
+            initial_replication_processed_bytes=initial_replication_processed_bytes,
+            initial_replication_progress_health=initial_replication_progress_health,
+            initial_replication_progress_percentage=initial_replication_progress_percentage,
+            initial_replication_transferred_bytes=initial_replication_transferred_bytes,
+            instance_type=instance_type,
+            internal_identifier=internal_identifier,
+            is_agent_registration_successful_after_failover=is_agent_registration_successful_after_failover,
+            last_planned_failover_start_time=last_planned_failover_start_time,
+            last_planned_failover_status=last_planned_failover_status,
+            last_used_policy_friendly_name=last_used_policy_friendly_name,
+            last_used_policy_id=last_used_policy_id,
+            log_storage_account_id=log_storage_account_id,
+            multi_vm_group_name=multi_vm_group_name,
+            os_type=os_type,
+            reprotect_agent_id=reprotect_agent_id,
+            reprotect_agent_name=reprotect_agent_name,
+            resync_processed_bytes=resync_processed_bytes,
+            resync_progress_health=resync_progress_health,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_state=resync_state,
+            resync_transferred_bytes=resync_transferred_bytes,
+            target_data_store_name=target_data_store_name,
+            target_vm_name=target_vm_name,
+            targetv_center_id=targetv_center_id,
+            discovered_vm_details=discovered_vm_details,
+            mobility_agent_details=mobility_agent_details,
+            protected_disks=protected_disks,
+            vm_nics=vm_nics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_virtual_machine_id: str,
+             initial_replication_processed_bytes: float,
+             initial_replication_progress_health: str,
+             initial_replication_progress_percentage: int,
+             initial_replication_transferred_bytes: float,
+             instance_type: str,
+             internal_identifier: str,
+             is_agent_registration_successful_after_failover: bool,
+             last_planned_failover_start_time: str,
+             last_planned_failover_status: str,
+             last_used_policy_friendly_name: str,
+             last_used_policy_id: str,
+             log_storage_account_id: str,
+             multi_vm_group_name: str,
+             os_type: str,
+             reprotect_agent_id: str,
+             reprotect_agent_name: str,
+             resync_processed_bytes: float,
+             resync_progress_health: str,
+             resync_progress_percentage: int,
+             resync_required: str,
+             resync_state: str,
+             resync_transferred_bytes: float,
+             target_data_store_name: str,
+             target_vm_name: str,
+             targetv_center_id: str,
+             discovered_vm_details: Optional['outputs.InMageRcmFailbackDiscoveredProtectedVmDetailsResponse'] = None,
+             mobility_agent_details: Optional['outputs.InMageRcmFailbackMobilityAgentDetailsResponse'] = None,
+             protected_disks: Optional[Sequence['outputs.InMageRcmFailbackProtectedDiskDetailsResponse']] = None,
+             vm_nics: Optional[Sequence['outputs.InMageRcmFailbackNicDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_virtual_machine_id", azure_virtual_machine_id)
+        _setter("initial_replication_processed_bytes", initial_replication_processed_bytes)
+        _setter("initial_replication_progress_health", initial_replication_progress_health)
+        _setter("initial_replication_progress_percentage", initial_replication_progress_percentage)
+        _setter("initial_replication_transferred_bytes", initial_replication_transferred_bytes)
+        _setter("instance_type", 'InMageRcmFailback')
+        _setter("internal_identifier", internal_identifier)
+        _setter("is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
+        _setter("last_planned_failover_start_time", last_planned_failover_start_time)
+        _setter("last_planned_failover_status", last_planned_failover_status)
+        _setter("last_used_policy_friendly_name", last_used_policy_friendly_name)
+        _setter("last_used_policy_id", last_used_policy_id)
+        _setter("log_storage_account_id", log_storage_account_id)
+        _setter("multi_vm_group_name", multi_vm_group_name)
+        _setter("os_type", os_type)
+        _setter("reprotect_agent_id", reprotect_agent_id)
+        _setter("reprotect_agent_name", reprotect_agent_name)
+        _setter("resync_processed_bytes", resync_processed_bytes)
+        _setter("resync_progress_health", resync_progress_health)
+        _setter("resync_progress_percentage", resync_progress_percentage)
+        _setter("resync_required", resync_required)
+        _setter("resync_state", resync_state)
+        _setter("resync_transferred_bytes", resync_transferred_bytes)
+        _setter("target_data_store_name", target_data_store_name)
+        _setter("target_vm_name", target_vm_name)
+        _setter("targetv_center_id", targetv_center_id)
         if discovered_vm_details is not None:
-            pulumi.set(__self__, "discovered_vm_details", discovered_vm_details)
+            _setter("discovered_vm_details", discovered_vm_details)
         if mobility_agent_details is not None:
-            pulumi.set(__self__, "mobility_agent_details", mobility_agent_details)
+            _setter("mobility_agent_details", mobility_agent_details)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
 
     @property
     @pulumi.getter(name="azureVirtualMachineId")
@@ -10490,14 +12213,37 @@ class InMageRcmFailbackSyncDetailsResponse(dict):
         :param str start_time: The start time.
         :param float transferred_bytes: The transferred bytes from source VM to azure for the disk.
         """
-        pulumi.set(__self__, "last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
-        pulumi.set(__self__, "last_data_transfer_time_utc", last_data_transfer_time_utc)
-        pulumi.set(__self__, "last_refresh_time", last_refresh_time)
-        pulumi.set(__self__, "processed_bytes", processed_bytes)
-        pulumi.set(__self__, "progress_health", progress_health)
-        pulumi.set(__self__, "progress_percentage", progress_percentage)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "transferred_bytes", transferred_bytes)
+        InMageRcmFailbackSyncDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last15_minutes_transferred_bytes=last15_minutes_transferred_bytes,
+            last_data_transfer_time_utc=last_data_transfer_time_utc,
+            last_refresh_time=last_refresh_time,
+            processed_bytes=processed_bytes,
+            progress_health=progress_health,
+            progress_percentage=progress_percentage,
+            start_time=start_time,
+            transferred_bytes=transferred_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last15_minutes_transferred_bytes: float,
+             last_data_transfer_time_utc: str,
+             last_refresh_time: str,
+             processed_bytes: float,
+             progress_health: str,
+             progress_percentage: int,
+             start_time: str,
+             transferred_bytes: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
+        _setter("last_data_transfer_time_utc", last_data_transfer_time_utc)
+        _setter("last_refresh_time", last_refresh_time)
+        _setter("processed_bytes", processed_bytes)
+        _setter("progress_health", progress_health)
+        _setter("progress_percentage", progress_percentage)
+        _setter("start_time", start_time)
+        _setter("transferred_bytes", transferred_bytes)
 
     @property
     @pulumi.getter(name="last15MinutesTransferredBytes")
@@ -10612,12 +12358,31 @@ class InMageRcmLastAgentUpgradeErrorDetailsResponse(dict):
         :param str possible_causes: The possible causes.
         :param str recommended_action: The recommended action.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
-        pulumi.set(__self__, "error_tags", error_tags)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
+        InMageRcmLastAgentUpgradeErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            error_message_parameters=error_message_parameters,
+            error_tags=error_tags,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: str,
+             error_message: str,
+             error_message_parameters: Mapping[str, str],
+             error_tags: Mapping[str, str],
+             possible_causes: str,
+             recommended_action: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("error_message_parameters", error_message_parameters)
+        _setter("error_tags", error_tags)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -10730,16 +12495,43 @@ class InMageRcmMobilityAgentDetailsResponse(dict):
         :param Sequence[str] reasons_blocking_upgrade: The whether update is possible or not.
         :param str version: The agent version.
         """
-        pulumi.set(__self__, "agent_version_expiry_date", agent_version_expiry_date)
-        pulumi.set(__self__, "driver_version", driver_version)
-        pulumi.set(__self__, "driver_version_expiry_date", driver_version_expiry_date)
-        pulumi.set(__self__, "is_upgradeable", is_upgradeable)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "latest_agent_release_date", latest_agent_release_date)
-        pulumi.set(__self__, "latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
-        pulumi.set(__self__, "latest_version", latest_version)
-        pulumi.set(__self__, "reasons_blocking_upgrade", reasons_blocking_upgrade)
-        pulumi.set(__self__, "version", version)
+        InMageRcmMobilityAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version_expiry_date=agent_version_expiry_date,
+            driver_version=driver_version,
+            driver_version_expiry_date=driver_version_expiry_date,
+            is_upgradeable=is_upgradeable,
+            last_heartbeat_utc=last_heartbeat_utc,
+            latest_agent_release_date=latest_agent_release_date,
+            latest_upgradable_version_without_reboot=latest_upgradable_version_without_reboot,
+            latest_version=latest_version,
+            reasons_blocking_upgrade=reasons_blocking_upgrade,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version_expiry_date: str,
+             driver_version: str,
+             driver_version_expiry_date: str,
+             is_upgradeable: str,
+             last_heartbeat_utc: str,
+             latest_agent_release_date: str,
+             latest_upgradable_version_without_reboot: str,
+             latest_version: str,
+             reasons_blocking_upgrade: Sequence[str],
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_version_expiry_date", agent_version_expiry_date)
+        _setter("driver_version", driver_version)
+        _setter("driver_version_expiry_date", driver_version_expiry_date)
+        _setter("is_upgradeable", is_upgradeable)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("latest_agent_release_date", latest_agent_release_date)
+        _setter("latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
+        _setter("latest_version", latest_version)
+        _setter("reasons_blocking_upgrade", reasons_blocking_upgrade)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="agentVersionExpiryDate")
@@ -10898,27 +12690,60 @@ class InMageRcmNicDetailsResponse(dict):
         :param str test_ip_address_type: The test IP address type.
         :param str test_subnet_name: Test subnet name.
         """
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "source_ip_address", source_ip_address)
-        pulumi.set(__self__, "source_ip_address_type", source_ip_address_type)
-        pulumi.set(__self__, "source_network_id", source_network_id)
-        pulumi.set(__self__, "source_subnet_name", source_subnet_name)
+        InMageRcmNicDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nic_id=nic_id,
+            source_ip_address=source_ip_address,
+            source_ip_address_type=source_ip_address_type,
+            source_network_id=source_network_id,
+            source_subnet_name=source_subnet_name,
+            is_primary_nic=is_primary_nic,
+            is_selected_for_failover=is_selected_for_failover,
+            target_ip_address=target_ip_address,
+            target_ip_address_type=target_ip_address_type,
+            target_subnet_name=target_subnet_name,
+            test_ip_address=test_ip_address,
+            test_ip_address_type=test_ip_address_type,
+            test_subnet_name=test_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nic_id: str,
+             source_ip_address: str,
+             source_ip_address_type: str,
+             source_network_id: str,
+             source_subnet_name: str,
+             is_primary_nic: Optional[str] = None,
+             is_selected_for_failover: Optional[str] = None,
+             target_ip_address: Optional[str] = None,
+             target_ip_address_type: Optional[str] = None,
+             target_subnet_name: Optional[str] = None,
+             test_ip_address: Optional[str] = None,
+             test_ip_address_type: Optional[str] = None,
+             test_subnet_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("nic_id", nic_id)
+        _setter("source_ip_address", source_ip_address)
+        _setter("source_ip_address_type", source_ip_address_type)
+        _setter("source_network_id", source_network_id)
+        _setter("source_subnet_name", source_subnet_name)
         if is_primary_nic is not None:
-            pulumi.set(__self__, "is_primary_nic", is_primary_nic)
+            _setter("is_primary_nic", is_primary_nic)
         if is_selected_for_failover is not None:
-            pulumi.set(__self__, "is_selected_for_failover", is_selected_for_failover)
+            _setter("is_selected_for_failover", is_selected_for_failover)
         if target_ip_address is not None:
-            pulumi.set(__self__, "target_ip_address", target_ip_address)
+            _setter("target_ip_address", target_ip_address)
         if target_ip_address_type is not None:
-            pulumi.set(__self__, "target_ip_address_type", target_ip_address_type)
+            _setter("target_ip_address_type", target_ip_address_type)
         if target_subnet_name is not None:
-            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+            _setter("target_subnet_name", target_subnet_name)
         if test_ip_address is not None:
-            pulumi.set(__self__, "test_ip_address", test_ip_address)
+            _setter("test_ip_address", test_ip_address)
         if test_ip_address_type is not None:
-            pulumi.set(__self__, "test_ip_address_type", test_ip_address_type)
+            _setter("test_ip_address_type", test_ip_address_type)
         if test_subnet_name is not None:
-            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+            _setter("test_subnet_name", test_subnet_name)
 
     @property
     @pulumi.getter(name="nicId")
@@ -11070,15 +12895,32 @@ class InMageRcmPolicyDetailsResponse(dict):
         :param str enable_multi_vm_sync: A value indicating whether multi-VM sync has to be enabled.
         :param int recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
+        InMageRcmPolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            enable_multi_vm_sync=enable_multi_vm_sync,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             enable_multi_vm_sync: Optional[str] = None,
+             recovery_point_history_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMageRcm')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if enable_multi_vm_sync is not None:
-            pulumi.set(__self__, "enable_multi_vm_sync", enable_multi_vm_sync)
+            _setter("enable_multi_vm_sync", enable_multi_vm_sync)
         if recovery_point_history_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+            _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -11206,24 +13048,61 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
         :param 'InMageRcmSyncDetailsResponse' ir_details: The initial replication details.
         :param 'InMageRcmSyncDetailsResponse' resync_details: The resync details.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
-        pulumi.set(__self__, "data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
-        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "is_initial_replication_complete", is_initial_replication_complete)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
-        pulumi.set(__self__, "seed_blob_uri", seed_blob_uri)
-        pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
-        pulumi.set(__self__, "target_managed_disk_id", target_managed_disk_id)
+        InMageRcmProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            data_pending_at_source_agent_in_mb=data_pending_at_source_agent_in_mb,
+            data_pending_in_log_data_store_in_mb=data_pending_in_log_data_store_in_mb,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            is_initial_replication_complete=is_initial_replication_complete,
+            is_os_disk=is_os_disk,
+            log_storage_account_id=log_storage_account_id,
+            seed_blob_uri=seed_blob_uri,
+            seed_managed_disk_id=seed_managed_disk_id,
+            target_managed_disk_id=target_managed_disk_id,
+            disk_type=disk_type,
+            ir_details=ir_details,
+            resync_details=resync_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: float,
+             data_pending_at_source_agent_in_mb: float,
+             data_pending_in_log_data_store_in_mb: float,
+             disk_encryption_set_id: str,
+             disk_id: str,
+             disk_name: str,
+             is_initial_replication_complete: str,
+             is_os_disk: str,
+             log_storage_account_id: str,
+             seed_blob_uri: str,
+             seed_managed_disk_id: str,
+             target_managed_disk_id: str,
+             disk_type: Optional[str] = None,
+             ir_details: Optional['outputs.InMageRcmSyncDetailsResponse'] = None,
+             resync_details: Optional['outputs.InMageRcmSyncDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+        _setter("data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
+        _setter("disk_encryption_set_id", disk_encryption_set_id)
+        _setter("disk_id", disk_id)
+        _setter("disk_name", disk_name)
+        _setter("is_initial_replication_complete", is_initial_replication_complete)
+        _setter("is_os_disk", is_os_disk)
+        _setter("log_storage_account_id", log_storage_account_id)
+        _setter("seed_blob_uri", seed_blob_uri)
+        _setter("seed_managed_disk_id", seed_managed_disk_id)
+        _setter("target_managed_disk_id", target_managed_disk_id)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if ir_details is not None:
-            pulumi.set(__self__, "ir_details", ir_details)
+            _setter("ir_details", ir_details)
         if resync_details is not None:
-            pulumi.set(__self__, "resync_details", resync_details)
+            _setter("resync_details", resync_details)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -11379,8 +13258,19 @@ class InMageRcmProtectionContainerMappingDetailsResponse(dict):
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMageRcm'.
         """
-        pulumi.set(__self__, "enable_agent_auto_upgrade", enable_agent_auto_upgrade)
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
+        InMageRcmProtectionContainerMappingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_agent_auto_upgrade=enable_agent_auto_upgrade,
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_agent_auto_upgrade: str,
+             instance_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enable_agent_auto_upgrade", enable_agent_auto_upgrade)
+        _setter("instance_type", 'InMageRcm')
 
     @property
     @pulumi.getter(name="enableAgentAutoUpgrade")
@@ -11637,76 +13527,189 @@ class InMageRcmReplicationDetailsResponse(dict):
         :param str test_network_id: The test network Id.
         :param Sequence['InMageRcmNicDetailsResponse'] vm_nics: The network details.
         """
-        pulumi.set(__self__, "agent_upgrade_attempt_to_version", agent_upgrade_attempt_to_version)
-        pulumi.set(__self__, "agent_upgrade_job_id", agent_upgrade_job_id)
-        pulumi.set(__self__, "agent_upgrade_state", agent_upgrade_state)
-        pulumi.set(__self__, "allocated_memory_in_mb", allocated_memory_in_mb)
-        pulumi.set(__self__, "discovery_type", discovery_type)
-        pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
-        pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
-        pulumi.set(__self__, "firmware_type", firmware_type)
-        pulumi.set(__self__, "initial_replication_processed_bytes", initial_replication_processed_bytes)
-        pulumi.set(__self__, "initial_replication_progress_health", initial_replication_progress_health)
-        pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
-        pulumi.set(__self__, "initial_replication_transferred_bytes", initial_replication_transferred_bytes)
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
-        pulumi.set(__self__, "internal_identifier", internal_identifier)
-        pulumi.set(__self__, "is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
-        pulumi.set(__self__, "is_last_upgrade_successful", is_last_upgrade_successful)
-        pulumi.set(__self__, "last_agent_upgrade_type", last_agent_upgrade_type)
-        pulumi.set(__self__, "last_recovery_point_id", last_recovery_point_id)
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
-        pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
-        pulumi.set(__self__, "last_rpo_in_seconds", last_rpo_in_seconds)
-        pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "primary_nic_ip_address", primary_nic_ip_address)
-        pulumi.set(__self__, "process_server_id", process_server_id)
-        pulumi.set(__self__, "process_server_name", process_server_name)
-        pulumi.set(__self__, "processor_core_count", processor_core_count)
-        pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
-        pulumi.set(__self__, "resync_progress_health", resync_progress_health)
-        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
-        pulumi.set(__self__, "resync_required", resync_required)
-        pulumi.set(__self__, "resync_state", resync_state)
-        pulumi.set(__self__, "resync_transferred_bytes", resync_transferred_bytes)
-        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "target_generation", target_generation)
+        InMageRcmReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_upgrade_attempt_to_version=agent_upgrade_attempt_to_version,
+            agent_upgrade_job_id=agent_upgrade_job_id,
+            agent_upgrade_state=agent_upgrade_state,
+            allocated_memory_in_mb=allocated_memory_in_mb,
+            discovery_type=discovery_type,
+            fabric_discovery_machine_id=fabric_discovery_machine_id,
+            failover_recovery_point_id=failover_recovery_point_id,
+            firmware_type=firmware_type,
+            initial_replication_processed_bytes=initial_replication_processed_bytes,
+            initial_replication_progress_health=initial_replication_progress_health,
+            initial_replication_progress_percentage=initial_replication_progress_percentage,
+            initial_replication_transferred_bytes=initial_replication_transferred_bytes,
+            instance_type=instance_type,
+            internal_identifier=internal_identifier,
+            is_agent_registration_successful_after_failover=is_agent_registration_successful_after_failover,
+            is_last_upgrade_successful=is_last_upgrade_successful,
+            last_agent_upgrade_type=last_agent_upgrade_type,
+            last_recovery_point_id=last_recovery_point_id,
+            last_recovery_point_received=last_recovery_point_received,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            last_rpo_in_seconds=last_rpo_in_seconds,
+            multi_vm_group_name=multi_vm_group_name,
+            os_type=os_type,
+            primary_nic_ip_address=primary_nic_ip_address,
+            process_server_id=process_server_id,
+            process_server_name=process_server_name,
+            processor_core_count=processor_core_count,
+            resync_processed_bytes=resync_processed_bytes,
+            resync_progress_health=resync_progress_health,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_state=resync_state,
+            resync_transferred_bytes=resync_transferred_bytes,
+            run_as_account_id=run_as_account_id,
+            storage_account_id=storage_account_id,
+            target_generation=target_generation,
+            agent_upgrade_blocking_error_details=agent_upgrade_blocking_error_details,
+            discovered_vm_details=discovered_vm_details,
+            last_agent_upgrade_error_details=last_agent_upgrade_error_details,
+            license_type=license_type,
+            mobility_agent_details=mobility_agent_details,
+            protected_disks=protected_disks,
+            target_availability_set_id=target_availability_set_id,
+            target_availability_zone=target_availability_zone,
+            target_boot_diagnostics_storage_account_id=target_boot_diagnostics_storage_account_id,
+            target_location=target_location,
+            target_network_id=target_network_id,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_resource_group_id=target_resource_group_id,
+            target_vm_name=target_vm_name,
+            target_vm_size=target_vm_size,
+            test_network_id=test_network_id,
+            vm_nics=vm_nics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_upgrade_attempt_to_version: str,
+             agent_upgrade_job_id: str,
+             agent_upgrade_state: str,
+             allocated_memory_in_mb: float,
+             discovery_type: str,
+             fabric_discovery_machine_id: str,
+             failover_recovery_point_id: str,
+             firmware_type: str,
+             initial_replication_processed_bytes: float,
+             initial_replication_progress_health: str,
+             initial_replication_progress_percentage: int,
+             initial_replication_transferred_bytes: float,
+             instance_type: str,
+             internal_identifier: str,
+             is_agent_registration_successful_after_failover: bool,
+             is_last_upgrade_successful: str,
+             last_agent_upgrade_type: str,
+             last_recovery_point_id: str,
+             last_recovery_point_received: str,
+             last_rpo_calculated_time: str,
+             last_rpo_in_seconds: float,
+             multi_vm_group_name: str,
+             os_type: str,
+             primary_nic_ip_address: str,
+             process_server_id: str,
+             process_server_name: str,
+             processor_core_count: int,
+             resync_processed_bytes: float,
+             resync_progress_health: str,
+             resync_progress_percentage: int,
+             resync_required: str,
+             resync_state: str,
+             resync_transferred_bytes: float,
+             run_as_account_id: str,
+             storage_account_id: str,
+             target_generation: str,
+             agent_upgrade_blocking_error_details: Optional[Sequence['outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse']] = None,
+             discovered_vm_details: Optional['outputs.InMageRcmDiscoveredProtectedVmDetailsResponse'] = None,
+             last_agent_upgrade_error_details: Optional[Sequence['outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse']] = None,
+             license_type: Optional[str] = None,
+             mobility_agent_details: Optional['outputs.InMageRcmMobilityAgentDetailsResponse'] = None,
+             protected_disks: Optional[Sequence['outputs.InMageRcmProtectedDiskDetailsResponse']] = None,
+             target_availability_set_id: Optional[str] = None,
+             target_availability_zone: Optional[str] = None,
+             target_boot_diagnostics_storage_account_id: Optional[str] = None,
+             target_location: Optional[str] = None,
+             target_network_id: Optional[str] = None,
+             target_proximity_placement_group_id: Optional[str] = None,
+             target_resource_group_id: Optional[str] = None,
+             target_vm_name: Optional[str] = None,
+             target_vm_size: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.InMageRcmNicDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_upgrade_attempt_to_version", agent_upgrade_attempt_to_version)
+        _setter("agent_upgrade_job_id", agent_upgrade_job_id)
+        _setter("agent_upgrade_state", agent_upgrade_state)
+        _setter("allocated_memory_in_mb", allocated_memory_in_mb)
+        _setter("discovery_type", discovery_type)
+        _setter("fabric_discovery_machine_id", fabric_discovery_machine_id)
+        _setter("failover_recovery_point_id", failover_recovery_point_id)
+        _setter("firmware_type", firmware_type)
+        _setter("initial_replication_processed_bytes", initial_replication_processed_bytes)
+        _setter("initial_replication_progress_health", initial_replication_progress_health)
+        _setter("initial_replication_progress_percentage", initial_replication_progress_percentage)
+        _setter("initial_replication_transferred_bytes", initial_replication_transferred_bytes)
+        _setter("instance_type", 'InMageRcm')
+        _setter("internal_identifier", internal_identifier)
+        _setter("is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
+        _setter("is_last_upgrade_successful", is_last_upgrade_successful)
+        _setter("last_agent_upgrade_type", last_agent_upgrade_type)
+        _setter("last_recovery_point_id", last_recovery_point_id)
+        _setter("last_recovery_point_received", last_recovery_point_received)
+        _setter("last_rpo_calculated_time", last_rpo_calculated_time)
+        _setter("last_rpo_in_seconds", last_rpo_in_seconds)
+        _setter("multi_vm_group_name", multi_vm_group_name)
+        _setter("os_type", os_type)
+        _setter("primary_nic_ip_address", primary_nic_ip_address)
+        _setter("process_server_id", process_server_id)
+        _setter("process_server_name", process_server_name)
+        _setter("processor_core_count", processor_core_count)
+        _setter("resync_processed_bytes", resync_processed_bytes)
+        _setter("resync_progress_health", resync_progress_health)
+        _setter("resync_progress_percentage", resync_progress_percentage)
+        _setter("resync_required", resync_required)
+        _setter("resync_state", resync_state)
+        _setter("resync_transferred_bytes", resync_transferred_bytes)
+        _setter("run_as_account_id", run_as_account_id)
+        _setter("storage_account_id", storage_account_id)
+        _setter("target_generation", target_generation)
         if agent_upgrade_blocking_error_details is not None:
-            pulumi.set(__self__, "agent_upgrade_blocking_error_details", agent_upgrade_blocking_error_details)
+            _setter("agent_upgrade_blocking_error_details", agent_upgrade_blocking_error_details)
         if discovered_vm_details is not None:
-            pulumi.set(__self__, "discovered_vm_details", discovered_vm_details)
+            _setter("discovered_vm_details", discovered_vm_details)
         if last_agent_upgrade_error_details is not None:
-            pulumi.set(__self__, "last_agent_upgrade_error_details", last_agent_upgrade_error_details)
+            _setter("last_agent_upgrade_error_details", last_agent_upgrade_error_details)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if mobility_agent_details is not None:
-            pulumi.set(__self__, "mobility_agent_details", mobility_agent_details)
+            _setter("mobility_agent_details", mobility_agent_details)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if target_availability_set_id is not None:
-            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+            _setter("target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_boot_diagnostics_storage_account_id is not None:
-            pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+            _setter("target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
         if target_location is not None:
-            pulumi.set(__self__, "target_location", target_location)
+            _setter("target_location", target_location)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_resource_group_id is not None:
-            pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+            _setter("target_resource_group_id", target_resource_group_id)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if target_vm_size is not None:
-            pulumi.set(__self__, "target_vm_size", target_vm_size)
+            _setter("target_vm_size", target_vm_size)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
 
     @property
     @pulumi.getter(name="agentUpgradeAttemptToVersion")
@@ -12190,14 +14193,37 @@ class InMageRcmSyncDetailsResponse(dict):
         :param str start_time: The start time.
         :param float transferred_bytes: The transferred bytes from source VM to azure for the disk.
         """
-        pulumi.set(__self__, "last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
-        pulumi.set(__self__, "last_data_transfer_time_utc", last_data_transfer_time_utc)
-        pulumi.set(__self__, "last_refresh_time", last_refresh_time)
-        pulumi.set(__self__, "processed_bytes", processed_bytes)
-        pulumi.set(__self__, "progress_health", progress_health)
-        pulumi.set(__self__, "progress_percentage", progress_percentage)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "transferred_bytes", transferred_bytes)
+        InMageRcmSyncDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last15_minutes_transferred_bytes=last15_minutes_transferred_bytes,
+            last_data_transfer_time_utc=last_data_transfer_time_utc,
+            last_refresh_time=last_refresh_time,
+            processed_bytes=processed_bytes,
+            progress_health=progress_health,
+            progress_percentage=progress_percentage,
+            start_time=start_time,
+            transferred_bytes=transferred_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last15_minutes_transferred_bytes: float,
+             last_data_transfer_time_utc: str,
+             last_refresh_time: str,
+             processed_bytes: float,
+             progress_health: str,
+             progress_percentage: int,
+             start_time: str,
+             transferred_bytes: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
+        _setter("last_data_transfer_time_utc", last_data_transfer_time_utc)
+        _setter("last_refresh_time", last_refresh_time)
+        _setter("processed_bytes", processed_bytes)
+        _setter("progress_health", progress_health)
+        _setter("progress_percentage", progress_percentage)
+        _setter("start_time", start_time)
+        _setter("transferred_bytes", transferred_bytes)
 
     @property
     @pulumi.getter(name="last15MinutesTransferredBytes")
@@ -12451,87 +14477,176 @@ class InMageReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'InMage')
+        InMageReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            active_site_type=active_site_type,
+            agent_details=agent_details,
+            azure_storage_account_id=azure_storage_account_id,
+            compressed_data_rate_in_mb=compressed_data_rate_in_mb,
+            consistency_points=consistency_points,
+            datastores=datastores,
+            discovery_type=discovery_type,
+            disk_resized=disk_resized,
+            infrastructure_vm_id=infrastructure_vm_id,
+            ip_address=ip_address,
+            is_additional_stats_available=is_additional_stats_available,
+            last_heartbeat=last_heartbeat,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            last_update_received_time=last_update_received_time,
+            master_target_id=master_target_id,
+            multi_vm_group_id=multi_vm_group_id,
+            multi_vm_group_name=multi_vm_group_name,
+            multi_vm_sync_status=multi_vm_sync_status,
+            os_details=os_details,
+            os_version=os_version,
+            process_server_id=process_server_id,
+            protected_disks=protected_disks,
+            protection_stage=protection_stage,
+            reboot_after_update_status=reboot_after_update_status,
+            replica_id=replica_id,
+            resync_details=resync_details,
+            retention_window_end=retention_window_end,
+            retention_window_start=retention_window_start,
+            rpo_in_seconds=rpo_in_seconds,
+            source_vm_cpu_count=source_vm_cpu_count,
+            source_vm_ram_size_in_mb=source_vm_ram_size_in_mb,
+            total_data_transferred=total_data_transferred,
+            total_progress_health=total_progress_health,
+            uncompressed_data_rate_in_mb=uncompressed_data_rate_in_mb,
+            v_center_infrastructure_id=v_center_infrastructure_id,
+            validation_errors=validation_errors,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             active_site_type: Optional[str] = None,
+             agent_details: Optional['outputs.InMageAgentDetailsResponse'] = None,
+             azure_storage_account_id: Optional[str] = None,
+             compressed_data_rate_in_mb: Optional[float] = None,
+             consistency_points: Optional[Mapping[str, str]] = None,
+             datastores: Optional[Sequence[str]] = None,
+             discovery_type: Optional[str] = None,
+             disk_resized: Optional[str] = None,
+             infrastructure_vm_id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             is_additional_stats_available: Optional[bool] = None,
+             last_heartbeat: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             last_update_received_time: Optional[str] = None,
+             master_target_id: Optional[str] = None,
+             multi_vm_group_id: Optional[str] = None,
+             multi_vm_group_name: Optional[str] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             os_details: Optional['outputs.OSDiskDetailsResponse'] = None,
+             os_version: Optional[str] = None,
+             process_server_id: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.InMageProtectedDiskDetailsResponse']] = None,
+             protection_stage: Optional[str] = None,
+             reboot_after_update_status: Optional[str] = None,
+             replica_id: Optional[str] = None,
+             resync_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             retention_window_end: Optional[str] = None,
+             retention_window_start: Optional[str] = None,
+             rpo_in_seconds: Optional[float] = None,
+             source_vm_cpu_count: Optional[int] = None,
+             source_vm_ram_size_in_mb: Optional[int] = None,
+             total_data_transferred: Optional[float] = None,
+             total_progress_health: Optional[str] = None,
+             uncompressed_data_rate_in_mb: Optional[float] = None,
+             v_center_infrastructure_id: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'InMage')
         if active_site_type is not None:
-            pulumi.set(__self__, "active_site_type", active_site_type)
+            _setter("active_site_type", active_site_type)
         if agent_details is not None:
-            pulumi.set(__self__, "agent_details", agent_details)
+            _setter("agent_details", agent_details)
         if azure_storage_account_id is not None:
-            pulumi.set(__self__, "azure_storage_account_id", azure_storage_account_id)
+            _setter("azure_storage_account_id", azure_storage_account_id)
         if compressed_data_rate_in_mb is not None:
-            pulumi.set(__self__, "compressed_data_rate_in_mb", compressed_data_rate_in_mb)
+            _setter("compressed_data_rate_in_mb", compressed_data_rate_in_mb)
         if consistency_points is not None:
-            pulumi.set(__self__, "consistency_points", consistency_points)
+            _setter("consistency_points", consistency_points)
         if datastores is not None:
-            pulumi.set(__self__, "datastores", datastores)
+            _setter("datastores", datastores)
         if discovery_type is not None:
-            pulumi.set(__self__, "discovery_type", discovery_type)
+            _setter("discovery_type", discovery_type)
         if disk_resized is not None:
-            pulumi.set(__self__, "disk_resized", disk_resized)
+            _setter("disk_resized", disk_resized)
         if infrastructure_vm_id is not None:
-            pulumi.set(__self__, "infrastructure_vm_id", infrastructure_vm_id)
+            _setter("infrastructure_vm_id", infrastructure_vm_id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if is_additional_stats_available is not None:
-            pulumi.set(__self__, "is_additional_stats_available", is_additional_stats_available)
+            _setter("is_additional_stats_available", is_additional_stats_available)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if last_update_received_time is not None:
-            pulumi.set(__self__, "last_update_received_time", last_update_received_time)
+            _setter("last_update_received_time", last_update_received_time)
         if master_target_id is not None:
-            pulumi.set(__self__, "master_target_id", master_target_id)
+            _setter("master_target_id", master_target_id)
         if multi_vm_group_id is not None:
-            pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
+            _setter("multi_vm_group_id", multi_vm_group_id)
         if multi_vm_group_name is not None:
-            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+            _setter("multi_vm_group_name", multi_vm_group_name)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if os_details is not None:
-            pulumi.set(__self__, "os_details", os_details)
+            _setter("os_details", os_details)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if protection_stage is not None:
-            pulumi.set(__self__, "protection_stage", protection_stage)
+            _setter("protection_stage", protection_stage)
         if reboot_after_update_status is not None:
-            pulumi.set(__self__, "reboot_after_update_status", reboot_after_update_status)
+            _setter("reboot_after_update_status", reboot_after_update_status)
         if replica_id is not None:
-            pulumi.set(__self__, "replica_id", replica_id)
+            _setter("replica_id", replica_id)
         if resync_details is not None:
-            pulumi.set(__self__, "resync_details", resync_details)
+            _setter("resync_details", resync_details)
         if retention_window_end is not None:
-            pulumi.set(__self__, "retention_window_end", retention_window_end)
+            _setter("retention_window_end", retention_window_end)
         if retention_window_start is not None:
-            pulumi.set(__self__, "retention_window_start", retention_window_start)
+            _setter("retention_window_start", retention_window_start)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if source_vm_cpu_count is not None:
-            pulumi.set(__self__, "source_vm_cpu_count", source_vm_cpu_count)
+            _setter("source_vm_cpu_count", source_vm_cpu_count)
         if source_vm_ram_size_in_mb is not None:
-            pulumi.set(__self__, "source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
+            _setter("source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
         if total_data_transferred is not None:
-            pulumi.set(__self__, "total_data_transferred", total_data_transferred)
+            _setter("total_data_transferred", total_data_transferred)
         if total_progress_health is not None:
-            pulumi.set(__self__, "total_progress_health", total_progress_health)
+            _setter("total_progress_health", total_progress_health)
         if uncompressed_data_rate_in_mb is not None:
-            pulumi.set(__self__, "uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
+            _setter("uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
         if v_center_infrastructure_id is not None:
-            pulumi.set(__self__, "v_center_infrastructure_id", v_center_infrastructure_id)
+            _setter("v_center_infrastructure_id", v_center_infrastructure_id)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -12895,10 +15010,21 @@ class InitialReplicationDetailsResponse(dict):
         :param str initial_replication_progress_percentage: The initial replication progress percentage.
         :param str initial_replication_type: Initial replication type.
         """
+        InitialReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initial_replication_progress_percentage=initial_replication_progress_percentage,
+            initial_replication_type=initial_replication_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initial_replication_progress_percentage: Optional[str] = None,
+             initial_replication_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if initial_replication_progress_percentage is not None:
-            pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
+            _setter("initial_replication_progress_percentage", initial_replication_progress_percentage)
         if initial_replication_type is not None:
-            pulumi.set(__self__, "initial_replication_type", initial_replication_type)
+            _setter("initial_replication_type", initial_replication_type)
 
     @property
     @pulumi.getter(name="initialReplicationProgressPercentage")
@@ -12997,34 +15123,69 @@ class InnerHealthErrorResponse(dict):
         :param str recovery_provider_error_message: DRA error message.
         :param str summary_message: Summary message of the entity.
         """
+        InnerHealthErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time_utc=creation_time_utc,
+            customer_resolvability=customer_resolvability,
+            entity_id=entity_id,
+            error_category=error_category,
+            error_code=error_code,
+            error_id=error_id,
+            error_level=error_level,
+            error_message=error_message,
+            error_source=error_source,
+            error_type=error_type,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+            recovery_provider_error_message=recovery_provider_error_message,
+            summary_message=summary_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time_utc: Optional[str] = None,
+             customer_resolvability: Optional[str] = None,
+             entity_id: Optional[str] = None,
+             error_category: Optional[str] = None,
+             error_code: Optional[str] = None,
+             error_id: Optional[str] = None,
+             error_level: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_source: Optional[str] = None,
+             error_type: Optional[str] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             recovery_provider_error_message: Optional[str] = None,
+             summary_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if creation_time_utc is not None:
-            pulumi.set(__self__, "creation_time_utc", creation_time_utc)
+            _setter("creation_time_utc", creation_time_utc)
         if customer_resolvability is not None:
-            pulumi.set(__self__, "customer_resolvability", customer_resolvability)
+            _setter("customer_resolvability", customer_resolvability)
         if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
+            _setter("entity_id", entity_id)
         if error_category is not None:
-            pulumi.set(__self__, "error_category", error_category)
+            _setter("error_category", error_category)
         if error_code is not None:
-            pulumi.set(__self__, "error_code", error_code)
+            _setter("error_code", error_code)
         if error_id is not None:
-            pulumi.set(__self__, "error_id", error_id)
+            _setter("error_id", error_id)
         if error_level is not None:
-            pulumi.set(__self__, "error_level", error_level)
+            _setter("error_level", error_level)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if error_source is not None:
-            pulumi.set(__self__, "error_source", error_source)
+            _setter("error_source", error_source)
         if error_type is not None:
-            pulumi.set(__self__, "error_type", error_type)
+            _setter("error_type", error_type)
         if possible_causes is not None:
-            pulumi.set(__self__, "possible_causes", possible_causes)
+            _setter("possible_causes", possible_causes)
         if recommended_action is not None:
-            pulumi.set(__self__, "recommended_action", recommended_action)
+            _setter("recommended_action", recommended_action)
         if recovery_provider_error_message is not None:
-            pulumi.set(__self__, "recovery_provider_error_message", recovery_provider_error_message)
+            _setter("recovery_provider_error_message", recovery_provider_error_message)
         if summary_message is not None:
-            pulumi.set(__self__, "summary_message", summary_message)
+            _setter("summary_message", summary_message)
 
     @property
     @pulumi.getter(name="creationTimeUtc")
@@ -13167,14 +15328,29 @@ class InputEndpointResponse(dict):
                  private_port: Optional[int] = None,
                  protocol: Optional[str] = None,
                  public_port: Optional[int] = None):
+        InputEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_name=endpoint_name,
+            private_port=private_port,
+            protocol=protocol,
+            public_port=public_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_name: Optional[str] = None,
+             private_port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             public_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+            _setter("endpoint_name", endpoint_name)
         if private_port is not None:
-            pulumi.set(__self__, "private_port", private_port)
+            _setter("private_port", private_port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if public_port is not None:
-            pulumi.set(__self__, "public_port", public_port)
+            _setter("public_port", public_port)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -13247,15 +15423,40 @@ class MarsAgentDetailsResponse(dict):
         :param str name: The Mars agent name.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        MarsAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: str,
+             fabric_object_id: str,
+             fqdn: str,
+             health: str,
+             health_errors: Sequence['outputs.HealthErrorResponse'],
+             id: str,
+             last_heartbeat_utc: str,
+             name: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bios_id", bios_id)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -13422,42 +15623,85 @@ class MasterTargetServerResponse(dict):
         :param Sequence['HealthErrorResponse'] validation_errors: Validation errors.
         :param str version_status: Version status.
         """
+        MasterTargetServerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            agent_version_details=agent_version_details,
+            data_stores=data_stores,
+            disk_count=disk_count,
+            health_errors=health_errors,
+            id=id,
+            ip_address=ip_address,
+            last_heartbeat=last_heartbeat,
+            mars_agent_expiry_date=mars_agent_expiry_date,
+            mars_agent_version=mars_agent_version,
+            mars_agent_version_details=mars_agent_version_details,
+            name=name,
+            os_type=os_type,
+            os_version=os_version,
+            retention_volumes=retention_volumes,
+            validation_errors=validation_errors,
+            version_status=version_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             data_stores: Optional[Sequence['outputs.DataStoreResponse']] = None,
+             disk_count: Optional[int] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             mars_agent_expiry_date: Optional[str] = None,
+             mars_agent_version: Optional[str] = None,
+             mars_agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             os_version: Optional[str] = None,
+             retention_volumes: Optional[Sequence['outputs.RetentionVolumeResponse']] = None,
+             validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             version_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if agent_version_details is not None:
-            pulumi.set(__self__, "agent_version_details", agent_version_details)
+            _setter("agent_version_details", agent_version_details)
         if data_stores is not None:
-            pulumi.set(__self__, "data_stores", data_stores)
+            _setter("data_stores", data_stores)
         if disk_count is not None:
-            pulumi.set(__self__, "disk_count", disk_count)
+            _setter("disk_count", disk_count)
         if health_errors is not None:
-            pulumi.set(__self__, "health_errors", health_errors)
+            _setter("health_errors", health_errors)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if mars_agent_expiry_date is not None:
-            pulumi.set(__self__, "mars_agent_expiry_date", mars_agent_expiry_date)
+            _setter("mars_agent_expiry_date", mars_agent_expiry_date)
         if mars_agent_version is not None:
-            pulumi.set(__self__, "mars_agent_version", mars_agent_version)
+            _setter("mars_agent_version", mars_agent_version)
         if mars_agent_version_details is not None:
-            pulumi.set(__self__, "mars_agent_version_details", mars_agent_version_details)
+            _setter("mars_agent_version_details", mars_agent_version_details)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if retention_volumes is not None:
-            pulumi.set(__self__, "retention_volumes", retention_volumes)
+            _setter("retention_volumes", retention_volumes)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
         if version_status is not None:
-            pulumi.set(__self__, "version_status", version_status)
+            _setter("version_status", version_status)
 
     @property
     @pulumi.getter(name="agentExpiryDate")
@@ -13706,27 +15950,74 @@ class MigrationItemPropertiesResponse(dict):
         :param str test_migrate_state_description: The test migrate state description.
         :param 'VMwareCbtMigrationDetailsResponse' provider_specific_details: The migration provider custom settings.
         """
-        pulumi.set(__self__, "allowed_operations", allowed_operations)
-        pulumi.set(__self__, "critical_job_history", critical_job_history)
-        pulumi.set(__self__, "current_job", current_job)
-        pulumi.set(__self__, "event_correlation_id", event_correlation_id)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "last_migration_status", last_migration_status)
-        pulumi.set(__self__, "last_migration_time", last_migration_time)
-        pulumi.set(__self__, "last_test_migration_status", last_test_migration_status)
-        pulumi.set(__self__, "last_test_migration_time", last_test_migration_time)
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "migration_state_description", migration_state_description)
-        pulumi.set(__self__, "policy_friendly_name", policy_friendly_name)
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "recovery_services_provider_id", recovery_services_provider_id)
-        pulumi.set(__self__, "replication_status", replication_status)
-        pulumi.set(__self__, "test_migrate_state", test_migrate_state)
-        pulumi.set(__self__, "test_migrate_state_description", test_migrate_state_description)
+        MigrationItemPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_operations=allowed_operations,
+            critical_job_history=critical_job_history,
+            current_job=current_job,
+            event_correlation_id=event_correlation_id,
+            health=health,
+            health_errors=health_errors,
+            last_migration_status=last_migration_status,
+            last_migration_time=last_migration_time,
+            last_test_migration_status=last_test_migration_status,
+            last_test_migration_time=last_test_migration_time,
+            machine_name=machine_name,
+            migration_state=migration_state,
+            migration_state_description=migration_state_description,
+            policy_friendly_name=policy_friendly_name,
+            policy_id=policy_id,
+            recovery_services_provider_id=recovery_services_provider_id,
+            replication_status=replication_status,
+            test_migrate_state=test_migrate_state,
+            test_migrate_state_description=test_migrate_state_description,
+            provider_specific_details=provider_specific_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_operations: Sequence[str],
+             critical_job_history: Sequence['outputs.CriticalJobHistoryDetailsResponse'],
+             current_job: 'outputs.CurrentJobDetailsResponse',
+             event_correlation_id: str,
+             health: str,
+             health_errors: Sequence['outputs.HealthErrorResponse'],
+             last_migration_status: str,
+             last_migration_time: str,
+             last_test_migration_status: str,
+             last_test_migration_time: str,
+             machine_name: str,
+             migration_state: str,
+             migration_state_description: str,
+             policy_friendly_name: str,
+             policy_id: str,
+             recovery_services_provider_id: str,
+             replication_status: str,
+             test_migrate_state: str,
+             test_migrate_state_description: str,
+             provider_specific_details: Optional['outputs.VMwareCbtMigrationDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_operations", allowed_operations)
+        _setter("critical_job_history", critical_job_history)
+        _setter("current_job", current_job)
+        _setter("event_correlation_id", event_correlation_id)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("last_migration_status", last_migration_status)
+        _setter("last_migration_time", last_migration_time)
+        _setter("last_test_migration_status", last_test_migration_status)
+        _setter("last_test_migration_time", last_test_migration_time)
+        _setter("machine_name", machine_name)
+        _setter("migration_state", migration_state)
+        _setter("migration_state_description", migration_state_description)
+        _setter("policy_friendly_name", policy_friendly_name)
+        _setter("policy_id", policy_id)
+        _setter("recovery_services_provider_id", recovery_services_provider_id)
+        _setter("replication_status", replication_status)
+        _setter("test_migrate_state", test_migrate_state)
+        _setter("test_migrate_state_description", test_migrate_state_description)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -13923,12 +16214,25 @@ class MobilityServiceUpdateResponse(dict):
         :param str reboot_status: The reboot status of the update - whether it is required or not.
         :param str version: The version of the latest update.
         """
+        MobilityServiceUpdateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            reboot_status=reboot_status,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: Optional[str] = None,
+             reboot_status: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if reboot_status is not None:
-            pulumi.set(__self__, "reboot_status", reboot_status)
+            _setter("reboot_status", reboot_status)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="osType")
@@ -14013,24 +16317,49 @@ class NetworkMappingPropertiesResponse(dict):
         :param str recovery_network_id: The recovery network id for network mapping.
         :param str state: The pairing state for network mapping.
         """
+        NetworkMappingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_specific_settings=fabric_specific_settings,
+            primary_fabric_friendly_name=primary_fabric_friendly_name,
+            primary_network_friendly_name=primary_network_friendly_name,
+            primary_network_id=primary_network_id,
+            recovery_fabric_arm_id=recovery_fabric_arm_id,
+            recovery_fabric_friendly_name=recovery_fabric_friendly_name,
+            recovery_network_friendly_name=recovery_network_friendly_name,
+            recovery_network_id=recovery_network_id,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_specific_settings: Optional[Any] = None,
+             primary_fabric_friendly_name: Optional[str] = None,
+             primary_network_friendly_name: Optional[str] = None,
+             primary_network_id: Optional[str] = None,
+             recovery_fabric_arm_id: Optional[str] = None,
+             recovery_fabric_friendly_name: Optional[str] = None,
+             recovery_network_friendly_name: Optional[str] = None,
+             recovery_network_id: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fabric_specific_settings is not None:
-            pulumi.set(__self__, "fabric_specific_settings", fabric_specific_settings)
+            _setter("fabric_specific_settings", fabric_specific_settings)
         if primary_fabric_friendly_name is not None:
-            pulumi.set(__self__, "primary_fabric_friendly_name", primary_fabric_friendly_name)
+            _setter("primary_fabric_friendly_name", primary_fabric_friendly_name)
         if primary_network_friendly_name is not None:
-            pulumi.set(__self__, "primary_network_friendly_name", primary_network_friendly_name)
+            _setter("primary_network_friendly_name", primary_network_friendly_name)
         if primary_network_id is not None:
-            pulumi.set(__self__, "primary_network_id", primary_network_id)
+            _setter("primary_network_id", primary_network_id)
         if recovery_fabric_arm_id is not None:
-            pulumi.set(__self__, "recovery_fabric_arm_id", recovery_fabric_arm_id)
+            _setter("recovery_fabric_arm_id", recovery_fabric_arm_id)
         if recovery_fabric_friendly_name is not None:
-            pulumi.set(__self__, "recovery_fabric_friendly_name", recovery_fabric_friendly_name)
+            _setter("recovery_fabric_friendly_name", recovery_fabric_friendly_name)
         if recovery_network_friendly_name is not None:
-            pulumi.set(__self__, "recovery_network_friendly_name", recovery_network_friendly_name)
+            _setter("recovery_network_friendly_name", recovery_network_friendly_name)
         if recovery_network_id is not None:
-            pulumi.set(__self__, "recovery_network_id", recovery_network_id)
+            _setter("recovery_network_id", recovery_network_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="fabricSpecificSettings")
@@ -14153,18 +16482,37 @@ class OSDetailsResponse(dict):
         :param str os_type: VM Disk details.
         :param str product_type: Product type.
         """
+        OSDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            o_s_major_version=o_s_major_version,
+            o_s_minor_version=o_s_minor_version,
+            o_s_version=o_s_version,
+            os_edition=os_edition,
+            os_type=os_type,
+            product_type=product_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             o_s_major_version: Optional[str] = None,
+             o_s_minor_version: Optional[str] = None,
+             o_s_version: Optional[str] = None,
+             os_edition: Optional[str] = None,
+             os_type: Optional[str] = None,
+             product_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if o_s_major_version is not None:
-            pulumi.set(__self__, "o_s_major_version", o_s_major_version)
+            _setter("o_s_major_version", o_s_major_version)
         if o_s_minor_version is not None:
-            pulumi.set(__self__, "o_s_minor_version", o_s_minor_version)
+            _setter("o_s_minor_version", o_s_minor_version)
         if o_s_version is not None:
-            pulumi.set(__self__, "o_s_version", o_s_version)
+            _setter("o_s_version", o_s_version)
         if os_edition is not None:
-            pulumi.set(__self__, "os_edition", os_edition)
+            _setter("os_edition", os_edition)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if product_type is not None:
-            pulumi.set(__self__, "product_type", product_type)
+            _setter("product_type", product_type)
 
     @property
     @pulumi.getter(name="oSMajorVersion")
@@ -14251,12 +16599,25 @@ class OSDiskDetailsResponse(dict):
         :param str os_vhd_id: The id of the disk containing the OS.
         :param str vhd_name: The OS disk VHD name.
         """
+        OSDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            os_vhd_id=os_vhd_id,
+            vhd_name=vhd_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: Optional[str] = None,
+             os_vhd_id: Optional[str] = None,
+             vhd_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if os_vhd_id is not None:
-            pulumi.set(__self__, "os_vhd_id", os_vhd_id)
+            _setter("os_vhd_id", os_vhd_id)
         if vhd_name is not None:
-            pulumi.set(__self__, "vhd_name", vhd_name)
+            _setter("vhd_name", vhd_name)
 
     @property
     @pulumi.getter(name="osType")
@@ -14315,8 +16676,19 @@ class OSUpgradeSupportedVersionsResponse(dict):
         :param str supported_source_os_version: The source OS version name.
         :param Sequence[str] supported_target_os_versions: The target OS version names.
         """
-        pulumi.set(__self__, "supported_source_os_version", supported_source_os_version)
-        pulumi.set(__self__, "supported_target_os_versions", supported_target_os_versions)
+        OSUpgradeSupportedVersionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            supported_source_os_version=supported_source_os_version,
+            supported_target_os_versions=supported_target_os_versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             supported_source_os_version: str,
+             supported_target_os_versions: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("supported_source_os_version", supported_source_os_version)
+        _setter("supported_target_os_versions", supported_target_os_versions)
 
     @property
     @pulumi.getter(name="supportedSourceOsVersion")
@@ -14367,10 +16739,21 @@ class PolicyPropertiesResponse(dict):
         :param str friendly_name: The FriendlyName.
         :param Union['A2APolicyDetailsResponse', 'HyperVReplicaAzurePolicyDetailsResponse', 'HyperVReplicaBasePolicyDetailsResponse', 'HyperVReplicaBluePolicyDetailsResponse', 'HyperVReplicaPolicyDetailsResponse', 'InMageAzureV2PolicyDetailsResponse', 'InMageBasePolicyDetailsResponse', 'InMagePolicyDetailsResponse', 'InMageRcmFailbackPolicyDetailsResponse', 'InMageRcmPolicyDetailsResponse', 'VmwareCbtPolicyDetailsResponse'] provider_specific_details: The ReplicationChannelSetting.
         """
+        PolicyPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            friendly_name=friendly_name,
+            provider_specific_details=provider_specific_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             friendly_name: Optional[str] = None,
+             provider_specific_details: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -14519,35 +16902,100 @@ class ProcessServerDetailsResponse(dict):
         :param float used_space_in_bytes: The used disk space.
         :param str version: The version.
         """
-        pulumi.set(__self__, "available_memory_in_bytes", available_memory_in_bytes)
-        pulumi.set(__self__, "available_space_in_bytes", available_space_in_bytes)
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "disk_usage_status", disk_usage_status)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "free_space_percentage", free_space_percentage)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "historic_health", historic_health)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "memory_usage_percentage", memory_usage_percentage)
-        pulumi.set(__self__, "memory_usage_status", memory_usage_status)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "processor_usage_percentage", processor_usage_percentage)
-        pulumi.set(__self__, "processor_usage_status", processor_usage_status)
-        pulumi.set(__self__, "protected_item_count", protected_item_count)
-        pulumi.set(__self__, "system_load", system_load)
-        pulumi.set(__self__, "system_load_status", system_load_status)
-        pulumi.set(__self__, "throughput_in_bytes", throughput_in_bytes)
-        pulumi.set(__self__, "throughput_status", throughput_status)
-        pulumi.set(__self__, "throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
-        pulumi.set(__self__, "total_memory_in_bytes", total_memory_in_bytes)
-        pulumi.set(__self__, "total_space_in_bytes", total_space_in_bytes)
-        pulumi.set(__self__, "used_memory_in_bytes", used_memory_in_bytes)
-        pulumi.set(__self__, "used_space_in_bytes", used_space_in_bytes)
-        pulumi.set(__self__, "version", version)
+        ProcessServerDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            available_memory_in_bytes=available_memory_in_bytes,
+            available_space_in_bytes=available_space_in_bytes,
+            bios_id=bios_id,
+            disk_usage_status=disk_usage_status,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            free_space_percentage=free_space_percentage,
+            health=health,
+            health_errors=health_errors,
+            historic_health=historic_health,
+            id=id,
+            ip_addresses=ip_addresses,
+            last_heartbeat_utc=last_heartbeat_utc,
+            memory_usage_percentage=memory_usage_percentage,
+            memory_usage_status=memory_usage_status,
+            name=name,
+            processor_usage_percentage=processor_usage_percentage,
+            processor_usage_status=processor_usage_status,
+            protected_item_count=protected_item_count,
+            system_load=system_load,
+            system_load_status=system_load_status,
+            throughput_in_bytes=throughput_in_bytes,
+            throughput_status=throughput_status,
+            throughput_upload_pending_data_in_bytes=throughput_upload_pending_data_in_bytes,
+            total_memory_in_bytes=total_memory_in_bytes,
+            total_space_in_bytes=total_space_in_bytes,
+            used_memory_in_bytes=used_memory_in_bytes,
+            used_space_in_bytes=used_space_in_bytes,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             available_memory_in_bytes: float,
+             available_space_in_bytes: float,
+             bios_id: str,
+             disk_usage_status: str,
+             fabric_object_id: str,
+             fqdn: str,
+             free_space_percentage: float,
+             health: str,
+             health_errors: Sequence['outputs.HealthErrorResponse'],
+             historic_health: str,
+             id: str,
+             ip_addresses: Sequence[str],
+             last_heartbeat_utc: str,
+             memory_usage_percentage: float,
+             memory_usage_status: str,
+             name: str,
+             processor_usage_percentage: float,
+             processor_usage_status: str,
+             protected_item_count: int,
+             system_load: float,
+             system_load_status: str,
+             throughput_in_bytes: float,
+             throughput_status: str,
+             throughput_upload_pending_data_in_bytes: float,
+             total_memory_in_bytes: float,
+             total_space_in_bytes: float,
+             used_memory_in_bytes: float,
+             used_space_in_bytes: float,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("available_memory_in_bytes", available_memory_in_bytes)
+        _setter("available_space_in_bytes", available_space_in_bytes)
+        _setter("bios_id", bios_id)
+        _setter("disk_usage_status", disk_usage_status)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("free_space_percentage", free_space_percentage)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("historic_health", historic_health)
+        _setter("id", id)
+        _setter("ip_addresses", ip_addresses)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("memory_usage_percentage", memory_usage_percentage)
+        _setter("memory_usage_status", memory_usage_status)
+        _setter("name", name)
+        _setter("processor_usage_percentage", processor_usage_percentage)
+        _setter("processor_usage_status", processor_usage_status)
+        _setter("protected_item_count", protected_item_count)
+        _setter("system_load", system_load)
+        _setter("system_load_status", system_load_status)
+        _setter("throughput_in_bytes", throughput_in_bytes)
+        _setter("throughput_status", throughput_status)
+        _setter("throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
+        _setter("total_memory_in_bytes", total_memory_in_bytes)
+        _setter("total_space_in_bytes", total_space_in_bytes)
+        _setter("used_memory_in_bytes", used_memory_in_bytes)
+        _setter("used_space_in_bytes", used_space_in_bytes)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="availableMemoryInBytes")
@@ -14946,70 +17394,149 @@ class ProcessServerResponse(dict):
         :param float total_space_in_bytes: The total space.
         :param str version_status: Version status.
         """
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "mars_communication_status", mars_communication_status)
-        pulumi.set(__self__, "mars_registration_status", mars_registration_status)
-        pulumi.set(__self__, "ps_stats_refresh_time", ps_stats_refresh_time)
-        pulumi.set(__self__, "throughput_in_bytes", throughput_in_bytes)
-        pulumi.set(__self__, "throughput_in_m_bps", throughput_in_m_bps)
-        pulumi.set(__self__, "throughput_status", throughput_status)
-        pulumi.set(__self__, "throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
+        ProcessServerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health=health,
+            mars_communication_status=mars_communication_status,
+            mars_registration_status=mars_registration_status,
+            ps_stats_refresh_time=ps_stats_refresh_time,
+            throughput_in_bytes=throughput_in_bytes,
+            throughput_in_m_bps=throughput_in_m_bps,
+            throughput_status=throughput_status,
+            throughput_upload_pending_data_in_bytes=throughput_upload_pending_data_in_bytes,
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            agent_version_details=agent_version_details,
+            available_memory_in_bytes=available_memory_in_bytes,
+            available_space_in_bytes=available_space_in_bytes,
+            cpu_load=cpu_load,
+            cpu_load_status=cpu_load_status,
+            friendly_name=friendly_name,
+            health_errors=health_errors,
+            host_id=host_id,
+            id=id,
+            ip_address=ip_address,
+            last_heartbeat=last_heartbeat,
+            machine_count=machine_count,
+            memory_usage_status=memory_usage_status,
+            mobility_service_updates=mobility_service_updates,
+            os_type=os_type,
+            os_version=os_version,
+            ps_service_status=ps_service_status,
+            replication_pair_count=replication_pair_count,
+            space_usage_status=space_usage_status,
+            ssl_cert_expiry_date=ssl_cert_expiry_date,
+            ssl_cert_expiry_remaining_days=ssl_cert_expiry_remaining_days,
+            system_load=system_load,
+            system_load_status=system_load_status,
+            total_memory_in_bytes=total_memory_in_bytes,
+            total_space_in_bytes=total_space_in_bytes,
+            version_status=version_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health: str,
+             mars_communication_status: str,
+             mars_registration_status: str,
+             ps_stats_refresh_time: str,
+             throughput_in_bytes: float,
+             throughput_in_m_bps: float,
+             throughput_status: str,
+             throughput_upload_pending_data_in_bytes: float,
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             available_memory_in_bytes: Optional[float] = None,
+             available_space_in_bytes: Optional[float] = None,
+             cpu_load: Optional[str] = None,
+             cpu_load_status: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             host_id: Optional[str] = None,
+             id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             machine_count: Optional[str] = None,
+             memory_usage_status: Optional[str] = None,
+             mobility_service_updates: Optional[Sequence['outputs.MobilityServiceUpdateResponse']] = None,
+             os_type: Optional[str] = None,
+             os_version: Optional[str] = None,
+             ps_service_status: Optional[str] = None,
+             replication_pair_count: Optional[str] = None,
+             space_usage_status: Optional[str] = None,
+             ssl_cert_expiry_date: Optional[str] = None,
+             ssl_cert_expiry_remaining_days: Optional[int] = None,
+             system_load: Optional[str] = None,
+             system_load_status: Optional[str] = None,
+             total_memory_in_bytes: Optional[float] = None,
+             total_space_in_bytes: Optional[float] = None,
+             version_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("health", health)
+        _setter("mars_communication_status", mars_communication_status)
+        _setter("mars_registration_status", mars_registration_status)
+        _setter("ps_stats_refresh_time", ps_stats_refresh_time)
+        _setter("throughput_in_bytes", throughput_in_bytes)
+        _setter("throughput_in_m_bps", throughput_in_m_bps)
+        _setter("throughput_status", throughput_status)
+        _setter("throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if agent_version_details is not None:
-            pulumi.set(__self__, "agent_version_details", agent_version_details)
+            _setter("agent_version_details", agent_version_details)
         if available_memory_in_bytes is not None:
-            pulumi.set(__self__, "available_memory_in_bytes", available_memory_in_bytes)
+            _setter("available_memory_in_bytes", available_memory_in_bytes)
         if available_space_in_bytes is not None:
-            pulumi.set(__self__, "available_space_in_bytes", available_space_in_bytes)
+            _setter("available_space_in_bytes", available_space_in_bytes)
         if cpu_load is not None:
-            pulumi.set(__self__, "cpu_load", cpu_load)
+            _setter("cpu_load", cpu_load)
         if cpu_load_status is not None:
-            pulumi.set(__self__, "cpu_load_status", cpu_load_status)
+            _setter("cpu_load_status", cpu_load_status)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health_errors is not None:
-            pulumi.set(__self__, "health_errors", health_errors)
+            _setter("health_errors", health_errors)
         if host_id is not None:
-            pulumi.set(__self__, "host_id", host_id)
+            _setter("host_id", host_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if machine_count is not None:
-            pulumi.set(__self__, "machine_count", machine_count)
+            _setter("machine_count", machine_count)
         if memory_usage_status is not None:
-            pulumi.set(__self__, "memory_usage_status", memory_usage_status)
+            _setter("memory_usage_status", memory_usage_status)
         if mobility_service_updates is not None:
-            pulumi.set(__self__, "mobility_service_updates", mobility_service_updates)
+            _setter("mobility_service_updates", mobility_service_updates)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if ps_service_status is not None:
-            pulumi.set(__self__, "ps_service_status", ps_service_status)
+            _setter("ps_service_status", ps_service_status)
         if replication_pair_count is not None:
-            pulumi.set(__self__, "replication_pair_count", replication_pair_count)
+            _setter("replication_pair_count", replication_pair_count)
         if space_usage_status is not None:
-            pulumi.set(__self__, "space_usage_status", space_usage_status)
+            _setter("space_usage_status", space_usage_status)
         if ssl_cert_expiry_date is not None:
-            pulumi.set(__self__, "ssl_cert_expiry_date", ssl_cert_expiry_date)
+            _setter("ssl_cert_expiry_date", ssl_cert_expiry_date)
         if ssl_cert_expiry_remaining_days is not None:
-            pulumi.set(__self__, "ssl_cert_expiry_remaining_days", ssl_cert_expiry_remaining_days)
+            _setter("ssl_cert_expiry_remaining_days", ssl_cert_expiry_remaining_days)
         if system_load is not None:
-            pulumi.set(__self__, "system_load", system_load)
+            _setter("system_load", system_load)
         if system_load_status is not None:
-            pulumi.set(__self__, "system_load_status", system_load_status)
+            _setter("system_load_status", system_load_status)
         if total_memory_in_bytes is not None:
-            pulumi.set(__self__, "total_memory_in_bytes", total_memory_in_bytes)
+            _setter("total_memory_in_bytes", total_memory_in_bytes)
         if total_space_in_bytes is not None:
-            pulumi.set(__self__, "total_space_in_bytes", total_space_in_bytes)
+            _setter("total_space_in_bytes", total_space_in_bytes)
         if version_status is not None:
-            pulumi.set(__self__, "version_status", version_status)
+            _setter("version_status", version_status)
 
     @property
     @pulumi.getter
@@ -15364,28 +17891,57 @@ class ProtectionContainerMappingPropertiesResponse(dict):
         :param str target_protection_container_friendly_name: Friendly name of paired container.
         :param str target_protection_container_id: Paired protection container ARM ID.
         """
+        ProtectionContainerMappingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health=health,
+            health_error_details=health_error_details,
+            policy_friendly_name=policy_friendly_name,
+            policy_id=policy_id,
+            provider_specific_details=provider_specific_details,
+            source_fabric_friendly_name=source_fabric_friendly_name,
+            source_protection_container_friendly_name=source_protection_container_friendly_name,
+            state=state,
+            target_fabric_friendly_name=target_fabric_friendly_name,
+            target_protection_container_friendly_name=target_protection_container_friendly_name,
+            target_protection_container_id=target_protection_container_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health: Optional[str] = None,
+             health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             policy_friendly_name: Optional[str] = None,
+             policy_id: Optional[str] = None,
+             provider_specific_details: Optional[Any] = None,
+             source_fabric_friendly_name: Optional[str] = None,
+             source_protection_container_friendly_name: Optional[str] = None,
+             state: Optional[str] = None,
+             target_fabric_friendly_name: Optional[str] = None,
+             target_protection_container_friendly_name: Optional[str] = None,
+             target_protection_container_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if health is not None:
-            pulumi.set(__self__, "health", health)
+            _setter("health", health)
         if health_error_details is not None:
-            pulumi.set(__self__, "health_error_details", health_error_details)
+            _setter("health_error_details", health_error_details)
         if policy_friendly_name is not None:
-            pulumi.set(__self__, "policy_friendly_name", policy_friendly_name)
+            _setter("policy_friendly_name", policy_friendly_name)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
         if source_fabric_friendly_name is not None:
-            pulumi.set(__self__, "source_fabric_friendly_name", source_fabric_friendly_name)
+            _setter("source_fabric_friendly_name", source_fabric_friendly_name)
         if source_protection_container_friendly_name is not None:
-            pulumi.set(__self__, "source_protection_container_friendly_name", source_protection_container_friendly_name)
+            _setter("source_protection_container_friendly_name", source_protection_container_friendly_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if target_fabric_friendly_name is not None:
-            pulumi.set(__self__, "target_fabric_friendly_name", target_fabric_friendly_name)
+            _setter("target_fabric_friendly_name", target_fabric_friendly_name)
         if target_protection_container_friendly_name is not None:
-            pulumi.set(__self__, "target_protection_container_friendly_name", target_protection_container_friendly_name)
+            _setter("target_protection_container_friendly_name", target_protection_container_friendly_name)
         if target_protection_container_id is not None:
-            pulumi.set(__self__, "target_protection_container_id", target_protection_container_id)
+            _setter("target_protection_container_id", target_protection_container_id)
 
     @property
     @pulumi.getter
@@ -15526,15 +18082,40 @@ class PushInstallerDetailsResponse(dict):
         :param str name: The push installer name.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        PushInstallerDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: str,
+             fabric_object_id: str,
+             fqdn: str,
+             health: str,
+             health_errors: Sequence['outputs.HealthErrorResponse'],
+             id: str,
+             last_heartbeat_utc: str,
+             name: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bios_id", bios_id)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -15663,16 +18244,43 @@ class RcmProxyDetailsResponse(dict):
         :param str name: The RCM proxy name.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "client_authentication_type", client_authentication_type)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        RcmProxyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            client_authentication_type=client_authentication_type,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: str,
+             client_authentication_type: str,
+             fabric_object_id: str,
+             fqdn: str,
+             health: str,
+             health_errors: Sequence['outputs.HealthErrorResponse'],
+             id: str,
+             last_heartbeat_utc: str,
+             name: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bios_id", bios_id)
+        _setter("client_authentication_type", client_authentication_type)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -15800,15 +18408,32 @@ class RecoveryPlanA2ADetailsResponse(dict):
         :param 'ExtendedLocationResponse' recovery_extended_location: The recovery extended location.
         :param str recovery_zone: The recovery zone.
         """
-        pulumi.set(__self__, "instance_type", 'A2A')
+        RecoveryPlanA2ADetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            primary_extended_location=primary_extended_location,
+            primary_zone=primary_zone,
+            recovery_extended_location=recovery_extended_location,
+            recovery_zone=recovery_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             primary_zone: Optional[str] = None,
+             recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             recovery_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'A2A')
         if primary_extended_location is not None:
-            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+            _setter("primary_extended_location", primary_extended_location)
         if primary_zone is not None:
-            pulumi.set(__self__, "primary_zone", primary_zone)
+            _setter("primary_zone", primary_zone)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
         if recovery_zone is not None:
-            pulumi.set(__self__, "recovery_zone", recovery_zone)
+            _setter("recovery_zone", recovery_zone)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -15892,10 +18517,25 @@ class RecoveryPlanActionResponse(dict):
         :param Sequence[str] failover_directions: The list of failover directions.
         :param Sequence[str] failover_types: The list of failover types.
         """
-        pulumi.set(__self__, "action_name", action_name)
-        pulumi.set(__self__, "custom_details", custom_details)
-        pulumi.set(__self__, "failover_directions", failover_directions)
-        pulumi.set(__self__, "failover_types", failover_types)
+        RecoveryPlanActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_name=action_name,
+            custom_details=custom_details,
+            failover_directions=failover_directions,
+            failover_types=failover_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_name: str,
+             custom_details: Any,
+             failover_directions: Sequence[str],
+             failover_types: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_name", action_name)
+        _setter("custom_details", custom_details)
+        _setter("failover_directions", failover_directions)
+        _setter("failover_types", failover_types)
 
     @property
     @pulumi.getter(name="actionName")
@@ -15969,12 +18609,27 @@ class RecoveryPlanAutomationRunbookActionDetailsResponse(dict):
         :param str runbook_id: The runbook ARM Id.
         :param str timeout: The runbook timeout.
         """
-        pulumi.set(__self__, "fabric_location", fabric_location)
-        pulumi.set(__self__, "instance_type", 'AutomationRunbookActionDetails')
+        RecoveryPlanAutomationRunbookActionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_location=fabric_location,
+            instance_type=instance_type,
+            runbook_id=runbook_id,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_location: str,
+             instance_type: str,
+             runbook_id: Optional[str] = None,
+             timeout: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fabric_location", fabric_location)
+        _setter("instance_type", 'AutomationRunbookActionDetails')
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="fabricLocation")
@@ -16050,13 +18705,28 @@ class RecoveryPlanGroupResponse(dict):
         :param Sequence['RecoveryPlanProtectedItemResponse'] replication_protected_items: The list of protected items.
         :param Sequence['RecoveryPlanActionResponse'] start_group_actions: The start group actions.
         """
-        pulumi.set(__self__, "group_type", group_type)
+        RecoveryPlanGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_type=group_type,
+            end_group_actions=end_group_actions,
+            replication_protected_items=replication_protected_items,
+            start_group_actions=start_group_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_type: str,
+             end_group_actions: Optional[Sequence['outputs.RecoveryPlanActionResponse']] = None,
+             replication_protected_items: Optional[Sequence['outputs.RecoveryPlanProtectedItemResponse']] = None,
+             start_group_actions: Optional[Sequence['outputs.RecoveryPlanActionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_type", group_type)
         if end_group_actions is not None:
-            pulumi.set(__self__, "end_group_actions", end_group_actions)
+            _setter("end_group_actions", end_group_actions)
         if replication_protected_items is not None:
-            pulumi.set(__self__, "replication_protected_items", replication_protected_items)
+            _setter("replication_protected_items", replication_protected_items)
         if start_group_actions is not None:
-            pulumi.set(__self__, "start_group_actions", start_group_actions)
+            _setter("start_group_actions", start_group_actions)
 
     @property
     @pulumi.getter(name="groupType")
@@ -16122,9 +18792,20 @@ class RecoveryPlanManualActionDetailsResponse(dict):
                Expected value is 'ManualActionDetails'.
         :param str description: The manual action description.
         """
-        pulumi.set(__self__, "instance_type", 'ManualActionDetails')
+        RecoveryPlanManualActionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'ManualActionDetails')
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -16230,38 +18911,77 @@ class RecoveryPlanPropertiesResponse(dict):
         :param str recovery_fabric_id: The recovery fabric Id.
         :param Sequence[str] replication_providers: The list of replication providers.
         """
+        RecoveryPlanPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_operations=allowed_operations,
+            current_scenario=current_scenario,
+            current_scenario_status=current_scenario_status,
+            current_scenario_status_description=current_scenario_status_description,
+            failover_deployment_model=failover_deployment_model,
+            friendly_name=friendly_name,
+            groups=groups,
+            last_planned_failover_time=last_planned_failover_time,
+            last_test_failover_time=last_test_failover_time,
+            last_unplanned_failover_time=last_unplanned_failover_time,
+            primary_fabric_friendly_name=primary_fabric_friendly_name,
+            primary_fabric_id=primary_fabric_id,
+            provider_specific_details=provider_specific_details,
+            recovery_fabric_friendly_name=recovery_fabric_friendly_name,
+            recovery_fabric_id=recovery_fabric_id,
+            replication_providers=replication_providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_operations: Optional[Sequence[str]] = None,
+             current_scenario: Optional['outputs.CurrentScenarioDetailsResponse'] = None,
+             current_scenario_status: Optional[str] = None,
+             current_scenario_status_description: Optional[str] = None,
+             failover_deployment_model: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             groups: Optional[Sequence['outputs.RecoveryPlanGroupResponse']] = None,
+             last_planned_failover_time: Optional[str] = None,
+             last_test_failover_time: Optional[str] = None,
+             last_unplanned_failover_time: Optional[str] = None,
+             primary_fabric_friendly_name: Optional[str] = None,
+             primary_fabric_id: Optional[str] = None,
+             provider_specific_details: Optional[Sequence['outputs.RecoveryPlanA2ADetailsResponse']] = None,
+             recovery_fabric_friendly_name: Optional[str] = None,
+             recovery_fabric_id: Optional[str] = None,
+             replication_providers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_operations is not None:
-            pulumi.set(__self__, "allowed_operations", allowed_operations)
+            _setter("allowed_operations", allowed_operations)
         if current_scenario is not None:
-            pulumi.set(__self__, "current_scenario", current_scenario)
+            _setter("current_scenario", current_scenario)
         if current_scenario_status is not None:
-            pulumi.set(__self__, "current_scenario_status", current_scenario_status)
+            _setter("current_scenario_status", current_scenario_status)
         if current_scenario_status_description is not None:
-            pulumi.set(__self__, "current_scenario_status_description", current_scenario_status_description)
+            _setter("current_scenario_status_description", current_scenario_status_description)
         if failover_deployment_model is not None:
-            pulumi.set(__self__, "failover_deployment_model", failover_deployment_model)
+            _setter("failover_deployment_model", failover_deployment_model)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if last_planned_failover_time is not None:
-            pulumi.set(__self__, "last_planned_failover_time", last_planned_failover_time)
+            _setter("last_planned_failover_time", last_planned_failover_time)
         if last_test_failover_time is not None:
-            pulumi.set(__self__, "last_test_failover_time", last_test_failover_time)
+            _setter("last_test_failover_time", last_test_failover_time)
         if last_unplanned_failover_time is not None:
-            pulumi.set(__self__, "last_unplanned_failover_time", last_unplanned_failover_time)
+            _setter("last_unplanned_failover_time", last_unplanned_failover_time)
         if primary_fabric_friendly_name is not None:
-            pulumi.set(__self__, "primary_fabric_friendly_name", primary_fabric_friendly_name)
+            _setter("primary_fabric_friendly_name", primary_fabric_friendly_name)
         if primary_fabric_id is not None:
-            pulumi.set(__self__, "primary_fabric_id", primary_fabric_id)
+            _setter("primary_fabric_id", primary_fabric_id)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
         if recovery_fabric_friendly_name is not None:
-            pulumi.set(__self__, "recovery_fabric_friendly_name", recovery_fabric_friendly_name)
+            _setter("recovery_fabric_friendly_name", recovery_fabric_friendly_name)
         if recovery_fabric_id is not None:
-            pulumi.set(__self__, "recovery_fabric_id", recovery_fabric_id)
+            _setter("recovery_fabric_id", recovery_fabric_id)
         if replication_providers is not None:
-            pulumi.set(__self__, "replication_providers", replication_providers)
+            _setter("replication_providers", replication_providers)
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -16422,10 +19142,21 @@ class RecoveryPlanProtectedItemResponse(dict):
         :param str id: The ARM Id of the recovery plan protected item.
         :param str virtual_machine_id: The virtual machine Id.
         """
+        RecoveryPlanProtectedItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            virtual_machine_id=virtual_machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             virtual_machine_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+            _setter("virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -16481,11 +19212,26 @@ class RecoveryPlanScriptActionDetailsResponse(dict):
         :param str path: The script path.
         :param str timeout: The script timeout.
         """
-        pulumi.set(__self__, "fabric_location", fabric_location)
-        pulumi.set(__self__, "instance_type", 'ScriptActionDetails')
-        pulumi.set(__self__, "path", path)
+        RecoveryPlanScriptActionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_location=fabric_location,
+            instance_type=instance_type,
+            path=path,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_location: str,
+             instance_type: str,
+             path: str,
+             timeout: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fabric_location", fabric_location)
+        _setter("instance_type", 'ScriptActionDetails')
+        _setter("path", path)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="fabricLocation")
@@ -16625,46 +19371,93 @@ class RecoveryServicesProviderPropertiesResponse(dict):
         :param 'IdentityProviderDetailsResponse' resource_access_identity_details: The resource access identity details.
         :param str server_version: The fabric provider.
         """
+        RecoveryServicesProviderPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_scenarios=allowed_scenarios,
+            authentication_identity_details=authentication_identity_details,
+            bios_id=bios_id,
+            connection_status=connection_status,
+            data_plane_authentication_identity_details=data_plane_authentication_identity_details,
+            dra_identifier=dra_identifier,
+            fabric_friendly_name=fabric_friendly_name,
+            fabric_type=fabric_type,
+            friendly_name=friendly_name,
+            health_error_details=health_error_details,
+            last_heart_beat=last_heart_beat,
+            machine_id=machine_id,
+            machine_name=machine_name,
+            protected_item_count=protected_item_count,
+            provider_version=provider_version,
+            provider_version_details=provider_version_details,
+            provider_version_expiry_date=provider_version_expiry_date,
+            provider_version_state=provider_version_state,
+            resource_access_identity_details=resource_access_identity_details,
+            server_version=server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_scenarios: Optional[Sequence[str]] = None,
+             authentication_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
+             bios_id: Optional[str] = None,
+             connection_status: Optional[str] = None,
+             data_plane_authentication_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
+             dra_identifier: Optional[str] = None,
+             fabric_friendly_name: Optional[str] = None,
+             fabric_type: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             last_heart_beat: Optional[str] = None,
+             machine_id: Optional[str] = None,
+             machine_name: Optional[str] = None,
+             protected_item_count: Optional[int] = None,
+             provider_version: Optional[str] = None,
+             provider_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             provider_version_expiry_date: Optional[str] = None,
+             provider_version_state: Optional[str] = None,
+             resource_access_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
+             server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_scenarios is not None:
-            pulumi.set(__self__, "allowed_scenarios", allowed_scenarios)
+            _setter("allowed_scenarios", allowed_scenarios)
         if authentication_identity_details is not None:
-            pulumi.set(__self__, "authentication_identity_details", authentication_identity_details)
+            _setter("authentication_identity_details", authentication_identity_details)
         if bios_id is not None:
-            pulumi.set(__self__, "bios_id", bios_id)
+            _setter("bios_id", bios_id)
         if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
+            _setter("connection_status", connection_status)
         if data_plane_authentication_identity_details is not None:
-            pulumi.set(__self__, "data_plane_authentication_identity_details", data_plane_authentication_identity_details)
+            _setter("data_plane_authentication_identity_details", data_plane_authentication_identity_details)
         if dra_identifier is not None:
-            pulumi.set(__self__, "dra_identifier", dra_identifier)
+            _setter("dra_identifier", dra_identifier)
         if fabric_friendly_name is not None:
-            pulumi.set(__self__, "fabric_friendly_name", fabric_friendly_name)
+            _setter("fabric_friendly_name", fabric_friendly_name)
         if fabric_type is not None:
-            pulumi.set(__self__, "fabric_type", fabric_type)
+            _setter("fabric_type", fabric_type)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health_error_details is not None:
-            pulumi.set(__self__, "health_error_details", health_error_details)
+            _setter("health_error_details", health_error_details)
         if last_heart_beat is not None:
-            pulumi.set(__self__, "last_heart_beat", last_heart_beat)
+            _setter("last_heart_beat", last_heart_beat)
         if machine_id is not None:
-            pulumi.set(__self__, "machine_id", machine_id)
+            _setter("machine_id", machine_id)
         if machine_name is not None:
-            pulumi.set(__self__, "machine_name", machine_name)
+            _setter("machine_name", machine_name)
         if protected_item_count is not None:
-            pulumi.set(__self__, "protected_item_count", protected_item_count)
+            _setter("protected_item_count", protected_item_count)
         if provider_version is not None:
-            pulumi.set(__self__, "provider_version", provider_version)
+            _setter("provider_version", provider_version)
         if provider_version_details is not None:
-            pulumi.set(__self__, "provider_version_details", provider_version_details)
+            _setter("provider_version_details", provider_version_details)
         if provider_version_expiry_date is not None:
-            pulumi.set(__self__, "provider_version_expiry_date", provider_version_expiry_date)
+            _setter("provider_version_expiry_date", provider_version_expiry_date)
         if provider_version_state is not None:
-            pulumi.set(__self__, "provider_version_state", provider_version_state)
+            _setter("provider_version_state", provider_version_state)
         if resource_access_identity_details is not None:
-            pulumi.set(__self__, "resource_access_identity_details", resource_access_identity_details)
+            _setter("resource_access_identity_details", resource_access_identity_details)
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
 
     @property
     @pulumi.getter(name="allowedScenarios")
@@ -16877,15 +19670,40 @@ class ReplicationAgentDetailsResponse(dict):
         :param str name: The replication agent name.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        ReplicationAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: str,
+             fabric_object_id: str,
+             fqdn: str,
+             health: str,
+             health_errors: Sequence['outputs.HealthErrorResponse'],
+             id: str,
+             last_heartbeat_utc: str,
+             name: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bios_id", bios_id)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -17104,66 +19922,133 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         :param str test_failover_state: The Test failover state.
         :param str test_failover_state_description: The Test failover state description.
         """
+        ReplicationProtectedItemPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_location=active_location,
+            allowed_operations=allowed_operations,
+            current_scenario=current_scenario,
+            event_correlation_id=event_correlation_id,
+            failover_health=failover_health,
+            failover_recovery_point_id=failover_recovery_point_id,
+            friendly_name=friendly_name,
+            health_errors=health_errors,
+            last_successful_failover_time=last_successful_failover_time,
+            last_successful_test_failover_time=last_successful_test_failover_time,
+            policy_friendly_name=policy_friendly_name,
+            policy_id=policy_id,
+            primary_fabric_friendly_name=primary_fabric_friendly_name,
+            primary_fabric_provider=primary_fabric_provider,
+            primary_protection_container_friendly_name=primary_protection_container_friendly_name,
+            protectable_item_id=protectable_item_id,
+            protected_item_type=protected_item_type,
+            protection_state=protection_state,
+            protection_state_description=protection_state_description,
+            provider_specific_details=provider_specific_details,
+            recovery_container_id=recovery_container_id,
+            recovery_fabric_friendly_name=recovery_fabric_friendly_name,
+            recovery_fabric_id=recovery_fabric_id,
+            recovery_protection_container_friendly_name=recovery_protection_container_friendly_name,
+            recovery_services_provider_id=recovery_services_provider_id,
+            replication_health=replication_health,
+            switch_provider_state=switch_provider_state,
+            switch_provider_state_description=switch_provider_state_description,
+            test_failover_state=test_failover_state,
+            test_failover_state_description=test_failover_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_location: Optional[str] = None,
+             allowed_operations: Optional[Sequence[str]] = None,
+             current_scenario: Optional['outputs.CurrentScenarioDetailsResponse'] = None,
+             event_correlation_id: Optional[str] = None,
+             failover_health: Optional[str] = None,
+             failover_recovery_point_id: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             last_successful_failover_time: Optional[str] = None,
+             last_successful_test_failover_time: Optional[str] = None,
+             policy_friendly_name: Optional[str] = None,
+             policy_id: Optional[str] = None,
+             primary_fabric_friendly_name: Optional[str] = None,
+             primary_fabric_provider: Optional[str] = None,
+             primary_protection_container_friendly_name: Optional[str] = None,
+             protectable_item_id: Optional[str] = None,
+             protected_item_type: Optional[str] = None,
+             protection_state: Optional[str] = None,
+             protection_state_description: Optional[str] = None,
+             provider_specific_details: Optional[Any] = None,
+             recovery_container_id: Optional[str] = None,
+             recovery_fabric_friendly_name: Optional[str] = None,
+             recovery_fabric_id: Optional[str] = None,
+             recovery_protection_container_friendly_name: Optional[str] = None,
+             recovery_services_provider_id: Optional[str] = None,
+             replication_health: Optional[str] = None,
+             switch_provider_state: Optional[str] = None,
+             switch_provider_state_description: Optional[str] = None,
+             test_failover_state: Optional[str] = None,
+             test_failover_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if active_location is not None:
-            pulumi.set(__self__, "active_location", active_location)
+            _setter("active_location", active_location)
         if allowed_operations is not None:
-            pulumi.set(__self__, "allowed_operations", allowed_operations)
+            _setter("allowed_operations", allowed_operations)
         if current_scenario is not None:
-            pulumi.set(__self__, "current_scenario", current_scenario)
+            _setter("current_scenario", current_scenario)
         if event_correlation_id is not None:
-            pulumi.set(__self__, "event_correlation_id", event_correlation_id)
+            _setter("event_correlation_id", event_correlation_id)
         if failover_health is not None:
-            pulumi.set(__self__, "failover_health", failover_health)
+            _setter("failover_health", failover_health)
         if failover_recovery_point_id is not None:
-            pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
+            _setter("failover_recovery_point_id", failover_recovery_point_id)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health_errors is not None:
-            pulumi.set(__self__, "health_errors", health_errors)
+            _setter("health_errors", health_errors)
         if last_successful_failover_time is not None:
-            pulumi.set(__self__, "last_successful_failover_time", last_successful_failover_time)
+            _setter("last_successful_failover_time", last_successful_failover_time)
         if last_successful_test_failover_time is not None:
-            pulumi.set(__self__, "last_successful_test_failover_time", last_successful_test_failover_time)
+            _setter("last_successful_test_failover_time", last_successful_test_failover_time)
         if policy_friendly_name is not None:
-            pulumi.set(__self__, "policy_friendly_name", policy_friendly_name)
+            _setter("policy_friendly_name", policy_friendly_name)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if primary_fabric_friendly_name is not None:
-            pulumi.set(__self__, "primary_fabric_friendly_name", primary_fabric_friendly_name)
+            _setter("primary_fabric_friendly_name", primary_fabric_friendly_name)
         if primary_fabric_provider is not None:
-            pulumi.set(__self__, "primary_fabric_provider", primary_fabric_provider)
+            _setter("primary_fabric_provider", primary_fabric_provider)
         if primary_protection_container_friendly_name is not None:
-            pulumi.set(__self__, "primary_protection_container_friendly_name", primary_protection_container_friendly_name)
+            _setter("primary_protection_container_friendly_name", primary_protection_container_friendly_name)
         if protectable_item_id is not None:
-            pulumi.set(__self__, "protectable_item_id", protectable_item_id)
+            _setter("protectable_item_id", protectable_item_id)
         if protected_item_type is not None:
-            pulumi.set(__self__, "protected_item_type", protected_item_type)
+            _setter("protected_item_type", protected_item_type)
         if protection_state is not None:
-            pulumi.set(__self__, "protection_state", protection_state)
+            _setter("protection_state", protection_state)
         if protection_state_description is not None:
-            pulumi.set(__self__, "protection_state_description", protection_state_description)
+            _setter("protection_state_description", protection_state_description)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
         if recovery_container_id is not None:
-            pulumi.set(__self__, "recovery_container_id", recovery_container_id)
+            _setter("recovery_container_id", recovery_container_id)
         if recovery_fabric_friendly_name is not None:
-            pulumi.set(__self__, "recovery_fabric_friendly_name", recovery_fabric_friendly_name)
+            _setter("recovery_fabric_friendly_name", recovery_fabric_friendly_name)
         if recovery_fabric_id is not None:
-            pulumi.set(__self__, "recovery_fabric_id", recovery_fabric_id)
+            _setter("recovery_fabric_id", recovery_fabric_id)
         if recovery_protection_container_friendly_name is not None:
-            pulumi.set(__self__, "recovery_protection_container_friendly_name", recovery_protection_container_friendly_name)
+            _setter("recovery_protection_container_friendly_name", recovery_protection_container_friendly_name)
         if recovery_services_provider_id is not None:
-            pulumi.set(__self__, "recovery_services_provider_id", recovery_services_provider_id)
+            _setter("recovery_services_provider_id", recovery_services_provider_id)
         if replication_health is not None:
-            pulumi.set(__self__, "replication_health", replication_health)
+            _setter("replication_health", replication_health)
         if switch_provider_state is not None:
-            pulumi.set(__self__, "switch_provider_state", switch_provider_state)
+            _setter("switch_provider_state", switch_provider_state)
         if switch_provider_state_description is not None:
-            pulumi.set(__self__, "switch_provider_state_description", switch_provider_state_description)
+            _setter("switch_provider_state_description", switch_provider_state_description)
         if test_failover_state is not None:
-            pulumi.set(__self__, "test_failover_state", test_failover_state)
+            _setter("test_failover_state", test_failover_state)
         if test_failover_state_description is not None:
-            pulumi.set(__self__, "test_failover_state_description", test_failover_state_description)
+            _setter("test_failover_state_description", test_failover_state_description)
 
     @property
     @pulumi.getter(name="activeLocation")
@@ -17472,19 +20357,52 @@ class ReprotectAgentDetailsResponse(dict):
         :param str vcenter_id: The Vcenter Id.
         :param str version: The version.
         """
-        pulumi.set(__self__, "accessible_datastores", accessible_datastores)
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_discovery_in_utc", last_discovery_in_utc)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protected_item_count", protected_item_count)
-        pulumi.set(__self__, "vcenter_id", vcenter_id)
-        pulumi.set(__self__, "version", version)
+        ReprotectAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accessible_datastores=accessible_datastores,
+            bios_id=bios_id,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_discovery_in_utc=last_discovery_in_utc,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            protected_item_count=protected_item_count,
+            vcenter_id=vcenter_id,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accessible_datastores: Sequence[str],
+             bios_id: str,
+             fabric_object_id: str,
+             fqdn: str,
+             health: str,
+             health_errors: Sequence['outputs.HealthErrorResponse'],
+             id: str,
+             last_discovery_in_utc: str,
+             last_heartbeat_utc: str,
+             name: str,
+             protected_item_count: int,
+             vcenter_id: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("accessible_datastores", accessible_datastores)
+        _setter("bios_id", bios_id)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_discovery_in_utc", last_discovery_in_utc)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("protected_item_count", protected_item_count)
+        _setter("vcenter_id", vcenter_id)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="accessibleDatastores")
@@ -17631,14 +20549,29 @@ class RetentionVolumeResponse(dict):
         :param int threshold_percentage: The threshold percentage.
         :param str volume_name: The volume name.
         """
+        RetentionVolumeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            free_space_in_bytes=free_space_in_bytes,
+            threshold_percentage=threshold_percentage,
+            volume_name=volume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: Optional[float] = None,
+             free_space_in_bytes: Optional[float] = None,
+             threshold_percentage: Optional[int] = None,
+             volume_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity_in_bytes is not None:
-            pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
+            _setter("capacity_in_bytes", capacity_in_bytes)
         if free_space_in_bytes is not None:
-            pulumi.set(__self__, "free_space_in_bytes", free_space_in_bytes)
+            _setter("free_space_in_bytes", free_space_in_bytes)
         if threshold_percentage is not None:
-            pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+            _setter("threshold_percentage", threshold_percentage)
         if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+            _setter("volume_name", volume_name)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -17705,10 +20638,21 @@ class RunAsAccountResponse(dict):
         :param str account_id: The CS RunAs account Id.
         :param str account_name: The CS RunAs account name.
         """
+        RunAsAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            account_name=account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             account_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
 
     @property
     @pulumi.getter(name="accountId")
@@ -17755,8 +20699,17 @@ class StorageClassificationMappingPropertiesResponse(dict):
         Storage mapping properties.
         :param str target_storage_classification_id: Target storage object Id.
         """
+        StorageClassificationMappingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_storage_classification_id=target_storage_classification_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_storage_classification_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if target_storage_classification_id is not None:
-            pulumi.set(__self__, "target_storage_classification_id", target_storage_classification_id)
+            _setter("target_storage_classification_id", target_storage_classification_id)
 
     @property
     @pulumi.getter(name="targetStorageClassificationId")
@@ -17833,28 +20786,57 @@ class VCenterPropertiesResponse(dict):
         :param str process_server_id: The process server Id.
         :param str run_as_account_id: The account Id which has privileges to discover the vCenter.
         """
+        VCenterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            discovery_status=discovery_status,
+            fabric_arm_resource_name=fabric_arm_resource_name,
+            friendly_name=friendly_name,
+            health_errors=health_errors,
+            infrastructure_id=infrastructure_id,
+            internal_id=internal_id,
+            ip_address=ip_address,
+            last_heartbeat=last_heartbeat,
+            port=port,
+            process_server_id=process_server_id,
+            run_as_account_id=run_as_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             discovery_status: Optional[str] = None,
+             fabric_arm_resource_name: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             infrastructure_id: Optional[str] = None,
+             internal_id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             port: Optional[str] = None,
+             process_server_id: Optional[str] = None,
+             run_as_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if discovery_status is not None:
-            pulumi.set(__self__, "discovery_status", discovery_status)
+            _setter("discovery_status", discovery_status)
         if fabric_arm_resource_name is not None:
-            pulumi.set(__self__, "fabric_arm_resource_name", fabric_arm_resource_name)
+            _setter("fabric_arm_resource_name", fabric_arm_resource_name)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health_errors is not None:
-            pulumi.set(__self__, "health_errors", health_errors)
+            _setter("health_errors", health_errors)
         if infrastructure_id is not None:
-            pulumi.set(__self__, "infrastructure_id", infrastructure_id)
+            _setter("infrastructure_id", infrastructure_id)
         if internal_id is not None:
-            pulumi.set(__self__, "internal_id", internal_id)
+            _setter("internal_id", internal_id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
 
     @property
     @pulumi.getter(name="discoveryStatus")
@@ -18045,48 +21027,93 @@ class VMNicDetailsResponse(dict):
         :param str tfo_vm_network_id: The network to be used by NIC during test failover.
         :param str v_m_network_name: VM network name.
         """
+        VMNicDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_accelerated_networking_on_recovery=enable_accelerated_networking_on_recovery,
+            enable_accelerated_networking_on_tfo=enable_accelerated_networking_on_tfo,
+            ip_configs=ip_configs,
+            nic_id=nic_id,
+            recovery_network_security_group_id=recovery_network_security_group_id,
+            recovery_nic_name=recovery_nic_name,
+            recovery_nic_resource_group_name=recovery_nic_resource_group_name,
+            recovery_vm_network_id=recovery_vm_network_id,
+            replica_nic_id=replica_nic_id,
+            reuse_existing_nic=reuse_existing_nic,
+            selection_type=selection_type,
+            source_nic_arm_id=source_nic_arm_id,
+            target_nic_name=target_nic_name,
+            tfo_network_security_group_id=tfo_network_security_group_id,
+            tfo_recovery_nic_name=tfo_recovery_nic_name,
+            tfo_recovery_nic_resource_group_name=tfo_recovery_nic_resource_group_name,
+            tfo_reuse_existing_nic=tfo_reuse_existing_nic,
+            tfo_vm_network_id=tfo_vm_network_id,
+            v_m_network_name=v_m_network_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_accelerated_networking_on_recovery: Optional[bool] = None,
+             enable_accelerated_networking_on_tfo: Optional[bool] = None,
+             ip_configs: Optional[Sequence['outputs.IPConfigDetailsResponse']] = None,
+             nic_id: Optional[str] = None,
+             recovery_network_security_group_id: Optional[str] = None,
+             recovery_nic_name: Optional[str] = None,
+             recovery_nic_resource_group_name: Optional[str] = None,
+             recovery_vm_network_id: Optional[str] = None,
+             replica_nic_id: Optional[str] = None,
+             reuse_existing_nic: Optional[bool] = None,
+             selection_type: Optional[str] = None,
+             source_nic_arm_id: Optional[str] = None,
+             target_nic_name: Optional[str] = None,
+             tfo_network_security_group_id: Optional[str] = None,
+             tfo_recovery_nic_name: Optional[str] = None,
+             tfo_recovery_nic_resource_group_name: Optional[str] = None,
+             tfo_reuse_existing_nic: Optional[bool] = None,
+             tfo_vm_network_id: Optional[str] = None,
+             v_m_network_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_accelerated_networking_on_recovery is not None:
-            pulumi.set(__self__, "enable_accelerated_networking_on_recovery", enable_accelerated_networking_on_recovery)
+            _setter("enable_accelerated_networking_on_recovery", enable_accelerated_networking_on_recovery)
         if enable_accelerated_networking_on_tfo is not None:
-            pulumi.set(__self__, "enable_accelerated_networking_on_tfo", enable_accelerated_networking_on_tfo)
+            _setter("enable_accelerated_networking_on_tfo", enable_accelerated_networking_on_tfo)
         if ip_configs is not None:
-            pulumi.set(__self__, "ip_configs", ip_configs)
+            _setter("ip_configs", ip_configs)
         if nic_id is not None:
-            pulumi.set(__self__, "nic_id", nic_id)
+            _setter("nic_id", nic_id)
         if recovery_network_security_group_id is not None:
-            pulumi.set(__self__, "recovery_network_security_group_id", recovery_network_security_group_id)
+            _setter("recovery_network_security_group_id", recovery_network_security_group_id)
         if recovery_nic_name is not None:
-            pulumi.set(__self__, "recovery_nic_name", recovery_nic_name)
+            _setter("recovery_nic_name", recovery_nic_name)
         if recovery_nic_resource_group_name is not None:
-            pulumi.set(__self__, "recovery_nic_resource_group_name", recovery_nic_resource_group_name)
+            _setter("recovery_nic_resource_group_name", recovery_nic_resource_group_name)
         if recovery_vm_network_id is not None:
-            pulumi.set(__self__, "recovery_vm_network_id", recovery_vm_network_id)
+            _setter("recovery_vm_network_id", recovery_vm_network_id)
         if replica_nic_id is not None:
-            pulumi.set(__self__, "replica_nic_id", replica_nic_id)
+            _setter("replica_nic_id", replica_nic_id)
         if reuse_existing_nic is None:
             reuse_existing_nic = False
         if reuse_existing_nic is not None:
-            pulumi.set(__self__, "reuse_existing_nic", reuse_existing_nic)
+            _setter("reuse_existing_nic", reuse_existing_nic)
         if selection_type is not None:
-            pulumi.set(__self__, "selection_type", selection_type)
+            _setter("selection_type", selection_type)
         if source_nic_arm_id is not None:
-            pulumi.set(__self__, "source_nic_arm_id", source_nic_arm_id)
+            _setter("source_nic_arm_id", source_nic_arm_id)
         if target_nic_name is not None:
-            pulumi.set(__self__, "target_nic_name", target_nic_name)
+            _setter("target_nic_name", target_nic_name)
         if tfo_network_security_group_id is not None:
-            pulumi.set(__self__, "tfo_network_security_group_id", tfo_network_security_group_id)
+            _setter("tfo_network_security_group_id", tfo_network_security_group_id)
         if tfo_recovery_nic_name is not None:
-            pulumi.set(__self__, "tfo_recovery_nic_name", tfo_recovery_nic_name)
+            _setter("tfo_recovery_nic_name", tfo_recovery_nic_name)
         if tfo_recovery_nic_resource_group_name is not None:
-            pulumi.set(__self__, "tfo_recovery_nic_resource_group_name", tfo_recovery_nic_resource_group_name)
+            _setter("tfo_recovery_nic_resource_group_name", tfo_recovery_nic_resource_group_name)
         if tfo_reuse_existing_nic is None:
             tfo_reuse_existing_nic = False
         if tfo_reuse_existing_nic is not None:
-            pulumi.set(__self__, "tfo_reuse_existing_nic", tfo_reuse_existing_nic)
+            _setter("tfo_reuse_existing_nic", tfo_reuse_existing_nic)
         if tfo_vm_network_id is not None:
-            pulumi.set(__self__, "tfo_vm_network_id", tfo_vm_network_id)
+            _setter("tfo_vm_network_id", tfo_vm_network_id)
         if v_m_network_name is not None:
-            pulumi.set(__self__, "v_m_network_name", v_m_network_name)
+            _setter("v_m_network_name", v_m_network_name)
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworkingOnRecovery")
@@ -18462,76 +21489,181 @@ class VMwareCbtMigrationDetailsResponse(dict):
         :param str test_network_id: The test network Id.
         :param Sequence['VMwareCbtNicDetailsResponse'] vm_nics: The network details.
         """
-        pulumi.set(__self__, "appliance_monitoring_details", appliance_monitoring_details)
-        pulumi.set(__self__, "data_mover_run_as_account_id", data_mover_run_as_account_id)
-        pulumi.set(__self__, "delta_sync_progress_percentage", delta_sync_progress_percentage)
-        pulumi.set(__self__, "delta_sync_retry_count", delta_sync_retry_count)
-        pulumi.set(__self__, "firmware_type", firmware_type)
-        pulumi.set(__self__, "gateway_operation_details", gateway_operation_details)
-        pulumi.set(__self__, "initial_seeding_progress_percentage", initial_seeding_progress_percentage)
-        pulumi.set(__self__, "initial_seeding_retry_count", initial_seeding_retry_count)
-        pulumi.set(__self__, "instance_type", 'VMwareCbt')
-        pulumi.set(__self__, "is_check_sum_resync_cycle", is_check_sum_resync_cycle)
-        pulumi.set(__self__, "last_recovery_point_id", last_recovery_point_id)
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
-        pulumi.set(__self__, "migration_progress_percentage", migration_progress_percentage)
-        pulumi.set(__self__, "migration_recovery_point_id", migration_recovery_point_id)
-        pulumi.set(__self__, "operation_name", operation_name)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "resume_progress_percentage", resume_progress_percentage)
-        pulumi.set(__self__, "resume_retry_count", resume_retry_count)
-        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
-        pulumi.set(__self__, "resync_required", resync_required)
-        pulumi.set(__self__, "resync_retry_count", resync_retry_count)
-        pulumi.set(__self__, "resync_state", resync_state)
-        pulumi.set(__self__, "snapshot_run_as_account_id", snapshot_run_as_account_id)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "target_generation", target_generation)
-        pulumi.set(__self__, "target_location", target_location)
-        pulumi.set(__self__, "vmware_machine_id", vmware_machine_id)
+        VMwareCbtMigrationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            appliance_monitoring_details=appliance_monitoring_details,
+            data_mover_run_as_account_id=data_mover_run_as_account_id,
+            delta_sync_progress_percentage=delta_sync_progress_percentage,
+            delta_sync_retry_count=delta_sync_retry_count,
+            firmware_type=firmware_type,
+            gateway_operation_details=gateway_operation_details,
+            initial_seeding_progress_percentage=initial_seeding_progress_percentage,
+            initial_seeding_retry_count=initial_seeding_retry_count,
+            instance_type=instance_type,
+            is_check_sum_resync_cycle=is_check_sum_resync_cycle,
+            last_recovery_point_id=last_recovery_point_id,
+            last_recovery_point_received=last_recovery_point_received,
+            migration_progress_percentage=migration_progress_percentage,
+            migration_recovery_point_id=migration_recovery_point_id,
+            operation_name=operation_name,
+            os_name=os_name,
+            os_type=os_type,
+            resume_progress_percentage=resume_progress_percentage,
+            resume_retry_count=resume_retry_count,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_retry_count=resync_retry_count,
+            resync_state=resync_state,
+            snapshot_run_as_account_id=snapshot_run_as_account_id,
+            storage_account_id=storage_account_id,
+            target_generation=target_generation,
+            target_location=target_location,
+            vmware_machine_id=vmware_machine_id,
+            confidential_vm_key_vault_id=confidential_vm_key_vault_id,
+            license_type=license_type,
+            perform_auto_resync=perform_auto_resync,
+            protected_disks=protected_disks,
+            seed_disk_tags=seed_disk_tags,
+            sql_server_license_type=sql_server_license_type,
+            supported_os_versions=supported_os_versions,
+            target_availability_set_id=target_availability_set_id,
+            target_availability_zone=target_availability_zone,
+            target_boot_diagnostics_storage_account_id=target_boot_diagnostics_storage_account_id,
+            target_disk_tags=target_disk_tags,
+            target_network_id=target_network_id,
+            target_nic_tags=target_nic_tags,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_resource_group_id=target_resource_group_id,
+            target_vm_name=target_vm_name,
+            target_vm_security_profile=target_vm_security_profile,
+            target_vm_size=target_vm_size,
+            target_vm_tags=target_vm_tags,
+            test_network_id=test_network_id,
+            vm_nics=vm_nics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             appliance_monitoring_details: 'outputs.ApplianceMonitoringDetailsResponse',
+             data_mover_run_as_account_id: str,
+             delta_sync_progress_percentage: int,
+             delta_sync_retry_count: float,
+             firmware_type: str,
+             gateway_operation_details: 'outputs.GatewayOperationDetailsResponse',
+             initial_seeding_progress_percentage: int,
+             initial_seeding_retry_count: float,
+             instance_type: str,
+             is_check_sum_resync_cycle: str,
+             last_recovery_point_id: str,
+             last_recovery_point_received: str,
+             migration_progress_percentage: int,
+             migration_recovery_point_id: str,
+             operation_name: str,
+             os_name: str,
+             os_type: str,
+             resume_progress_percentage: int,
+             resume_retry_count: float,
+             resync_progress_percentage: int,
+             resync_required: str,
+             resync_retry_count: float,
+             resync_state: str,
+             snapshot_run_as_account_id: str,
+             storage_account_id: str,
+             target_generation: str,
+             target_location: str,
+             vmware_machine_id: str,
+             confidential_vm_key_vault_id: Optional[str] = None,
+             license_type: Optional[str] = None,
+             perform_auto_resync: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.VMwareCbtProtectedDiskDetailsResponse']] = None,
+             seed_disk_tags: Optional[Mapping[str, str]] = None,
+             sql_server_license_type: Optional[str] = None,
+             supported_os_versions: Optional[Sequence[str]] = None,
+             target_availability_set_id: Optional[str] = None,
+             target_availability_zone: Optional[str] = None,
+             target_boot_diagnostics_storage_account_id: Optional[str] = None,
+             target_disk_tags: Optional[Mapping[str, str]] = None,
+             target_network_id: Optional[str] = None,
+             target_nic_tags: Optional[Mapping[str, str]] = None,
+             target_proximity_placement_group_id: Optional[str] = None,
+             target_resource_group_id: Optional[str] = None,
+             target_vm_name: Optional[str] = None,
+             target_vm_security_profile: Optional['outputs.VMwareCbtSecurityProfilePropertiesResponse'] = None,
+             target_vm_size: Optional[str] = None,
+             target_vm_tags: Optional[Mapping[str, str]] = None,
+             test_network_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMwareCbtNicDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("appliance_monitoring_details", appliance_monitoring_details)
+        _setter("data_mover_run_as_account_id", data_mover_run_as_account_id)
+        _setter("delta_sync_progress_percentage", delta_sync_progress_percentage)
+        _setter("delta_sync_retry_count", delta_sync_retry_count)
+        _setter("firmware_type", firmware_type)
+        _setter("gateway_operation_details", gateway_operation_details)
+        _setter("initial_seeding_progress_percentage", initial_seeding_progress_percentage)
+        _setter("initial_seeding_retry_count", initial_seeding_retry_count)
+        _setter("instance_type", 'VMwareCbt')
+        _setter("is_check_sum_resync_cycle", is_check_sum_resync_cycle)
+        _setter("last_recovery_point_id", last_recovery_point_id)
+        _setter("last_recovery_point_received", last_recovery_point_received)
+        _setter("migration_progress_percentage", migration_progress_percentage)
+        _setter("migration_recovery_point_id", migration_recovery_point_id)
+        _setter("operation_name", operation_name)
+        _setter("os_name", os_name)
+        _setter("os_type", os_type)
+        _setter("resume_progress_percentage", resume_progress_percentage)
+        _setter("resume_retry_count", resume_retry_count)
+        _setter("resync_progress_percentage", resync_progress_percentage)
+        _setter("resync_required", resync_required)
+        _setter("resync_retry_count", resync_retry_count)
+        _setter("resync_state", resync_state)
+        _setter("snapshot_run_as_account_id", snapshot_run_as_account_id)
+        _setter("storage_account_id", storage_account_id)
+        _setter("target_generation", target_generation)
+        _setter("target_location", target_location)
+        _setter("vmware_machine_id", vmware_machine_id)
         if confidential_vm_key_vault_id is not None:
-            pulumi.set(__self__, "confidential_vm_key_vault_id", confidential_vm_key_vault_id)
+            _setter("confidential_vm_key_vault_id", confidential_vm_key_vault_id)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if perform_auto_resync is not None:
-            pulumi.set(__self__, "perform_auto_resync", perform_auto_resync)
+            _setter("perform_auto_resync", perform_auto_resync)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if seed_disk_tags is not None:
-            pulumi.set(__self__, "seed_disk_tags", seed_disk_tags)
+            _setter("seed_disk_tags", seed_disk_tags)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if supported_os_versions is not None:
-            pulumi.set(__self__, "supported_os_versions", supported_os_versions)
+            _setter("supported_os_versions", supported_os_versions)
         if target_availability_set_id is not None:
-            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+            _setter("target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_boot_diagnostics_storage_account_id is not None:
-            pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+            _setter("target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
         if target_disk_tags is not None:
-            pulumi.set(__self__, "target_disk_tags", target_disk_tags)
+            _setter("target_disk_tags", target_disk_tags)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
         if target_nic_tags is not None:
-            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+            _setter("target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_resource_group_id is not None:
-            pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+            _setter("target_resource_group_id", target_resource_group_id)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if target_vm_security_profile is not None:
-            pulumi.set(__self__, "target_vm_security_profile", target_vm_security_profile)
+            _setter("target_vm_security_profile", target_vm_security_profile)
         if target_vm_size is not None:
-            pulumi.set(__self__, "target_vm_size", target_vm_size)
+            _setter("target_vm_size", target_vm_size)
         if target_vm_tags is not None:
-            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+            _setter("target_vm_tags", target_vm_tags)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
 
     @property
     @pulumi.getter(name="applianceMonitoringDetails")
@@ -19007,30 +22139,65 @@ class VMwareCbtNicDetailsResponse(dict):
         :param str test_network_id: Source network Id.
         :param str test_subnet_name: Test subnet name.
         """
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "source_ip_address", source_ip_address)
-        pulumi.set(__self__, "source_ip_address_type", source_ip_address_type)
-        pulumi.set(__self__, "source_network_id", source_network_id)
+        VMwareCbtNicDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nic_id=nic_id,
+            source_ip_address=source_ip_address,
+            source_ip_address_type=source_ip_address_type,
+            source_network_id=source_network_id,
+            is_primary_nic=is_primary_nic,
+            is_selected_for_migration=is_selected_for_migration,
+            target_ip_address=target_ip_address,
+            target_ip_address_type=target_ip_address_type,
+            target_nic_name=target_nic_name,
+            target_subnet_name=target_subnet_name,
+            test_ip_address=test_ip_address,
+            test_ip_address_type=test_ip_address_type,
+            test_network_id=test_network_id,
+            test_subnet_name=test_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nic_id: str,
+             source_ip_address: str,
+             source_ip_address_type: str,
+             source_network_id: str,
+             is_primary_nic: Optional[str] = None,
+             is_selected_for_migration: Optional[str] = None,
+             target_ip_address: Optional[str] = None,
+             target_ip_address_type: Optional[str] = None,
+             target_nic_name: Optional[str] = None,
+             target_subnet_name: Optional[str] = None,
+             test_ip_address: Optional[str] = None,
+             test_ip_address_type: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             test_subnet_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("nic_id", nic_id)
+        _setter("source_ip_address", source_ip_address)
+        _setter("source_ip_address_type", source_ip_address_type)
+        _setter("source_network_id", source_network_id)
         if is_primary_nic is not None:
-            pulumi.set(__self__, "is_primary_nic", is_primary_nic)
+            _setter("is_primary_nic", is_primary_nic)
         if is_selected_for_migration is not None:
-            pulumi.set(__self__, "is_selected_for_migration", is_selected_for_migration)
+            _setter("is_selected_for_migration", is_selected_for_migration)
         if target_ip_address is not None:
-            pulumi.set(__self__, "target_ip_address", target_ip_address)
+            _setter("target_ip_address", target_ip_address)
         if target_ip_address_type is not None:
-            pulumi.set(__self__, "target_ip_address_type", target_ip_address_type)
+            _setter("target_ip_address_type", target_ip_address_type)
         if target_nic_name is not None:
-            pulumi.set(__self__, "target_nic_name", target_nic_name)
+            _setter("target_nic_name", target_nic_name)
         if target_subnet_name is not None:
-            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+            _setter("target_subnet_name", target_subnet_name)
         if test_ip_address is not None:
-            pulumi.set(__self__, "test_ip_address", test_ip_address)
+            _setter("test_ip_address", test_ip_address)
         if test_ip_address_type is not None:
-            pulumi.set(__self__, "test_ip_address_type", test_ip_address_type)
+            _setter("test_ip_address_type", test_ip_address_type)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
         if test_subnet_name is not None:
-            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+            _setter("test_subnet_name", test_subnet_name)
 
     @property
     @pulumi.getter(name="nicId")
@@ -19229,23 +22396,60 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
         :param str disk_type: The disk type.
         :param str target_disk_name: The name for the target managed disk.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "disk_path", disk_path)
-        pulumi.set(__self__, "gateway_operation_details", gateway_operation_details)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
-        pulumi.set(__self__, "log_storage_account_sas_secret_name", log_storage_account_sas_secret_name)
-        pulumi.set(__self__, "seed_blob_uri", seed_blob_uri)
-        pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
-        pulumi.set(__self__, "target_blob_uri", target_blob_uri)
-        pulumi.set(__self__, "target_managed_disk_id", target_managed_disk_id)
+        VMwareCbtProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_path=disk_path,
+            gateway_operation_details=gateway_operation_details,
+            is_os_disk=is_os_disk,
+            log_storage_account_id=log_storage_account_id,
+            log_storage_account_sas_secret_name=log_storage_account_sas_secret_name,
+            seed_blob_uri=seed_blob_uri,
+            seed_managed_disk_id=seed_managed_disk_id,
+            target_blob_uri=target_blob_uri,
+            target_managed_disk_id=target_managed_disk_id,
+            disk_type=disk_type,
+            target_disk_name=target_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: float,
+             disk_encryption_set_id: str,
+             disk_id: str,
+             disk_name: str,
+             disk_path: str,
+             gateway_operation_details: 'outputs.GatewayOperationDetailsResponse',
+             is_os_disk: str,
+             log_storage_account_id: str,
+             log_storage_account_sas_secret_name: str,
+             seed_blob_uri: str,
+             seed_managed_disk_id: str,
+             target_blob_uri: str,
+             target_managed_disk_id: str,
+             disk_type: Optional[str] = None,
+             target_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("disk_encryption_set_id", disk_encryption_set_id)
+        _setter("disk_id", disk_id)
+        _setter("disk_name", disk_name)
+        _setter("disk_path", disk_path)
+        _setter("gateway_operation_details", gateway_operation_details)
+        _setter("is_os_disk", is_os_disk)
+        _setter("log_storage_account_id", log_storage_account_id)
+        _setter("log_storage_account_sas_secret_name", log_storage_account_sas_secret_name)
+        _setter("seed_blob_uri", seed_blob_uri)
+        _setter("seed_managed_disk_id", seed_managed_disk_id)
+        _setter("target_blob_uri", target_blob_uri)
+        _setter("target_managed_disk_id", target_managed_disk_id)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if target_disk_name is not None:
-            pulumi.set(__self__, "target_disk_name", target_disk_name)
+            _setter("target_disk_name", target_disk_name)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -19429,16 +22633,41 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
         :param str target_location: The target location.
         :param Sequence[str] excluded_skus: The SKUs to be excluded.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareCbt')
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "role_size_to_nic_count_map", role_size_to_nic_count_map)
-        pulumi.set(__self__, "service_bus_connection_string_secret_name", service_bus_connection_string_secret_name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "storage_account_sas_secret_name", storage_account_sas_secret_name)
-        pulumi.set(__self__, "target_location", target_location)
+        VMwareCbtProtectionContainerMappingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            key_vault_id=key_vault_id,
+            key_vault_uri=key_vault_uri,
+            role_size_to_nic_count_map=role_size_to_nic_count_map,
+            service_bus_connection_string_secret_name=service_bus_connection_string_secret_name,
+            storage_account_id=storage_account_id,
+            storage_account_sas_secret_name=storage_account_sas_secret_name,
+            target_location=target_location,
+            excluded_skus=excluded_skus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             key_vault_id: str,
+             key_vault_uri: str,
+             role_size_to_nic_count_map: Mapping[str, int],
+             service_bus_connection_string_secret_name: str,
+             storage_account_id: str,
+             storage_account_sas_secret_name: str,
+             target_location: str,
+             excluded_skus: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VMwareCbt')
+        _setter("key_vault_id", key_vault_id)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("role_size_to_nic_count_map", role_size_to_nic_count_map)
+        _setter("service_bus_connection_string_secret_name", service_bus_connection_string_secret_name)
+        _setter("storage_account_id", storage_account_id)
+        _setter("storage_account_sas_secret_name", storage_account_sas_secret_name)
+        _setter("target_location", target_location)
         if excluded_skus is not None:
-            pulumi.set(__self__, "excluded_skus", excluded_skus)
+            _setter("excluded_skus", excluded_skus)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -19558,16 +22787,33 @@ class VMwareCbtSecurityProfilePropertiesResponse(dict):
         :param str is_target_vm_tpm_enabled: A value indicating whether trusted platform module to be enabled.
         :param str target_vm_security_type: The target VM security type.
         """
+        VMwareCbtSecurityProfilePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_target_vm_confidential_encryption_enabled=is_target_vm_confidential_encryption_enabled,
+            is_target_vm_integrity_monitoring_enabled=is_target_vm_integrity_monitoring_enabled,
+            is_target_vm_secure_boot_enabled=is_target_vm_secure_boot_enabled,
+            is_target_vm_tpm_enabled=is_target_vm_tpm_enabled,
+            target_vm_security_type=target_vm_security_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_target_vm_confidential_encryption_enabled: Optional[str] = None,
+             is_target_vm_integrity_monitoring_enabled: Optional[str] = None,
+             is_target_vm_secure_boot_enabled: Optional[str] = None,
+             is_target_vm_tpm_enabled: Optional[str] = None,
+             target_vm_security_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_target_vm_confidential_encryption_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_confidential_encryption_enabled", is_target_vm_confidential_encryption_enabled)
+            _setter("is_target_vm_confidential_encryption_enabled", is_target_vm_confidential_encryption_enabled)
         if is_target_vm_integrity_monitoring_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_integrity_monitoring_enabled", is_target_vm_integrity_monitoring_enabled)
+            _setter("is_target_vm_integrity_monitoring_enabled", is_target_vm_integrity_monitoring_enabled)
         if is_target_vm_secure_boot_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_secure_boot_enabled", is_target_vm_secure_boot_enabled)
+            _setter("is_target_vm_secure_boot_enabled", is_target_vm_secure_boot_enabled)
         if is_target_vm_tpm_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_tpm_enabled", is_target_vm_tpm_enabled)
+            _setter("is_target_vm_tpm_enabled", is_target_vm_tpm_enabled)
         if target_vm_security_type is not None:
-            pulumi.set(__self__, "target_vm_security_type", target_vm_security_type)
+            _setter("target_vm_security_type", target_vm_security_type)
 
     @property
     @pulumi.getter(name="isTargetVmConfidentialEncryptionEnabled")
@@ -19771,73 +23017,148 @@ class VMwareDetailsResponse(dict):
         :param str web_load: The web load.
         :param str web_load_status: The web load status.
         """
-        pulumi.set(__self__, "instance_type", 'VMware')
+        VMwareDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            agent_count=agent_count,
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            agent_version_details=agent_version_details,
+            available_memory_in_bytes=available_memory_in_bytes,
+            available_space_in_bytes=available_space_in_bytes,
+            cpu_load=cpu_load,
+            cpu_load_status=cpu_load_status,
+            cs_service_status=cs_service_status,
+            database_server_load=database_server_load,
+            database_server_load_status=database_server_load_status,
+            host_name=host_name,
+            ip_address=ip_address,
+            last_heartbeat=last_heartbeat,
+            master_target_servers=master_target_servers,
+            memory_usage_status=memory_usage_status,
+            process_server_count=process_server_count,
+            process_servers=process_servers,
+            protected_servers=protected_servers,
+            ps_template_version=ps_template_version,
+            replication_pair_count=replication_pair_count,
+            run_as_accounts=run_as_accounts,
+            space_usage_status=space_usage_status,
+            ssl_cert_expiry_date=ssl_cert_expiry_date,
+            ssl_cert_expiry_remaining_days=ssl_cert_expiry_remaining_days,
+            switch_provider_blocking_error_details=switch_provider_blocking_error_details,
+            system_load=system_load,
+            system_load_status=system_load_status,
+            total_memory_in_bytes=total_memory_in_bytes,
+            total_space_in_bytes=total_space_in_bytes,
+            version_status=version_status,
+            web_load=web_load,
+            web_load_status=web_load_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             agent_count: Optional[str] = None,
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             available_memory_in_bytes: Optional[float] = None,
+             available_space_in_bytes: Optional[float] = None,
+             cpu_load: Optional[str] = None,
+             cpu_load_status: Optional[str] = None,
+             cs_service_status: Optional[str] = None,
+             database_server_load: Optional[str] = None,
+             database_server_load_status: Optional[str] = None,
+             host_name: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             master_target_servers: Optional[Sequence['outputs.MasterTargetServerResponse']] = None,
+             memory_usage_status: Optional[str] = None,
+             process_server_count: Optional[str] = None,
+             process_servers: Optional[Sequence['outputs.ProcessServerResponse']] = None,
+             protected_servers: Optional[str] = None,
+             ps_template_version: Optional[str] = None,
+             replication_pair_count: Optional[str] = None,
+             run_as_accounts: Optional[Sequence['outputs.RunAsAccountResponse']] = None,
+             space_usage_status: Optional[str] = None,
+             ssl_cert_expiry_date: Optional[str] = None,
+             ssl_cert_expiry_remaining_days: Optional[int] = None,
+             switch_provider_blocking_error_details: Optional[Sequence['outputs.InMageFabricSwitchProviderBlockingErrorDetailsResponse']] = None,
+             system_load: Optional[str] = None,
+             system_load_status: Optional[str] = None,
+             total_memory_in_bytes: Optional[float] = None,
+             total_space_in_bytes: Optional[float] = None,
+             version_status: Optional[str] = None,
+             web_load: Optional[str] = None,
+             web_load_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VMware')
         if agent_count is not None:
-            pulumi.set(__self__, "agent_count", agent_count)
+            _setter("agent_count", agent_count)
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if agent_version_details is not None:
-            pulumi.set(__self__, "agent_version_details", agent_version_details)
+            _setter("agent_version_details", agent_version_details)
         if available_memory_in_bytes is not None:
-            pulumi.set(__self__, "available_memory_in_bytes", available_memory_in_bytes)
+            _setter("available_memory_in_bytes", available_memory_in_bytes)
         if available_space_in_bytes is not None:
-            pulumi.set(__self__, "available_space_in_bytes", available_space_in_bytes)
+            _setter("available_space_in_bytes", available_space_in_bytes)
         if cpu_load is not None:
-            pulumi.set(__self__, "cpu_load", cpu_load)
+            _setter("cpu_load", cpu_load)
         if cpu_load_status is not None:
-            pulumi.set(__self__, "cpu_load_status", cpu_load_status)
+            _setter("cpu_load_status", cpu_load_status)
         if cs_service_status is not None:
-            pulumi.set(__self__, "cs_service_status", cs_service_status)
+            _setter("cs_service_status", cs_service_status)
         if database_server_load is not None:
-            pulumi.set(__self__, "database_server_load", database_server_load)
+            _setter("database_server_load", database_server_load)
         if database_server_load_status is not None:
-            pulumi.set(__self__, "database_server_load_status", database_server_load_status)
+            _setter("database_server_load_status", database_server_load_status)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if master_target_servers is not None:
-            pulumi.set(__self__, "master_target_servers", master_target_servers)
+            _setter("master_target_servers", master_target_servers)
         if memory_usage_status is not None:
-            pulumi.set(__self__, "memory_usage_status", memory_usage_status)
+            _setter("memory_usage_status", memory_usage_status)
         if process_server_count is not None:
-            pulumi.set(__self__, "process_server_count", process_server_count)
+            _setter("process_server_count", process_server_count)
         if process_servers is not None:
-            pulumi.set(__self__, "process_servers", process_servers)
+            _setter("process_servers", process_servers)
         if protected_servers is not None:
-            pulumi.set(__self__, "protected_servers", protected_servers)
+            _setter("protected_servers", protected_servers)
         if ps_template_version is not None:
-            pulumi.set(__self__, "ps_template_version", ps_template_version)
+            _setter("ps_template_version", ps_template_version)
         if replication_pair_count is not None:
-            pulumi.set(__self__, "replication_pair_count", replication_pair_count)
+            _setter("replication_pair_count", replication_pair_count)
         if run_as_accounts is not None:
-            pulumi.set(__self__, "run_as_accounts", run_as_accounts)
+            _setter("run_as_accounts", run_as_accounts)
         if space_usage_status is not None:
-            pulumi.set(__self__, "space_usage_status", space_usage_status)
+            _setter("space_usage_status", space_usage_status)
         if ssl_cert_expiry_date is not None:
-            pulumi.set(__self__, "ssl_cert_expiry_date", ssl_cert_expiry_date)
+            _setter("ssl_cert_expiry_date", ssl_cert_expiry_date)
         if ssl_cert_expiry_remaining_days is not None:
-            pulumi.set(__self__, "ssl_cert_expiry_remaining_days", ssl_cert_expiry_remaining_days)
+            _setter("ssl_cert_expiry_remaining_days", ssl_cert_expiry_remaining_days)
         if switch_provider_blocking_error_details is not None:
-            pulumi.set(__self__, "switch_provider_blocking_error_details", switch_provider_blocking_error_details)
+            _setter("switch_provider_blocking_error_details", switch_provider_blocking_error_details)
         if system_load is not None:
-            pulumi.set(__self__, "system_load", system_load)
+            _setter("system_load", system_load)
         if system_load_status is not None:
-            pulumi.set(__self__, "system_load_status", system_load_status)
+            _setter("system_load_status", system_load_status)
         if total_memory_in_bytes is not None:
-            pulumi.set(__self__, "total_memory_in_bytes", total_memory_in_bytes)
+            _setter("total_memory_in_bytes", total_memory_in_bytes)
         if total_space_in_bytes is not None:
-            pulumi.set(__self__, "total_space_in_bytes", total_space_in_bytes)
+            _setter("total_space_in_bytes", total_space_in_bytes)
         if version_status is not None:
-            pulumi.set(__self__, "version_status", version_status)
+            _setter("version_status", version_status)
         if web_load is not None:
-            pulumi.set(__self__, "web_load", web_load)
+            _setter("web_load", web_load)
         if web_load_status is not None:
-            pulumi.set(__self__, "web_load_status", web_load_status)
+            _setter("web_load_status", web_load_status)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -20170,14 +23491,37 @@ class VMwareV2FabricSpecificDetailsResponse(dict):
         :param str service_resource_id: The service resource Id.
         :param str vmware_site_id: The ARM Id of the VMware site.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareV2')
-        pulumi.set(__self__, "migration_solution_id", migration_solution_id)
-        pulumi.set(__self__, "physical_site_id", physical_site_id)
-        pulumi.set(__self__, "process_servers", process_servers)
-        pulumi.set(__self__, "service_container_id", service_container_id)
-        pulumi.set(__self__, "service_endpoint", service_endpoint)
-        pulumi.set(__self__, "service_resource_id", service_resource_id)
-        pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+        VMwareV2FabricSpecificDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            migration_solution_id=migration_solution_id,
+            physical_site_id=physical_site_id,
+            process_servers=process_servers,
+            service_container_id=service_container_id,
+            service_endpoint=service_endpoint,
+            service_resource_id=service_resource_id,
+            vmware_site_id=vmware_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             migration_solution_id: str,
+             physical_site_id: str,
+             process_servers: Sequence['outputs.ProcessServerDetailsResponse'],
+             service_container_id: str,
+             service_endpoint: str,
+             service_resource_id: str,
+             vmware_site_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VMwareV2')
+        _setter("migration_solution_id", migration_solution_id)
+        _setter("physical_site_id", physical_site_id)
+        _setter("process_servers", process_servers)
+        _setter("service_container_id", service_container_id)
+        _setter("service_endpoint", service_endpoint)
+        _setter("service_resource_id", service_resource_id)
+        _setter("vmware_site_id", vmware_site_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -20277,12 +23621,25 @@ class VersionDetailsResponse(dict):
         :param str status: A value indicating whether security update required.
         :param str version: The agent version.
         """
+        VersionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiry_date=expiry_date,
+            status=status,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiry_date: Optional[str] = None,
+             status: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expiry_date is not None:
-            pulumi.set(__self__, "expiry_date", expiry_date)
+            _setter("expiry_date", expiry_date)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="expiryDate")
@@ -20338,7 +23695,16 @@ class VmmDetailsResponse(dict):
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'VMM'.
         """
-        pulumi.set(__self__, "instance_type", 'VMM')
+        VmmDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VMM')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -20379,7 +23745,16 @@ class VmmToAzureNetworkMappingSettingsResponse(dict):
         :param str instance_type: Gets the Instance type.
                Expected value is 'VmmToAzure'.
         """
-        pulumi.set(__self__, "instance_type", 'VmmToAzure')
+        VmmToAzureNetworkMappingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VmmToAzure')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -20420,7 +23795,16 @@ class VmmToVmmNetworkMappingSettingsResponse(dict):
         :param str instance_type: Gets the Instance type.
                Expected value is 'VmmToVmm'.
         """
-        pulumi.set(__self__, "instance_type", 'VmmToVmm')
+        VmmToVmmNetworkMappingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VmmToVmm')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -20473,13 +23857,28 @@ class VmwareCbtPolicyDetailsResponse(dict):
         :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param int recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareCbt')
+        VmwareCbtPolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             recovery_point_history_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'VMwareCbt')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if recovery_point_history_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+            _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")

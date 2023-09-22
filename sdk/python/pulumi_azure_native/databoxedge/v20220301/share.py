@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,25 +44,56 @@ class ShareArgs:
         :param pulumi.Input['RefreshDetailsArgs'] refresh_details: Details of the refresh job on this share.
         :param pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
-        pulumi.set(__self__, "access_protocol", access_protocol)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "monitoring_status", monitoring_status)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_status", share_status)
+        ShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_protocol=access_protocol,
+            device_name=device_name,
+            monitoring_status=monitoring_status,
+            resource_group_name=resource_group_name,
+            share_status=share_status,
+            azure_container_info=azure_container_info,
+            client_access_rights=client_access_rights,
+            data_policy=data_policy,
+            description=description,
+            name=name,
+            refresh_details=refresh_details,
+            user_access_rights=user_access_rights,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_protocol: pulumi.Input[Union[str, 'ShareAccessProtocol']],
+             device_name: pulumi.Input[str],
+             monitoring_status: pulumi.Input[Union[str, 'MonitoringStatus']],
+             resource_group_name: pulumi.Input[str],
+             share_status: pulumi.Input[Union[str, 'ShareStatus']],
+             azure_container_info: Optional[pulumi.Input['AzureContainerInfoArgs']] = None,
+             client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input['ClientAccessRightArgs']]]] = None,
+             data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             refresh_details: Optional[pulumi.Input['RefreshDetailsArgs']] = None,
+             user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_protocol", access_protocol)
+        _setter("device_name", device_name)
+        _setter("monitoring_status", monitoring_status)
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_status", share_status)
         if azure_container_info is not None:
-            pulumi.set(__self__, "azure_container_info", azure_container_info)
+            _setter("azure_container_info", azure_container_info)
         if client_access_rights is not None:
-            pulumi.set(__self__, "client_access_rights", client_access_rights)
+            _setter("client_access_rights", client_access_rights)
         if data_policy is not None:
-            pulumi.set(__self__, "data_policy", data_policy)
+            _setter("data_policy", data_policy)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if refresh_details is not None:
-            pulumi.set(__self__, "refresh_details", refresh_details)
+            _setter("refresh_details", refresh_details)
         if user_access_rights is not None:
-            pulumi.set(__self__, "user_access_rights", user_access_rights)
+            _setter("user_access_rights", user_access_rights)
 
     @property
     @pulumi.getter(name="accessProtocol")
@@ -264,6 +295,10 @@ class Share(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -293,6 +328,11 @@ class Share(pulumi.CustomResource):
             if access_protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'access_protocol'")
             __props__.__dict__["access_protocol"] = access_protocol
+            if not isinstance(azure_container_info, AzureContainerInfoArgs):
+                azure_container_info = azure_container_info or {}
+                def _setter(key, value):
+                    azure_container_info[key] = value
+                AzureContainerInfoArgs._configure(_setter, **azure_container_info)
             __props__.__dict__["azure_container_info"] = azure_container_info
             __props__.__dict__["client_access_rights"] = client_access_rights
             __props__.__dict__["data_policy"] = data_policy
@@ -304,6 +344,11 @@ class Share(pulumi.CustomResource):
                 raise TypeError("Missing required property 'monitoring_status'")
             __props__.__dict__["monitoring_status"] = monitoring_status
             __props__.__dict__["name"] = name
+            if not isinstance(refresh_details, RefreshDetailsArgs):
+                refresh_details = refresh_details or {}
+                def _setter(key, value):
+                    refresh_details[key] = value
+                RefreshDetailsArgs._configure(_setter, **refresh_details)
             __props__.__dict__["refresh_details"] = refresh_details
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

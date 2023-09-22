@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -63,39 +63,88 @@ class NrtAlertRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: The techniques of the alert rule
         :param pulumi.Input[str] template_version: The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "kind", 'NRT')
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "suppression_duration", suppression_duration)
-        pulumi.set(__self__, "suppression_enabled", suppression_enabled)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        NrtAlertRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            enabled=enabled,
+            kind=kind,
+            query=query,
+            resource_group_name=resource_group_name,
+            severity=severity,
+            suppression_duration=suppression_duration,
+            suppression_enabled=suppression_enabled,
+            workspace_name=workspace_name,
+            alert_details_override=alert_details_override,
+            alert_rule_template_name=alert_rule_template_name,
+            custom_details=custom_details,
+            description=description,
+            entity_mappings=entity_mappings,
+            event_grouping_settings=event_grouping_settings,
+            incident_configuration=incident_configuration,
+            rule_id=rule_id,
+            sentinel_entities_mappings=sentinel_entities_mappings,
+            tactics=tactics,
+            techniques=techniques,
+            template_version=template_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             enabled: pulumi.Input[bool],
+             kind: pulumi.Input[str],
+             query: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             severity: pulumi.Input[Union[str, 'AlertSeverity']],
+             suppression_duration: pulumi.Input[str],
+             suppression_enabled: pulumi.Input[bool],
+             workspace_name: pulumi.Input[str],
+             alert_details_override: Optional[pulumi.Input['AlertDetailsOverrideArgs']] = None,
+             alert_rule_template_name: Optional[pulumi.Input[str]] = None,
+             custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]]] = None,
+             event_grouping_settings: Optional[pulumi.Input['EventGroupingSettingsArgs']] = None,
+             incident_configuration: Optional[pulumi.Input['IncidentConfigurationArgs']] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
+             sentinel_entities_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['SentinelEntityMappingArgs']]]] = None,
+             tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None,
+             techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             template_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("enabled", enabled)
+        _setter("kind", 'NRT')
+        _setter("query", query)
+        _setter("resource_group_name", resource_group_name)
+        _setter("severity", severity)
+        _setter("suppression_duration", suppression_duration)
+        _setter("suppression_enabled", suppression_enabled)
+        _setter("workspace_name", workspace_name)
         if alert_details_override is not None:
-            pulumi.set(__self__, "alert_details_override", alert_details_override)
+            _setter("alert_details_override", alert_details_override)
         if alert_rule_template_name is not None:
-            pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
+            _setter("alert_rule_template_name", alert_rule_template_name)
         if custom_details is not None:
-            pulumi.set(__self__, "custom_details", custom_details)
+            _setter("custom_details", custom_details)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if entity_mappings is not None:
-            pulumi.set(__self__, "entity_mappings", entity_mappings)
+            _setter("entity_mappings", entity_mappings)
         if event_grouping_settings is not None:
-            pulumi.set(__self__, "event_grouping_settings", event_grouping_settings)
+            _setter("event_grouping_settings", event_grouping_settings)
         if incident_configuration is not None:
-            pulumi.set(__self__, "incident_configuration", incident_configuration)
+            _setter("incident_configuration", incident_configuration)
         if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
+            _setter("rule_id", rule_id)
         if sentinel_entities_mappings is not None:
-            pulumi.set(__self__, "sentinel_entities_mappings", sentinel_entities_mappings)
+            _setter("sentinel_entities_mappings", sentinel_entities_mappings)
         if tactics is not None:
-            pulumi.set(__self__, "tactics", tactics)
+            _setter("tactics", tactics)
         if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
+            _setter("techniques", techniques)
         if template_version is not None:
-            pulumi.set(__self__, "template_version", template_version)
+            _setter("template_version", template_version)
 
     @property
     @pulumi.getter(name="displayName")
@@ -425,6 +474,10 @@ class NrtAlertRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NrtAlertRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -460,6 +513,11 @@ class NrtAlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NrtAlertRuleArgs.__new__(NrtAlertRuleArgs)
 
+            if not isinstance(alert_details_override, AlertDetailsOverrideArgs):
+                alert_details_override = alert_details_override or {}
+                def _setter(key, value):
+                    alert_details_override[key] = value
+                AlertDetailsOverrideArgs._configure(_setter, **alert_details_override)
             __props__.__dict__["alert_details_override"] = alert_details_override
             __props__.__dict__["alert_rule_template_name"] = alert_rule_template_name
             __props__.__dict__["custom_details"] = custom_details
@@ -471,7 +529,17 @@ class NrtAlertRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["entity_mappings"] = entity_mappings
+            if not isinstance(event_grouping_settings, EventGroupingSettingsArgs):
+                event_grouping_settings = event_grouping_settings or {}
+                def _setter(key, value):
+                    event_grouping_settings[key] = value
+                EventGroupingSettingsArgs._configure(_setter, **event_grouping_settings)
             __props__.__dict__["event_grouping_settings"] = event_grouping_settings
+            if not isinstance(incident_configuration, IncidentConfigurationArgs):
+                incident_configuration = incident_configuration or {}
+                def _setter(key, value):
+                    incident_configuration[key] = value
+                IncidentConfigurationArgs._configure(_setter, **incident_configuration)
             __props__.__dict__["incident_configuration"] = incident_configuration
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

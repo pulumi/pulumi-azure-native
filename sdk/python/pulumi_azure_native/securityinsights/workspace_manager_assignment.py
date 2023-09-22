@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,29 @@ class WorkspaceManagerAssignmentArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] workspace_manager_assignment_name: The name of the workspace manager assignment
         """
-        pulumi.set(__self__, "items", items)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        WorkspaceManagerAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+            resource_group_name=resource_group_name,
+            target_resource_name=target_resource_name,
+            workspace_name=workspace_name,
+            workspace_manager_assignment_name=workspace_manager_assignment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: pulumi.Input[Sequence[pulumi.Input['AssignmentItemArgs']]],
+             resource_group_name: pulumi.Input[str],
+             target_resource_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             workspace_manager_assignment_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items", items)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_resource_name", target_resource_name)
+        _setter("workspace_name", workspace_name)
         if workspace_manager_assignment_name is not None:
-            pulumi.set(__self__, "workspace_manager_assignment_name", workspace_manager_assignment_name)
+            _setter("workspace_manager_assignment_name", workspace_manager_assignment_name)
 
     @property
     @pulumi.getter
@@ -140,6 +157,10 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceManagerAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,26 +44,57 @@ class AmlFilesystemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
         """
-        pulumi.set(__self__, "filesystem_subnet", filesystem_subnet)
-        pulumi.set(__self__, "maintenance_window", maintenance_window)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_capacity_ti_b", storage_capacity_ti_b)
+        AmlFilesystemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filesystem_subnet=filesystem_subnet,
+            maintenance_window=maintenance_window,
+            resource_group_name=resource_group_name,
+            storage_capacity_ti_b=storage_capacity_ti_b,
+            aml_filesystem_name=aml_filesystem_name,
+            encryption_settings=encryption_settings,
+            hsm=hsm,
+            identity=identity,
+            location=location,
+            sku=sku,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filesystem_subnet: pulumi.Input[str],
+             maintenance_window: pulumi.Input['AmlFilesystemMaintenanceWindowArgs'],
+             resource_group_name: pulumi.Input[str],
+             storage_capacity_ti_b: pulumi.Input[float],
+             aml_filesystem_name: Optional[pulumi.Input[str]] = None,
+             encryption_settings: Optional[pulumi.Input['AmlFilesystemEncryptionSettingsArgs']] = None,
+             hsm: Optional[pulumi.Input['AmlFilesystemHsmArgs']] = None,
+             identity: Optional[pulumi.Input['AmlFilesystemIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuNameArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filesystem_subnet", filesystem_subnet)
+        _setter("maintenance_window", maintenance_window)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_capacity_ti_b", storage_capacity_ti_b)
         if aml_filesystem_name is not None:
-            pulumi.set(__self__, "aml_filesystem_name", aml_filesystem_name)
+            _setter("aml_filesystem_name", aml_filesystem_name)
         if encryption_settings is not None:
-            pulumi.set(__self__, "encryption_settings", encryption_settings)
+            _setter("encryption_settings", encryption_settings)
         if hsm is not None:
-            pulumi.set(__self__, "hsm", hsm)
+            _setter("hsm", hsm)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="filesystemSubnet")
@@ -267,6 +298,10 @@ class AmlFilesystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AmlFilesystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -294,19 +329,44 @@ class AmlFilesystem(pulumi.CustomResource):
             __props__ = AmlFilesystemArgs.__new__(AmlFilesystemArgs)
 
             __props__.__dict__["aml_filesystem_name"] = aml_filesystem_name
+            if not isinstance(encryption_settings, AmlFilesystemEncryptionSettingsArgs):
+                encryption_settings = encryption_settings or {}
+                def _setter(key, value):
+                    encryption_settings[key] = value
+                AmlFilesystemEncryptionSettingsArgs._configure(_setter, **encryption_settings)
             __props__.__dict__["encryption_settings"] = encryption_settings
             if filesystem_subnet is None and not opts.urn:
                 raise TypeError("Missing required property 'filesystem_subnet'")
             __props__.__dict__["filesystem_subnet"] = filesystem_subnet
+            if not isinstance(hsm, AmlFilesystemHsmArgs):
+                hsm = hsm or {}
+                def _setter(key, value):
+                    hsm[key] = value
+                AmlFilesystemHsmArgs._configure(_setter, **hsm)
             __props__.__dict__["hsm"] = hsm
+            if not isinstance(identity, AmlFilesystemIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                AmlFilesystemIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if not isinstance(maintenance_window, AmlFilesystemMaintenanceWindowArgs):
+                maintenance_window = maintenance_window or {}
+                def _setter(key, value):
+                    maintenance_window[key] = value
+                AmlFilesystemMaintenanceWindowArgs._configure(_setter, **maintenance_window)
             if maintenance_window is None and not opts.urn:
                 raise TypeError("Missing required property 'maintenance_window'")
             __props__.__dict__["maintenance_window"] = maintenance_window
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, SkuNameArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuNameArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             if storage_capacity_ti_b is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_capacity_ti_b'")

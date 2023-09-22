@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,21 +38,46 @@ class ExternalNetworkArgs:
         :param pulumi.Input['ExternalNetworkPropertiesOptionAPropertiesArgs'] option_a_properties: option A properties object
         :param pulumi.Input['OptionBPropertiesArgs'] option_b_properties: option B properties object
         """
-        pulumi.set(__self__, "l3_isolation_domain_name", l3_isolation_domain_name)
-        pulumi.set(__self__, "peering_option", peering_option)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExternalNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            l3_isolation_domain_name=l3_isolation_domain_name,
+            peering_option=peering_option,
+            resource_group_name=resource_group_name,
+            annotation=annotation,
+            export_route_policy_id=export_route_policy_id,
+            external_network_name=external_network_name,
+            import_route_policy_id=import_route_policy_id,
+            option_a_properties=option_a_properties,
+            option_b_properties=option_b_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             l3_isolation_domain_name: pulumi.Input[str],
+             peering_option: pulumi.Input[Union[str, 'PeeringOption']],
+             resource_group_name: pulumi.Input[str],
+             annotation: Optional[pulumi.Input[str]] = None,
+             export_route_policy_id: Optional[pulumi.Input[str]] = None,
+             external_network_name: Optional[pulumi.Input[str]] = None,
+             import_route_policy_id: Optional[pulumi.Input[str]] = None,
+             option_a_properties: Optional[pulumi.Input['ExternalNetworkPropertiesOptionAPropertiesArgs']] = None,
+             option_b_properties: Optional[pulumi.Input['OptionBPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("l3_isolation_domain_name", l3_isolation_domain_name)
+        _setter("peering_option", peering_option)
+        _setter("resource_group_name", resource_group_name)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if export_route_policy_id is not None:
-            pulumi.set(__self__, "export_route_policy_id", export_route_policy_id)
+            _setter("export_route_policy_id", export_route_policy_id)
         if external_network_name is not None:
-            pulumi.set(__self__, "external_network_name", external_network_name)
+            _setter("external_network_name", external_network_name)
         if import_route_policy_id is not None:
-            pulumi.set(__self__, "import_route_policy_id", import_route_policy_id)
+            _setter("import_route_policy_id", import_route_policy_id)
         if option_a_properties is not None:
-            pulumi.set(__self__, "option_a_properties", option_a_properties)
+            _setter("option_a_properties", option_a_properties)
         if option_b_properties is not None:
-            pulumi.set(__self__, "option_b_properties", option_b_properties)
+            _setter("option_b_properties", option_b_properties)
 
     @property
     @pulumi.getter(name="l3IsolationDomainName")
@@ -212,6 +237,10 @@ class ExternalNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExternalNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,7 +271,17 @@ class ExternalNetwork(pulumi.CustomResource):
             if l3_isolation_domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'l3_isolation_domain_name'")
             __props__.__dict__["l3_isolation_domain_name"] = l3_isolation_domain_name
+            if not isinstance(option_a_properties, ExternalNetworkPropertiesOptionAPropertiesArgs):
+                option_a_properties = option_a_properties or {}
+                def _setter(key, value):
+                    option_a_properties[key] = value
+                ExternalNetworkPropertiesOptionAPropertiesArgs._configure(_setter, **option_a_properties)
             __props__.__dict__["option_a_properties"] = option_a_properties
+            if not isinstance(option_b_properties, OptionBPropertiesArgs):
+                option_b_properties = option_b_properties or {}
+                def _setter(key, value):
+                    option_b_properties[key] = value
+                OptionBPropertiesArgs._configure(_setter, **option_b_properties)
             __props__.__dict__["option_b_properties"] = option_b_properties
             if peering_option is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_option'")

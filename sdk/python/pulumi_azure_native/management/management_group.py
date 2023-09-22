@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,14 +27,29 @@ class ManagementGroupArgs:
         :param pulumi.Input[str] group_id: Management Group ID.
         :param pulumi.Input[str] name: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         """
+        ManagementGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            details=details,
+            display_name=display_name,
+            group_id=group_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             details: Optional[pulumi.Input['CreateManagementGroupDetailsArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             group_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -126,6 +141,10 @@ class ManagementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +163,11 @@ class ManagementGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagementGroupArgs.__new__(ManagementGroupArgs)
 
+            if not isinstance(details, CreateManagementGroupDetailsArgs):
+                details = details or {}
+                def _setter(key, value):
+                    details[key] = value
+                CreateManagementGroupDetailsArgs._configure(_setter, **details)
             __props__.__dict__["details"] = details
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["group_id"] = group_id

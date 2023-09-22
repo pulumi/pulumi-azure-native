@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,30 @@ class PlacementPolicyArgs:
         :param pulumi.Input[str] placement_policy_name: Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy
         :param pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']] properties: placement policy properties
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PlacementPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            placement_policy_name=placement_policy_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             placement_policy_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if placement_policy_name is not None:
-            pulumi.set(__self__, "placement_policy_name", placement_policy_name)
+            _setter("placement_policy_name", placement_policy_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -142,6 +159,10 @@ class PlacementPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PlacementPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

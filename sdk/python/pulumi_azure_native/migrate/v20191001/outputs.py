@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -162,36 +162,103 @@ class AssessmentPropertiesResponse(dict):
         :param str updated_timestamp: Time when this project was last updated. Date-Time represented in ISO-8601 format.
         :param 'VmUptimeResponse' vm_uptime: Specify the duration for which the VMs are up in the on-premises environment.
         """
-        pulumi.set(__self__, "azure_disk_type", azure_disk_type)
-        pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
-        pulumi.set(__self__, "azure_location", azure_location)
-        pulumi.set(__self__, "azure_offer_code", azure_offer_code)
-        pulumi.set(__self__, "azure_pricing_tier", azure_pricing_tier)
-        pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
-        pulumi.set(__self__, "azure_vm_families", azure_vm_families)
-        pulumi.set(__self__, "confidence_rating_in_percentage", confidence_rating_in_percentage)
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "currency", currency)
-        pulumi.set(__self__, "discount_percentage", discount_percentage)
-        pulumi.set(__self__, "ea_subscription_id", ea_subscription_id)
-        pulumi.set(__self__, "monthly_bandwidth_cost", monthly_bandwidth_cost)
-        pulumi.set(__self__, "monthly_compute_cost", monthly_compute_cost)
-        pulumi.set(__self__, "monthly_premium_storage_cost", monthly_premium_storage_cost)
-        pulumi.set(__self__, "monthly_standard_ssd_storage_cost", monthly_standard_ssd_storage_cost)
-        pulumi.set(__self__, "monthly_storage_cost", monthly_storage_cost)
-        pulumi.set(__self__, "number_of_machines", number_of_machines)
-        pulumi.set(__self__, "percentile", percentile)
-        pulumi.set(__self__, "perf_data_end_time", perf_data_end_time)
-        pulumi.set(__self__, "perf_data_start_time", perf_data_start_time)
-        pulumi.set(__self__, "prices_timestamp", prices_timestamp)
-        pulumi.set(__self__, "reserved_instance", reserved_instance)
-        pulumi.set(__self__, "scaling_factor", scaling_factor)
-        pulumi.set(__self__, "sizing_criterion", sizing_criterion)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "time_range", time_range)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
-        pulumi.set(__self__, "vm_uptime", vm_uptime)
+        AssessmentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_disk_type=azure_disk_type,
+            azure_hybrid_use_benefit=azure_hybrid_use_benefit,
+            azure_location=azure_location,
+            azure_offer_code=azure_offer_code,
+            azure_pricing_tier=azure_pricing_tier,
+            azure_storage_redundancy=azure_storage_redundancy,
+            azure_vm_families=azure_vm_families,
+            confidence_rating_in_percentage=confidence_rating_in_percentage,
+            created_timestamp=created_timestamp,
+            currency=currency,
+            discount_percentage=discount_percentage,
+            ea_subscription_id=ea_subscription_id,
+            monthly_bandwidth_cost=monthly_bandwidth_cost,
+            monthly_compute_cost=monthly_compute_cost,
+            monthly_premium_storage_cost=monthly_premium_storage_cost,
+            monthly_standard_ssd_storage_cost=monthly_standard_ssd_storage_cost,
+            monthly_storage_cost=monthly_storage_cost,
+            number_of_machines=number_of_machines,
+            percentile=percentile,
+            perf_data_end_time=perf_data_end_time,
+            perf_data_start_time=perf_data_start_time,
+            prices_timestamp=prices_timestamp,
+            reserved_instance=reserved_instance,
+            scaling_factor=scaling_factor,
+            sizing_criterion=sizing_criterion,
+            stage=stage,
+            status=status,
+            time_range=time_range,
+            updated_timestamp=updated_timestamp,
+            vm_uptime=vm_uptime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_disk_type: str,
+             azure_hybrid_use_benefit: str,
+             azure_location: str,
+             azure_offer_code: str,
+             azure_pricing_tier: str,
+             azure_storage_redundancy: str,
+             azure_vm_families: Sequence[str],
+             confidence_rating_in_percentage: float,
+             created_timestamp: str,
+             currency: str,
+             discount_percentage: float,
+             ea_subscription_id: str,
+             monthly_bandwidth_cost: float,
+             monthly_compute_cost: float,
+             monthly_premium_storage_cost: float,
+             monthly_standard_ssd_storage_cost: float,
+             monthly_storage_cost: float,
+             number_of_machines: int,
+             percentile: str,
+             perf_data_end_time: str,
+             perf_data_start_time: str,
+             prices_timestamp: str,
+             reserved_instance: str,
+             scaling_factor: float,
+             sizing_criterion: str,
+             stage: str,
+             status: str,
+             time_range: str,
+             updated_timestamp: str,
+             vm_uptime: 'outputs.VmUptimeResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_disk_type", azure_disk_type)
+        _setter("azure_hybrid_use_benefit", azure_hybrid_use_benefit)
+        _setter("azure_location", azure_location)
+        _setter("azure_offer_code", azure_offer_code)
+        _setter("azure_pricing_tier", azure_pricing_tier)
+        _setter("azure_storage_redundancy", azure_storage_redundancy)
+        _setter("azure_vm_families", azure_vm_families)
+        _setter("confidence_rating_in_percentage", confidence_rating_in_percentage)
+        _setter("created_timestamp", created_timestamp)
+        _setter("currency", currency)
+        _setter("discount_percentage", discount_percentage)
+        _setter("ea_subscription_id", ea_subscription_id)
+        _setter("monthly_bandwidth_cost", monthly_bandwidth_cost)
+        _setter("monthly_compute_cost", monthly_compute_cost)
+        _setter("monthly_premium_storage_cost", monthly_premium_storage_cost)
+        _setter("monthly_standard_ssd_storage_cost", monthly_standard_ssd_storage_cost)
+        _setter("monthly_storage_cost", monthly_storage_cost)
+        _setter("number_of_machines", number_of_machines)
+        _setter("percentile", percentile)
+        _setter("perf_data_end_time", perf_data_end_time)
+        _setter("perf_data_start_time", perf_data_start_time)
+        _setter("prices_timestamp", prices_timestamp)
+        _setter("reserved_instance", reserved_instance)
+        _setter("scaling_factor", scaling_factor)
+        _setter("sizing_criterion", sizing_criterion)
+        _setter("stage", stage)
+        _setter("status", status)
+        _setter("time_range", time_range)
+        _setter("updated_timestamp", updated_timestamp)
+        _setter("vm_uptime", vm_uptime)
 
     @property
     @pulumi.getter(name="azureDiskType")
@@ -460,11 +527,26 @@ class CollectorAgentPropertiesResponse(dict):
                  last_heartbeat_utc: str,
                  version: str,
                  spn_details: Optional['outputs.CollectorBodyAgentSpnPropertiesResponse'] = None):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "version", version)
+        CollectorAgentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            version=version,
+            spn_details=spn_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             last_heartbeat_utc: str,
+             version: str,
+             spn_details: Optional['outputs.CollectorBodyAgentSpnPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("version", version)
         if spn_details is not None:
-            pulumi.set(__self__, "spn_details", spn_details)
+            _setter("spn_details", spn_details)
 
     @property
     @pulumi.getter
@@ -523,16 +605,33 @@ class CollectorBodyAgentSpnPropertiesResponse(dict):
         :param str object_id: Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         :param str tenant_id: Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         """
+        CollectorBodyAgentSpnPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            audience=audience,
+            authority=authority,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[str] = None,
+             audience: Optional[str] = None,
+             authority: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if authority is not None:
-            pulumi.set(__self__, "authority", authority)
+            _setter("authority", authority)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -610,12 +709,27 @@ class CollectorPropertiesResponse(dict):
         :param str updated_timestamp: Time when this collector was updated. Date-Time represented in ISO-8601 format.
         :param str discovery_site_id: The ARM id of the discovery service site.
         """
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        CollectorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            updated_timestamp=updated_timestamp,
+            agent_properties=agent_properties,
+            discovery_site_id=discovery_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: str,
+             updated_timestamp: str,
+             agent_properties: Optional['outputs.CollectorAgentPropertiesResponse'] = None,
+             discovery_site_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("created_timestamp", created_timestamp)
+        _setter("updated_timestamp", updated_timestamp)
         if agent_properties is not None:
-            pulumi.set(__self__, "agent_properties", agent_properties)
+            _setter("agent_properties", agent_properties)
         if discovery_site_id is not None:
-            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+            _setter("discovery_site_id", discovery_site_id)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -697,14 +811,35 @@ class GroupPropertiesResponse(dict):
         :param str updated_timestamp: Time when this group was last updated. Date-Time represented in ISO-8601 format.
         :param str group_type: The type of group.
         """
-        pulumi.set(__self__, "are_assessments_running", are_assessments_running)
-        pulumi.set(__self__, "assessments", assessments)
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "group_status", group_status)
-        pulumi.set(__self__, "machine_count", machine_count)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        GroupPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            are_assessments_running=are_assessments_running,
+            assessments=assessments,
+            created_timestamp=created_timestamp,
+            group_status=group_status,
+            machine_count=machine_count,
+            updated_timestamp=updated_timestamp,
+            group_type=group_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             are_assessments_running: bool,
+             assessments: Sequence[str],
+             created_timestamp: str,
+             group_status: str,
+             machine_count: int,
+             updated_timestamp: str,
+             group_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("are_assessments_running", are_assessments_running)
+        _setter("assessments", assessments)
+        _setter("created_timestamp", created_timestamp)
+        _setter("group_status", group_status)
+        _setter("machine_count", machine_count)
+        _setter("updated_timestamp", updated_timestamp)
         if group_type is not None:
-            pulumi.set(__self__, "group_type", group_type)
+            _setter("group_type", group_type)
 
     @property
     @pulumi.getter(name="areAssessmentsRunning")
@@ -790,10 +925,23 @@ class ImportCollectorPropertiesResponse(dict):
                  created_timestamp: str,
                  updated_timestamp: str,
                  discovery_site_id: Optional[str] = None):
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        ImportCollectorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            updated_timestamp=updated_timestamp,
+            discovery_site_id=discovery_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: str,
+             updated_timestamp: str,
+             discovery_site_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("created_timestamp", created_timestamp)
+        _setter("updated_timestamp", updated_timestamp)
         if discovery_site_id is not None:
-            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+            _setter("discovery_site_id", discovery_site_id)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -847,10 +995,23 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         :param str provisioning_state: Indicates whether there is an ongoing operation on the private endpoint.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: State of the private endpoint connection.
         """
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        PrivateEndpointConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            provisioning_state=provisioning_state,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: 'outputs.ResourceIdResponse',
+             provisioning_state: str,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_endpoint", private_endpoint)
+        _setter("provisioning_state", provisioning_state)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -913,12 +1074,29 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
         :param str e_tag: For optimistic concurrency control.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            properties=properties,
+            type=type,
+            e_tag=e_tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             properties: 'outputs.PrivateEndpointConnectionPropertiesResponse',
+             type: str,
+             e_tag: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("properties", properties)
+        _setter("type", type)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
 
     @property
     @pulumi.getter
@@ -993,12 +1171,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: Description of the private endpoint connection.
         :param str status: Connection status of the private endpoint connection.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1109,27 +1300,64 @@ class ProjectPropertiesResponse(dict):
         :param str project_status: Assessment project status.
         :param str public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         """
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "last_assessment_timestamp", last_assessment_timestamp)
-        pulumi.set(__self__, "number_of_assessments", number_of_assessments)
-        pulumi.set(__self__, "number_of_groups", number_of_groups)
-        pulumi.set(__self__, "number_of_machines", number_of_machines)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "service_endpoint", service_endpoint)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        ProjectPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            last_assessment_timestamp=last_assessment_timestamp,
+            number_of_assessments=number_of_assessments,
+            number_of_groups=number_of_groups,
+            number_of_machines=number_of_machines,
+            private_endpoint_connections=private_endpoint_connections,
+            provisioning_state=provisioning_state,
+            service_endpoint=service_endpoint,
+            updated_timestamp=updated_timestamp,
+            assessment_solution_id=assessment_solution_id,
+            customer_storage_account_arm_id=customer_storage_account_arm_id,
+            customer_workspace_id=customer_workspace_id,
+            customer_workspace_location=customer_workspace_location,
+            project_status=project_status,
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: str,
+             last_assessment_timestamp: str,
+             number_of_assessments: int,
+             number_of_groups: int,
+             number_of_machines: int,
+             private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+             provisioning_state: str,
+             service_endpoint: str,
+             updated_timestamp: str,
+             assessment_solution_id: Optional[str] = None,
+             customer_storage_account_arm_id: Optional[str] = None,
+             customer_workspace_id: Optional[str] = None,
+             customer_workspace_location: Optional[str] = None,
+             project_status: Optional[str] = None,
+             public_network_access: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("created_timestamp", created_timestamp)
+        _setter("last_assessment_timestamp", last_assessment_timestamp)
+        _setter("number_of_assessments", number_of_assessments)
+        _setter("number_of_groups", number_of_groups)
+        _setter("number_of_machines", number_of_machines)
+        _setter("private_endpoint_connections", private_endpoint_connections)
+        _setter("provisioning_state", provisioning_state)
+        _setter("service_endpoint", service_endpoint)
+        _setter("updated_timestamp", updated_timestamp)
         if assessment_solution_id is not None:
-            pulumi.set(__self__, "assessment_solution_id", assessment_solution_id)
+            _setter("assessment_solution_id", assessment_solution_id)
         if customer_storage_account_arm_id is not None:
-            pulumi.set(__self__, "customer_storage_account_arm_id", customer_storage_account_arm_id)
+            _setter("customer_storage_account_arm_id", customer_storage_account_arm_id)
         if customer_workspace_id is not None:
-            pulumi.set(__self__, "customer_workspace_id", customer_workspace_id)
+            _setter("customer_workspace_id", customer_workspace_id)
         if customer_workspace_location is not None:
-            pulumi.set(__self__, "customer_workspace_location", customer_workspace_location)
+            _setter("customer_workspace_location", customer_workspace_location)
         if project_status is not None:
-            pulumi.set(__self__, "project_status", project_status)
+            _setter("project_status", project_status)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -1262,7 +1490,16 @@ class ResourceIdResponse(dict):
         """
         ARM id for a resource.
         """
-        pulumi.set(__self__, "id", id)
+        ResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1298,10 +1535,21 @@ class VmUptimeResponse(dict):
         :param float days_per_month: Number of days in a month for VM uptime.
         :param float hours_per_day: Number of hours per day for VM uptime.
         """
+        VmUptimeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_per_month=days_per_month,
+            hours_per_day=hours_per_day,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_per_month: Optional[float] = None,
+             hours_per_day: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days_per_month is not None:
-            pulumi.set(__self__, "days_per_month", days_per_month)
+            _setter("days_per_month", days_per_month)
         if hours_per_day is not None:
-            pulumi.set(__self__, "hours_per_day", hours_per_day)
+            _setter("hours_per_day", hours_per_day)
 
     @property
     @pulumi.getter(name="daysPerMonth")

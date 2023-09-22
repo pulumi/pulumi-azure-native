@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -52,42 +52,81 @@ class WebTestArgs:
         :param pulumi.Input['WebTestPropertiesValidationRulesArgs'] validation_rules: The collection of validation rule properties
         :param pulumi.Input[str] web_test_name: User defined name if this WebTest.
         """
-        pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "synthetic_monitor_id", synthetic_monitor_id)
+        WebTestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+            resource_group_name=resource_group_name,
+            synthetic_monitor_id=synthetic_monitor_id,
+            web_test_kind=web_test_kind,
+            configuration=configuration,
+            description=description,
+            enabled=enabled,
+            frequency=frequency,
+            kind=kind,
+            location=location,
+            request=request,
+            retry_enabled=retry_enabled,
+            tags=tags,
+            timeout=timeout,
+            validation_rules=validation_rules,
+            web_test_name=web_test_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: pulumi.Input[Sequence[pulumi.Input['WebTestGeolocationArgs']]],
+             resource_group_name: pulumi.Input[str],
+             synthetic_monitor_id: pulumi.Input[str],
+             web_test_kind: Optional[pulumi.Input['WebTestKind']] = None,
+             configuration: Optional[pulumi.Input['WebTestPropertiesConfigurationArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             frequency: Optional[pulumi.Input[int]] = None,
+             kind: Optional[pulumi.Input['WebTestKind']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             request: Optional[pulumi.Input['WebTestPropertiesRequestArgs']] = None,
+             retry_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             validation_rules: Optional[pulumi.Input['WebTestPropertiesValidationRulesArgs']] = None,
+             web_test_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("locations", locations)
+        _setter("resource_group_name", resource_group_name)
+        _setter("synthetic_monitor_id", synthetic_monitor_id)
         if web_test_kind is None:
             web_test_kind = 'ping'
-        pulumi.set(__self__, "web_test_kind", web_test_kind)
+        _setter("web_test_kind", web_test_kind)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if frequency is None:
             frequency = 300
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if kind is None:
             kind = 'ping'
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if retry_enabled is not None:
-            pulumi.set(__self__, "retry_enabled", retry_enabled)
+            _setter("retry_enabled", retry_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is None:
             timeout = 30
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if validation_rules is not None:
-            pulumi.set(__self__, "validation_rules", validation_rules)
+            _setter("validation_rules", validation_rules)
         if web_test_name is not None:
-            pulumi.set(__self__, "web_test_name", web_test_name)
+            _setter("web_test_name", web_test_name)
 
     @property
     @pulumi.getter
@@ -347,6 +386,10 @@ class WebTest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebTestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -377,6 +420,11 @@ class WebTest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebTestArgs.__new__(WebTestArgs)
 
+            if not isinstance(configuration, WebTestPropertiesConfigurationArgs):
+                configuration = configuration or {}
+                def _setter(key, value):
+                    configuration[key] = value
+                WebTestPropertiesConfigurationArgs._configure(_setter, **configuration)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -390,6 +438,11 @@ class WebTest(pulumi.CustomResource):
             if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
             __props__.__dict__["locations"] = locations
+            if not isinstance(request, WebTestPropertiesRequestArgs):
+                request = request or {}
+                def _setter(key, value):
+                    request[key] = value
+                WebTestPropertiesRequestArgs._configure(_setter, **request)
             __props__.__dict__["request"] = request
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -402,6 +455,11 @@ class WebTest(pulumi.CustomResource):
             if timeout is None:
                 timeout = 30
             __props__.__dict__["timeout"] = timeout
+            if not isinstance(validation_rules, WebTestPropertiesValidationRulesArgs):
+                validation_rules = validation_rules or {}
+                def _setter(key, value):
+                    validation_rules[key] = value
+                WebTestPropertiesValidationRulesArgs._configure(_setter, **validation_rules)
             __props__.__dict__["validation_rules"] = validation_rules
             if web_test_kind is None:
                 web_test_kind = 'ping'

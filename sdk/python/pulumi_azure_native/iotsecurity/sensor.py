@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,15 +29,32 @@ class SensorArgs:
         :param pulumi.Input[bool] ti_automatic_updates: TI Automatic mode status of the IoT sensor
         :param pulumi.Input[str] zone: Zone of the IoT sensor
         """
-        pulumi.set(__self__, "scope", scope)
+        SensorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            sensor_name=sensor_name,
+            sensor_type=sensor_type,
+            ti_automatic_updates=ti_automatic_updates,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             sensor_name: Optional[pulumi.Input[str]] = None,
+             sensor_type: Optional[pulumi.Input[Union[str, 'SensorType']]] = None,
+             ti_automatic_updates: Optional[pulumi.Input[bool]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scope", scope)
         if sensor_name is not None:
-            pulumi.set(__self__, "sensor_name", sensor_name)
+            _setter("sensor_name", sensor_name)
         if sensor_type is not None:
-            pulumi.set(__self__, "sensor_type", sensor_type)
+            _setter("sensor_type", sensor_type)
         if ti_automatic_updates is not None:
-            pulumi.set(__self__, "ti_automatic_updates", ti_automatic_updates)
+            _setter("ti_automatic_updates", ti_automatic_updates)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -143,6 +160,10 @@ class Sensor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SensorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

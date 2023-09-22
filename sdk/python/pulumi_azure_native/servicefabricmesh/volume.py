@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,39 @@ class VolumeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] volume_resource_name: The identity of the volume.
         """
-        pulumi.set(__self__, "provider", provider)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider=provider,
+            resource_group_name=resource_group_name,
+            azure_file_parameters=azure_file_parameters,
+            description=description,
+            location=location,
+            tags=tags,
+            volume_resource_name=volume_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider: pulumi.Input[Union[str, 'VolumeProvider']],
+             resource_group_name: pulumi.Input[str],
+             azure_file_parameters: Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             volume_resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider", provider)
+        _setter("resource_group_name", resource_group_name)
         if azure_file_parameters is not None:
-            pulumi.set(__self__, "azure_file_parameters", azure_file_parameters)
+            _setter("azure_file_parameters", azure_file_parameters)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_resource_name is not None:
-            pulumi.set(__self__, "volume_resource_name", volume_resource_name)
+            _setter("volume_resource_name", volume_resource_name)
 
     @property
     @pulumi.getter
@@ -179,6 +200,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,6 +225,11 @@ class Volume(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VolumeArgs.__new__(VolumeArgs)
 
+            if not isinstance(azure_file_parameters, VolumeProviderParametersAzureFileArgs):
+                azure_file_parameters = azure_file_parameters or {}
+                def _setter(key, value):
+                    azure_file_parameters[key] = value
+                VolumeProviderParametersAzureFileArgs._configure(_setter, **azure_file_parameters)
             __props__.__dict__["azure_file_parameters"] = azure_file_parameters
             __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location

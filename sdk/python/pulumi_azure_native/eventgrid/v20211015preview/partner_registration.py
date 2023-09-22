@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -61,39 +61,80 @@ class PartnerRegistrationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']] visibility_state: Visibility state of the partner registration.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PartnerRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            authorized_azure_subscription_ids=authorized_azure_subscription_ids,
+            customer_service_uri=customer_service_uri,
+            location=location,
+            logo_uri=logo_uri,
+            long_description=long_description,
+            partner_customer_service_extension=partner_customer_service_extension,
+            partner_customer_service_number=partner_customer_service_number,
+            partner_name=partner_name,
+            partner_registration_immutable_id=partner_registration_immutable_id,
+            partner_registration_name=partner_registration_name,
+            partner_resource_type_description=partner_resource_type_description,
+            partner_resource_type_display_name=partner_resource_type_display_name,
+            partner_resource_type_name=partner_resource_type_name,
+            setup_uri=setup_uri,
+            tags=tags,
+            visibility_state=visibility_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             authorized_azure_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             customer_service_uri: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             logo_uri: Optional[pulumi.Input[str]] = None,
+             long_description: Optional[pulumi.Input[str]] = None,
+             partner_customer_service_extension: Optional[pulumi.Input[str]] = None,
+             partner_customer_service_number: Optional[pulumi.Input[str]] = None,
+             partner_name: Optional[pulumi.Input[str]] = None,
+             partner_registration_immutable_id: Optional[pulumi.Input[str]] = None,
+             partner_registration_name: Optional[pulumi.Input[str]] = None,
+             partner_resource_type_description: Optional[pulumi.Input[str]] = None,
+             partner_resource_type_display_name: Optional[pulumi.Input[str]] = None,
+             partner_resource_type_name: Optional[pulumi.Input[str]] = None,
+             setup_uri: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             visibility_state: Optional[pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if authorized_azure_subscription_ids is not None:
-            pulumi.set(__self__, "authorized_azure_subscription_ids", authorized_azure_subscription_ids)
+            _setter("authorized_azure_subscription_ids", authorized_azure_subscription_ids)
         if customer_service_uri is not None:
-            pulumi.set(__self__, "customer_service_uri", customer_service_uri)
+            _setter("customer_service_uri", customer_service_uri)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if logo_uri is not None:
-            pulumi.set(__self__, "logo_uri", logo_uri)
+            _setter("logo_uri", logo_uri)
         if long_description is not None:
-            pulumi.set(__self__, "long_description", long_description)
+            _setter("long_description", long_description)
         if partner_customer_service_extension is not None:
-            pulumi.set(__self__, "partner_customer_service_extension", partner_customer_service_extension)
+            _setter("partner_customer_service_extension", partner_customer_service_extension)
         if partner_customer_service_number is not None:
-            pulumi.set(__self__, "partner_customer_service_number", partner_customer_service_number)
+            _setter("partner_customer_service_number", partner_customer_service_number)
         if partner_name is not None:
-            pulumi.set(__self__, "partner_name", partner_name)
+            _setter("partner_name", partner_name)
         if partner_registration_immutable_id is not None:
-            pulumi.set(__self__, "partner_registration_immutable_id", partner_registration_immutable_id)
+            _setter("partner_registration_immutable_id", partner_registration_immutable_id)
         if partner_registration_name is not None:
-            pulumi.set(__self__, "partner_registration_name", partner_registration_name)
+            _setter("partner_registration_name", partner_registration_name)
         if partner_resource_type_description is not None:
-            pulumi.set(__self__, "partner_resource_type_description", partner_resource_type_description)
+            _setter("partner_resource_type_description", partner_resource_type_description)
         if partner_resource_type_display_name is not None:
-            pulumi.set(__self__, "partner_resource_type_display_name", partner_resource_type_display_name)
+            _setter("partner_resource_type_display_name", partner_resource_type_display_name)
         if partner_resource_type_name is not None:
-            pulumi.set(__self__, "partner_resource_type_name", partner_resource_type_name)
+            _setter("partner_resource_type_name", partner_resource_type_name)
         if setup_uri is not None:
-            pulumi.set(__self__, "setup_uri", setup_uri)
+            _setter("setup_uri", setup_uri)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if visibility_state is not None:
-            pulumi.set(__self__, "visibility_state", visibility_state)
+            _setter("visibility_state", visibility_state)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -381,6 +422,10 @@ class PartnerRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartnerRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

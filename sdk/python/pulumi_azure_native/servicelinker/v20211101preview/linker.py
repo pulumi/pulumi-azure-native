@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,40 @@ class LinkerArgs:
         :param pulumi.Input[str] target_id: The resource Id of target service.
         :param pulumi.Input['VNetSolutionArgs'] v_net_solution: The VNet solution.
         """
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        LinkerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_uri=resource_uri,
+            auth_info=auth_info,
+            client_type=client_type,
+            linker_name=linker_name,
+            secret_store=secret_store,
+            target_id=target_id,
+            v_net_solution=v_net_solution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_uri: pulumi.Input[str],
+             auth_info: Optional[pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
+             client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
+             linker_name: Optional[pulumi.Input[str]] = None,
+             secret_store: Optional[pulumi.Input['SecretStoreArgs']] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_uri", resource_uri)
         if auth_info is not None:
-            pulumi.set(__self__, "auth_info", auth_info)
+            _setter("auth_info", auth_info)
         if client_type is not None:
-            pulumi.set(__self__, "client_type", client_type)
+            _setter("client_type", client_type)
         if linker_name is not None:
-            pulumi.set(__self__, "linker_name", linker_name)
+            _setter("linker_name", linker_name)
         if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
+            _setter("secret_store", secret_store)
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
         if v_net_solution is not None:
-            pulumi.set(__self__, "v_net_solution", v_net_solution)
+            _setter("v_net_solution", v_net_solution)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -178,6 +199,10 @@ class Linker(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -205,8 +230,18 @@ class Linker(pulumi.CustomResource):
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
+            if not isinstance(secret_store, SecretStoreArgs):
+                secret_store = secret_store or {}
+                def _setter(key, value):
+                    secret_store[key] = value
+                SecretStoreArgs._configure(_setter, **secret_store)
             __props__.__dict__["secret_store"] = secret_store
             __props__.__dict__["target_id"] = target_id
+            if not isinstance(v_net_solution, VNetSolutionArgs):
+                v_net_solution = v_net_solution or {}
+                def _setter(key, value):
+                    v_net_solution[key] = value
+                VNetSolutionArgs._configure(_setter, **v_net_solution)
             __props__.__dict__["v_net_solution"] = v_net_solution
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None

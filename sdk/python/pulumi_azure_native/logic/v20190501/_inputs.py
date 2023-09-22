@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -101,10 +101,25 @@ class AS2AcknowledgementConnectionSettingsArgs:
         :param pulumi.Input[bool] support_http_status_code_continue: Indicates whether to support HTTP status code 'CONTINUE'.
         :param pulumi.Input[bool] unfold_http_headers: Indicates whether to unfold the HTTP headers.
         """
-        pulumi.set(__self__, "ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
-        pulumi.set(__self__, "keep_http_connection_alive", keep_http_connection_alive)
-        pulumi.set(__self__, "support_http_status_code_continue", support_http_status_code_continue)
-        pulumi.set(__self__, "unfold_http_headers", unfold_http_headers)
+        AS2AcknowledgementConnectionSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_certificate_name_mismatch=ignore_certificate_name_mismatch,
+            keep_http_connection_alive=keep_http_connection_alive,
+            support_http_status_code_continue=support_http_status_code_continue,
+            unfold_http_headers=unfold_http_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_certificate_name_mismatch: pulumi.Input[bool],
+             keep_http_connection_alive: pulumi.Input[bool],
+             support_http_status_code_continue: pulumi.Input[bool],
+             unfold_http_headers: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
+        _setter("keep_http_connection_alive", keep_http_connection_alive)
+        _setter("support_http_status_code_continue", support_http_status_code_continue)
+        _setter("unfold_http_headers", unfold_http_headers)
 
     @property
     @pulumi.getter(name="ignoreCertificateNameMismatch")
@@ -165,8 +180,19 @@ class AS2AgreementContentArgs:
         :param pulumi.Input['AS2OneWayAgreementArgs'] receive_agreement: The AS2 one-way receive agreement.
         :param pulumi.Input['AS2OneWayAgreementArgs'] send_agreement: The AS2 one-way send agreement.
         """
-        pulumi.set(__self__, "receive_agreement", receive_agreement)
-        pulumi.set(__self__, "send_agreement", send_agreement)
+        AS2AgreementContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receive_agreement=receive_agreement,
+            send_agreement=send_agreement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receive_agreement: pulumi.Input['AS2OneWayAgreementArgs'],
+             send_agreement: pulumi.Input['AS2OneWayAgreementArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("receive_agreement", receive_agreement)
+        _setter("send_agreement", send_agreement)
 
     @property
     @pulumi.getter(name="receiveAgreement")
@@ -209,11 +235,28 @@ class AS2EnvelopeSettingsArgs:
         :param pulumi.Input[bool] suspend_message_on_file_name_generation_error: The value indicating whether to suspend message on file name generation error.
         :param pulumi.Input[bool] transmit_file_name_in_mime_header: The value indicating whether to transmit file name in mime header.
         """
-        pulumi.set(__self__, "autogenerate_file_name", autogenerate_file_name)
-        pulumi.set(__self__, "file_name_template", file_name_template)
-        pulumi.set(__self__, "message_content_type", message_content_type)
-        pulumi.set(__self__, "suspend_message_on_file_name_generation_error", suspend_message_on_file_name_generation_error)
-        pulumi.set(__self__, "transmit_file_name_in_mime_header", transmit_file_name_in_mime_header)
+        AS2EnvelopeSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autogenerate_file_name=autogenerate_file_name,
+            file_name_template=file_name_template,
+            message_content_type=message_content_type,
+            suspend_message_on_file_name_generation_error=suspend_message_on_file_name_generation_error,
+            transmit_file_name_in_mime_header=transmit_file_name_in_mime_header,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autogenerate_file_name: pulumi.Input[bool],
+             file_name_template: pulumi.Input[str],
+             message_content_type: pulumi.Input[str],
+             suspend_message_on_file_name_generation_error: pulumi.Input[bool],
+             transmit_file_name_in_mime_header: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("autogenerate_file_name", autogenerate_file_name)
+        _setter("file_name_template", file_name_template)
+        _setter("message_content_type", message_content_type)
+        _setter("suspend_message_on_file_name_generation_error", suspend_message_on_file_name_generation_error)
+        _setter("transmit_file_name_in_mime_header", transmit_file_name_in_mime_header)
 
     @property
     @pulumi.getter(name="autogenerateFileName")
@@ -286,8 +329,19 @@ class AS2ErrorSettingsArgs:
         :param pulumi.Input[bool] resend_if_mdn_not_received: The value indicating whether to resend message If MDN is not received.
         :param pulumi.Input[bool] suspend_duplicate_message: The value indicating whether to suspend duplicate message.
         """
-        pulumi.set(__self__, "resend_if_mdn_not_received", resend_if_mdn_not_received)
-        pulumi.set(__self__, "suspend_duplicate_message", suspend_duplicate_message)
+        AS2ErrorSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resend_if_mdn_not_received=resend_if_mdn_not_received,
+            suspend_duplicate_message=suspend_duplicate_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resend_if_mdn_not_received: pulumi.Input[bool],
+             suspend_duplicate_message: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resend_if_mdn_not_received", resend_if_mdn_not_received)
+        _setter("suspend_duplicate_message", suspend_duplicate_message)
 
     @property
     @pulumi.getter(name="resendIfMDNNotReceived")
@@ -338,18 +392,43 @@ class AS2MdnSettingsArgs:
         :param pulumi.Input[str] mdn_text: The MDN text.
         :param pulumi.Input[str] receipt_delivery_url: The receipt delivery URL.
         """
-        pulumi.set(__self__, "mic_hashing_algorithm", mic_hashing_algorithm)
-        pulumi.set(__self__, "need_mdn", need_mdn)
-        pulumi.set(__self__, "send_inbound_mdn_to_message_box", send_inbound_mdn_to_message_box)
-        pulumi.set(__self__, "send_mdnasynchronously", send_mdnasynchronously)
-        pulumi.set(__self__, "sign_mdn", sign_mdn)
-        pulumi.set(__self__, "sign_outbound_mdn_if_optional", sign_outbound_mdn_if_optional)
+        AS2MdnSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mic_hashing_algorithm=mic_hashing_algorithm,
+            need_mdn=need_mdn,
+            send_inbound_mdn_to_message_box=send_inbound_mdn_to_message_box,
+            send_mdnasynchronously=send_mdnasynchronously,
+            sign_mdn=sign_mdn,
+            sign_outbound_mdn_if_optional=sign_outbound_mdn_if_optional,
+            disposition_notification_to=disposition_notification_to,
+            mdn_text=mdn_text,
+            receipt_delivery_url=receipt_delivery_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mic_hashing_algorithm: pulumi.Input[Union[str, 'HashingAlgorithm']],
+             need_mdn: pulumi.Input[bool],
+             send_inbound_mdn_to_message_box: pulumi.Input[bool],
+             send_mdnasynchronously: pulumi.Input[bool],
+             sign_mdn: pulumi.Input[bool],
+             sign_outbound_mdn_if_optional: pulumi.Input[bool],
+             disposition_notification_to: Optional[pulumi.Input[str]] = None,
+             mdn_text: Optional[pulumi.Input[str]] = None,
+             receipt_delivery_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mic_hashing_algorithm", mic_hashing_algorithm)
+        _setter("need_mdn", need_mdn)
+        _setter("send_inbound_mdn_to_message_box", send_inbound_mdn_to_message_box)
+        _setter("send_mdnasynchronously", send_mdnasynchronously)
+        _setter("sign_mdn", sign_mdn)
+        _setter("sign_outbound_mdn_if_optional", sign_outbound_mdn_if_optional)
         if disposition_notification_to is not None:
-            pulumi.set(__self__, "disposition_notification_to", disposition_notification_to)
+            _setter("disposition_notification_to", disposition_notification_to)
         if mdn_text is not None:
-            pulumi.set(__self__, "mdn_text", mdn_text)
+            _setter("mdn_text", mdn_text)
         if receipt_delivery_url is not None:
-            pulumi.set(__self__, "receipt_delivery_url", receipt_delivery_url)
+            _setter("receipt_delivery_url", receipt_delivery_url)
 
     @property
     @pulumi.getter(name="micHashingAlgorithm")
@@ -474,10 +553,25 @@ class AS2MessageConnectionSettingsArgs:
         :param pulumi.Input[bool] support_http_status_code_continue: The value indicating whether to support HTTP status code 'CONTINUE'.
         :param pulumi.Input[bool] unfold_http_headers: The value indicating whether to unfold the HTTP headers.
         """
-        pulumi.set(__self__, "ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
-        pulumi.set(__self__, "keep_http_connection_alive", keep_http_connection_alive)
-        pulumi.set(__self__, "support_http_status_code_continue", support_http_status_code_continue)
-        pulumi.set(__self__, "unfold_http_headers", unfold_http_headers)
+        AS2MessageConnectionSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_certificate_name_mismatch=ignore_certificate_name_mismatch,
+            keep_http_connection_alive=keep_http_connection_alive,
+            support_http_status_code_continue=support_http_status_code_continue,
+            unfold_http_headers=unfold_http_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_certificate_name_mismatch: pulumi.Input[bool],
+             keep_http_connection_alive: pulumi.Input[bool],
+             support_http_status_code_continue: pulumi.Input[bool],
+             unfold_http_headers: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
+        _setter("keep_http_connection_alive", keep_http_connection_alive)
+        _setter("support_http_status_code_continue", support_http_status_code_continue)
+        _setter("unfold_http_headers", unfold_http_headers)
 
     @property
     @pulumi.getter(name="ignoreCertificateNameMismatch")
@@ -540,9 +634,22 @@ class AS2OneWayAgreementArgs:
         :param pulumi.Input['BusinessIdentityArgs'] receiver_business_identity: The receiver business identity
         :param pulumi.Input['BusinessIdentityArgs'] sender_business_identity: The sender business identity
         """
-        pulumi.set(__self__, "protocol_settings", protocol_settings)
-        pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
-        pulumi.set(__self__, "sender_business_identity", sender_business_identity)
+        AS2OneWayAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_settings=protocol_settings,
+            receiver_business_identity=receiver_business_identity,
+            sender_business_identity=sender_business_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_settings: pulumi.Input['AS2ProtocolSettingsArgs'],
+             receiver_business_identity: pulumi.Input['BusinessIdentityArgs'],
+             sender_business_identity: pulumi.Input['BusinessIdentityArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("protocol_settings", protocol_settings)
+        _setter("receiver_business_identity", receiver_business_identity)
+        _setter("sender_business_identity", sender_business_identity)
 
     @property
     @pulumi.getter(name="protocolSettings")
@@ -601,13 +708,34 @@ class AS2ProtocolSettingsArgs:
         :param pulumi.Input['AS2SecuritySettingsArgs'] security_settings: The security settings.
         :param pulumi.Input['AS2ValidationSettingsArgs'] validation_settings: The validation settings.
         """
-        pulumi.set(__self__, "acknowledgement_connection_settings", acknowledgement_connection_settings)
-        pulumi.set(__self__, "envelope_settings", envelope_settings)
-        pulumi.set(__self__, "error_settings", error_settings)
-        pulumi.set(__self__, "mdn_settings", mdn_settings)
-        pulumi.set(__self__, "message_connection_settings", message_connection_settings)
-        pulumi.set(__self__, "security_settings", security_settings)
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        AS2ProtocolSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_connection_settings=acknowledgement_connection_settings,
+            envelope_settings=envelope_settings,
+            error_settings=error_settings,
+            mdn_settings=mdn_settings,
+            message_connection_settings=message_connection_settings,
+            security_settings=security_settings,
+            validation_settings=validation_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_connection_settings: pulumi.Input['AS2AcknowledgementConnectionSettingsArgs'],
+             envelope_settings: pulumi.Input['AS2EnvelopeSettingsArgs'],
+             error_settings: pulumi.Input['AS2ErrorSettingsArgs'],
+             mdn_settings: pulumi.Input['AS2MdnSettingsArgs'],
+             message_connection_settings: pulumi.Input['AS2MessageConnectionSettingsArgs'],
+             security_settings: pulumi.Input['AS2SecuritySettingsArgs'],
+             validation_settings: pulumi.Input['AS2ValidationSettingsArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acknowledgement_connection_settings", acknowledgement_connection_settings)
+        _setter("envelope_settings", envelope_settings)
+        _setter("error_settings", error_settings)
+        _setter("mdn_settings", mdn_settings)
+        _setter("message_connection_settings", message_connection_settings)
+        _setter("security_settings", security_settings)
+        _setter("validation_settings", validation_settings)
 
     @property
     @pulumi.getter(name="acknowledgementConnectionSettings")
@@ -720,19 +848,46 @@ class AS2SecuritySettingsArgs:
         :param pulumi.Input[str] sha2_algorithm_format: The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
         :param pulumi.Input[str] signing_certificate_name: The name of the signing certificate.
         """
-        pulumi.set(__self__, "enable_nrr_for_inbound_decoded_messages", enable_nrr_for_inbound_decoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_inbound_encoded_messages", enable_nrr_for_inbound_encoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_inbound_mdn", enable_nrr_for_inbound_mdn)
-        pulumi.set(__self__, "enable_nrr_for_outbound_decoded_messages", enable_nrr_for_outbound_decoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_outbound_encoded_messages", enable_nrr_for_outbound_encoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_outbound_mdn", enable_nrr_for_outbound_mdn)
-        pulumi.set(__self__, "override_group_signing_certificate", override_group_signing_certificate)
+        AS2SecuritySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_nrr_for_inbound_decoded_messages=enable_nrr_for_inbound_decoded_messages,
+            enable_nrr_for_inbound_encoded_messages=enable_nrr_for_inbound_encoded_messages,
+            enable_nrr_for_inbound_mdn=enable_nrr_for_inbound_mdn,
+            enable_nrr_for_outbound_decoded_messages=enable_nrr_for_outbound_decoded_messages,
+            enable_nrr_for_outbound_encoded_messages=enable_nrr_for_outbound_encoded_messages,
+            enable_nrr_for_outbound_mdn=enable_nrr_for_outbound_mdn,
+            override_group_signing_certificate=override_group_signing_certificate,
+            encryption_certificate_name=encryption_certificate_name,
+            sha2_algorithm_format=sha2_algorithm_format,
+            signing_certificate_name=signing_certificate_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_nrr_for_inbound_decoded_messages: pulumi.Input[bool],
+             enable_nrr_for_inbound_encoded_messages: pulumi.Input[bool],
+             enable_nrr_for_inbound_mdn: pulumi.Input[bool],
+             enable_nrr_for_outbound_decoded_messages: pulumi.Input[bool],
+             enable_nrr_for_outbound_encoded_messages: pulumi.Input[bool],
+             enable_nrr_for_outbound_mdn: pulumi.Input[bool],
+             override_group_signing_certificate: pulumi.Input[bool],
+             encryption_certificate_name: Optional[pulumi.Input[str]] = None,
+             sha2_algorithm_format: Optional[pulumi.Input[str]] = None,
+             signing_certificate_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enable_nrr_for_inbound_decoded_messages", enable_nrr_for_inbound_decoded_messages)
+        _setter("enable_nrr_for_inbound_encoded_messages", enable_nrr_for_inbound_encoded_messages)
+        _setter("enable_nrr_for_inbound_mdn", enable_nrr_for_inbound_mdn)
+        _setter("enable_nrr_for_outbound_decoded_messages", enable_nrr_for_outbound_decoded_messages)
+        _setter("enable_nrr_for_outbound_encoded_messages", enable_nrr_for_outbound_encoded_messages)
+        _setter("enable_nrr_for_outbound_mdn", enable_nrr_for_outbound_mdn)
+        _setter("override_group_signing_certificate", override_group_signing_certificate)
         if encryption_certificate_name is not None:
-            pulumi.set(__self__, "encryption_certificate_name", encryption_certificate_name)
+            _setter("encryption_certificate_name", encryption_certificate_name)
         if sha2_algorithm_format is not None:
-            pulumi.set(__self__, "sha2_algorithm_format", sha2_algorithm_format)
+            _setter("sha2_algorithm_format", sha2_algorithm_format)
         if signing_certificate_name is not None:
-            pulumi.set(__self__, "signing_certificate_name", signing_certificate_name)
+            _setter("signing_certificate_name", signing_certificate_name)
 
     @property
     @pulumi.getter(name="enableNRRForInboundDecodedMessages")
@@ -881,17 +1036,44 @@ class AS2ValidationSettingsArgs:
         :param pulumi.Input[bool] sign_message: The value indicating whether the message has to be signed.
         :param pulumi.Input[Union[str, 'SigningAlgorithm']] signing_algorithm: The signing algorithm.
         """
-        pulumi.set(__self__, "check_certificate_revocation_list_on_receive", check_certificate_revocation_list_on_receive)
-        pulumi.set(__self__, "check_certificate_revocation_list_on_send", check_certificate_revocation_list_on_send)
-        pulumi.set(__self__, "check_duplicate_message", check_duplicate_message)
-        pulumi.set(__self__, "compress_message", compress_message)
-        pulumi.set(__self__, "encrypt_message", encrypt_message)
-        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
-        pulumi.set(__self__, "interchange_duplicates_validity_days", interchange_duplicates_validity_days)
-        pulumi.set(__self__, "override_message_properties", override_message_properties)
-        pulumi.set(__self__, "sign_message", sign_message)
+        AS2ValidationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            check_certificate_revocation_list_on_receive=check_certificate_revocation_list_on_receive,
+            check_certificate_revocation_list_on_send=check_certificate_revocation_list_on_send,
+            check_duplicate_message=check_duplicate_message,
+            compress_message=compress_message,
+            encrypt_message=encrypt_message,
+            encryption_algorithm=encryption_algorithm,
+            interchange_duplicates_validity_days=interchange_duplicates_validity_days,
+            override_message_properties=override_message_properties,
+            sign_message=sign_message,
+            signing_algorithm=signing_algorithm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             check_certificate_revocation_list_on_receive: pulumi.Input[bool],
+             check_certificate_revocation_list_on_send: pulumi.Input[bool],
+             check_duplicate_message: pulumi.Input[bool],
+             compress_message: pulumi.Input[bool],
+             encrypt_message: pulumi.Input[bool],
+             encryption_algorithm: pulumi.Input[Union[str, 'EncryptionAlgorithm']],
+             interchange_duplicates_validity_days: pulumi.Input[int],
+             override_message_properties: pulumi.Input[bool],
+             sign_message: pulumi.Input[bool],
+             signing_algorithm: Optional[pulumi.Input[Union[str, 'SigningAlgorithm']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("check_certificate_revocation_list_on_receive", check_certificate_revocation_list_on_receive)
+        _setter("check_certificate_revocation_list_on_send", check_certificate_revocation_list_on_send)
+        _setter("check_duplicate_message", check_duplicate_message)
+        _setter("compress_message", compress_message)
+        _setter("encrypt_message", encrypt_message)
+        _setter("encryption_algorithm", encryption_algorithm)
+        _setter("interchange_duplicates_validity_days", interchange_duplicates_validity_days)
+        _setter("override_message_properties", override_message_properties)
+        _setter("sign_message", sign_message)
         if signing_algorithm is not None:
-            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+            _setter("signing_algorithm", signing_algorithm)
 
     @property
     @pulumi.getter(name="checkCertificateRevocationListOnReceive")
@@ -1026,12 +1208,25 @@ class AgreementContentArgs:
         :param pulumi.Input['EdifactAgreementContentArgs'] edifact: The EDIFACT agreement content.
         :param pulumi.Input['X12AgreementContentArgs'] x12: The X12 agreement content.
         """
+        AgreementContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            a_s2=a_s2,
+            edifact=edifact,
+            x12=x12,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             a_s2: Optional[pulumi.Input['AS2AgreementContentArgs']] = None,
+             edifact: Optional[pulumi.Input['EdifactAgreementContentArgs']] = None,
+             x12: Optional[pulumi.Input['X12AgreementContentArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if a_s2 is not None:
-            pulumi.set(__self__, "a_s2", a_s2)
+            _setter("a_s2", a_s2)
         if edifact is not None:
-            pulumi.set(__self__, "edifact", edifact)
+            _setter("edifact", edifact)
         if x12 is not None:
-            pulumi.set(__self__, "x12", x12)
+            _setter("x12", x12)
 
     @property
     @pulumi.getter(name="aS2")
@@ -1094,25 +1289,52 @@ class AssemblyPropertiesArgs:
         :param pulumi.Input[str] content_type: The content type.
         :param pulumi.Input[str] created_time: The artifact creation time.
         """
-        pulumi.set(__self__, "assembly_name", assembly_name)
+        AssemblyPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assembly_name=assembly_name,
+            assembly_culture=assembly_culture,
+            assembly_public_key_token=assembly_public_key_token,
+            assembly_version=assembly_version,
+            changed_time=changed_time,
+            content=content,
+            content_link=content_link,
+            content_type=content_type,
+            created_time=created_time,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assembly_name: pulumi.Input[str],
+             assembly_culture: Optional[pulumi.Input[str]] = None,
+             assembly_public_key_token: Optional[pulumi.Input[str]] = None,
+             assembly_version: Optional[pulumi.Input[str]] = None,
+             changed_time: Optional[pulumi.Input[str]] = None,
+             content: Optional[Any] = None,
+             content_link: Optional[pulumi.Input['ContentLinkArgs']] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assembly_name", assembly_name)
         if assembly_culture is not None:
-            pulumi.set(__self__, "assembly_culture", assembly_culture)
+            _setter("assembly_culture", assembly_culture)
         if assembly_public_key_token is not None:
-            pulumi.set(__self__, "assembly_public_key_token", assembly_public_key_token)
+            _setter("assembly_public_key_token", assembly_public_key_token)
         if assembly_version is not None:
-            pulumi.set(__self__, "assembly_version", assembly_version)
+            _setter("assembly_version", assembly_version)
         if changed_time is not None:
-            pulumi.set(__self__, "changed_time", changed_time)
+            _setter("changed_time", changed_time)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_link is not None:
-            pulumi.set(__self__, "content_link", content_link)
+            _setter("content_link", content_link)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="assemblyName")
@@ -1237,8 +1459,17 @@ class B2BPartnerContentArgs:
         The B2B partner content.
         :param pulumi.Input[Sequence[pulumi.Input['BusinessIdentityArgs']]] business_identities: The list of partner business identities.
         """
+        B2BPartnerContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            business_identities=business_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             business_identities: Optional[pulumi.Input[Sequence[pulumi.Input['BusinessIdentityArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if business_identities is not None:
-            pulumi.set(__self__, "business_identities", business_identities)
+            _setter("business_identities", business_identities)
 
     @property
     @pulumi.getter(name="businessIdentities")
@@ -1268,14 +1499,31 @@ class BatchConfigurationPropertiesArgs:
         :param pulumi.Input[str] changed_time: The artifact changed time.
         :param pulumi.Input[str] created_time: The artifact creation time.
         """
-        pulumi.set(__self__, "batch_group_name", batch_group_name)
-        pulumi.set(__self__, "release_criteria", release_criteria)
+        BatchConfigurationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_group_name=batch_group_name,
+            release_criteria=release_criteria,
+            changed_time=changed_time,
+            created_time=created_time,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_group_name: pulumi.Input[str],
+             release_criteria: pulumi.Input['BatchReleaseCriteriaArgs'],
+             changed_time: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("batch_group_name", batch_group_name)
+        _setter("release_criteria", release_criteria)
         if changed_time is not None:
-            pulumi.set(__self__, "changed_time", changed_time)
+            _setter("changed_time", changed_time)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="batchGroupName")
@@ -1347,12 +1595,25 @@ class BatchReleaseCriteriaArgs:
         :param pulumi.Input[int] message_count: The message count.
         :param pulumi.Input['WorkflowTriggerRecurrenceArgs'] recurrence: The recurrence.
         """
+        BatchReleaseCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_size=batch_size,
+            message_count=message_count,
+            recurrence=recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_size: Optional[pulumi.Input[int]] = None,
+             message_count: Optional[pulumi.Input[int]] = None,
+             recurrence: Optional[pulumi.Input['WorkflowTriggerRecurrenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if message_count is not None:
-            pulumi.set(__self__, "message_count", message_count)
+            _setter("message_count", message_count)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -1401,8 +1662,19 @@ class BusinessIdentityArgs:
         :param pulumi.Input[str] qualifier: The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
         :param pulumi.Input[str] value: The user defined business identity value.
         """
-        pulumi.set(__self__, "qualifier", qualifier)
-        pulumi.set(__self__, "value", value)
+        BusinessIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            qualifier=qualifier,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             qualifier: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("qualifier", qualifier)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1437,8 +1709,17 @@ class ContentLinkArgs:
         The content link.
         :param pulumi.Input[str] uri: The content link URI.
         """
+        ContentLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -1481,19 +1762,48 @@ class EdifactAcknowledgementSettingsArgs:
         :param pulumi.Input[str] acknowledgement_control_number_prefix: The acknowledgement control number prefix.
         :param pulumi.Input[str] acknowledgement_control_number_suffix: The acknowledgement control number suffix.
         """
-        pulumi.set(__self__, "acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
-        pulumi.set(__self__, "acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
-        pulumi.set(__self__, "batch_functional_acknowledgements", batch_functional_acknowledgements)
-        pulumi.set(__self__, "batch_technical_acknowledgements", batch_technical_acknowledgements)
-        pulumi.set(__self__, "need_functional_acknowledgement", need_functional_acknowledgement)
-        pulumi.set(__self__, "need_loop_for_valid_messages", need_loop_for_valid_messages)
-        pulumi.set(__self__, "need_technical_acknowledgement", need_technical_acknowledgement)
-        pulumi.set(__self__, "rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
-        pulumi.set(__self__, "send_synchronous_acknowledgement", send_synchronous_acknowledgement)
+        EdifactAcknowledgementSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_control_number_lower_bound=acknowledgement_control_number_lower_bound,
+            acknowledgement_control_number_upper_bound=acknowledgement_control_number_upper_bound,
+            batch_functional_acknowledgements=batch_functional_acknowledgements,
+            batch_technical_acknowledgements=batch_technical_acknowledgements,
+            need_functional_acknowledgement=need_functional_acknowledgement,
+            need_loop_for_valid_messages=need_loop_for_valid_messages,
+            need_technical_acknowledgement=need_technical_acknowledgement,
+            rollover_acknowledgement_control_number=rollover_acknowledgement_control_number,
+            send_synchronous_acknowledgement=send_synchronous_acknowledgement,
+            acknowledgement_control_number_prefix=acknowledgement_control_number_prefix,
+            acknowledgement_control_number_suffix=acknowledgement_control_number_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_control_number_lower_bound: pulumi.Input[int],
+             acknowledgement_control_number_upper_bound: pulumi.Input[int],
+             batch_functional_acknowledgements: pulumi.Input[bool],
+             batch_technical_acknowledgements: pulumi.Input[bool],
+             need_functional_acknowledgement: pulumi.Input[bool],
+             need_loop_for_valid_messages: pulumi.Input[bool],
+             need_technical_acknowledgement: pulumi.Input[bool],
+             rollover_acknowledgement_control_number: pulumi.Input[bool],
+             send_synchronous_acknowledgement: pulumi.Input[bool],
+             acknowledgement_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             acknowledgement_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
+        _setter("acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
+        _setter("batch_functional_acknowledgements", batch_functional_acknowledgements)
+        _setter("batch_technical_acknowledgements", batch_technical_acknowledgements)
+        _setter("need_functional_acknowledgement", need_functional_acknowledgement)
+        _setter("need_loop_for_valid_messages", need_loop_for_valid_messages)
+        _setter("need_technical_acknowledgement", need_technical_acknowledgement)
+        _setter("rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
+        _setter("send_synchronous_acknowledgement", send_synchronous_acknowledgement)
         if acknowledgement_control_number_prefix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
+            _setter("acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
         if acknowledgement_control_number_suffix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
+            _setter("acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberLowerBound")
@@ -1638,8 +1948,19 @@ class EdifactAgreementContentArgs:
         :param pulumi.Input['EdifactOneWayAgreementArgs'] receive_agreement: The EDIFACT one-way receive agreement.
         :param pulumi.Input['EdifactOneWayAgreementArgs'] send_agreement: The EDIFACT one-way send agreement.
         """
-        pulumi.set(__self__, "receive_agreement", receive_agreement)
-        pulumi.set(__self__, "send_agreement", send_agreement)
+        EdifactAgreementContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receive_agreement=receive_agreement,
+            send_agreement=send_agreement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receive_agreement: pulumi.Input['EdifactOneWayAgreementArgs'],
+             send_agreement: pulumi.Input['EdifactOneWayAgreementArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("receive_agreement", receive_agreement)
+        _setter("send_agreement", send_agreement)
 
     @property
     @pulumi.getter(name="receiveAgreement")
@@ -1696,23 +2017,54 @@ class EdifactDelimiterOverrideArgs:
         :param pulumi.Input[str] message_version: The message version.
         :param pulumi.Input[str] target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "decimal_point_indicator", decimal_point_indicator)
-        pulumi.set(__self__, "release_indicator", release_indicator)
-        pulumi.set(__self__, "repetition_separator", repetition_separator)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        EdifactDelimiterOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            decimal_point_indicator=decimal_point_indicator,
+            release_indicator=release_indicator,
+            repetition_separator=repetition_separator,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+            message_association_assigned_code=message_association_assigned_code,
+            message_id=message_id,
+            message_release=message_release,
+            message_version=message_version,
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_separator: pulumi.Input[int],
+             data_element_separator: pulumi.Input[int],
+             decimal_point_indicator: pulumi.Input['EdifactDecimalIndicator'],
+             release_indicator: pulumi.Input[int],
+             repetition_separator: pulumi.Input[int],
+             segment_terminator: pulumi.Input[int],
+             segment_terminator_suffix: pulumi.Input['SegmentTerminatorSuffix'],
+             message_association_assigned_code: Optional[pulumi.Input[str]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             message_release: Optional[pulumi.Input[str]] = None,
+             message_version: Optional[pulumi.Input[str]] = None,
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("decimal_point_indicator", decimal_point_indicator)
+        _setter("release_indicator", release_indicator)
+        _setter("repetition_separator", repetition_separator)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
         if message_association_assigned_code is not None:
-            pulumi.set(__self__, "message_association_assigned_code", message_association_assigned_code)
+            _setter("message_association_assigned_code", message_association_assigned_code)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if message_release is not None:
-            pulumi.set(__self__, "message_release", message_release)
+            _setter("message_release", message_release)
         if message_version is not None:
-            pulumi.set(__self__, "message_version", message_version)
+            _setter("message_version", message_version)
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="componentSeparator")
@@ -1895,36 +2247,73 @@ class EdifactEnvelopeOverrideArgs:
         :param pulumi.Input[str] sender_application_qualifier: The sender application qualifier.
         :param pulumi.Input[str] target_namespace: The target namespace on which this envelope settings has to be applied.
         """
+        EdifactEnvelopeOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_password=application_password,
+            association_assigned_code=association_assigned_code,
+            controlling_agency_code=controlling_agency_code,
+            functional_group_id=functional_group_id,
+            group_header_message_release=group_header_message_release,
+            group_header_message_version=group_header_message_version,
+            message_association_assigned_code=message_association_assigned_code,
+            message_id=message_id,
+            message_release=message_release,
+            message_version=message_version,
+            receiver_application_id=receiver_application_id,
+            receiver_application_qualifier=receiver_application_qualifier,
+            sender_application_id=sender_application_id,
+            sender_application_qualifier=sender_application_qualifier,
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_password: Optional[pulumi.Input[str]] = None,
+             association_assigned_code: Optional[pulumi.Input[str]] = None,
+             controlling_agency_code: Optional[pulumi.Input[str]] = None,
+             functional_group_id: Optional[pulumi.Input[str]] = None,
+             group_header_message_release: Optional[pulumi.Input[str]] = None,
+             group_header_message_version: Optional[pulumi.Input[str]] = None,
+             message_association_assigned_code: Optional[pulumi.Input[str]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             message_release: Optional[pulumi.Input[str]] = None,
+             message_version: Optional[pulumi.Input[str]] = None,
+             receiver_application_id: Optional[pulumi.Input[str]] = None,
+             receiver_application_qualifier: Optional[pulumi.Input[str]] = None,
+             sender_application_id: Optional[pulumi.Input[str]] = None,
+             sender_application_qualifier: Optional[pulumi.Input[str]] = None,
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_password is not None:
-            pulumi.set(__self__, "application_password", application_password)
+            _setter("application_password", application_password)
         if association_assigned_code is not None:
-            pulumi.set(__self__, "association_assigned_code", association_assigned_code)
+            _setter("association_assigned_code", association_assigned_code)
         if controlling_agency_code is not None:
-            pulumi.set(__self__, "controlling_agency_code", controlling_agency_code)
+            _setter("controlling_agency_code", controlling_agency_code)
         if functional_group_id is not None:
-            pulumi.set(__self__, "functional_group_id", functional_group_id)
+            _setter("functional_group_id", functional_group_id)
         if group_header_message_release is not None:
-            pulumi.set(__self__, "group_header_message_release", group_header_message_release)
+            _setter("group_header_message_release", group_header_message_release)
         if group_header_message_version is not None:
-            pulumi.set(__self__, "group_header_message_version", group_header_message_version)
+            _setter("group_header_message_version", group_header_message_version)
         if message_association_assigned_code is not None:
-            pulumi.set(__self__, "message_association_assigned_code", message_association_assigned_code)
+            _setter("message_association_assigned_code", message_association_assigned_code)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if message_release is not None:
-            pulumi.set(__self__, "message_release", message_release)
+            _setter("message_release", message_release)
         if message_version is not None:
-            pulumi.set(__self__, "message_version", message_version)
+            _setter("message_version", message_version)
         if receiver_application_id is not None:
-            pulumi.set(__self__, "receiver_application_id", receiver_application_id)
+            _setter("receiver_application_id", receiver_application_id)
         if receiver_application_qualifier is not None:
-            pulumi.set(__self__, "receiver_application_qualifier", receiver_application_qualifier)
+            _setter("receiver_application_qualifier", receiver_application_qualifier)
         if sender_application_id is not None:
-            pulumi.set(__self__, "sender_application_id", sender_application_id)
+            _setter("sender_application_id", sender_application_id)
         if sender_application_qualifier is not None:
-            pulumi.set(__self__, "sender_application_qualifier", sender_application_qualifier)
+            _setter("sender_application_qualifier", sender_application_qualifier)
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="applicationPassword")
@@ -2195,74 +2584,163 @@ class EdifactEnvelopeSettingsArgs:
         :param pulumi.Input[str] transaction_set_control_number_prefix: The transaction set control number prefix.
         :param pulumi.Input[str] transaction_set_control_number_suffix: The transaction set control number suffix.
         """
-        pulumi.set(__self__, "apply_delimiter_string_advice", apply_delimiter_string_advice)
-        pulumi.set(__self__, "create_grouping_segments", create_grouping_segments)
-        pulumi.set(__self__, "enable_default_group_headers", enable_default_group_headers)
-        pulumi.set(__self__, "group_control_number_lower_bound", group_control_number_lower_bound)
-        pulumi.set(__self__, "group_control_number_upper_bound", group_control_number_upper_bound)
-        pulumi.set(__self__, "interchange_control_number_lower_bound", interchange_control_number_lower_bound)
-        pulumi.set(__self__, "interchange_control_number_upper_bound", interchange_control_number_upper_bound)
-        pulumi.set(__self__, "is_test_interchange", is_test_interchange)
-        pulumi.set(__self__, "overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
-        pulumi.set(__self__, "rollover_group_control_number", rollover_group_control_number)
-        pulumi.set(__self__, "rollover_interchange_control_number", rollover_interchange_control_number)
-        pulumi.set(__self__, "rollover_transaction_set_control_number", rollover_transaction_set_control_number)
-        pulumi.set(__self__, "transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
-        pulumi.set(__self__, "transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
+        EdifactEnvelopeSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_delimiter_string_advice=apply_delimiter_string_advice,
+            create_grouping_segments=create_grouping_segments,
+            enable_default_group_headers=enable_default_group_headers,
+            group_control_number_lower_bound=group_control_number_lower_bound,
+            group_control_number_upper_bound=group_control_number_upper_bound,
+            interchange_control_number_lower_bound=interchange_control_number_lower_bound,
+            interchange_control_number_upper_bound=interchange_control_number_upper_bound,
+            is_test_interchange=is_test_interchange,
+            overwrite_existing_transaction_set_control_number=overwrite_existing_transaction_set_control_number,
+            rollover_group_control_number=rollover_group_control_number,
+            rollover_interchange_control_number=rollover_interchange_control_number,
+            rollover_transaction_set_control_number=rollover_transaction_set_control_number,
+            transaction_set_control_number_lower_bound=transaction_set_control_number_lower_bound,
+            transaction_set_control_number_upper_bound=transaction_set_control_number_upper_bound,
+            application_reference_id=application_reference_id,
+            communication_agreement_id=communication_agreement_id,
+            functional_group_id=functional_group_id,
+            group_application_password=group_application_password,
+            group_application_receiver_id=group_application_receiver_id,
+            group_application_receiver_qualifier=group_application_receiver_qualifier,
+            group_application_sender_id=group_application_sender_id,
+            group_application_sender_qualifier=group_application_sender_qualifier,
+            group_association_assigned_code=group_association_assigned_code,
+            group_control_number_prefix=group_control_number_prefix,
+            group_control_number_suffix=group_control_number_suffix,
+            group_controlling_agency_code=group_controlling_agency_code,
+            group_message_release=group_message_release,
+            group_message_version=group_message_version,
+            interchange_control_number_prefix=interchange_control_number_prefix,
+            interchange_control_number_suffix=interchange_control_number_suffix,
+            processing_priority_code=processing_priority_code,
+            receiver_internal_identification=receiver_internal_identification,
+            receiver_internal_sub_identification=receiver_internal_sub_identification,
+            receiver_reverse_routing_address=receiver_reverse_routing_address,
+            recipient_reference_password_qualifier=recipient_reference_password_qualifier,
+            recipient_reference_password_value=recipient_reference_password_value,
+            sender_internal_identification=sender_internal_identification,
+            sender_internal_sub_identification=sender_internal_sub_identification,
+            sender_reverse_routing_address=sender_reverse_routing_address,
+            transaction_set_control_number_prefix=transaction_set_control_number_prefix,
+            transaction_set_control_number_suffix=transaction_set_control_number_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_delimiter_string_advice: pulumi.Input[bool],
+             create_grouping_segments: pulumi.Input[bool],
+             enable_default_group_headers: pulumi.Input[bool],
+             group_control_number_lower_bound: pulumi.Input[float],
+             group_control_number_upper_bound: pulumi.Input[float],
+             interchange_control_number_lower_bound: pulumi.Input[float],
+             interchange_control_number_upper_bound: pulumi.Input[float],
+             is_test_interchange: pulumi.Input[bool],
+             overwrite_existing_transaction_set_control_number: pulumi.Input[bool],
+             rollover_group_control_number: pulumi.Input[bool],
+             rollover_interchange_control_number: pulumi.Input[bool],
+             rollover_transaction_set_control_number: pulumi.Input[bool],
+             transaction_set_control_number_lower_bound: pulumi.Input[float],
+             transaction_set_control_number_upper_bound: pulumi.Input[float],
+             application_reference_id: Optional[pulumi.Input[str]] = None,
+             communication_agreement_id: Optional[pulumi.Input[str]] = None,
+             functional_group_id: Optional[pulumi.Input[str]] = None,
+             group_application_password: Optional[pulumi.Input[str]] = None,
+             group_application_receiver_id: Optional[pulumi.Input[str]] = None,
+             group_application_receiver_qualifier: Optional[pulumi.Input[str]] = None,
+             group_application_sender_id: Optional[pulumi.Input[str]] = None,
+             group_application_sender_qualifier: Optional[pulumi.Input[str]] = None,
+             group_association_assigned_code: Optional[pulumi.Input[str]] = None,
+             group_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             group_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             group_controlling_agency_code: Optional[pulumi.Input[str]] = None,
+             group_message_release: Optional[pulumi.Input[str]] = None,
+             group_message_version: Optional[pulumi.Input[str]] = None,
+             interchange_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             interchange_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             processing_priority_code: Optional[pulumi.Input[str]] = None,
+             receiver_internal_identification: Optional[pulumi.Input[str]] = None,
+             receiver_internal_sub_identification: Optional[pulumi.Input[str]] = None,
+             receiver_reverse_routing_address: Optional[pulumi.Input[str]] = None,
+             recipient_reference_password_qualifier: Optional[pulumi.Input[str]] = None,
+             recipient_reference_password_value: Optional[pulumi.Input[str]] = None,
+             sender_internal_identification: Optional[pulumi.Input[str]] = None,
+             sender_internal_sub_identification: Optional[pulumi.Input[str]] = None,
+             sender_reverse_routing_address: Optional[pulumi.Input[str]] = None,
+             transaction_set_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             transaction_set_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("apply_delimiter_string_advice", apply_delimiter_string_advice)
+        _setter("create_grouping_segments", create_grouping_segments)
+        _setter("enable_default_group_headers", enable_default_group_headers)
+        _setter("group_control_number_lower_bound", group_control_number_lower_bound)
+        _setter("group_control_number_upper_bound", group_control_number_upper_bound)
+        _setter("interchange_control_number_lower_bound", interchange_control_number_lower_bound)
+        _setter("interchange_control_number_upper_bound", interchange_control_number_upper_bound)
+        _setter("is_test_interchange", is_test_interchange)
+        _setter("overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
+        _setter("rollover_group_control_number", rollover_group_control_number)
+        _setter("rollover_interchange_control_number", rollover_interchange_control_number)
+        _setter("rollover_transaction_set_control_number", rollover_transaction_set_control_number)
+        _setter("transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
+        _setter("transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
         if application_reference_id is not None:
-            pulumi.set(__self__, "application_reference_id", application_reference_id)
+            _setter("application_reference_id", application_reference_id)
         if communication_agreement_id is not None:
-            pulumi.set(__self__, "communication_agreement_id", communication_agreement_id)
+            _setter("communication_agreement_id", communication_agreement_id)
         if functional_group_id is not None:
-            pulumi.set(__self__, "functional_group_id", functional_group_id)
+            _setter("functional_group_id", functional_group_id)
         if group_application_password is not None:
-            pulumi.set(__self__, "group_application_password", group_application_password)
+            _setter("group_application_password", group_application_password)
         if group_application_receiver_id is not None:
-            pulumi.set(__self__, "group_application_receiver_id", group_application_receiver_id)
+            _setter("group_application_receiver_id", group_application_receiver_id)
         if group_application_receiver_qualifier is not None:
-            pulumi.set(__self__, "group_application_receiver_qualifier", group_application_receiver_qualifier)
+            _setter("group_application_receiver_qualifier", group_application_receiver_qualifier)
         if group_application_sender_id is not None:
-            pulumi.set(__self__, "group_application_sender_id", group_application_sender_id)
+            _setter("group_application_sender_id", group_application_sender_id)
         if group_application_sender_qualifier is not None:
-            pulumi.set(__self__, "group_application_sender_qualifier", group_application_sender_qualifier)
+            _setter("group_application_sender_qualifier", group_application_sender_qualifier)
         if group_association_assigned_code is not None:
-            pulumi.set(__self__, "group_association_assigned_code", group_association_assigned_code)
+            _setter("group_association_assigned_code", group_association_assigned_code)
         if group_control_number_prefix is not None:
-            pulumi.set(__self__, "group_control_number_prefix", group_control_number_prefix)
+            _setter("group_control_number_prefix", group_control_number_prefix)
         if group_control_number_suffix is not None:
-            pulumi.set(__self__, "group_control_number_suffix", group_control_number_suffix)
+            _setter("group_control_number_suffix", group_control_number_suffix)
         if group_controlling_agency_code is not None:
-            pulumi.set(__self__, "group_controlling_agency_code", group_controlling_agency_code)
+            _setter("group_controlling_agency_code", group_controlling_agency_code)
         if group_message_release is not None:
-            pulumi.set(__self__, "group_message_release", group_message_release)
+            _setter("group_message_release", group_message_release)
         if group_message_version is not None:
-            pulumi.set(__self__, "group_message_version", group_message_version)
+            _setter("group_message_version", group_message_version)
         if interchange_control_number_prefix is not None:
-            pulumi.set(__self__, "interchange_control_number_prefix", interchange_control_number_prefix)
+            _setter("interchange_control_number_prefix", interchange_control_number_prefix)
         if interchange_control_number_suffix is not None:
-            pulumi.set(__self__, "interchange_control_number_suffix", interchange_control_number_suffix)
+            _setter("interchange_control_number_suffix", interchange_control_number_suffix)
         if processing_priority_code is not None:
-            pulumi.set(__self__, "processing_priority_code", processing_priority_code)
+            _setter("processing_priority_code", processing_priority_code)
         if receiver_internal_identification is not None:
-            pulumi.set(__self__, "receiver_internal_identification", receiver_internal_identification)
+            _setter("receiver_internal_identification", receiver_internal_identification)
         if receiver_internal_sub_identification is not None:
-            pulumi.set(__self__, "receiver_internal_sub_identification", receiver_internal_sub_identification)
+            _setter("receiver_internal_sub_identification", receiver_internal_sub_identification)
         if receiver_reverse_routing_address is not None:
-            pulumi.set(__self__, "receiver_reverse_routing_address", receiver_reverse_routing_address)
+            _setter("receiver_reverse_routing_address", receiver_reverse_routing_address)
         if recipient_reference_password_qualifier is not None:
-            pulumi.set(__self__, "recipient_reference_password_qualifier", recipient_reference_password_qualifier)
+            _setter("recipient_reference_password_qualifier", recipient_reference_password_qualifier)
         if recipient_reference_password_value is not None:
-            pulumi.set(__self__, "recipient_reference_password_value", recipient_reference_password_value)
+            _setter("recipient_reference_password_value", recipient_reference_password_value)
         if sender_internal_identification is not None:
-            pulumi.set(__self__, "sender_internal_identification", sender_internal_identification)
+            _setter("sender_internal_identification", sender_internal_identification)
         if sender_internal_sub_identification is not None:
-            pulumi.set(__self__, "sender_internal_sub_identification", sender_internal_sub_identification)
+            _setter("sender_internal_sub_identification", sender_internal_sub_identification)
         if sender_reverse_routing_address is not None:
-            pulumi.set(__self__, "sender_reverse_routing_address", sender_reverse_routing_address)
+            _setter("sender_reverse_routing_address", sender_reverse_routing_address)
         if transaction_set_control_number_prefix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_prefix", transaction_set_control_number_prefix)
+            _setter("transaction_set_control_number_prefix", transaction_set_control_number_prefix)
         if transaction_set_control_number_suffix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_suffix", transaction_set_control_number_suffix)
+            _setter("transaction_set_control_number_suffix", transaction_set_control_number_suffix)
 
     @property
     @pulumi.getter(name="applyDelimiterStringAdvice")
@@ -2785,19 +3263,48 @@ class EdifactFramingSettingsArgs:
         :param pulumi.Input[str] character_encoding: The character encoding.
         :param pulumi.Input[str] service_code_list_directory_version: The service code list directory version.
         """
-        pulumi.set(__self__, "character_set", character_set)
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "decimal_point_indicator", decimal_point_indicator)
-        pulumi.set(__self__, "protocol_version", protocol_version)
-        pulumi.set(__self__, "release_indicator", release_indicator)
-        pulumi.set(__self__, "repetition_separator", repetition_separator)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        EdifactFramingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            character_set=character_set,
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            decimal_point_indicator=decimal_point_indicator,
+            protocol_version=protocol_version,
+            release_indicator=release_indicator,
+            repetition_separator=repetition_separator,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+            character_encoding=character_encoding,
+            service_code_list_directory_version=service_code_list_directory_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             character_set: pulumi.Input[Union[str, 'EdifactCharacterSet']],
+             component_separator: pulumi.Input[int],
+             data_element_separator: pulumi.Input[int],
+             decimal_point_indicator: pulumi.Input['EdifactDecimalIndicator'],
+             protocol_version: pulumi.Input[int],
+             release_indicator: pulumi.Input[int],
+             repetition_separator: pulumi.Input[int],
+             segment_terminator: pulumi.Input[int],
+             segment_terminator_suffix: pulumi.Input['SegmentTerminatorSuffix'],
+             character_encoding: Optional[pulumi.Input[str]] = None,
+             service_code_list_directory_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("character_set", character_set)
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("decimal_point_indicator", decimal_point_indicator)
+        _setter("protocol_version", protocol_version)
+        _setter("release_indicator", release_indicator)
+        _setter("repetition_separator", repetition_separator)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
         if character_encoding is not None:
-            pulumi.set(__self__, "character_encoding", character_encoding)
+            _setter("character_encoding", character_encoding)
         if service_code_list_directory_version is not None:
-            pulumi.set(__self__, "service_code_list_directory_version", service_code_list_directory_version)
+            _setter("service_code_list_directory_version", service_code_list_directory_version)
 
     @property
     @pulumi.getter(name="characterSet")
@@ -2940,7 +3447,16 @@ class EdifactMessageFilterArgs:
         The Edifact message filter for odata query.
         :param pulumi.Input[Union[str, 'MessageFilterType']] message_filter_type: The message filter type.
         """
-        pulumi.set(__self__, "message_filter_type", message_filter_type)
+        EdifactMessageFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_filter_type=message_filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_filter_type: pulumi.Input[Union[str, 'MessageFilterType']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message_filter_type", message_filter_type)
 
     @property
     @pulumi.getter(name="messageFilterType")
@@ -2963,7 +3479,16 @@ class EdifactMessageIdentifierArgs:
         The Edifact message identifier.
         :param pulumi.Input[str] message_id: The message id on which this envelope settings has to be applied.
         """
-        pulumi.set(__self__, "message_id", message_id)
+        EdifactMessageIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message_id", message_id)
 
     @property
     @pulumi.getter(name="messageId")
@@ -2990,9 +3515,22 @@ class EdifactOneWayAgreementArgs:
         :param pulumi.Input['BusinessIdentityArgs'] receiver_business_identity: The receiver business identity
         :param pulumi.Input['BusinessIdentityArgs'] sender_business_identity: The sender business identity
         """
-        pulumi.set(__self__, "protocol_settings", protocol_settings)
-        pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
-        pulumi.set(__self__, "sender_business_identity", sender_business_identity)
+        EdifactOneWayAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_settings=protocol_settings,
+            receiver_business_identity=receiver_business_identity,
+            sender_business_identity=sender_business_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_settings: pulumi.Input['EdifactProtocolSettingsArgs'],
+             receiver_business_identity: pulumi.Input['BusinessIdentityArgs'],
+             sender_business_identity: pulumi.Input['BusinessIdentityArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("protocol_settings", protocol_settings)
+        _setter("receiver_business_identity", receiver_business_identity)
+        _setter("sender_business_identity", sender_business_identity)
 
     @property
     @pulumi.getter(name="protocolSettings")
@@ -3047,11 +3585,28 @@ class EdifactProcessingSettingsArgs:
         :param pulumi.Input[bool] suspend_interchange_on_error: The value indicating whether to suspend interchange on error.
         :param pulumi.Input[bool] use_dot_as_decimal_separator: The value indicating whether to use dot as decimal separator.
         """
-        pulumi.set(__self__, "create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
-        pulumi.set(__self__, "mask_security_info", mask_security_info)
-        pulumi.set(__self__, "preserve_interchange", preserve_interchange)
-        pulumi.set(__self__, "suspend_interchange_on_error", suspend_interchange_on_error)
-        pulumi.set(__self__, "use_dot_as_decimal_separator", use_dot_as_decimal_separator)
+        EdifactProcessingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_empty_xml_tags_for_trailing_separators=create_empty_xml_tags_for_trailing_separators,
+            mask_security_info=mask_security_info,
+            preserve_interchange=preserve_interchange,
+            suspend_interchange_on_error=suspend_interchange_on_error,
+            use_dot_as_decimal_separator=use_dot_as_decimal_separator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_empty_xml_tags_for_trailing_separators: pulumi.Input[bool],
+             mask_security_info: pulumi.Input[bool],
+             preserve_interchange: pulumi.Input[bool],
+             suspend_interchange_on_error: pulumi.Input[bool],
+             use_dot_as_decimal_separator: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
+        _setter("mask_security_info", mask_security_info)
+        _setter("preserve_interchange", preserve_interchange)
+        _setter("suspend_interchange_on_error", suspend_interchange_on_error)
+        _setter("use_dot_as_decimal_separator", use_dot_as_decimal_separator)
 
     @property
     @pulumi.getter(name="createEmptyXmlTagsForTrailingSeparators")
@@ -3142,21 +3697,50 @@ class EdifactProtocolSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EdifactMessageIdentifierArgs']]] message_filter_list: The EDIFACT message filter list.
         :param pulumi.Input[Sequence[pulumi.Input['EdifactValidationOverrideArgs']]] validation_overrides: The EDIFACT validation override settings.
         """
-        pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
-        pulumi.set(__self__, "envelope_settings", envelope_settings)
-        pulumi.set(__self__, "framing_settings", framing_settings)
-        pulumi.set(__self__, "message_filter", message_filter)
-        pulumi.set(__self__, "processing_settings", processing_settings)
-        pulumi.set(__self__, "schema_references", schema_references)
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        EdifactProtocolSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_settings=acknowledgement_settings,
+            envelope_settings=envelope_settings,
+            framing_settings=framing_settings,
+            message_filter=message_filter,
+            processing_settings=processing_settings,
+            schema_references=schema_references,
+            validation_settings=validation_settings,
+            edifact_delimiter_overrides=edifact_delimiter_overrides,
+            envelope_overrides=envelope_overrides,
+            message_filter_list=message_filter_list,
+            validation_overrides=validation_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_settings: pulumi.Input['EdifactAcknowledgementSettingsArgs'],
+             envelope_settings: pulumi.Input['EdifactEnvelopeSettingsArgs'],
+             framing_settings: pulumi.Input['EdifactFramingSettingsArgs'],
+             message_filter: pulumi.Input['EdifactMessageFilterArgs'],
+             processing_settings: pulumi.Input['EdifactProcessingSettingsArgs'],
+             schema_references: pulumi.Input[Sequence[pulumi.Input['EdifactSchemaReferenceArgs']]],
+             validation_settings: pulumi.Input['EdifactValidationSettingsArgs'],
+             edifact_delimiter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EdifactDelimiterOverrideArgs']]]] = None,
+             envelope_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EdifactEnvelopeOverrideArgs']]]] = None,
+             message_filter_list: Optional[pulumi.Input[Sequence[pulumi.Input['EdifactMessageIdentifierArgs']]]] = None,
+             validation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EdifactValidationOverrideArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acknowledgement_settings", acknowledgement_settings)
+        _setter("envelope_settings", envelope_settings)
+        _setter("framing_settings", framing_settings)
+        _setter("message_filter", message_filter)
+        _setter("processing_settings", processing_settings)
+        _setter("schema_references", schema_references)
+        _setter("validation_settings", validation_settings)
         if edifact_delimiter_overrides is not None:
-            pulumi.set(__self__, "edifact_delimiter_overrides", edifact_delimiter_overrides)
+            _setter("edifact_delimiter_overrides", edifact_delimiter_overrides)
         if envelope_overrides is not None:
-            pulumi.set(__self__, "envelope_overrides", envelope_overrides)
+            _setter("envelope_overrides", envelope_overrides)
         if message_filter_list is not None:
-            pulumi.set(__self__, "message_filter_list", message_filter_list)
+            _setter("message_filter_list", message_filter_list)
         if validation_overrides is not None:
-            pulumi.set(__self__, "validation_overrides", validation_overrides)
+            _setter("validation_overrides", validation_overrides)
 
     @property
     @pulumi.getter(name="acknowledgementSettings")
@@ -3311,16 +3895,37 @@ class EdifactSchemaReferenceArgs:
         :param pulumi.Input[str] sender_application_id: The sender application id.
         :param pulumi.Input[str] sender_application_qualifier: The sender application qualifier.
         """
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "message_release", message_release)
-        pulumi.set(__self__, "message_version", message_version)
-        pulumi.set(__self__, "schema_name", schema_name)
+        EdifactSchemaReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+            message_release=message_release,
+            message_version=message_version,
+            schema_name=schema_name,
+            association_assigned_code=association_assigned_code,
+            sender_application_id=sender_application_id,
+            sender_application_qualifier=sender_application_qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: pulumi.Input[str],
+             message_release: pulumi.Input[str],
+             message_version: pulumi.Input[str],
+             schema_name: pulumi.Input[str],
+             association_assigned_code: Optional[pulumi.Input[str]] = None,
+             sender_application_id: Optional[pulumi.Input[str]] = None,
+             sender_application_qualifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message_id", message_id)
+        _setter("message_release", message_release)
+        _setter("message_version", message_version)
+        _setter("schema_name", schema_name)
         if association_assigned_code is not None:
-            pulumi.set(__self__, "association_assigned_code", association_assigned_code)
+            _setter("association_assigned_code", association_assigned_code)
         if sender_application_id is not None:
-            pulumi.set(__self__, "sender_application_id", sender_application_id)
+            _setter("sender_application_id", sender_application_id)
         if sender_application_qualifier is not None:
-            pulumi.set(__self__, "sender_application_qualifier", sender_application_qualifier)
+            _setter("sender_application_qualifier", sender_application_qualifier)
 
     @property
     @pulumi.getter(name="messageId")
@@ -3427,13 +4032,34 @@ class EdifactValidationOverrideArgs:
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to validate EDI types.
         :param pulumi.Input[bool] validate_xsd_types: The value indicating whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "enforce_character_set", enforce_character_set)
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        EdifactValidationOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            enforce_character_set=enforce_character_set,
+            message_id=message_id,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: pulumi.Input[bool],
+             enforce_character_set: pulumi.Input[bool],
+             message_id: pulumi.Input[str],
+             trailing_separator_policy: pulumi.Input[Union[str, 'TrailingSeparatorPolicy']],
+             trim_leading_and_trailing_spaces_and_zeroes: pulumi.Input[bool],
+             validate_edi_types: pulumi.Input[bool],
+             validate_xsd_types: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("enforce_character_set", enforce_character_set)
+        _setter("message_id", message_id)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")
@@ -3546,16 +4172,43 @@ class EdifactValidationSettingsArgs:
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to Whether to validate EDI types.
         :param pulumi.Input[bool] validate_xsd_types: The value indicating whether to Whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "check_duplicate_group_control_number", check_duplicate_group_control_number)
-        pulumi.set(__self__, "check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
-        pulumi.set(__self__, "check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
-        pulumi.set(__self__, "interchange_control_number_validity_days", interchange_control_number_validity_days)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_character_set", validate_character_set)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        EdifactValidationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            check_duplicate_group_control_number=check_duplicate_group_control_number,
+            check_duplicate_interchange_control_number=check_duplicate_interchange_control_number,
+            check_duplicate_transaction_set_control_number=check_duplicate_transaction_set_control_number,
+            interchange_control_number_validity_days=interchange_control_number_validity_days,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_character_set=validate_character_set,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: pulumi.Input[bool],
+             check_duplicate_group_control_number: pulumi.Input[bool],
+             check_duplicate_interchange_control_number: pulumi.Input[bool],
+             check_duplicate_transaction_set_control_number: pulumi.Input[bool],
+             interchange_control_number_validity_days: pulumi.Input[int],
+             trailing_separator_policy: pulumi.Input[Union[str, 'TrailingSeparatorPolicy']],
+             trim_leading_and_trailing_spaces_and_zeroes: pulumi.Input[bool],
+             validate_character_set: pulumi.Input[bool],
+             validate_edi_types: pulumi.Input[bool],
+             validate_xsd_types: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("check_duplicate_group_control_number", check_duplicate_group_control_number)
+        _setter("check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
+        _setter("check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
+        _setter("interchange_control_number_validity_days", interchange_control_number_validity_days)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_character_set", validate_character_set)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")
@@ -3688,10 +4341,21 @@ class FlowAccessControlConfigurationPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]] allowed_caller_ip_addresses: The allowed caller IP address ranges.
         :param pulumi.Input['OpenAuthenticationAccessPoliciesArgs'] open_authentication_policies: The authentication policies for workflow.
         """
+        FlowAccessControlConfigurationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_caller_ip_addresses=allowed_caller_ip_addresses,
+            open_authentication_policies=open_authentication_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_caller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]]] = None,
+             open_authentication_policies: Optional[pulumi.Input['OpenAuthenticationAccessPoliciesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_caller_ip_addresses is not None:
-            pulumi.set(__self__, "allowed_caller_ip_addresses", allowed_caller_ip_addresses)
+            _setter("allowed_caller_ip_addresses", allowed_caller_ip_addresses)
         if open_authentication_policies is not None:
-            pulumi.set(__self__, "open_authentication_policies", open_authentication_policies)
+            _setter("open_authentication_policies", open_authentication_policies)
 
     @property
     @pulumi.getter(name="allowedCallerIpAddresses")
@@ -3732,14 +4396,29 @@ class FlowAccessControlConfigurationArgs:
         :param pulumi.Input['FlowAccessControlConfigurationPolicyArgs'] triggers: The access control configuration for invoking workflow triggers.
         :param pulumi.Input['FlowAccessControlConfigurationPolicyArgs'] workflow_management: The access control configuration for workflow management.
         """
+        FlowAccessControlConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            contents=contents,
+            triggers=triggers,
+            workflow_management=workflow_management,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input['FlowAccessControlConfigurationPolicyArgs']] = None,
+             contents: Optional[pulumi.Input['FlowAccessControlConfigurationPolicyArgs']] = None,
+             triggers: Optional[pulumi.Input['FlowAccessControlConfigurationPolicyArgs']] = None,
+             workflow_management: Optional[pulumi.Input['FlowAccessControlConfigurationPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if contents is not None:
-            pulumi.set(__self__, "contents", contents)
+            _setter("contents", contents)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
         if workflow_management is not None:
-            pulumi.set(__self__, "workflow_management", workflow_management)
+            _setter("workflow_management", workflow_management)
 
     @property
     @pulumi.getter
@@ -3800,10 +4479,21 @@ class FlowEndpointsConfigurationArgs:
         :param pulumi.Input['FlowEndpointsArgs'] connector: The connector endpoints.
         :param pulumi.Input['FlowEndpointsArgs'] workflow: The workflow endpoints.
         """
+        FlowEndpointsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector=connector,
+            workflow=workflow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector: Optional[pulumi.Input['FlowEndpointsArgs']] = None,
+             workflow: Optional[pulumi.Input['FlowEndpointsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connector is not None:
-            pulumi.set(__self__, "connector", connector)
+            _setter("connector", connector)
         if workflow is not None:
-            pulumi.set(__self__, "workflow", workflow)
+            _setter("workflow", workflow)
 
     @property
     @pulumi.getter
@@ -3840,10 +4530,21 @@ class FlowEndpointsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]] access_endpoint_ip_addresses: The access endpoint ip address.
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]] outgoing_ip_addresses: The outgoing ip address.
         """
+        FlowEndpointsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_endpoint_ip_addresses=access_endpoint_ip_addresses,
+            outgoing_ip_addresses=outgoing_ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]]] = None,
+             outgoing_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_endpoint_ip_addresses is not None:
-            pulumi.set(__self__, "access_endpoint_ip_addresses", access_endpoint_ip_addresses)
+            _setter("access_endpoint_ip_addresses", access_endpoint_ip_addresses)
         if outgoing_ip_addresses is not None:
-            pulumi.set(__self__, "outgoing_ip_addresses", outgoing_ip_addresses)
+            _setter("outgoing_ip_addresses", outgoing_ip_addresses)
 
     @property
     @pulumi.getter(name="accessEndpointIpAddresses")
@@ -3878,8 +4579,17 @@ class IntegrationAccountMapPropertiesParametersSchemaArgs:
         The parameters schema of integration account map.
         :param pulumi.Input[str] ref: The reference name.
         """
+        IntegrationAccountMapPropertiesParametersSchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ref=ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ref: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ref is not None:
-            pulumi.set(__self__, "ref", ref)
+            _setter("ref", ref)
 
     @property
     @pulumi.getter
@@ -3902,7 +4612,16 @@ class IntegrationAccountSkuArgs:
         The integration account sku.
         :param pulumi.Input[Union[str, 'IntegrationAccountSkuName']] name: The sku name.
         """
-        pulumi.set(__self__, "name", name)
+        IntegrationAccountSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'IntegrationAccountSkuName']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3925,8 +4644,17 @@ class IntegrationServiceEnvironmenEncryptionConfigurationArgs:
         The encryption configuration for the integration service environment.
         :param pulumi.Input['IntegrationServiceEnvironmenEncryptionKeyReferenceArgs'] encryption_key_reference: The encryption key reference.
         """
+        IntegrationServiceEnvironmenEncryptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_key_reference=encryption_key_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_key_reference: Optional[pulumi.Input['IntegrationServiceEnvironmenEncryptionKeyReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_key_reference is not None:
-            pulumi.set(__self__, "encryption_key_reference", encryption_key_reference)
+            _setter("encryption_key_reference", encryption_key_reference)
 
     @property
     @pulumi.getter(name="encryptionKeyReference")
@@ -3953,12 +4681,25 @@ class IntegrationServiceEnvironmenEncryptionKeyReferenceArgs:
         :param pulumi.Input['ResourceReferenceArgs'] key_vault: The key vault reference.
         :param pulumi.Input[str] key_version: Gets the version of the key specified in the keyName property.
         """
+        IntegrationServiceEnvironmenEncryptionKeyReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault=key_vault,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -4005,8 +4746,17 @@ class IntegrationServiceEnvironmentAccessEndpointArgs:
         The integration service environment access endpoint.
         :param pulumi.Input[Union[str, 'IntegrationServiceEnvironmentAccessEndpointType']] type: The access endpoint type.
         """
+        IntegrationServiceEnvironmentAccessEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'IntegrationServiceEnvironmentAccessEndpointType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -4029,8 +4779,17 @@ class IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs:
         The integration service environment managed api deployment parameters.
         :param pulumi.Input['ContentLinkArgs'] content_link_definition: The integration service environment managed api content link for deployment.
         """
+        IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_link_definition=content_link_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_link_definition: Optional[pulumi.Input['ContentLinkArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_link_definition is not None:
-            pulumi.set(__self__, "content_link_definition", content_link_definition)
+            _setter("content_link_definition", content_link_definition)
 
     @property
     @pulumi.getter(name="contentLinkDefinition")
@@ -4063,18 +4822,37 @@ class IntegrationServiceEnvironmentPropertiesArgs:
         :param pulumi.Input[Union[str, 'WorkflowProvisioningState']] provisioning_state: The provisioning state.
         :param pulumi.Input[Union[str, 'WorkflowState']] state: The integration service environment state.
         """
+        IntegrationServiceEnvironmentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_configuration=encryption_configuration,
+            endpoints_configuration=endpoints_configuration,
+            integration_service_environment_id=integration_service_environment_id,
+            network_configuration=network_configuration,
+            provisioning_state=provisioning_state,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_configuration: Optional[pulumi.Input['IntegrationServiceEnvironmenEncryptionConfigurationArgs']] = None,
+             endpoints_configuration: Optional[pulumi.Input['FlowEndpointsConfigurationArgs']] = None,
+             integration_service_environment_id: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'WorkflowProvisioningState']]] = None,
+             state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_configuration is not None:
-            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+            _setter("encryption_configuration", encryption_configuration)
         if endpoints_configuration is not None:
-            pulumi.set(__self__, "endpoints_configuration", endpoints_configuration)
+            _setter("endpoints_configuration", endpoints_configuration)
         if integration_service_environment_id is not None:
-            pulumi.set(__self__, "integration_service_environment_id", integration_service_environment_id)
+            _setter("integration_service_environment_id", integration_service_environment_id)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
@@ -4159,10 +4937,21 @@ class IntegrationServiceEnvironmentSkuArgs:
         :param pulumi.Input[int] capacity: The sku capacity.
         :param pulumi.Input[Union[str, 'IntegrationServiceEnvironmentSkuName']] name: The sku name.
         """
+        IntegrationServiceEnvironmentSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[Union[str, 'IntegrationServiceEnvironmentSkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4197,8 +4986,17 @@ class IpAddressRangeArgs:
         The ip address range.
         :param pulumi.Input[str] address_range: The IP address range.
         """
+        IpAddressRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_range=address_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_range: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_range is not None:
-            pulumi.set(__self__, "address_range", address_range)
+            _setter("address_range", address_range)
 
     @property
     @pulumi.getter(name="addressRange")
@@ -4221,8 +5019,17 @@ class IpAddressArgs:
         The ip address.
         :param pulumi.Input[str] address: The address.
         """
+        IpAddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
 
     @property
     @pulumi.getter
@@ -4245,8 +5052,17 @@ class KeyVaultKeyReferenceKeyVaultArgs:
         The key vault reference.
         :param pulumi.Input[str] id: The resource id.
         """
+        KeyVaultKeyReferenceKeyVaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4273,10 +5089,23 @@ class KeyVaultKeyReferenceArgs:
         :param pulumi.Input['KeyVaultKeyReferenceKeyVaultArgs'] key_vault: The key vault reference.
         :param pulumi.Input[str] key_version: The private key version in key vault.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault", key_vault)
+        KeyVaultKeyReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault=key_vault,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: pulumi.Input[str],
+             key_vault: pulumi.Input['KeyVaultKeyReferenceKeyVaultArgs'],
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("key_vault", key_vault)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -4325,10 +5154,21 @@ class KeyVaultReference:
         :param str id: The resource id.
         :param str name: The key vault name.
         """
+        KeyVaultReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4365,9 +5205,20 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -4406,12 +5257,25 @@ class NetworkConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] subnets: The subnets.
         :param pulumi.Input[str] virtual_network_address_space: Gets the virtual network address space.
         """
+        NetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_endpoint=access_endpoint,
+            subnets=subnets,
+            virtual_network_address_space=virtual_network_address_space,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_endpoint: Optional[pulumi.Input['IntegrationServiceEnvironmentAccessEndpointArgs']] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
+             virtual_network_address_space: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_endpoint is not None:
-            pulumi.set(__self__, "access_endpoint", access_endpoint)
+            _setter("access_endpoint", access_endpoint)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if virtual_network_address_space is not None:
-            pulumi.set(__self__, "virtual_network_address_space", virtual_network_address_space)
+            _setter("virtual_network_address_space", virtual_network_address_space)
 
     @property
     @pulumi.getter(name="accessEndpoint")
@@ -4458,8 +5322,17 @@ class OpenAuthenticationAccessPoliciesArgs:
         AuthenticationPolicy of type Open.
         :param pulumi.Input[Mapping[str, pulumi.Input['OpenAuthenticationAccessPolicyArgs']]] policies: Open authentication policies.
         """
+        OpenAuthenticationAccessPoliciesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policies=policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policies: Optional[pulumi.Input[Mapping[str, pulumi.Input['OpenAuthenticationAccessPolicyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
 
     @property
     @pulumi.getter
@@ -4484,10 +5357,21 @@ class OpenAuthenticationAccessPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OpenAuthenticationPolicyClaimArgs']]] claims: The access policy claims.
         :param pulumi.Input[Union[str, 'OpenAuthenticationProviderType']] type: Type of provider for OAuth.
         """
+        OpenAuthenticationAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            claims=claims,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             claims: Optional[pulumi.Input[Sequence[pulumi.Input['OpenAuthenticationPolicyClaimArgs']]]] = None,
+             type: Optional[pulumi.Input[Union[str, 'OpenAuthenticationProviderType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if claims is not None:
-            pulumi.set(__self__, "claims", claims)
+            _setter("claims", claims)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -4524,10 +5408,21 @@ class OpenAuthenticationPolicyClaimArgs:
         :param pulumi.Input[str] name: The name of the claim.
         :param pulumi.Input[str] value: The value of the claim.
         """
+        OpenAuthenticationPolicyClaimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4562,8 +5457,17 @@ class PartnerContentArgs:
         The integration account partner content.
         :param pulumi.Input['B2BPartnerContentArgs'] b2b: The B2B partner content.
         """
+        PartnerContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            b2b=b2b,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             b2b: Optional[pulumi.Input['B2BPartnerContentArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if b2b is not None:
-            pulumi.set(__self__, "b2b", b2b)
+            _setter("b2b", b2b)
 
     @property
     @pulumi.getter
@@ -4588,10 +5492,21 @@ class RecurrenceScheduleOccurrenceArgs:
         :param pulumi.Input['DayOfWeek'] day: The day of the week.
         :param pulumi.Input[int] occurrence: The occurrence.
         """
+        RecurrenceScheduleOccurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day=day,
+            occurrence=occurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day: Optional[pulumi.Input['DayOfWeek']] = None,
+             occurrence: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if day is not None:
-            pulumi.set(__self__, "day", day)
+            _setter("day", day)
         if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
+            _setter("occurrence", occurrence)
 
     @property
     @pulumi.getter
@@ -4634,16 +5549,33 @@ class RecurrenceScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RecurrenceScheduleOccurrenceArgs']]] monthly_occurrences: The monthly occurrences.
         :param pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]] week_days: The days of the week.
         """
+        RecurrenceScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hours=hours,
+            minutes=minutes,
+            month_days=month_days,
+            monthly_occurrences=monthly_occurrences,
+            week_days=week_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input['RecurrenceScheduleOccurrenceArgs']]]] = None,
+             week_days: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if hours is not None:
-            pulumi.set(__self__, "hours", hours)
+            _setter("hours", hours)
         if minutes is not None:
-            pulumi.set(__self__, "minutes", minutes)
+            _setter("minutes", minutes)
         if month_days is not None:
-            pulumi.set(__self__, "month_days", month_days)
+            _setter("month_days", month_days)
         if monthly_occurrences is not None:
-            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+            _setter("monthly_occurrences", monthly_occurrences)
         if week_days is not None:
-            pulumi.set(__self__, "week_days", week_days)
+            _setter("week_days", week_days)
 
     @property
     @pulumi.getter
@@ -4714,8 +5646,17 @@ class ResourceReferenceArgs:
         The resource reference.
         :param pulumi.Input[str] id: The resource id.
         """
+        ResourceReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4744,14 +5685,29 @@ class WorkflowParameterArgs:
         :param pulumi.Input[Union[str, 'ParameterType']] type: The type.
         :param Any value: The value.
         """
+        WorkflowParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            metadata=metadata,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4820,18 +5776,37 @@ class WorkflowTriggerRecurrenceArgs:
         :param pulumi.Input[str] start_time: The start time.
         :param pulumi.Input[str] time_zone: The time zone.
         """
+        WorkflowTriggerRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            frequency=frequency,
+            interval=interval,
+            schedule=schedule,
+            start_time=start_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             schedule: Optional[pulumi.Input['RecurrenceScheduleArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="endTime")
@@ -4942,25 +5917,62 @@ class X12AcknowledgementSettingsArgs:
         :param pulumi.Input[str] functional_acknowledgement_version: The functional acknowledgement version.
         :param pulumi.Input[str] implementation_acknowledgement_version: The implementation acknowledgement version.
         """
-        pulumi.set(__self__, "acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
-        pulumi.set(__self__, "acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
-        pulumi.set(__self__, "batch_functional_acknowledgements", batch_functional_acknowledgements)
-        pulumi.set(__self__, "batch_implementation_acknowledgements", batch_implementation_acknowledgements)
-        pulumi.set(__self__, "batch_technical_acknowledgements", batch_technical_acknowledgements)
-        pulumi.set(__self__, "need_functional_acknowledgement", need_functional_acknowledgement)
-        pulumi.set(__self__, "need_implementation_acknowledgement", need_implementation_acknowledgement)
-        pulumi.set(__self__, "need_loop_for_valid_messages", need_loop_for_valid_messages)
-        pulumi.set(__self__, "need_technical_acknowledgement", need_technical_acknowledgement)
-        pulumi.set(__self__, "rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
-        pulumi.set(__self__, "send_synchronous_acknowledgement", send_synchronous_acknowledgement)
+        X12AcknowledgementSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_control_number_lower_bound=acknowledgement_control_number_lower_bound,
+            acknowledgement_control_number_upper_bound=acknowledgement_control_number_upper_bound,
+            batch_functional_acknowledgements=batch_functional_acknowledgements,
+            batch_implementation_acknowledgements=batch_implementation_acknowledgements,
+            batch_technical_acknowledgements=batch_technical_acknowledgements,
+            need_functional_acknowledgement=need_functional_acknowledgement,
+            need_implementation_acknowledgement=need_implementation_acknowledgement,
+            need_loop_for_valid_messages=need_loop_for_valid_messages,
+            need_technical_acknowledgement=need_technical_acknowledgement,
+            rollover_acknowledgement_control_number=rollover_acknowledgement_control_number,
+            send_synchronous_acknowledgement=send_synchronous_acknowledgement,
+            acknowledgement_control_number_prefix=acknowledgement_control_number_prefix,
+            acknowledgement_control_number_suffix=acknowledgement_control_number_suffix,
+            functional_acknowledgement_version=functional_acknowledgement_version,
+            implementation_acknowledgement_version=implementation_acknowledgement_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_control_number_lower_bound: pulumi.Input[int],
+             acknowledgement_control_number_upper_bound: pulumi.Input[int],
+             batch_functional_acknowledgements: pulumi.Input[bool],
+             batch_implementation_acknowledgements: pulumi.Input[bool],
+             batch_technical_acknowledgements: pulumi.Input[bool],
+             need_functional_acknowledgement: pulumi.Input[bool],
+             need_implementation_acknowledgement: pulumi.Input[bool],
+             need_loop_for_valid_messages: pulumi.Input[bool],
+             need_technical_acknowledgement: pulumi.Input[bool],
+             rollover_acknowledgement_control_number: pulumi.Input[bool],
+             send_synchronous_acknowledgement: pulumi.Input[bool],
+             acknowledgement_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             acknowledgement_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             functional_acknowledgement_version: Optional[pulumi.Input[str]] = None,
+             implementation_acknowledgement_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
+        _setter("acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
+        _setter("batch_functional_acknowledgements", batch_functional_acknowledgements)
+        _setter("batch_implementation_acknowledgements", batch_implementation_acknowledgements)
+        _setter("batch_technical_acknowledgements", batch_technical_acknowledgements)
+        _setter("need_functional_acknowledgement", need_functional_acknowledgement)
+        _setter("need_implementation_acknowledgement", need_implementation_acknowledgement)
+        _setter("need_loop_for_valid_messages", need_loop_for_valid_messages)
+        _setter("need_technical_acknowledgement", need_technical_acknowledgement)
+        _setter("rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
+        _setter("send_synchronous_acknowledgement", send_synchronous_acknowledgement)
         if acknowledgement_control_number_prefix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
+            _setter("acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
         if acknowledgement_control_number_suffix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
+            _setter("acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
         if functional_acknowledgement_version is not None:
-            pulumi.set(__self__, "functional_acknowledgement_version", functional_acknowledgement_version)
+            _setter("functional_acknowledgement_version", functional_acknowledgement_version)
         if implementation_acknowledgement_version is not None:
-            pulumi.set(__self__, "implementation_acknowledgement_version", implementation_acknowledgement_version)
+            _setter("implementation_acknowledgement_version", implementation_acknowledgement_version)
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberLowerBound")
@@ -5153,8 +6165,19 @@ class X12AgreementContentArgs:
         :param pulumi.Input['X12OneWayAgreementArgs'] receive_agreement: The X12 one-way receive agreement.
         :param pulumi.Input['X12OneWayAgreementArgs'] send_agreement: The X12 one-way send agreement.
         """
-        pulumi.set(__self__, "receive_agreement", receive_agreement)
-        pulumi.set(__self__, "send_agreement", send_agreement)
+        X12AgreementContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receive_agreement=receive_agreement,
+            send_agreement=send_agreement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receive_agreement: pulumi.Input['X12OneWayAgreementArgs'],
+             send_agreement: pulumi.Input['X12OneWayAgreementArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("receive_agreement", receive_agreement)
+        _setter("send_agreement", send_agreement)
 
     @property
     @pulumi.getter(name="receiveAgreement")
@@ -5205,18 +6228,43 @@ class X12DelimiterOverridesArgs:
         :param pulumi.Input[str] protocol_version: The protocol version.
         :param pulumi.Input[str] target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "replace_character", replace_character)
-        pulumi.set(__self__, "replace_separators_in_payload", replace_separators_in_payload)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        X12DelimiterOverridesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            replace_character=replace_character,
+            replace_separators_in_payload=replace_separators_in_payload,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+            message_id=message_id,
+            protocol_version=protocol_version,
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_separator: pulumi.Input[int],
+             data_element_separator: pulumi.Input[int],
+             replace_character: pulumi.Input[int],
+             replace_separators_in_payload: pulumi.Input[bool],
+             segment_terminator: pulumi.Input[int],
+             segment_terminator_suffix: pulumi.Input['SegmentTerminatorSuffix'],
+             message_id: Optional[pulumi.Input[str]] = None,
+             protocol_version: Optional[pulumi.Input[str]] = None,
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("replace_character", replace_character)
+        _setter("replace_separators_in_payload", replace_separators_in_payload)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if protocol_version is not None:
-            pulumi.set(__self__, "protocol_version", protocol_version)
+            _setter("protocol_version", protocol_version)
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="componentSeparator")
@@ -5353,17 +6401,44 @@ class X12EnvelopeOverrideArgs:
         :param pulumi.Input[Union[str, 'X12TimeFormat']] time_format: The time format.
         :param pulumi.Input[str] functional_identifier_code: The functional identifier code.
         """
-        pulumi.set(__self__, "date_format", date_format)
-        pulumi.set(__self__, "header_version", header_version)
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "protocol_version", protocol_version)
-        pulumi.set(__self__, "receiver_application_id", receiver_application_id)
-        pulumi.set(__self__, "responsible_agency_code", responsible_agency_code)
-        pulumi.set(__self__, "sender_application_id", sender_application_id)
-        pulumi.set(__self__, "target_namespace", target_namespace)
-        pulumi.set(__self__, "time_format", time_format)
+        X12EnvelopeOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date_format=date_format,
+            header_version=header_version,
+            message_id=message_id,
+            protocol_version=protocol_version,
+            receiver_application_id=receiver_application_id,
+            responsible_agency_code=responsible_agency_code,
+            sender_application_id=sender_application_id,
+            target_namespace=target_namespace,
+            time_format=time_format,
+            functional_identifier_code=functional_identifier_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date_format: pulumi.Input[Union[str, 'X12DateFormat']],
+             header_version: pulumi.Input[str],
+             message_id: pulumi.Input[str],
+             protocol_version: pulumi.Input[str],
+             receiver_application_id: pulumi.Input[str],
+             responsible_agency_code: pulumi.Input[str],
+             sender_application_id: pulumi.Input[str],
+             target_namespace: pulumi.Input[str],
+             time_format: pulumi.Input[Union[str, 'X12TimeFormat']],
+             functional_identifier_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("date_format", date_format)
+        _setter("header_version", header_version)
+        _setter("message_id", message_id)
+        _setter("protocol_version", protocol_version)
+        _setter("receiver_application_id", receiver_application_id)
+        _setter("responsible_agency_code", responsible_agency_code)
+        _setter("sender_application_id", sender_application_id)
+        _setter("target_namespace", target_namespace)
+        _setter("time_format", time_format)
         if functional_identifier_code is not None:
-            pulumi.set(__self__, "functional_identifier_code", functional_identifier_code)
+            _setter("functional_identifier_code", functional_identifier_code)
 
     @property
     @pulumi.getter(name="dateFormat")
@@ -5540,33 +6615,88 @@ class X12EnvelopeSettingsArgs:
         :param pulumi.Input[str] transaction_set_control_number_prefix: The transaction set control number prefix.
         :param pulumi.Input[str] transaction_set_control_number_suffix: The transaction set control number suffix.
         """
-        pulumi.set(__self__, "control_standards_id", control_standards_id)
-        pulumi.set(__self__, "control_version_number", control_version_number)
-        pulumi.set(__self__, "enable_default_group_headers", enable_default_group_headers)
-        pulumi.set(__self__, "group_control_number_lower_bound", group_control_number_lower_bound)
-        pulumi.set(__self__, "group_control_number_upper_bound", group_control_number_upper_bound)
-        pulumi.set(__self__, "group_header_agency_code", group_header_agency_code)
-        pulumi.set(__self__, "group_header_date_format", group_header_date_format)
-        pulumi.set(__self__, "group_header_time_format", group_header_time_format)
-        pulumi.set(__self__, "group_header_version", group_header_version)
-        pulumi.set(__self__, "interchange_control_number_lower_bound", interchange_control_number_lower_bound)
-        pulumi.set(__self__, "interchange_control_number_upper_bound", interchange_control_number_upper_bound)
-        pulumi.set(__self__, "overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
-        pulumi.set(__self__, "receiver_application_id", receiver_application_id)
-        pulumi.set(__self__, "rollover_group_control_number", rollover_group_control_number)
-        pulumi.set(__self__, "rollover_interchange_control_number", rollover_interchange_control_number)
-        pulumi.set(__self__, "rollover_transaction_set_control_number", rollover_transaction_set_control_number)
-        pulumi.set(__self__, "sender_application_id", sender_application_id)
-        pulumi.set(__self__, "transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
-        pulumi.set(__self__, "transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
-        pulumi.set(__self__, "usage_indicator", usage_indicator)
-        pulumi.set(__self__, "use_control_standards_id_as_repetition_character", use_control_standards_id_as_repetition_character)
+        X12EnvelopeSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_standards_id=control_standards_id,
+            control_version_number=control_version_number,
+            enable_default_group_headers=enable_default_group_headers,
+            group_control_number_lower_bound=group_control_number_lower_bound,
+            group_control_number_upper_bound=group_control_number_upper_bound,
+            group_header_agency_code=group_header_agency_code,
+            group_header_date_format=group_header_date_format,
+            group_header_time_format=group_header_time_format,
+            group_header_version=group_header_version,
+            interchange_control_number_lower_bound=interchange_control_number_lower_bound,
+            interchange_control_number_upper_bound=interchange_control_number_upper_bound,
+            overwrite_existing_transaction_set_control_number=overwrite_existing_transaction_set_control_number,
+            receiver_application_id=receiver_application_id,
+            rollover_group_control_number=rollover_group_control_number,
+            rollover_interchange_control_number=rollover_interchange_control_number,
+            rollover_transaction_set_control_number=rollover_transaction_set_control_number,
+            sender_application_id=sender_application_id,
+            transaction_set_control_number_lower_bound=transaction_set_control_number_lower_bound,
+            transaction_set_control_number_upper_bound=transaction_set_control_number_upper_bound,
+            usage_indicator=usage_indicator,
+            use_control_standards_id_as_repetition_character=use_control_standards_id_as_repetition_character,
+            functional_group_id=functional_group_id,
+            transaction_set_control_number_prefix=transaction_set_control_number_prefix,
+            transaction_set_control_number_suffix=transaction_set_control_number_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_standards_id: pulumi.Input[int],
+             control_version_number: pulumi.Input[str],
+             enable_default_group_headers: pulumi.Input[bool],
+             group_control_number_lower_bound: pulumi.Input[int],
+             group_control_number_upper_bound: pulumi.Input[int],
+             group_header_agency_code: pulumi.Input[str],
+             group_header_date_format: pulumi.Input[Union[str, 'X12DateFormat']],
+             group_header_time_format: pulumi.Input[Union[str, 'X12TimeFormat']],
+             group_header_version: pulumi.Input[str],
+             interchange_control_number_lower_bound: pulumi.Input[int],
+             interchange_control_number_upper_bound: pulumi.Input[int],
+             overwrite_existing_transaction_set_control_number: pulumi.Input[bool],
+             receiver_application_id: pulumi.Input[str],
+             rollover_group_control_number: pulumi.Input[bool],
+             rollover_interchange_control_number: pulumi.Input[bool],
+             rollover_transaction_set_control_number: pulumi.Input[bool],
+             sender_application_id: pulumi.Input[str],
+             transaction_set_control_number_lower_bound: pulumi.Input[int],
+             transaction_set_control_number_upper_bound: pulumi.Input[int],
+             usage_indicator: pulumi.Input[Union[str, 'UsageIndicator']],
+             use_control_standards_id_as_repetition_character: pulumi.Input[bool],
+             functional_group_id: Optional[pulumi.Input[str]] = None,
+             transaction_set_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             transaction_set_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("control_standards_id", control_standards_id)
+        _setter("control_version_number", control_version_number)
+        _setter("enable_default_group_headers", enable_default_group_headers)
+        _setter("group_control_number_lower_bound", group_control_number_lower_bound)
+        _setter("group_control_number_upper_bound", group_control_number_upper_bound)
+        _setter("group_header_agency_code", group_header_agency_code)
+        _setter("group_header_date_format", group_header_date_format)
+        _setter("group_header_time_format", group_header_time_format)
+        _setter("group_header_version", group_header_version)
+        _setter("interchange_control_number_lower_bound", interchange_control_number_lower_bound)
+        _setter("interchange_control_number_upper_bound", interchange_control_number_upper_bound)
+        _setter("overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
+        _setter("receiver_application_id", receiver_application_id)
+        _setter("rollover_group_control_number", rollover_group_control_number)
+        _setter("rollover_interchange_control_number", rollover_interchange_control_number)
+        _setter("rollover_transaction_set_control_number", rollover_transaction_set_control_number)
+        _setter("sender_application_id", sender_application_id)
+        _setter("transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
+        _setter("transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
+        _setter("usage_indicator", usage_indicator)
+        _setter("use_control_standards_id_as_repetition_character", use_control_standards_id_as_repetition_character)
         if functional_group_id is not None:
-            pulumi.set(__self__, "functional_group_id", functional_group_id)
+            _setter("functional_group_id", functional_group_id)
         if transaction_set_control_number_prefix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_prefix", transaction_set_control_number_prefix)
+            _setter("transaction_set_control_number_prefix", transaction_set_control_number_prefix)
         if transaction_set_control_number_suffix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_suffix", transaction_set_control_number_suffix)
+            _setter("transaction_set_control_number_suffix", transaction_set_control_number_suffix)
 
     @property
     @pulumi.getter(name="controlStandardsId")
@@ -5877,13 +7007,34 @@ class X12FramingSettingsArgs:
         :param pulumi.Input[int] segment_terminator: The segment terminator.
         :param pulumi.Input['SegmentTerminatorSuffix'] segment_terminator_suffix: The segment terminator suffix.
         """
-        pulumi.set(__self__, "character_set", character_set)
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "replace_character", replace_character)
-        pulumi.set(__self__, "replace_separators_in_payload", replace_separators_in_payload)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        X12FramingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            character_set=character_set,
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            replace_character=replace_character,
+            replace_separators_in_payload=replace_separators_in_payload,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             character_set: pulumi.Input[Union[str, 'X12CharacterSet']],
+             component_separator: pulumi.Input[int],
+             data_element_separator: pulumi.Input[int],
+             replace_character: pulumi.Input[int],
+             replace_separators_in_payload: pulumi.Input[bool],
+             segment_terminator: pulumi.Input[int],
+             segment_terminator_suffix: pulumi.Input['SegmentTerminatorSuffix'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("character_set", character_set)
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("replace_character", replace_character)
+        _setter("replace_separators_in_payload", replace_separators_in_payload)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
 
     @property
     @pulumi.getter(name="characterSet")
@@ -5978,7 +7129,16 @@ class X12MessageFilterArgs:
         The X12 message filter for odata query.
         :param pulumi.Input[Union[str, 'MessageFilterType']] message_filter_type: The message filter type.
         """
-        pulumi.set(__self__, "message_filter_type", message_filter_type)
+        X12MessageFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_filter_type=message_filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_filter_type: pulumi.Input[Union[str, 'MessageFilterType']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message_filter_type", message_filter_type)
 
     @property
     @pulumi.getter(name="messageFilterType")
@@ -6001,7 +7161,16 @@ class X12MessageIdentifierArgs:
         The X12 message identifier.
         :param pulumi.Input[str] message_id: The message id.
         """
-        pulumi.set(__self__, "message_id", message_id)
+        X12MessageIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message_id", message_id)
 
     @property
     @pulumi.getter(name="messageId")
@@ -6028,9 +7197,22 @@ class X12OneWayAgreementArgs:
         :param pulumi.Input['BusinessIdentityArgs'] receiver_business_identity: The receiver business identity
         :param pulumi.Input['BusinessIdentityArgs'] sender_business_identity: The sender business identity
         """
-        pulumi.set(__self__, "protocol_settings", protocol_settings)
-        pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
-        pulumi.set(__self__, "sender_business_identity", sender_business_identity)
+        X12OneWayAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_settings=protocol_settings,
+            receiver_business_identity=receiver_business_identity,
+            sender_business_identity=sender_business_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_settings: pulumi.Input['X12ProtocolSettingsArgs'],
+             receiver_business_identity: pulumi.Input['BusinessIdentityArgs'],
+             sender_business_identity: pulumi.Input['BusinessIdentityArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("protocol_settings", protocol_settings)
+        _setter("receiver_business_identity", receiver_business_identity)
+        _setter("sender_business_identity", sender_business_identity)
 
     @property
     @pulumi.getter(name="protocolSettings")
@@ -6087,12 +7269,31 @@ class X12ProcessingSettingsArgs:
         :param pulumi.Input[bool] suspend_interchange_on_error: The value indicating whether to suspend interchange on error.
         :param pulumi.Input[bool] use_dot_as_decimal_separator: The value indicating whether to use dot as decimal separator.
         """
-        pulumi.set(__self__, "convert_implied_decimal", convert_implied_decimal)
-        pulumi.set(__self__, "create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
-        pulumi.set(__self__, "mask_security_info", mask_security_info)
-        pulumi.set(__self__, "preserve_interchange", preserve_interchange)
-        pulumi.set(__self__, "suspend_interchange_on_error", suspend_interchange_on_error)
-        pulumi.set(__self__, "use_dot_as_decimal_separator", use_dot_as_decimal_separator)
+        X12ProcessingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            convert_implied_decimal=convert_implied_decimal,
+            create_empty_xml_tags_for_trailing_separators=create_empty_xml_tags_for_trailing_separators,
+            mask_security_info=mask_security_info,
+            preserve_interchange=preserve_interchange,
+            suspend_interchange_on_error=suspend_interchange_on_error,
+            use_dot_as_decimal_separator=use_dot_as_decimal_separator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             convert_implied_decimal: pulumi.Input[bool],
+             create_empty_xml_tags_for_trailing_separators: pulumi.Input[bool],
+             mask_security_info: pulumi.Input[bool],
+             preserve_interchange: pulumi.Input[bool],
+             suspend_interchange_on_error: pulumi.Input[bool],
+             use_dot_as_decimal_separator: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("convert_implied_decimal", convert_implied_decimal)
+        _setter("create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
+        _setter("mask_security_info", mask_security_info)
+        _setter("preserve_interchange", preserve_interchange)
+        _setter("suspend_interchange_on_error", suspend_interchange_on_error)
+        _setter("use_dot_as_decimal_separator", use_dot_as_decimal_separator)
 
     @property
     @pulumi.getter(name="convertImpliedDecimal")
@@ -6197,22 +7398,53 @@ class X12ProtocolSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['X12ValidationOverrideArgs']]] validation_overrides: The X12 validation override settings.
         :param pulumi.Input[Sequence[pulumi.Input['X12DelimiterOverridesArgs']]] x12_delimiter_overrides: The X12 delimiter override settings.
         """
-        pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
-        pulumi.set(__self__, "envelope_settings", envelope_settings)
-        pulumi.set(__self__, "framing_settings", framing_settings)
-        pulumi.set(__self__, "message_filter", message_filter)
-        pulumi.set(__self__, "processing_settings", processing_settings)
-        pulumi.set(__self__, "schema_references", schema_references)
-        pulumi.set(__self__, "security_settings", security_settings)
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        X12ProtocolSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_settings=acknowledgement_settings,
+            envelope_settings=envelope_settings,
+            framing_settings=framing_settings,
+            message_filter=message_filter,
+            processing_settings=processing_settings,
+            schema_references=schema_references,
+            security_settings=security_settings,
+            validation_settings=validation_settings,
+            envelope_overrides=envelope_overrides,
+            message_filter_list=message_filter_list,
+            validation_overrides=validation_overrides,
+            x12_delimiter_overrides=x12_delimiter_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_settings: pulumi.Input['X12AcknowledgementSettingsArgs'],
+             envelope_settings: pulumi.Input['X12EnvelopeSettingsArgs'],
+             framing_settings: pulumi.Input['X12FramingSettingsArgs'],
+             message_filter: pulumi.Input['X12MessageFilterArgs'],
+             processing_settings: pulumi.Input['X12ProcessingSettingsArgs'],
+             schema_references: pulumi.Input[Sequence[pulumi.Input['X12SchemaReferenceArgs']]],
+             security_settings: pulumi.Input['X12SecuritySettingsArgs'],
+             validation_settings: pulumi.Input['X12ValidationSettingsArgs'],
+             envelope_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['X12EnvelopeOverrideArgs']]]] = None,
+             message_filter_list: Optional[pulumi.Input[Sequence[pulumi.Input['X12MessageIdentifierArgs']]]] = None,
+             validation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['X12ValidationOverrideArgs']]]] = None,
+             x12_delimiter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['X12DelimiterOverridesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acknowledgement_settings", acknowledgement_settings)
+        _setter("envelope_settings", envelope_settings)
+        _setter("framing_settings", framing_settings)
+        _setter("message_filter", message_filter)
+        _setter("processing_settings", processing_settings)
+        _setter("schema_references", schema_references)
+        _setter("security_settings", security_settings)
+        _setter("validation_settings", validation_settings)
         if envelope_overrides is not None:
-            pulumi.set(__self__, "envelope_overrides", envelope_overrides)
+            _setter("envelope_overrides", envelope_overrides)
         if message_filter_list is not None:
-            pulumi.set(__self__, "message_filter_list", message_filter_list)
+            _setter("message_filter_list", message_filter_list)
         if validation_overrides is not None:
-            pulumi.set(__self__, "validation_overrides", validation_overrides)
+            _setter("validation_overrides", validation_overrides)
         if x12_delimiter_overrides is not None:
-            pulumi.set(__self__, "x12_delimiter_overrides", x12_delimiter_overrides)
+            _setter("x12_delimiter_overrides", x12_delimiter_overrides)
 
     @property
     @pulumi.getter(name="acknowledgementSettings")
@@ -6373,11 +7605,26 @@ class X12SchemaReferenceArgs:
         :param pulumi.Input[str] schema_version: The schema version.
         :param pulumi.Input[str] sender_application_id: The sender application id.
         """
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "schema_name", schema_name)
-        pulumi.set(__self__, "schema_version", schema_version)
+        X12SchemaReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+            schema_name=schema_name,
+            schema_version=schema_version,
+            sender_application_id=sender_application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: pulumi.Input[str],
+             schema_name: pulumi.Input[str],
+             schema_version: pulumi.Input[str],
+             sender_application_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message_id", message_id)
+        _setter("schema_name", schema_name)
+        _setter("schema_version", schema_version)
         if sender_application_id is not None:
-            pulumi.set(__self__, "sender_application_id", sender_application_id)
+            _setter("sender_application_id", sender_application_id)
 
     @property
     @pulumi.getter(name="messageId")
@@ -6442,12 +7689,27 @@ class X12SecuritySettingsArgs:
         :param pulumi.Input[str] authorization_value: The authorization value.
         :param pulumi.Input[str] password_value: The password value.
         """
-        pulumi.set(__self__, "authorization_qualifier", authorization_qualifier)
-        pulumi.set(__self__, "security_qualifier", security_qualifier)
+        X12SecuritySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_qualifier=authorization_qualifier,
+            security_qualifier=security_qualifier,
+            authorization_value=authorization_value,
+            password_value=password_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_qualifier: pulumi.Input[str],
+             security_qualifier: pulumi.Input[str],
+             authorization_value: Optional[pulumi.Input[str]] = None,
+             password_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_qualifier", authorization_qualifier)
+        _setter("security_qualifier", security_qualifier)
         if authorization_value is not None:
-            pulumi.set(__self__, "authorization_value", authorization_value)
+            _setter("authorization_value", authorization_value)
         if password_value is not None:
-            pulumi.set(__self__, "password_value", password_value)
+            _setter("password_value", password_value)
 
     @property
     @pulumi.getter(name="authorizationQualifier")
@@ -6518,13 +7780,34 @@ class X12ValidationOverrideArgs:
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to validate EDI types.
         :param pulumi.Input[bool] validate_xsd_types: The value indicating whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_character_set", validate_character_set)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        X12ValidationOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            message_id=message_id,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_character_set=validate_character_set,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: pulumi.Input[bool],
+             message_id: pulumi.Input[str],
+             trailing_separator_policy: pulumi.Input[Union[str, 'TrailingSeparatorPolicy']],
+             trim_leading_and_trailing_spaces_and_zeroes: pulumi.Input[bool],
+             validate_character_set: pulumi.Input[bool],
+             validate_edi_types: pulumi.Input[bool],
+             validate_xsd_types: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("message_id", message_id)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_character_set", validate_character_set)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")
@@ -6637,16 +7920,43 @@ class X12ValidationSettingsArgs:
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to Whether to validate EDI types.
         :param pulumi.Input[bool] validate_xsd_types: The value indicating whether to Whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "check_duplicate_group_control_number", check_duplicate_group_control_number)
-        pulumi.set(__self__, "check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
-        pulumi.set(__self__, "check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
-        pulumi.set(__self__, "interchange_control_number_validity_days", interchange_control_number_validity_days)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_character_set", validate_character_set)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        X12ValidationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            check_duplicate_group_control_number=check_duplicate_group_control_number,
+            check_duplicate_interchange_control_number=check_duplicate_interchange_control_number,
+            check_duplicate_transaction_set_control_number=check_duplicate_transaction_set_control_number,
+            interchange_control_number_validity_days=interchange_control_number_validity_days,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_character_set=validate_character_set,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: pulumi.Input[bool],
+             check_duplicate_group_control_number: pulumi.Input[bool],
+             check_duplicate_interchange_control_number: pulumi.Input[bool],
+             check_duplicate_transaction_set_control_number: pulumi.Input[bool],
+             interchange_control_number_validity_days: pulumi.Input[int],
+             trailing_separator_policy: pulumi.Input[Union[str, 'TrailingSeparatorPolicy']],
+             trim_leading_and_trailing_spaces_and_zeroes: pulumi.Input[bool],
+             validate_character_set: pulumi.Input[bool],
+             validate_edi_types: pulumi.Input[bool],
+             validate_xsd_types: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("check_duplicate_group_control_number", check_duplicate_group_control_number)
+        _setter("check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
+        _setter("check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
+        _setter("interchange_control_number_validity_days", interchange_control_number_validity_days)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_character_set", validate_character_set)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")

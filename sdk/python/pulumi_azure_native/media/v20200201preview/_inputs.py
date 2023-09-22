@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,10 +35,25 @@ class MediaGraphAssetSinkArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "inputs", inputs)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphAssetSink')
+        MediaGraphAssetSinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            inputs=inputs,
+            name=name,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: pulumi.Input[str],
+             inputs: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("asset_name", asset_name)
+        _setter("inputs", inputs)
+        _setter("name", name)
+        _setter("odata_type", '#Microsoft.Media.MediaGraphAssetSink')
 
     @property
     @pulumi.getter(name="assetName")
@@ -103,10 +118,23 @@ class MediaGraphClearEndpointArgs:
         :param pulumi.Input[str] url: Url for the endpoint.
         :param pulumi.Input['MediaGraphUsernamePasswordCredentialsArgs'] credentials: Polymorphic credentials to present to the endpoint.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
-        pulumi.set(__self__, "url", url)
+        MediaGraphClearEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            url=url,
+            credentials=credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             url: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['MediaGraphUsernamePasswordCredentialsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
+        _setter("url", url)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
 
     @property
     @pulumi.getter(name="odataType")
@@ -157,8 +185,19 @@ class MediaGraphPemCertificateListArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
         """
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphPemCertificateList')
+        MediaGraphPemCertificateListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: pulumi.Input[Sequence[pulumi.Input[str]]],
+             odata_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificates", certificates)
+        _setter("odata_type", '#Microsoft.Media.MediaGraphPemCertificateList')
 
     @property
     @pulumi.getter
@@ -201,10 +240,25 @@ class MediaGraphRtspSourceArgs:
                Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         :param pulumi.Input[Union[str, 'MediaGraphRtspTransport']] transport: Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphRtspSource')
-        pulumi.set(__self__, "transport", transport)
+        MediaGraphRtspSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            name=name,
+            odata_type=odata_type,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[Union['MediaGraphClearEndpointArgs', 'MediaGraphTlsEndpointArgs']],
+             name: pulumi.Input[str],
+             odata_type: pulumi.Input[str],
+             transport: pulumi.Input[Union[str, 'MediaGraphRtspTransport']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
+        _setter("name", name)
+        _setter("odata_type", '#Microsoft.Media.MediaGraphRtspSource')
+        _setter("transport", transport)
 
     @property
     @pulumi.getter
@@ -273,14 +327,31 @@ class MediaGraphTlsEndpointArgs:
         :param pulumi.Input['MediaGraphPemCertificateListArgs'] trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
         :param pulumi.Input['MediaGraphTlsValidationOptionsArgs'] validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
-        pulumi.set(__self__, "url", url)
+        MediaGraphTlsEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            url=url,
+            credentials=credentials,
+            trusted_certificates=trusted_certificates,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             url: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['MediaGraphUsernamePasswordCredentialsArgs']] = None,
+             trusted_certificates: Optional[pulumi.Input['MediaGraphPemCertificateListArgs']] = None,
+             validation_options: Optional[pulumi.Input['MediaGraphTlsValidationOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
+        _setter("url", url)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if trusted_certificates is not None:
-            pulumi.set(__self__, "trusted_certificates", trusted_certificates)
+            _setter("trusted_certificates", trusted_certificates)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="odataType")
@@ -354,8 +425,19 @@ class MediaGraphTlsValidationOptionsArgs:
         :param pulumi.Input[bool] ignore_hostname: Ignore the host name (common name) during validation.
         :param pulumi.Input[bool] ignore_signature: Ignore the integrity of the certificate chain at the current time.
         """
-        pulumi.set(__self__, "ignore_hostname", ignore_hostname)
-        pulumi.set(__self__, "ignore_signature", ignore_signature)
+        MediaGraphTlsValidationOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_hostname=ignore_hostname,
+            ignore_signature=ignore_signature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_hostname: pulumi.Input[bool],
+             ignore_signature: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ignore_hostname", ignore_hostname)
+        _setter("ignore_signature", ignore_signature)
 
     @property
     @pulumi.getter(name="ignoreHostname")
@@ -395,9 +477,22 @@ class MediaGraphUsernamePasswordCredentialsArgs:
         :param pulumi.Input[str] password: Password for a username/password pair.
         :param pulumi.Input[str] username: Username for a username/password pair.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphUsernamePasswordCredentials')
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        MediaGraphUsernamePasswordCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: pulumi.Input[str],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("odata_type", '#Microsoft.Media.MediaGraphUsernamePasswordCredentials')
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="odataType")

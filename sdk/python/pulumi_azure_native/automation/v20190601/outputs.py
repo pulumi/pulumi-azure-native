@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,10 +40,21 @@ class AdvancedScheduleMonthlyOccurrenceResponse(dict):
         :param str day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         :param int occurrence: Occurrence of the week within the month. Must be between 1 and 5
         """
+        AdvancedScheduleMonthlyOccurrenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day=day,
+            occurrence=occurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day: Optional[str] = None,
+             occurrence: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if day is not None:
-            pulumi.set(__self__, "day", day)
+            _setter("day", day)
         if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
+            _setter("occurrence", occurrence)
 
     @property
     @pulumi.getter
@@ -98,12 +109,25 @@ class AdvancedScheduleResponse(dict):
         :param Sequence['AdvancedScheduleMonthlyOccurrenceResponse'] monthly_occurrences: Occurrences of days within a month.
         :param Sequence[str] week_days: Days of the week that the job should execute on.
         """
+        AdvancedScheduleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            month_days=month_days,
+            monthly_occurrences=monthly_occurrences,
+            week_days=week_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             month_days: Optional[Sequence[int]] = None,
+             monthly_occurrences: Optional[Sequence['outputs.AdvancedScheduleMonthlyOccurrenceResponse']] = None,
+             week_days: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if month_days is not None:
-            pulumi.set(__self__, "month_days", month_days)
+            _setter("month_days", month_days)
         if monthly_occurrences is not None:
-            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+            _setter("monthly_occurrences", monthly_occurrences)
         if week_days is not None:
-            pulumi.set(__self__, "week_days", week_days)
+            _setter("week_days", week_days)
 
     @property
     @pulumi.getter(name="monthDays")
@@ -162,12 +186,25 @@ class AzureQueryPropertiesResponse(dict):
         :param Sequence[str] scope: List of Subscription or Resource Group ARM Ids.
         :param 'TagSettingsPropertiesResponse' tag_settings: Tag settings for the VM.
         """
+        AzureQueryPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+            scope=scope,
+            tag_settings=tag_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: Optional[Sequence[str]] = None,
+             scope: Optional[Sequence[str]] = None,
+             tag_settings: Optional['outputs.TagSettingsPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if tag_settings is not None:
-            pulumi.set(__self__, "tag_settings", tag_settings)
+            _setter("tag_settings", tag_settings)
 
     @property
     @pulumi.getter
@@ -207,10 +244,21 @@ class ErrorResponseResponse(dict):
         :param str code: Error code
         :param str message: Error message indicating why the operation failed.
         """
+        ErrorResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -269,14 +317,29 @@ class LinuxPropertiesResponse(dict):
         :param Sequence[str] included_package_name_masks: packages included from the software update configuration.
         :param str reboot_setting: Reboot setting for the software update configuration.
         """
+        LinuxPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_package_name_masks=excluded_package_name_masks,
+            included_package_classifications=included_package_classifications,
+            included_package_name_masks=included_package_name_masks,
+            reboot_setting=reboot_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_package_name_masks: Optional[Sequence[str]] = None,
+             included_package_classifications: Optional[str] = None,
+             included_package_name_masks: Optional[Sequence[str]] = None,
+             reboot_setting: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if excluded_package_name_masks is not None:
-            pulumi.set(__self__, "excluded_package_name_masks", excluded_package_name_masks)
+            _setter("excluded_package_name_masks", excluded_package_name_masks)
         if included_package_classifications is not None:
-            pulumi.set(__self__, "included_package_classifications", included_package_classifications)
+            _setter("included_package_classifications", included_package_classifications)
         if included_package_name_masks is not None:
-            pulumi.set(__self__, "included_package_name_masks", included_package_name_masks)
+            _setter("included_package_name_masks", included_package_name_masks)
         if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
+            _setter("reboot_setting", reboot_setting)
 
     @property
     @pulumi.getter(name="excludedPackageNameMasks")
@@ -343,10 +406,21 @@ class NonAzureQueryPropertiesResponse(dict):
         :param str function_alias: Log Analytics Saved Search name.
         :param str workspace_id: Workspace Id for Log Analytics in which the saved Search is resided.
         """
+        NonAzureQueryPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_alias=function_alias,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_alias: Optional[str] = None,
+             workspace_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if function_alias is not None:
-            pulumi.set(__self__, "function_alias", function_alias)
+            _setter("function_alias", function_alias)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="functionAlias")
@@ -439,35 +513,70 @@ class SUCSchedulePropertiesResponse(dict):
         :param str start_time: Gets or sets the start time of the schedule.
         :param str time_zone: Gets or sets the time zone of the schedule.
         """
-        pulumi.set(__self__, "start_time_offset_minutes", start_time_offset_minutes)
+        SUCSchedulePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            start_time_offset_minutes=start_time_offset_minutes,
+            advanced_schedule=advanced_schedule,
+            creation_time=creation_time,
+            description=description,
+            expiry_time=expiry_time,
+            expiry_time_offset_minutes=expiry_time_offset_minutes,
+            frequency=frequency,
+            interval=interval,
+            is_enabled=is_enabled,
+            last_modified_time=last_modified_time,
+            next_run=next_run,
+            next_run_offset_minutes=next_run_offset_minutes,
+            start_time=start_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             start_time_offset_minutes: float,
+             advanced_schedule: Optional['outputs.AdvancedScheduleResponse'] = None,
+             creation_time: Optional[str] = None,
+             description: Optional[str] = None,
+             expiry_time: Optional[str] = None,
+             expiry_time_offset_minutes: Optional[float] = None,
+             frequency: Optional[str] = None,
+             interval: Optional[float] = None,
+             is_enabled: Optional[bool] = None,
+             last_modified_time: Optional[str] = None,
+             next_run: Optional[str] = None,
+             next_run_offset_minutes: Optional[float] = None,
+             start_time: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("start_time_offset_minutes", start_time_offset_minutes)
         if advanced_schedule is not None:
-            pulumi.set(__self__, "advanced_schedule", advanced_schedule)
+            _setter("advanced_schedule", advanced_schedule)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if expiry_time is not None:
-            pulumi.set(__self__, "expiry_time", expiry_time)
+            _setter("expiry_time", expiry_time)
         if expiry_time_offset_minutes is not None:
-            pulumi.set(__self__, "expiry_time_offset_minutes", expiry_time_offset_minutes)
+            _setter("expiry_time_offset_minutes", expiry_time_offset_minutes)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if is_enabled is None:
             is_enabled = False
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
+            _setter("last_modified_time", last_modified_time)
         if next_run is not None:
-            pulumi.set(__self__, "next_run", next_run)
+            _setter("next_run", next_run)
         if next_run_offset_minutes is not None:
-            pulumi.set(__self__, "next_run_offset_minutes", next_run_offset_minutes)
+            _setter("next_run_offset_minutes", next_run_offset_minutes)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="startTimeOffsetMinutes")
@@ -614,10 +723,21 @@ class SoftwareUpdateConfigurationTasksResponse(dict):
         :param 'TaskPropertiesResponse' post_task: Post task properties.
         :param 'TaskPropertiesResponse' pre_task: Pre task properties.
         """
+        SoftwareUpdateConfigurationTasksResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            post_task=post_task,
+            pre_task=pre_task,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             post_task: Optional['outputs.TaskPropertiesResponse'] = None,
+             pre_task: Optional['outputs.TaskPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if post_task is not None:
-            pulumi.set(__self__, "post_task", post_task)
+            _setter("post_task", post_task)
         if pre_task is not None:
-            pulumi.set(__self__, "pre_task", pre_task)
+            _setter("pre_task", pre_task)
 
     @property
     @pulumi.getter(name="postTask")
@@ -666,10 +786,21 @@ class TagSettingsPropertiesResponse(dict):
         :param str filter_operator: Filter VMs by Any or All specified tags.
         :param Mapping[str, Sequence[str]] tags: Dictionary of tags with its list of values.
         """
+        TagSettingsPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_operator=filter_operator,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_operator: Optional[str] = None,
+             tags: Optional[Mapping[str, Sequence[str]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filter_operator is not None:
-            pulumi.set(__self__, "filter_operator", filter_operator)
+            _setter("filter_operator", filter_operator)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="filterOperator")
@@ -720,10 +851,21 @@ class TargetPropertiesResponse(dict):
         :param Sequence['AzureQueryPropertiesResponse'] azure_queries: List of Azure queries in the software update configuration.
         :param Sequence['NonAzureQueryPropertiesResponse'] non_azure_queries: List of non Azure queries in the software update configuration.
         """
+        TargetPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_queries=azure_queries,
+            non_azure_queries=non_azure_queries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_queries: Optional[Sequence['outputs.AzureQueryPropertiesResponse']] = None,
+             non_azure_queries: Optional[Sequence['outputs.NonAzureQueryPropertiesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_queries is not None:
-            pulumi.set(__self__, "azure_queries", azure_queries)
+            _setter("azure_queries", azure_queries)
         if non_azure_queries is not None:
-            pulumi.set(__self__, "non_azure_queries", non_azure_queries)
+            _setter("non_azure_queries", non_azure_queries)
 
     @property
     @pulumi.getter(name="azureQueries")
@@ -755,10 +897,21 @@ class TaskPropertiesResponse(dict):
         :param Mapping[str, str] parameters: Gets or sets the parameters of the task.
         :param str source: Gets or sets the name of the runbook.
         """
+        TaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameters=parameters,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameters: Optional[Mapping[str, str]] = None,
+             source: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -821,19 +974,40 @@ class UpdateConfigurationResponse(dict):
         :param 'TargetPropertiesResponse' targets: Group targets for the software update configuration.
         :param 'WindowsPropertiesResponse' windows: Windows specific update configuration.
         """
-        pulumi.set(__self__, "operating_system", operating_system)
+        UpdateConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operating_system=operating_system,
+            azure_virtual_machines=azure_virtual_machines,
+            duration=duration,
+            linux=linux,
+            non_azure_computer_names=non_azure_computer_names,
+            targets=targets,
+            windows=windows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operating_system: str,
+             azure_virtual_machines: Optional[Sequence[str]] = None,
+             duration: Optional[str] = None,
+             linux: Optional['outputs.LinuxPropertiesResponse'] = None,
+             non_azure_computer_names: Optional[Sequence[str]] = None,
+             targets: Optional['outputs.TargetPropertiesResponse'] = None,
+             windows: Optional['outputs.WindowsPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operating_system", operating_system)
         if azure_virtual_machines is not None:
-            pulumi.set(__self__, "azure_virtual_machines", azure_virtual_machines)
+            _setter("azure_virtual_machines", azure_virtual_machines)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if linux is not None:
-            pulumi.set(__self__, "linux", linux)
+            _setter("linux", linux)
         if non_azure_computer_names is not None:
-            pulumi.set(__self__, "non_azure_computer_names", non_azure_computer_names)
+            _setter("non_azure_computer_names", non_azure_computer_names)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
         if windows is not None:
-            pulumi.set(__self__, "windows", windows)
+            _setter("windows", windows)
 
     @property
     @pulumi.getter(name="operatingSystem")
@@ -932,14 +1106,29 @@ class WindowsPropertiesResponse(dict):
         :param str included_update_classifications: Update classification included in the software update configuration. A comma separated string with required values
         :param str reboot_setting: Reboot setting for the software update configuration.
         """
+        WindowsPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_kb_numbers=excluded_kb_numbers,
+            included_kb_numbers=included_kb_numbers,
+            included_update_classifications=included_update_classifications,
+            reboot_setting=reboot_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_kb_numbers: Optional[Sequence[str]] = None,
+             included_kb_numbers: Optional[Sequence[str]] = None,
+             included_update_classifications: Optional[str] = None,
+             reboot_setting: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if excluded_kb_numbers is not None:
-            pulumi.set(__self__, "excluded_kb_numbers", excluded_kb_numbers)
+            _setter("excluded_kb_numbers", excluded_kb_numbers)
         if included_kb_numbers is not None:
-            pulumi.set(__self__, "included_kb_numbers", included_kb_numbers)
+            _setter("included_kb_numbers", included_kb_numbers)
         if included_update_classifications is not None:
-            pulumi.set(__self__, "included_update_classifications", included_update_classifications)
+            _setter("included_update_classifications", included_update_classifications)
         if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
+            _setter("reboot_setting", reboot_setting)
 
     @property
     @pulumi.getter(name="excludedKbNumbers")

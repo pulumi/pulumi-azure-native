@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -64,14 +64,37 @@ class ActivityTimelineItemResponse(dict):
         :param str query_id: The activity query id.
         :param str title: The activity timeline title.
         """
-        pulumi.set(__self__, "bucket_end_time_utc", bucket_end_time_utc)
-        pulumi.set(__self__, "bucket_start_time_utc", bucket_start_time_utc)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
-        pulumi.set(__self__, "kind", 'Activity')
-        pulumi.set(__self__, "last_activity_time_utc", last_activity_time_utc)
-        pulumi.set(__self__, "query_id", query_id)
-        pulumi.set(__self__, "title", title)
+        ActivityTimelineItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_end_time_utc=bucket_end_time_utc,
+            bucket_start_time_utc=bucket_start_time_utc,
+            content=content,
+            first_activity_time_utc=first_activity_time_utc,
+            kind=kind,
+            last_activity_time_utc=last_activity_time_utc,
+            query_id=query_id,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_end_time_utc: str,
+             bucket_start_time_utc: str,
+             content: str,
+             first_activity_time_utc: str,
+             kind: str,
+             last_activity_time_utc: str,
+             query_id: str,
+             title: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_end_time_utc", bucket_end_time_utc)
+        _setter("bucket_start_time_utc", bucket_start_time_utc)
+        _setter("content", content)
+        _setter("first_activity_time_utc", first_activity_time_utc)
+        _setter("kind", 'Activity')
+        _setter("last_activity_time_utc", last_activity_time_utc)
+        _setter("query_id", query_id)
+        _setter("title", title)
 
     @property
     @pulumi.getter(name="bucketEndTimeUTC")
@@ -173,24 +196,55 @@ class AnomalyTimelineItemResponse(dict):
         :param Sequence[str] techniques: The techniques of the anomaly.
         :param str vendor: The name of the anomaly vendor.
         """
-        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "end_time_utc", end_time_utc)
-        pulumi.set(__self__, "kind", 'Anomaly')
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
-        pulumi.set(__self__, "time_generated", time_generated)
+        AnomalyTimelineItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_resource_id=azure_resource_id,
+            display_name=display_name,
+            end_time_utc=end_time_utc,
+            kind=kind,
+            start_time_utc=start_time_utc,
+            time_generated=time_generated,
+            description=description,
+            intent=intent,
+            product_name=product_name,
+            reasons=reasons,
+            techniques=techniques,
+            vendor=vendor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_resource_id: str,
+             display_name: str,
+             end_time_utc: str,
+             kind: str,
+             start_time_utc: str,
+             time_generated: str,
+             description: Optional[str] = None,
+             intent: Optional[str] = None,
+             product_name: Optional[str] = None,
+             reasons: Optional[Sequence[str]] = None,
+             techniques: Optional[Sequence[str]] = None,
+             vendor: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_resource_id", azure_resource_id)
+        _setter("display_name", display_name)
+        _setter("end_time_utc", end_time_utc)
+        _setter("kind", 'Anomaly')
+        _setter("start_time_utc", start_time_utc)
+        _setter("time_generated", time_generated)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if intent is not None:
-            pulumi.set(__self__, "intent", intent)
+            _setter("intent", intent)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
         if reasons is not None:
-            pulumi.set(__self__, "reasons", reasons)
+            _setter("reasons", reasons)
         if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
+            _setter("techniques", techniques)
         if vendor is not None:
-            pulumi.set(__self__, "vendor", vendor)
+            _setter("vendor", vendor)
 
     @property
     @pulumi.getter(name="azureResourceId")
@@ -322,10 +376,21 @@ class AzureDevOpsResourceInfoResponse(dict):
         :param str pipeline_id: Id of the pipeline created for the source-control.
         :param str service_connection_id: Id of the service-connection created for the source-control.
         """
+        AzureDevOpsResourceInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pipeline_id=pipeline_id,
+            service_connection_id=service_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pipeline_id: Optional[str] = None,
+             service_connection_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if pipeline_id is not None:
-            pulumi.set(__self__, "pipeline_id", pipeline_id)
+            _setter("pipeline_id", pipeline_id)
         if service_connection_id is not None:
-            pulumi.set(__self__, "service_connection_id", service_connection_id)
+            _setter("service_connection_id", service_connection_id)
 
     @property
     @pulumi.getter(name="pipelineId")
@@ -372,22 +437,47 @@ class BookmarkTimelineItemResponse(dict):
         :param str notes: The notes of the bookmark
         :param str start_time_utc: The bookmark start time.
         """
-        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
-        pulumi.set(__self__, "kind", 'Bookmark')
+        BookmarkTimelineItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_resource_id=azure_resource_id,
+            kind=kind,
+            created_by=created_by,
+            display_name=display_name,
+            end_time_utc=end_time_utc,
+            event_time=event_time,
+            labels=labels,
+            notes=notes,
+            start_time_utc=start_time_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_resource_id: str,
+             kind: str,
+             created_by: Optional['outputs.UserInfoResponse'] = None,
+             display_name: Optional[str] = None,
+             end_time_utc: Optional[str] = None,
+             event_time: Optional[str] = None,
+             labels: Optional[Sequence[str]] = None,
+             notes: Optional[str] = None,
+             start_time_utc: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_resource_id", azure_resource_id)
+        _setter("kind", 'Bookmark')
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if end_time_utc is not None:
-            pulumi.set(__self__, "end_time_utc", end_time_utc)
+            _setter("end_time_utc", end_time_utc)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if start_time_utc is not None:
-            pulumi.set(__self__, "start_time_utc", start_time_utc)
+            _setter("start_time_utc", start_time_utc)
 
     @property
     @pulumi.getter(name="azureResourceId")
@@ -493,10 +583,21 @@ class ContentPathMapResponse(dict):
         :param str content_type: Content type.
         :param str path: The path to the content.
         """
+        ContentPathMapResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="contentType")
@@ -547,12 +648,25 @@ class DeploymentInfoResponse(dict):
         :param str deployment_fetch_status: Status while fetching the last deployment.
         :param str message: Additional details about the deployment that can be shown to the user.
         """
+        DeploymentInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment=deployment,
+            deployment_fetch_status=deployment_fetch_status,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment: Optional['outputs.DeploymentResponse'] = None,
+             deployment_fetch_status: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment is not None:
-            pulumi.set(__self__, "deployment", deployment)
+            _setter("deployment", deployment)
         if deployment_fetch_status is not None:
-            pulumi.set(__self__, "deployment_fetch_status", deployment_fetch_status)
+            _setter("deployment_fetch_status", deployment_fetch_status)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -623,16 +737,33 @@ class DeploymentResponse(dict):
         :param str deployment_state: Current status of the deployment.
         :param str deployment_time: The time when the deployment finished.
         """
+        DeploymentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_id=deployment_id,
+            deployment_logs_url=deployment_logs_url,
+            deployment_result=deployment_result,
+            deployment_state=deployment_state,
+            deployment_time=deployment_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_id: Optional[str] = None,
+             deployment_logs_url: Optional[str] = None,
+             deployment_result: Optional[str] = None,
+             deployment_state: Optional[str] = None,
+             deployment_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment_id is not None:
-            pulumi.set(__self__, "deployment_id", deployment_id)
+            _setter("deployment_id", deployment_id)
         if deployment_logs_url is not None:
-            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+            _setter("deployment_logs_url", deployment_logs_url)
         if deployment_result is not None:
-            pulumi.set(__self__, "deployment_result", deployment_result)
+            _setter("deployment_result", deployment_result)
         if deployment_state is not None:
-            pulumi.set(__self__, "deployment_state", deployment_state)
+            _setter("deployment_state", deployment_state)
         if deployment_time is not None:
-            pulumi.set(__self__, "deployment_time", deployment_time)
+            _setter("deployment_time", deployment_time)
 
     @property
     @pulumi.getter(name="deploymentId")
@@ -692,14 +823,29 @@ class EntityInsightItemResponse(dict):
         :param 'EntityInsightItemResponseQueryTimeInterval' query_time_interval: The Time interval that the query actually executed on.
         :param 'InsightsTableResultResponse' table_query_results: Query results for table insights query.
         """
+        EntityInsightItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            chart_query_results=chart_query_results,
+            query_id=query_id,
+            query_time_interval=query_time_interval,
+            table_query_results=table_query_results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             chart_query_results: Optional[Sequence['outputs.InsightsTableResultResponse']] = None,
+             query_id: Optional[str] = None,
+             query_time_interval: Optional['outputs.EntityInsightItemResponseQueryTimeInterval'] = None,
+             table_query_results: Optional['outputs.InsightsTableResultResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if chart_query_results is not None:
-            pulumi.set(__self__, "chart_query_results", chart_query_results)
+            _setter("chart_query_results", chart_query_results)
         if query_id is not None:
-            pulumi.set(__self__, "query_id", query_id)
+            _setter("query_id", query_id)
         if query_time_interval is not None:
-            pulumi.set(__self__, "query_time_interval", query_time_interval)
+            _setter("query_time_interval", query_time_interval)
         if table_query_results is not None:
-            pulumi.set(__self__, "table_query_results", table_query_results)
+            _setter("table_query_results", table_query_results)
 
     @property
     @pulumi.getter(name="chartQueryResults")
@@ -747,10 +893,21 @@ class EntityInsightItemResponseQueryTimeInterval(dict):
         :param str end_time: Insight query end time
         :param str start_time: Insight query start time
         """
+        EntityInsightItemResponseQueryTimeInterval._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: Optional[str] = None,
+             start_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="endTime")
@@ -784,10 +941,23 @@ class GetInsightsErrorKindResponse(dict):
         :param str kind: the query kind
         :param str query_id: the query id
         """
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "kind", kind)
+        GetInsightsErrorKindResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_message=error_message,
+            kind=kind,
+            query_id=query_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_message: str,
+             kind: str,
+             query_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_message", error_message)
+        _setter("kind", kind)
         if query_id is not None:
-            pulumi.set(__self__, "query_id", query_id)
+            _setter("query_id", query_id)
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -827,9 +997,20 @@ class GetInsightsResultsMetadataResponse(dict):
         :param int total_count: the total items found for the insights request
         :param Sequence['GetInsightsErrorKindResponse'] errors: information about the failed queries
         """
-        pulumi.set(__self__, "total_count", total_count)
+        GetInsightsResultsMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            total_count=total_count,
+            errors=errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             total_count: int,
+             errors: Optional[Sequence['outputs.GetInsightsErrorKindResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("total_count", total_count)
         if errors is not None:
-            pulumi.set(__self__, "errors", errors)
+            _setter("errors", errors)
 
     @property
     @pulumi.getter(name="totalCount")
@@ -876,8 +1057,17 @@ class GitHubResourceInfoResponse(dict):
         Resources created in GitHub repository.
         :param str app_installation_id: GitHub application installation id.
         """
+        GitHubResourceInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_installation_id=app_installation_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_installation_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_installation_id is not None:
-            pulumi.set(__self__, "app_installation_id", app_installation_id)
+            _setter("app_installation_id", app_installation_id)
 
     @property
     @pulumi.getter(name="appInstallationId")
@@ -901,10 +1091,21 @@ class InsightsTableResultResponse(dict):
         :param Sequence['InsightsTableResultResponseColumns'] columns: Columns Metadata of the table
         :param Sequence[Sequence[str]] rows: Rows data of the table
         """
+        InsightsTableResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            rows=rows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[Sequence['outputs.InsightsTableResultResponseColumns']] = None,
+             rows: Optional[Sequence[Sequence[str]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if rows is not None:
-            pulumi.set(__self__, "rows", rows)
+            _setter("rows", rows)
 
     @property
     @pulumi.getter
@@ -932,10 +1133,21 @@ class InsightsTableResultResponseColumns(dict):
         :param str name: the name of the colum
         :param str type: the type of the colum
         """
+        InsightsTableResultResponseColumns._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -969,12 +1181,25 @@ class RepoResponse(dict):
         :param str full_name: The name of the repository.
         :param str url: The url to access the repository.
         """
+        RepoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branches=branches,
+            full_name=full_name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branches: Optional[Sequence[str]] = None,
+             full_name: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if branches is not None:
-            pulumi.set(__self__, "branches", branches)
+            _setter("branches", branches)
         if full_name is not None:
-            pulumi.set(__self__, "full_name", full_name)
+            _setter("full_name", full_name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1035,12 +1260,25 @@ class RepositoryResourceInfoResponse(dict):
         :param 'GitHubResourceInfoResponse' git_hub_resource_info: Resources created in GitHub for this source-control.
         :param 'WebhookResponse' webhook: The webhook object created for the source-control.
         """
+        RepositoryResourceInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_dev_ops_resource_info=azure_dev_ops_resource_info,
+            git_hub_resource_info=git_hub_resource_info,
+            webhook=webhook,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_dev_ops_resource_info: Optional['outputs.AzureDevOpsResourceInfoResponse'] = None,
+             git_hub_resource_info: Optional['outputs.GitHubResourceInfoResponse'] = None,
+             webhook: Optional['outputs.WebhookResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_dev_ops_resource_info is not None:
-            pulumi.set(__self__, "azure_dev_ops_resource_info", azure_dev_ops_resource_info)
+            _setter("azure_dev_ops_resource_info", azure_dev_ops_resource_info)
         if git_hub_resource_info is not None:
-            pulumi.set(__self__, "git_hub_resource_info", git_hub_resource_info)
+            _setter("git_hub_resource_info", git_hub_resource_info)
         if webhook is not None:
-            pulumi.set(__self__, "webhook", webhook)
+            _setter("webhook", webhook)
 
     @property
     @pulumi.getter(name="azureDevOpsResourceInfo")
@@ -1107,16 +1345,33 @@ class RepositoryResponse(dict):
         :param Sequence['ContentPathMapResponse'] path_mapping: Dictionary of source control content type and path mapping.
         :param str url: Url of repository.
         """
+        RepositoryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            deployment_logs_url=deployment_logs_url,
+            display_url=display_url,
+            path_mapping=path_mapping,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[str] = None,
+             deployment_logs_url: Optional[str] = None,
+             display_url: Optional[str] = None,
+             path_mapping: Optional[Sequence['outputs.ContentPathMapResponse']] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if deployment_logs_url is not None:
-            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+            _setter("deployment_logs_url", deployment_logs_url)
         if display_url is not None:
-            pulumi.set(__self__, "display_url", display_url)
+            _setter("display_url", display_url)
         if path_mapping is not None:
-            pulumi.set(__self__, "path_mapping", path_mapping)
+            _setter("path_mapping", path_mapping)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1193,21 +1448,52 @@ class SecurityAlertTimelineItemResponse(dict):
         :param str product_name: The alert product name.
         :param Sequence[str] techniques: The techniques of the alert.
         """
-        pulumi.set(__self__, "alert_type", alert_type)
-        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "end_time_utc", end_time_utc)
-        pulumi.set(__self__, "intent", intent)
-        pulumi.set(__self__, "kind", 'SecurityAlert')
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
-        pulumi.set(__self__, "time_generated", time_generated)
+        SecurityAlertTimelineItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_type=alert_type,
+            azure_resource_id=azure_resource_id,
+            display_name=display_name,
+            end_time_utc=end_time_utc,
+            intent=intent,
+            kind=kind,
+            severity=severity,
+            start_time_utc=start_time_utc,
+            time_generated=time_generated,
+            description=description,
+            product_name=product_name,
+            techniques=techniques,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_type: str,
+             azure_resource_id: str,
+             display_name: str,
+             end_time_utc: str,
+             intent: str,
+             kind: str,
+             severity: str,
+             start_time_utc: str,
+             time_generated: str,
+             description: Optional[str] = None,
+             product_name: Optional[str] = None,
+             techniques: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alert_type", alert_type)
+        _setter("azure_resource_id", azure_resource_id)
+        _setter("display_name", display_name)
+        _setter("end_time_utc", end_time_utc)
+        _setter("intent", intent)
+        _setter("kind", 'SecurityAlert')
+        _setter("severity", severity)
+        _setter("start_time_utc", start_time_utc)
+        _setter("time_generated", time_generated)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
         if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
+            _setter("techniques", techniques)
 
     @property
     @pulumi.getter(name="alertType")
@@ -1355,18 +1641,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1430,8 +1735,19 @@ class TimelineAggregationResponse(dict):
         :param int count: the total items found for a kind
         :param str kind: the query kind
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "kind", kind)
+        TimelineAggregationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: int,
+             kind: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("count", count)
+        _setter("kind", kind)
 
     @property
     @pulumi.getter
@@ -1465,10 +1781,23 @@ class TimelineErrorResponse(dict):
         :param str kind: the query kind
         :param str query_id: the query id
         """
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "kind", kind)
+        TimelineErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_message=error_message,
+            kind=kind,
+            query_id=query_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_message: str,
+             kind: str,
+             query_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_message", error_message)
+        _setter("kind", kind)
         if query_id is not None:
-            pulumi.set(__self__, "query_id", query_id)
+            _setter("query_id", query_id)
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -1510,10 +1839,23 @@ class TimelineResultsMetadataResponse(dict):
         :param int total_count: the total items found for the timeline request
         :param Sequence['TimelineErrorResponse'] errors: information about the failure queries
         """
-        pulumi.set(__self__, "aggregations", aggregations)
-        pulumi.set(__self__, "total_count", total_count)
+        TimelineResultsMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregations=aggregations,
+            total_count=total_count,
+            errors=errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregations: Sequence['outputs.TimelineAggregationResponse'],
+             total_count: int,
+             errors: Optional[Sequence['outputs.TimelineErrorResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aggregations", aggregations)
+        _setter("total_count", total_count)
         if errors is not None:
-            pulumi.set(__self__, "errors", errors)
+            _setter("errors", errors)
 
     @property
     @pulumi.getter
@@ -1555,10 +1897,23 @@ class UserInfoResponse(dict):
         :param str name: The name of the user.
         :param str object_id: The object id of the user.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "name", name)
+        UserInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            name=name,
+            object_id=object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: str,
+             name: str,
+             object_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
+        _setter("name", name)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
 
     @property
     @pulumi.getter
@@ -1625,14 +1980,29 @@ class WebhookResponse(dict):
         :param str webhook_secret_update_time: Time when the webhook secret was updated.
         :param str webhook_url: URL that gets invoked by the webhook.
         """
+        WebhookResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rotate_webhook_secret=rotate_webhook_secret,
+            webhook_id=webhook_id,
+            webhook_secret_update_time=webhook_secret_update_time,
+            webhook_url=webhook_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rotate_webhook_secret: Optional[bool] = None,
+             webhook_id: Optional[str] = None,
+             webhook_secret_update_time: Optional[str] = None,
+             webhook_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rotate_webhook_secret is not None:
-            pulumi.set(__self__, "rotate_webhook_secret", rotate_webhook_secret)
+            _setter("rotate_webhook_secret", rotate_webhook_secret)
         if webhook_id is not None:
-            pulumi.set(__self__, "webhook_id", webhook_id)
+            _setter("webhook_id", webhook_id)
         if webhook_secret_update_time is not None:
-            pulumi.set(__self__, "webhook_secret_update_time", webhook_secret_update_time)
+            _setter("webhook_secret_update_time", webhook_secret_update_time)
         if webhook_url is not None:
-            pulumi.set(__self__, "webhook_url", webhook_url)
+            _setter("webhook_url", webhook_url)
 
     @property
     @pulumi.getter(name="rotateWebhookSecret")

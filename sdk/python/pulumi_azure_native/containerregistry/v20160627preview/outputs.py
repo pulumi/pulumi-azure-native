@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -43,8 +43,19 @@ class StorageAccountPropertiesResponse(dict):
         :param str access_key: The access key to the storage account.
         :param str name: The name of the storage account.
         """
-        pulumi.set(__self__, "access_key", access_key)
-        pulumi.set(__self__, "name", name)
+        StorageAccountPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_key", access_key)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="accessKey")

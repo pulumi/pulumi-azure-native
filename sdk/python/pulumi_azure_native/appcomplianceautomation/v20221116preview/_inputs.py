@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -29,11 +29,26 @@ class ReportPropertiesArgs:
         :param pulumi.Input[str] trigger_time: Report collection trigger time.
         :param pulumi.Input[str] offer_guid: Report offer Guid.
         """
-        pulumi.set(__self__, "resources", resources)
-        pulumi.set(__self__, "time_zone", time_zone)
-        pulumi.set(__self__, "trigger_time", trigger_time)
+        ReportPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resources=resources,
+            time_zone=time_zone,
+            trigger_time=trigger_time,
+            offer_guid=offer_guid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resources: pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]],
+             time_zone: pulumi.Input[str],
+             trigger_time: pulumi.Input[str],
+             offer_guid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resources", resources)
+        _setter("time_zone", time_zone)
+        _setter("trigger_time", trigger_time)
         if offer_guid is not None:
-            pulumi.set(__self__, "offer_guid", offer_guid)
+            _setter("offer_guid", offer_guid)
 
     @property
     @pulumi.getter
@@ -101,15 +116,32 @@ class ResourceMetadataArgs:
         :param pulumi.Input[str] resource_type: Resource type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource's tag type.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        ResourceMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            resource_kind=resource_kind,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: pulumi.Input[str],
+             resource_kind: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_id", resource_id)
         if resource_kind is not None:
-            pulumi.set(__self__, "resource_kind", resource_kind)
+            _setter("resource_kind", resource_kind)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceId")

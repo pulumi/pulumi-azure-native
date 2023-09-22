@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,41 @@ class ScheduleArgs:
         :param pulumi.Input[str] schedule_name: The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
         :param pulumi.Input[str] start_at: When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "stop_at", stop_at)
-        pulumi.set(__self__, "time_zone_id", time_zone_id)
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            stop_at=stop_at,
+            time_zone_id=time_zone_id,
+            notes=notes,
+            recurrence_pattern=recurrence_pattern,
+            schedule_name=schedule_name,
+            start_at=start_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             stop_at: pulumi.Input[str],
+             time_zone_id: pulumi.Input[str],
+             notes: Optional[pulumi.Input[str]] = None,
+             recurrence_pattern: Optional[pulumi.Input['RecurrencePatternArgs']] = None,
+             schedule_name: Optional[pulumi.Input[str]] = None,
+             start_at: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("stop_at", stop_at)
+        _setter("time_zone_id", time_zone_id)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if recurrence_pattern is not None:
-            pulumi.set(__self__, "recurrence_pattern", recurrence_pattern)
+            _setter("recurrence_pattern", recurrence_pattern)
         if schedule_name is not None:
-            pulumi.set(__self__, "schedule_name", schedule_name)
+            _setter("schedule_name", schedule_name)
         if start_at is not None:
-            pulumi.set(__self__, "start_at", start_at)
+            _setter("start_at", start_at)
 
     @property
     @pulumi.getter(name="labName")
@@ -195,6 +218,10 @@ class Schedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -221,6 +248,11 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["notes"] = notes
+            if not isinstance(recurrence_pattern, RecurrencePatternArgs):
+                recurrence_pattern = recurrence_pattern or {}
+                def _setter(key, value):
+                    recurrence_pattern[key] = value
+                RecurrencePatternArgs._configure(_setter, **recurrence_pattern)
             __props__.__dict__["recurrence_pattern"] = recurrence_pattern
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

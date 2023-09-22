@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -55,8 +55,19 @@ class ContainerServiceLinuxProfileResponse(dict):
         :param str admin_username: The administrator username to use for Linux VMs.
         :param 'ContainerServiceSshConfigurationResponse' ssh: SSH configuration for Linux-based VMs running on Azure.
         """
-        pulumi.set(__self__, "admin_username", admin_username)
-        pulumi.set(__self__, "ssh", ssh)
+        ContainerServiceLinuxProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            ssh=ssh,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: str,
+             ssh: 'outputs.ContainerServiceSshConfigurationResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_username", admin_username)
+        _setter("ssh", ssh)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -127,30 +138,51 @@ class ContainerServiceNetworkProfileResponse(dict):
         :param str pod_cidr: A CIDR notation IP range from which to assign pod IPs when kubenet is used.
         :param str service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         """
+        ContainerServiceNetworkProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_service_ip=dns_service_ip,
+            docker_bridge_cidr=docker_bridge_cidr,
+            load_balancer_sku=load_balancer_sku,
+            network_plugin=network_plugin,
+            network_policy=network_policy,
+            pod_cidr=pod_cidr,
+            service_cidr=service_cidr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_service_ip: Optional[str] = None,
+             docker_bridge_cidr: Optional[str] = None,
+             load_balancer_sku: Optional[str] = None,
+             network_plugin: Optional[str] = None,
+             network_policy: Optional[str] = None,
+             pod_cidr: Optional[str] = None,
+             service_cidr: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_service_ip is None:
             dns_service_ip = '10.0.0.10'
         if dns_service_ip is not None:
-            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+            _setter("dns_service_ip", dns_service_ip)
         if docker_bridge_cidr is None:
             docker_bridge_cidr = '172.17.0.1/16'
         if docker_bridge_cidr is not None:
-            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+            _setter("docker_bridge_cidr", docker_bridge_cidr)
         if load_balancer_sku is not None:
-            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
+            _setter("load_balancer_sku", load_balancer_sku)
         if network_plugin is None:
             network_plugin = 'kubenet'
         if network_plugin is not None:
-            pulumi.set(__self__, "network_plugin", network_plugin)
+            _setter("network_plugin", network_plugin)
         if network_policy is not None:
-            pulumi.set(__self__, "network_policy", network_policy)
+            _setter("network_policy", network_policy)
         if pod_cidr is None:
             pod_cidr = '10.244.0.0/16'
         if pod_cidr is not None:
-            pulumi.set(__self__, "pod_cidr", pod_cidr)
+            _setter("pod_cidr", pod_cidr)
         if service_cidr is None:
             service_cidr = '10.0.0.0/16'
         if service_cidr is not None:
-            pulumi.set(__self__, "service_cidr", service_cidr)
+            _setter("service_cidr", service_cidr)
 
     @property
     @pulumi.getter(name="dnsServiceIP")
@@ -237,7 +269,16 @@ class ContainerServiceSshConfigurationResponse(dict):
         SSH configuration for Linux-based VMs running on Azure.
         :param Sequence['ContainerServiceSshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
-        pulumi.set(__self__, "public_keys", public_keys)
+        ContainerServiceSshConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_keys=public_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
@@ -276,7 +317,16 @@ class ContainerServiceSshPublicKeyResponse(dict):
         Contains information about SSH certificate public key data.
         :param str key_data: Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
         """
-        pulumi.set(__self__, "key_data", key_data)
+        ContainerServiceSshPublicKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_data=key_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_data: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_data", key_data)
 
     @property
     @pulumi.getter(name="keyData")
@@ -300,8 +350,19 @@ class CredentialResultResponse(dict):
         :param str name: The name of the credential.
         :param str value: Base64-encoded Kubernetes configuration file.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        CredentialResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -360,12 +421,27 @@ class ManagedClusterAADProfileResponse(dict):
         :param str server_app_secret: The server AAD application secret.
         :param str tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
         """
-        pulumi.set(__self__, "client_app_id", client_app_id)
-        pulumi.set(__self__, "server_app_id", server_app_id)
+        ManagedClusterAADProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_app_id=client_app_id,
+            server_app_id=server_app_id,
+            server_app_secret=server_app_secret,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_app_id: str,
+             server_app_id: str,
+             server_app_secret: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_app_id", client_app_id)
+        _setter("server_app_id", server_app_id)
         if server_app_secret is not None:
-            pulumi.set(__self__, "server_app_secret", server_app_secret)
+            _setter("server_app_secret", server_app_secret)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientAppID")
@@ -413,9 +489,20 @@ class ManagedClusterAddonProfileResponse(dict):
         :param bool enabled: Whether the add-on is enabled or not.
         :param Mapping[str, str] config: Key-value pairs for configuring an add-on.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ManagedClusterAddonProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            config=config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             config: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
 
     @property
     @pulumi.getter
@@ -524,40 +611,83 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param str vm_size: Size of agent VMs.
         :param str vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ManagedClusterAgentPoolProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            provisioning_state=provisioning_state,
+            availability_zones=availability_zones,
+            count=count,
+            enable_auto_scaling=enable_auto_scaling,
+            enable_node_public_ip=enable_node_public_ip,
+            max_count=max_count,
+            max_pods=max_pods,
+            min_count=min_count,
+            node_taints=node_taints,
+            orchestrator_version=orchestrator_version,
+            os_disk_size_gb=os_disk_size_gb,
+            os_type=os_type,
+            scale_set_eviction_policy=scale_set_eviction_policy,
+            scale_set_priority=scale_set_priority,
+            type=type,
+            vm_size=vm_size,
+            vnet_subnet_id=vnet_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             provisioning_state: str,
+             availability_zones: Optional[Sequence[str]] = None,
+             count: Optional[int] = None,
+             enable_auto_scaling: Optional[bool] = None,
+             enable_node_public_ip: Optional[bool] = None,
+             max_count: Optional[int] = None,
+             max_pods: Optional[int] = None,
+             min_count: Optional[int] = None,
+             node_taints: Optional[Sequence[str]] = None,
+             orchestrator_version: Optional[str] = None,
+             os_disk_size_gb: Optional[int] = None,
+             os_type: Optional[str] = None,
+             scale_set_eviction_policy: Optional[str] = None,
+             scale_set_priority: Optional[str] = None,
+             type: Optional[str] = None,
+             vm_size: Optional[str] = None,
+             vnet_subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if enable_auto_scaling is not None:
-            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+            _setter("enable_auto_scaling", enable_auto_scaling)
         if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+            _setter("enable_node_public_ip", enable_node_public_ip)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
+            _setter("max_pods", max_pods)
         if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
+            _setter("min_count", min_count)
         if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
+            _setter("node_taints", node_taints)
         if orchestrator_version is not None:
-            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
+            _setter("orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
-            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+            _setter("os_disk_size_gb", os_disk_size_gb)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if scale_set_eviction_policy is not None:
-            pulumi.set(__self__, "scale_set_eviction_policy", scale_set_eviction_policy)
+            _setter("scale_set_eviction_policy", scale_set_eviction_policy)
         if scale_set_priority is not None:
-            pulumi.set(__self__, "scale_set_priority", scale_set_priority)
+            _setter("scale_set_priority", scale_set_priority)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
         if vnet_subnet_id is not None:
-            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+            _setter("vnet_subnet_id", vnet_subnet_id)
 
     @property
     @pulumi.getter
@@ -738,10 +868,23 @@ class ManagedClusterIdentityResponse(dict):
         :param str tenant_id: The tenant id of the system assigned identity which is used by master components.
         :param str type: The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ManagedClusterIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -798,9 +941,20 @@ class ManagedClusterServicePrincipalProfileResponse(dict):
         :param str client_id: The ID for the service principal.
         :param str secret: The secret password associated with the service principal in plain text.
         """
-        pulumi.set(__self__, "client_id", client_id)
+        ManagedClusterServicePrincipalProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             secret: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="clientId")
@@ -851,9 +1005,20 @@ class ManagedClusterWindowsProfileResponse(dict):
         :param str admin_username: Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
         :param str admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
         """
-        pulumi.set(__self__, "admin_username", admin_username)
+        ManagedClusterWindowsProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            admin_password=admin_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: str,
+             admin_password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_username", admin_username)
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
 
     @property
     @pulumi.getter(name="adminUsername")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -26,11 +26,26 @@ class GalleryArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] gallery_name: The name of the gallery.
         """
-        pulumi.set(__self__, "dev_center_name", dev_center_name)
-        pulumi.set(__self__, "gallery_resource_id", gallery_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GalleryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dev_center_name=dev_center_name,
+            gallery_resource_id=gallery_resource_id,
+            resource_group_name=resource_group_name,
+            gallery_name=gallery_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dev_center_name: pulumi.Input[str],
+             gallery_resource_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dev_center_name", dev_center_name)
+        _setter("gallery_resource_id", gallery_resource_id)
+        _setter("resource_group_name", resource_group_name)
         if gallery_name is not None:
-            pulumi.set(__self__, "gallery_name", gallery_name)
+            _setter("gallery_name", gallery_name)
 
     @property
     @pulumi.getter(name="devCenterName")
@@ -120,6 +135,10 @@ class Gallery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GalleryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

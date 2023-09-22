@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,47 @@ class ExperimentArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExperimentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            enabled_state=enabled_state,
+            endpoint_a=endpoint_a,
+            endpoint_b=endpoint_b,
+            experiment_name=experiment_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             endpoint_a: Optional[pulumi.Input['ExperimentEndpointArgs']] = None,
+             endpoint_b: Optional[pulumi.Input['ExperimentEndpointArgs']] = None,
+             experiment_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if endpoint_a is not None:
-            pulumi.set(__self__, "endpoint_a", endpoint_a)
+            _setter("endpoint_a", endpoint_a)
         if endpoint_b is not None:
-            pulumi.set(__self__, "endpoint_b", endpoint_b)
+            _setter("endpoint_b", endpoint_b)
         if experiment_name is not None:
-            pulumi.set(__self__, "experiment_name", experiment_name)
+            _setter("experiment_name", experiment_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="profileName")
@@ -215,6 +240,10 @@ class Experiment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExperimentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -240,7 +269,17 @@ class Experiment(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled_state"] = enabled_state
+            if not isinstance(endpoint_a, ExperimentEndpointArgs):
+                endpoint_a = endpoint_a or {}
+                def _setter(key, value):
+                    endpoint_a[key] = value
+                ExperimentEndpointArgs._configure(_setter, **endpoint_a)
             __props__.__dict__["endpoint_a"] = endpoint_a
+            if not isinstance(endpoint_b, ExperimentEndpointArgs):
+                endpoint_b = endpoint_b or {}
+                def _setter(key, value):
+                    endpoint_b[key] = value
+                ExperimentEndpointArgs._configure(_setter, **endpoint_b)
             __props__.__dict__["endpoint_b"] = endpoint_b
             __props__.__dict__["experiment_name"] = experiment_name
             __props__.__dict__["location"] = location

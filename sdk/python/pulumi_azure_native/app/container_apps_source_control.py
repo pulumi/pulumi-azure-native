@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,35 @@ class ContainerAppsSourceControlArgs:
         :param pulumi.Input[str] repo_url: The repo url which will be integrated to ContainerApp.
         :param pulumi.Input[str] source_control_name: Name of the Container App SourceControl.
         """
-        pulumi.set(__self__, "container_app_name", container_app_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ContainerAppsSourceControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_app_name=container_app_name,
+            resource_group_name=resource_group_name,
+            branch=branch,
+            github_action_configuration=github_action_configuration,
+            repo_url=repo_url,
+            source_control_name=source_control_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_app_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             branch: Optional[pulumi.Input[str]] = None,
+             github_action_configuration: Optional[pulumi.Input['GithubActionConfigurationArgs']] = None,
+             repo_url: Optional[pulumi.Input[str]] = None,
+             source_control_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_app_name", container_app_name)
+        _setter("resource_group_name", resource_group_name)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if github_action_configuration is not None:
-            pulumi.set(__self__, "github_action_configuration", github_action_configuration)
+            _setter("github_action_configuration", github_action_configuration)
         if repo_url is not None:
-            pulumi.set(__self__, "repo_url", repo_url)
+            _setter("repo_url", repo_url)
         if source_control_name is not None:
-            pulumi.set(__self__, "source_control_name", source_control_name)
+            _setter("source_control_name", source_control_name)
 
     @property
     @pulumi.getter(name="containerAppName")
@@ -166,6 +185,10 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerAppsSourceControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -190,6 +213,11 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
             if container_app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_name'")
             __props__.__dict__["container_app_name"] = container_app_name
+            if not isinstance(github_action_configuration, GithubActionConfigurationArgs):
+                github_action_configuration = github_action_configuration or {}
+                def _setter(key, value):
+                    github_action_configuration[key] = value
+                GithubActionConfigurationArgs._configure(_setter, **github_action_configuration)
             __props__.__dict__["github_action_configuration"] = github_action_configuration
             __props__.__dict__["repo_url"] = repo_url
             if resource_group_name is None and not opts.urn:

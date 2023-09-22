@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -198,50 +198,107 @@ class ACIServiceResponseResponse(dict):
         :param str ssl_key: The public SSL key in PEM format for the certificate.
         :param 'ACIServiceResponseResponseVnetConfiguration' vnet_configuration: The virtual network configuration.
         """
-        pulumi.set(__self__, "compute_type", 'ACI')
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "model_config_map", model_config_map)
-        pulumi.set(__self__, "scoring_uri", scoring_uri)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "swagger_uri", swagger_uri)
+        ACIServiceResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            error=error,
+            model_config_map=model_config_map,
+            scoring_uri=scoring_uri,
+            state=state,
+            swagger_uri=swagger_uri,
+            app_insights_enabled=app_insights_enabled,
+            auth_enabled=auth_enabled,
+            cname=cname,
+            container_resource_requirements=container_resource_requirements,
+            data_collection=data_collection,
+            deployment_type=deployment_type,
+            description=description,
+            encryption_properties=encryption_properties,
+            environment_image_request=environment_image_request,
+            kv_tags=kv_tags,
+            location=location,
+            models=models,
+            properties=properties,
+            public_fqdn=public_fqdn,
+            public_ip=public_ip,
+            ssl_certificate=ssl_certificate,
+            ssl_enabled=ssl_enabled,
+            ssl_key=ssl_key,
+            vnet_configuration=vnet_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             error: 'outputs.ServiceResponseBaseResponseError',
+             model_config_map: Mapping[str, Any],
+             scoring_uri: str,
+             state: str,
+             swagger_uri: str,
+             app_insights_enabled: Optional[bool] = None,
+             auth_enabled: Optional[bool] = None,
+             cname: Optional[str] = None,
+             container_resource_requirements: Optional['outputs.ContainerResourceRequirementsResponse'] = None,
+             data_collection: Optional['outputs.ACIServiceResponseResponseDataCollection'] = None,
+             deployment_type: Optional[str] = None,
+             description: Optional[str] = None,
+             encryption_properties: Optional['outputs.ACIServiceResponseResponseEncryptionProperties'] = None,
+             environment_image_request: Optional['outputs.ACIServiceResponseResponseEnvironmentImageRequest'] = None,
+             kv_tags: Optional[Mapping[str, str]] = None,
+             location: Optional[str] = None,
+             models: Optional[Sequence['outputs.ModelResponse']] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             public_fqdn: Optional[str] = None,
+             public_ip: Optional[str] = None,
+             ssl_certificate: Optional[str] = None,
+             ssl_enabled: Optional[bool] = None,
+             ssl_key: Optional[str] = None,
+             vnet_configuration: Optional['outputs.ACIServiceResponseResponseVnetConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'ACI')
+        _setter("error", error)
+        _setter("model_config_map", model_config_map)
+        _setter("scoring_uri", scoring_uri)
+        _setter("state", state)
+        _setter("swagger_uri", swagger_uri)
         if app_insights_enabled is not None:
-            pulumi.set(__self__, "app_insights_enabled", app_insights_enabled)
+            _setter("app_insights_enabled", app_insights_enabled)
         if auth_enabled is not None:
-            pulumi.set(__self__, "auth_enabled", auth_enabled)
+            _setter("auth_enabled", auth_enabled)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if container_resource_requirements is not None:
-            pulumi.set(__self__, "container_resource_requirements", container_resource_requirements)
+            _setter("container_resource_requirements", container_resource_requirements)
         if data_collection is not None:
-            pulumi.set(__self__, "data_collection", data_collection)
+            _setter("data_collection", data_collection)
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encryption_properties is not None:
-            pulumi.set(__self__, "encryption_properties", encryption_properties)
+            _setter("encryption_properties", encryption_properties)
         if environment_image_request is not None:
-            pulumi.set(__self__, "environment_image_request", environment_image_request)
+            _setter("environment_image_request", environment_image_request)
         if kv_tags is not None:
-            pulumi.set(__self__, "kv_tags", kv_tags)
+            _setter("kv_tags", kv_tags)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if models is not None:
-            pulumi.set(__self__, "models", models)
+            _setter("models", models)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if public_fqdn is not None:
-            pulumi.set(__self__, "public_fqdn", public_fqdn)
+            _setter("public_fqdn", public_fqdn)
         if public_ip is not None:
-            pulumi.set(__self__, "public_ip", public_ip)
+            _setter("public_ip", public_ip)
         if ssl_certificate is not None:
-            pulumi.set(__self__, "ssl_certificate", ssl_certificate)
+            _setter("ssl_certificate", ssl_certificate)
         if ssl_enabled is not None:
-            pulumi.set(__self__, "ssl_enabled", ssl_enabled)
+            _setter("ssl_enabled", ssl_enabled)
         if ssl_key is not None:
-            pulumi.set(__self__, "ssl_key", ssl_key)
+            _setter("ssl_key", ssl_key)
         if vnet_configuration is not None:
-            pulumi.set(__self__, "vnet_configuration", vnet_configuration)
+            _setter("vnet_configuration", vnet_configuration)
 
     @property
     @pulumi.getter(name="computeType")
@@ -477,10 +534,21 @@ class ACIServiceResponseResponseDataCollection(dict):
         :param bool event_hub_enabled: Option for enabling/disabling Event Hub.
         :param bool storage_enabled: Option for enabling/disabling storage.
         """
+        ACIServiceResponseResponseDataCollection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_enabled=event_hub_enabled,
+            storage_enabled=storage_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_enabled: Optional[bool] = None,
+             storage_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if event_hub_enabled is not None:
-            pulumi.set(__self__, "event_hub_enabled", event_hub_enabled)
+            _setter("event_hub_enabled", event_hub_enabled)
         if storage_enabled is not None:
-            pulumi.set(__self__, "storage_enabled", storage_enabled)
+            _setter("storage_enabled", storage_enabled)
 
     @property
     @pulumi.getter(name="eventHubEnabled")
@@ -535,9 +603,22 @@ class ACIServiceResponseResponseEncryptionProperties(dict):
         :param str key_version: Encryption Key Version
         :param str vault_base_url: vault base Url
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_version", key_version)
-        pulumi.set(__self__, "vault_base_url", vault_base_url)
+        ACIServiceResponseResponseEncryptionProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_version=key_version,
+            vault_base_url=vault_base_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: str,
+             key_version: str,
+             vault_base_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("key_version", key_version)
+        _setter("vault_base_url", vault_base_url)
 
     @property
     @pulumi.getter(name="keyName")
@@ -606,18 +687,37 @@ class ACIServiceResponseResponseEnvironmentImageRequest(dict):
         :param Sequence[str] model_ids: The list of model Ids.
         :param Sequence['ModelResponse'] models: The list of models.
         """
+        ACIServiceResponseResponseEnvironmentImageRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assets=assets,
+            driver_program=driver_program,
+            environment=environment,
+            environment_reference=environment_reference,
+            model_ids=model_ids,
+            models=models,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assets: Optional[Sequence['outputs.ImageAssetResponse']] = None,
+             driver_program: Optional[str] = None,
+             environment: Optional['outputs.EnvironmentImageResponseResponseEnvironment'] = None,
+             environment_reference: Optional['outputs.EnvironmentImageResponseResponseEnvironmentReference'] = None,
+             model_ids: Optional[Sequence[str]] = None,
+             models: Optional[Sequence['outputs.ModelResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assets is not None:
-            pulumi.set(__self__, "assets", assets)
+            _setter("assets", assets)
         if driver_program is not None:
-            pulumi.set(__self__, "driver_program", driver_program)
+            _setter("driver_program", driver_program)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if environment_reference is not None:
-            pulumi.set(__self__, "environment_reference", environment_reference)
+            _setter("environment_reference", environment_reference)
         if model_ids is not None:
-            pulumi.set(__self__, "model_ids", model_ids)
+            _setter("model_ids", model_ids)
         if models is not None:
-            pulumi.set(__self__, "models", models)
+            _setter("models", models)
 
     @property
     @pulumi.getter
@@ -700,10 +800,21 @@ class ACIServiceResponseResponseVnetConfiguration(dict):
         :param str subnet_name: The name of the virtual network subnet.
         :param str vnet_name: The name of the virtual network.
         """
+        ACIServiceResponseResponseVnetConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_name=subnet_name,
+            vnet_name=vnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_name: Optional[str] = None,
+             vnet_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if subnet_name is not None:
-            pulumi.set(__self__, "subnet_name", subnet_name)
+            _setter("subnet_name", subnet_name)
         if vnet_name is not None:
-            pulumi.set(__self__, "vnet_name", vnet_name)
+            _setter("vnet_name", vnet_name)
 
     @property
     @pulumi.getter(name="subnetName")
@@ -733,7 +844,16 @@ class AKSReplicaStatusResponseError(dict):
         The error details.
         :param 'ErrorResponseResponse' error: The error response.
         """
-        pulumi.set(__self__, "error", error)
+        AKSReplicaStatusResponseError._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ErrorResponseResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
 
     @property
     @pulumi.getter
@@ -809,22 +929,51 @@ class AKSResponse(dict):
         :param 'AKSResponseProperties' properties: AKS properties
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'AKS')
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
-        pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AKSResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            created_on=created_on,
+            is_attached_compute=is_attached_compute,
+            modified_on=modified_on,
+            provisioning_errors=provisioning_errors,
+            provisioning_state=provisioning_state,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             created_on: str,
+             is_attached_compute: bool,
+             modified_on: str,
+             provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             provisioning_state: str,
+             compute_location: Optional[str] = None,
+             description: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             properties: Optional['outputs.AKSResponseProperties'] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'AKS')
+        _setter("created_on", created_on)
+        _setter("is_attached_compute", is_attached_compute)
+        _setter("modified_on", modified_on)
+        _setter("provisioning_errors", provisioning_errors)
+        _setter("provisioning_state", provisioning_state)
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -976,27 +1125,52 @@ class AKSResponseProperties(dict):
         :param str load_balancer_type: Load Balancer Type
         :param 'SslConfigurationResponse' ssl_configuration: SSL configuration
         """
-        pulumi.set(__self__, "system_services", system_services)
+        AKSResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            system_services=system_services,
+            agent_count=agent_count,
+            agent_vm_size=agent_vm_size,
+            aks_networking_configuration=aks_networking_configuration,
+            cluster_fqdn=cluster_fqdn,
+            cluster_purpose=cluster_purpose,
+            load_balancer_subnet=load_balancer_subnet,
+            load_balancer_type=load_balancer_type,
+            ssl_configuration=ssl_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             system_services: Sequence['outputs.SystemServiceResponse'],
+             agent_count: Optional[int] = None,
+             agent_vm_size: Optional[str] = None,
+             aks_networking_configuration: Optional['outputs.AksNetworkingConfigurationResponse'] = None,
+             cluster_fqdn: Optional[str] = None,
+             cluster_purpose: Optional[str] = None,
+             load_balancer_subnet: Optional[str] = None,
+             load_balancer_type: Optional[str] = None,
+             ssl_configuration: Optional['outputs.SslConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("system_services", system_services)
         if agent_count is not None:
-            pulumi.set(__self__, "agent_count", agent_count)
+            _setter("agent_count", agent_count)
         if agent_vm_size is not None:
-            pulumi.set(__self__, "agent_vm_size", agent_vm_size)
+            _setter("agent_vm_size", agent_vm_size)
         if aks_networking_configuration is not None:
-            pulumi.set(__self__, "aks_networking_configuration", aks_networking_configuration)
+            _setter("aks_networking_configuration", aks_networking_configuration)
         if cluster_fqdn is not None:
-            pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
+            _setter("cluster_fqdn", cluster_fqdn)
         if cluster_purpose is None:
             cluster_purpose = 'FastProd'
         if cluster_purpose is not None:
-            pulumi.set(__self__, "cluster_purpose", cluster_purpose)
+            _setter("cluster_purpose", cluster_purpose)
         if load_balancer_subnet is not None:
-            pulumi.set(__self__, "load_balancer_subnet", load_balancer_subnet)
+            _setter("load_balancer_subnet", load_balancer_subnet)
         if load_balancer_type is None:
             load_balancer_type = 'PublicIp'
         if load_balancer_type is not None:
-            pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+            _setter("load_balancer_type", load_balancer_type)
         if ssl_configuration is not None:
-            pulumi.set(__self__, "ssl_configuration", ssl_configuration)
+            _setter("ssl_configuration", ssl_configuration)
 
     @property
     @pulumi.getter(name="systemServices")
@@ -1198,57 +1372,122 @@ class AKSServiceResponseResponse(dict):
         :param float traffic_percentile: The amount of traffic variant receives.
         :param str type: The type of the variant.
         """
-        pulumi.set(__self__, "compute_type", 'AKS')
-        pulumi.set(__self__, "deployment_status", deployment_status)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "model_config_map", model_config_map)
-        pulumi.set(__self__, "scoring_uri", scoring_uri)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "swagger_uri", swagger_uri)
+        AKSServiceResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            deployment_status=deployment_status,
+            error=error,
+            model_config_map=model_config_map,
+            scoring_uri=scoring_uri,
+            state=state,
+            swagger_uri=swagger_uri,
+            aad_auth_enabled=aad_auth_enabled,
+            app_insights_enabled=app_insights_enabled,
+            auth_enabled=auth_enabled,
+            auto_scaler=auto_scaler,
+            compute_name=compute_name,
+            container_resource_requirements=container_resource_requirements,
+            data_collection=data_collection,
+            deployment_type=deployment_type,
+            description=description,
+            environment_image_request=environment_image_request,
+            is_default=is_default,
+            kv_tags=kv_tags,
+            liveness_probe_requirements=liveness_probe_requirements,
+            max_concurrent_requests_per_container=max_concurrent_requests_per_container,
+            max_queue_wait_ms=max_queue_wait_ms,
+            models=models,
+            namespace=namespace,
+            num_replicas=num_replicas,
+            properties=properties,
+            scoring_timeout_ms=scoring_timeout_ms,
+            traffic_percentile=traffic_percentile,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             deployment_status: 'outputs.AKSServiceResponseResponseDeploymentStatus',
+             error: 'outputs.ServiceResponseBaseResponseError',
+             model_config_map: Mapping[str, Any],
+             scoring_uri: str,
+             state: str,
+             swagger_uri: str,
+             aad_auth_enabled: Optional[bool] = None,
+             app_insights_enabled: Optional[bool] = None,
+             auth_enabled: Optional[bool] = None,
+             auto_scaler: Optional['outputs.AKSServiceResponseResponseAutoScaler'] = None,
+             compute_name: Optional[str] = None,
+             container_resource_requirements: Optional['outputs.ContainerResourceRequirementsResponse'] = None,
+             data_collection: Optional['outputs.AKSServiceResponseResponseDataCollection'] = None,
+             deployment_type: Optional[str] = None,
+             description: Optional[str] = None,
+             environment_image_request: Optional['outputs.AKSServiceResponseResponseEnvironmentImageRequest'] = None,
+             is_default: Optional[bool] = None,
+             kv_tags: Optional[Mapping[str, str]] = None,
+             liveness_probe_requirements: Optional['outputs.AKSServiceResponseResponseLivenessProbeRequirements'] = None,
+             max_concurrent_requests_per_container: Optional[int] = None,
+             max_queue_wait_ms: Optional[int] = None,
+             models: Optional[Sequence['outputs.ModelResponse']] = None,
+             namespace: Optional[str] = None,
+             num_replicas: Optional[int] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             scoring_timeout_ms: Optional[int] = None,
+             traffic_percentile: Optional[float] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'AKS')
+        _setter("deployment_status", deployment_status)
+        _setter("error", error)
+        _setter("model_config_map", model_config_map)
+        _setter("scoring_uri", scoring_uri)
+        _setter("state", state)
+        _setter("swagger_uri", swagger_uri)
         if aad_auth_enabled is not None:
-            pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
+            _setter("aad_auth_enabled", aad_auth_enabled)
         if app_insights_enabled is not None:
-            pulumi.set(__self__, "app_insights_enabled", app_insights_enabled)
+            _setter("app_insights_enabled", app_insights_enabled)
         if auth_enabled is not None:
-            pulumi.set(__self__, "auth_enabled", auth_enabled)
+            _setter("auth_enabled", auth_enabled)
         if auto_scaler is not None:
-            pulumi.set(__self__, "auto_scaler", auto_scaler)
+            _setter("auto_scaler", auto_scaler)
         if compute_name is not None:
-            pulumi.set(__self__, "compute_name", compute_name)
+            _setter("compute_name", compute_name)
         if container_resource_requirements is not None:
-            pulumi.set(__self__, "container_resource_requirements", container_resource_requirements)
+            _setter("container_resource_requirements", container_resource_requirements)
         if data_collection is not None:
-            pulumi.set(__self__, "data_collection", data_collection)
+            _setter("data_collection", data_collection)
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_image_request is not None:
-            pulumi.set(__self__, "environment_image_request", environment_image_request)
+            _setter("environment_image_request", environment_image_request)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if kv_tags is not None:
-            pulumi.set(__self__, "kv_tags", kv_tags)
+            _setter("kv_tags", kv_tags)
         if liveness_probe_requirements is not None:
-            pulumi.set(__self__, "liveness_probe_requirements", liveness_probe_requirements)
+            _setter("liveness_probe_requirements", liveness_probe_requirements)
         if max_concurrent_requests_per_container is not None:
-            pulumi.set(__self__, "max_concurrent_requests_per_container", max_concurrent_requests_per_container)
+            _setter("max_concurrent_requests_per_container", max_concurrent_requests_per_container)
         if max_queue_wait_ms is not None:
-            pulumi.set(__self__, "max_queue_wait_ms", max_queue_wait_ms)
+            _setter("max_queue_wait_ms", max_queue_wait_ms)
         if models is not None:
-            pulumi.set(__self__, "models", models)
+            _setter("models", models)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if num_replicas is not None:
-            pulumi.set(__self__, "num_replicas", num_replicas)
+            _setter("num_replicas", num_replicas)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if scoring_timeout_ms is not None:
-            pulumi.set(__self__, "scoring_timeout_ms", scoring_timeout_ms)
+            _setter("scoring_timeout_ms", scoring_timeout_ms)
         if traffic_percentile is not None:
-            pulumi.set(__self__, "traffic_percentile", traffic_percentile)
+            _setter("traffic_percentile", traffic_percentile)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="computeType")
@@ -1528,16 +1767,33 @@ class AKSServiceResponseResponseAutoScaler(dict):
         :param int refresh_period_in_seconds: The amount of seconds to wait between auto scale updates.
         :param int target_utilization: The target utilization percentage to use for determining whether to scale the cluster.
         """
+        AKSServiceResponseResponseAutoScaler._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscale_enabled=autoscale_enabled,
+            max_replicas=max_replicas,
+            min_replicas=min_replicas,
+            refresh_period_in_seconds=refresh_period_in_seconds,
+            target_utilization=target_utilization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscale_enabled: Optional[bool] = None,
+             max_replicas: Optional[int] = None,
+             min_replicas: Optional[int] = None,
+             refresh_period_in_seconds: Optional[int] = None,
+             target_utilization: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscale_enabled is not None:
-            pulumi.set(__self__, "autoscale_enabled", autoscale_enabled)
+            _setter("autoscale_enabled", autoscale_enabled)
         if max_replicas is not None:
-            pulumi.set(__self__, "max_replicas", max_replicas)
+            _setter("max_replicas", max_replicas)
         if min_replicas is not None:
-            pulumi.set(__self__, "min_replicas", min_replicas)
+            _setter("min_replicas", min_replicas)
         if refresh_period_in_seconds is not None:
-            pulumi.set(__self__, "refresh_period_in_seconds", refresh_period_in_seconds)
+            _setter("refresh_period_in_seconds", refresh_period_in_seconds)
         if target_utilization is not None:
-            pulumi.set(__self__, "target_utilization", target_utilization)
+            _setter("target_utilization", target_utilization)
 
     @property
     @pulumi.getter(name="autoscaleEnabled")
@@ -1612,10 +1868,21 @@ class AKSServiceResponseResponseDataCollection(dict):
         :param bool event_hub_enabled: Option for enabling/disabling Event Hub.
         :param bool storage_enabled: Option for enabling/disabling storage.
         """
+        AKSServiceResponseResponseDataCollection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_enabled=event_hub_enabled,
+            storage_enabled=storage_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_enabled: Optional[bool] = None,
+             storage_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if event_hub_enabled is not None:
-            pulumi.set(__self__, "event_hub_enabled", event_hub_enabled)
+            _setter("event_hub_enabled", event_hub_enabled)
         if storage_enabled is not None:
-            pulumi.set(__self__, "storage_enabled", storage_enabled)
+            _setter("storage_enabled", storage_enabled)
 
     @property
     @pulumi.getter(name="eventHubEnabled")
@@ -1672,14 +1939,29 @@ class AKSServiceResponseResponseDeploymentStatus(dict):
         :param 'AKSReplicaStatusResponseError' error: The error details.
         :param int updated_replicas: The number of updated replicas.
         """
+        AKSServiceResponseResponseDeploymentStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            available_replicas=available_replicas,
+            desired_replicas=desired_replicas,
+            error=error,
+            updated_replicas=updated_replicas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             available_replicas: Optional[int] = None,
+             desired_replicas: Optional[int] = None,
+             error: Optional['outputs.AKSReplicaStatusResponseError'] = None,
+             updated_replicas: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if available_replicas is not None:
-            pulumi.set(__self__, "available_replicas", available_replicas)
+            _setter("available_replicas", available_replicas)
         if desired_replicas is not None:
-            pulumi.set(__self__, "desired_replicas", desired_replicas)
+            _setter("desired_replicas", desired_replicas)
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if updated_replicas is not None:
-            pulumi.set(__self__, "updated_replicas", updated_replicas)
+            _setter("updated_replicas", updated_replicas)
 
     @property
     @pulumi.getter(name="availableReplicas")
@@ -1756,18 +2038,37 @@ class AKSServiceResponseResponseEnvironmentImageRequest(dict):
         :param Sequence[str] model_ids: The list of model Ids.
         :param Sequence['ModelResponse'] models: The list of models.
         """
+        AKSServiceResponseResponseEnvironmentImageRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assets=assets,
+            driver_program=driver_program,
+            environment=environment,
+            environment_reference=environment_reference,
+            model_ids=model_ids,
+            models=models,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assets: Optional[Sequence['outputs.ImageAssetResponse']] = None,
+             driver_program: Optional[str] = None,
+             environment: Optional['outputs.EnvironmentImageResponseResponseEnvironment'] = None,
+             environment_reference: Optional['outputs.EnvironmentImageResponseResponseEnvironmentReference'] = None,
+             model_ids: Optional[Sequence[str]] = None,
+             models: Optional[Sequence['outputs.ModelResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assets is not None:
-            pulumi.set(__self__, "assets", assets)
+            _setter("assets", assets)
         if driver_program is not None:
-            pulumi.set(__self__, "driver_program", driver_program)
+            _setter("driver_program", driver_program)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if environment_reference is not None:
-            pulumi.set(__self__, "environment_reference", environment_reference)
+            _setter("environment_reference", environment_reference)
         if model_ids is not None:
-            pulumi.set(__self__, "model_ids", model_ids)
+            _setter("model_ids", model_ids)
         if models is not None:
-            pulumi.set(__self__, "models", models)
+            _setter("models", models)
 
     @property
     @pulumi.getter
@@ -1862,16 +2163,33 @@ class AKSServiceResponseResponseLivenessProbeRequirements(dict):
         :param int success_threshold: The number of successful probes before returning a healthy status.
         :param int timeout_seconds: The probe timeout in seconds.
         """
+        AKSServiceResponseResponseLivenessProbeRequirements._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_threshold=failure_threshold,
+            initial_delay_seconds=initial_delay_seconds,
+            period_seconds=period_seconds,
+            success_threshold=success_threshold,
+            timeout_seconds=timeout_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_threshold: Optional[int] = None,
+             initial_delay_seconds: Optional[int] = None,
+             period_seconds: Optional[int] = None,
+             success_threshold: Optional[int] = None,
+             timeout_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if failure_threshold is not None:
-            pulumi.set(__self__, "failure_threshold", failure_threshold)
+            _setter("failure_threshold", failure_threshold)
         if initial_delay_seconds is not None:
-            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+            _setter("initial_delay_seconds", initial_delay_seconds)
         if period_seconds is not None:
-            pulumi.set(__self__, "period_seconds", period_seconds)
+            _setter("period_seconds", period_seconds)
         if success_threshold is not None:
-            pulumi.set(__self__, "success_threshold", success_threshold)
+            _setter("success_threshold", success_threshold)
         if timeout_seconds is not None:
-            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+            _setter("timeout_seconds", timeout_seconds)
 
     @property
     @pulumi.getter(name="failureThreshold")
@@ -1969,23 +2287,50 @@ class AKSVariantResponseResponse(dict):
         :param float traffic_percentile: The amount of traffic variant receives.
         :param str type: The type of the variant.
         """
-        pulumi.set(__self__, "compute_type", 'Custom')
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "state", state)
+        AKSVariantResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            error=error,
+            state=state,
+            deployment_type=deployment_type,
+            description=description,
+            is_default=is_default,
+            kv_tags=kv_tags,
+            properties=properties,
+            traffic_percentile=traffic_percentile,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             error: 'outputs.ServiceResponseBaseResponseError',
+             state: str,
+             deployment_type: Optional[str] = None,
+             description: Optional[str] = None,
+             is_default: Optional[bool] = None,
+             kv_tags: Optional[Mapping[str, str]] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             traffic_percentile: Optional[float] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'Custom')
+        _setter("error", error)
+        _setter("state", state)
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if kv_tags is not None:
-            pulumi.set(__self__, "kv_tags", kv_tags)
+            _setter("kv_tags", kv_tags)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if traffic_percentile is not None:
-            pulumi.set(__self__, "traffic_percentile", traffic_percentile)
+            _setter("traffic_percentile", traffic_percentile)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="computeType")
@@ -2109,14 +2454,29 @@ class AksNetworkingConfigurationResponse(dict):
         :param str service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         :param str subnet_id: Virtual network subnet resource ID the compute nodes belong to
         """
+        AksNetworkingConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_service_ip=dns_service_ip,
+            docker_bridge_cidr=docker_bridge_cidr,
+            service_cidr=service_cidr,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_service_ip: Optional[str] = None,
+             docker_bridge_cidr: Optional[str] = None,
+             service_cidr: Optional[str] = None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_service_ip is not None:
-            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+            _setter("dns_service_ip", dns_service_ip)
         if docker_bridge_cidr is not None:
-            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+            _setter("docker_bridge_cidr", docker_bridge_cidr)
         if service_cidr is not None:
-            pulumi.set(__self__, "service_cidr", service_cidr)
+            _setter("service_cidr", service_cidr)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="dnsServiceIP")
@@ -2216,22 +2576,51 @@ class AmlComputeResponse(dict):
         :param 'AmlComputeResponseProperties' properties: AML Compute properties
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'AmlCompute')
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
-        pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AmlComputeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            created_on=created_on,
+            is_attached_compute=is_attached_compute,
+            modified_on=modified_on,
+            provisioning_errors=provisioning_errors,
+            provisioning_state=provisioning_state,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             created_on: str,
+             is_attached_compute: bool,
+             modified_on: str,
+             provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             provisioning_state: str,
+             compute_location: Optional[str] = None,
+             description: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             properties: Optional['outputs.AmlComputeResponseProperties'] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'AmlCompute')
+        _setter("created_on", created_on)
+        _setter("is_attached_compute", is_attached_compute)
+        _setter("modified_on", modified_on)
+        _setter("provisioning_errors", provisioning_errors)
+        _setter("provisioning_state", provisioning_state)
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -2407,38 +2796,77 @@ class AmlComputeResponseProperties(dict):
         :param str vm_priority: Virtual Machine priority
         :param str vm_size: Virtual Machine Size
         """
-        pulumi.set(__self__, "allocation_state", allocation_state)
-        pulumi.set(__self__, "allocation_state_transition_time", allocation_state_transition_time)
-        pulumi.set(__self__, "current_node_count", current_node_count)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "node_state_counts", node_state_counts)
-        pulumi.set(__self__, "target_node_count", target_node_count)
+        AmlComputeResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_state=allocation_state,
+            allocation_state_transition_time=allocation_state_transition_time,
+            current_node_count=current_node_count,
+            errors=errors,
+            node_state_counts=node_state_counts,
+            target_node_count=target_node_count,
+            enable_node_public_ip=enable_node_public_ip,
+            isolated_network=isolated_network,
+            os_type=os_type,
+            remote_login_port_public_access=remote_login_port_public_access,
+            scale_settings=scale_settings,
+            subnet=subnet,
+            user_account_credentials=user_account_credentials,
+            virtual_machine_image=virtual_machine_image,
+            vm_priority=vm_priority,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_state: str,
+             allocation_state_transition_time: str,
+             current_node_count: int,
+             errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             node_state_counts: 'outputs.NodeStateCountsResponse',
+             target_node_count: int,
+             enable_node_public_ip: Optional[bool] = None,
+             isolated_network: Optional[bool] = None,
+             os_type: Optional[str] = None,
+             remote_login_port_public_access: Optional[str] = None,
+             scale_settings: Optional['outputs.ScaleSettingsResponse'] = None,
+             subnet: Optional['outputs.ResourceIdResponse'] = None,
+             user_account_credentials: Optional['outputs.UserAccountCredentialsResponse'] = None,
+             virtual_machine_image: Optional['outputs.VirtualMachineImageResponse'] = None,
+             vm_priority: Optional[str] = None,
+             vm_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allocation_state", allocation_state)
+        _setter("allocation_state_transition_time", allocation_state_transition_time)
+        _setter("current_node_count", current_node_count)
+        _setter("errors", errors)
+        _setter("node_state_counts", node_state_counts)
+        _setter("target_node_count", target_node_count)
         if enable_node_public_ip is None:
             enable_node_public_ip = True
         if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+            _setter("enable_node_public_ip", enable_node_public_ip)
         if isolated_network is not None:
-            pulumi.set(__self__, "isolated_network", isolated_network)
+            _setter("isolated_network", isolated_network)
         if os_type is None:
             os_type = 'Linux'
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if remote_login_port_public_access is None:
             remote_login_port_public_access = 'NotSpecified'
         if remote_login_port_public_access is not None:
-            pulumi.set(__self__, "remote_login_port_public_access", remote_login_port_public_access)
+            _setter("remote_login_port_public_access", remote_login_port_public_access)
         if scale_settings is not None:
-            pulumi.set(__self__, "scale_settings", scale_settings)
+            _setter("scale_settings", scale_settings)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if user_account_credentials is not None:
-            pulumi.set(__self__, "user_account_credentials", user_account_credentials)
+            _setter("user_account_credentials", user_account_credentials)
         if virtual_machine_image is not None:
-            pulumi.set(__self__, "virtual_machine_image", virtual_machine_image)
+            _setter("virtual_machine_image", virtual_machine_image)
         if vm_priority is not None:
-            pulumi.set(__self__, "vm_priority", vm_priority)
+            _setter("vm_priority", vm_priority)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="allocationState")
@@ -2601,8 +3029,19 @@ class AssignedUserResponse(dict):
         :param str object_id: User’s AAD Object Id.
         :param str tenant_id: User’s AAD Tenant Id.
         """
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        AssignedUserResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_id", object_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -2649,10 +3088,21 @@ class AutoPausePropertiesResponse(dict):
         """
         Auto pause properties
         """
+        AutoPausePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delay_in_minutes=delay_in_minutes,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delay_in_minutes: Optional[int] = None,
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delay_in_minutes is not None:
-            pulumi.set(__self__, "delay_in_minutes", delay_in_minutes)
+            _setter("delay_in_minutes", delay_in_minutes)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="delayInMinutes")
@@ -2696,12 +3146,25 @@ class AutoScalePropertiesResponse(dict):
         """
         Auto scale properties
         """
+        AutoScalePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            max_node_count=max_node_count,
+            min_node_count=min_node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             max_node_count: Optional[int] = None,
+             min_node_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if max_node_count is not None:
-            pulumi.set(__self__, "max_node_count", max_node_count)
+            _setter("max_node_count", max_node_count)
         if min_node_count is not None:
-            pulumi.set(__self__, "min_node_count", min_node_count)
+            _setter("min_node_count", min_node_count)
 
     @property
     @pulumi.getter
@@ -2751,10 +3214,21 @@ class ComputeInstanceApplicationResponse(dict):
         :param str display_name: Name of the ComputeInstance application.
         :param str endpoint_uri: Application' endpoint URI.
         """
+        ComputeInstanceApplicationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            endpoint_uri=endpoint_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             endpoint_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
 
     @property
     @pulumi.getter(name="displayName")
@@ -2805,8 +3279,19 @@ class ComputeInstanceConnectivityEndpointsResponse(dict):
         :param str private_ip_address: Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is deployed).
         :param str public_ip_address: Public IP Address of this ComputeInstance.
         """
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        ComputeInstanceConnectivityEndpointsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_ip_address=private_ip_address,
+            public_ip_address=public_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_ip_address: str,
+             public_ip_address: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_ip_address", private_ip_address)
+        _setter("public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -2861,9 +3346,22 @@ class ComputeInstanceCreatedByResponse(dict):
         :param str user_name: Name of the user.
         :param str user_org_id: Uniquely identifies user' Azure Active Directory organization.
         """
-        pulumi.set(__self__, "user_id", user_id)
-        pulumi.set(__self__, "user_name", user_name)
-        pulumi.set(__self__, "user_org_id", user_org_id)
+        ComputeInstanceCreatedByResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_id=user_id,
+            user_name=user_name,
+            user_org_id=user_org_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_id: str,
+             user_name: str,
+             user_org_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("user_id", user_id)
+        _setter("user_name", user_name)
+        _setter("user_org_id", user_org_id)
 
     @property
     @pulumi.getter(name="userId")
@@ -2926,12 +3424,25 @@ class ComputeInstanceLastOperationResponse(dict):
         :param str operation_status: Operation status.
         :param str operation_time: Time of the last operation.
         """
+        ComputeInstanceLastOperationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation_name=operation_name,
+            operation_status=operation_status,
+            operation_time=operation_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation_name: Optional[str] = None,
+             operation_status: Optional[str] = None,
+             operation_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if operation_status is not None:
-            pulumi.set(__self__, "operation_status", operation_status)
+            _setter("operation_status", operation_status)
         if operation_time is not None:
-            pulumi.set(__self__, "operation_time", operation_time)
+            _setter("operation_time", operation_time)
 
     @property
     @pulumi.getter(name="operationName")
@@ -3023,22 +3534,51 @@ class ComputeInstanceResponse(dict):
         :param 'ComputeInstanceResponseProperties' properties: Compute Instance properties
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'ComputeInstance')
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
-        pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ComputeInstanceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            created_on=created_on,
+            is_attached_compute=is_attached_compute,
+            modified_on=modified_on,
+            provisioning_errors=provisioning_errors,
+            provisioning_state=provisioning_state,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             created_on: str,
+             is_attached_compute: bool,
+             modified_on: str,
+             provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             provisioning_state: str,
+             compute_location: Optional[str] = None,
+             description: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             properties: Optional['outputs.ComputeInstanceResponseProperties'] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'ComputeInstance')
+        _setter("created_on", created_on)
+        _setter("is_attached_compute", is_attached_compute)
+        _setter("modified_on", modified_on)
+        _setter("provisioning_errors", provisioning_errors)
+        _setter("provisioning_state", provisioning_state)
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -3198,30 +3738,63 @@ class ComputeInstanceResponseProperties(dict):
         :param 'ResourceIdResponse' subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param str vm_size: Virtual Machine Size
         """
-        pulumi.set(__self__, "applications", applications)
-        pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
-        pulumi.set(__self__, "created_by", created_by)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "last_operation", last_operation)
-        pulumi.set(__self__, "state", state)
+        ComputeInstanceResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applications=applications,
+            connectivity_endpoints=connectivity_endpoints,
+            created_by=created_by,
+            errors=errors,
+            last_operation=last_operation,
+            state=state,
+            application_sharing_policy=application_sharing_policy,
+            compute_instance_authorization_type=compute_instance_authorization_type,
+            personal_compute_instance_settings=personal_compute_instance_settings,
+            setup_scripts=setup_scripts,
+            ssh_settings=ssh_settings,
+            subnet=subnet,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applications: Sequence['outputs.ComputeInstanceApplicationResponse'],
+             connectivity_endpoints: 'outputs.ComputeInstanceConnectivityEndpointsResponse',
+             created_by: 'outputs.ComputeInstanceCreatedByResponse',
+             errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             last_operation: 'outputs.ComputeInstanceLastOperationResponse',
+             state: str,
+             application_sharing_policy: Optional[str] = None,
+             compute_instance_authorization_type: Optional[str] = None,
+             personal_compute_instance_settings: Optional['outputs.PersonalComputeInstanceSettingsResponse'] = None,
+             setup_scripts: Optional['outputs.SetupScriptsResponse'] = None,
+             ssh_settings: Optional['outputs.ComputeInstanceSshSettingsResponse'] = None,
+             subnet: Optional['outputs.ResourceIdResponse'] = None,
+             vm_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("applications", applications)
+        _setter("connectivity_endpoints", connectivity_endpoints)
+        _setter("created_by", created_by)
+        _setter("errors", errors)
+        _setter("last_operation", last_operation)
+        _setter("state", state)
         if application_sharing_policy is None:
             application_sharing_policy = 'Shared'
         if application_sharing_policy is not None:
-            pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
+            _setter("application_sharing_policy", application_sharing_policy)
         if compute_instance_authorization_type is None:
             compute_instance_authorization_type = 'personal'
         if compute_instance_authorization_type is not None:
-            pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+            _setter("compute_instance_authorization_type", compute_instance_authorization_type)
         if personal_compute_instance_settings is not None:
-            pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
+            _setter("personal_compute_instance_settings", personal_compute_instance_settings)
         if setup_scripts is not None:
-            pulumi.set(__self__, "setup_scripts", setup_scripts)
+            _setter("setup_scripts", setup_scripts)
         if ssh_settings is not None:
-            pulumi.set(__self__, "ssh_settings", ssh_settings)
+            _setter("ssh_settings", ssh_settings)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter
@@ -3368,14 +3941,29 @@ class ComputeInstanceSshSettingsResponse(dict):
         :param str admin_public_key: Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
         :param str ssh_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
         """
-        pulumi.set(__self__, "admin_user_name", admin_user_name)
-        pulumi.set(__self__, "ssh_port", ssh_port)
+        ComputeInstanceSshSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_user_name=admin_user_name,
+            ssh_port=ssh_port,
+            admin_public_key=admin_public_key,
+            ssh_public_access=ssh_public_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_user_name: str,
+             ssh_port: int,
+             admin_public_key: Optional[str] = None,
+             ssh_public_access: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_user_name", admin_user_name)
+        _setter("ssh_port", ssh_port)
         if admin_public_key is not None:
-            pulumi.set(__self__, "admin_public_key", admin_public_key)
+            _setter("admin_public_key", admin_public_key)
         if ssh_public_access is None:
             ssh_public_access = 'Disabled'
         if ssh_public_access is not None:
-            pulumi.set(__self__, "ssh_public_access", ssh_public_access)
+            _setter("ssh_public_access", ssh_public_access)
 
     @property
     @pulumi.getter(name="adminUserName")
@@ -3456,18 +4044,37 @@ class ContainerResourceRequirementsResponse(dict):
         :param float memory_in_gb_limit: The maximum amount of memory (in GB) allowed to be used by the container. More info:
                https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
         """
+        ContainerResourceRequirementsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            cpu_limit=cpu_limit,
+            fpga=fpga,
+            gpu=gpu,
+            memory_in_gb=memory_in_gb,
+            memory_in_gb_limit=memory_in_gb_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[float] = None,
+             cpu_limit: Optional[float] = None,
+             fpga: Optional[int] = None,
+             gpu: Optional[int] = None,
+             memory_in_gb: Optional[float] = None,
+             memory_in_gb_limit: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if cpu_limit is not None:
-            pulumi.set(__self__, "cpu_limit", cpu_limit)
+            _setter("cpu_limit", cpu_limit)
         if fpga is not None:
-            pulumi.set(__self__, "fpga", fpga)
+            _setter("fpga", fpga)
         if gpu is not None:
-            pulumi.set(__self__, "gpu", gpu)
+            _setter("gpu", gpu)
         if memory_in_gb is not None:
-            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+            _setter("memory_in_gb", memory_in_gb)
         if memory_in_gb_limit is not None:
-            pulumi.set(__self__, "memory_in_gb_limit", memory_in_gb_limit)
+            _setter("memory_in_gb_limit", memory_in_gb_limit)
 
     @property
     @pulumi.getter
@@ -3585,20 +4192,47 @@ class DataFactoryResponse(dict):
         :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'DataFactory')
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
-        pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        DataFactoryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            created_on=created_on,
+            is_attached_compute=is_attached_compute,
+            modified_on=modified_on,
+            provisioning_errors=provisioning_errors,
+            provisioning_state=provisioning_state,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             created_on: str,
+             is_attached_compute: bool,
+             modified_on: str,
+             provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             provisioning_state: str,
+             compute_location: Optional[str] = None,
+             description: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'DataFactory')
+        _setter("created_on", created_on)
+        _setter("is_attached_compute", is_attached_compute)
+        _setter("modified_on", modified_on)
+        _setter("provisioning_errors", provisioning_errors)
+        _setter("provisioning_state", provisioning_state)
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -3746,22 +4380,51 @@ class DataLakeAnalyticsResponse(dict):
         :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'DataLakeAnalytics')
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
-        pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        DataLakeAnalyticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            created_on=created_on,
+            is_attached_compute=is_attached_compute,
+            modified_on=modified_on,
+            provisioning_errors=provisioning_errors,
+            provisioning_state=provisioning_state,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             created_on: str,
+             is_attached_compute: bool,
+             modified_on: str,
+             provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             provisioning_state: str,
+             compute_location: Optional[str] = None,
+             description: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             properties: Optional['outputs.DataLakeAnalyticsResponseProperties'] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'DataLakeAnalytics')
+        _setter("created_on", created_on)
+        _setter("is_attached_compute", is_attached_compute)
+        _setter("modified_on", modified_on)
+        _setter("provisioning_errors", provisioning_errors)
+        _setter("provisioning_state", provisioning_state)
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -3874,8 +4537,17 @@ class DataLakeAnalyticsResponseProperties(dict):
         """
         :param str data_lake_store_account_name: DataLake Store Account Name
         """
+        DataLakeAnalyticsResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_lake_store_account_name=data_lake_store_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_lake_store_account_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_lake_store_account_name is not None:
-            pulumi.set(__self__, "data_lake_store_account_name", data_lake_store_account_name)
+            _setter("data_lake_store_account_name", data_lake_store_account_name)
 
     @property
     @pulumi.getter(name="dataLakeStoreAccountName")
@@ -3950,22 +4622,51 @@ class DatabricksResponse(dict):
         :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'Databricks')
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
-        pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        DatabricksResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            created_on=created_on,
+            is_attached_compute=is_attached_compute,
+            modified_on=modified_on,
+            provisioning_errors=provisioning_errors,
+            provisioning_state=provisioning_state,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             created_on: str,
+             is_attached_compute: bool,
+             modified_on: str,
+             provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             provisioning_state: str,
+             compute_location: Optional[str] = None,
+             description: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             properties: Optional['outputs.DatabricksResponseProperties'] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'Databricks')
+        _setter("created_on", created_on)
+        _setter("is_attached_compute", is_attached_compute)
+        _setter("modified_on", modified_on)
+        _setter("provisioning_errors", provisioning_errors)
+        _setter("provisioning_state", provisioning_state)
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -4082,10 +4783,21 @@ class DatabricksResponseProperties(dict):
         :param str databricks_access_token: Databricks access token
         :param str workspace_url: Workspace Url
         """
+        DatabricksResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databricks_access_token=databricks_access_token,
+            workspace_url=workspace_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databricks_access_token: Optional[str] = None,
+             workspace_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if databricks_access_token is not None:
-            pulumi.set(__self__, "databricks_access_token", databricks_access_token)
+            _setter("databricks_access_token", databricks_access_token)
         if workspace_url is not None:
-            pulumi.set(__self__, "workspace_url", workspace_url)
+            _setter("workspace_url", workspace_url)
 
     @property
     @pulumi.getter(name="databricksAccessToken")
@@ -4117,10 +4829,21 @@ class DatasetReferenceResponse(dict):
         :param str id: The id of the dataset reference.
         :param str name: The name of the dataset reference.
         """
+        DatasetReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4183,22 +4906,45 @@ class EnvironmentImageResponseResponseEnvironment(dict):
         :param 'ModelEnvironmentDefinitionResponseResponseSpark' spark: The configuration for a Spark environment.
         :param str version: The environment version.
         """
+        EnvironmentImageResponseResponseEnvironment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            docker=docker,
+            environment_variables=environment_variables,
+            inferencing_stack_version=inferencing_stack_version,
+            name=name,
+            python=python,
+            r=r,
+            spark=spark,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             docker: Optional['outputs.ModelEnvironmentDefinitionResponseResponseDocker'] = None,
+             environment_variables: Optional[Mapping[str, str]] = None,
+             inferencing_stack_version: Optional[str] = None,
+             name: Optional[str] = None,
+             python: Optional['outputs.ModelEnvironmentDefinitionResponseResponsePython'] = None,
+             r: Optional['outputs.ModelEnvironmentDefinitionResponseResponseR'] = None,
+             spark: Optional['outputs.ModelEnvironmentDefinitionResponseResponseSpark'] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if docker is not None:
-            pulumi.set(__self__, "docker", docker)
+            _setter("docker", docker)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if inferencing_stack_version is not None:
-            pulumi.set(__self__, "inferencing_stack_version", inferencing_stack_version)
+            _setter("inferencing_stack_version", inferencing_stack_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if python is not None:
-            pulumi.set(__self__, "python", python)
+            _setter("python", python)
         if r is not None:
-            pulumi.set(__self__, "r", r)
+            _setter("r", r)
         if spark is not None:
-            pulumi.set(__self__, "spark", spark)
+            _setter("spark", spark)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -4278,10 +5024,21 @@ class EnvironmentImageResponseResponseEnvironmentReference(dict):
         :param str name: Name of the environment.
         :param str version: Version of the environment.
         """
+        EnvironmentImageResponseResponseEnvironmentReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -4313,8 +5070,19 @@ class ErrorDetailResponse(dict):
         :param str code: Error code.
         :param str message: Error message.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        ErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -4350,10 +5118,25 @@ class ErrorResponseResponse(dict):
         :param str message: Error message.
         :param str target: The target of the particular error
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             details: Sequence['outputs.ErrorDetailResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -4452,22 +5235,51 @@ class HDInsightResponse(dict):
         :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'HDInsight')
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
-        pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        HDInsightResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            created_on=created_on,
+            is_attached_compute=is_attached_compute,
+            modified_on=modified_on,
+            provisioning_errors=provisioning_errors,
+            provisioning_state=provisioning_state,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             created_on: str,
+             is_attached_compute: bool,
+             modified_on: str,
+             provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             provisioning_state: str,
+             compute_location: Optional[str] = None,
+             description: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             properties: Optional['outputs.HDInsightResponseProperties'] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'HDInsight')
+        _setter("created_on", created_on)
+        _setter("is_attached_compute", is_attached_compute)
+        _setter("modified_on", modified_on)
+        _setter("provisioning_errors", provisioning_errors)
+        _setter("provisioning_state", provisioning_state)
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -4586,12 +5398,25 @@ class HDInsightResponseProperties(dict):
         :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for master node of the cluster
         :param int ssh_port: Port open for ssh connections on the master node of the cluster.
         """
+        HDInsightResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            administrator_account=administrator_account,
+            ssh_port=ssh_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
+             ssh_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if administrator_account is not None:
-            pulumi.set(__self__, "administrator_account", administrator_account)
+            _setter("administrator_account", administrator_account)
         if ssh_port is not None:
-            pulumi.set(__self__, "ssh_port", ssh_port)
+            _setter("ssh_port", ssh_port)
 
     @property
     @pulumi.getter
@@ -4656,12 +5481,27 @@ class IdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The user assigned identities associated with the resource.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -4730,14 +5570,29 @@ class ImageAssetResponse(dict):
         :param bool unpack: Whether the Asset is unpacked.
         :param str url: The Url of the Asset.
         """
+        ImageAssetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            mime_type=mime_type,
+            unpack=unpack,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             mime_type: Optional[str] = None,
+             unpack: Optional[bool] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if mime_type is not None:
-            pulumi.set(__self__, "mime_type", mime_type)
+            _setter("mime_type", mime_type)
         if unpack is not None:
-            pulumi.set(__self__, "unpack", unpack)
+            _setter("unpack", unpack)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -4783,7 +5638,16 @@ class MachineLearningServiceErrorResponse(dict):
         Wrapper for error response to follow ARM guidelines.
         :param 'ErrorResponseResponse' error: The error response.
         """
-        pulumi.set(__self__, "error", error)
+        MachineLearningServiceErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ErrorResponseResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
 
     @property
     @pulumi.getter
@@ -4804,8 +5668,17 @@ class ModelDockerSectionResponseResponseBaseImageRegistry(dict):
         """
         Image registry that contains the base image.
         """
+        ModelDockerSectionResponseResponseBaseImageRegistry._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
 
     @property
     @pulumi.getter
@@ -4849,12 +5722,25 @@ class ModelEnvironmentDefinitionResponseResponseDocker(dict):
         :param str base_image: Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
         :param 'ModelDockerSectionResponseResponseBaseImageRegistry' base_image_registry: Image registry that contains the base image.
         """
+        ModelEnvironmentDefinitionResponseResponseDocker._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_dockerfile=base_dockerfile,
+            base_image=base_image,
+            base_image_registry=base_image_registry,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_dockerfile: Optional[str] = None,
+             base_image: Optional[str] = None,
+             base_image_registry: Optional['outputs.ModelDockerSectionResponseResponseBaseImageRegistry'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_dockerfile is not None:
-            pulumi.set(__self__, "base_dockerfile", base_dockerfile)
+            _setter("base_dockerfile", base_dockerfile)
         if base_image is not None:
-            pulumi.set(__self__, "base_image", base_image)
+            _setter("base_image", base_image)
         if base_image_registry is not None:
-            pulumi.set(__self__, "base_image_registry", base_image_registry)
+            _setter("base_image_registry", base_image_registry)
 
     @property
     @pulumi.getter(name="baseDockerfile")
@@ -4920,14 +5806,29 @@ class ModelEnvironmentDefinitionResponseResponsePython(dict):
         :param str interpreter_path: The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
         :param bool user_managed_dependencies: True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
         """
+        ModelEnvironmentDefinitionResponseResponsePython._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_conda_environment=base_conda_environment,
+            conda_dependencies=conda_dependencies,
+            interpreter_path=interpreter_path,
+            user_managed_dependencies=user_managed_dependencies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_conda_environment: Optional[str] = None,
+             conda_dependencies: Optional[Any] = None,
+             interpreter_path: Optional[str] = None,
+             user_managed_dependencies: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_conda_environment is not None:
-            pulumi.set(__self__, "base_conda_environment", base_conda_environment)
+            _setter("base_conda_environment", base_conda_environment)
         if conda_dependencies is not None:
-            pulumi.set(__self__, "conda_dependencies", conda_dependencies)
+            _setter("conda_dependencies", conda_dependencies)
         if interpreter_path is not None:
-            pulumi.set(__self__, "interpreter_path", interpreter_path)
+            _setter("interpreter_path", interpreter_path)
         if user_managed_dependencies is not None:
-            pulumi.set(__self__, "user_managed_dependencies", user_managed_dependencies)
+            _setter("user_managed_dependencies", user_managed_dependencies)
 
     @property
     @pulumi.getter(name="baseCondaEnvironment")
@@ -5016,22 +5917,45 @@ class ModelEnvironmentDefinitionResponseResponseR(dict):
         :param str snapshot_date: Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
         :param bool user_managed: Indicates whether the environment is managed by user or by AzureML.
         """
+        ModelEnvironmentDefinitionResponseResponseR._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bio_conductor_packages=bio_conductor_packages,
+            cran_packages=cran_packages,
+            custom_url_packages=custom_url_packages,
+            git_hub_packages=git_hub_packages,
+            r_version=r_version,
+            rscript_path=rscript_path,
+            snapshot_date=snapshot_date,
+            user_managed=user_managed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bio_conductor_packages: Optional[Sequence[str]] = None,
+             cran_packages: Optional[Sequence['outputs.RCranPackageResponse']] = None,
+             custom_url_packages: Optional[Sequence[str]] = None,
+             git_hub_packages: Optional[Sequence['outputs.RGitHubPackageResponseResponse']] = None,
+             r_version: Optional[str] = None,
+             rscript_path: Optional[str] = None,
+             snapshot_date: Optional[str] = None,
+             user_managed: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bio_conductor_packages is not None:
-            pulumi.set(__self__, "bio_conductor_packages", bio_conductor_packages)
+            _setter("bio_conductor_packages", bio_conductor_packages)
         if cran_packages is not None:
-            pulumi.set(__self__, "cran_packages", cran_packages)
+            _setter("cran_packages", cran_packages)
         if custom_url_packages is not None:
-            pulumi.set(__self__, "custom_url_packages", custom_url_packages)
+            _setter("custom_url_packages", custom_url_packages)
         if git_hub_packages is not None:
-            pulumi.set(__self__, "git_hub_packages", git_hub_packages)
+            _setter("git_hub_packages", git_hub_packages)
         if r_version is not None:
-            pulumi.set(__self__, "r_version", r_version)
+            _setter("r_version", r_version)
         if rscript_path is not None:
-            pulumi.set(__self__, "rscript_path", rscript_path)
+            _setter("rscript_path", rscript_path)
         if snapshot_date is not None:
-            pulumi.set(__self__, "snapshot_date", snapshot_date)
+            _setter("snapshot_date", snapshot_date)
         if user_managed is not None:
-            pulumi.set(__self__, "user_managed", user_managed)
+            _setter("user_managed", user_managed)
 
     @property
     @pulumi.getter(name="bioConductorPackages")
@@ -5131,12 +6055,25 @@ class ModelEnvironmentDefinitionResponseResponseSpark(dict):
         :param bool precache_packages: Whether to precache the packages.
         :param Sequence[str] repositories: The list of spark repositories.
         """
+        ModelEnvironmentDefinitionResponseResponseSpark._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            packages=packages,
+            precache_packages=precache_packages,
+            repositories=repositories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             packages: Optional[Sequence['outputs.SparkMavenPackageResponse']] = None,
+             precache_packages: Optional[bool] = None,
+             repositories: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if packages is not None:
-            pulumi.set(__self__, "packages", packages)
+            _setter("packages", packages)
         if precache_packages is not None:
-            pulumi.set(__self__, "precache_packages", precache_packages)
+            _setter("precache_packages", precache_packages)
         if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
+            _setter("repositories", repositories)
 
     @property
     @pulumi.getter
@@ -5253,45 +6190,94 @@ class ModelResponse(dict):
         :param bool unpack: Indicates whether we need to unpack the Model during docker Image creation.
         :param float version: The Model version assigned by Model Management Service.
         """
-        pulumi.set(__self__, "mime_type", mime_type)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "url", url)
+        ModelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mime_type=mime_type,
+            name=name,
+            url=url,
+            created_time=created_time,
+            datasets=datasets,
+            derived_model_ids=derived_model_ids,
+            description=description,
+            experiment_name=experiment_name,
+            framework=framework,
+            framework_version=framework_version,
+            id=id,
+            kv_tags=kv_tags,
+            modified_time=modified_time,
+            parent_model_id=parent_model_id,
+            properties=properties,
+            resource_requirements=resource_requirements,
+            run_id=run_id,
+            sample_input_data=sample_input_data,
+            sample_output_data=sample_output_data,
+            unpack=unpack,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mime_type: str,
+             name: str,
+             url: str,
+             created_time: Optional[str] = None,
+             datasets: Optional[Sequence['outputs.DatasetReferenceResponse']] = None,
+             derived_model_ids: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             experiment_name: Optional[str] = None,
+             framework: Optional[str] = None,
+             framework_version: Optional[str] = None,
+             id: Optional[str] = None,
+             kv_tags: Optional[Mapping[str, str]] = None,
+             modified_time: Optional[str] = None,
+             parent_model_id: Optional[str] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             resource_requirements: Optional['outputs.ContainerResourceRequirementsResponse'] = None,
+             run_id: Optional[str] = None,
+             sample_input_data: Optional[str] = None,
+             sample_output_data: Optional[str] = None,
+             unpack: Optional[bool] = None,
+             version: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mime_type", mime_type)
+        _setter("name", name)
+        _setter("url", url)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if datasets is not None:
-            pulumi.set(__self__, "datasets", datasets)
+            _setter("datasets", datasets)
         if derived_model_ids is not None:
-            pulumi.set(__self__, "derived_model_ids", derived_model_ids)
+            _setter("derived_model_ids", derived_model_ids)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if experiment_name is not None:
-            pulumi.set(__self__, "experiment_name", experiment_name)
+            _setter("experiment_name", experiment_name)
         if framework is not None:
-            pulumi.set(__self__, "framework", framework)
+            _setter("framework", framework)
         if framework_version is not None:
-            pulumi.set(__self__, "framework_version", framework_version)
+            _setter("framework_version", framework_version)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if kv_tags is not None:
-            pulumi.set(__self__, "kv_tags", kv_tags)
+            _setter("kv_tags", kv_tags)
         if modified_time is not None:
-            pulumi.set(__self__, "modified_time", modified_time)
+            _setter("modified_time", modified_time)
         if parent_model_id is not None:
-            pulumi.set(__self__, "parent_model_id", parent_model_id)
+            _setter("parent_model_id", parent_model_id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_requirements is not None:
-            pulumi.set(__self__, "resource_requirements", resource_requirements)
+            _setter("resource_requirements", resource_requirements)
         if run_id is not None:
-            pulumi.set(__self__, "run_id", run_id)
+            _setter("run_id", run_id)
         if sample_input_data is not None:
-            pulumi.set(__self__, "sample_input_data", sample_input_data)
+            _setter("sample_input_data", sample_input_data)
         if sample_output_data is not None:
-            pulumi.set(__self__, "sample_output_data", sample_output_data)
+            _setter("sample_output_data", sample_output_data)
         if unpack is not None:
-            pulumi.set(__self__, "unpack", unpack)
+            _setter("unpack", unpack)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="mimeType")
@@ -5510,12 +6496,31 @@ class NodeStateCountsResponse(dict):
         :param int running_node_count: Number of compute nodes which are running jobs.
         :param int unusable_node_count: Number of compute nodes which are in unusable state.
         """
-        pulumi.set(__self__, "idle_node_count", idle_node_count)
-        pulumi.set(__self__, "leaving_node_count", leaving_node_count)
-        pulumi.set(__self__, "preempted_node_count", preempted_node_count)
-        pulumi.set(__self__, "preparing_node_count", preparing_node_count)
-        pulumi.set(__self__, "running_node_count", running_node_count)
-        pulumi.set(__self__, "unusable_node_count", unusable_node_count)
+        NodeStateCountsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle_node_count=idle_node_count,
+            leaving_node_count=leaving_node_count,
+            preempted_node_count=preempted_node_count,
+            preparing_node_count=preparing_node_count,
+            running_node_count=running_node_count,
+            unusable_node_count=unusable_node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle_node_count: int,
+             leaving_node_count: int,
+             preempted_node_count: int,
+             preparing_node_count: int,
+             running_node_count: int,
+             unusable_node_count: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idle_node_count", idle_node_count)
+        _setter("leaving_node_count", leaving_node_count)
+        _setter("preempted_node_count", preempted_node_count)
+        _setter("preparing_node_count", preparing_node_count)
+        _setter("running_node_count", running_node_count)
+        _setter("unusable_node_count", unusable_node_count)
 
     @property
     @pulumi.getter(name="idleNodeCount")
@@ -5594,8 +6599,17 @@ class PersonalComputeInstanceSettingsResponse(dict):
         Settings for a personal compute instance.
         :param 'AssignedUserResponse' assigned_user: A user explicitly assigned to a personal compute instance.
         """
+        PersonalComputeInstanceSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assigned_user=assigned_user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assigned_user: Optional['outputs.AssignedUserResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assigned_user is not None:
-            pulumi.set(__self__, "assigned_user", assigned_user)
+            _setter("assigned_user", assigned_user)
 
     @property
     @pulumi.getter(name="assignedUser")
@@ -5615,10 +6629,21 @@ class RCranPackageResponse(dict):
         :param str name: The package name.
         :param str repository: The repository name.
         """
+        RCranPackageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             repository: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter
@@ -5644,8 +6669,17 @@ class RGitHubPackageResponseResponse(dict):
         """
         :param str repository: Repository address in the format username/repo[/subdir][@ref|#pull].
         """
+        RGitHubPackageResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter
@@ -5667,7 +6701,16 @@ class ResourceIdResponse(dict):
         Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         :param str id: The ID of the resource
         """
-        pulumi.set(__self__, "id", id)
+        ResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -5714,13 +6757,26 @@ class ScaleSettingsResponse(dict):
         :param int min_node_count: Min number of nodes to use
         :param str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
-        pulumi.set(__self__, "max_node_count", max_node_count)
+        ScaleSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_node_count=max_node_count,
+            min_node_count=min_node_count,
+            node_idle_time_before_scale_down=node_idle_time_before_scale_down,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_node_count: int,
+             min_node_count: Optional[int] = None,
+             node_idle_time_before_scale_down: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_node_count", max_node_count)
         if min_node_count is None:
             min_node_count = 0
         if min_node_count is not None:
-            pulumi.set(__self__, "min_node_count", min_node_count)
+            _setter("min_node_count", min_node_count)
         if node_idle_time_before_scale_down is not None:
-            pulumi.set(__self__, "node_idle_time_before_scale_down", node_idle_time_before_scale_down)
+            _setter("node_idle_time_before_scale_down", node_idle_time_before_scale_down)
 
     @property
     @pulumi.getter(name="maxNodeCount")
@@ -5785,14 +6841,29 @@ class ScriptReferenceResponse(dict):
         :param str script_source: The storage source of the script: inline, workspace.
         :param str timeout: Optional time period passed to timeout command.
         """
+        ScriptReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            script_arguments=script_arguments,
+            script_data=script_data,
+            script_source=script_source,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             script_arguments: Optional[str] = None,
+             script_data: Optional[str] = None,
+             script_source: Optional[str] = None,
+             timeout: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if script_arguments is not None:
-            pulumi.set(__self__, "script_arguments", script_arguments)
+            _setter("script_arguments", script_arguments)
         if script_data is not None:
-            pulumi.set(__self__, "script_data", script_data)
+            _setter("script_data", script_data)
         if script_source is not None:
-            pulumi.set(__self__, "script_source", script_source)
+            _setter("script_source", script_source)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="scriptArguments")
@@ -5859,10 +6930,21 @@ class ScriptsToExecuteResponse(dict):
         :param 'ScriptReferenceResponse' creation_script: Script that's run only once during provision of the compute.
         :param 'ScriptReferenceResponse' startup_script: Script that's run every time the machine starts.
         """
+        ScriptsToExecuteResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_script=creation_script,
+            startup_script=startup_script,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_script: Optional['outputs.ScriptReferenceResponse'] = None,
+             startup_script: Optional['outputs.ScriptReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if creation_script is not None:
-            pulumi.set(__self__, "creation_script", creation_script)
+            _setter("creation_script", creation_script)
         if startup_script is not None:
-            pulumi.set(__self__, "startup_script", startup_script)
+            _setter("startup_script", startup_script)
 
     @property
     @pulumi.getter(name="creationScript")
@@ -5892,7 +6974,16 @@ class ServiceResponseBaseResponseError(dict):
         The error details.
         :param 'ErrorResponseResponse' error: The error response.
         """
-        pulumi.set(__self__, "error", error)
+        ServiceResponseBaseResponseError._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ErrorResponseResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
 
     @property
     @pulumi.getter
@@ -5914,8 +7005,17 @@ class SetupScriptsResponse(dict):
         Details of customized scripts to execute for setting up the cluster.
         :param 'ScriptsToExecuteResponse' scripts: Customized setup scripts
         """
+        SetupScriptsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scripts=scripts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scripts: Optional['outputs.ScriptsToExecuteResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if scripts is not None:
-            pulumi.set(__self__, "scripts", scripts)
+            _setter("scripts", scripts)
 
     @property
     @pulumi.getter
@@ -5939,10 +7039,21 @@ class SkuResponse(dict):
         :param str name: Name of the sku
         :param str tier: Tier of the sku like Basic or Enterprise
         """
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -5967,12 +7078,25 @@ class SparkMavenPackageResponse(dict):
                  artifact: Optional[str] = None,
                  group: Optional[str] = None,
                  version: Optional[str] = None):
+        SparkMavenPackageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifact=artifact,
+            group=group,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifact: Optional[str] = None,
+             group: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if artifact is not None:
-            pulumi.set(__self__, "artifact", artifact)
+            _setter("artifact", artifact)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -6030,18 +7154,37 @@ class SslConfigurationResponse(dict):
         :param bool overwrite_existing_domain: Indicates whether to overwrite existing domain label.
         :param str status: Enable or disable ssl for scoring
         """
+        SslConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            cname=cname,
+            key=key,
+            leaf_domain_label=leaf_domain_label,
+            overwrite_existing_domain=overwrite_existing_domain,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[str] = None,
+             cname: Optional[str] = None,
+             key: Optional[str] = None,
+             leaf_domain_label: Optional[str] = None,
+             overwrite_existing_domain: Optional[bool] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if leaf_domain_label is not None:
-            pulumi.set(__self__, "leaf_domain_label", leaf_domain_label)
+            _setter("leaf_domain_label", leaf_domain_label)
         if overwrite_existing_domain is not None:
-            pulumi.set(__self__, "overwrite_existing_domain", overwrite_existing_domain)
+            _setter("overwrite_existing_domain", overwrite_existing_domain)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -6156,26 +7299,53 @@ class SynapseSparkPoolPropertiesResponseProperties(dict):
         :param str subscription_id: Azure subscription identifier.
         :param str workspace_name: Name of Azure Machine Learning workspace.
         """
+        SynapseSparkPoolPropertiesResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_pause_properties=auto_pause_properties,
+            auto_scale_properties=auto_scale_properties,
+            node_count=node_count,
+            node_size=node_size,
+            node_size_family=node_size_family,
+            pool_name=pool_name,
+            resource_group=resource_group,
+            spark_version=spark_version,
+            subscription_id=subscription_id,
+            workspace_name=workspace_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_pause_properties: Optional['outputs.AutoPausePropertiesResponse'] = None,
+             auto_scale_properties: Optional['outputs.AutoScalePropertiesResponse'] = None,
+             node_count: Optional[int] = None,
+             node_size: Optional[str] = None,
+             node_size_family: Optional[str] = None,
+             pool_name: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             spark_version: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             workspace_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_pause_properties is not None:
-            pulumi.set(__self__, "auto_pause_properties", auto_pause_properties)
+            _setter("auto_pause_properties", auto_pause_properties)
         if auto_scale_properties is not None:
-            pulumi.set(__self__, "auto_scale_properties", auto_scale_properties)
+            _setter("auto_scale_properties", auto_scale_properties)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if node_size is not None:
-            pulumi.set(__self__, "node_size", node_size)
+            _setter("node_size", node_size)
         if node_size_family is not None:
-            pulumi.set(__self__, "node_size_family", node_size_family)
+            _setter("node_size_family", node_size_family)
         if pool_name is not None:
-            pulumi.set(__self__, "pool_name", pool_name)
+            _setter("pool_name", pool_name)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if spark_version is not None:
-            pulumi.set(__self__, "spark_version", spark_version)
+            _setter("spark_version", spark_version)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="autoPauseProperties")
@@ -6323,22 +7493,51 @@ class SynapseSparkResponse(dict):
         :param 'SynapseSparkPoolPropertiesResponseProperties' properties: AKS properties
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'SynapseSpark')
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
-        pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        SynapseSparkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            created_on=created_on,
+            is_attached_compute=is_attached_compute,
+            modified_on=modified_on,
+            provisioning_errors=provisioning_errors,
+            provisioning_state=provisioning_state,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             created_on: str,
+             is_attached_compute: bool,
+             modified_on: str,
+             provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             provisioning_state: str,
+             compute_location: Optional[str] = None,
+             description: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             properties: Optional['outputs.SynapseSparkPoolPropertiesResponseProperties'] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'SynapseSpark')
+        _setter("created_on", created_on)
+        _setter("is_attached_compute", is_attached_compute)
+        _setter("modified_on", modified_on)
+        _setter("provisioning_errors", provisioning_errors)
+        _setter("provisioning_state", provisioning_state)
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -6478,18 +7677,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: An identifier for the identity that last modified the resource
         :param str last_modified_by_type: The type of identity that last modified the resource
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -6574,9 +7792,22 @@ class SystemServiceResponse(dict):
         :param str system_service_type: The type of this system service.
         :param str version: The version for this type.
         """
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
-        pulumi.set(__self__, "system_service_type", system_service_type)
-        pulumi.set(__self__, "version", version)
+        SystemServiceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_ip_address=public_ip_address,
+            system_service_type=system_service_type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_ip_address: str,
+             system_service_type: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("public_ip_address", public_ip_address)
+        _setter("system_service_type", system_service_type)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="publicIpAddress")
@@ -6639,11 +7870,24 @@ class UserAccountCredentialsResponse(dict):
         :param str admin_user_password: Password of the administrator user account.
         :param str admin_user_ssh_public_key: SSH public key of the administrator user account.
         """
-        pulumi.set(__self__, "admin_user_name", admin_user_name)
+        UserAccountCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_user_name=admin_user_name,
+            admin_user_password=admin_user_password,
+            admin_user_ssh_public_key=admin_user_ssh_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_user_name: str,
+             admin_user_password: Optional[str] = None,
+             admin_user_ssh_public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_user_name", admin_user_name)
         if admin_user_password is not None:
-            pulumi.set(__self__, "admin_user_password", admin_user_password)
+            _setter("admin_user_password", admin_user_password)
         if admin_user_ssh_public_key is not None:
-            pulumi.set(__self__, "admin_user_ssh_public_key", admin_user_ssh_public_key)
+            _setter("admin_user_ssh_public_key", admin_user_ssh_public_key)
 
     @property
     @pulumi.getter(name="adminUserName")
@@ -6706,9 +7950,22 @@ class UserAssignedIdentityResponse(dict):
         :param str principal_id: The principal ID of the user assigned identity.
         :param str tenant_id: The tenant ID of the user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -6746,7 +8003,16 @@ class VirtualMachineImageResponse(dict):
         Virtual Machine image for Windows AML Compute
         :param str id: Virtual Machine image path
         """
-        pulumi.set(__self__, "id", id)
+        VirtualMachineImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -6821,22 +8087,51 @@ class VirtualMachineResponse(dict):
         :param bool disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
         :param str resource_id: ARM resource id of the underlying compute
         """
-        pulumi.set(__self__, "compute_type", 'VirtualMachine')
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
-        pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        VirtualMachineResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            created_on=created_on,
+            is_attached_compute=is_attached_compute,
+            modified_on=modified_on,
+            provisioning_errors=provisioning_errors,
+            provisioning_state=provisioning_state,
+            compute_location=compute_location,
+            description=description,
+            disable_local_auth=disable_local_auth,
+            properties=properties,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: str,
+             created_on: str,
+             is_attached_compute: bool,
+             modified_on: str,
+             provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+             provisioning_state: str,
+             compute_location: Optional[str] = None,
+             description: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             properties: Optional['outputs.VirtualMachineResponseProperties'] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_type", 'VirtualMachine')
+        _setter("created_on", created_on)
+        _setter("is_attached_compute", is_attached_compute)
+        _setter("modified_on", modified_on)
+        _setter("provisioning_errors", provisioning_errors)
+        _setter("provisioning_state", provisioning_state)
         if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
+            _setter("compute_location", compute_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="computeType")
@@ -6963,16 +8258,33 @@ class VirtualMachineResponseProperties(dict):
         :param int ssh_port: Port open for ssh connections.
         :param str virtual_machine_size: Virtual Machine size
         """
+        VirtualMachineResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            administrator_account=administrator_account,
+            is_notebook_instance_compute=is_notebook_instance_compute,
+            ssh_port=ssh_port,
+            virtual_machine_size=virtual_machine_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
+             is_notebook_instance_compute: Optional[bool] = None,
+             ssh_port: Optional[int] = None,
+             virtual_machine_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if administrator_account is not None:
-            pulumi.set(__self__, "administrator_account", administrator_account)
+            _setter("administrator_account", administrator_account)
         if is_notebook_instance_compute is not None:
-            pulumi.set(__self__, "is_notebook_instance_compute", is_notebook_instance_compute)
+            _setter("is_notebook_instance_compute", is_notebook_instance_compute)
         if ssh_port is not None:
-            pulumi.set(__self__, "ssh_port", ssh_port)
+            _setter("ssh_port", ssh_port)
         if virtual_machine_size is not None:
-            pulumi.set(__self__, "virtual_machine_size", virtual_machine_size)
+            _setter("virtual_machine_size", virtual_machine_size)
 
     @property
     @pulumi.getter
@@ -7051,14 +8363,29 @@ class VirtualMachineSshCredentialsResponse(dict):
         :param str public_key_data: Public key data
         :param str username: Username of admin account
         """
+        VirtualMachineSshCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            private_key_data=private_key_data,
+            public_key_data=public_key_data,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             private_key_data: Optional[str] = None,
+             public_key_data: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if private_key_data is not None:
-            pulumi.set(__self__, "private_key_data", private_key_data)
+            _setter("private_key_data", private_key_data)
         if public_key_data is not None:
-            pulumi.set(__self__, "public_key_data", public_key_data)
+            _setter("public_key_data", public_key_data)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter

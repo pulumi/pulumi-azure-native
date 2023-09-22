@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,26 @@ class ManagementPolicyArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagementPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            policy=policy,
+            resource_group_name=resource_group_name,
+            management_policy_name=management_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             policy: pulumi.Input['ManagementPolicySchemaArgs'],
+             resource_group_name: pulumi.Input[str],
+             management_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("policy", policy)
+        _setter("resource_group_name", resource_group_name)
         if management_policy_name is not None:
-            pulumi.set(__self__, "management_policy_name", management_policy_name)
+            _setter("management_policy_name", management_policy_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -122,6 +137,10 @@ class ManagementPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagementPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +163,11 @@ class ManagementPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["management_policy_name"] = management_policy_name
+            if not isinstance(policy, ManagementPolicySchemaArgs):
+                policy = policy or {}
+                def _setter(key, value):
+                    policy[key] = value
+                ManagementPolicySchemaArgs._configure(_setter, **policy)
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy

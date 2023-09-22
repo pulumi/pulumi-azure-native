@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,13 +28,28 @@ class ManagementLockAtSubscriptionLevelArgs:
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]] owners: The owners of the lock.
         """
-        pulumi.set(__self__, "level", level)
+        ManagementLockAtSubscriptionLevelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            level=level,
+            lock_name=lock_name,
+            notes=notes,
+            owners=owners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             level: pulumi.Input[Union[str, 'LockLevel']],
+             lock_name: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("level", level)
         if lock_name is not None:
-            pulumi.set(__self__, "lock_name", lock_name)
+            _setter("lock_name", lock_name)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if owners is not None:
-            pulumi.set(__self__, "owners", owners)
+            _setter("owners", owners)
 
     @property
     @pulumi.getter
@@ -126,6 +141,10 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagementLockAtSubscriptionLevelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

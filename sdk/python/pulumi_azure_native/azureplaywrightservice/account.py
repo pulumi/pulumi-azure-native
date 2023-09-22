@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,25 +33,46 @@ class AccountArgs:
         :param pulumi.Input[Union[str, 'EnablementStatus']] scalable_execution: When enabled, Playwright client workers can connect to cloud-hosted browsers. This can increase the number of parallel workers for a test run, significantly minimizing test completion durations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            location=location,
+            name=name,
+            regional_affinity=regional_affinity,
+            reporting=reporting,
+            scalable_execution=scalable_execution,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             regional_affinity: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
+             reporting: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
+             scalable_execution: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if regional_affinity is None:
             regional_affinity = 'Enabled'
         if regional_affinity is not None:
-            pulumi.set(__self__, "regional_affinity", regional_affinity)
+            _setter("regional_affinity", regional_affinity)
         if reporting is None:
             reporting = 'Disabled'
         if reporting is not None:
-            pulumi.set(__self__, "reporting", reporting)
+            _setter("reporting", reporting)
         if scalable_execution is None:
             scalable_execution = 'Enabled'
         if scalable_execution is not None:
-            pulumi.set(__self__, "scalable_execution", scalable_execution)
+            _setter("scalable_execution", scalable_execution)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -185,6 +206,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

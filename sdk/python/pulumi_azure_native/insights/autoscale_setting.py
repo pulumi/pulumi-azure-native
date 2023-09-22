@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,28 +42,57 @@ class AutoscaleSettingArgs:
         :param pulumi.Input[str] target_resource_location: the location of the resource that the autoscale setting should be added to.
         :param pulumi.Input[str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
         """
-        pulumi.set(__self__, "profiles", profiles)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AutoscaleSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profiles=profiles,
+            resource_group_name=resource_group_name,
+            autoscale_setting_name=autoscale_setting_name,
+            enabled=enabled,
+            location=location,
+            name=name,
+            notifications=notifications,
+            predictive_autoscale_policy=predictive_autoscale_policy,
+            tags=tags,
+            target_resource_location=target_resource_location,
+            target_resource_uri=target_resource_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profiles: pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]],
+             resource_group_name: pulumi.Input[str],
+             autoscale_setting_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]] = None,
+             predictive_autoscale_policy: Optional[pulumi.Input['PredictiveAutoscalePolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_location: Optional[pulumi.Input[str]] = None,
+             target_resource_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("profiles", profiles)
+        _setter("resource_group_name", resource_group_name)
         if autoscale_setting_name is not None:
-            pulumi.set(__self__, "autoscale_setting_name", autoscale_setting_name)
+            _setter("autoscale_setting_name", autoscale_setting_name)
         if enabled is None:
             enabled = False
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if predictive_autoscale_policy is not None:
-            pulumi.set(__self__, "predictive_autoscale_policy", predictive_autoscale_policy)
+            _setter("predictive_autoscale_policy", predictive_autoscale_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_location is not None:
-            pulumi.set(__self__, "target_resource_location", target_resource_location)
+            _setter("target_resource_location", target_resource_location)
         if target_resource_uri is not None:
-            pulumi.set(__self__, "target_resource_uri", target_resource_uri)
+            _setter("target_resource_uri", target_resource_uri)
 
     @property
     @pulumi.getter
@@ -253,6 +282,10 @@ class AutoscaleSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutoscaleSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -285,6 +318,11 @@ class AutoscaleSetting(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["notifications"] = notifications
+            if not isinstance(predictive_autoscale_policy, PredictiveAutoscalePolicyArgs):
+                predictive_autoscale_policy = predictive_autoscale_policy or {}
+                def _setter(key, value):
+                    predictive_autoscale_policy[key] = value
+                PredictiveAutoscalePolicyArgs._configure(_setter, **predictive_autoscale_policy)
             __props__.__dict__["predictive_autoscale_policy"] = predictive_autoscale_policy
             if profiles is None and not opts.urn:
                 raise TypeError("Missing required property 'profiles'")

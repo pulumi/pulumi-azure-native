@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,33 +47,68 @@ class VpnSiteArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]] vpn_site_links: List of all vpn site links.
         :param pulumi.Input[str] vpn_site_name: The name of the VpnSite being created or updated.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VpnSiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            address_space=address_space,
+            bgp_properties=bgp_properties,
+            device_properties=device_properties,
+            id=id,
+            ip_address=ip_address,
+            is_security_site=is_security_site,
+            location=location,
+            o365_policy=o365_policy,
+            site_key=site_key,
+            tags=tags,
+            virtual_wan=virtual_wan,
+            vpn_site_links=vpn_site_links,
+            vpn_site_name=vpn_site_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             bgp_properties: Optional[pulumi.Input['BgpSettingsArgs']] = None,
+             device_properties: Optional[pulumi.Input['DevicePropertiesArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             is_security_site: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             o365_policy: Optional[pulumi.Input['O365PolicyPropertiesArgs']] = None,
+             site_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_wan: Optional[pulumi.Input['SubResourceArgs']] = None,
+             vpn_site_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]] = None,
+             vpn_site_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if address_space is not None:
-            pulumi.set(__self__, "address_space", address_space)
+            _setter("address_space", address_space)
         if bgp_properties is not None:
-            pulumi.set(__self__, "bgp_properties", bgp_properties)
+            _setter("bgp_properties", bgp_properties)
         if device_properties is not None:
-            pulumi.set(__self__, "device_properties", device_properties)
+            _setter("device_properties", device_properties)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if is_security_site is not None:
-            pulumi.set(__self__, "is_security_site", is_security_site)
+            _setter("is_security_site", is_security_site)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if o365_policy is not None:
-            pulumi.set(__self__, "o365_policy", o365_policy)
+            _setter("o365_policy", o365_policy)
         if site_key is not None:
-            pulumi.set(__self__, "site_key", site_key)
+            _setter("site_key", site_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_wan is not None:
-            pulumi.set(__self__, "virtual_wan", virtual_wan)
+            _setter("virtual_wan", virtual_wan)
         if vpn_site_links is not None:
-            pulumi.set(__self__, "vpn_site_links", vpn_site_links)
+            _setter("vpn_site_links", vpn_site_links)
         if vpn_site_name is not None:
-            pulumi.set(__self__, "vpn_site_name", vpn_site_name)
+            _setter("vpn_site_name", vpn_site_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -305,6 +340,10 @@ class VpnSite(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnSiteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -333,19 +372,44 @@ class VpnSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpnSiteArgs.__new__(VpnSiteArgs)
 
+            if not isinstance(address_space, AddressSpaceArgs):
+                address_space = address_space or {}
+                def _setter(key, value):
+                    address_space[key] = value
+                AddressSpaceArgs._configure(_setter, **address_space)
             __props__.__dict__["address_space"] = address_space
+            if not isinstance(bgp_properties, BgpSettingsArgs):
+                bgp_properties = bgp_properties or {}
+                def _setter(key, value):
+                    bgp_properties[key] = value
+                BgpSettingsArgs._configure(_setter, **bgp_properties)
             __props__.__dict__["bgp_properties"] = bgp_properties
+            if not isinstance(device_properties, DevicePropertiesArgs):
+                device_properties = device_properties or {}
+                def _setter(key, value):
+                    device_properties[key] = value
+                DevicePropertiesArgs._configure(_setter, **device_properties)
             __props__.__dict__["device_properties"] = device_properties
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_address"] = ip_address
             __props__.__dict__["is_security_site"] = is_security_site
             __props__.__dict__["location"] = location
+            if not isinstance(o365_policy, O365PolicyPropertiesArgs):
+                o365_policy = o365_policy or {}
+                def _setter(key, value):
+                    o365_policy[key] = value
+                O365PolicyPropertiesArgs._configure(_setter, **o365_policy)
             __props__.__dict__["o365_policy"] = o365_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["site_key"] = site_key
             __props__.__dict__["tags"] = tags
+            if not isinstance(virtual_wan, SubResourceArgs):
+                virtual_wan = virtual_wan or {}
+                def _setter(key, value):
+                    virtual_wan[key] = value
+                SubResourceArgs._configure(_setter, **virtual_wan)
             __props__.__dict__["virtual_wan"] = virtual_wan
             __props__.__dict__["vpn_site_links"] = vpn_site_links
             __props__.__dict__["vpn_site_name"] = vpn_site_name

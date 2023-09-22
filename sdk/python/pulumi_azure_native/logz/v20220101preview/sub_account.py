@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -31,18 +31,39 @@ class SubAccountArgs:
         :param pulumi.Input['MonitorPropertiesArgs'] properties: Properties specific to the monitor resource.
         :param pulumi.Input[str] sub_account_name: Sub Account resource name
         """
-        pulumi.set(__self__, "monitor_name", monitor_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SubAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitor_name=monitor_name,
+            resource_group_name=resource_group_name,
+            identity=identity,
+            location=location,
+            properties=properties,
+            sub_account_name=sub_account_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitor_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['MonitorPropertiesArgs']] = None,
+             sub_account_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("monitor_name", monitor_name)
+        _setter("resource_group_name", resource_group_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if sub_account_name is not None:
-            pulumi.set(__self__, "sub_account_name", sub_account_name)
+            _setter("sub_account_name", sub_account_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="monitorName")
@@ -160,6 +181,10 @@ class SubAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -181,11 +206,21 @@ class SubAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SubAccountArgs.__new__(SubAccountArgs)
 
+            if not isinstance(identity, IdentityPropertiesArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityPropertiesArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_name'")
             __props__.__dict__["monitor_name"] = monitor_name
+            if not isinstance(properties, MonitorPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                MonitorPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class FunctionArgs:
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input['ScalarFunctionPropertiesArgs'] properties: The properties that are associated with a function.
         """
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_name=job_name,
+            resource_group_name=resource_group_name,
+            function_name=function_name,
+            name=name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             function_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ScalarFunctionPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_name", job_name)
+        _setter("resource_group_name", resource_group_name)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="jobName")
@@ -140,6 +157,10 @@ class Function(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -164,6 +185,11 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["name"] = name
+            if not isinstance(properties, ScalarFunctionPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ScalarFunctionPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

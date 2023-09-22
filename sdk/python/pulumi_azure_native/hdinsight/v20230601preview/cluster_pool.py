@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,47 @@ class ClusterPoolArgs:
         :param pulumi.Input['ClusterPoolResourcePropertiesNetworkProfileArgs'] network_profile: Cluster pool network profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "compute_profile", compute_profile)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClusterPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_profile=compute_profile,
+            resource_group_name=resource_group_name,
+            cluster_pool_name=cluster_pool_name,
+            cluster_pool_profile=cluster_pool_profile,
+            location=location,
+            log_analytics_profile=log_analytics_profile,
+            managed_resource_group_name=managed_resource_group_name,
+            network_profile=network_profile,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_profile: pulumi.Input['ClusterPoolResourcePropertiesComputeProfileArgs'],
+             resource_group_name: pulumi.Input[str],
+             cluster_pool_name: Optional[pulumi.Input[str]] = None,
+             cluster_pool_profile: Optional[pulumi.Input['ClusterPoolResourcePropertiesClusterPoolProfileArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_analytics_profile: Optional[pulumi.Input['ClusterPoolResourcePropertiesLogAnalyticsProfileArgs']] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['ClusterPoolResourcePropertiesNetworkProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_profile", compute_profile)
+        _setter("resource_group_name", resource_group_name)
         if cluster_pool_name is not None:
-            pulumi.set(__self__, "cluster_pool_name", cluster_pool_name)
+            _setter("cluster_pool_name", cluster_pool_name)
         if cluster_pool_profile is not None:
-            pulumi.set(__self__, "cluster_pool_profile", cluster_pool_profile)
+            _setter("cluster_pool_profile", cluster_pool_profile)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_analytics_profile is not None:
-            pulumi.set(__self__, "log_analytics_profile", log_analytics_profile)
+            _setter("log_analytics_profile", log_analytics_profile)
         if managed_resource_group_name is not None:
-            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+            _setter("managed_resource_group_name", managed_resource_group_name)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="computeProfile")
@@ -212,6 +237,10 @@ class ClusterPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -236,13 +265,33 @@ class ClusterPool(pulumi.CustomResource):
             __props__ = ClusterPoolArgs.__new__(ClusterPoolArgs)
 
             __props__.__dict__["cluster_pool_name"] = cluster_pool_name
+            if not isinstance(cluster_pool_profile, ClusterPoolResourcePropertiesClusterPoolProfileArgs):
+                cluster_pool_profile = cluster_pool_profile or {}
+                def _setter(key, value):
+                    cluster_pool_profile[key] = value
+                ClusterPoolResourcePropertiesClusterPoolProfileArgs._configure(_setter, **cluster_pool_profile)
             __props__.__dict__["cluster_pool_profile"] = cluster_pool_profile
+            if not isinstance(compute_profile, ClusterPoolResourcePropertiesComputeProfileArgs):
+                compute_profile = compute_profile or {}
+                def _setter(key, value):
+                    compute_profile[key] = value
+                ClusterPoolResourcePropertiesComputeProfileArgs._configure(_setter, **compute_profile)
             if compute_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_profile'")
             __props__.__dict__["compute_profile"] = compute_profile
             __props__.__dict__["location"] = location
+            if not isinstance(log_analytics_profile, ClusterPoolResourcePropertiesLogAnalyticsProfileArgs):
+                log_analytics_profile = log_analytics_profile or {}
+                def _setter(key, value):
+                    log_analytics_profile[key] = value
+                ClusterPoolResourcePropertiesLogAnalyticsProfileArgs._configure(_setter, **log_analytics_profile)
             __props__.__dict__["log_analytics_profile"] = log_analytics_profile
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
+            if not isinstance(network_profile, ClusterPoolResourcePropertiesNetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                ClusterPoolResourcePropertiesNetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

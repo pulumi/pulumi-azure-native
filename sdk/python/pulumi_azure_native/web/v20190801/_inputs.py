@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,10 +27,21 @@ class NameValuePairArgs:
         :param pulumi.Input[str] name: Pair name.
         :param pulumi.Input[str] value: Pair value.
         """
+        NameValuePairArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -71,14 +82,29 @@ class NetworkAccessControlEntryArgs:
         :param pulumi.Input[int] order: Order of precedence.
         :param pulumi.Input[str] remote_subnet: Remote subnet.
         """
+        NetworkAccessControlEntryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            description=description,
+            order=order,
+            remote_subnet=remote_subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['AccessControlEntryAction']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             remote_subnet: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if remote_subnet is not None:
-            pulumi.set(__self__, "remote_subnet", remote_subnet)
+            _setter("remote_subnet", remote_subnet)
 
     @property
     @pulumi.getter
@@ -139,10 +165,21 @@ class VirtualNetworkProfileArgs:
         :param pulumi.Input[str] id: Resource id of the Virtual Network.
         :param pulumi.Input[str] subnet: Subnet within the Virtual Network.
         """
+        VirtualNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             subnet: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter
@@ -183,14 +220,29 @@ class WorkerPoolArgs:
         :param pulumi.Input[str] worker_size: VM size of the worker pool instances.
         :param pulumi.Input[int] worker_size_id: Worker size ID for referencing this worker pool.
         """
+        WorkerPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_mode=compute_mode,
+            worker_count=worker_count,
+            worker_size=worker_size,
+            worker_size_id=worker_size_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_mode: Optional[pulumi.Input['ComputeModeOptions']] = None,
+             worker_count: Optional[pulumi.Input[int]] = None,
+             worker_size: Optional[pulumi.Input[str]] = None,
+             worker_size_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_mode is not None:
-            pulumi.set(__self__, "compute_mode", compute_mode)
+            _setter("compute_mode", compute_mode)
         if worker_count is not None:
-            pulumi.set(__self__, "worker_count", worker_count)
+            _setter("worker_count", worker_count)
         if worker_size is not None:
-            pulumi.set(__self__, "worker_size", worker_size)
+            _setter("worker_size", worker_size)
         if worker_size_id is not None:
-            pulumi.set(__self__, "worker_size_id", worker_size_id)
+            _setter("worker_size_id", worker_size_id)
 
     @property
     @pulumi.getter(name="computeMode")

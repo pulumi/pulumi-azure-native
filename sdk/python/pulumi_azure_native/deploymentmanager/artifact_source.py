@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,38 @@ class ArtifactSourceArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_type", source_type)
+        ArtifactSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            resource_group_name=resource_group_name,
+            source_type=source_type,
+            artifact_root=artifact_root,
+            artifact_source_name=artifact_source_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: pulumi.Input['SasAuthenticationArgs'],
+             resource_group_name: pulumi.Input[str],
+             source_type: pulumi.Input[str],
+             artifact_root: Optional[pulumi.Input[str]] = None,
+             artifact_source_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication", authentication)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_type", source_type)
         if artifact_root is not None:
-            pulumi.set(__self__, "artifact_root", artifact_root)
+            _setter("artifact_root", artifact_root)
         if artifact_source_name is not None:
-            pulumi.set(__self__, "artifact_source_name", artifact_source_name)
+            _setter("artifact_source_name", artifact_source_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -177,6 +198,10 @@ class ArtifactSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ArtifactSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,6 +225,11 @@ class ArtifactSource(pulumi.CustomResource):
 
             __props__.__dict__["artifact_root"] = artifact_root
             __props__.__dict__["artifact_source_name"] = artifact_source_name
+            if not isinstance(authentication, SasAuthenticationArgs):
+                authentication = authentication or {}
+                def _setter(key, value):
+                    authentication[key] = value
+                SasAuthenticationArgs._configure(_setter, **authentication)
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication

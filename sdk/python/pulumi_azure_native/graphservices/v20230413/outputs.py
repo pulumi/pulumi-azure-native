@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -50,9 +50,22 @@ class AccountResourceResponseProperties(dict):
         :param str billing_plan_id: Billing Plan Id
         :param str provisioning_state: Provisioning state.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "billing_plan_id", billing_plan_id)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AccountResourceResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            billing_plan_id=billing_plan_id,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: str,
+             billing_plan_id: str,
+             provisioning_state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_id", app_id)
+        _setter("billing_plan_id", billing_plan_id)
+        _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="appId")
@@ -119,14 +132,29 @@ class AccountResourceResponseSystemData(dict):
         :param str last_modified_at: The timestamp of resource last modification (UTC)
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        AccountResourceResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

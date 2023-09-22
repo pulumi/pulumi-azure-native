@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,31 +46,64 @@ class PrivateLinkServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['PrivateLinkServicePropertiesVisibilityArgs'] visibility: The visibility list of the private link service.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrivateLinkServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            auto_approval=auto_approval,
+            enable_proxy_protocol=enable_proxy_protocol,
+            extended_location=extended_location,
+            fqdns=fqdns,
+            id=id,
+            ip_configurations=ip_configurations,
+            load_balancer_frontend_ip_configurations=load_balancer_frontend_ip_configurations,
+            location=location,
+            resource_guid=resource_guid,
+            service_name=service_name,
+            tags=tags,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             auto_approval: Optional[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs']] = None,
+             enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]]] = None,
+             load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_guid: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             visibility: Optional[pulumi.Input['PrivateLinkServicePropertiesVisibilityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if auto_approval is not None:
-            pulumi.set(__self__, "auto_approval", auto_approval)
+            _setter("auto_approval", auto_approval)
         if enable_proxy_protocol is not None:
-            pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
+            _setter("enable_proxy_protocol", enable_proxy_protocol)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if fqdns is not None:
-            pulumi.set(__self__, "fqdns", fqdns)
+            _setter("fqdns", fqdns)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if load_balancer_frontend_ip_configurations is not None:
-            pulumi.set(__self__, "load_balancer_frontend_ip_configurations", load_balancer_frontend_ip_configurations)
+            _setter("load_balancer_frontend_ip_configurations", load_balancer_frontend_ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -286,6 +319,10 @@ class PrivateLinkService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLinkServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -313,8 +350,18 @@ class PrivateLinkService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateLinkServiceArgs.__new__(PrivateLinkServiceArgs)
 
+            if not isinstance(auto_approval, PrivateLinkServicePropertiesAutoApprovalArgs):
+                auto_approval = auto_approval or {}
+                def _setter(key, value):
+                    auto_approval[key] = value
+                PrivateLinkServicePropertiesAutoApprovalArgs._configure(_setter, **auto_approval)
             __props__.__dict__["auto_approval"] = auto_approval
             __props__.__dict__["enable_proxy_protocol"] = enable_proxy_protocol
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["fqdns"] = fqdns
             __props__.__dict__["id"] = id
@@ -327,6 +374,11 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = resource_guid
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["tags"] = tags
+            if not isinstance(visibility, PrivateLinkServicePropertiesVisibilityArgs):
+                visibility = visibility or {}
+                def _setter(key, value):
+                    visibility[key] = value
+                PrivateLinkServicePropertiesVisibilityArgs._configure(_setter, **visibility)
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["alias"] = None
             __props__.__dict__["etag"] = None

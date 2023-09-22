@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -59,12 +59,25 @@ class ActionsResponse(dict):
         :param Mapping[str, str] action_properties: The properties of an action properties.
         :param Mapping[str, str] custom_properties: The properties of an alert payload.
         """
+        ActionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_groups=action_groups,
+            action_properties=action_properties,
+            custom_properties=custom_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_groups: Optional[Sequence[str]] = None,
+             action_properties: Optional[Mapping[str, str]] = None,
+             custom_properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action_groups is not None:
-            pulumi.set(__self__, "action_groups", action_groups)
+            _setter("action_groups", action_groups)
         if action_properties is not None:
-            pulumi.set(__self__, "action_properties", action_properties)
+            _setter("action_properties", action_properties)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
 
     @property
     @pulumi.getter(name="actionGroups")
@@ -143,24 +156,49 @@ class ConditionResponse(dict):
         :param float threshold: the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
         :param str time_aggregation: Aggregation type. Relevant and required only for rules of the kind LogAlert.
         """
+        ConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            failing_periods=failing_periods,
+            metric_measure_column=metric_measure_column,
+            metric_name=metric_name,
+            operator=operator,
+            query=query,
+            resource_id_column=resource_id_column,
+            threshold=threshold,
+            time_aggregation=time_aggregation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional[Sequence['outputs.DimensionResponse']] = None,
+             failing_periods: Optional['outputs.ConditionResponseFailingPeriods'] = None,
+             metric_measure_column: Optional[str] = None,
+             metric_name: Optional[str] = None,
+             operator: Optional[str] = None,
+             query: Optional[str] = None,
+             resource_id_column: Optional[str] = None,
+             threshold: Optional[float] = None,
+             time_aggregation: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if failing_periods is not None:
-            pulumi.set(__self__, "failing_periods", failing_periods)
+            _setter("failing_periods", failing_periods)
         if metric_measure_column is not None:
-            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+            _setter("metric_measure_column", metric_measure_column)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if resource_id_column is not None:
-            pulumi.set(__self__, "resource_id_column", resource_id_column)
+            _setter("resource_id_column", resource_id_column)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
         if time_aggregation is not None:
-            pulumi.set(__self__, "time_aggregation", time_aggregation)
+            _setter("time_aggregation", time_aggregation)
 
     @property
     @pulumi.getter
@@ -267,14 +305,25 @@ class ConditionResponseFailingPeriods(dict):
         :param float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
         :param float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
         """
+        ConditionResponseFailingPeriods._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            min_failing_periods_to_alert=min_failing_periods_to_alert,
+            number_of_evaluation_periods=number_of_evaluation_periods,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             min_failing_periods_to_alert: Optional[float] = None,
+             number_of_evaluation_periods: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if min_failing_periods_to_alert is None:
             min_failing_periods_to_alert = 1
         if min_failing_periods_to_alert is not None:
-            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+            _setter("min_failing_periods_to_alert", min_failing_periods_to_alert)
         if number_of_evaluation_periods is None:
             number_of_evaluation_periods = 1
         if number_of_evaluation_periods is not None:
-            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+            _setter("number_of_evaluation_periods", number_of_evaluation_periods)
 
     @property
     @pulumi.getter(name="minFailingPeriodsToAlert")
@@ -308,9 +357,22 @@ class DimensionResponse(dict):
         :param str operator: Operator for dimension values
         :param Sequence[str] values: List of dimension values
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        DimensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             operator: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -375,11 +437,26 @@ class IdentityResponse(dict):
         :param str type: Type of managed service identity.
         :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -446,10 +523,21 @@ class RuleResolveConfigurationResponse(dict):
         :param bool auto_resolved: The flag that indicates whether or not to auto resolve a fired alert.
         :param str time_to_resolve: The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
         """
+        RuleResolveConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_resolved=auto_resolved,
+            time_to_resolve=time_to_resolve,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_resolved: Optional[bool] = None,
+             time_to_resolve: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_resolved is not None:
-            pulumi.set(__self__, "auto_resolved", auto_resolved)
+            _setter("auto_resolved", auto_resolved)
         if time_to_resolve is not None:
-            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+            _setter("time_to_resolve", time_to_resolve)
 
     @property
     @pulumi.getter(name="autoResolved")
@@ -496,8 +584,17 @@ class ScheduledQueryRuleCriteriaResponse(dict):
         The rule criteria that defines the conditions of the scheduled query rule.
         :param Sequence['ConditionResponse'] all_of: A list of conditions to evaluate against the specified scopes
         """
+        ScheduledQueryRuleCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_of=all_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_of: Optional[Sequence['outputs.ConditionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_of is not None:
-            pulumi.set(__self__, "all_of", all_of)
+            _setter("all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
@@ -556,18 +653,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -650,8 +766,19 @@ class UserIdentityPropertiesResponse(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserIdentityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

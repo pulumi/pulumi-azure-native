@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['GroupArgs', 'Group']
@@ -27,13 +27,30 @@ class GroupArgs:
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
         """
-        pulumi.set(__self__, "machines", machines)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            machines=machines,
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            e_tag=e_tag,
+            group_name=group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             machines: pulumi.Input[Sequence[pulumi.Input[str]]],
+             project_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             e_tag: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("machines", machines)
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
 
     @property
     @pulumi.getter
@@ -137,6 +154,10 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

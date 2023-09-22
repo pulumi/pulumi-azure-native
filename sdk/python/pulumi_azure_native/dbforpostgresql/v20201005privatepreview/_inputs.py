@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -31,14 +31,29 @@ class MaintenanceWindowArgs:
         :param pulumi.Input[int] start_hour: start hour for maintenance window
         :param pulumi.Input[int] start_minute: start minute for maintenance window
         """
+        MaintenanceWindowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_window=custom_window,
+            day_of_week=day_of_week,
+            start_hour=start_hour,
+            start_minute=start_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_window: Optional[pulumi.Input[str]] = None,
+             day_of_week: Optional[pulumi.Input[int]] = None,
+             start_hour: Optional[pulumi.Input[int]] = None,
+             start_minute: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_window is not None:
-            pulumi.set(__self__, "custom_window", custom_window)
+            _setter("custom_window", custom_window)
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if start_hour is not None:
-            pulumi.set(__self__, "start_hour", start_hour)
+            _setter("start_hour", start_hour)
         if start_minute is not None:
-            pulumi.set(__self__, "start_minute", start_minute)
+            _setter("start_minute", start_minute)
 
     @property
     @pulumi.getter(name="customWindow")
@@ -97,8 +112,17 @@ class ServerGroupPropertiesDelegatedSubnetArgumentsArgs:
         The delegated subnet arguments for a server group.
         :param pulumi.Input[str] subnet_arm_resource_id: delegated subnet arm resource id.
         """
+        ServerGroupPropertiesDelegatedSubnetArgumentsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_arm_resource_id=subnet_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_arm_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if subnet_arm_resource_id is not None:
-            pulumi.set(__self__, "subnet_arm_resource_id", subnet_arm_resource_id)
+            _setter("subnet_arm_resource_id", subnet_arm_resource_id)
 
     @property
     @pulumi.getter(name="subnetArmResourceId")
@@ -121,8 +145,17 @@ class ServerGroupPropertiesPrivateDnsZoneArgumentsArgs:
         The private dns zone arguments for a server group.
         :param pulumi.Input[str] private_dns_zone_arm_resource_id: private dns zone arm resource id.
         """
+        ServerGroupPropertiesPrivateDnsZoneArgumentsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_dns_zone_arm_resource_id=private_dns_zone_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_dns_zone_arm_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_dns_zone_arm_resource_id is not None:
-            pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
+            _setter("private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
 
     @property
     @pulumi.getter(name="privateDnsZoneArmResourceId")
@@ -157,20 +190,41 @@ class ServerRoleGroupArgs:
         :param pulumi.Input[float] storage_quota_in_mb: The storage of a server in MB (max: 2097152 = 2TiB).
         :param pulumi.Input[float] v_cores: The vCores count of a server (max: 64).
         """
+        ServerRoleGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_ha=enable_ha,
+            name=name,
+            role=role,
+            server_count=server_count,
+            server_edition=server_edition,
+            storage_quota_in_mb=storage_quota_in_mb,
+            v_cores=v_cores,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_ha: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[Union[str, 'ServerRole']]] = None,
+             server_count: Optional[pulumi.Input[int]] = None,
+             server_edition: Optional[pulumi.Input[Union[str, 'ServerEdition']]] = None,
+             storage_quota_in_mb: Optional[pulumi.Input[float]] = None,
+             v_cores: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_ha is not None:
-            pulumi.set(__self__, "enable_ha", enable_ha)
+            _setter("enable_ha", enable_ha)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if server_count is not None:
-            pulumi.set(__self__, "server_count", server_count)
+            _setter("server_count", server_count)
         if server_edition is not None:
-            pulumi.set(__self__, "server_edition", server_edition)
+            _setter("server_edition", server_edition)
         if storage_quota_in_mb is not None:
-            pulumi.set(__self__, "storage_quota_in_mb", storage_quota_in_mb)
+            _setter("storage_quota_in_mb", storage_quota_in_mb)
         if v_cores is not None:
-            pulumi.set(__self__, "v_cores", v_cores)
+            _setter("v_cores", v_cores)
 
     @property
     @pulumi.getter(name="enableHa")

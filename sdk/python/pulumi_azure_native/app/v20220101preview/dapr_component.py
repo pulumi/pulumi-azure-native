@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,24 +39,51 @@ class DaprComponentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Dapr component
         :param pulumi.Input[str] version: Component version
         """
-        pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DaprComponentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_name=environment_name,
+            resource_group_name=resource_group_name,
+            component_type=component_type,
+            ignore_errors=ignore_errors,
+            init_timeout=init_timeout,
+            metadata=metadata,
+            name=name,
+            scopes=scopes,
+            secrets=secrets,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             component_type: Optional[pulumi.Input[str]] = None,
+             ignore_errors: Optional[pulumi.Input[bool]] = None,
+             init_timeout: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment_name", environment_name)
+        _setter("resource_group_name", resource_group_name)
         if component_type is not None:
-            pulumi.set(__self__, "component_type", component_type)
+            _setter("component_type", component_type)
         if ignore_errors is not None:
-            pulumi.set(__self__, "ignore_errors", ignore_errors)
+            _setter("ignore_errors", ignore_errors)
         if init_timeout is not None:
-            pulumi.set(__self__, "init_timeout", init_timeout)
+            _setter("init_timeout", init_timeout)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -230,6 +257,10 @@ class DaprComponent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DaprComponentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

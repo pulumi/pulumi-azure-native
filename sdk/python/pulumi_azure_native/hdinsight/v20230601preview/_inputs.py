@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -66,10 +66,21 @@ class AuthorizationProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: AAD group Ids authorized for data plane access.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: AAD user Ids authorized for data plane access.
         """
+        AuthorizationProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            user_ids=user_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if user_ids is not None:
-            pulumi.set(__self__, "user_ids", user_ids)
+            _setter("user_ids", user_ids)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -112,15 +123,32 @@ class AutoscaleProfileArgs:
         :param pulumi.Input['LoadBasedConfigArgs'] load_based_config: Profiles of load based Autoscale.
         :param pulumi.Input['ScheduleBasedConfigArgs'] schedule_based_config: Profiles of schedule based Autoscale.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        AutoscaleProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            autoscale_type=autoscale_type,
+            graceful_decommission_timeout=graceful_decommission_timeout,
+            load_based_config=load_based_config,
+            schedule_based_config=schedule_based_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             autoscale_type: Optional[pulumi.Input[Union[str, 'AutoscaleType']]] = None,
+             graceful_decommission_timeout: Optional[pulumi.Input[int]] = None,
+             load_based_config: Optional[pulumi.Input['LoadBasedConfigArgs']] = None,
+             schedule_based_config: Optional[pulumi.Input['ScheduleBasedConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if autoscale_type is not None:
-            pulumi.set(__self__, "autoscale_type", autoscale_type)
+            _setter("autoscale_type", autoscale_type)
         if graceful_decommission_timeout is not None:
-            pulumi.set(__self__, "graceful_decommission_timeout", graceful_decommission_timeout)
+            _setter("graceful_decommission_timeout", graceful_decommission_timeout)
         if load_based_config is not None:
-            pulumi.set(__self__, "load_based_config", load_based_config)
+            _setter("load_based_config", load_based_config)
         if schedule_based_config is not None:
-            pulumi.set(__self__, "schedule_based_config", schedule_based_config)
+            _setter("schedule_based_config", schedule_based_config)
 
     @property
     @pulumi.getter
@@ -191,8 +219,17 @@ class CatalogOptionsArgs:
         Trino cluster catalog options.
         :param pulumi.Input[Sequence[pulumi.Input['HiveCatalogOptionArgs']]] hive: hive catalog options.
         """
+        CatalogOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hive=hive,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hive: Optional[pulumi.Input[Sequence[pulumi.Input['HiveCatalogOptionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if hive is not None:
-            pulumi.set(__self__, "hive", hive)
+            _setter("hive", hive)
 
     @property
     @pulumi.getter
@@ -224,15 +261,32 @@ class ClusterConfigFileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] values: List of key value pairs
                where key represents a valid service configuration name and value represents the value of the config.
         """
-        pulumi.set(__self__, "file_name", file_name)
+        ClusterConfigFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_name=file_name,
+            content=content,
+            encoding=encoding,
+            path=path,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_name: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
+             encoding: Optional[pulumi.Input[Union[str, 'ContentEncoding']]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("file_name", file_name)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="fileName")
@@ -306,10 +360,21 @@ class ClusterLogAnalyticsApplicationLogsArgs:
         :param pulumi.Input[bool] std_error_enabled: True if stderror is enabled, otherwise false.
         :param pulumi.Input[bool] std_out_enabled: True if stdout is enabled, otherwise false.
         """
+        ClusterLogAnalyticsApplicationLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            std_error_enabled=std_error_enabled,
+            std_out_enabled=std_out_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             std_error_enabled: Optional[pulumi.Input[bool]] = None,
+             std_out_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if std_error_enabled is not None:
-            pulumi.set(__self__, "std_error_enabled", std_error_enabled)
+            _setter("std_error_enabled", std_error_enabled)
         if std_out_enabled is not None:
-            pulumi.set(__self__, "std_out_enabled", std_out_enabled)
+            _setter("std_out_enabled", std_out_enabled)
 
     @property
     @pulumi.getter(name="stdErrorEnabled")
@@ -348,11 +413,24 @@ class ClusterLogAnalyticsProfileArgs:
         :param pulumi.Input['ClusterLogAnalyticsApplicationLogsArgs'] application_logs: Collection of logs to be enabled or disabled for log analytics.
         :param pulumi.Input[bool] metrics_enabled: True if metrics are enabled, otherwise false.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterLogAnalyticsProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            application_logs=application_logs,
+            metrics_enabled=metrics_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             application_logs: Optional[pulumi.Input['ClusterLogAnalyticsApplicationLogsArgs']] = None,
+             metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if application_logs is not None:
-            pulumi.set(__self__, "application_logs", application_logs)
+            _setter("application_logs", application_logs)
         if metrics_enabled is not None:
-            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+            _setter("metrics_enabled", metrics_enabled)
 
     @property
     @pulumi.getter
@@ -399,7 +477,16 @@ class ClusterPoolResourcePropertiesClusterPoolProfileArgs:
         CLuster pool profile.
         :param pulumi.Input[str] cluster_pool_version: Cluster pool version is a 2-part version.
         """
-        pulumi.set(__self__, "cluster_pool_version", cluster_pool_version)
+        ClusterPoolResourcePropertiesClusterPoolProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_pool_version=cluster_pool_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_pool_version: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_pool_version", cluster_pool_version)
 
     @property
     @pulumi.getter(name="clusterPoolVersion")
@@ -422,7 +509,16 @@ class ClusterPoolResourcePropertiesComputeProfileArgs:
         CLuster pool compute profile.
         :param pulumi.Input[str] vm_size: The virtual machine SKU.
         """
-        pulumi.set(__self__, "vm_size", vm_size)
+        ClusterPoolResourcePropertiesComputeProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vm_size: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="vmSize")
@@ -447,9 +543,20 @@ class ClusterPoolResourcePropertiesLogAnalyticsProfileArgs:
         :param pulumi.Input[bool] enabled: True if log analytics is enabled for cluster pool, otherwise false.
         :param pulumi.Input[str] workspace_id: Log analytics workspace to associate with the OMS agent.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ClusterPoolResourcePropertiesLogAnalyticsProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter
@@ -484,7 +591,16 @@ class ClusterPoolResourcePropertiesNetworkProfileArgs:
         Cluster pool network profile.
         :param pulumi.Input[str] subnet_id: Cluster pool subnet resource id.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ClusterPoolResourcePropertiesNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -539,36 +655,77 @@ class ClusterProfileArgs:
         :param Any stub_profile: Stub cluster profile.
         :param pulumi.Input['TrinoProfileArgs'] trino_profile: Trino Cluster profile.
         """
-        pulumi.set(__self__, "authorization_profile", authorization_profile)
-        pulumi.set(__self__, "cluster_version", cluster_version)
-        pulumi.set(__self__, "identity_profile", identity_profile)
-        pulumi.set(__self__, "oss_version", oss_version)
+        ClusterProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_profile=authorization_profile,
+            cluster_version=cluster_version,
+            identity_profile=identity_profile,
+            oss_version=oss_version,
+            autoscale_profile=autoscale_profile,
+            flink_profile=flink_profile,
+            kafka_profile=kafka_profile,
+            llap_profile=llap_profile,
+            log_analytics_profile=log_analytics_profile,
+            prometheus_profile=prometheus_profile,
+            script_action_profiles=script_action_profiles,
+            secrets_profile=secrets_profile,
+            service_configs_profiles=service_configs_profiles,
+            spark_profile=spark_profile,
+            ssh_profile=ssh_profile,
+            stub_profile=stub_profile,
+            trino_profile=trino_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_profile: pulumi.Input['AuthorizationProfileArgs'],
+             cluster_version: pulumi.Input[str],
+             identity_profile: pulumi.Input['IdentityProfileArgs'],
+             oss_version: pulumi.Input[str],
+             autoscale_profile: Optional[pulumi.Input['AutoscaleProfileArgs']] = None,
+             flink_profile: Optional[pulumi.Input['FlinkProfileArgs']] = None,
+             kafka_profile: Optional[Any] = None,
+             llap_profile: Optional[Any] = None,
+             log_analytics_profile: Optional[pulumi.Input['ClusterLogAnalyticsProfileArgs']] = None,
+             prometheus_profile: Optional[pulumi.Input['ClusterPrometheusProfileArgs']] = None,
+             script_action_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionProfileArgs']]]] = None,
+             secrets_profile: Optional[pulumi.Input['SecretsProfileArgs']] = None,
+             service_configs_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterServiceConfigsProfileArgs']]]] = None,
+             spark_profile: Optional[pulumi.Input['SparkProfileArgs']] = None,
+             ssh_profile: Optional[pulumi.Input['SshProfileArgs']] = None,
+             stub_profile: Optional[Any] = None,
+             trino_profile: Optional[pulumi.Input['TrinoProfileArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_profile", authorization_profile)
+        _setter("cluster_version", cluster_version)
+        _setter("identity_profile", identity_profile)
+        _setter("oss_version", oss_version)
         if autoscale_profile is not None:
-            pulumi.set(__self__, "autoscale_profile", autoscale_profile)
+            _setter("autoscale_profile", autoscale_profile)
         if flink_profile is not None:
-            pulumi.set(__self__, "flink_profile", flink_profile)
+            _setter("flink_profile", flink_profile)
         if kafka_profile is not None:
-            pulumi.set(__self__, "kafka_profile", kafka_profile)
+            _setter("kafka_profile", kafka_profile)
         if llap_profile is not None:
-            pulumi.set(__self__, "llap_profile", llap_profile)
+            _setter("llap_profile", llap_profile)
         if log_analytics_profile is not None:
-            pulumi.set(__self__, "log_analytics_profile", log_analytics_profile)
+            _setter("log_analytics_profile", log_analytics_profile)
         if prometheus_profile is not None:
-            pulumi.set(__self__, "prometheus_profile", prometheus_profile)
+            _setter("prometheus_profile", prometheus_profile)
         if script_action_profiles is not None:
-            pulumi.set(__self__, "script_action_profiles", script_action_profiles)
+            _setter("script_action_profiles", script_action_profiles)
         if secrets_profile is not None:
-            pulumi.set(__self__, "secrets_profile", secrets_profile)
+            _setter("secrets_profile", secrets_profile)
         if service_configs_profiles is not None:
-            pulumi.set(__self__, "service_configs_profiles", service_configs_profiles)
+            _setter("service_configs_profiles", service_configs_profiles)
         if spark_profile is not None:
-            pulumi.set(__self__, "spark_profile", spark_profile)
+            _setter("spark_profile", spark_profile)
         if ssh_profile is not None:
-            pulumi.set(__self__, "ssh_profile", ssh_profile)
+            _setter("ssh_profile", ssh_profile)
         if stub_profile is not None:
-            pulumi.set(__self__, "stub_profile", stub_profile)
+            _setter("stub_profile", stub_profile)
         if trino_profile is not None:
-            pulumi.set(__self__, "trino_profile", trino_profile)
+            _setter("trino_profile", trino_profile)
 
     @property
     @pulumi.getter(name="authorizationProfile")
@@ -783,9 +940,18 @@ class ClusterPrometheusProfileArgs:
         Cluster Prometheus profile.
         :param pulumi.Input[bool] enabled: Enable Prometheus for cluster or not.
         """
+        ClusterPrometheusProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is None:
             enabled = False
-        pulumi.set(__self__, "enabled", enabled)
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -810,8 +976,19 @@ class ClusterServiceConfigsProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterServiceConfigArgs']]] configs: List of service configs.
         :param pulumi.Input[str] service_name: Name of the service the configurations should apply to.
         """
-        pulumi.set(__self__, "configs", configs)
-        pulumi.set(__self__, "service_name", service_name)
+        ClusterServiceConfigsProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configs=configs,
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configs: pulumi.Input[Sequence[pulumi.Input['ClusterServiceConfigArgs']]],
+             service_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configs", configs)
+        _setter("service_name", service_name)
 
     @property
     @pulumi.getter
@@ -848,8 +1025,19 @@ class ClusterServiceConfigArgs:
         :param pulumi.Input[str] component: Name of the component the config files should apply to.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterConfigFileArgs']]] files: List of Config Files.
         """
-        pulumi.set(__self__, "component", component)
-        pulumi.set(__self__, "files", files)
+        ClusterServiceConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component=component,
+            files=files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component: pulumi.Input[str],
+             files: pulumi.Input[Sequence[pulumi.Input['ClusterConfigFileArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component", component)
+        _setter("files", files)
 
     @property
     @pulumi.getter
@@ -886,8 +1074,19 @@ class ComparisonRuleArgs:
         :param pulumi.Input[Union[str, 'ComparisonOperator']] operator: The comparison operator.
         :param pulumi.Input[float] threshold: Threshold setting.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
+        ComparisonRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            threshold=threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[Union[str, 'ComparisonOperator']],
+             threshold: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("threshold", threshold)
 
     @property
     @pulumi.getter
@@ -922,7 +1121,16 @@ class ComputeProfileArgs:
         The compute profile.
         :param pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]] nodes: The nodes definitions.
         """
-        pulumi.set(__self__, "nodes", nodes)
+        ComputeProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nodes=nodes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nodes: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("nodes", nodes)
 
     @property
     @pulumi.getter
@@ -947,8 +1155,19 @@ class ComputeResourceDefinitionArgs:
         :param pulumi.Input[float] cpu: The required CPU.
         :param pulumi.Input[float] memory: The required memory in MB, Container memory will be 110 percentile
         """
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "memory", memory)
+        ComputeResourceDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory=memory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: pulumi.Input[float],
+             memory: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cpu", cpu)
+        _setter("memory", memory)
 
     @property
     @pulumi.getter
@@ -983,8 +1202,17 @@ class FlinkCatalogOptionsArgs:
         Flink cluster catalog options.
         :param pulumi.Input['FlinkHiveCatalogOptionArgs'] hive: Hive Catalog Option for Flink cluster.
         """
+        FlinkCatalogOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hive=hive,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hive: Optional[pulumi.Input['FlinkHiveCatalogOptionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if hive is not None:
-            pulumi.set(__self__, "hive", hive)
+            _setter("hive", hive)
 
     @property
     @pulumi.getter
@@ -1011,9 +1239,22 @@ class FlinkHiveCatalogOptionArgs:
         :param pulumi.Input[str] metastore_db_connection_url: Connection string for hive metastore database.
         :param pulumi.Input[str] metastore_db_connection_user_name: User name for database connection.
         """
-        pulumi.set(__self__, "metastore_db_connection_password_secret", metastore_db_connection_password_secret)
-        pulumi.set(__self__, "metastore_db_connection_url", metastore_db_connection_url)
-        pulumi.set(__self__, "metastore_db_connection_user_name", metastore_db_connection_user_name)
+        FlinkHiveCatalogOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metastore_db_connection_password_secret=metastore_db_connection_password_secret,
+            metastore_db_connection_url=metastore_db_connection_url,
+            metastore_db_connection_user_name=metastore_db_connection_user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metastore_db_connection_password_secret: pulumi.Input[str],
+             metastore_db_connection_url: pulumi.Input[str],
+             metastore_db_connection_user_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metastore_db_connection_password_secret", metastore_db_connection_password_secret)
+        _setter("metastore_db_connection_url", metastore_db_connection_url)
+        _setter("metastore_db_connection_user_name", metastore_db_connection_user_name)
 
     @property
     @pulumi.getter(name="metastoreDbConnectionPasswordSecret")
@@ -1070,15 +1311,34 @@ class FlinkProfileArgs:
         :param pulumi.Input['ComputeResourceDefinitionArgs'] history_server: History Server container/ process CPU and memory requirements
         :param pulumi.Input[int] num_replicas: The number of task managers.
         """
-        pulumi.set(__self__, "job_manager", job_manager)
-        pulumi.set(__self__, "storage", storage)
-        pulumi.set(__self__, "task_manager", task_manager)
+        FlinkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_manager=job_manager,
+            storage=storage,
+            task_manager=task_manager,
+            catalog_options=catalog_options,
+            history_server=history_server,
+            num_replicas=num_replicas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_manager: pulumi.Input['ComputeResourceDefinitionArgs'],
+             storage: pulumi.Input['FlinkStorageProfileArgs'],
+             task_manager: pulumi.Input['ComputeResourceDefinitionArgs'],
+             catalog_options: Optional[pulumi.Input['FlinkCatalogOptionsArgs']] = None,
+             history_server: Optional[pulumi.Input['ComputeResourceDefinitionArgs']] = None,
+             num_replicas: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_manager", job_manager)
+        _setter("storage", storage)
+        _setter("task_manager", task_manager)
         if catalog_options is not None:
-            pulumi.set(__self__, "catalog_options", catalog_options)
+            _setter("catalog_options", catalog_options)
         if history_server is not None:
-            pulumi.set(__self__, "history_server", history_server)
+            _setter("history_server", history_server)
         if num_replicas is not None:
-            pulumi.set(__self__, "num_replicas", num_replicas)
+            _setter("num_replicas", num_replicas)
 
     @property
     @pulumi.getter(name="jobManager")
@@ -1163,9 +1423,20 @@ class FlinkStorageProfileArgs:
         :param pulumi.Input[str] storage_uri: Storage account uri which is used for savepoint and checkpoint state.
         :param pulumi.Input[str] storagekey: Storage key is only required for wasb(s) storage.
         """
-        pulumi.set(__self__, "storage_uri", storage_uri)
+        FlinkStorageProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_uri=storage_uri,
+            storagekey=storagekey,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_uri: pulumi.Input[str],
+             storagekey: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_uri", storage_uri)
         if storagekey is not None:
-            pulumi.set(__self__, "storagekey", storagekey)
+            _setter("storagekey", storagekey)
 
     @property
     @pulumi.getter(name="storageUri")
@@ -1208,11 +1479,28 @@ class HiveCatalogOptionArgs:
         :param pulumi.Input[str] metastore_db_connection_user_name: User name for database connection.
         :param pulumi.Input[str] metastore_warehouse_dir: Metastore root directory URI, format: abfs[s]://<container>@<account_name>.dfs.core.windows.net/<path>. More details: https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction-abfs-uri
         """
-        pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "metastore_db_connection_password_secret", metastore_db_connection_password_secret)
-        pulumi.set(__self__, "metastore_db_connection_url", metastore_db_connection_url)
-        pulumi.set(__self__, "metastore_db_connection_user_name", metastore_db_connection_user_name)
-        pulumi.set(__self__, "metastore_warehouse_dir", metastore_warehouse_dir)
+        HiveCatalogOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_name=catalog_name,
+            metastore_db_connection_password_secret=metastore_db_connection_password_secret,
+            metastore_db_connection_url=metastore_db_connection_url,
+            metastore_db_connection_user_name=metastore_db_connection_user_name,
+            metastore_warehouse_dir=metastore_warehouse_dir,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_name: pulumi.Input[str],
+             metastore_db_connection_password_secret: pulumi.Input[str],
+             metastore_db_connection_url: pulumi.Input[str],
+             metastore_db_connection_user_name: pulumi.Input[str],
+             metastore_warehouse_dir: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_name", catalog_name)
+        _setter("metastore_db_connection_password_secret", metastore_db_connection_password_secret)
+        _setter("metastore_db_connection_url", metastore_db_connection_url)
+        _setter("metastore_db_connection_user_name", metastore_db_connection_user_name)
+        _setter("metastore_warehouse_dir", metastore_warehouse_dir)
 
     @property
     @pulumi.getter(name="catalogName")
@@ -1287,9 +1575,22 @@ class IdentityProfileArgs:
         :param pulumi.Input[str] msi_object_id: ObjectId of the MSI.
         :param pulumi.Input[str] msi_resource_id: ResourceId of the MSI.
         """
-        pulumi.set(__self__, "msi_client_id", msi_client_id)
-        pulumi.set(__self__, "msi_object_id", msi_object_id)
-        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        IdentityProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            msi_client_id=msi_client_id,
+            msi_object_id=msi_object_id,
+            msi_resource_id=msi_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             msi_client_id: pulumi.Input[str],
+             msi_object_id: pulumi.Input[str],
+             msi_resource_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("msi_client_id", msi_client_id)
+        _setter("msi_object_id", msi_object_id)
+        _setter("msi_resource_id", msi_resource_id)
 
     @property
     @pulumi.getter(name="msiClientId")
@@ -1344,13 +1645,30 @@ class LoadBasedConfigArgs:
         :param pulumi.Input[int] cooldown_period: This is a cool down period, this is a time period in seconds, which determines the amount of time that must elapse between a scaling activity started by a rule and the start of the next scaling activity, regardless of the rule that triggers it. The default value is 300 seconds.
         :param pulumi.Input[int] poll_interval: User can specify the poll interval, this is the time period (in seconds) after which scaling metrics are polled for triggering a scaling operation.
         """
-        pulumi.set(__self__, "max_nodes", max_nodes)
-        pulumi.set(__self__, "min_nodes", min_nodes)
-        pulumi.set(__self__, "scaling_rules", scaling_rules)
+        LoadBasedConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_nodes=max_nodes,
+            min_nodes=min_nodes,
+            scaling_rules=scaling_rules,
+            cooldown_period=cooldown_period,
+            poll_interval=poll_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_nodes: pulumi.Input[int],
+             min_nodes: pulumi.Input[int],
+             scaling_rules: pulumi.Input[Sequence[pulumi.Input['ScalingRuleArgs']]],
+             cooldown_period: Optional[pulumi.Input[int]] = None,
+             poll_interval: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_nodes", max_nodes)
+        _setter("min_nodes", min_nodes)
+        _setter("scaling_rules", scaling_rules)
         if cooldown_period is not None:
-            pulumi.set(__self__, "cooldown_period", cooldown_period)
+            _setter("cooldown_period", cooldown_period)
         if poll_interval is not None:
-            pulumi.set(__self__, "poll_interval", poll_interval)
+            _setter("poll_interval", poll_interval)
 
     @property
     @pulumi.getter(name="maxNodes")
@@ -1425,9 +1743,22 @@ class NodeProfileArgs:
         :param pulumi.Input[str] type: The node type.
         :param pulumi.Input[str] vm_size: The virtual machine SKU.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "vm_size", vm_size)
+        NodeProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            type=type,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: pulumi.Input[int],
+             type: pulumi.Input[str],
+             vm_size: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("count", count)
+        _setter("type", type)
+        _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter
@@ -1480,10 +1811,25 @@ class ScalingRuleArgs:
         :param pulumi.Input[int] evaluation_count: This is an evaluation count for a scaling condition, the number of times a trigger condition should be successful, before scaling activity is triggered.
         :param pulumi.Input[str] scaling_metric: Metrics name for individual workloads. For example: cpu
         """
-        pulumi.set(__self__, "action_type", action_type)
-        pulumi.set(__self__, "comparison_rule", comparison_rule)
-        pulumi.set(__self__, "evaluation_count", evaluation_count)
-        pulumi.set(__self__, "scaling_metric", scaling_metric)
+        ScalingRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            comparison_rule=comparison_rule,
+            evaluation_count=evaluation_count,
+            scaling_metric=scaling_metric,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: pulumi.Input[Union[str, 'ScaleActionType']],
+             comparison_rule: pulumi.Input['ComparisonRuleArgs'],
+             evaluation_count: pulumi.Input[int],
+             scaling_metric: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_type", action_type)
+        _setter("comparison_rule", comparison_rule)
+        _setter("evaluation_count", evaluation_count)
+        _setter("scaling_metric", scaling_metric)
 
     @property
     @pulumi.getter(name="actionType")
@@ -1546,9 +1892,22 @@ class ScheduleBasedConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleArgs']]] schedules: This specifies the schedules where scheduled based Autoscale to be enabled, the user has a choice to set multiple rules within the schedule across days and times (start/end).
         :param pulumi.Input[str] time_zone: User has to specify the timezone on which the schedule has to be set for schedule based autoscale configuration.
         """
-        pulumi.set(__self__, "default_count", default_count)
-        pulumi.set(__self__, "schedules", schedules)
-        pulumi.set(__self__, "time_zone", time_zone)
+        ScheduleBasedConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_count=default_count,
+            schedules=schedules,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_count: pulumi.Input[int],
+             schedules: pulumi.Input[Sequence[pulumi.Input['ScheduleArgs']]],
+             time_zone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_count", default_count)
+        _setter("schedules", schedules)
+        _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="defaultCount")
@@ -1601,10 +1960,25 @@ class ScheduleArgs:
         :param pulumi.Input[str] end_time: User has to set the end time of current schedule configuration, format like 10:30 (HH:MM).
         :param pulumi.Input[str] start_time: User has to set the start time of current schedule configuration, format like 10:30 (HH:MM).
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "start_time", start_time)
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            days=days,
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: pulumi.Input[int],
+             days: pulumi.Input[Sequence[pulumi.Input[Union[str, 'ScheduleDay']]]],
+             end_time: pulumi.Input[str],
+             start_time: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("count", count)
+        _setter("days", days)
+        _setter("end_time", end_time)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter
@@ -1675,18 +2049,39 @@ class ScriptActionProfileArgs:
         :param pulumi.Input[bool] should_persist: Specify if the script should persist on the cluster.
         :param pulumi.Input[int] timeout_in_minutes: Timeout duration for the script action in minutes.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "services", services)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "url", url)
+        ScriptActionProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            services=services,
+            type=type,
+            url=url,
+            parameters=parameters,
+            should_persist=should_persist,
+            timeout_in_minutes=timeout_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             services: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             url: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[str]] = None,
+             should_persist: Optional[pulumi.Input[bool]] = None,
+             timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("services", services)
+        _setter("type", type)
+        _setter("url", url)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if should_persist is None:
             should_persist = True
         if should_persist is not None:
-            pulumi.set(__self__, "should_persist", should_persist)
+            _setter("should_persist", should_persist)
         if timeout_in_minutes is not None:
-            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+            _setter("timeout_in_minutes", timeout_in_minutes)
 
     @property
     @pulumi.getter
@@ -1787,11 +2182,26 @@ class SecretReferenceArgs:
         :param pulumi.Input[Union[str, 'KeyVaultObjectType']] type: Type of key vault object: secret, key or certificate.
         :param pulumi.Input[str] version: Version of the secret in key vault.
         """
-        pulumi.set(__self__, "key_vault_object_name", key_vault_object_name)
-        pulumi.set(__self__, "reference_name", reference_name)
-        pulumi.set(__self__, "type", type)
+        SecretReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_object_name=key_vault_object_name,
+            reference_name=reference_name,
+            type=type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_object_name: pulumi.Input[str],
+             reference_name: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'KeyVaultObjectType']],
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_object_name", key_vault_object_name)
+        _setter("reference_name", reference_name)
+        _setter("type", type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="keyVaultObjectName")
@@ -1852,9 +2262,20 @@ class SecretsProfileArgs:
         :param pulumi.Input[str] key_vault_resource_id: Name of the user Key Vault where all the cluster specific user secrets are stored.
         :param pulumi.Input[Sequence[pulumi.Input['SecretReferenceArgs']]] secrets: Properties of Key Vault secret.
         """
-        pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+        SecretsProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_resource_id=key_vault_resource_id,
+            secrets=secrets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_resource_id: pulumi.Input[str],
+             secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReferenceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_resource_id", key_vault_resource_id)
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
 
     @property
     @pulumi.getter(name="keyVaultResourceId")
@@ -1899,13 +2320,32 @@ class SparkMetastoreSpecArgs:
         :param pulumi.Input[str] key_vault_id: The key vault resource id.
         :param pulumi.Input[str] thrift_url: The thrift url.
         """
-        pulumi.set(__self__, "db_name", db_name)
-        pulumi.set(__self__, "db_password_secret_name", db_password_secret_name)
-        pulumi.set(__self__, "db_server_host", db_server_host)
-        pulumi.set(__self__, "db_user_name", db_user_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        SparkMetastoreSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_name=db_name,
+            db_password_secret_name=db_password_secret_name,
+            db_server_host=db_server_host,
+            db_user_name=db_user_name,
+            key_vault_id=key_vault_id,
+            thrift_url=thrift_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_name: pulumi.Input[str],
+             db_password_secret_name: pulumi.Input[str],
+             db_server_host: pulumi.Input[str],
+             db_user_name: pulumi.Input[str],
+             key_vault_id: pulumi.Input[str],
+             thrift_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("db_name", db_name)
+        _setter("db_password_secret_name", db_password_secret_name)
+        _setter("db_server_host", db_server_host)
+        _setter("db_user_name", db_user_name)
+        _setter("key_vault_id", key_vault_id)
         if thrift_url is not None:
-            pulumi.set(__self__, "thrift_url", thrift_url)
+            _setter("thrift_url", thrift_url)
 
     @property
     @pulumi.getter(name="dbName")
@@ -1992,12 +2432,25 @@ class SparkProfileArgs:
         :param pulumi.Input['SparkMetastoreSpecArgs'] metastore_spec: The metastore specification for Spark cluster.
         :param pulumi.Input['SparkUserPluginsArgs'] user_plugins_spec: Spark user plugins spec
         """
+        SparkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_storage_url=default_storage_url,
+            metastore_spec=metastore_spec,
+            user_plugins_spec=user_plugins_spec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_storage_url: Optional[pulumi.Input[str]] = None,
+             metastore_spec: Optional[pulumi.Input['SparkMetastoreSpecArgs']] = None,
+             user_plugins_spec: Optional[pulumi.Input['SparkUserPluginsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_storage_url is not None:
-            pulumi.set(__self__, "default_storage_url", default_storage_url)
+            _setter("default_storage_url", default_storage_url)
         if metastore_spec is not None:
-            pulumi.set(__self__, "metastore_spec", metastore_spec)
+            _setter("metastore_spec", metastore_spec)
         if user_plugins_spec is not None:
-            pulumi.set(__self__, "user_plugins_spec", user_plugins_spec)
+            _setter("user_plugins_spec", user_plugins_spec)
 
     @property
     @pulumi.getter(name="defaultStorageUrl")
@@ -2044,8 +2497,17 @@ class SparkUserPluginsArgs:
         Spark user plugins spec
         :param pulumi.Input[Sequence[pulumi.Input['SparkUserPluginArgs']]] plugins: Spark user plugins.
         """
+        SparkUserPluginsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            plugins=plugins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             plugins: Optional[pulumi.Input[Sequence[pulumi.Input['SparkUserPluginArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if plugins is not None:
-            pulumi.set(__self__, "plugins", plugins)
+            _setter("plugins", plugins)
 
     @property
     @pulumi.getter
@@ -2068,7 +2530,16 @@ class SparkUserPluginArgs:
         Spark user plugin.
         :param pulumi.Input[str] path: Fully qualified path to the folder containing the plugins.
         """
-        pulumi.set(__self__, "path", path)
+        SparkUserPluginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -2091,7 +2562,16 @@ class SshProfileArgs:
         Ssh profile for the cluster.
         :param pulumi.Input[int] count: Number of ssh pods per cluster.
         """
-        pulumi.set(__self__, "count", count)
+        SshProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("count", count)
 
     @property
     @pulumi.getter
@@ -2120,22 +2600,37 @@ class TrinoCoordinatorArgs:
         :param pulumi.Input[int] port: The debug port.
         :param pulumi.Input[bool] suspend: The flag that if suspend debug or not.
         """
+        TrinoCoordinatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable=enable,
+            high_availability_enabled=high_availability_enabled,
+            port=port,
+            suspend=suspend,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable: Optional[pulumi.Input[bool]] = None,
+             high_availability_enabled: Optional[pulumi.Input[bool]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             suspend: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable is None:
             enable = False
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if high_availability_enabled is None:
             high_availability_enabled = True
         if high_availability_enabled is not None:
-            pulumi.set(__self__, "high_availability_enabled", high_availability_enabled)
+            _setter("high_availability_enabled", high_availability_enabled)
         if port is None:
             port = 8008
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if suspend is None:
             suspend = False
         if suspend is not None:
-            pulumi.set(__self__, "suspend", suspend)
+            _setter("suspend", suspend)
 
     @property
     @pulumi.getter
@@ -2202,16 +2697,33 @@ class TrinoProfileArgs:
         :param pulumi.Input['TrinoUserTelemetryArgs'] user_telemetry_spec: User telemetry
         :param pulumi.Input['TrinoWorkerArgs'] worker: Trino worker.
         """
+        TrinoProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_options=catalog_options,
+            coordinator=coordinator,
+            user_plugins_spec=user_plugins_spec,
+            user_telemetry_spec=user_telemetry_spec,
+            worker=worker,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_options: Optional[pulumi.Input['CatalogOptionsArgs']] = None,
+             coordinator: Optional[pulumi.Input['TrinoCoordinatorArgs']] = None,
+             user_plugins_spec: Optional[pulumi.Input['TrinoUserPluginsArgs']] = None,
+             user_telemetry_spec: Optional[pulumi.Input['TrinoUserTelemetryArgs']] = None,
+             worker: Optional[pulumi.Input['TrinoWorkerArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_options is not None:
-            pulumi.set(__self__, "catalog_options", catalog_options)
+            _setter("catalog_options", catalog_options)
         if coordinator is not None:
-            pulumi.set(__self__, "coordinator", coordinator)
+            _setter("coordinator", coordinator)
         if user_plugins_spec is not None:
-            pulumi.set(__self__, "user_plugins_spec", user_plugins_spec)
+            _setter("user_plugins_spec", user_plugins_spec)
         if user_telemetry_spec is not None:
-            pulumi.set(__self__, "user_telemetry_spec", user_telemetry_spec)
+            _setter("user_telemetry_spec", user_telemetry_spec)
         if worker is not None:
-            pulumi.set(__self__, "worker", worker)
+            _setter("worker", worker)
 
     @property
     @pulumi.getter(name="catalogOptions")
@@ -2288,18 +2800,33 @@ class TrinoTelemetryConfigArgs:
         :param pulumi.Input[int] partition_retention_in_days: Retention period for query log table partitions, this doesn't have any affect on actual data.
         :param pulumi.Input[str] path: Azure storage location of the blobs.
         """
+        TrinoTelemetryConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hivecatalog_name=hivecatalog_name,
+            hivecatalog_schema=hivecatalog_schema,
+            partition_retention_in_days=partition_retention_in_days,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hivecatalog_name: Optional[pulumi.Input[str]] = None,
+             hivecatalog_schema: Optional[pulumi.Input[str]] = None,
+             partition_retention_in_days: Optional[pulumi.Input[int]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if hivecatalog_name is not None:
-            pulumi.set(__self__, "hivecatalog_name", hivecatalog_name)
+            _setter("hivecatalog_name", hivecatalog_name)
         if hivecatalog_schema is None:
             hivecatalog_schema = 'trinologs'
         if hivecatalog_schema is not None:
-            pulumi.set(__self__, "hivecatalog_schema", hivecatalog_schema)
+            _setter("hivecatalog_schema", hivecatalog_schema)
         if partition_retention_in_days is None:
             partition_retention_in_days = 365
         if partition_retention_in_days is not None:
-            pulumi.set(__self__, "partition_retention_in_days", partition_retention_in_days)
+            _setter("partition_retention_in_days", partition_retention_in_days)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="hivecatalogName")
@@ -2358,8 +2885,17 @@ class TrinoUserPluginsArgs:
         Trino user plugins spec
         :param pulumi.Input[Sequence[pulumi.Input['TrinoUserPluginArgs']]] plugins: Trino user plugins.
         """
+        TrinoUserPluginsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            plugins=plugins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             plugins: Optional[pulumi.Input[Sequence[pulumi.Input['TrinoUserPluginArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if plugins is not None:
-            pulumi.set(__self__, "plugins", plugins)
+            _setter("plugins", plugins)
 
     @property
     @pulumi.getter
@@ -2386,12 +2922,25 @@ class TrinoUserPluginArgs:
         :param pulumi.Input[str] name: This field maps to the sub-directory in trino plugins location, that will contain all the plugins under path.
         :param pulumi.Input[str] path: Fully qualified path to the folder containing the plugins.
         """
+        TrinoUserPluginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            name=name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -2438,8 +2987,17 @@ class TrinoUserTelemetryArgs:
         User telemetry
         :param pulumi.Input['TrinoTelemetryConfigArgs'] storage: Trino user telemetry definition.
         """
+        TrinoUserTelemetryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage=storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage: Optional[pulumi.Input['TrinoTelemetryConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if storage is not None:
-            pulumi.set(__self__, "storage", storage)
+            _setter("storage", storage)
 
     @property
     @pulumi.getter
@@ -2466,18 +3024,31 @@ class TrinoWorkerArgs:
         :param pulumi.Input[int] port: The debug port.
         :param pulumi.Input[bool] suspend: The flag that if suspend debug or not.
         """
+        TrinoWorkerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable=enable,
+            port=port,
+            suspend=suspend,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable: Optional[pulumi.Input[bool]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             suspend: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable is None:
             enable = False
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if port is None:
             port = 8008
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if suspend is None:
             suspend = False
         if suspend is not None:
-            pulumi.set(__self__, "suspend", suspend)
+            _setter("suspend", suspend)
 
     @property
     @pulumi.getter

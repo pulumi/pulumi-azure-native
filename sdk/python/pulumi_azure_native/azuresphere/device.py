@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,14 +30,33 @@ class DeviceArgs:
         :param pulumi.Input[str] device_id: Device ID
         :param pulumi.Input[str] device_name: Device name
         """
-        pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "device_group_name", device_group_name)
-        pulumi.set(__self__, "product_name", product_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_name=catalog_name,
+            device_group_name=device_group_name,
+            product_name=product_name,
+            resource_group_name=resource_group_name,
+            device_id=device_id,
+            device_name=device_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_name: pulumi.Input[str],
+             device_group_name: pulumi.Input[str],
+             product_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             device_id: Optional[pulumi.Input[str]] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_name", catalog_name)
+        _setter("device_group_name", device_group_name)
+        _setter("product_name", product_name)
+        _setter("resource_group_name", resource_group_name)
         if device_id is not None:
-            pulumi.set(__self__, "device_id", device_id)
+            _setter("device_id", device_id)
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
 
     @property
     @pulumi.getter(name="catalogName")
@@ -157,6 +176,10 @@ class Device(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

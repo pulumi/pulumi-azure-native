@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -72,50 +72,109 @@ class ContentTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: the tactics the resource covers
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: the techniques the resource covers, these have to be aligned with the tactics being used
         """
-        pulumi.set(__self__, "content_id", content_id)
-        pulumi.set(__self__, "content_kind", content_kind)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "package_id", package_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "version", version)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ContentTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_id=content_id,
+            content_kind=content_kind,
+            display_name=display_name,
+            package_id=package_id,
+            resource_group_name=resource_group_name,
+            source=source,
+            version=version,
+            workspace_name=workspace_name,
+            author=author,
+            categories=categories,
+            content_schema_version=content_schema_version,
+            custom_version=custom_version,
+            dependencies=dependencies,
+            first_publish_date=first_publish_date,
+            icon=icon,
+            last_publish_date=last_publish_date,
+            main_template=main_template,
+            package_kind=package_kind,
+            package_name=package_name,
+            preview_images=preview_images,
+            preview_images_dark=preview_images_dark,
+            providers=providers,
+            support=support,
+            template_id=template_id,
+            threat_analysis_tactics=threat_analysis_tactics,
+            threat_analysis_techniques=threat_analysis_techniques,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_id: pulumi.Input[str],
+             content_kind: pulumi.Input[Union[str, 'Kind']],
+             display_name: pulumi.Input[str],
+             package_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             source: pulumi.Input['MetadataSourceArgs'],
+             version: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
+             categories: Optional[pulumi.Input['MetadataCategoriesArgs']] = None,
+             content_schema_version: Optional[pulumi.Input[str]] = None,
+             custom_version: Optional[pulumi.Input[str]] = None,
+             dependencies: Optional[pulumi.Input['MetadataDependenciesArgs']] = None,
+             first_publish_date: Optional[pulumi.Input[str]] = None,
+             icon: Optional[pulumi.Input[str]] = None,
+             last_publish_date: Optional[pulumi.Input[str]] = None,
+             main_template: Optional[Any] = None,
+             package_kind: Optional[pulumi.Input[Union[str, 'PackageKind']]] = None,
+             package_name: Optional[pulumi.Input[str]] = None,
+             preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             preview_images_dark: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_id", content_id)
+        _setter("content_kind", content_kind)
+        _setter("display_name", display_name)
+        _setter("package_id", package_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source", source)
+        _setter("version", version)
+        _setter("workspace_name", workspace_name)
         if author is not None:
-            pulumi.set(__self__, "author", author)
+            _setter("author", author)
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if content_schema_version is not None:
-            pulumi.set(__self__, "content_schema_version", content_schema_version)
+            _setter("content_schema_version", content_schema_version)
         if custom_version is not None:
-            pulumi.set(__self__, "custom_version", custom_version)
+            _setter("custom_version", custom_version)
         if dependencies is not None:
-            pulumi.set(__self__, "dependencies", dependencies)
+            _setter("dependencies", dependencies)
         if first_publish_date is not None:
-            pulumi.set(__self__, "first_publish_date", first_publish_date)
+            _setter("first_publish_date", first_publish_date)
         if icon is not None:
-            pulumi.set(__self__, "icon", icon)
+            _setter("icon", icon)
         if last_publish_date is not None:
-            pulumi.set(__self__, "last_publish_date", last_publish_date)
+            _setter("last_publish_date", last_publish_date)
         if main_template is not None:
-            pulumi.set(__self__, "main_template", main_template)
+            _setter("main_template", main_template)
         if package_kind is not None:
-            pulumi.set(__self__, "package_kind", package_kind)
+            _setter("package_kind", package_kind)
         if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
+            _setter("package_name", package_name)
         if preview_images is not None:
-            pulumi.set(__self__, "preview_images", preview_images)
+            _setter("preview_images", preview_images)
         if preview_images_dark is not None:
-            pulumi.set(__self__, "preview_images_dark", preview_images_dark)
+            _setter("preview_images_dark", preview_images_dark)
         if providers is not None:
-            pulumi.set(__self__, "providers", providers)
+            _setter("providers", providers)
         if support is not None:
-            pulumi.set(__self__, "support", support)
+            _setter("support", support)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
         if threat_analysis_tactics is not None:
-            pulumi.set(__self__, "threat_analysis_tactics", threat_analysis_tactics)
+            _setter("threat_analysis_tactics", threat_analysis_tactics)
         if threat_analysis_techniques is not None:
-            pulumi.set(__self__, "threat_analysis_techniques", threat_analysis_techniques)
+            _setter("threat_analysis_techniques", threat_analysis_techniques)
 
     @property
     @pulumi.getter(name="contentId")
@@ -515,6 +574,10 @@ class ContentTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContentTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -555,7 +618,17 @@ class ContentTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContentTemplateArgs.__new__(ContentTemplateArgs)
 
+            if not isinstance(author, MetadataAuthorArgs):
+                author = author or {}
+                def _setter(key, value):
+                    author[key] = value
+                MetadataAuthorArgs._configure(_setter, **author)
             __props__.__dict__["author"] = author
+            if not isinstance(categories, MetadataCategoriesArgs):
+                categories = categories or {}
+                def _setter(key, value):
+                    categories[key] = value
+                MetadataCategoriesArgs._configure(_setter, **categories)
             __props__.__dict__["categories"] = categories
             if content_id is None and not opts.urn:
                 raise TypeError("Missing required property 'content_id'")
@@ -565,6 +638,11 @@ class ContentTemplate(pulumi.CustomResource):
             __props__.__dict__["content_kind"] = content_kind
             __props__.__dict__["content_schema_version"] = content_schema_version
             __props__.__dict__["custom_version"] = custom_version
+            if not isinstance(dependencies, MetadataDependenciesArgs):
+                dependencies = dependencies or {}
+                def _setter(key, value):
+                    dependencies[key] = value
+                MetadataDependenciesArgs._configure(_setter, **dependencies)
             __props__.__dict__["dependencies"] = dependencies
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -584,9 +662,19 @@ class ContentTemplate(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(source, MetadataSourceArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                MetadataSourceArgs._configure(_setter, **source)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
+            if not isinstance(support, MetadataSupportArgs):
+                support = support or {}
+                def _setter(key, value):
+                    support[key] = value
+                MetadataSupportArgs._configure(_setter, **support)
             __props__.__dict__["support"] = support
             __props__.__dict__["template_id"] = template_id
             __props__.__dict__["threat_analysis_tactics"] = threat_analysis_tactics

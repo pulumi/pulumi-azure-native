@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -43,31 +43,64 @@ class VirtualHardDiskArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hard_disk_name: Name of the virtual hard disk
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualHardDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            block_size_bytes=block_size_bytes,
+            container_id=container_id,
+            disk_file_format=disk_file_format,
+            disk_size_gb=disk_size_gb,
+            dynamic=dynamic,
+            extended_location=extended_location,
+            hyper_v_generation=hyper_v_generation,
+            location=location,
+            logical_sector_bytes=logical_sector_bytes,
+            physical_sector_bytes=physical_sector_bytes,
+            tags=tags,
+            virtual_hard_disk_name=virtual_hard_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             block_size_bytes: Optional[pulumi.Input[int]] = None,
+             container_id: Optional[pulumi.Input[str]] = None,
+             disk_file_format: Optional[pulumi.Input[Union[str, 'DiskFileFormat']]] = None,
+             disk_size_gb: Optional[pulumi.Input[float]] = None,
+             dynamic: Optional[pulumi.Input[bool]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             logical_sector_bytes: Optional[pulumi.Input[int]] = None,
+             physical_sector_bytes: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hard_disk_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if block_size_bytes is not None:
-            pulumi.set(__self__, "block_size_bytes", block_size_bytes)
+            _setter("block_size_bytes", block_size_bytes)
         if container_id is not None:
-            pulumi.set(__self__, "container_id", container_id)
+            _setter("container_id", container_id)
         if disk_file_format is not None:
-            pulumi.set(__self__, "disk_file_format", disk_file_format)
+            _setter("disk_file_format", disk_file_format)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if dynamic is not None:
-            pulumi.set(__self__, "dynamic", dynamic)
+            _setter("dynamic", dynamic)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if hyper_v_generation is not None:
-            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+            _setter("hyper_v_generation", hyper_v_generation)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if logical_sector_bytes is not None:
-            pulumi.set(__self__, "logical_sector_bytes", logical_sector_bytes)
+            _setter("logical_sector_bytes", logical_sector_bytes)
         if physical_sector_bytes is not None:
-            pulumi.set(__self__, "physical_sector_bytes", physical_sector_bytes)
+            _setter("physical_sector_bytes", physical_sector_bytes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hard_disk_name is not None:
-            pulumi.set(__self__, "virtual_hard_disk_name", virtual_hard_disk_name)
+            _setter("virtual_hard_disk_name", virtual_hard_disk_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -273,6 +306,10 @@ class VirtualHardDisk(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualHardDiskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -305,6 +342,11 @@ class VirtualHardDisk(pulumi.CustomResource):
             __props__.__dict__["disk_file_format"] = disk_file_format
             __props__.__dict__["disk_size_gb"] = disk_size_gb
             __props__.__dict__["dynamic"] = dynamic
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["location"] = location

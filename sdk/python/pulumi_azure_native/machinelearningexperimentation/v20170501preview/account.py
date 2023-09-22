@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,22 +39,49 @@ class AccountArgs:
         :param pulumi.Input[str] seats: The no of users/seats who can access this team account. This property defines the charge on the team account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account", storage_account)
-        pulumi.set(__self__, "vso_account_id", vso_account_id)
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+            resource_group_name=resource_group_name,
+            storage_account=storage_account,
+            vso_account_id=vso_account_id,
+            account_name=account_name,
+            description=description,
+            friendly_name=friendly_name,
+            location=location,
+            seats=seats,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_account: pulumi.Input['StorageAccountPropertiesArgs'],
+             vso_account_id: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             seats: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_id", key_vault_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account", storage_account)
+        _setter("vso_account_id", vso_account_id)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if seats is not None:
-            pulumi.set(__self__, "seats", seats)
+            _setter("seats", seats)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -228,6 +255,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -263,6 +294,11 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["seats"] = seats
+            if not isinstance(storage_account, StorageAccountPropertiesArgs):
+                storage_account = storage_account or {}
+                def _setter(key, value):
+                    storage_account[key] = value
+                StorageAccountPropertiesArgs._configure(_setter, **storage_account)
             if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__.__dict__["storage_account"] = storage_account

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,11 +54,24 @@ class ActionGroupsInformationResponse(dict):
         :param str custom_email_subject: An optional custom email subject to use in email notifications.
         :param str custom_webhook_payload: An optional custom web-hook payload to use in web-hook notifications.
         """
-        pulumi.set(__self__, "group_ids", group_ids)
+        ActionGroupsInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            custom_email_subject=custom_email_subject,
+            custom_webhook_payload=custom_webhook_payload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Sequence[str],
+             custom_email_subject: Optional[str] = None,
+             custom_webhook_payload: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_ids", group_ids)
         if custom_email_subject is not None:
-            pulumi.set(__self__, "custom_email_subject", custom_email_subject)
+            _setter("custom_email_subject", custom_email_subject)
         if custom_webhook_payload is not None:
-            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
+            _setter("custom_webhook_payload", custom_webhook_payload)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -123,16 +136,33 @@ class DetectorParameterDefinitionResponse(dict):
         :param str name: The detector parameter name.
         :param str type: The detector parameter type.
         """
+        DetectorParameterDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            is_mandatory=is_mandatory,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             is_mandatory: Optional[bool] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if is_mandatory is not None:
-            pulumi.set(__self__, "is_mandatory", is_mandatory)
+            _setter("is_mandatory", is_mandatory)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -223,15 +253,38 @@ class DetectorResponse(dict):
         :param Sequence[str] supported_resource_types: The Smart Detector supported resource types.
         :param Mapping[str, Any] parameters: The detector's parameters.'
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "image_paths", image_paths)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameter_definitions", parameter_definitions)
-        pulumi.set(__self__, "supported_cadences", supported_cadences)
-        pulumi.set(__self__, "supported_resource_types", supported_resource_types)
+        DetectorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            id=id,
+            image_paths=image_paths,
+            name=name,
+            parameter_definitions=parameter_definitions,
+            supported_cadences=supported_cadences,
+            supported_resource_types=supported_resource_types,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             id: str,
+             image_paths: Sequence[str],
+             name: str,
+             parameter_definitions: Sequence['outputs.DetectorParameterDefinitionResponse'],
+             supported_cadences: Sequence[int],
+             supported_resource_types: Sequence[str],
+             parameters: Optional[Mapping[str, Any]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("id", id)
+        _setter("image_paths", image_paths)
+        _setter("name", name)
+        _setter("parameter_definitions", parameter_definitions)
+        _setter("supported_cadences", supported_cadences)
+        _setter("supported_resource_types", supported_resource_types)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -309,8 +362,17 @@ class ThrottlingInformationResponse(dict):
         Optional throttling information for the alert rule.
         :param str duration: The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
         """
+        ThrottlingInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,52 @@ class ClusterArgs:
         :param pulumi.Input['ClusterSkuArgs'] sku: The sku properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            billing_type=billing_type,
+            cluster_name=cluster_name,
+            identity=identity,
+            is_availability_zones_enabled=is_availability_zones_enabled,
+            is_double_encryption_enabled=is_double_encryption_enabled,
+            key_vault_properties=key_vault_properties,
+            location=location,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             billing_type: Optional[pulumi.Input[Union[str, 'BillingType']]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             is_availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
+             is_double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ClusterSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if billing_type is not None:
-            pulumi.set(__self__, "billing_type", billing_type)
+            _setter("billing_type", billing_type)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if is_availability_zones_enabled is not None:
-            pulumi.set(__self__, "is_availability_zones_enabled", is_availability_zones_enabled)
+            _setter("is_availability_zones_enabled", is_availability_zones_enabled)
         if is_double_encryption_enabled is not None:
-            pulumi.set(__self__, "is_double_encryption_enabled", is_double_encryption_enabled)
+            _setter("is_double_encryption_enabled", is_double_encryption_enabled)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -232,6 +259,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,14 +289,29 @@ class Cluster(pulumi.CustomResource):
 
             __props__.__dict__["billing_type"] = billing_type
             __props__.__dict__["cluster_name"] = cluster_name
+            if not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["is_availability_zones_enabled"] = is_availability_zones_enabled
             __props__.__dict__["is_double_encryption_enabled"] = is_double_encryption_enabled
+            if not isinstance(key_vault_properties, KeyVaultPropertiesArgs):
+                key_vault_properties = key_vault_properties or {}
+                def _setter(key, value):
+                    key_vault_properties[key] = value
+                KeyVaultPropertiesArgs._configure(_setter, **key_vault_properties)
             __props__.__dict__["key_vault_properties"] = key_vault_properties
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, ClusterSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ClusterSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_workspaces"] = None

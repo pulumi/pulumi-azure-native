@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,31 +48,66 @@ class NspAccessRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]] subscriptions: List of subscription ids
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NspAccessRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_security_perimeter_name=network_security_perimeter_name,
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            access_rule_name=access_rule_name,
+            address_prefixes=address_prefixes,
+            direction=direction,
+            email_addresses=email_addresses,
+            fully_qualified_domain_names=fully_qualified_domain_names,
+            id=id,
+            location=location,
+            name=name,
+            phone_numbers=phone_numbers,
+            subscriptions=subscriptions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_security_perimeter_name: pulumi.Input[str],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             access_rule_name: Optional[pulumi.Input[str]] = None,
+             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             direction: Optional[pulumi.Input[Union[str, 'AccessRuleDirection']]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_security_perimeter_name", network_security_perimeter_name)
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if access_rule_name is not None:
-            pulumi.set(__self__, "access_rule_name", access_rule_name)
+            _setter("access_rule_name", access_rule_name)
         if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
+            _setter("address_prefixes", address_prefixes)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if fully_qualified_domain_names is not None:
-            pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
+            _setter("fully_qualified_domain_names", fully_qualified_domain_names)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone_numbers is not None:
-            pulumi.set(__self__, "phone_numbers", phone_numbers)
+            _setter("phone_numbers", phone_numbers)
         if subscriptions is not None:
-            pulumi.set(__self__, "subscriptions", subscriptions)
+            _setter("subscriptions", subscriptions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkSecurityPerimeterName")
@@ -304,6 +339,10 @@ class NspAccessRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NspAccessRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

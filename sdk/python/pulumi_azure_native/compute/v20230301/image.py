@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,44 @@ class ImageArgs:
         :param pulumi.Input['ImageStorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            extended_location=extended_location,
+            hyper_v_generation=hyper_v_generation,
+            image_name=image_name,
+            location=location,
+            source_virtual_machine=source_virtual_machine,
+            storage_profile=storage_profile,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGenerationTypes']]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             source_virtual_machine: Optional[pulumi.Input['SubResourceArgs']] = None,
+             storage_profile: Optional[pulumi.Input['ImageStorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if hyper_v_generation is not None:
-            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+            _setter("hyper_v_generation", hyper_v_generation)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if source_virtual_machine is not None:
-            pulumi.set(__self__, "source_virtual_machine", source_virtual_machine)
+            _setter("source_virtual_machine", source_virtual_machine)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +219,10 @@ class Image(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,6 +245,11 @@ class Image(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ImageArgs.__new__(ImageArgs)
 
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["image_name"] = image_name
@@ -225,7 +257,17 @@ class Image(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(source_virtual_machine, SubResourceArgs):
+                source_virtual_machine = source_virtual_machine or {}
+                def _setter(key, value):
+                    source_virtual_machine[key] = value
+                SubResourceArgs._configure(_setter, **source_virtual_machine)
             __props__.__dict__["source_virtual_machine"] = source_virtual_machine
+            if not isinstance(storage_profile, ImageStorageProfileArgs):
+                storage_profile = storage_profile or {}
+                def _setter(key, value):
+                    storage_profile[key] = value
+                ImageStorageProfileArgs._configure(_setter, **storage_profile)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

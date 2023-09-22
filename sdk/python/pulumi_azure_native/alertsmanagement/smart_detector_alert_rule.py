@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,25 +44,56 @@ class SmartDetectorAlertRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input['ThrottlingInformationArgs'] throttling: The alert rule throttling information.
         """
-        pulumi.set(__self__, "action_groups", action_groups)
-        pulumi.set(__self__, "detector", detector)
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "state", state)
+        SmartDetectorAlertRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_groups=action_groups,
+            detector=detector,
+            frequency=frequency,
+            resource_group_name=resource_group_name,
+            scope=scope,
+            severity=severity,
+            state=state,
+            alert_rule_name=alert_rule_name,
+            description=description,
+            location=location,
+            tags=tags,
+            throttling=throttling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_groups: pulumi.Input['ActionGroupsInformationArgs'],
+             detector: pulumi.Input['DetectorArgs'],
+             frequency: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             scope: pulumi.Input[Sequence[pulumi.Input[str]]],
+             severity: pulumi.Input[Union[str, 'Severity']],
+             state: pulumi.Input[Union[str, 'AlertRuleState']],
+             alert_rule_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             throttling: Optional[pulumi.Input['ThrottlingInformationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_groups", action_groups)
+        _setter("detector", detector)
+        _setter("frequency", frequency)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scope", scope)
+        _setter("severity", severity)
+        _setter("state", state)
         if alert_rule_name is not None:
-            pulumi.set(__self__, "alert_rule_name", alert_rule_name)
+            _setter("alert_rule_name", alert_rule_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if throttling is not None:
-            pulumi.set(__self__, "throttling", throttling)
+            _setter("throttling", throttling)
 
     @property
     @pulumi.getter(name="actionGroups")
@@ -266,6 +297,10 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SmartDetectorAlertRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -292,11 +327,21 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SmartDetectorAlertRuleArgs.__new__(SmartDetectorAlertRuleArgs)
 
+            if not isinstance(action_groups, ActionGroupsInformationArgs):
+                action_groups = action_groups or {}
+                def _setter(key, value):
+                    action_groups[key] = value
+                ActionGroupsInformationArgs._configure(_setter, **action_groups)
             if action_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'action_groups'")
             __props__.__dict__["action_groups"] = action_groups
             __props__.__dict__["alert_rule_name"] = alert_rule_name
             __props__.__dict__["description"] = description
+            if not isinstance(detector, DetectorArgs):
+                detector = detector or {}
+                def _setter(key, value):
+                    detector[key] = value
+                DetectorArgs._configure(_setter, **detector)
             if detector is None and not opts.urn:
                 raise TypeError("Missing required property 'detector'")
             __props__.__dict__["detector"] = detector
@@ -319,6 +364,11 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
+            if not isinstance(throttling, ThrottlingInformationArgs):
+                throttling = throttling or {}
+                def _setter(key, value):
+                    throttling[key] = value
+                ThrottlingInformationArgs._configure(_setter, **throttling)
             __props__.__dict__["throttling"] = throttling
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None

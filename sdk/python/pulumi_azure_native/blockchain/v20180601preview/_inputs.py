@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -24,8 +24,17 @@ class BlockchainMemberNodesSkuArgs:
         Payload of the blockchain member nodes Sku for a blockchain member.
         :param pulumi.Input[int] capacity: Gets or sets the nodes capacity.
         """
+        BlockchainMemberNodesSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -52,12 +61,25 @@ class FirewallRuleArgs:
         :param pulumi.Input[str] rule_name: Gets or sets the name of the firewall rules.
         :param pulumi.Input[str] start_ip_address: Gets or sets the start IP address of the firewall rule range.
         """
+        FirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            rule_name=rule_name,
+            start_ip_address=start_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end_ip_address is not None:
-            pulumi.set(__self__, "end_ip_address", end_ip_address)
+            _setter("end_ip_address", end_ip_address)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if start_ip_address is not None:
-            pulumi.set(__self__, "start_ip_address", start_ip_address)
+            _setter("start_ip_address", start_ip_address)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -106,10 +128,21 @@ class SkuArgs:
         :param pulumi.Input[str] name: Gets or sets Sku name
         :param pulumi.Input[str] tier: Gets or sets Sku tier
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

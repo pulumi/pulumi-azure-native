@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,21 +44,52 @@ class StudentArgs:
         :param pulumi.Input[str] subscription_alias: Subscription alias
         :param pulumi.Input[str] subscription_invite_last_sent_date: subscription invite last sent date
         """
-        pulumi.set(__self__, "billing_account_name", billing_account_name)
-        pulumi.set(__self__, "billing_profile_name", billing_profile_name)
-        pulumi.set(__self__, "budget", budget)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "expiration_date", expiration_date)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "invoice_section_name", invoice_section_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "role", role)
+        StudentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_account_name=billing_account_name,
+            billing_profile_name=billing_profile_name,
+            budget=budget,
+            email=email,
+            expiration_date=expiration_date,
+            first_name=first_name,
+            invoice_section_name=invoice_section_name,
+            last_name=last_name,
+            role=role,
+            student_alias=student_alias,
+            subscription_alias=subscription_alias,
+            subscription_invite_last_sent_date=subscription_invite_last_sent_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_account_name: pulumi.Input[str],
+             billing_profile_name: pulumi.Input[str],
+             budget: pulumi.Input['AmountArgs'],
+             email: pulumi.Input[str],
+             expiration_date: pulumi.Input[str],
+             first_name: pulumi.Input[str],
+             invoice_section_name: pulumi.Input[str],
+             last_name: pulumi.Input[str],
+             role: pulumi.Input[Union[str, 'StudentRole']],
+             student_alias: Optional[pulumi.Input[str]] = None,
+             subscription_alias: Optional[pulumi.Input[str]] = None,
+             subscription_invite_last_sent_date: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("billing_account_name", billing_account_name)
+        _setter("billing_profile_name", billing_profile_name)
+        _setter("budget", budget)
+        _setter("email", email)
+        _setter("expiration_date", expiration_date)
+        _setter("first_name", first_name)
+        _setter("invoice_section_name", invoice_section_name)
+        _setter("last_name", last_name)
+        _setter("role", role)
         if student_alias is not None:
-            pulumi.set(__self__, "student_alias", student_alias)
+            _setter("student_alias", student_alias)
         if subscription_alias is not None:
-            pulumi.set(__self__, "subscription_alias", subscription_alias)
+            _setter("subscription_alias", subscription_alias)
         if subscription_invite_last_sent_date is not None:
-            pulumi.set(__self__, "subscription_invite_last_sent_date", subscription_invite_last_sent_date)
+            _setter("subscription_invite_last_sent_date", subscription_invite_last_sent_date)
 
     @property
     @pulumi.getter(name="billingAccountName")
@@ -262,6 +293,10 @@ class Student(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StudentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -294,6 +329,11 @@ class Student(pulumi.CustomResource):
             if billing_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_profile_name'")
             __props__.__dict__["billing_profile_name"] = billing_profile_name
+            if not isinstance(budget, AmountArgs):
+                budget = budget or {}
+                def _setter(key, value):
+                    budget[key] = value
+                AmountArgs._configure(_setter, **budget)
             if budget is None and not opts.urn:
                 raise TypeError("Missing required property 'budget'")
             __props__.__dict__["budget"] = budget

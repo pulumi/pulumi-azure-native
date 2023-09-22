@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,35 +52,74 @@ class ViewByScopeArgs:
         :param pulumi.Input['ReportConfigTimePeriodArgs'] time_period: Has time period for pulling data for the report.
         :param pulumi.Input[str] view_name: View name
         """
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
+        ViewByScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            timeframe=timeframe,
+            type=type,
+            accumulated=accumulated,
+            chart=chart,
+            data_set=data_set,
+            date_range=date_range,
+            display_name=display_name,
+            e_tag=e_tag,
+            include_monetary_commitment=include_monetary_commitment,
+            kpis=kpis,
+            metric=metric,
+            modified_on=modified_on,
+            pivots=pivots,
+            time_period=time_period,
+            view_name=view_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             timeframe: pulumi.Input[Union[str, 'ReportTimeframeType']],
+             type: pulumi.Input[Union[str, 'ReportType']],
+             accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
+             chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
+             data_set: Optional[pulumi.Input['ReportConfigDatasetArgs']] = None,
+             date_range: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
+             kpis: Optional[pulumi.Input[Sequence[pulumi.Input['KpiPropertiesArgs']]]] = None,
+             metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
+             modified_on: Optional[pulumi.Input[str]] = None,
+             pivots: Optional[pulumi.Input[Sequence[pulumi.Input['PivotPropertiesArgs']]]] = None,
+             time_period: Optional[pulumi.Input['ReportConfigTimePeriodArgs']] = None,
+             view_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scope", scope)
+        _setter("timeframe", timeframe)
+        _setter("type", type)
         if accumulated is not None:
-            pulumi.set(__self__, "accumulated", accumulated)
+            _setter("accumulated", accumulated)
         if chart is not None:
-            pulumi.set(__self__, "chart", chart)
+            _setter("chart", chart)
         if data_set is not None:
-            pulumi.set(__self__, "data_set", data_set)
+            _setter("data_set", data_set)
         if date_range is not None:
-            pulumi.set(__self__, "date_range", date_range)
+            _setter("date_range", date_range)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if include_monetary_commitment is not None:
-            pulumi.set(__self__, "include_monetary_commitment", include_monetary_commitment)
+            _setter("include_monetary_commitment", include_monetary_commitment)
         if kpis is not None:
-            pulumi.set(__self__, "kpis", kpis)
+            _setter("kpis", kpis)
         if metric is not None:
-            pulumi.set(__self__, "metric", metric)
+            _setter("metric", metric)
         if modified_on is not None:
-            pulumi.set(__self__, "modified_on", modified_on)
+            _setter("modified_on", modified_on)
         if pivots is not None:
-            pulumi.set(__self__, "pivots", pivots)
+            _setter("pivots", pivots)
         if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
+            _setter("time_period", time_period)
         if view_name is not None:
-            pulumi.set(__self__, "view_name", view_name)
+            _setter("view_name", view_name)
 
     @property
     @pulumi.getter
@@ -338,6 +377,10 @@ class ViewByScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ViewByScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -370,6 +413,11 @@ class ViewByScope(pulumi.CustomResource):
 
             __props__.__dict__["accumulated"] = accumulated
             __props__.__dict__["chart"] = chart
+            if not isinstance(data_set, ReportConfigDatasetArgs):
+                data_set = data_set or {}
+                def _setter(key, value):
+                    data_set[key] = value
+                ReportConfigDatasetArgs._configure(_setter, **data_set)
             __props__.__dict__["data_set"] = data_set
             __props__.__dict__["date_range"] = date_range
             __props__.__dict__["display_name"] = display_name
@@ -382,6 +430,11 @@ class ViewByScope(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            if not isinstance(time_period, ReportConfigTimePeriodArgs):
+                time_period = time_period or {}
+                def _setter(key, value):
+                    time_period[key] = value
+                ReportConfigTimePeriodArgs._configure(_setter, **time_period)
             __props__.__dict__["time_period"] = time_period
             if timeframe is None and not opts.urn:
                 raise TypeError("Missing required property 'timeframe'")

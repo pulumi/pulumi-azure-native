@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -55,31 +55,72 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]] tactics: The tactics of the SecurityMLAnalyticsSettings
         :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: The techniques of the SecurityMLAnalyticsSettings
         """
-        pulumi.set(__self__, "anomaly_version", anomaly_version)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "is_default_settings", is_default_settings)
-        pulumi.set(__self__, "kind", 'Anomaly')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "settings_status", settings_status)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        AnomalySecurityMLAnalyticsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            anomaly_version=anomaly_version,
+            display_name=display_name,
+            enabled=enabled,
+            frequency=frequency,
+            is_default_settings=is_default_settings,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            settings_status=settings_status,
+            workspace_name=workspace_name,
+            anomaly_settings_version=anomaly_settings_version,
+            customizable_observations=customizable_observations,
+            description=description,
+            required_data_connectors=required_data_connectors,
+            settings_definition_id=settings_definition_id,
+            settings_resource_name=settings_resource_name,
+            tactics=tactics,
+            techniques=techniques,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             anomaly_version: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             enabled: pulumi.Input[bool],
+             frequency: pulumi.Input[str],
+             is_default_settings: pulumi.Input[bool],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             settings_status: pulumi.Input[Union[str, 'SettingsStatus']],
+             workspace_name: pulumi.Input[str],
+             anomaly_settings_version: Optional[pulumi.Input[int]] = None,
+             customizable_observations: Optional[Any] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMLAnalyticsSettingsDataSourceArgs']]]] = None,
+             settings_definition_id: Optional[pulumi.Input[str]] = None,
+             settings_resource_name: Optional[pulumi.Input[str]] = None,
+             tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None,
+             techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("anomaly_version", anomaly_version)
+        _setter("display_name", display_name)
+        _setter("enabled", enabled)
+        _setter("frequency", frequency)
+        _setter("is_default_settings", is_default_settings)
+        _setter("kind", 'Anomaly')
+        _setter("resource_group_name", resource_group_name)
+        _setter("settings_status", settings_status)
+        _setter("workspace_name", workspace_name)
         if anomaly_settings_version is not None:
-            pulumi.set(__self__, "anomaly_settings_version", anomaly_settings_version)
+            _setter("anomaly_settings_version", anomaly_settings_version)
         if customizable_observations is not None:
-            pulumi.set(__self__, "customizable_observations", customizable_observations)
+            _setter("customizable_observations", customizable_observations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if required_data_connectors is not None:
-            pulumi.set(__self__, "required_data_connectors", required_data_connectors)
+            _setter("required_data_connectors", required_data_connectors)
         if settings_definition_id is not None:
-            pulumi.set(__self__, "settings_definition_id", settings_definition_id)
+            _setter("settings_definition_id", settings_definition_id)
         if settings_resource_name is not None:
-            pulumi.set(__self__, "settings_resource_name", settings_resource_name)
+            _setter("settings_resource_name", settings_resource_name)
         if tactics is not None:
-            pulumi.set(__self__, "tactics", tactics)
+            _setter("tactics", tactics)
         if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
+            _setter("techniques", techniques)
 
     @property
     @pulumi.getter(name="anomalyVersion")
@@ -353,6 +394,10 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnomalySecurityMLAnalyticsSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

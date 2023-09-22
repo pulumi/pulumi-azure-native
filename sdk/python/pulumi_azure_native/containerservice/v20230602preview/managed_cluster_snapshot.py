@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,36 @@ class ManagedClusterSnapshotArgs:
         :param pulumi.Input[Union[str, 'SnapshotType']] snapshot_type: The type of a snapshot. The default is NodePool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedClusterSnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            creation_data=creation_data,
+            location=location,
+            resource_name=resource_name,
+            snapshot_type=snapshot_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             creation_data: Optional[pulumi.Input['CreationDataArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             snapshot_type: Optional[pulumi.Input[Union[str, 'SnapshotType']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if creation_data is not None:
-            pulumi.set(__self__, "creation_data", creation_data)
+            _setter("creation_data", creation_data)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if snapshot_type is not None:
-            pulumi.set(__self__, "snapshot_type", snapshot_type)
+            _setter("snapshot_type", snapshot_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -160,6 +179,10 @@ class ManagedClusterSnapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedClusterSnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,6 +203,11 @@ class ManagedClusterSnapshot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedClusterSnapshotArgs.__new__(ManagedClusterSnapshotArgs)
 
+            if not isinstance(creation_data, CreationDataArgs):
+                creation_data = creation_data or {}
+                def _setter(key, value):
+                    creation_data[key] = value
+                CreationDataArgs._configure(_setter, **creation_data)
             __props__.__dict__["creation_data"] = creation_data
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

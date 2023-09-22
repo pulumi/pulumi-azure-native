@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -37,18 +37,37 @@ class NewNotificationsResponse(dict):
         :param str offer_id: Gets offer id
         :param Sequence['PlanNotificationDetailsResponse'] plans: Gets or sets removed plans notifications
         """
+        NewNotificationsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            icon=icon,
+            is_future_plans_enabled=is_future_plans_enabled,
+            message_code=message_code,
+            offer_id=offer_id,
+            plans=plans,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             icon: Optional[str] = None,
+             is_future_plans_enabled: Optional[bool] = None,
+             message_code: Optional[float] = None,
+             offer_id: Optional[str] = None,
+             plans: Optional[Sequence['outputs.PlanNotificationDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if icon is not None:
-            pulumi.set(__self__, "icon", icon)
+            _setter("icon", icon)
         if is_future_plans_enabled is not None:
-            pulumi.set(__self__, "is_future_plans_enabled", is_future_plans_enabled)
+            _setter("is_future_plans_enabled", is_future_plans_enabled)
         if message_code is not None:
-            pulumi.set(__self__, "message_code", message_code)
+            _setter("message_code", message_code)
         if offer_id is not None:
-            pulumi.set(__self__, "offer_id", offer_id)
+            _setter("offer_id", offer_id)
         if plans is not None:
-            pulumi.set(__self__, "plans", plans)
+            _setter("plans", plans)
 
     @property
     @pulumi.getter(name="displayName")
@@ -112,10 +131,21 @@ class PlanNotificationDetailsResponse(dict):
         :param str plan_display_name: Gets or sets the plan display name
         :param str plan_id: Gets or sets the plan id
         """
+        PlanNotificationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            plan_display_name=plan_display_name,
+            plan_id=plan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             plan_display_name: Optional[str] = None,
+             plan_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if plan_display_name is not None:
-            pulumi.set(__self__, "plan_display_name", plan_display_name)
+            _setter("plan_display_name", plan_display_name)
         if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
+            _setter("plan_id", plan_id)
 
     @property
     @pulumi.getter(name="planDisplayName")
@@ -159,14 +189,37 @@ class StopSellOffersPlansNotificationsListPropertiesResponse(dict):
         :param bool public_context: True if the offer has public plans
         :param Sequence[str] subscriptions_ids: The subscriptions related to private plans
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "icon", icon)
-        pulumi.set(__self__, "is_entire", is_entire)
-        pulumi.set(__self__, "message_code", message_code)
-        pulumi.set(__self__, "offer_id", offer_id)
-        pulumi.set(__self__, "plans", plans)
-        pulumi.set(__self__, "public_context", public_context)
-        pulumi.set(__self__, "subscriptions_ids", subscriptions_ids)
+        StopSellOffersPlansNotificationsListPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            icon=icon,
+            is_entire=is_entire,
+            message_code=message_code,
+            offer_id=offer_id,
+            plans=plans,
+            public_context=public_context,
+            subscriptions_ids=subscriptions_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: str,
+             icon: str,
+             is_entire: bool,
+             message_code: float,
+             offer_id: str,
+             plans: Sequence['outputs.PlanNotificationDetailsResponse'],
+             public_context: bool,
+             subscriptions_ids: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("icon", icon)
+        _setter("is_entire", is_entire)
+        _setter("message_code", message_code)
+        _setter("offer_id", offer_id)
+        _setter("plans", plans)
+        _setter("public_context", public_context)
+        _setter("subscriptions_ids", subscriptions_ids)
 
     @property
     @pulumi.getter(name="displayName")

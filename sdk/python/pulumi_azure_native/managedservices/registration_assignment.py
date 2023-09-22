@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,24 @@ class RegistrationAssignmentArgs:
         :param pulumi.Input['RegistrationAssignmentPropertiesArgs'] properties: The properties of a registration assignment.
         :param pulumi.Input[str] registration_assignment_id: The GUID of the registration assignment.
         """
-        pulumi.set(__self__, "scope", scope)
+        RegistrationAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            properties=properties,
+            registration_assignment_id=registration_assignment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             properties: Optional[pulumi.Input['RegistrationAssignmentPropertiesArgs']] = None,
+             registration_assignment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scope", scope)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if registration_assignment_id is not None:
-            pulumi.set(__self__, "registration_assignment_id", registration_assignment_id)
+            _setter("registration_assignment_id", registration_assignment_id)
 
     @property
     @pulumi.getter
@@ -107,6 +120,10 @@ class RegistrationAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistrationAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -124,6 +141,11 @@ class RegistrationAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegistrationAssignmentArgs.__new__(RegistrationAssignmentArgs)
 
+            if not isinstance(properties, RegistrationAssignmentPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                RegistrationAssignmentPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             __props__.__dict__["registration_assignment_id"] = registration_assignment_id
             if scope is None and not opts.urn:

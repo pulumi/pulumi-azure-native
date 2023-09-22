@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -101,32 +101,65 @@ class AzureDataLakeSectionResponse(dict):
         :param str tenant_id: The ID of the tenant the service principal/app belongs to.
         :param str thumbprint: The thumbprint of the certificate above.
         """
+        AzureDataLakeSectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authority_url=authority_url,
+            certificate=certificate,
+            client_id=client_id,
+            client_secret=client_secret,
+            credential_type=credential_type,
+            is_cert_auth=is_cert_auth,
+            resource_group=resource_group,
+            resource_uri=resource_uri,
+            service_data_access_auth_identity=service_data_access_auth_identity,
+            store_name=store_name,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authority_url: Optional[str] = None,
+             certificate: Optional[str] = None,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             credential_type: Optional[str] = None,
+             is_cert_auth: Optional[bool] = None,
+             resource_group: Optional[str] = None,
+             resource_uri: Optional[str] = None,
+             service_data_access_auth_identity: Optional[str] = None,
+             store_name: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authority_url is not None:
-            pulumi.set(__self__, "authority_url", authority_url)
+            _setter("authority_url", authority_url)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if credential_type is not None:
-            pulumi.set(__self__, "credential_type", credential_type)
+            _setter("credential_type", credential_type)
         if is_cert_auth is not None:
-            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+            _setter("is_cert_auth", is_cert_auth)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
+            _setter("resource_uri", resource_uri)
         if service_data_access_auth_identity is not None:
-            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+            _setter("service_data_access_auth_identity", service_data_access_auth_identity)
         if store_name is not None:
-            pulumi.set(__self__, "store_name", store_name)
+            _setter("store_name", store_name)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="authorityUrl")
@@ -319,42 +352,85 @@ class AzureMySqlSectionResponse(dict):
         :param str user_id: The Azure SQL user id.
         :param str user_password: The Azure SQL user password.
         """
+        AzureMySqlSectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authority_url=authority_url,
+            certificate=certificate,
+            client_id=client_id,
+            client_secret=client_secret,
+            credential_type=credential_type,
+            database_name=database_name,
+            endpoint=endpoint,
+            is_cert_auth=is_cert_auth,
+            port_number=port_number,
+            resource_group=resource_group,
+            resource_uri=resource_uri,
+            server_name=server_name,
+            service_data_access_auth_identity=service_data_access_auth_identity,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            thumbprint=thumbprint,
+            user_id=user_id,
+            user_password=user_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authority_url: Optional[str] = None,
+             certificate: Optional[str] = None,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             credential_type: Optional[str] = None,
+             database_name: Optional[str] = None,
+             endpoint: Optional[str] = None,
+             is_cert_auth: Optional[bool] = None,
+             port_number: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             resource_uri: Optional[str] = None,
+             server_name: Optional[str] = None,
+             service_data_access_auth_identity: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             user_id: Optional[str] = None,
+             user_password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authority_url is not None:
-            pulumi.set(__self__, "authority_url", authority_url)
+            _setter("authority_url", authority_url)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if credential_type is not None:
-            pulumi.set(__self__, "credential_type", credential_type)
+            _setter("credential_type", credential_type)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if is_cert_auth is not None:
-            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+            _setter("is_cert_auth", is_cert_auth)
         if port_number is not None:
-            pulumi.set(__self__, "port_number", port_number)
+            _setter("port_number", port_number)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
+            _setter("resource_uri", resource_uri)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if service_data_access_auth_identity is not None:
-            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+            _setter("service_data_access_auth_identity", service_data_access_auth_identity)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
         if user_password is not None:
-            pulumi.set(__self__, "user_password", user_password)
+            _setter("user_password", user_password)
 
     @property
     @pulumi.getter(name="authorityUrl")
@@ -591,44 +667,89 @@ class AzurePostgreSqlSectionResponse(dict):
         :param str user_id: The Azure SQL user id.
         :param str user_password: The Azure SQL user password.
         """
+        AzurePostgreSqlSectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authority_url=authority_url,
+            certificate=certificate,
+            client_id=client_id,
+            client_secret=client_secret,
+            credential_type=credential_type,
+            database_name=database_name,
+            enable_ssl=enable_ssl,
+            endpoint=endpoint,
+            is_cert_auth=is_cert_auth,
+            port_number=port_number,
+            resource_group=resource_group,
+            resource_uri=resource_uri,
+            server_name=server_name,
+            service_data_access_auth_identity=service_data_access_auth_identity,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            thumbprint=thumbprint,
+            user_id=user_id,
+            user_password=user_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authority_url: Optional[str] = None,
+             certificate: Optional[str] = None,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             credential_type: Optional[str] = None,
+             database_name: Optional[str] = None,
+             enable_ssl: Optional[bool] = None,
+             endpoint: Optional[str] = None,
+             is_cert_auth: Optional[bool] = None,
+             port_number: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             resource_uri: Optional[str] = None,
+             server_name: Optional[str] = None,
+             service_data_access_auth_identity: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             user_id: Optional[str] = None,
+             user_password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authority_url is not None:
-            pulumi.set(__self__, "authority_url", authority_url)
+            _setter("authority_url", authority_url)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if credential_type is not None:
-            pulumi.set(__self__, "credential_type", credential_type)
+            _setter("credential_type", credential_type)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if enable_ssl is not None:
-            pulumi.set(__self__, "enable_ssl", enable_ssl)
+            _setter("enable_ssl", enable_ssl)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if is_cert_auth is not None:
-            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+            _setter("is_cert_auth", is_cert_auth)
         if port_number is not None:
-            pulumi.set(__self__, "port_number", port_number)
+            _setter("port_number", port_number)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
+            _setter("resource_uri", resource_uri)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if service_data_access_auth_identity is not None:
-            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+            _setter("service_data_access_auth_identity", service_data_access_auth_identity)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
         if user_password is not None:
-            pulumi.set(__self__, "user_password", user_password)
+            _setter("user_password", user_password)
 
     @property
     @pulumi.getter(name="authorityUrl")
@@ -869,42 +990,85 @@ class AzureSqlDatabaseSectionResponse(dict):
         :param str user_id: The Azure SQL user id.
         :param str user_password: The Azure SQL user password.
         """
+        AzureSqlDatabaseSectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authority_url=authority_url,
+            certificate=certificate,
+            client_id=client_id,
+            client_secret=client_secret,
+            credential_type=credential_type,
+            database_name=database_name,
+            endpoint=endpoint,
+            is_cert_auth=is_cert_auth,
+            port_number=port_number,
+            resource_group=resource_group,
+            resource_uri=resource_uri,
+            server_name=server_name,
+            service_data_access_auth_identity=service_data_access_auth_identity,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            thumbprint=thumbprint,
+            user_id=user_id,
+            user_password=user_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authority_url: Optional[str] = None,
+             certificate: Optional[str] = None,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             credential_type: Optional[str] = None,
+             database_name: Optional[str] = None,
+             endpoint: Optional[str] = None,
+             is_cert_auth: Optional[bool] = None,
+             port_number: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             resource_uri: Optional[str] = None,
+             server_name: Optional[str] = None,
+             service_data_access_auth_identity: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             user_id: Optional[str] = None,
+             user_password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authority_url is not None:
-            pulumi.set(__self__, "authority_url", authority_url)
+            _setter("authority_url", authority_url)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if credential_type is not None:
-            pulumi.set(__self__, "credential_type", credential_type)
+            _setter("credential_type", credential_type)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if is_cert_auth is not None:
-            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+            _setter("is_cert_auth", is_cert_auth)
         if port_number is not None:
-            pulumi.set(__self__, "port_number", port_number)
+            _setter("port_number", port_number)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
+            _setter("resource_uri", resource_uri)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if service_data_access_auth_identity is not None:
-            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+            _setter("service_data_access_auth_identity", service_data_access_auth_identity)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
         if user_password is not None:
-            pulumi.set(__self__, "user_password", user_password)
+            _setter("user_password", user_password)
 
     @property
     @pulumi.getter(name="authorityUrl")
@@ -1124,36 +1288,73 @@ class AzureStorageSectionResponse(dict):
         :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
         :param str subscription_id: Subscription ID.
         """
+        AzureStorageSectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_key=account_key,
+            account_name=account_name,
+            are_workspace_managed_identities_allowed=are_workspace_managed_identities_allowed,
+            blob_cache_timeout=blob_cache_timeout,
+            client_credentials=client_credentials,
+            container_name=container_name,
+            credential=credential,
+            credential_type=credential_type,
+            endpoint=endpoint,
+            is_sas=is_sas,
+            protocol=protocol,
+            resource_group=resource_group,
+            sas_token=sas_token,
+            service_data_access_auth_identity=service_data_access_auth_identity,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_key: Optional[str] = None,
+             account_name: Optional[str] = None,
+             are_workspace_managed_identities_allowed: Optional[bool] = None,
+             blob_cache_timeout: Optional[int] = None,
+             client_credentials: Optional['outputs.ClientCredentialsResponse'] = None,
+             container_name: Optional[str] = None,
+             credential: Optional[str] = None,
+             credential_type: Optional[str] = None,
+             endpoint: Optional[str] = None,
+             is_sas: Optional[bool] = None,
+             protocol: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             sas_token: Optional[str] = None,
+             service_data_access_auth_identity: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if are_workspace_managed_identities_allowed is not None:
-            pulumi.set(__self__, "are_workspace_managed_identities_allowed", are_workspace_managed_identities_allowed)
+            _setter("are_workspace_managed_identities_allowed", are_workspace_managed_identities_allowed)
         if blob_cache_timeout is not None:
-            pulumi.set(__self__, "blob_cache_timeout", blob_cache_timeout)
+            _setter("blob_cache_timeout", blob_cache_timeout)
         if client_credentials is not None:
-            pulumi.set(__self__, "client_credentials", client_credentials)
+            _setter("client_credentials", client_credentials)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if credential is not None:
-            pulumi.set(__self__, "credential", credential)
+            _setter("credential", credential)
         if credential_type is not None:
-            pulumi.set(__self__, "credential_type", credential_type)
+            _setter("credential_type", credential_type)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if is_sas is not None:
-            pulumi.set(__self__, "is_sas", is_sas)
+            _setter("is_sas", is_sas)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if sas_token is not None:
-            pulumi.set(__self__, "sas_token", sas_token)
+            _setter("sas_token", sas_token)
         if service_data_access_auth_identity is not None:
-            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+            _setter("service_data_access_auth_identity", service_data_access_auth_identity)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -1333,28 +1534,57 @@ class ClientCredentialsResponse(dict):
         :param str tenant_id: The ID of the tenant the service principal/app belongs to.
         :param str thumbprint: The thumbprint of the certificate above.
         """
+        ClientCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authority_url=authority_url,
+            certificate=certificate,
+            client_id=client_id,
+            client_secret=client_secret,
+            is_cert_auth=is_cert_auth,
+            resource_group=resource_group,
+            resource_uri=resource_uri,
+            service_data_access_auth_identity=service_data_access_auth_identity,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authority_url: Optional[str] = None,
+             certificate: Optional[str] = None,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             is_cert_auth: Optional[bool] = None,
+             resource_group: Optional[str] = None,
+             resource_uri: Optional[str] = None,
+             service_data_access_auth_identity: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authority_url is not None:
-            pulumi.set(__self__, "authority_url", authority_url)
+            _setter("authority_url", authority_url)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if is_cert_auth is not None:
-            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+            _setter("is_cert_auth", is_cert_auth)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
+            _setter("resource_uri", resource_uri)
         if service_data_access_auth_identity is not None:
-            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+            _setter("service_data_access_auth_identity", service_data_access_auth_identity)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="authorityUrl")
@@ -1507,20 +1737,51 @@ class DatasetResponse(dict):
         :param 'DatasetStateResponse' dataset_state: Dataset state
         :param 'DatasetResponseLatest' latest: Last created Dataset definition.
         """
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "dataset_id", dataset_id)
-        pulumi.set(__self__, "dataset_type", dataset_type)
-        pulumi.set(__self__, "default_compute", default_compute)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "is_visible", is_visible)
-        pulumi.set(__self__, "modified_time", modified_time)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tags", tags)
+        DatasetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_time=created_time,
+            dataset_id=dataset_id,
+            dataset_type=dataset_type,
+            default_compute=default_compute,
+            description=description,
+            etag=etag,
+            is_visible=is_visible,
+            modified_time=modified_time,
+            name=name,
+            tags=tags,
+            dataset_state=dataset_state,
+            latest=latest,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_time: str,
+             dataset_id: str,
+             dataset_type: str,
+             default_compute: str,
+             description: str,
+             etag: str,
+             is_visible: bool,
+             modified_time: str,
+             name: str,
+             tags: Mapping[str, str],
+             dataset_state: Optional['outputs.DatasetStateResponse'] = None,
+             latest: Optional['outputs.DatasetResponseLatest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("created_time", created_time)
+        _setter("dataset_id", dataset_id)
+        _setter("dataset_type", dataset_type)
+        _setter("default_compute", default_compute)
+        _setter("description", description)
+        _setter("etag", etag)
+        _setter("is_visible", is_visible)
+        _setter("modified_time", modified_time)
+        _setter("name", name)
+        _setter("tags", tags)
         if dataset_state is not None:
-            pulumi.set(__self__, "dataset_state", dataset_state)
+            _setter("dataset_state", dataset_state)
         if latest is not None:
-            pulumi.set(__self__, "latest", latest)
+            _setter("latest", latest)
 
     @property
     @pulumi.getter(name="createdTime")
@@ -1677,17 +1938,42 @@ class DatasetResponseDataPath(dict):
         :param Mapping[str, Any] additional_properties: Additional Properties.
         :param 'DatasetResponseSqlDataPath' sql_data_path: Sql Query/Table/Stored Procedure details.
         """
-        pulumi.set(__self__, "azure_file_path", azure_file_path)
-        pulumi.set(__self__, "datastore_name", datastore_name)
-        pulumi.set(__self__, "http_url", http_url)
-        pulumi.set(__self__, "partition_format", partition_format)
-        pulumi.set(__self__, "partition_format_ignore_error", partition_format_ignore_error)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "relative_path", relative_path)
+        DatasetResponseDataPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_file_path=azure_file_path,
+            datastore_name=datastore_name,
+            http_url=http_url,
+            partition_format=partition_format,
+            partition_format_ignore_error=partition_format_ignore_error,
+            paths=paths,
+            relative_path=relative_path,
+            additional_properties=additional_properties,
+            sql_data_path=sql_data_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_file_path: str,
+             datastore_name: str,
+             http_url: str,
+             partition_format: str,
+             partition_format_ignore_error: bool,
+             paths: Sequence[str],
+             relative_path: str,
+             additional_properties: Optional[Mapping[str, Any]] = None,
+             sql_data_path: Optional['outputs.DatasetResponseSqlDataPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_file_path", azure_file_path)
+        _setter("datastore_name", datastore_name)
+        _setter("http_url", http_url)
+        _setter("partition_format", partition_format)
+        _setter("partition_format_ignore_error", partition_format_ignore_error)
+        _setter("paths", paths)
+        _setter("relative_path", relative_path)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if sql_data_path is not None:
-            pulumi.set(__self__, "sql_data_path", sql_data_path)
+            _setter("sql_data_path", sql_data_path)
 
     @property
     @pulumi.getter(name="azureFilePath")
@@ -1846,28 +2132,71 @@ class DatasetResponseLatest(dict):
         :param 'DatasetStateResponse' dataset_definition_state: Dataset state
         :param Mapping[str, Any] properties: Properties stores information like name of time series column for time series dataset.
         """
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "dataflow", dataflow)
-        pulumi.set(__self__, "dataset_id", dataset_id)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "file_type", file_type)
-        pulumi.set(__self__, "modified_time", modified_time)
-        pulumi.set(__self__, "notes", notes)
-        pulumi.set(__self__, "partition_format_in_path", partition_format_in_path)
-        pulumi.set(__self__, "saved_dataset_id", saved_dataset_id)
-        pulumi.set(__self__, "tags", tags)
-        pulumi.set(__self__, "telemetry_info", telemetry_info)
-        pulumi.set(__self__, "use_description_tags_from_definition", use_description_tags_from_definition)
-        pulumi.set(__self__, "version_id", version_id)
+        DatasetResponseLatest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_time=created_time,
+            dataflow=dataflow,
+            dataset_id=dataset_id,
+            description=description,
+            etag=etag,
+            file_type=file_type,
+            modified_time=modified_time,
+            notes=notes,
+            partition_format_in_path=partition_format_in_path,
+            saved_dataset_id=saved_dataset_id,
+            tags=tags,
+            telemetry_info=telemetry_info,
+            use_description_tags_from_definition=use_description_tags_from_definition,
+            version_id=version_id,
+            created_by=created_by,
+            data_path=data_path,
+            dataset_definition_state=dataset_definition_state,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_time: str,
+             dataflow: str,
+             dataset_id: str,
+             description: str,
+             etag: str,
+             file_type: str,
+             modified_time: str,
+             notes: str,
+             partition_format_in_path: bool,
+             saved_dataset_id: str,
+             tags: Mapping[str, str],
+             telemetry_info: Mapping[str, str],
+             use_description_tags_from_definition: bool,
+             version_id: str,
+             created_by: Optional['outputs.UserInfoResponse'] = None,
+             data_path: Optional['outputs.DatasetResponseDataPath'] = None,
+             dataset_definition_state: Optional['outputs.DatasetStateResponse'] = None,
+             properties: Optional[Mapping[str, Any]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("created_time", created_time)
+        _setter("dataflow", dataflow)
+        _setter("dataset_id", dataset_id)
+        _setter("description", description)
+        _setter("etag", etag)
+        _setter("file_type", file_type)
+        _setter("modified_time", modified_time)
+        _setter("notes", notes)
+        _setter("partition_format_in_path", partition_format_in_path)
+        _setter("saved_dataset_id", saved_dataset_id)
+        _setter("tags", tags)
+        _setter("telemetry_info", telemetry_info)
+        _setter("use_description_tags_from_definition", use_description_tags_from_definition)
+        _setter("version_id", version_id)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if data_path is not None:
-            pulumi.set(__self__, "data_path", data_path)
+            _setter("data_path", data_path)
         if dataset_definition_state is not None:
-            pulumi.set(__self__, "dataset_definition_state", dataset_definition_state)
+            _setter("dataset_definition_state", dataset_definition_state)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="createdTime")
@@ -2054,10 +2383,25 @@ class DatasetResponseSqlDataPath(dict):
         :param str sql_stored_procedure_name: SQL storedProcedure name
         :param str sql_table_name: SQL table name
         """
-        pulumi.set(__self__, "query_timeout", query_timeout)
-        pulumi.set(__self__, "sql_query", sql_query)
-        pulumi.set(__self__, "sql_stored_procedure_name", sql_stored_procedure_name)
-        pulumi.set(__self__, "sql_table_name", sql_table_name)
+        DatasetResponseSqlDataPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_timeout=query_timeout,
+            sql_query=sql_query,
+            sql_stored_procedure_name=sql_stored_procedure_name,
+            sql_table_name=sql_table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_timeout: float,
+             sql_query: str,
+             sql_stored_procedure_name: str,
+             sql_table_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("query_timeout", query_timeout)
+        _setter("sql_query", sql_query)
+        _setter("sql_stored_procedure_name", sql_stored_procedure_name)
+        _setter("sql_table_name", sql_table_name)
 
     @property
     @pulumi.getter(name="queryTimeout")
@@ -2124,11 +2468,24 @@ class DatasetStateResponse(dict):
         :param 'DatasetStateResponseDeprecatedBy' deprecated_by: Reference to better Dataset or a Definition
         :param str state: Dataset state
         """
-        pulumi.set(__self__, "etag", etag)
+        DatasetStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            deprecated_by=deprecated_by,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             deprecated_by: Optional['outputs.DatasetStateResponseDeprecatedBy'] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
         if deprecated_by is not None:
-            pulumi.set(__self__, "deprecated_by", deprecated_by)
+            _setter("deprecated_by", deprecated_by)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -2187,9 +2544,20 @@ class DatasetStateResponseDeprecatedBy(dict):
         :param str dataset_id: Unique Dataset identifier.
         :param str definition_version: Definition Version
         """
-        pulumi.set(__self__, "dataset_id", dataset_id)
+        DatasetStateResponseDeprecatedBy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dataset_id=dataset_id,
+            definition_version=definition_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dataset_id: str,
+             definition_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dataset_id", dataset_id)
         if definition_version is not None:
-            pulumi.set(__self__, "definition_version", definition_version)
+            _setter("definition_version", definition_version)
 
     @property
     @pulumi.getter(name="datasetId")
@@ -2285,35 +2653,74 @@ class DatastoreResponse(dict):
         :param 'LinkedInfoResponse' linked_info: Info about origin if it is linked.
         :param str name: Name of the datastore.
         """
-        pulumi.set(__self__, "created_by", created_by)
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "modified_by", modified_by)
-        pulumi.set(__self__, "modified_time", modified_time)
-        pulumi.set(__self__, "tags", tags)
+        DatastoreResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_by=created_by,
+            created_time=created_time,
+            modified_by=modified_by,
+            modified_time=modified_time,
+            tags=tags,
+            azure_data_lake_section=azure_data_lake_section,
+            azure_my_sql_section=azure_my_sql_section,
+            azure_postgre_sql_section=azure_postgre_sql_section,
+            azure_sql_database_section=azure_sql_database_section,
+            azure_storage_section=azure_storage_section,
+            data_store_type=data_store_type,
+            description=description,
+            gluster_fs_section=gluster_fs_section,
+            has_been_validated=has_been_validated,
+            linked_info=linked_info,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_by: 'outputs.UserInfoResponse',
+             created_time: str,
+             modified_by: 'outputs.UserInfoResponse',
+             modified_time: str,
+             tags: Mapping[str, str],
+             azure_data_lake_section: Optional['outputs.AzureDataLakeSectionResponse'] = None,
+             azure_my_sql_section: Optional['outputs.AzureMySqlSectionResponse'] = None,
+             azure_postgre_sql_section: Optional['outputs.AzurePostgreSqlSectionResponse'] = None,
+             azure_sql_database_section: Optional['outputs.AzureSqlDatabaseSectionResponse'] = None,
+             azure_storage_section: Optional['outputs.AzureStorageSectionResponse'] = None,
+             data_store_type: Optional[str] = None,
+             description: Optional[str] = None,
+             gluster_fs_section: Optional['outputs.GlusterFsSectionResponse'] = None,
+             has_been_validated: Optional[bool] = None,
+             linked_info: Optional['outputs.LinkedInfoResponse'] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("created_by", created_by)
+        _setter("created_time", created_time)
+        _setter("modified_by", modified_by)
+        _setter("modified_time", modified_time)
+        _setter("tags", tags)
         if azure_data_lake_section is not None:
-            pulumi.set(__self__, "azure_data_lake_section", azure_data_lake_section)
+            _setter("azure_data_lake_section", azure_data_lake_section)
         if azure_my_sql_section is not None:
-            pulumi.set(__self__, "azure_my_sql_section", azure_my_sql_section)
+            _setter("azure_my_sql_section", azure_my_sql_section)
         if azure_postgre_sql_section is not None:
-            pulumi.set(__self__, "azure_postgre_sql_section", azure_postgre_sql_section)
+            _setter("azure_postgre_sql_section", azure_postgre_sql_section)
         if azure_sql_database_section is not None:
-            pulumi.set(__self__, "azure_sql_database_section", azure_sql_database_section)
+            _setter("azure_sql_database_section", azure_sql_database_section)
         if azure_storage_section is not None:
-            pulumi.set(__self__, "azure_storage_section", azure_storage_section)
+            _setter("azure_storage_section", azure_storage_section)
         if data_store_type is not None:
-            pulumi.set(__self__, "data_store_type", data_store_type)
+            _setter("data_store_type", data_store_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if gluster_fs_section is not None:
-            pulumi.set(__self__, "gluster_fs_section", gluster_fs_section)
+            _setter("gluster_fs_section", gluster_fs_section)
         if has_been_validated is None:
             has_been_validated = False
         if has_been_validated is not None:
-            pulumi.set(__self__, "has_been_validated", has_been_validated)
+            _setter("has_been_validated", has_been_validated)
         if linked_info is not None:
-            pulumi.set(__self__, "linked_info", linked_info)
+            _setter("linked_info", linked_info)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="createdBy")
@@ -2461,8 +2868,19 @@ class GlusterFsSectionResponse(dict):
         :param str server_address: The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
         :param str volume_name: The name of the created GlusterFS volume.
         """
-        pulumi.set(__self__, "server_address", server_address)
-        pulumi.set(__self__, "volume_name", volume_name)
+        GlusterFsSectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_address=server_address,
+            volume_name=volume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_address: str,
+             volume_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server_address", server_address)
+        _setter("volume_name", volume_name)
 
     @property
     @pulumi.getter(name="serverAddress")
@@ -2519,12 +2937,27 @@ class IdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The user assigned identities associated with the resource.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -2593,12 +3026,25 @@ class LinkedInfoResponse(dict):
         :param str linked_resource_name: Linked resource name.
         :param str origin: Datastore origin
         """
+        LinkedInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_id=linked_id,
+            linked_resource_name=linked_resource_name,
+            origin=origin,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_id: Optional[str] = None,
+             linked_resource_name: Optional[str] = None,
+             origin: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if linked_id is not None:
-            pulumi.set(__self__, "linked_id", linked_id)
+            _setter("linked_id", linked_id)
         if linked_resource_name is not None:
-            pulumi.set(__self__, "linked_resource_name", linked_resource_name)
+            _setter("linked_resource_name", linked_resource_name)
         if origin is not None:
-            pulumi.set(__self__, "origin", origin)
+            _setter("origin", origin)
 
     @property
     @pulumi.getter(name="linkedId")
@@ -2638,10 +3084,21 @@ class SkuResponse(dict):
         :param str name: Name of the sku
         :param str tier: Tier of the sku like Basic or Enterprise
         """
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -2696,9 +3153,22 @@ class UserAssignedIdentityResponse(dict):
         :param str principal_id: The principal ID of the user assigned identity.
         :param str tenant_id: The tenant ID of the user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2777,20 +3247,41 @@ class UserInfoResponse(dict):
         :param str user_pu_id: A user or service principal's PuID.
         :param str user_tenant_id: A user or service principal's tenant ID.
         """
+        UserInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_alt_sec_id=user_alt_sec_id,
+            user_idp=user_idp,
+            user_iss=user_iss,
+            user_name=user_name,
+            user_object_id=user_object_id,
+            user_pu_id=user_pu_id,
+            user_tenant_id=user_tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_alt_sec_id: Optional[str] = None,
+             user_idp: Optional[str] = None,
+             user_iss: Optional[str] = None,
+             user_name: Optional[str] = None,
+             user_object_id: Optional[str] = None,
+             user_pu_id: Optional[str] = None,
+             user_tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if user_alt_sec_id is not None:
-            pulumi.set(__self__, "user_alt_sec_id", user_alt_sec_id)
+            _setter("user_alt_sec_id", user_alt_sec_id)
         if user_idp is not None:
-            pulumi.set(__self__, "user_idp", user_idp)
+            _setter("user_idp", user_idp)
         if user_iss is not None:
-            pulumi.set(__self__, "user_iss", user_iss)
+            _setter("user_iss", user_iss)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
         if user_object_id is not None:
-            pulumi.set(__self__, "user_object_id", user_object_id)
+            _setter("user_object_id", user_object_id)
         if user_pu_id is not None:
-            pulumi.set(__self__, "user_pu_id", user_pu_id)
+            _setter("user_pu_id", user_pu_id)
         if user_tenant_id is not None:
-            pulumi.set(__self__, "user_tenant_id", user_tenant_id)
+            _setter("user_tenant_id", user_tenant_id)
 
     @property
     @pulumi.getter(name="userAltSecId")

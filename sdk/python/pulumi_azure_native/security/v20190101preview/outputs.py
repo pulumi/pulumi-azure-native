@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -64,12 +64,27 @@ class AutomationActionEventHubResponse(dict):
         :param str connection_string: The target Event Hub connection string (it will not be included in any response).
         :param str event_hub_resource_id: The target Event Hub Azure Resource ID.
         """
-        pulumi.set(__self__, "action_type", 'EventHub')
-        pulumi.set(__self__, "sas_policy_name", sas_policy_name)
+        AutomationActionEventHubResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            sas_policy_name=sas_policy_name,
+            connection_string=connection_string,
+            event_hub_resource_id=event_hub_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: str,
+             sas_policy_name: str,
+             connection_string: Optional[str] = None,
+             event_hub_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_type", 'EventHub')
+        _setter("sas_policy_name", sas_policy_name)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if event_hub_resource_id is not None:
-            pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
+            _setter("event_hub_resource_id", event_hub_resource_id)
 
     @property
     @pulumi.getter(name="actionType")
@@ -140,11 +155,24 @@ class AutomationActionLogicAppResponse(dict):
         :param str logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
         :param str uri: The Logic App trigger URI endpoint (it will not be included in any response).
         """
-        pulumi.set(__self__, "action_type", 'LogicApp')
+        AutomationActionLogicAppResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            logic_app_resource_id=logic_app_resource_id,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: str,
+             logic_app_resource_id: Optional[str] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_type", 'LogicApp')
         if logic_app_resource_id is not None:
-            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+            _setter("logic_app_resource_id", logic_app_resource_id)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="actionType")
@@ -205,9 +233,20 @@ class AutomationActionWorkspaceResponse(dict):
                Expected value is 'Workspace'.
         :param str workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.
         """
-        pulumi.set(__self__, "action_type", 'Workspace')
+        AutomationActionWorkspaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: str,
+             workspace_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_type", 'Workspace')
         if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+            _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="actionType")
@@ -237,8 +276,17 @@ class AutomationRuleSetResponse(dict):
         """
         A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
         """
+        AutomationRuleSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Optional[Sequence['outputs.AutomationTriggeringRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -276,10 +324,21 @@ class AutomationScopeResponse(dict):
         :param str description: The resources scope description.
         :param str scope_path: The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
         """
+        AutomationScopeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            scope_path=scope_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             scope_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if scope_path is not None:
-            pulumi.set(__self__, "scope_path", scope_path)
+            _setter("scope_path", scope_path)
 
     @property
     @pulumi.getter
@@ -330,10 +389,21 @@ class AutomationSourceResponse(dict):
         :param str event_source: A valid event source type.
         :param Sequence['AutomationRuleSetResponse'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
         """
+        AutomationSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_source=event_source,
+            rule_sets=rule_sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_source: Optional[str] = None,
+             rule_sets: Optional[Sequence['outputs.AutomationRuleSetResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if event_source is not None:
-            pulumi.set(__self__, "event_source", event_source)
+            _setter("event_source", event_source)
         if rule_sets is not None:
-            pulumi.set(__self__, "rule_sets", rule_sets)
+            _setter("rule_sets", rule_sets)
 
     @property
     @pulumi.getter(name="eventSource")
@@ -390,14 +460,29 @@ class AutomationTriggeringRuleResponse(dict):
         :param str property_j_path: The JPath of the entity model property that should be checked.
         :param str property_type: The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
         """
+        AutomationTriggeringRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expected_value=expected_value,
+            operator=operator,
+            property_j_path=property_j_path,
+            property_type=property_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expected_value: Optional[str] = None,
+             operator: Optional[str] = None,
+             property_j_path: Optional[str] = None,
+             property_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
         if property_j_path is not None:
-            pulumi.set(__self__, "property_j_path", property_j_path)
+            _setter("property_j_path", property_j_path)
         if property_type is not None:
-            pulumi.set(__self__, "property_type", property_type)
+            _setter("property_type", property_type)
 
     @property
     @pulumi.getter(name="expectedValue")
@@ -443,8 +528,17 @@ class ScopeElementResponse(dict):
         A more specific scope used to identify the alerts to suppress.
         :param str field: The alert entity type to suppress by.
         """
+        ScopeElementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
 
     @property
     @pulumi.getter
@@ -479,7 +573,16 @@ class SuppressionAlertsScopeResponse(dict):
         """
         :param Sequence['ScopeElementResponse'] all_of: All the conditions inside need to be true in order to suppress the alert
         """
-        pulumi.set(__self__, "all_of", all_of)
+        SuppressionAlertsScopeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_of=all_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_of: Sequence['outputs.ScopeElementResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")

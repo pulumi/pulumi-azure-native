@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -25,11 +25,24 @@ class ResourceTypeRegistrationInitArgs:
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[str] resource_type: The resource type.
         """
-        pulumi.set(__self__, "provider_namespace", provider_namespace)
+        ResourceTypeRegistrationInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_namespace=provider_namespace,
+            properties=properties,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_namespace: pulumi.Input[str],
+             properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_namespace", provider_namespace)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="providerNamespace")
@@ -99,6 +112,10 @@ class ResourceTypeRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceTypeRegistrationInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -116,6 +133,11 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceTypeRegistrationInitArgs.__new__(ResourceTypeRegistrationInitArgs)
 
+            if not isinstance(properties, ResourceTypeRegistrationPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ResourceTypeRegistrationPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")

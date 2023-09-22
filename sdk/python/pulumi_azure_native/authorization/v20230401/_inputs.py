@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,10 +33,21 @@ class IdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The identity type. This is the only required field when adding a system or user assigned identity to a resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -73,9 +84,20 @@ class NonComplianceMessageArgs:
         :param pulumi.Input[str] message: A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
         """
-        pulumi.set(__self__, "message", message)
+        NonComplianceMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: pulumi.Input[str],
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter
@@ -114,12 +136,25 @@ class OverrideArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]] selectors: The list of the selector expressions.
         :param pulumi.Input[str] value: The value to override the policy property.
         """
+        OverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            selectors=selectors,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[Union[str, 'OverrideKind']]] = None,
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -172,14 +207,29 @@ class ParameterDefinitionsValueMetadataArgs:
         :param pulumi.Input[str] display_name: The display name for the parameter.
         :param pulumi.Input[str] strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
         """
+        ParameterDefinitionsValueMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assign_permissions=assign_permissions,
+            description=description,
+            display_name=display_name,
+            strong_type=strong_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assign_permissions: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             strong_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assign_permissions is not None:
-            pulumi.set(__self__, "assign_permissions", assign_permissions)
+            _setter("assign_permissions", assign_permissions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if strong_type is not None:
-            pulumi.set(__self__, "strong_type", strong_type)
+            _setter("strong_type", strong_type)
 
     @property
     @pulumi.getter(name="assignPermissions")
@@ -246,16 +296,33 @@ class ParameterDefinitionsValueArgs:
         :param Any schema: Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
         :param pulumi.Input[Union[str, 'ParameterType']] type: The data type of the parameter.
         """
+        ParameterDefinitionsValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_values=allowed_values,
+            default_value=default_value,
+            metadata=metadata,
+            schema=schema,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
+             default_value: Optional[Any] = None,
+             metadata: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']] = None,
+             schema: Optional[Any] = None,
+             type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_values is not None:
-            pulumi.set(__self__, "allowed_values", allowed_values)
+            _setter("allowed_values", allowed_values)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="allowedValues")
@@ -326,8 +393,17 @@ class ParameterValuesValueArgs:
         The value of a parameter.
         :param Any value: The value of the parameter.
         """
+        ParameterValuesValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -358,15 +434,32 @@ class PolicyDefinitionGroupArgs:
         :param pulumi.Input[str] description: The group's description.
         :param pulumi.Input[str] display_name: The group's display name.
         """
-        pulumi.set(__self__, "name", name)
+        PolicyDefinitionGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            additional_metadata_id=additional_metadata_id,
+            category=category,
+            description=description,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             additional_metadata_id: Optional[pulumi.Input[str]] = None,
+             category: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if additional_metadata_id is not None:
-            pulumi.set(__self__, "additional_metadata_id", additional_metadata_id)
+            _setter("additional_metadata_id", additional_metadata_id)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -443,13 +536,28 @@ class PolicyDefinitionReferenceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
         :param pulumi.Input[str] policy_definition_reference_id: A unique id (within the policy set definition) for this policy definition reference.
         """
-        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        PolicyDefinitionReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_definition_id=policy_definition_id,
+            group_names=group_names,
+            parameters=parameters,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_definition_id: pulumi.Input[str],
+             group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_definition_id", policy_definition_id)
         if group_names is not None:
-            pulumi.set(__self__, "group_names", group_names)
+            _setter("group_names", group_names)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter(name="policyDefinitionId")
@@ -510,10 +618,21 @@ class ResourceSelectorArgs:
         :param pulumi.Input[str] name: The name of the resource selector.
         :param pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]] selectors: The list of the selector expressions.
         """
+        ResourceSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -552,12 +671,25 @@ class SelectorArgs:
         :param pulumi.Input[Union[str, 'SelectorKind']] kind: The selector kind.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_in: The list of values to filter out.
         """
+        SelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_=in_,
+            kind=kind,
+            not_in=not_in,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kind: Optional[pulumi.Input[Union[str, 'SelectorKind']]] = None,
+             not_in: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if in_ is not None:
-            pulumi.set(__self__, "in_", in_)
+            _setter("in_", in_)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if not_in is not None:
-            pulumi.set(__self__, "not_in", not_in)
+            _setter("not_in", not_in)
 
     @property
     @pulumi.getter(name="in")

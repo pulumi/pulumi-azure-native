@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,17 +31,36 @@ class AvailabilitySetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AvailabilitySetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            availability_set_name=availability_set_name,
+            extended_location=extended_location,
+            location=location,
+            tags=tags,
+            vmm_server_id=vmm_server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             availability_set_name: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vmm_server_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if availability_set_name is not None:
-            pulumi.set(__self__, "availability_set_name", availability_set_name)
+            _setter("availability_set_name", availability_set_name)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vmm_server_id is not None:
-            pulumi.set(__self__, "vmm_server_id", vmm_server_id)
+            _setter("vmm_server_id", vmm_server_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -159,6 +178,10 @@ class AvailabilitySet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AvailabilitySetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,6 +203,11 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__ = AvailabilitySetArgs.__new__(AvailabilitySetArgs)
 
             __props__.__dict__["availability_set_name"] = availability_set_name
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

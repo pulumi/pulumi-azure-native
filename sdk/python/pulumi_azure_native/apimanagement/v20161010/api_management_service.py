@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,32 +48,67 @@ class ApiManagementServiceArgs:
         :param pulumi.Input['VirtualNetworkType'] vpn_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] vpnconfiguration: Virtual network configuration of the API Management service.
         """
-        pulumi.set(__self__, "publisher_email", publisher_email)
-        pulumi.set(__self__, "publisher_name", publisher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ApiManagementServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher_email=publisher_email,
+            publisher_name=publisher_name,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            additional_locations=additional_locations,
+            addresser_email=addresser_email,
+            custom_properties=custom_properties,
+            hostname_configurations=hostname_configurations,
+            location=location,
+            name=name,
+            service_name=service_name,
+            tags=tags,
+            vpn_type=vpn_type,
+            vpnconfiguration=vpnconfiguration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher_email: pulumi.Input[str],
+             publisher_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgs'],
+             additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]]] = None,
+             addresser_email: Optional[pulumi.Input[str]] = None,
+             custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpn_type: Optional[pulumi.Input['VirtualNetworkType']] = None,
+             vpnconfiguration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("publisher_email", publisher_email)
+        _setter("publisher_name", publisher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if additional_locations is not None:
-            pulumi.set(__self__, "additional_locations", additional_locations)
+            _setter("additional_locations", additional_locations)
         if addresser_email is not None:
-            pulumi.set(__self__, "addresser_email", addresser_email)
+            _setter("addresser_email", addresser_email)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
         if hostname_configurations is not None:
-            pulumi.set(__self__, "hostname_configurations", hostname_configurations)
+            _setter("hostname_configurations", hostname_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpn_type is None:
             vpn_type = 'None'
         if vpn_type is not None:
-            pulumi.set(__self__, "vpn_type", vpn_type)
+            _setter("vpn_type", vpn_type)
         if vpnconfiguration is not None:
-            pulumi.set(__self__, "vpnconfiguration", vpnconfiguration)
+            _setter("vpnconfiguration", vpnconfiguration)
 
     @property
     @pulumi.getter(name="publisherEmail")
@@ -303,6 +338,10 @@ class ApiManagementService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiManagementServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -347,6 +386,11 @@ class ApiManagementService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_name"] = service_name
+            if not isinstance(sku, ApiManagementServiceSkuPropertiesArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ApiManagementServiceSkuPropertiesArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
@@ -354,6 +398,11 @@ class ApiManagementService(pulumi.CustomResource):
             if vpn_type is None:
                 vpn_type = 'None'
             __props__.__dict__["vpn_type"] = vpn_type
+            if not isinstance(vpnconfiguration, VirtualNetworkConfigurationArgs):
+                vpnconfiguration = vpnconfiguration or {}
+                def _setter(key, value):
+                    vpnconfiguration[key] = value
+                VirtualNetworkConfigurationArgs._configure(_setter, **vpnconfiguration)
             __props__.__dict__["vpnconfiguration"] = vpnconfiguration
             __props__.__dict__["created_at_utc"] = None
             __props__.__dict__["etag"] = None

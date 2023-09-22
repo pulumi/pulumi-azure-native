@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['DedicatedCloudServiceArgs', 'DedicatedCloudService']
@@ -27,14 +27,31 @@ class DedicatedCloudServiceArgs:
         :param pulumi.Input[str] location: Azure region
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags
         """
-        pulumi.set(__self__, "gateway_subnet", gateway_subnet)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DedicatedCloudServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_subnet=gateway_subnet,
+            resource_group_name=resource_group_name,
+            dedicated_cloud_service_name=dedicated_cloud_service_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_subnet: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             dedicated_cloud_service_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("gateway_subnet", gateway_subnet)
+        _setter("resource_group_name", resource_group_name)
         if dedicated_cloud_service_name is not None:
-            pulumi.set(__self__, "dedicated_cloud_service_name", dedicated_cloud_service_name)
+            _setter("dedicated_cloud_service_name", dedicated_cloud_service_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="gatewaySubnet")
@@ -138,6 +155,10 @@ class DedicatedCloudService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DedicatedCloudServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

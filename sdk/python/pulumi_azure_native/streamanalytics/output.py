@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,43 @@ class OutputInitArgs:
         :param pulumi.Input[int] size_window: The size window to constrain a Stream Analytics output to.
         :param pulumi.Input[str] time_window: The time frame for filtering Stream Analytics job outputs.
         """
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OutputInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_name=job_name,
+            resource_group_name=resource_group_name,
+            datasource=datasource,
+            name=name,
+            output_name=output_name,
+            serialization=serialization,
+            size_window=size_window,
+            time_window=time_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
+             size_window: Optional[pulumi.Input[int]] = None,
+             time_window: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_name", job_name)
+        _setter("resource_group_name", resource_group_name)
         if datasource is not None:
-            pulumi.set(__self__, "datasource", datasource)
+            _setter("datasource", datasource)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_name is not None:
-            pulumi.set(__self__, "output_name", output_name)
+            _setter("output_name", output_name)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
         if size_window is not None:
-            pulumi.set(__self__, "size_window", size_window)
+            _setter("size_window", size_window)
         if time_window is not None:
-            pulumi.set(__self__, "time_window", time_window)
+            _setter("time_window", time_window)
 
     @property
     @pulumi.getter(name="jobName")
@@ -197,6 +220,10 @@ class Output(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutputInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

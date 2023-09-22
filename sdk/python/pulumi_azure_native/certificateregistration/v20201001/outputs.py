@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -52,11 +52,24 @@ class AppServiceCertificateResponse(dict):
         :param str key_vault_id: Key Vault resource Id.
         :param str key_vault_secret_name: Key Vault secret name.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AppServiceCertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            key_vault_id=key_vault_id,
+            key_vault_secret_name=key_vault_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             key_vault_id: Optional[str] = None,
+             key_vault_secret_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provisioning_state", provisioning_state)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_secret_name is not None:
-            pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+            _setter("key_vault_secret_name", key_vault_secret_name)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -135,15 +148,40 @@ class CertificateDetailsResponse(dict):
         :param str thumbprint: Certificate Thumbprint.
         :param int version: Certificate Version.
         """
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "not_after", not_after)
-        pulumi.set(__self__, "not_before", not_before)
-        pulumi.set(__self__, "raw_data", raw_data)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "signature_algorithm", signature_algorithm)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "version", version)
+        CertificateDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issuer=issuer,
+            not_after=not_after,
+            not_before=not_before,
+            raw_data=raw_data,
+            serial_number=serial_number,
+            signature_algorithm=signature_algorithm,
+            subject=subject,
+            thumbprint=thumbprint,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issuer: str,
+             not_after: str,
+             not_before: str,
+             raw_data: str,
+             serial_number: str,
+             signature_algorithm: str,
+             subject: str,
+             thumbprint: str,
+             version: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("issuer", issuer)
+        _setter("not_after", not_after)
+        _setter("not_before", not_before)
+        _setter("raw_data", raw_data)
+        _setter("serial_number", serial_number)
+        _setter("signature_algorithm", signature_algorithm)
+        _setter("subject", subject)
+        _setter("thumbprint", thumbprint)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -266,18 +304,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

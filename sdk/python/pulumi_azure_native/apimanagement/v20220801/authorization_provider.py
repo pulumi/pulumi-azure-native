@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,35 @@ class AuthorizationProviderArgs:
         :param pulumi.Input[str] identity_provider: Identity provider name. Must be 1 to 300 characters long.
         :param pulumi.Input['AuthorizationProviderOAuth2SettingsArgs'] oauth2: OAuth2 settings
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        AuthorizationProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            authorization_provider_id=authorization_provider_id,
+            display_name=display_name,
+            identity_provider=identity_provider,
+            oauth2=oauth2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             authorization_provider_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             identity_provider: Optional[pulumi.Input[str]] = None,
+             oauth2: Optional[pulumi.Input['AuthorizationProviderOAuth2SettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if authorization_provider_id is not None:
-            pulumi.set(__self__, "authorization_provider_id", authorization_provider_id)
+            _setter("authorization_provider_id", authorization_provider_id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if identity_provider is not None:
-            pulumi.set(__self__, "identity_provider", identity_provider)
+            _setter("identity_provider", identity_provider)
         if oauth2 is not None:
-            pulumi.set(__self__, "oauth2", oauth2)
+            _setter("oauth2", oauth2)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -158,6 +177,10 @@ class AuthorizationProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizationProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -181,6 +204,11 @@ class AuthorizationProvider(pulumi.CustomResource):
             __props__.__dict__["authorization_provider_id"] = authorization_provider_id
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["identity_provider"] = identity_provider
+            if not isinstance(oauth2, AuthorizationProviderOAuth2SettingsArgs):
+                oauth2 = oauth2 or {}
+                def _setter(key, value):
+                    oauth2[key] = value
+                AuthorizationProviderOAuth2SettingsArgs._configure(_setter, **oauth2)
             __props__.__dict__["oauth2"] = oauth2
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,26 +44,57 @@ class FlowLogArgs:
         :param pulumi.Input['RetentionPolicyParametersArgs'] retention_policy: Parameters that define the retention policy for flow log.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_watcher_name", network_watcher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_id", storage_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        FlowLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_watcher_name=network_watcher_name,
+            resource_group_name=resource_group_name,
+            storage_id=storage_id,
+            target_resource_id=target_resource_id,
+            enabled=enabled,
+            flow_analytics_configuration=flow_analytics_configuration,
+            flow_log_name=flow_log_name,
+            format=format,
+            id=id,
+            location=location,
+            retention_policy=retention_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_watcher_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_id: pulumi.Input[str],
+             target_resource_id: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             flow_analytics_configuration: Optional[pulumi.Input['TrafficAnalyticsPropertiesArgs']] = None,
+             flow_log_name: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input['FlowLogFormatParametersArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input['RetentionPolicyParametersArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_watcher_name", network_watcher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_id", storage_id)
+        _setter("target_resource_id", target_resource_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if flow_analytics_configuration is not None:
-            pulumi.set(__self__, "flow_analytics_configuration", flow_analytics_configuration)
+            _setter("flow_analytics_configuration", flow_analytics_configuration)
         if flow_log_name is not None:
-            pulumi.set(__self__, "flow_log_name", flow_log_name)
+            _setter("flow_log_name", flow_log_name)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkWatcherName")
@@ -265,6 +296,10 @@ class FlowLog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowLogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -292,8 +327,18 @@ class FlowLog(pulumi.CustomResource):
             __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
             __props__.__dict__["enabled"] = enabled
+            if not isinstance(flow_analytics_configuration, TrafficAnalyticsPropertiesArgs):
+                flow_analytics_configuration = flow_analytics_configuration or {}
+                def _setter(key, value):
+                    flow_analytics_configuration[key] = value
+                TrafficAnalyticsPropertiesArgs._configure(_setter, **flow_analytics_configuration)
             __props__.__dict__["flow_analytics_configuration"] = flow_analytics_configuration
             __props__.__dict__["flow_log_name"] = flow_log_name
+            if not isinstance(format, FlowLogFormatParametersArgs):
+                format = format or {}
+                def _setter(key, value):
+                    format[key] = value
+                FlowLogFormatParametersArgs._configure(_setter, **format)
             __props__.__dict__["format"] = format
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
@@ -303,6 +348,11 @@ class FlowLog(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(retention_policy, RetentionPolicyParametersArgs):
+                retention_policy = retention_policy or {}
+                def _setter(key, value):
+                    retention_policy[key] = value
+                RetentionPolicyParametersArgs._configure(_setter, **retention_policy)
             __props__.__dict__["retention_policy"] = retention_policy
             if storage_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_id'")

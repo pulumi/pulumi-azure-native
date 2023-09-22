@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,20 +34,41 @@ class CloudServicesNetworkArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CloudServicesNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extended_location=extended_location,
+            resource_group_name=resource_group_name,
+            additional_egress_endpoints=additional_egress_endpoints,
+            cloud_services_network_name=cloud_services_network_name,
+            enable_default_egress_endpoints=enable_default_egress_endpoints,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extended_location: pulumi.Input['ExtendedLocationArgs'],
+             resource_group_name: pulumi.Input[str],
+             additional_egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EgressEndpointArgs']]]] = None,
+             cloud_services_network_name: Optional[pulumi.Input[str]] = None,
+             enable_default_egress_endpoints: Optional[pulumi.Input[Union[str, 'CloudServicesNetworkEnableDefaultEgressEndpoints']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extended_location", extended_location)
+        _setter("resource_group_name", resource_group_name)
         if additional_egress_endpoints is not None:
-            pulumi.set(__self__, "additional_egress_endpoints", additional_egress_endpoints)
+            _setter("additional_egress_endpoints", additional_egress_endpoints)
         if cloud_services_network_name is not None:
-            pulumi.set(__self__, "cloud_services_network_name", cloud_services_network_name)
+            _setter("cloud_services_network_name", cloud_services_network_name)
         if enable_default_egress_endpoints is None:
             enable_default_egress_endpoints = 'True'
         if enable_default_egress_endpoints is not None:
-            pulumi.set(__self__, "enable_default_egress_endpoints", enable_default_egress_endpoints)
+            _setter("enable_default_egress_endpoints", enable_default_egress_endpoints)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -187,6 +208,10 @@ class CloudServicesNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudServicesNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -213,6 +238,11 @@ class CloudServicesNetwork(pulumi.CustomResource):
             if enable_default_egress_endpoints is None:
                 enable_default_egress_endpoints = 'True'
             __props__.__dict__["enable_default_egress_endpoints"] = enable_default_egress_endpoints
+            if not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

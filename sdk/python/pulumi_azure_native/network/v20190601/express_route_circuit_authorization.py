@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,20 +34,43 @@ class ExpressRouteCircuitAuthorizationInitArgs:
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
-        pulumi.set(__self__, "circuit_name", circuit_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExpressRouteCircuitAuthorizationInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            circuit_name=circuit_name,
+            resource_group_name=resource_group_name,
+            authorization_key=authorization_key,
+            authorization_name=authorization_name,
+            authorization_use_status=authorization_use_status,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             circuit_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             authorization_key: Optional[pulumi.Input[str]] = None,
+             authorization_name: Optional[pulumi.Input[str]] = None,
+             authorization_use_status: Optional[pulumi.Input[Union[str, 'AuthorizationUseStatus']]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("circuit_name", circuit_name)
+        _setter("resource_group_name", resource_group_name)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if authorization_name is not None:
-            pulumi.set(__self__, "authorization_name", authorization_name)
+            _setter("authorization_name", authorization_name)
         if authorization_use_status is not None:
-            pulumi.set(__self__, "authorization_use_status", authorization_use_status)
+            _setter("authorization_use_status", authorization_use_status)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="circuitName")
@@ -193,6 +216,10 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRouteCircuitAuthorizationInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

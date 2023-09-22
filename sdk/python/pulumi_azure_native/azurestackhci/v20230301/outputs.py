@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,8 +39,17 @@ class ArcConnectivityPropertiesResponse(dict):
         Connectivity related configuration required by arc server.
         :param bool enabled: True indicates ARC connectivity is enabled
         """
+        ArcConnectivityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -83,10 +92,21 @@ class ClusterDesiredPropertiesResponse(dict):
         :param str diagnostic_level: Desired level of diagnostic data emitted by the cluster.
         :param str windows_server_subscription: Desired state of Windows Server Subscription.
         """
+        ClusterDesiredPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            diagnostic_level=diagnostic_level,
+            windows_server_subscription=windows_server_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             diagnostic_level: Optional[str] = None,
+             windows_server_subscription: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
+            _setter("diagnostic_level", diagnostic_level)
         if windows_server_subscription is not None:
-            pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
+            _setter("windows_server_subscription", windows_server_subscription)
 
     @property
     @pulumi.getter(name="diagnosticLevel")
@@ -177,20 +197,55 @@ class ClusterNodeResponse(dict):
         :param str serial_number: Immutable id of the cluster node.
         :param str windows_server_subscription: State of Windows Server Subscription.
         """
-        pulumi.set(__self__, "core_count", core_count)
-        pulumi.set(__self__, "ehc_resource_id", ehc_resource_id)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_licensing_timestamp", last_licensing_timestamp)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "memory_in_gi_b", memory_in_gi_b)
-        pulumi.set(__self__, "model", model)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "node_type", node_type)
-        pulumi.set(__self__, "os_display_version", os_display_version)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "os_version", os_version)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
+        ClusterNodeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            core_count=core_count,
+            ehc_resource_id=ehc_resource_id,
+            id=id,
+            last_licensing_timestamp=last_licensing_timestamp,
+            manufacturer=manufacturer,
+            memory_in_gi_b=memory_in_gi_b,
+            model=model,
+            name=name,
+            node_type=node_type,
+            os_display_version=os_display_version,
+            os_name=os_name,
+            os_version=os_version,
+            serial_number=serial_number,
+            windows_server_subscription=windows_server_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             core_count: float,
+             ehc_resource_id: str,
+             id: float,
+             last_licensing_timestamp: str,
+             manufacturer: str,
+             memory_in_gi_b: float,
+             model: str,
+             name: str,
+             node_type: str,
+             os_display_version: str,
+             os_name: str,
+             os_version: str,
+             serial_number: str,
+             windows_server_subscription: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("core_count", core_count)
+        _setter("ehc_resource_id", ehc_resource_id)
+        _setter("id", id)
+        _setter("last_licensing_timestamp", last_licensing_timestamp)
+        _setter("manufacturer", manufacturer)
+        _setter("memory_in_gi_b", memory_in_gi_b)
+        _setter("model", model)
+        _setter("name", name)
+        _setter("node_type", node_type)
+        _setter("os_display_version", os_display_version)
+        _setter("os_name", os_name)
+        _setter("os_version", os_version)
+        _setter("serial_number", serial_number)
+        _setter("windows_server_subscription", windows_server_subscription)
 
     @property
     @pulumi.getter(name="coreCount")
@@ -365,17 +420,44 @@ class ClusterReportedPropertiesResponse(dict):
         :param Sequence[str] supported_capabilities: Capabilities supported by the cluster.
         :param str diagnostic_level: Level of diagnostic data emitted by the cluster.
         """
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_type", cluster_type)
-        pulumi.set(__self__, "cluster_version", cluster_version)
-        pulumi.set(__self__, "imds_attestation", imds_attestation)
-        pulumi.set(__self__, "last_updated", last_updated)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "nodes", nodes)
-        pulumi.set(__self__, "supported_capabilities", supported_capabilities)
+        ClusterReportedPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            cluster_name=cluster_name,
+            cluster_type=cluster_type,
+            cluster_version=cluster_version,
+            imds_attestation=imds_attestation,
+            last_updated=last_updated,
+            manufacturer=manufacturer,
+            nodes=nodes,
+            supported_capabilities=supported_capabilities,
+            diagnostic_level=diagnostic_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: str,
+             cluster_name: str,
+             cluster_type: str,
+             cluster_version: str,
+             imds_attestation: str,
+             last_updated: str,
+             manufacturer: str,
+             nodes: Sequence['outputs.ClusterNodeResponse'],
+             supported_capabilities: Sequence[str],
+             diagnostic_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_id", cluster_id)
+        _setter("cluster_name", cluster_name)
+        _setter("cluster_type", cluster_type)
+        _setter("cluster_version", cluster_version)
+        _setter("imds_attestation", imds_attestation)
+        _setter("last_updated", last_updated)
+        _setter("manufacturer", manufacturer)
+        _setter("nodes", nodes)
+        _setter("supported_capabilities", supported_capabilities)
         if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
+            _setter("diagnostic_level", diagnostic_level)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -488,8 +570,19 @@ class DefaultExtensionDetailsResponse(dict):
         :param str category: Default extension category
         :param str consent_time: Consent time for extension category
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "consent_time", consent_time)
+        DefaultExtensionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            consent_time=consent_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: str,
+             consent_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("consent_time", consent_time)
 
     @property
     @pulumi.getter
@@ -542,14 +635,29 @@ class ExtensionInstanceViewResponse(dict):
         :param str type: Specifies the type of the extension; an example is "MicrosoftMonitoringAgent".
         :param str type_handler_version: Specifies the version of the script handler.
         """
+        ExtensionInstanceViewResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            status=status,
+            type=type,
+            type_handler_version=type_handler_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             status: Optional['outputs.ExtensionInstanceViewResponseStatus'] = None,
+             type: Optional[str] = None,
+             type_handler_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
+            _setter("type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter
@@ -620,16 +728,33 @@ class ExtensionInstanceViewResponseStatus(dict):
         :param str message: The detailed status message, including for alerts and error messages.
         :param str time: The time of the status.
         """
+        ExtensionInstanceViewResponseStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            display_status=display_status,
+            level=level,
+            message=message,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             display_status: Optional[str] = None,
+             level: Optional[str] = None,
+             message: Optional[str] = None,
+             time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
+            _setter("display_status", display_status)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -710,11 +835,28 @@ class PerNodeExtensionStateResponse(dict):
         :param str state: State of Arc Extension in this node.
         :param str type_handler_version: Specifies the version of the script handler.
         """
-        pulumi.set(__self__, "extension", extension)
-        pulumi.set(__self__, "instance_view", instance_view)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        PerNodeExtensionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension=extension,
+            instance_view=instance_view,
+            name=name,
+            state=state,
+            type_handler_version=type_handler_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension: str,
+             instance_view: 'outputs.ExtensionInstanceViewResponse',
+             name: str,
+             state: str,
+             type_handler_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extension", extension)
+        _setter("instance_view", instance_view)
+        _setter("name", name)
+        _setter("state", state)
+        _setter("type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter
@@ -789,9 +931,22 @@ class PerNodeStateResponse(dict):
         :param str name: Name of the Node in HCI Cluster
         :param str state: State of Arc agent in this node.
         """
-        pulumi.set(__self__, "arc_instance", arc_instance)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "state", state)
+        PerNodeStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arc_instance=arc_instance,
+            name=name,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arc_instance: str,
+             name: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arc_instance", arc_instance)
+        _setter("name", name)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="arcInstance")
@@ -854,11 +1009,24 @@ class SoftwareAssurancePropertiesResponse(dict):
         :param str software_assurance_intent: Customer Intent for Software Assurance Benefit.
         :param str software_assurance_status: Status of the Software Assurance for the cluster.
         """
-        pulumi.set(__self__, "last_updated", last_updated)
+        SoftwareAssurancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_updated=last_updated,
+            software_assurance_intent=software_assurance_intent,
+            software_assurance_status=software_assurance_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_updated: str,
+             software_assurance_intent: Optional[str] = None,
+             software_assurance_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last_updated", last_updated)
         if software_assurance_intent is not None:
-            pulumi.set(__self__, "software_assurance_intent", software_assurance_intent)
+            _setter("software_assurance_intent", software_assurance_intent)
         if software_assurance_status is not None:
-            pulumi.set(__self__, "software_assurance_status", software_assurance_status)
+            _setter("software_assurance_status", software_assurance_status)
 
     @property
     @pulumi.getter(name="lastUpdated")
@@ -933,22 +1101,45 @@ class StepResponse(dict):
         :param str status: Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
         :param Sequence['StepResponse'] steps: Recursive model for child steps of this step.
         """
+        StepResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            end_time_utc=end_time_utc,
+            error_message=error_message,
+            last_updated_time_utc=last_updated_time_utc,
+            name=name,
+            start_time_utc=start_time_utc,
+            status=status,
+            steps=steps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             end_time_utc: Optional[str] = None,
+             error_message: Optional[str] = None,
+             last_updated_time_utc: Optional[str] = None,
+             name: Optional[str] = None,
+             start_time_utc: Optional[str] = None,
+             status: Optional[str] = None,
+             steps: Optional[Sequence['outputs.StepResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_time_utc is not None:
-            pulumi.set(__self__, "end_time_utc", end_time_utc)
+            _setter("end_time_utc", end_time_utc)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if last_updated_time_utc is not None:
-            pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
+            _setter("last_updated_time_utc", last_updated_time_utc)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_time_utc is not None:
-            pulumi.set(__self__, "start_time_utc", start_time_utc)
+            _setter("start_time_utc", start_time_utc)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+            _setter("steps", steps)
 
     @property
     @pulumi.getter
@@ -1063,18 +1254,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1159,12 +1369,25 @@ class UpdatePrerequisiteResponse(dict):
         :param str update_type: Updatable component type.
         :param str version: Version of the prerequisite.
         """
+        UpdatePrerequisiteResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_name=package_name,
+            update_type=update_type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_name: Optional[str] = None,
+             update_type: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
+            _setter("package_name", package_name)
         if update_type is not None:
-            pulumi.set(__self__, "update_type", update_type)
+            _setter("update_type", update_type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="packageName")
@@ -1223,8 +1446,19 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

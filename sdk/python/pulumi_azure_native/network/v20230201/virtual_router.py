@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,23 +37,48 @@ class VirtualRouterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
         :param pulumi.Input[str] virtual_router_name: The name of the Virtual Router.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualRouterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            hosted_gateway=hosted_gateway,
+            hosted_subnet=hosted_subnet,
+            id=id,
+            location=location,
+            tags=tags,
+            virtual_router_asn=virtual_router_asn,
+            virtual_router_ips=virtual_router_ips,
+            virtual_router_name=virtual_router_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             hosted_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
+             hosted_subnet: Optional[pulumi.Input['SubResourceArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_router_asn: Optional[pulumi.Input[float]] = None,
+             virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             virtual_router_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if hosted_gateway is not None:
-            pulumi.set(__self__, "hosted_gateway", hosted_gateway)
+            _setter("hosted_gateway", hosted_gateway)
         if hosted_subnet is not None:
-            pulumi.set(__self__, "hosted_subnet", hosted_subnet)
+            _setter("hosted_subnet", hosted_subnet)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_router_asn is not None:
-            pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
+            _setter("virtual_router_asn", virtual_router_asn)
         if virtual_router_ips is not None:
-            pulumi.set(__self__, "virtual_router_ips", virtual_router_ips)
+            _setter("virtual_router_ips", virtual_router_ips)
         if virtual_router_name is not None:
-            pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+            _setter("virtual_router_name", virtual_router_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -213,6 +238,10 @@ class VirtualRouter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualRouterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -236,7 +265,17 @@ class VirtualRouter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualRouterArgs.__new__(VirtualRouterArgs)
 
+            if not isinstance(hosted_gateway, SubResourceArgs):
+                hosted_gateway = hosted_gateway or {}
+                def _setter(key, value):
+                    hosted_gateway[key] = value
+                SubResourceArgs._configure(_setter, **hosted_gateway)
             __props__.__dict__["hosted_gateway"] = hosted_gateway
+            if not isinstance(hosted_subnet, SubResourceArgs):
+                hosted_subnet = hosted_subnet or {}
+                def _setter(key, value):
+                    hosted_subnet[key] = value
+                SubResourceArgs._configure(_setter, **hosted_subnet)
             __props__.__dict__["hosted_subnet"] = hosted_subnet
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location

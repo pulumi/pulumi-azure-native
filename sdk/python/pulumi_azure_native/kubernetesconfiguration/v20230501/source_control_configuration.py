@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,34 +50,71 @@ class SourceControlConfigurationArgs:
         :param pulumi.Input[str] source_control_configuration_name: Name of the Source Control Configuration.
         :param pulumi.Input[str] ssh_known_hosts_contents: Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_resource_name", cluster_resource_name)
-        pulumi.set(__self__, "cluster_rp", cluster_rp)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SourceControlConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            cluster_resource_name=cluster_resource_name,
+            cluster_rp=cluster_rp,
+            resource_group_name=resource_group_name,
+            configuration_protected_settings=configuration_protected_settings,
+            enable_helm_operator=enable_helm_operator,
+            helm_operator_properties=helm_operator_properties,
+            operator_instance_name=operator_instance_name,
+            operator_namespace=operator_namespace,
+            operator_params=operator_params,
+            operator_scope=operator_scope,
+            operator_type=operator_type,
+            repository_url=repository_url,
+            source_control_configuration_name=source_control_configuration_name,
+            ssh_known_hosts_contents=ssh_known_hosts_contents,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             cluster_resource_name: pulumi.Input[str],
+             cluster_rp: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             enable_helm_operator: Optional[pulumi.Input[bool]] = None,
+             helm_operator_properties: Optional[pulumi.Input['HelmOperatorPropertiesArgs']] = None,
+             operator_instance_name: Optional[pulumi.Input[str]] = None,
+             operator_namespace: Optional[pulumi.Input[str]] = None,
+             operator_params: Optional[pulumi.Input[str]] = None,
+             operator_scope: Optional[pulumi.Input[Union[str, 'OperatorScopeType']]] = None,
+             operator_type: Optional[pulumi.Input[Union[str, 'OperatorType']]] = None,
+             repository_url: Optional[pulumi.Input[str]] = None,
+             source_control_configuration_name: Optional[pulumi.Input[str]] = None,
+             ssh_known_hosts_contents: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("cluster_resource_name", cluster_resource_name)
+        _setter("cluster_rp", cluster_rp)
+        _setter("resource_group_name", resource_group_name)
         if configuration_protected_settings is not None:
-            pulumi.set(__self__, "configuration_protected_settings", configuration_protected_settings)
+            _setter("configuration_protected_settings", configuration_protected_settings)
         if enable_helm_operator is not None:
-            pulumi.set(__self__, "enable_helm_operator", enable_helm_operator)
+            _setter("enable_helm_operator", enable_helm_operator)
         if helm_operator_properties is not None:
-            pulumi.set(__self__, "helm_operator_properties", helm_operator_properties)
+            _setter("helm_operator_properties", helm_operator_properties)
         if operator_instance_name is not None:
-            pulumi.set(__self__, "operator_instance_name", operator_instance_name)
+            _setter("operator_instance_name", operator_instance_name)
         if operator_namespace is None:
             operator_namespace = 'default'
         if operator_namespace is not None:
-            pulumi.set(__self__, "operator_namespace", operator_namespace)
+            _setter("operator_namespace", operator_namespace)
         if operator_params is not None:
-            pulumi.set(__self__, "operator_params", operator_params)
+            _setter("operator_params", operator_params)
         if operator_scope is not None:
-            pulumi.set(__self__, "operator_scope", operator_scope)
+            _setter("operator_scope", operator_scope)
         if operator_type is not None:
-            pulumi.set(__self__, "operator_type", operator_type)
+            _setter("operator_type", operator_type)
         if repository_url is not None:
-            pulumi.set(__self__, "repository_url", repository_url)
+            _setter("repository_url", repository_url)
         if source_control_configuration_name is not None:
-            pulumi.set(__self__, "source_control_configuration_name", source_control_configuration_name)
+            _setter("source_control_configuration_name", source_control_configuration_name)
         if ssh_known_hosts_contents is not None:
-            pulumi.set(__self__, "ssh_known_hosts_contents", ssh_known_hosts_contents)
+            _setter("ssh_known_hosts_contents", ssh_known_hosts_contents)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -321,6 +358,10 @@ class SourceControlConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceControlConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -361,6 +402,11 @@ class SourceControlConfiguration(pulumi.CustomResource):
             __props__.__dict__["cluster_rp"] = cluster_rp
             __props__.__dict__["configuration_protected_settings"] = configuration_protected_settings
             __props__.__dict__["enable_helm_operator"] = enable_helm_operator
+            if not isinstance(helm_operator_properties, HelmOperatorPropertiesArgs):
+                helm_operator_properties = helm_operator_properties or {}
+                def _setter(key, value):
+                    helm_operator_properties[key] = value
+                HelmOperatorPropertiesArgs._configure(_setter, **helm_operator_properties)
             __props__.__dict__["helm_operator_properties"] = helm_operator_properties
             __props__.__dict__["operator_instance_name"] = operator_instance_name
             if operator_namespace is None:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,36 @@ class AzureBareMetalStorageInstanceArgs:
         :param pulumi.Input['StoragePropertiesArgs'] storage_properties: Specifies the storage properties for the AzureBareMetalStorage instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AzureBareMetalStorageInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            azure_bare_metal_storage_instance_name=azure_bare_metal_storage_instance_name,
+            azure_bare_metal_storage_instance_unique_identifier=azure_bare_metal_storage_instance_unique_identifier,
+            location=location,
+            storage_properties=storage_properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             azure_bare_metal_storage_instance_name: Optional[pulumi.Input[str]] = None,
+             azure_bare_metal_storage_instance_unique_identifier: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             storage_properties: Optional[pulumi.Input['StoragePropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if azure_bare_metal_storage_instance_name is not None:
-            pulumi.set(__self__, "azure_bare_metal_storage_instance_name", azure_bare_metal_storage_instance_name)
+            _setter("azure_bare_metal_storage_instance_name", azure_bare_metal_storage_instance_name)
         if azure_bare_metal_storage_instance_unique_identifier is not None:
-            pulumi.set(__self__, "azure_bare_metal_storage_instance_unique_identifier", azure_bare_metal_storage_instance_unique_identifier)
+            _setter("azure_bare_metal_storage_instance_unique_identifier", azure_bare_metal_storage_instance_unique_identifier)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if storage_properties is not None:
-            pulumi.set(__self__, "storage_properties", storage_properties)
+            _setter("storage_properties", storage_properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -160,6 +179,10 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AzureBareMetalStorageInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -186,6 +209,11 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(storage_properties, StoragePropertiesArgs):
+                storage_properties = storage_properties or {}
+                def _setter(key, value):
+                    storage_properties[key] = value
+                StoragePropertiesArgs._configure(_setter, **storage_properties)
             __props__.__dict__["storage_properties"] = storage_properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

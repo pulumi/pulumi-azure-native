@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,19 +32,40 @@ class GuestDiagnosticsSettingArgs:
         :param pulumi.Input[str] os_type: Operating system type for the configuration
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GuestDiagnosticsSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            data_sources=data_sources,
+            diagnostic_settings_name=diagnostic_settings_name,
+            location=location,
+            os_type=os_type,
+            proxy_setting=proxy_setting,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]] = None,
+             diagnostic_settings_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             proxy_setting: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if data_sources is not None:
-            pulumi.set(__self__, "data_sources", data_sources)
+            _setter("data_sources", data_sources)
         if diagnostic_settings_name is not None:
-            pulumi.set(__self__, "diagnostic_settings_name", diagnostic_settings_name)
+            _setter("diagnostic_settings_name", diagnostic_settings_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if proxy_setting is not None:
-            pulumi.set(__self__, "proxy_setting", proxy_setting)
+            _setter("proxy_setting", proxy_setting)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -174,6 +195,10 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GuestDiagnosticsSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

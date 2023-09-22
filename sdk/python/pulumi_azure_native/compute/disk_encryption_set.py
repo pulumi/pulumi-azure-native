@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,48 @@ class DiskEncryptionSetArgs:
         :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DiskEncryptionSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            active_key=active_key,
+            disk_encryption_set_name=disk_encryption_set_name,
+            encryption_type=encryption_type,
+            federated_client_id=federated_client_id,
+            identity=identity,
+            location=location,
+            rotation_to_latest_key_version_enabled=rotation_to_latest_key_version_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             active_key: Optional[pulumi.Input['KeyForDiskEncryptionSetArgs']] = None,
+             disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
+             encryption_type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetType']]] = None,
+             federated_client_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['EncryptionSetIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if active_key is not None:
-            pulumi.set(__self__, "active_key", active_key)
+            _setter("active_key", active_key)
         if disk_encryption_set_name is not None:
-            pulumi.set(__self__, "disk_encryption_set_name", disk_encryption_set_name)
+            _setter("disk_encryption_set_name", disk_encryption_set_name)
         if encryption_type is not None:
-            pulumi.set(__self__, "encryption_type", encryption_type)
+            _setter("encryption_type", encryption_type)
         if federated_client_id is not None:
-            pulumi.set(__self__, "federated_client_id", federated_client_id)
+            _setter("federated_client_id", federated_client_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if rotation_to_latest_key_version_enabled is not None:
-            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
+            _setter("rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -216,6 +241,10 @@ class DiskEncryptionSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiskEncryptionSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -239,10 +268,20 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DiskEncryptionSetArgs.__new__(DiskEncryptionSetArgs)
 
+            if not isinstance(active_key, KeyForDiskEncryptionSetArgs):
+                active_key = active_key or {}
+                def _setter(key, value):
+                    active_key[key] = value
+                KeyForDiskEncryptionSetArgs._configure(_setter, **active_key)
             __props__.__dict__["active_key"] = active_key
             __props__.__dict__["disk_encryption_set_name"] = disk_encryption_set_name
             __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["federated_client_id"] = federated_client_id
+            if not isinstance(identity, EncryptionSetIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                EncryptionSetIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

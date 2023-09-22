@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,43 @@ class InstanceArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        InstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            diagnostic_storage_properties=diagnostic_storage_properties,
+            enable_diagnostics=enable_diagnostics,
+            instance_name=instance_name,
+            iot_hubs=iot_hubs,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             diagnostic_storage_properties: Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']] = None,
+             enable_diagnostics: Optional[pulumi.Input[bool]] = None,
+             instance_name: Optional[pulumi.Input[str]] = None,
+             iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if diagnostic_storage_properties is not None:
-            pulumi.set(__self__, "diagnostic_storage_properties", diagnostic_storage_properties)
+            _setter("diagnostic_storage_properties", diagnostic_storage_properties)
         if enable_diagnostics is not None:
-            pulumi.set(__self__, "enable_diagnostics", enable_diagnostics)
+            _setter("enable_diagnostics", enable_diagnostics)
         if instance_name is not None:
-            pulumi.set(__self__, "instance_name", instance_name)
+            _setter("instance_name", instance_name)
         if iot_hubs is not None:
-            pulumi.set(__self__, "iot_hubs", iot_hubs)
+            _setter("iot_hubs", iot_hubs)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountName")
@@ -197,6 +220,10 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,6 +249,11 @@ class Instance(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if not isinstance(diagnostic_storage_properties, DiagnosticStoragePropertiesArgs):
+                diagnostic_storage_properties = diagnostic_storage_properties or {}
+                def _setter(key, value):
+                    diagnostic_storage_properties[key] = value
+                DiagnosticStoragePropertiesArgs._configure(_setter, **diagnostic_storage_properties)
             __props__.__dict__["diagnostic_storage_properties"] = diagnostic_storage_properties
             __props__.__dict__["enable_diagnostics"] = enable_diagnostics
             __props__.__dict__["instance_name"] = instance_name

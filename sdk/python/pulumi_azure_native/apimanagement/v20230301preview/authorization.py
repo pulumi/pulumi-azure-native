@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,21 +38,46 @@ class AuthorizationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Authorization parameters
         :param pulumi.Input[str] status: Status of the Authorization
         """
-        pulumi.set(__self__, "authorization_provider_id", authorization_provider_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        AuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_provider_id=authorization_provider_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            authorization_id=authorization_id,
+            authorization_type=authorization_type,
+            error=error,
+            o_auth2_grant_type=o_auth2_grant_type,
+            parameters=parameters,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_provider_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             authorization_id: Optional[pulumi.Input[str]] = None,
+             authorization_type: Optional[pulumi.Input[Union[str, 'AuthorizationType']]] = None,
+             error: Optional[pulumi.Input['AuthorizationErrorArgs']] = None,
+             o_auth2_grant_type: Optional[pulumi.Input[Union[str, 'OAuth2GrantType']]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_provider_id", authorization_provider_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if authorization_id is not None:
-            pulumi.set(__self__, "authorization_id", authorization_id)
+            _setter("authorization_id", authorization_id)
         if authorization_type is not None:
-            pulumi.set(__self__, "authorization_type", authorization_type)
+            _setter("authorization_type", authorization_type)
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if o_auth2_grant_type is not None:
-            pulumi.set(__self__, "o_auth2_grant_type", o_auth2_grant_type)
+            _setter("o_auth2_grant_type", o_auth2_grant_type)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="authorizationProviderId")
@@ -212,6 +237,10 @@ class Authorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -240,6 +269,11 @@ class Authorization(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authorization_provider_id'")
             __props__.__dict__["authorization_provider_id"] = authorization_provider_id
             __props__.__dict__["authorization_type"] = authorization_type
+            if not isinstance(error, AuthorizationErrorArgs):
+                error = error or {}
+                def _setter(key, value):
+                    error[key] = value
+                AuthorizationErrorArgs._configure(_setter, **error)
             __props__.__dict__["error"] = error
             __props__.__dict__["o_auth2_grant_type"] = o_auth2_grant_type
             __props__.__dict__["parameters"] = parameters

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,25 +38,50 @@ class ApplianceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] version: Version of the Appliance
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplianceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            distro=distro,
+            identity=identity,
+            infrastructure_config=infrastructure_config,
+            location=location,
+            public_key=public_key,
+            resource_name=resource_name,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             distro: Optional[pulumi.Input[Union[str, 'Distro']]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             infrastructure_config: Optional[pulumi.Input['AppliancePropertiesInfrastructureConfigArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if distro is None:
             distro = 'AKSEdge'
         if distro is not None:
-            pulumi.set(__self__, "distro", distro)
+            _setter("distro", distro)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if infrastructure_config is not None:
-            pulumi.set(__self__, "infrastructure_config", infrastructure_config)
+            _setter("infrastructure_config", infrastructure_config)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -218,6 +243,10 @@ class Appliance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplianceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -244,7 +273,17 @@ class Appliance(pulumi.CustomResource):
             if distro is None:
                 distro = 'AKSEdge'
             __props__.__dict__["distro"] = distro
+            if not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if not isinstance(infrastructure_config, AppliancePropertiesInfrastructureConfigArgs):
+                infrastructure_config = infrastructure_config or {}
+                def _setter(key, value):
+                    infrastructure_config[key] = value
+                AppliancePropertiesInfrastructureConfigArgs._configure(_setter, **infrastructure_config)
             __props__.__dict__["infrastructure_config"] = infrastructure_config
             __props__.__dict__["location"] = location
             __props__.__dict__["public_key"] = public_key

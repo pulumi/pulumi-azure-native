@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,60 @@ class BatchAccountArgs:
         :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user-specified tags associated with the account.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BatchAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            account_name=account_name,
+            allowed_authentication_modes=allowed_authentication_modes,
+            auto_storage=auto_storage,
+            encryption=encryption,
+            identity=identity,
+            key_vault_reference=key_vault_reference,
+            location=location,
+            network_profile=network_profile,
+            pool_allocation_mode=pool_allocation_mode,
+            public_network_access=public_network_access,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]]] = None,
+             auto_storage: Optional[pulumi.Input['AutoStorageBasePropertiesArgs']] = None,
+             encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+             identity: Optional[pulumi.Input['BatchAccountIdentityArgs']] = None,
+             key_vault_reference: Optional[pulumi.Input['KeyVaultReferenceArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             pool_allocation_mode: Optional[pulumi.Input['PoolAllocationMode']] = None,
+             public_network_access: Optional[pulumi.Input['PublicNetworkAccessType']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if allowed_authentication_modes is not None:
-            pulumi.set(__self__, "allowed_authentication_modes", allowed_authentication_modes)
+            _setter("allowed_authentication_modes", allowed_authentication_modes)
         if auto_storage is not None:
-            pulumi.set(__self__, "auto_storage", auto_storage)
+            _setter("auto_storage", auto_storage)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_reference is not None:
-            pulumi.set(__self__, "key_vault_reference", key_vault_reference)
+            _setter("key_vault_reference", key_vault_reference)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if pool_allocation_mode is not None:
-            pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
+            _setter("pool_allocation_mode", pool_allocation_mode)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -270,6 +301,10 @@ class BatchAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BatchAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -298,11 +333,36 @@ class BatchAccount(pulumi.CustomResource):
 
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["allowed_authentication_modes"] = allowed_authentication_modes
+            if not isinstance(auto_storage, AutoStorageBasePropertiesArgs):
+                auto_storage = auto_storage or {}
+                def _setter(key, value):
+                    auto_storage[key] = value
+                AutoStorageBasePropertiesArgs._configure(_setter, **auto_storage)
             __props__.__dict__["auto_storage"] = auto_storage
+            if not isinstance(encryption, EncryptionPropertiesArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                EncryptionPropertiesArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if not isinstance(identity, BatchAccountIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                BatchAccountIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if not isinstance(key_vault_reference, KeyVaultReferenceArgs):
+                key_vault_reference = key_vault_reference or {}
+                def _setter(key, value):
+                    key_vault_reference[key] = value
+                KeyVaultReferenceArgs._configure(_setter, **key_vault_reference)
             __props__.__dict__["key_vault_reference"] = key_vault_reference
             __props__.__dict__["location"] = location
+            if not isinstance(network_profile, NetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                NetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["pool_allocation_mode"] = pool_allocation_mode
             __props__.__dict__["public_network_access"] = public_network_access

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -36,23 +36,48 @@ class ScriptArgs:
         :param pulumi.Input[str] script_url: The url to the KQL script blob file. Must not be used together with scriptContent property
         :param pulumi.Input[str] script_url_sas_token: The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ScriptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            continue_on_errors=continue_on_errors,
+            force_update_tag=force_update_tag,
+            script_content=script_content,
+            script_name=script_name,
+            script_url=script_url,
+            script_url_sas_token=script_url_sas_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             continue_on_errors: Optional[pulumi.Input[bool]] = None,
+             force_update_tag: Optional[pulumi.Input[str]] = None,
+             script_content: Optional[pulumi.Input[str]] = None,
+             script_name: Optional[pulumi.Input[str]] = None,
+             script_url: Optional[pulumi.Input[str]] = None,
+             script_url_sas_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
         if continue_on_errors is None:
             continue_on_errors = False
         if continue_on_errors is not None:
-            pulumi.set(__self__, "continue_on_errors", continue_on_errors)
+            _setter("continue_on_errors", continue_on_errors)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if script_content is not None:
-            pulumi.set(__self__, "script_content", script_content)
+            _setter("script_content", script_content)
         if script_name is not None:
-            pulumi.set(__self__, "script_name", script_name)
+            _setter("script_name", script_name)
         if script_url is not None:
-            pulumi.set(__self__, "script_url", script_url)
+            _setter("script_url", script_url)
         if script_url_sas_token is not None:
-            pulumi.set(__self__, "script_url_sas_token", script_url_sas_token)
+            _setter("script_url_sas_token", script_url_sas_token)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -214,6 +239,10 @@ class Script(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScriptArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

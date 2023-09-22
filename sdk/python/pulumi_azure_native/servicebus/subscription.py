@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -56,39 +56,82 @@ class SubscriptionArgs:
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[str] subscription_name: The subscription name.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "topic_name", topic_name)
+        SubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            topic_name=topic_name,
+            auto_delete_on_idle=auto_delete_on_idle,
+            client_affine_properties=client_affine_properties,
+            dead_lettering_on_filter_evaluation_exceptions=dead_lettering_on_filter_evaluation_exceptions,
+            dead_lettering_on_message_expiration=dead_lettering_on_message_expiration,
+            default_message_time_to_live=default_message_time_to_live,
+            duplicate_detection_history_time_window=duplicate_detection_history_time_window,
+            enable_batched_operations=enable_batched_operations,
+            forward_dead_lettered_messages_to=forward_dead_lettered_messages_to,
+            forward_to=forward_to,
+            is_client_affine=is_client_affine,
+            lock_duration=lock_duration,
+            max_delivery_count=max_delivery_count,
+            requires_session=requires_session,
+            status=status,
+            subscription_name=subscription_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             topic_name: pulumi.Input[str],
+             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+             client_affine_properties: Optional[pulumi.Input['SBClientAffinePropertiesArgs']] = None,
+             dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[bool]] = None,
+             dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
+             default_message_time_to_live: Optional[pulumi.Input[str]] = None,
+             duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
+             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+             forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
+             forward_to: Optional[pulumi.Input[str]] = None,
+             is_client_affine: Optional[pulumi.Input[bool]] = None,
+             lock_duration: Optional[pulumi.Input[str]] = None,
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             requires_session: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input['EntityStatus']] = None,
+             subscription_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("topic_name", topic_name)
         if auto_delete_on_idle is not None:
-            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+            _setter("auto_delete_on_idle", auto_delete_on_idle)
         if client_affine_properties is not None:
-            pulumi.set(__self__, "client_affine_properties", client_affine_properties)
+            _setter("client_affine_properties", client_affine_properties)
         if dead_lettering_on_filter_evaluation_exceptions is not None:
-            pulumi.set(__self__, "dead_lettering_on_filter_evaluation_exceptions", dead_lettering_on_filter_evaluation_exceptions)
+            _setter("dead_lettering_on_filter_evaluation_exceptions", dead_lettering_on_filter_evaluation_exceptions)
         if dead_lettering_on_message_expiration is not None:
-            pulumi.set(__self__, "dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
+            _setter("dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
         if default_message_time_to_live is not None:
-            pulumi.set(__self__, "default_message_time_to_live", default_message_time_to_live)
+            _setter("default_message_time_to_live", default_message_time_to_live)
         if duplicate_detection_history_time_window is not None:
-            pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
+            _setter("duplicate_detection_history_time_window", duplicate_detection_history_time_window)
         if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+            _setter("enable_batched_operations", enable_batched_operations)
         if forward_dead_lettered_messages_to is not None:
-            pulumi.set(__self__, "forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
+            _setter("forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
         if forward_to is not None:
-            pulumi.set(__self__, "forward_to", forward_to)
+            _setter("forward_to", forward_to)
         if is_client_affine is not None:
-            pulumi.set(__self__, "is_client_affine", is_client_affine)
+            _setter("is_client_affine", is_client_affine)
         if lock_duration is not None:
-            pulumi.set(__self__, "lock_duration", lock_duration)
+            _setter("lock_duration", lock_duration)
         if max_delivery_count is not None:
-            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+            _setter("max_delivery_count", max_delivery_count)
         if requires_session is not None:
-            pulumi.set(__self__, "requires_session", requires_session)
+            _setter("requires_session", requires_session)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subscription_name is not None:
-            pulumi.set(__self__, "subscription_name", subscription_name)
+            _setter("subscription_name", subscription_name)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -376,6 +419,10 @@ class Subscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -409,6 +456,11 @@ class Subscription(pulumi.CustomResource):
             __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
             __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+            if not isinstance(client_affine_properties, SBClientAffinePropertiesArgs):
+                client_affine_properties = client_affine_properties or {}
+                def _setter(key, value):
+                    client_affine_properties[key] = value
+                SBClientAffinePropertiesArgs._configure(_setter, **client_affine_properties)
             __props__.__dict__["client_affine_properties"] = client_affine_properties
             __props__.__dict__["dead_lettering_on_filter_evaluation_exceptions"] = dead_lettering_on_filter_evaluation_exceptions
             __props__.__dict__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration

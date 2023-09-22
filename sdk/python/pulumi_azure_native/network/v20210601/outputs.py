@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -91,18 +91,39 @@ class BackendPoolResponse(dict):
         :param 'SubResourceResponse' load_balancing_settings: Load balancing settings for a backend pool
         :param str name: Resource name.
         """
-        pulumi.set(__self__, "resource_state", resource_state)
-        pulumi.set(__self__, "type", type)
+        BackendPoolResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_state=resource_state,
+            type=type,
+            backends=backends,
+            health_probe_settings=health_probe_settings,
+            id=id,
+            load_balancing_settings=load_balancing_settings,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_state: str,
+             type: str,
+             backends: Optional[Sequence['outputs.BackendResponse']] = None,
+             health_probe_settings: Optional['outputs.SubResourceResponse'] = None,
+             id: Optional[str] = None,
+             load_balancing_settings: Optional['outputs.SubResourceResponse'] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_state", resource_state)
+        _setter("type", type)
         if backends is not None:
-            pulumi.set(__self__, "backends", backends)
+            _setter("backends", backends)
         if health_probe_settings is not None:
-            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+            _setter("health_probe_settings", health_probe_settings)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if load_balancing_settings is not None:
-            pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
+            _setter("load_balancing_settings", load_balancing_settings)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="resourceState")
@@ -193,12 +214,23 @@ class BackendPoolsSettingsResponse(dict):
         :param str enforce_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
         :param int send_recv_timeout_seconds: Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
         """
+        BackendPoolsSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enforce_certificate_name_check=enforce_certificate_name_check,
+            send_recv_timeout_seconds=send_recv_timeout_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enforce_certificate_name_check: Optional[str] = None,
+             send_recv_timeout_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enforce_certificate_name_check is None:
             enforce_certificate_name_check = 'Enabled'
         if enforce_certificate_name_check is not None:
-            pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
+            _setter("enforce_certificate_name_check", enforce_certificate_name_check)
         if send_recv_timeout_seconds is not None:
-            pulumi.set(__self__, "send_recv_timeout_seconds", send_recv_timeout_seconds)
+            _setter("send_recv_timeout_seconds", send_recv_timeout_seconds)
 
     @property
     @pulumi.getter(name="enforceCertificateNameCheck")
@@ -283,29 +315,60 @@ class BackendResponse(dict):
         :param str private_link_resource_id: The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
         :param int weight: Weight of this endpoint for load balancing purposes.
         """
-        pulumi.set(__self__, "private_endpoint_status", private_endpoint_status)
+        BackendResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint_status=private_endpoint_status,
+            address=address,
+            backend_host_header=backend_host_header,
+            enabled_state=enabled_state,
+            http_port=http_port,
+            https_port=https_port,
+            priority=priority,
+            private_link_alias=private_link_alias,
+            private_link_approval_message=private_link_approval_message,
+            private_link_location=private_link_location,
+            private_link_resource_id=private_link_resource_id,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint_status: str,
+             address: Optional[str] = None,
+             backend_host_header: Optional[str] = None,
+             enabled_state: Optional[str] = None,
+             http_port: Optional[int] = None,
+             https_port: Optional[int] = None,
+             priority: Optional[int] = None,
+             private_link_alias: Optional[str] = None,
+             private_link_approval_message: Optional[str] = None,
+             private_link_location: Optional[str] = None,
+             private_link_resource_id: Optional[str] = None,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_endpoint_status", private_endpoint_status)
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if backend_host_header is not None:
-            pulumi.set(__self__, "backend_host_header", backend_host_header)
+            _setter("backend_host_header", backend_host_header)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if http_port is not None:
-            pulumi.set(__self__, "http_port", http_port)
+            _setter("http_port", http_port)
         if https_port is not None:
-            pulumi.set(__self__, "https_port", https_port)
+            _setter("https_port", https_port)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if private_link_alias is not None:
-            pulumi.set(__self__, "private_link_alias", private_link_alias)
+            _setter("private_link_alias", private_link_alias)
         if private_link_approval_message is not None:
-            pulumi.set(__self__, "private_link_approval_message", private_link_approval_message)
+            _setter("private_link_approval_message", private_link_approval_message)
         if private_link_location is not None:
-            pulumi.set(__self__, "private_link_location", private_link_location)
+            _setter("private_link_location", private_link_location)
         if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+            _setter("private_link_resource_id", private_link_resource_id)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="privateEndpointStatus")
@@ -444,14 +507,29 @@ class CacheConfigurationResponse(dict):
         :param str query_parameter_strip_directive: Treatment of URL query terms when forming the cache key.
         :param str query_parameters: query parameters to include or exclude (comma separated).
         """
+        CacheConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_duration=cache_duration,
+            dynamic_compression=dynamic_compression,
+            query_parameter_strip_directive=query_parameter_strip_directive,
+            query_parameters=query_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_duration: Optional[str] = None,
+             dynamic_compression: Optional[str] = None,
+             query_parameter_strip_directive: Optional[str] = None,
+             query_parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cache_duration is not None:
-            pulumi.set(__self__, "cache_duration", cache_duration)
+            _setter("cache_duration", cache_duration)
         if dynamic_compression is not None:
-            pulumi.set(__self__, "dynamic_compression", dynamic_compression)
+            _setter("dynamic_compression", dynamic_compression)
         if query_parameter_strip_directive is not None:
-            pulumi.set(__self__, "query_parameter_strip_directive", query_parameter_strip_directive)
+            _setter("query_parameter_strip_directive", query_parameter_strip_directive)
         if query_parameters is not None:
-            pulumi.set(__self__, "query_parameters", query_parameters)
+            _setter("query_parameters", query_parameters)
 
     @property
     @pulumi.getter(name="cacheDuration")
@@ -536,17 +614,38 @@ class CustomHttpsConfigurationResponse(dict):
         :param str secret_version: The version of the Key Vault secret representing the full certificate PFX
         :param 'KeyVaultCertificateSourceParametersResponseVault' vault: The Key Vault containing the SSL certificate
         """
-        pulumi.set(__self__, "certificate_source", certificate_source)
-        pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
-        pulumi.set(__self__, "protocol_type", protocol_type)
+        CustomHttpsConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_source=certificate_source,
+            minimum_tls_version=minimum_tls_version,
+            protocol_type=protocol_type,
+            certificate_type=certificate_type,
+            secret_name=secret_name,
+            secret_version=secret_version,
+            vault=vault,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_source: str,
+             minimum_tls_version: str,
+             protocol_type: str,
+             certificate_type: Optional[str] = None,
+             secret_name: Optional[str] = None,
+             secret_version: Optional[str] = None,
+             vault: Optional['outputs.KeyVaultCertificateSourceParametersResponseVault'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_source", certificate_source)
+        _setter("minimum_tls_version", minimum_tls_version)
+        _setter("protocol_type", protocol_type)
         if certificate_type is not None:
-            pulumi.set(__self__, "certificate_type", certificate_type)
+            _setter("certificate_type", certificate_type)
         if secret_name is not None:
-            pulumi.set(__self__, "secret_name", secret_name)
+            _setter("secret_name", secret_name)
         if secret_version is not None:
-            pulumi.set(__self__, "secret_version", secret_version)
+            _setter("secret_version", secret_version)
         if vault is not None:
-            pulumi.set(__self__, "vault", vault)
+            _setter("vault", vault)
 
     @property
     @pulumi.getter(name="certificateSource")
@@ -616,8 +715,17 @@ class CustomRuleListResponse(dict):
         Defines contents of custom rules
         :param Sequence['CustomRuleResponse'] rules: List of rules
         """
+        CustomRuleListResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Optional[Sequence['outputs.CustomRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -678,18 +786,41 @@ class CustomRuleResponse(dict):
         :param int rate_limit_duration_in_minutes: Time window for resetting the rate limit count. Default is 1 minute.
         :param int rate_limit_threshold: Number of allowed requests per client within the time window.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match_conditions", match_conditions)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "rule_type", rule_type)
+        CustomRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match_conditions=match_conditions,
+            priority=priority,
+            rule_type=rule_type,
+            enabled_state=enabled_state,
+            name=name,
+            rate_limit_duration_in_minutes=rate_limit_duration_in_minutes,
+            rate_limit_threshold=rate_limit_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             match_conditions: Sequence['outputs.FrontDoorMatchConditionResponse'],
+             priority: int,
+             rule_type: str,
+             enabled_state: Optional[str] = None,
+             name: Optional[str] = None,
+             rate_limit_duration_in_minutes: Optional[int] = None,
+             rate_limit_threshold: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("match_conditions", match_conditions)
+        _setter("priority", priority)
+        _setter("rule_type", rule_type)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rate_limit_duration_in_minutes is not None:
-            pulumi.set(__self__, "rate_limit_duration_in_minutes", rate_limit_duration_in_minutes)
+            _setter("rate_limit_duration_in_minutes", rate_limit_duration_in_minutes)
         if rate_limit_threshold is not None:
-            pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
+            _setter("rate_limit_threshold", rate_limit_threshold)
 
     @property
     @pulumi.getter
@@ -801,15 +932,32 @@ class ForwardingConfigurationResponse(dict):
         :param str custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
         :param str forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration')
+        ForwardingConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            backend_pool=backend_pool,
+            cache_configuration=cache_configuration,
+            custom_forwarding_path=custom_forwarding_path,
+            forwarding_protocol=forwarding_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: str,
+             backend_pool: Optional['outputs.SubResourceResponse'] = None,
+             cache_configuration: Optional['outputs.CacheConfigurationResponse'] = None,
+             custom_forwarding_path: Optional[str] = None,
+             forwarding_protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("odata_type", '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration')
         if backend_pool is not None:
-            pulumi.set(__self__, "backend_pool", backend_pool)
+            _setter("backend_pool", backend_pool)
         if cache_configuration is not None:
-            pulumi.set(__self__, "cache_configuration", cache_configuration)
+            _setter("cache_configuration", cache_configuration)
         if custom_forwarding_path is not None:
-            pulumi.set(__self__, "custom_forwarding_path", custom_forwarding_path)
+            _setter("custom_forwarding_path", custom_forwarding_path)
         if forwarding_protocol is not None:
-            pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+            _setter("forwarding_protocol", forwarding_protocol)
 
     @property
     @pulumi.getter(name="odataType")
@@ -885,11 +1033,24 @@ class FrontDoorManagedRuleGroupOverrideResponse(dict):
         :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to all rules in the group.
         :param Sequence['FrontDoorManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
-        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        FrontDoorManagedRuleGroupOverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_group_name=rule_group_name,
+            exclusions=exclusions,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_group_name: str,
+             exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
+             rules: Optional[Sequence['outputs.FrontDoorManagedRuleOverrideResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_group_name", rule_group_name)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter(name="ruleGroupName")
@@ -952,13 +1113,28 @@ class FrontDoorManagedRuleOverrideResponse(dict):
         :param str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
         :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to this specific rule.
         """
-        pulumi.set(__self__, "rule_id", rule_id)
+        FrontDoorManagedRuleOverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_id=rule_id,
+            action=action,
+            enabled_state=enabled_state,
+            exclusions=exclusions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_id: str,
+             action: Optional[str] = None,
+             enabled_state: Optional[str] = None,
+             exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_id", rule_id)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
 
     @property
     @pulumi.getter(name="ruleId")
@@ -1035,14 +1211,31 @@ class FrontDoorManagedRuleSetResponse(dict):
         :param Sequence['FrontDoorManagedRuleGroupOverrideResponse'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
         :param str rule_set_action: Defines the action to take when a managed rule set score threshold is met.
         """
-        pulumi.set(__self__, "rule_set_type", rule_set_type)
-        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        FrontDoorManagedRuleSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_set_type=rule_set_type,
+            rule_set_version=rule_set_version,
+            exclusions=exclusions,
+            rule_group_overrides=rule_group_overrides,
+            rule_set_action=rule_set_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_set_type: str,
+             rule_set_version: str,
+             exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
+             rule_group_overrides: Optional[Sequence['outputs.FrontDoorManagedRuleGroupOverrideResponse']] = None,
+             rule_set_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_set_type", rule_set_type)
+        _setter("rule_set_version", rule_set_version)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
         if rule_group_overrides is not None:
-            pulumi.set(__self__, "rule_group_overrides", rule_group_overrides)
+            _setter("rule_group_overrides", rule_group_overrides)
         if rule_set_action is not None:
-            pulumi.set(__self__, "rule_set_action", rule_set_action)
+            _setter("rule_set_action", rule_set_action)
 
     @property
     @pulumi.getter(name="ruleSetType")
@@ -1127,15 +1320,34 @@ class FrontDoorMatchConditionResponse(dict):
         :param str selector: Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
         :param Sequence[str] transforms: List of transforms.
         """
-        pulumi.set(__self__, "match_value", match_value)
-        pulumi.set(__self__, "match_variable", match_variable)
-        pulumi.set(__self__, "operator", operator)
+        FrontDoorMatchConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_value=match_value,
+            match_variable=match_variable,
+            operator=operator,
+            negate_condition=negate_condition,
+            selector=selector,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_value: Sequence[str],
+             match_variable: str,
+             operator: str,
+             negate_condition: Optional[bool] = None,
+             selector: Optional[str] = None,
+             transforms: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_value", match_value)
+        _setter("match_variable", match_variable)
+        _setter("operator", operator)
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter(name="matchValue")
@@ -1232,18 +1444,37 @@ class FrontDoorPolicySettingsResponse(dict):
         :param str redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param str request_body_check: Describes if policy managed rules will inspect the request body content.
         """
+        FrontDoorPolicySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_block_response_body=custom_block_response_body,
+            custom_block_response_status_code=custom_block_response_status_code,
+            enabled_state=enabled_state,
+            mode=mode,
+            redirect_url=redirect_url,
+            request_body_check=request_body_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_block_response_body: Optional[str] = None,
+             custom_block_response_status_code: Optional[int] = None,
+             enabled_state: Optional[str] = None,
+             mode: Optional[str] = None,
+             redirect_url: Optional[str] = None,
+             request_body_check: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_block_response_body is not None:
-            pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
+            _setter("custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
-            pulumi.set(__self__, "custom_block_response_status_code", custom_block_response_status_code)
+            _setter("custom_block_response_status_code", custom_block_response_status_code)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if request_body_check is not None:
-            pulumi.set(__self__, "request_body_check", request_body_check)
+            _setter("request_body_check", request_body_check)
 
     @property
     @pulumi.getter(name="customBlockResponseBody")
@@ -1305,8 +1536,17 @@ class FrontendEndpointLinkResponse(dict):
         Defines the Resource ID for a Frontend Endpoint.
         :param str id: Resource ID.
         """
+        FrontendEndpointLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1379,23 +1619,52 @@ class FrontendEndpointResponse(dict):
         :param int session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
         :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
         """
-        pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
-        pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
-        pulumi.set(__self__, "custom_https_provisioning_substate", custom_https_provisioning_substate)
-        pulumi.set(__self__, "resource_state", resource_state)
-        pulumi.set(__self__, "type", type)
+        FrontendEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_https_configuration=custom_https_configuration,
+            custom_https_provisioning_state=custom_https_provisioning_state,
+            custom_https_provisioning_substate=custom_https_provisioning_substate,
+            resource_state=resource_state,
+            type=type,
+            host_name=host_name,
+            id=id,
+            name=name,
+            session_affinity_enabled_state=session_affinity_enabled_state,
+            session_affinity_ttl_seconds=session_affinity_ttl_seconds,
+            web_application_firewall_policy_link=web_application_firewall_policy_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_https_configuration: 'outputs.CustomHttpsConfigurationResponse',
+             custom_https_provisioning_state: str,
+             custom_https_provisioning_substate: str,
+             resource_state: str,
+             type: str,
+             host_name: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             session_affinity_enabled_state: Optional[str] = None,
+             session_affinity_ttl_seconds: Optional[int] = None,
+             web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_https_configuration", custom_https_configuration)
+        _setter("custom_https_provisioning_state", custom_https_provisioning_state)
+        _setter("custom_https_provisioning_substate", custom_https_provisioning_substate)
+        _setter("resource_state", resource_state)
+        _setter("type", type)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if session_affinity_enabled_state is not None:
-            pulumi.set(__self__, "session_affinity_enabled_state", session_affinity_enabled_state)
+            _setter("session_affinity_enabled_state", session_affinity_enabled_state)
         if session_affinity_ttl_seconds is not None:
-            pulumi.set(__self__, "session_affinity_ttl_seconds", session_affinity_ttl_seconds)
+            _setter("session_affinity_ttl_seconds", session_affinity_ttl_seconds)
         if web_application_firewall_policy_link is not None:
-            pulumi.set(__self__, "web_application_firewall_policy_link", web_application_firewall_policy_link)
+            _setter("web_application_firewall_policy_link", web_application_firewall_policy_link)
 
     @property
     @pulumi.getter(name="customHttpsConfiguration")
@@ -1497,8 +1766,17 @@ class FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink(d
         Defines the Web Application Firewall policy for each host (if applicable)
         :param str id: Resource ID.
         """
+        FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1543,10 +1821,23 @@ class HeaderActionResponse(dict):
         :param str header_name: The name of the header this action will apply to.
         :param str value: The value to update the given header name with. This value is not used if the actionType is Delete.
         """
-        pulumi.set(__self__, "header_action_type", header_action_type)
-        pulumi.set(__self__, "header_name", header_name)
+        HeaderActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_action_type=header_action_type,
+            header_name=header_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_action_type: str,
+             header_name: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header_action_type", header_action_type)
+        _setter("header_name", header_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="headerActionType")
@@ -1623,24 +1914,49 @@ class HealthProbeSettingsModelResponse(dict):
         :param str path: The path to use for the health probe. Default is /
         :param str protocol: Protocol scheme to use for this probe
         """
-        pulumi.set(__self__, "resource_state", resource_state)
-        pulumi.set(__self__, "type", type)
+        HealthProbeSettingsModelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_state=resource_state,
+            type=type,
+            enabled_state=enabled_state,
+            health_probe_method=health_probe_method,
+            id=id,
+            interval_in_seconds=interval_in_seconds,
+            name=name,
+            path=path,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_state: str,
+             type: str,
+             enabled_state: Optional[str] = None,
+             health_probe_method: Optional[str] = None,
+             id: Optional[str] = None,
+             interval_in_seconds: Optional[int] = None,
+             name: Optional[str] = None,
+             path: Optional[str] = None,
+             protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_state", resource_state)
+        _setter("type", type)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if health_probe_method is None:
             health_probe_method = 'HEAD'
         if health_probe_method is not None:
-            pulumi.set(__self__, "health_probe_method", health_probe_method)
+            _setter("health_probe_method", health_probe_method)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if interval_in_seconds is not None:
-            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+            _setter("interval_in_seconds", interval_in_seconds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter(name="resourceState")
@@ -1726,8 +2042,17 @@ class KeyVaultCertificateSourceParametersResponseVault(dict):
         The Key Vault containing the SSL certificate
         :param str id: Resource ID.
         """
+        KeyVaultCertificateSourceParametersResponseVault._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1784,18 +2109,39 @@ class LoadBalancingSettingsModelResponse(dict):
         :param int sample_size: The number of samples to consider for load balancing decisions
         :param int successful_samples_required: The number of samples within the sample period that must succeed
         """
-        pulumi.set(__self__, "resource_state", resource_state)
-        pulumi.set(__self__, "type", type)
+        LoadBalancingSettingsModelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_state=resource_state,
+            type=type,
+            additional_latency_milliseconds=additional_latency_milliseconds,
+            id=id,
+            name=name,
+            sample_size=sample_size,
+            successful_samples_required=successful_samples_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_state: str,
+             type: str,
+             additional_latency_milliseconds: Optional[int] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             sample_size: Optional[int] = None,
+             successful_samples_required: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_state", resource_state)
+        _setter("type", type)
         if additional_latency_milliseconds is not None:
-            pulumi.set(__self__, "additional_latency_milliseconds", additional_latency_milliseconds)
+            _setter("additional_latency_milliseconds", additional_latency_milliseconds)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sample_size is not None:
-            pulumi.set(__self__, "sample_size", sample_size)
+            _setter("sample_size", sample_size)
         if successful_samples_required is not None:
-            pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+            _setter("successful_samples_required", successful_samples_required)
 
     @property
     @pulumi.getter(name="resourceState")
@@ -1888,9 +2234,22 @@ class ManagedRuleExclusionResponse(dict):
         :param str selector: Selector value for which elements in the collection this exclusion applies to.
         :param str selector_match_operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
         """
-        pulumi.set(__self__, "match_variable", match_variable)
-        pulumi.set(__self__, "selector", selector)
-        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+        ManagedRuleExclusionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_variable=match_variable,
+            selector=selector,
+            selector_match_operator=selector_match_operator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_variable: str,
+             selector: str,
+             selector_match_operator: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_variable", match_variable)
+        _setter("selector", selector)
+        _setter("selector_match_operator", selector_match_operator)
 
     @property
     @pulumi.getter(name="matchVariable")
@@ -1945,8 +2304,17 @@ class ManagedRuleSetListResponse(dict):
         Defines the list of managed rule sets for the policy.
         :param Sequence['FrontDoorManagedRuleSetResponse'] managed_rule_sets: List of rule sets.
         """
+        ManagedRuleSetListResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_rule_sets=managed_rule_sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_rule_sets: Optional[Sequence['outputs.FrontDoorManagedRuleSetResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if managed_rule_sets is not None:
-            pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+            _setter("managed_rule_sets", managed_rule_sets)
 
     @property
     @pulumi.getter(name="managedRuleSets")
@@ -2010,19 +2378,40 @@ class RedirectConfigurationResponse(dict):
         :param str redirect_protocol: The protocol of the destination to where the traffic is redirected
         :param str redirect_type: The redirect type the rule will use when redirecting traffic.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration')
+        RedirectConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            custom_fragment=custom_fragment,
+            custom_host=custom_host,
+            custom_path=custom_path,
+            custom_query_string=custom_query_string,
+            redirect_protocol=redirect_protocol,
+            redirect_type=redirect_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: str,
+             custom_fragment: Optional[str] = None,
+             custom_host: Optional[str] = None,
+             custom_path: Optional[str] = None,
+             custom_query_string: Optional[str] = None,
+             redirect_protocol: Optional[str] = None,
+             redirect_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("odata_type", '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration')
         if custom_fragment is not None:
-            pulumi.set(__self__, "custom_fragment", custom_fragment)
+            _setter("custom_fragment", custom_fragment)
         if custom_host is not None:
-            pulumi.set(__self__, "custom_host", custom_host)
+            _setter("custom_host", custom_host)
         if custom_path is not None:
-            pulumi.set(__self__, "custom_path", custom_path)
+            _setter("custom_path", custom_path)
         if custom_query_string is not None:
-            pulumi.set(__self__, "custom_query_string", custom_query_string)
+            _setter("custom_query_string", custom_query_string)
         if redirect_protocol is not None:
-            pulumi.set(__self__, "redirect_protocol", redirect_protocol)
+            _setter("redirect_protocol", redirect_protocol)
         if redirect_type is not None:
-            pulumi.set(__self__, "redirect_type", redirect_type)
+            _setter("redirect_type", redirect_type)
 
     @property
     @pulumi.getter(name="odataType")
@@ -2093,8 +2482,17 @@ class RoutingRuleLinkResponse(dict):
         Defines the Resource ID for a Routing Rule.
         :param str id: Resource ID.
         """
+        RoutingRuleLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2167,26 +2565,55 @@ class RoutingRuleResponse(dict):
         :param 'SubResourceResponse' rules_engine: A reference to a specific Rules Engine Configuration to apply to this route.
         :param 'RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each routing rule (if applicable)
         """
-        pulumi.set(__self__, "resource_state", resource_state)
-        pulumi.set(__self__, "type", type)
+        RoutingRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_state=resource_state,
+            type=type,
+            accepted_protocols=accepted_protocols,
+            enabled_state=enabled_state,
+            frontend_endpoints=frontend_endpoints,
+            id=id,
+            name=name,
+            patterns_to_match=patterns_to_match,
+            route_configuration=route_configuration,
+            rules_engine=rules_engine,
+            web_application_firewall_policy_link=web_application_firewall_policy_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_state: str,
+             type: str,
+             accepted_protocols: Optional[Sequence[str]] = None,
+             enabled_state: Optional[str] = None,
+             frontend_endpoints: Optional[Sequence['outputs.SubResourceResponse']] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             patterns_to_match: Optional[Sequence[str]] = None,
+             route_configuration: Optional[Any] = None,
+             rules_engine: Optional['outputs.SubResourceResponse'] = None,
+             web_application_firewall_policy_link: Optional['outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_state", resource_state)
+        _setter("type", type)
         if accepted_protocols is not None:
-            pulumi.set(__self__, "accepted_protocols", accepted_protocols)
+            _setter("accepted_protocols", accepted_protocols)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if frontend_endpoints is not None:
-            pulumi.set(__self__, "frontend_endpoints", frontend_endpoints)
+            _setter("frontend_endpoints", frontend_endpoints)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if patterns_to_match is not None:
-            pulumi.set(__self__, "patterns_to_match", patterns_to_match)
+            _setter("patterns_to_match", patterns_to_match)
         if route_configuration is not None:
-            pulumi.set(__self__, "route_configuration", route_configuration)
+            _setter("route_configuration", route_configuration)
         if rules_engine is not None:
-            pulumi.set(__self__, "rules_engine", rules_engine)
+            _setter("rules_engine", rules_engine)
         if web_application_firewall_policy_link is not None:
-            pulumi.set(__self__, "web_application_firewall_policy_link", web_application_firewall_policy_link)
+            _setter("web_application_firewall_policy_link", web_application_firewall_policy_link)
 
     @property
     @pulumi.getter(name="resourceState")
@@ -2288,8 +2715,17 @@ class RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink(dict):
         Defines the Web Application Firewall policy for each routing rule (if applicable)
         :param str id: Resource ID.
         """
+        RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2336,12 +2772,25 @@ class RulesEngineActionResponse(dict):
         :param Sequence['HeaderActionResponse'] response_header_actions: A list of header actions to apply from the response from AFD to the client.
         :param Union['ForwardingConfigurationResponse', 'RedirectConfigurationResponse'] route_configuration_override: Override the route configuration.
         """
+        RulesEngineActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request_header_actions=request_header_actions,
+            response_header_actions=response_header_actions,
+            route_configuration_override=route_configuration_override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request_header_actions: Optional[Sequence['outputs.HeaderActionResponse']] = None,
+             response_header_actions: Optional[Sequence['outputs.HeaderActionResponse']] = None,
+             route_configuration_override: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if request_header_actions is not None:
-            pulumi.set(__self__, "request_header_actions", request_header_actions)
+            _setter("request_header_actions", request_header_actions)
         if response_header_actions is not None:
-            pulumi.set(__self__, "response_header_actions", response_header_actions)
+            _setter("response_header_actions", response_header_actions)
         if route_configuration_override is not None:
-            pulumi.set(__self__, "route_configuration_override", route_configuration_override)
+            _setter("route_configuration_override", route_configuration_override)
 
     @property
     @pulumi.getter(name="requestHeaderActions")
@@ -2412,15 +2861,34 @@ class RulesEngineMatchConditionResponse(dict):
         :param str selector: Name of selector in RequestHeader or RequestBody to be matched
         :param Sequence[str] transforms: List of transforms
         """
-        pulumi.set(__self__, "rules_engine_match_value", rules_engine_match_value)
-        pulumi.set(__self__, "rules_engine_match_variable", rules_engine_match_variable)
-        pulumi.set(__self__, "rules_engine_operator", rules_engine_operator)
+        RulesEngineMatchConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules_engine_match_value=rules_engine_match_value,
+            rules_engine_match_variable=rules_engine_match_variable,
+            rules_engine_operator=rules_engine_operator,
+            negate_condition=negate_condition,
+            selector=selector,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules_engine_match_value: Sequence[str],
+             rules_engine_match_variable: str,
+             rules_engine_operator: str,
+             negate_condition: Optional[bool] = None,
+             selector: Optional[str] = None,
+             transforms: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rules_engine_match_value", rules_engine_match_value)
+        _setter("rules_engine_match_variable", rules_engine_match_variable)
+        _setter("rules_engine_operator", rules_engine_operator)
         if negate_condition is not None:
-            pulumi.set(__self__, "negate_condition", negate_condition)
+            _setter("negate_condition", negate_condition)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter(name="rulesEngineMatchValue")
@@ -2507,12 +2975,29 @@ class RulesEngineResponse(dict):
         :param str type: Resource type.
         :param Sequence['RulesEngineRuleResponse'] rules: A list of rules that define a particular Rules Engine Configuration.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_state", resource_state)
-        pulumi.set(__self__, "type", type)
+        RulesEngineResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            resource_state=resource_state,
+            type=type,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             resource_state: str,
+             type: str,
+             rules: Optional[Sequence['outputs.RulesEngineRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("resource_state", resource_state)
+        _setter("type", type)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -2593,13 +3078,30 @@ class RulesEngineRuleResponse(dict):
         :param Sequence['RulesEngineMatchConditionResponse'] match_conditions: A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
         :param str match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
+        RulesEngineRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            priority=priority,
+            match_conditions=match_conditions,
+            match_processing_behavior=match_processing_behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.RulesEngineActionResponse',
+             name: str,
+             priority: int,
+             match_conditions: Optional[Sequence['outputs.RulesEngineMatchConditionResponse']] = None,
+             match_processing_behavior: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("name", name)
+        _setter("priority", priority)
         if match_conditions is not None:
-            pulumi.set(__self__, "match_conditions", match_conditions)
+            _setter("match_conditions", match_conditions)
         if match_processing_behavior is not None:
-            pulumi.set(__self__, "match_processing_behavior", match_processing_behavior)
+            _setter("match_processing_behavior", match_processing_behavior)
 
     @property
     @pulumi.getter
@@ -2653,8 +3155,17 @@ class SecurityPolicyLinkResponse(dict):
         Defines the Resource ID for a Security Policy.
         :param str id: Resource ID.
         """
+        SecurityPolicyLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2676,8 +3187,17 @@ class SkuResponse(dict):
         The pricing tier of the web application firewall policy.
         :param str name: Name of the pricing tier.
         """
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2699,8 +3219,17 @@ class SubResourceResponse(dict):
         Reference to another subresource.
         :param str id: Resource ID.
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter

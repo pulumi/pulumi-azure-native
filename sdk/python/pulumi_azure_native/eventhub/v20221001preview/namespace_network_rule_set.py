@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,20 +34,41 @@ class NamespaceNetworkRuleSetArgs:
         :param pulumi.Input[bool] trusted_service_access_enabled: Value that indicates whether Trusted Service Access is Enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]] virtual_network_rules: List VirtualNetwork Rules
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NamespaceNetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            public_network_access=public_network_access,
+            trusted_service_access_enabled=trusted_service_access_enabled,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessFlag']]] = None,
+             trusted_service_access_enabled: Optional[pulumi.Input[bool]] = None,
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if trusted_service_access_enabled is not None:
-            pulumi.set(__self__, "trusted_service_access_enabled", trusted_service_access_enabled)
+            _setter("trusted_service_access_enabled", trusted_service_access_enabled)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -179,6 +200,10 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceNetworkRuleSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

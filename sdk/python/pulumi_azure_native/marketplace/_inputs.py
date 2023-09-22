@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -21,8 +21,17 @@ class PlanArgs:
         """
         :param pulumi.Input[Union[str, 'Accessibility']] accessibility: Plan accessibility
         """
+        PlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accessibility=accessibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accessibility: Optional[pulumi.Input[Union[str, 'Accessibility']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accessibility is not None:
-            pulumi.set(__self__, "accessibility", accessibility)
+            _setter("accessibility", accessibility)
 
     @property
     @pulumi.getter

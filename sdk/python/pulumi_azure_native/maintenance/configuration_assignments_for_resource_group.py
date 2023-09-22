@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,36 @@ class ConfigurationAssignmentsForResourceGroupArgs:
         :param pulumi.Input[str] maintenance_configuration_id: The maintenance configuration Id
         :param pulumi.Input[str] resource_id: The unique resourceId
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConfigurationAssignmentsForResourceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            configuration_assignment_name=configuration_assignment_name,
+            filter=filter,
+            location=location,
+            maintenance_configuration_id=maintenance_configuration_id,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if configuration_assignment_name is not None:
-            pulumi.set(__self__, "configuration_assignment_name", configuration_assignment_name)
+            _setter("configuration_assignment_name", configuration_assignment_name)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_configuration_id is not None:
-            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+            _setter("maintenance_configuration_id", maintenance_configuration_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -162,6 +181,10 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationAssignmentsForResourceGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -183,6 +206,11 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
             __props__ = ConfigurationAssignmentsForResourceGroupArgs.__new__(ConfigurationAssignmentsForResourceGroupArgs)
 
             __props__.__dict__["configuration_assignment_name"] = configuration_assignment_name
+            if not isinstance(filter, ConfigurationAssignmentFilterPropertiesArgs):
+                filter = filter or {}
+                def _setter(key, value):
+                    filter[key] = value
+                ConfigurationAssignmentFilterPropertiesArgs._configure(_setter, **filter)
             __props__.__dict__["filter"] = filter
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id

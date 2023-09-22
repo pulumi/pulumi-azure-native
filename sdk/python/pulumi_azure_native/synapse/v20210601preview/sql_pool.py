@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,34 +58,71 @@ class SqlPoolArgs:
         :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this sql pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        SqlPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            collation=collation,
+            create_mode=create_mode,
+            location=location,
+            max_size_bytes=max_size_bytes,
+            provisioning_state=provisioning_state,
+            recoverable_database_id=recoverable_database_id,
+            restore_point_in_time=restore_point_in_time,
+            sku=sku,
+            source_database_deletion_date=source_database_deletion_date,
+            source_database_id=source_database_id,
+            sql_pool_name=sql_pool_name,
+            storage_account_type=storage_account_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             collation: Optional[pulumi.Input[str]] = None,
+             create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_size_bytes: Optional[pulumi.Input[float]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             recoverable_database_id: Optional[pulumi.Input[str]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             source_database_deletion_date: Optional[pulumi.Input[str]] = None,
+             source_database_id: Optional[pulumi.Input[str]] = None,
+             sql_pool_name: Optional[pulumi.Input[str]] = None,
+             storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_size_bytes is not None:
-            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+            _setter("max_size_bytes", max_size_bytes)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if recoverable_database_id is not None:
-            pulumi.set(__self__, "recoverable_database_id", recoverable_database_id)
+            _setter("recoverable_database_id", recoverable_database_id)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if source_database_deletion_date is not None:
-            pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
+            _setter("source_database_deletion_date", source_database_deletion_date)
         if source_database_id is not None:
-            pulumi.set(__self__, "source_database_id", source_database_id)
+            _setter("source_database_id", source_database_id)
         if sql_pool_name is not None:
-            pulumi.set(__self__, "sql_pool_name", sql_pool_name)
+            _setter("sql_pool_name", sql_pool_name)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -345,6 +382,10 @@ class SqlPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -384,6 +425,11 @@ class SqlPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restore_point_in_time"] = restore_point_in_time
+            if not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id

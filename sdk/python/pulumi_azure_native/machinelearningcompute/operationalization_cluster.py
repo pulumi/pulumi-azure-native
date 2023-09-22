@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,26 +42,55 @@ class OperationalizationClusterArgs:
         :param pulumi.Input['StorageAccountPropertiesArgs'] storage_account: Storage Account properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
-        pulumi.set(__self__, "cluster_type", cluster_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OperationalizationClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_type=cluster_type,
+            resource_group_name=resource_group_name,
+            app_insights=app_insights,
+            cluster_name=cluster_name,
+            container_registry=container_registry,
+            container_service=container_service,
+            description=description,
+            global_service_configuration=global_service_configuration,
+            location=location,
+            storage_account=storage_account,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_type: pulumi.Input[Union[str, 'ClusterType']],
+             resource_group_name: pulumi.Input[str],
+             app_insights: Optional[pulumi.Input['AppInsightsPropertiesArgs']] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             container_registry: Optional[pulumi.Input['ContainerRegistryPropertiesArgs']] = None,
+             container_service: Optional[pulumi.Input['AcsClusterPropertiesArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             global_service_configuration: Optional[pulumi.Input['GlobalServiceConfigurationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             storage_account: Optional[pulumi.Input['StorageAccountPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_type", cluster_type)
+        _setter("resource_group_name", resource_group_name)
         if app_insights is not None:
-            pulumi.set(__self__, "app_insights", app_insights)
+            _setter("app_insights", app_insights)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if container_registry is not None:
-            pulumi.set(__self__, "container_registry", container_registry)
+            _setter("container_registry", container_registry)
         if container_service is not None:
-            pulumi.set(__self__, "container_service", container_service)
+            _setter("container_service", container_service)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if global_service_configuration is not None:
-            pulumi.set(__self__, "global_service_configuration", global_service_configuration)
+            _setter("global_service_configuration", global_service_configuration)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
+            _setter("storage_account", storage_account)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="clusterType")
@@ -251,6 +280,10 @@ class OperationalizationCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OperationalizationClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -276,19 +309,44 @@ class OperationalizationCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OperationalizationClusterArgs.__new__(OperationalizationClusterArgs)
 
+            if not isinstance(app_insights, AppInsightsPropertiesArgs):
+                app_insights = app_insights or {}
+                def _setter(key, value):
+                    app_insights[key] = value
+                AppInsightsPropertiesArgs._configure(_setter, **app_insights)
             __props__.__dict__["app_insights"] = app_insights
             __props__.__dict__["cluster_name"] = cluster_name
             if cluster_type is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_type'")
             __props__.__dict__["cluster_type"] = cluster_type
+            if not isinstance(container_registry, ContainerRegistryPropertiesArgs):
+                container_registry = container_registry or {}
+                def _setter(key, value):
+                    container_registry[key] = value
+                ContainerRegistryPropertiesArgs._configure(_setter, **container_registry)
             __props__.__dict__["container_registry"] = container_registry
+            if not isinstance(container_service, AcsClusterPropertiesArgs):
+                container_service = container_service or {}
+                def _setter(key, value):
+                    container_service[key] = value
+                AcsClusterPropertiesArgs._configure(_setter, **container_service)
             __props__.__dict__["container_service"] = container_service
             __props__.__dict__["description"] = description
+            if not isinstance(global_service_configuration, GlobalServiceConfigurationArgs):
+                global_service_configuration = global_service_configuration or {}
+                def _setter(key, value):
+                    global_service_configuration[key] = value
+                GlobalServiceConfigurationArgs._configure(_setter, **global_service_configuration)
             __props__.__dict__["global_service_configuration"] = global_service_configuration
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(storage_account, StorageAccountPropertiesArgs):
+                storage_account = storage_account or {}
+                def _setter(key, value):
+                    storage_account[key] = value
+                StorageAccountPropertiesArgs._configure(_setter, **storage_account)
             __props__.__dict__["storage_account"] = storage_account
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_on"] = None

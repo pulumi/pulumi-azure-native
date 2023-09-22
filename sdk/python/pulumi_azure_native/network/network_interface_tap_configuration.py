@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,35 @@ class NetworkInterfaceTapConfigurationArgs:
         :param pulumi.Input[str] tap_configuration_name: The name of the tap configuration.
         :param pulumi.Input['VirtualNetworkTapArgs'] virtual_network_tap: The reference to the Virtual Network Tap resource.
         """
-        pulumi.set(__self__, "network_interface_name", network_interface_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkInterfaceTapConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interface_name=network_interface_name,
+            resource_group_name=resource_group_name,
+            id=id,
+            name=name,
+            tap_configuration_name=tap_configuration_name,
+            virtual_network_tap=virtual_network_tap,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interface_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tap_configuration_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_tap: Optional[pulumi.Input['VirtualNetworkTapArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_interface_name", network_interface_name)
+        _setter("resource_group_name", resource_group_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tap_configuration_name is not None:
-            pulumi.set(__self__, "tap_configuration_name", tap_configuration_name)
+            _setter("tap_configuration_name", tap_configuration_name)
         if virtual_network_tap is not None:
-            pulumi.set(__self__, "virtual_network_tap", virtual_network_tap)
+            _setter("virtual_network_tap", virtual_network_tap)
 
     @property
     @pulumi.getter(name="networkInterfaceName")
@@ -161,6 +180,10 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceTapConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -190,6 +213,11 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tap_configuration_name"] = tap_configuration_name
+            if not isinstance(virtual_network_tap, VirtualNetworkTapArgs):
+                virtual_network_tap = virtual_network_tap or {}
+                def _setter(key, value):
+                    virtual_network_tap[key] = value
+                VirtualNetworkTapArgs._configure(_setter, **virtual_network_tap)
             __props__.__dict__["virtual_network_tap"] = virtual_network_tap
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None

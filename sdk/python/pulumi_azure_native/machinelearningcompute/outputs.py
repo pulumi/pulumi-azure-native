@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -84,24 +84,45 @@ class AcsClusterPropertiesResponse(dict):
         :param 'KubernetesClusterPropertiesResponse' orchestrator_properties: Orchestrator specific properties
         :param Sequence['SystemServiceResponse'] system_services: The system services deployed to the cluster
         """
-        pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
-        pulumi.set(__self__, "orchestrator_type", orchestrator_type)
+        AcsClusterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_fqdn=cluster_fqdn,
+            orchestrator_type=orchestrator_type,
+            agent_count=agent_count,
+            agent_vm_size=agent_vm_size,
+            master_count=master_count,
+            orchestrator_properties=orchestrator_properties,
+            system_services=system_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_fqdn: str,
+             orchestrator_type: str,
+             agent_count: Optional[int] = None,
+             agent_vm_size: Optional[str] = None,
+             master_count: Optional[int] = None,
+             orchestrator_properties: Optional['outputs.KubernetesClusterPropertiesResponse'] = None,
+             system_services: Optional[Sequence['outputs.SystemServiceResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_fqdn", cluster_fqdn)
+        _setter("orchestrator_type", orchestrator_type)
         if agent_count is None:
             agent_count = 2
         if agent_count is not None:
-            pulumi.set(__self__, "agent_count", agent_count)
+            _setter("agent_count", agent_count)
         if agent_vm_size is None:
             agent_vm_size = 'Standard_D3_v2'
         if agent_vm_size is not None:
-            pulumi.set(__self__, "agent_vm_size", agent_vm_size)
+            _setter("agent_vm_size", agent_vm_size)
         if master_count is None:
             master_count = 1
         if master_count is not None:
-            pulumi.set(__self__, "master_count", master_count)
+            _setter("master_count", master_count)
         if orchestrator_properties is not None:
-            pulumi.set(__self__, "orchestrator_properties", orchestrator_properties)
+            _setter("orchestrator_properties", orchestrator_properties)
         if system_services is not None:
-            pulumi.set(__self__, "system_services", system_services)
+            _setter("system_services", system_services)
 
     @property
     @pulumi.getter(name="clusterFqdn")
@@ -173,10 +194,21 @@ class AppInsightsCredentialsResponse(dict):
         :param str app_id: The AppInsights application ID.
         :param str instrumentation_key: The AppInsights instrumentation key. This is not returned in response of GET/PUT on the resource. To see this please call listKeys API.
         """
+        AppInsightsCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            instrumentation_key=instrumentation_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[str] = None,
+             instrumentation_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if instrumentation_key is not None:
-            pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+            _setter("instrumentation_key", instrumentation_key)
 
     @property
     @pulumi.getter(name="appId")
@@ -223,8 +255,17 @@ class AppInsightsPropertiesResponse(dict):
         Properties of App Insights.
         :param str resource_id: ARM resource ID of the App Insights.
         """
+        AppInsightsPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -277,22 +318,39 @@ class AutoScaleConfigurationResponse(dict):
         :param str status: If auto-scale is enabled for all services. Each service can turn it off individually.
         :param float target_utilization: The target utilization.
         """
+        AutoScaleConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_replicas=max_replicas,
+            min_replicas=min_replicas,
+            refresh_period_in_seconds=refresh_period_in_seconds,
+            status=status,
+            target_utilization=target_utilization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_replicas: Optional[int] = None,
+             min_replicas: Optional[int] = None,
+             refresh_period_in_seconds: Optional[int] = None,
+             status: Optional[str] = None,
+             target_utilization: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_replicas is None:
             max_replicas = 100
         if max_replicas is not None:
-            pulumi.set(__self__, "max_replicas", max_replicas)
+            _setter("max_replicas", max_replicas)
         if min_replicas is None:
             min_replicas = 1
         if min_replicas is not None:
-            pulumi.set(__self__, "min_replicas", min_replicas)
+            _setter("min_replicas", min_replicas)
         if refresh_period_in_seconds is not None:
-            pulumi.set(__self__, "refresh_period_in_seconds", refresh_period_in_seconds)
+            _setter("refresh_period_in_seconds", refresh_period_in_seconds)
         if status is None:
             status = 'Disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if target_utilization is not None:
-            pulumi.set(__self__, "target_utilization", target_utilization)
+            _setter("target_utilization", target_utilization)
 
     @property
     @pulumi.getter(name="maxReplicas")
@@ -352,10 +410,25 @@ class ContainerRegistryCredentialsResponse(dict):
         :param str password2: The ACR secondary password.
         :param str username: The ACR login username.
         """
-        pulumi.set(__self__, "login_server", login_server)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "password2", password2)
-        pulumi.set(__self__, "username", username)
+        ContainerRegistryCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login_server=login_server,
+            password=password,
+            password2=password2,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login_server: str,
+             password: str,
+             password2: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("login_server", login_server)
+        _setter("password", password)
+        _setter("password2", password2)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="loginServer")
@@ -418,8 +491,17 @@ class ContainerRegistryPropertiesResponse(dict):
         Properties of Azure Container Registry.
         :param str resource_id: ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
         """
+        ContainerRegistryPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -445,9 +527,22 @@ class ContainerServiceCredentialsResponse(dict):
         :param str image_pull_secret_name: The ACR image pull secret name which was created in Kubernetes.
         :param 'ServicePrincipalPropertiesResponse' service_principal_configuration: Service principal configuration used by Kubernetes.
         """
-        pulumi.set(__self__, "acs_kube_config", acs_kube_config)
-        pulumi.set(__self__, "image_pull_secret_name", image_pull_secret_name)
-        pulumi.set(__self__, "service_principal_configuration", service_principal_configuration)
+        ContainerServiceCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acs_kube_config=acs_kube_config,
+            image_pull_secret_name=image_pull_secret_name,
+            service_principal_configuration=service_principal_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acs_kube_config: str,
+             image_pull_secret_name: str,
+             service_principal_configuration: 'outputs.ServicePrincipalPropertiesResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acs_kube_config", acs_kube_config)
+        _setter("image_pull_secret_name", image_pull_secret_name)
+        _setter("service_principal_configuration", service_principal_configuration)
 
     @property
     @pulumi.getter(name="acsKubeConfig")
@@ -487,8 +582,19 @@ class ErrorDetailResponse(dict):
         :param str code: Error code.
         :param str message: Error message.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        ErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -522,10 +628,23 @@ class ErrorResponseResponse(dict):
         :param str message: Error message.
         :param Sequence['ErrorDetailResponse'] details: An array of error detail objects.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        ErrorResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+            details=details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             message: str,
+             details: Optional[Sequence['outputs.ErrorDetailResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("message", message)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
 
     @property
     @pulumi.getter
@@ -563,8 +682,17 @@ class ErrorResponseWrapperResponse(dict):
         Wrapper for error response to follow ARM guidelines.
         :param 'ErrorResponseResponse' error: The error response.
         """
+        ErrorResponseWrapperResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ErrorResponseResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
 
     @property
     @pulumi.getter
@@ -611,14 +739,29 @@ class GlobalServiceConfigurationResponse(dict):
         :param 'ServiceAuthConfigurationResponse' service_auth: Optional global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
         :param 'SslConfigurationResponse' ssl: The SSL configuration properties
         """
+        GlobalServiceConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_scale=auto_scale,
+            etag=etag,
+            service_auth=service_auth,
+            ssl=ssl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_scale: Optional['outputs.AutoScaleConfigurationResponse'] = None,
+             etag: Optional[str] = None,
+             service_auth: Optional['outputs.ServiceAuthConfigurationResponse'] = None,
+             ssl: Optional['outputs.SslConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_scale is not None:
-            pulumi.set(__self__, "auto_scale", auto_scale)
+            _setter("auto_scale", auto_scale)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if service_auth is not None:
-            pulumi.set(__self__, "service_auth", service_auth)
+            _setter("service_auth", service_auth)
         if ssl is not None:
-            pulumi.set(__self__, "ssl", ssl)
+            _setter("ssl", ssl)
 
     @property
     @pulumi.getter(name="autoScale")
@@ -681,8 +824,17 @@ class KubernetesClusterPropertiesResponse(dict):
         Kubernetes cluster specific properties
         :param 'ServicePrincipalPropertiesResponse' service_principal: The Azure Service Principal used by Kubernetes
         """
+        KubernetesClusterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_principal=service_principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_principal: Optional['outputs.ServicePrincipalPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if service_principal is not None:
-            pulumi.set(__self__, "service_principal", service_principal)
+            _setter("service_principal", service_principal)
 
     @property
     @pulumi.getter(name="servicePrincipal")
@@ -725,8 +877,19 @@ class ServiceAuthConfigurationResponse(dict):
         :param str primary_auth_key_hash: The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
         :param str secondary_auth_key_hash: The secondary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
         """
-        pulumi.set(__self__, "primary_auth_key_hash", primary_auth_key_hash)
-        pulumi.set(__self__, "secondary_auth_key_hash", secondary_auth_key_hash)
+        ServiceAuthConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_auth_key_hash=primary_auth_key_hash,
+            secondary_auth_key_hash=secondary_auth_key_hash,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_auth_key_hash: str,
+             secondary_auth_key_hash: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("primary_auth_key_hash", primary_auth_key_hash)
+        _setter("secondary_auth_key_hash", secondary_auth_key_hash)
 
     @property
     @pulumi.getter(name="primaryAuthKeyHash")
@@ -775,8 +938,19 @@ class ServicePrincipalPropertiesResponse(dict):
         :param str client_id: The service principal client ID
         :param str secret: The service principal secret. This is not returned in response of GET/PUT on the resource. To see this please call listKeys.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "secret", secret)
+        ServicePrincipalPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter(name="clientId")
@@ -812,16 +986,31 @@ class SslConfigurationResponse(dict):
         :param str key: The SSL key data in PEM format. This is not returned in response of GET/PUT on the resource. To see this please call listKeys API.
         :param str status: SSL status. Allowed values are Enabled and Disabled.
         """
+        SslConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            cname=cname,
+            key=key,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[str] = None,
+             cname: Optional[str] = None,
+             key: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if status is None:
             status = 'Enabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -871,9 +1060,22 @@ class StorageAccountCredentialsResponse(dict):
         :param str resource_id: The ARM resource ID of the storage account.
         :param str secondary_key: The secondary key of the storage account.
         """
-        pulumi.set(__self__, "primary_key", primary_key)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "secondary_key", secondary_key)
+        StorageAccountCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_key=primary_key,
+            resource_id=resource_id,
+            secondary_key=secondary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_key: str,
+             resource_id: str,
+             secondary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("primary_key", primary_key)
+        _setter("resource_id", resource_id)
+        _setter("secondary_key", secondary_key)
 
     @property
     @pulumi.getter(name="primaryKey")
@@ -928,8 +1130,17 @@ class StorageAccountPropertiesResponse(dict):
         Properties of Storage Account.
         :param str resource_id: ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
         """
+        StorageAccountPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -974,9 +1185,22 @@ class SystemServiceResponse(dict):
         :param str system_service_type: The system service type
         :param str version: The state of the system service
         """
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
-        pulumi.set(__self__, "system_service_type", system_service_type)
-        pulumi.set(__self__, "version", version)
+        SystemServiceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_ip_address=public_ip_address,
+            system_service_type=system_service_type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_ip_address: str,
+             system_service_type: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("public_ip_address", public_ip_address)
+        _setter("system_service_type", system_service_type)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="publicIpAddress")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,9 +26,20 @@ class PlatformPropertiesArgs:
         :param pulumi.Input[Union[str, 'OsType']] os_type: The operating system type required for the build.
         :param pulumi.Input[int] cpu: The CPU configuration in terms of number of cores required for the build.
         """
-        pulumi.set(__self__, "os_type", os_type)
+        PlatformPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            cpu=cpu,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: pulumi.Input[Union[str, 'OsType']],
+             cpu: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os_type", os_type)
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
 
     @property
     @pulumi.getter(name="osType")
@@ -71,15 +82,32 @@ class SourceControlAuthInfoArgs:
         :param pulumi.Input[str] scope: The scope of the access token.
         :param pulumi.Input[Union[str, 'TokenType']] token_type: The type of Auth token.
         """
-        pulumi.set(__self__, "token", token)
+        SourceControlAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+            expires_in=expires_in,
+            refresh_token=refresh_token,
+            scope=scope,
+            token_type=token_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: pulumi.Input[str],
+             expires_in: Optional[pulumi.Input[int]] = None,
+             refresh_token: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             token_type: Optional[pulumi.Input[Union[str, 'TokenType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("token", token)
         if expires_in is not None:
-            pulumi.set(__self__, "expires_in", expires_in)
+            _setter("expires_in", expires_in)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if token_type is not None:
-            pulumi.set(__self__, "token_type", token_type)
+            _setter("token_type", token_type)
 
     @property
     @pulumi.getter
@@ -156,14 +184,29 @@ class SourceRepositoryPropertiesArgs:
         :param pulumi.Input[bool] is_commit_trigger_enabled: The value of this property indicates whether the source control commit trigger is enabled or not.
         :param pulumi.Input['SourceControlAuthInfoArgs'] source_control_auth_properties: The authorization properties for accessing the source code repository.
         """
-        pulumi.set(__self__, "repository_url", repository_url)
-        pulumi.set(__self__, "source_control_type", source_control_type)
+        SourceRepositoryPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_url=repository_url,
+            source_control_type=source_control_type,
+            is_commit_trigger_enabled=is_commit_trigger_enabled,
+            source_control_auth_properties=source_control_auth_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_url: pulumi.Input[str],
+             source_control_type: pulumi.Input[Union[str, 'SourceControlType']],
+             is_commit_trigger_enabled: Optional[pulumi.Input[bool]] = None,
+             source_control_auth_properties: Optional[pulumi.Input['SourceControlAuthInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_url", repository_url)
+        _setter("source_control_type", source_control_type)
         if is_commit_trigger_enabled is None:
             is_commit_trigger_enabled = False
         if is_commit_trigger_enabled is not None:
-            pulumi.set(__self__, "is_commit_trigger_enabled", is_commit_trigger_enabled)
+            _setter("is_commit_trigger_enabled", is_commit_trigger_enabled)
         if source_control_auth_properties is not None:
-            pulumi.set(__self__, "source_control_auth_properties", source_control_auth_properties)
+            _setter("source_control_auth_properties", source_control_auth_properties)
 
     @property
     @pulumi.getter(name="repositoryUrl")

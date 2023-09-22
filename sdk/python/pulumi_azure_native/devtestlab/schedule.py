@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,32 +46,65 @@ class ScheduleArgs:
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         :param pulumi.Input['WeekDetailsArgs'] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            daily_recurrence=daily_recurrence,
+            hourly_recurrence=hourly_recurrence,
+            location=location,
+            name=name,
+            notification_settings=notification_settings,
+            status=status,
+            tags=tags,
+            target_resource_id=target_resource_id,
+            task_type=task_type,
+            time_zone_id=time_zone_id,
+            weekly_recurrence=weekly_recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             daily_recurrence: Optional[pulumi.Input['DayDetailsArgs']] = None,
+             hourly_recurrence: Optional[pulumi.Input['HourDetailsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_settings: Optional[pulumi.Input['NotificationSettingsArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
+             time_zone_id: Optional[pulumi.Input[str]] = None,
+             weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
         if daily_recurrence is not None:
-            pulumi.set(__self__, "daily_recurrence", daily_recurrence)
+            _setter("daily_recurrence", daily_recurrence)
         if hourly_recurrence is not None:
-            pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
+            _setter("hourly_recurrence", hourly_recurrence)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_settings is not None:
-            pulumi.set(__self__, "notification_settings", notification_settings)
+            _setter("notification_settings", notification_settings)
         if status is None:
             status = 'Disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if task_type is not None:
-            pulumi.set(__self__, "task_type", task_type)
+            _setter("task_type", task_type)
         if time_zone_id is not None:
-            pulumi.set(__self__, "time_zone_id", time_zone_id)
+            _setter("time_zone_id", time_zone_id)
         if weekly_recurrence is not None:
-            pulumi.set(__self__, "weekly_recurrence", weekly_recurrence)
+            _setter("weekly_recurrence", weekly_recurrence)
 
     @property
     @pulumi.getter(name="labName")
@@ -289,6 +322,10 @@ class Schedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -316,13 +353,28 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
+            if not isinstance(daily_recurrence, DayDetailsArgs):
+                daily_recurrence = daily_recurrence or {}
+                def _setter(key, value):
+                    daily_recurrence[key] = value
+                DayDetailsArgs._configure(_setter, **daily_recurrence)
             __props__.__dict__["daily_recurrence"] = daily_recurrence
+            if not isinstance(hourly_recurrence, HourDetailsArgs):
+                hourly_recurrence = hourly_recurrence or {}
+                def _setter(key, value):
+                    hourly_recurrence[key] = value
+                HourDetailsArgs._configure(_setter, **hourly_recurrence)
             __props__.__dict__["hourly_recurrence"] = hourly_recurrence
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if not isinstance(notification_settings, NotificationSettingsArgs):
+                notification_settings = notification_settings or {}
+                def _setter(key, value):
+                    notification_settings[key] = value
+                NotificationSettingsArgs._configure(_setter, **notification_settings)
             __props__.__dict__["notification_settings"] = notification_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -334,6 +386,11 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["target_resource_id"] = target_resource_id
             __props__.__dict__["task_type"] = task_type
             __props__.__dict__["time_zone_id"] = time_zone_id
+            if not isinstance(weekly_recurrence, WeekDetailsArgs):
+                weekly_recurrence = weekly_recurrence or {}
+                def _setter(key, value):
+                    weekly_recurrence[key] = value
+                WeekDetailsArgs._configure(_setter, **weekly_recurrence)
             __props__.__dict__["weekly_recurrence"] = weekly_recurrence
             __props__.__dict__["created_date"] = None
             __props__.__dict__["provisioning_state"] = None

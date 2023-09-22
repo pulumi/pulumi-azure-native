@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,35 @@ class ConfigurationProfilesVersionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] version_name: The configuration profile version name.
         """
-        pulumi.set(__self__, "configuration_profile_name", configuration_profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConfigurationProfilesVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_profile_name=configuration_profile_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            properties=properties,
+            tags=tags,
+            version_name=version_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ConfigurationProfilePropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_profile_name", configuration_profile_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version_name is not None:
-            pulumi.set(__self__, "version_name", version_name)
+            _setter("version_name", version_name)
 
     @property
     @pulumi.getter(name="configurationProfileName")
@@ -160,6 +179,10 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationProfilesVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -184,6 +207,11 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'configuration_profile_name'")
             __props__.__dict__["configuration_profile_name"] = configuration_profile_name
             __props__.__dict__["location"] = location
+            if not isinstance(properties, ConfigurationProfilePropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ConfigurationProfilePropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

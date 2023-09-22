@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,33 +52,72 @@ class IncidentArgs:
         :param pulumi.Input[str] provider_incident_id: The incident ID assigned by the incident provider
         :param pulumi.Input[str] provider_name: The name of the source provider that generated the incident
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        IncidentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            severity=severity,
+            status=status,
+            title=title,
+            workspace_name=workspace_name,
+            classification=classification,
+            classification_comment=classification_comment,
+            classification_reason=classification_reason,
+            description=description,
+            first_activity_time_utc=first_activity_time_utc,
+            incident_id=incident_id,
+            labels=labels,
+            last_activity_time_utc=last_activity_time_utc,
+            owner=owner,
+            provider_incident_id=provider_incident_id,
+            provider_name=provider_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             severity: pulumi.Input[Union[str, 'IncidentSeverity']],
+             status: pulumi.Input[Union[str, 'IncidentStatus']],
+             title: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             classification: Optional[pulumi.Input[Union[str, 'IncidentClassification']]] = None,
+             classification_comment: Optional[pulumi.Input[str]] = None,
+             classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             first_activity_time_utc: Optional[pulumi.Input[str]] = None,
+             incident_id: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]] = None,
+             last_activity_time_utc: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input['IncidentOwnerInfoArgs']] = None,
+             provider_incident_id: Optional[pulumi.Input[str]] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("severity", severity)
+        _setter("status", status)
+        _setter("title", title)
+        _setter("workspace_name", workspace_name)
         if classification is not None:
-            pulumi.set(__self__, "classification", classification)
+            _setter("classification", classification)
         if classification_comment is not None:
-            pulumi.set(__self__, "classification_comment", classification_comment)
+            _setter("classification_comment", classification_comment)
         if classification_reason is not None:
-            pulumi.set(__self__, "classification_reason", classification_reason)
+            _setter("classification_reason", classification_reason)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if first_activity_time_utc is not None:
-            pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
+            _setter("first_activity_time_utc", first_activity_time_utc)
         if incident_id is not None:
-            pulumi.set(__self__, "incident_id", incident_id)
+            _setter("incident_id", incident_id)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if last_activity_time_utc is not None:
-            pulumi.set(__self__, "last_activity_time_utc", last_activity_time_utc)
+            _setter("last_activity_time_utc", last_activity_time_utc)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if provider_incident_id is not None:
-            pulumi.set(__self__, "provider_incident_id", provider_incident_id)
+            _setter("provider_incident_id", provider_incident_id)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -334,6 +373,10 @@ class Incident(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IncidentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -372,6 +415,11 @@ class Incident(pulumi.CustomResource):
             __props__.__dict__["incident_id"] = incident_id
             __props__.__dict__["labels"] = labels
             __props__.__dict__["last_activity_time_utc"] = last_activity_time_utc
+            if not isinstance(owner, IncidentOwnerInfoArgs):
+                owner = owner or {}
+                def _setter(key, value):
+                    owner[key] = value
+                IncidentOwnerInfoArgs._configure(_setter, **owner)
             __props__.__dict__["owner"] = owner
             __props__.__dict__["provider_incident_id"] = provider_incident_id
             __props__.__dict__["provider_name"] = provider_name

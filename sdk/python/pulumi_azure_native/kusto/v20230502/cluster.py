@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -70,72 +70,129 @@ class ClusterArgs:
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network definition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The availability zones of the cluster.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            accepted_audiences=accepted_audiences,
+            allowed_fqdn_list=allowed_fqdn_list,
+            allowed_ip_range_list=allowed_ip_range_list,
+            cluster_name=cluster_name,
+            enable_auto_stop=enable_auto_stop,
+            enable_disk_encryption=enable_disk_encryption,
+            enable_double_encryption=enable_double_encryption,
+            enable_purge=enable_purge,
+            enable_streaming_ingest=enable_streaming_ingest,
+            engine_type=engine_type,
+            identity=identity,
+            key_vault_properties=key_vault_properties,
+            language_extensions=language_extensions,
+            location=location,
+            optimized_autoscale=optimized_autoscale,
+            public_ip_type=public_ip_type,
+            public_network_access=public_network_access,
+            restrict_outbound_network_access=restrict_outbound_network_access,
+            tags=tags,
+            trusted_external_tenants=trusted_external_tenants,
+            virtual_cluster_graduation_properties=virtual_cluster_graduation_properties,
+            virtual_network_configuration=virtual_network_configuration,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['AzureSkuArgs'],
+             accepted_audiences: Optional[pulumi.Input[Sequence[pulumi.Input['AcceptedAudiencesArgs']]]] = None,
+             allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             enable_auto_stop: Optional[pulumi.Input[bool]] = None,
+             enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
+             enable_double_encryption: Optional[pulumi.Input[bool]] = None,
+             enable_purge: Optional[pulumi.Input[bool]] = None,
+             enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
+             engine_type: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             language_extensions: Optional[pulumi.Input['LanguageExtensionsListArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             optimized_autoscale: Optional[pulumi.Input['OptimizedAutoscaleArgs']] = None,
+             public_ip_type: Optional[pulumi.Input[Union[str, 'PublicIPType']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ClusterNetworkAccessFlag']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input['TrustedExternalTenantArgs']]]] = None,
+             virtual_cluster_graduation_properties: Optional[pulumi.Input[str]] = None,
+             virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if accepted_audiences is not None:
-            pulumi.set(__self__, "accepted_audiences", accepted_audiences)
+            _setter("accepted_audiences", accepted_audiences)
         if allowed_fqdn_list is not None:
-            pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
+            _setter("allowed_fqdn_list", allowed_fqdn_list)
         if allowed_ip_range_list is not None:
-            pulumi.set(__self__, "allowed_ip_range_list", allowed_ip_range_list)
+            _setter("allowed_ip_range_list", allowed_ip_range_list)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if enable_auto_stop is None:
             enable_auto_stop = True
         if enable_auto_stop is not None:
-            pulumi.set(__self__, "enable_auto_stop", enable_auto_stop)
+            _setter("enable_auto_stop", enable_auto_stop)
         if enable_disk_encryption is None:
             enable_disk_encryption = False
         if enable_disk_encryption is not None:
-            pulumi.set(__self__, "enable_disk_encryption", enable_disk_encryption)
+            _setter("enable_disk_encryption", enable_disk_encryption)
         if enable_double_encryption is None:
             enable_double_encryption = False
         if enable_double_encryption is not None:
-            pulumi.set(__self__, "enable_double_encryption", enable_double_encryption)
+            _setter("enable_double_encryption", enable_double_encryption)
         if enable_purge is None:
             enable_purge = False
         if enable_purge is not None:
-            pulumi.set(__self__, "enable_purge", enable_purge)
+            _setter("enable_purge", enable_purge)
         if enable_streaming_ingest is None:
             enable_streaming_ingest = False
         if enable_streaming_ingest is not None:
-            pulumi.set(__self__, "enable_streaming_ingest", enable_streaming_ingest)
+            _setter("enable_streaming_ingest", enable_streaming_ingest)
         if engine_type is None:
             engine_type = 'V3'
         if engine_type is not None:
-            pulumi.set(__self__, "engine_type", engine_type)
+            _setter("engine_type", engine_type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
         if language_extensions is not None:
-            pulumi.set(__self__, "language_extensions", language_extensions)
+            _setter("language_extensions", language_extensions)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if optimized_autoscale is not None:
-            pulumi.set(__self__, "optimized_autoscale", optimized_autoscale)
+            _setter("optimized_autoscale", optimized_autoscale)
         if public_ip_type is None:
             public_ip_type = 'IPv4'
         if public_ip_type is not None:
-            pulumi.set(__self__, "public_ip_type", public_ip_type)
+            _setter("public_ip_type", public_ip_type)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if restrict_outbound_network_access is None:
             restrict_outbound_network_access = 'Disabled'
         if restrict_outbound_network_access is not None:
-            pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
+            _setter("restrict_outbound_network_access", restrict_outbound_network_access)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trusted_external_tenants is not None:
-            pulumi.set(__self__, "trusted_external_tenants", trusted_external_tenants)
+            _setter("trusted_external_tenants", trusted_external_tenants)
         if virtual_cluster_graduation_properties is not None:
-            pulumi.set(__self__, "virtual_cluster_graduation_properties", virtual_cluster_graduation_properties)
+            _setter("virtual_cluster_graduation_properties", virtual_cluster_graduation_properties)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -519,6 +576,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -580,10 +641,30 @@ class Cluster(pulumi.CustomResource):
             if engine_type is None:
                 engine_type = 'V3'
             __props__.__dict__["engine_type"] = engine_type
+            if not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if not isinstance(key_vault_properties, KeyVaultPropertiesArgs):
+                key_vault_properties = key_vault_properties or {}
+                def _setter(key, value):
+                    key_vault_properties[key] = value
+                KeyVaultPropertiesArgs._configure(_setter, **key_vault_properties)
             __props__.__dict__["key_vault_properties"] = key_vault_properties
+            if not isinstance(language_extensions, LanguageExtensionsListArgs):
+                language_extensions = language_extensions or {}
+                def _setter(key, value):
+                    language_extensions[key] = value
+                LanguageExtensionsListArgs._configure(_setter, **language_extensions)
             __props__.__dict__["language_extensions"] = language_extensions
             __props__.__dict__["location"] = location
+            if not isinstance(optimized_autoscale, OptimizedAutoscaleArgs):
+                optimized_autoscale = optimized_autoscale or {}
+                def _setter(key, value):
+                    optimized_autoscale[key] = value
+                OptimizedAutoscaleArgs._configure(_setter, **optimized_autoscale)
             __props__.__dict__["optimized_autoscale"] = optimized_autoscale
             if public_ip_type is None:
                 public_ip_type = 'IPv4'
@@ -597,12 +678,22 @@ class Cluster(pulumi.CustomResource):
             if restrict_outbound_network_access is None:
                 restrict_outbound_network_access = 'Disabled'
             __props__.__dict__["restrict_outbound_network_access"] = restrict_outbound_network_access
+            if not isinstance(sku, AzureSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                AzureSkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_external_tenants"] = trusted_external_tenants
             __props__.__dict__["virtual_cluster_graduation_properties"] = virtual_cluster_graduation_properties
+            if not isinstance(virtual_network_configuration, VirtualNetworkConfigurationArgs):
+                virtual_network_configuration = virtual_network_configuration or {}
+                def _setter(key, value):
+                    virtual_network_configuration[key] = value
+                VirtualNetworkConfigurationArgs._configure(_setter, **virtual_network_configuration)
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["zones"] = zones
             __props__.__dict__["data_ingestion_uri"] = None

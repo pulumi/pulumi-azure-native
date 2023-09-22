@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -54,39 +54,80 @@ class FirewallPolicyArgs:
         :param pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs'] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
         :param pulumi.Input['FirewallPolicyTransportSecurityArgs'] transport_security: TLS Configuration definition.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FirewallPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            base_policy=base_policy,
+            dns_settings=dns_settings,
+            explicit_proxy=explicit_proxy,
+            firewall_policy_name=firewall_policy_name,
+            id=id,
+            identity=identity,
+            insights=insights,
+            intrusion_detection=intrusion_detection,
+            location=location,
+            sku=sku,
+            snat=snat,
+            sql=sql,
+            tags=tags,
+            threat_intel_mode=threat_intel_mode,
+            threat_intel_whitelist=threat_intel_whitelist,
+            transport_security=transport_security,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             base_policy: Optional[pulumi.Input['SubResourceArgs']] = None,
+             dns_settings: Optional[pulumi.Input['DnsSettingsArgs']] = None,
+             explicit_proxy: Optional[pulumi.Input['ExplicitProxyArgs']] = None,
+             firewall_policy_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             insights: Optional[pulumi.Input['FirewallPolicyInsightsArgs']] = None,
+             intrusion_detection: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['FirewallPolicySkuArgs']] = None,
+             snat: Optional[pulumi.Input['FirewallPolicySNATArgs']] = None,
+             sql: Optional[pulumi.Input['FirewallPolicySQLArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
+             threat_intel_whitelist: Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']] = None,
+             transport_security: Optional[pulumi.Input['FirewallPolicyTransportSecurityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if base_policy is not None:
-            pulumi.set(__self__, "base_policy", base_policy)
+            _setter("base_policy", base_policy)
         if dns_settings is not None:
-            pulumi.set(__self__, "dns_settings", dns_settings)
+            _setter("dns_settings", dns_settings)
         if explicit_proxy is not None:
-            pulumi.set(__self__, "explicit_proxy", explicit_proxy)
+            _setter("explicit_proxy", explicit_proxy)
         if firewall_policy_name is not None:
-            pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
+            _setter("firewall_policy_name", firewall_policy_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if insights is not None:
-            pulumi.set(__self__, "insights", insights)
+            _setter("insights", insights)
         if intrusion_detection is not None:
-            pulumi.set(__self__, "intrusion_detection", intrusion_detection)
+            _setter("intrusion_detection", intrusion_detection)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if snat is not None:
-            pulumi.set(__self__, "snat", snat)
+            _setter("snat", snat)
         if sql is not None:
-            pulumi.set(__self__, "sql", sql)
+            _setter("sql", sql)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_intel_mode is not None:
-            pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+            _setter("threat_intel_mode", threat_intel_mode)
         if threat_intel_whitelist is not None:
-            pulumi.set(__self__, "threat_intel_whitelist", threat_intel_whitelist)
+            _setter("threat_intel_whitelist", threat_intel_whitelist)
         if transport_security is not None:
-            pulumi.set(__self__, "transport_security", transport_security)
+            _setter("transport_security", transport_security)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -360,6 +401,10 @@ class FirewallPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -391,24 +436,79 @@ class FirewallPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
 
+            if not isinstance(base_policy, SubResourceArgs):
+                base_policy = base_policy or {}
+                def _setter(key, value):
+                    base_policy[key] = value
+                SubResourceArgs._configure(_setter, **base_policy)
             __props__.__dict__["base_policy"] = base_policy
+            if not isinstance(dns_settings, DnsSettingsArgs):
+                dns_settings = dns_settings or {}
+                def _setter(key, value):
+                    dns_settings[key] = value
+                DnsSettingsArgs._configure(_setter, **dns_settings)
             __props__.__dict__["dns_settings"] = dns_settings
+            if not isinstance(explicit_proxy, ExplicitProxyArgs):
+                explicit_proxy = explicit_proxy or {}
+                def _setter(key, value):
+                    explicit_proxy[key] = value
+                ExplicitProxyArgs._configure(_setter, **explicit_proxy)
             __props__.__dict__["explicit_proxy"] = explicit_proxy
             __props__.__dict__["firewall_policy_name"] = firewall_policy_name
             __props__.__dict__["id"] = id
+            if not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if not isinstance(insights, FirewallPolicyInsightsArgs):
+                insights = insights or {}
+                def _setter(key, value):
+                    insights[key] = value
+                FirewallPolicyInsightsArgs._configure(_setter, **insights)
             __props__.__dict__["insights"] = insights
+            if not isinstance(intrusion_detection, FirewallPolicyIntrusionDetectionArgs):
+                intrusion_detection = intrusion_detection or {}
+                def _setter(key, value):
+                    intrusion_detection[key] = value
+                FirewallPolicyIntrusionDetectionArgs._configure(_setter, **intrusion_detection)
             __props__.__dict__["intrusion_detection"] = intrusion_detection
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(sku, FirewallPolicySkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                FirewallPolicySkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
+            if not isinstance(snat, FirewallPolicySNATArgs):
+                snat = snat or {}
+                def _setter(key, value):
+                    snat[key] = value
+                FirewallPolicySNATArgs._configure(_setter, **snat)
             __props__.__dict__["snat"] = snat
+            if not isinstance(sql, FirewallPolicySQLArgs):
+                sql = sql or {}
+                def _setter(key, value):
+                    sql[key] = value
+                FirewallPolicySQLArgs._configure(_setter, **sql)
             __props__.__dict__["sql"] = sql
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_intel_mode"] = threat_intel_mode
+            if not isinstance(threat_intel_whitelist, FirewallPolicyThreatIntelWhitelistArgs):
+                threat_intel_whitelist = threat_intel_whitelist or {}
+                def _setter(key, value):
+                    threat_intel_whitelist[key] = value
+                FirewallPolicyThreatIntelWhitelistArgs._configure(_setter, **threat_intel_whitelist)
             __props__.__dict__["threat_intel_whitelist"] = threat_intel_whitelist
+            if not isinstance(transport_security, FirewallPolicyTransportSecurityArgs):
+                transport_security = transport_security or {}
+                def _setter(key, value):
+                    transport_security[key] = value
+                FirewallPolicyTransportSecurityArgs._configure(_setter, **transport_security)
             __props__.__dict__["transport_security"] = transport_security
             __props__.__dict__["child_policies"] = None
             __props__.__dict__["etag"] = None

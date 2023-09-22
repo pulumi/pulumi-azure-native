@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -30,16 +30,33 @@ class WorkbookTemplateGalleryArgs:
         :param pulumi.Input[str] resource_type: Azure resource type supported by the gallery.
         :param pulumi.Input[str] type: Type of workbook supported by the workbook template.
         """
+        WorkbookTemplateGalleryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            name=name,
+            order=order,
+            resource_type=resource_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -112,10 +129,21 @@ class WorkbookTemplateLocalizedGalleryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: Workbook galleries supported by the template.
         :param Any template_data: Valid JSON object containing workbook template payload.
         """
+        WorkbookTemplateLocalizedGalleryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            galleries=galleries,
+            template_data=template_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
+             template_data: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if galleries is not None:
-            pulumi.set(__self__, "galleries", galleries)
+            _setter("galleries", galleries)
         if template_data is not None:
-            pulumi.set(__self__, "template_data", template_data)
+            _setter("template_data", template_data)
 
     @property
     @pulumi.getter

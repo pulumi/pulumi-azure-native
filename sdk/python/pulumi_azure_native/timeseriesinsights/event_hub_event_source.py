@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -53,29 +53,68 @@ class EventHubEventSourceArgs:
         :param pulumi.Input[str] timestamp_property_name: The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
         :param pulumi.Input[Union[str, 'IngressStartAtType']] type: The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
         """
-        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
-        pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "event_hub_name", event_hub_name)
-        pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "kind", 'Microsoft.EventHub')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
-        pulumi.set(__self__, "shared_access_key", shared_access_key)
+        EventHubEventSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_group_name=consumer_group_name,
+            environment_name=environment_name,
+            event_hub_name=event_hub_name,
+            event_source_resource_id=event_source_resource_id,
+            key_name=key_name,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            service_bus_namespace=service_bus_namespace,
+            shared_access_key=shared_access_key,
+            event_source_name=event_source_name,
+            local_timestamp=local_timestamp,
+            location=location,
+            tags=tags,
+            time=time,
+            timestamp_property_name=timestamp_property_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_group_name: pulumi.Input[str],
+             environment_name: pulumi.Input[str],
+             event_hub_name: pulumi.Input[str],
+             event_source_resource_id: pulumi.Input[str],
+             key_name: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_bus_namespace: pulumi.Input[str],
+             shared_access_key: pulumi.Input[str],
+             event_source_name: Optional[pulumi.Input[str]] = None,
+             local_timestamp: Optional[pulumi.Input['LocalTimestampArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             timestamp_property_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'IngressStartAtType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("consumer_group_name", consumer_group_name)
+        _setter("environment_name", environment_name)
+        _setter("event_hub_name", event_hub_name)
+        _setter("event_source_resource_id", event_source_resource_id)
+        _setter("key_name", key_name)
+        _setter("kind", 'Microsoft.EventHub')
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_bus_namespace", service_bus_namespace)
+        _setter("shared_access_key", shared_access_key)
         if event_source_name is not None:
-            pulumi.set(__self__, "event_source_name", event_source_name)
+            _setter("event_source_name", event_source_name)
         if local_timestamp is not None:
-            pulumi.set(__self__, "local_timestamp", local_timestamp)
+            _setter("local_timestamp", local_timestamp)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
         if timestamp_property_name is not None:
-            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+            _setter("timestamp_property_name", timestamp_property_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="consumerGroupName")
@@ -337,6 +376,10 @@ class EventHubEventSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventHubEventSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -386,6 +429,11 @@ class EventHubEventSource(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Microsoft.EventHub'
+            if not isinstance(local_timestamp, LocalTimestampArgs):
+                local_timestamp = local_timestamp or {}
+                def _setter(key, value):
+                    local_timestamp[key] = value
+                LocalTimestampArgs._configure(_setter, **local_timestamp)
             __props__.__dict__["local_timestamp"] = local_timestamp
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

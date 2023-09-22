@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,26 +44,57 @@ class BackendArgs:
         :param pulumi.Input[str] title: Backend Title.
         :param pulumi.Input['BackendTlsPropertiesArgs'] tls: Backend TLS Properties
         """
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "url", url)
+        BackendArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            url=url,
+            backend_id=backend_id,
+            credentials=credentials,
+            description=description,
+            properties=properties,
+            proxy=proxy,
+            resource_id=resource_id,
+            title=title,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: pulumi.Input[Union[str, 'BackendProtocol']],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             url: pulumi.Input[str],
+             backend_id: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['BackendCredentialsContractArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['BackendPropertiesArgs']] = None,
+             proxy: Optional[pulumi.Input['BackendProxyContractArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             tls: Optional[pulumi.Input['BackendTlsPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("protocol", protocol)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("url", url)
         if backend_id is not None:
-            pulumi.set(__self__, "backend_id", backend_id)
+            _setter("backend_id", backend_id)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
+            _setter("proxy", proxy)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -265,6 +296,10 @@ class Backend(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackendArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -292,12 +327,27 @@ class Backend(pulumi.CustomResource):
             __props__ = BackendArgs.__new__(BackendArgs)
 
             __props__.__dict__["backend_id"] = backend_id
+            if not isinstance(credentials, BackendCredentialsContractArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                BackendCredentialsContractArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
+            if not isinstance(properties, BackendPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                BackendPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            if not isinstance(proxy, BackendProxyContractArgs):
+                proxy = proxy or {}
+                def _setter(key, value):
+                    proxy[key] = value
+                BackendProxyContractArgs._configure(_setter, **proxy)
             __props__.__dict__["proxy"] = proxy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -307,6 +357,11 @@ class Backend(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["title"] = title
+            if not isinstance(tls, BackendTlsPropertiesArgs):
+                tls = tls or {}
+                def _setter(key, value):
+                    tls[key] = value
+                BackendTlsPropertiesArgs._configure(_setter, **tls)
             __props__.__dict__["tls"] = tls
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")

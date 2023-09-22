@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -72,10 +72,25 @@ class ApiKeyAuthenticationResponse(dict):
                Expected value is 'ApiKey'.
         :param str value: The value of the authentication key/value pair.
         """
-        pulumi.set(__self__, "in_", in_)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'ApiKey')
-        pulumi.set(__self__, "value", value)
+        ApiKeyAuthenticationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_=in_,
+            name=name,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_: str,
+             name: str,
+             type: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("in_", in_)
+        _setter("name", name)
+        _setter("type", 'ApiKey')
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="in")
@@ -128,12 +143,27 @@ class CloudErrorBodyResponse(dict):
         :param Sequence['CloudErrorBodyResponse'] details: More detailed error information.
         :param str target: Error target
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        CloudErrorBodyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+            details=details,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             message: str,
+             details: Optional[Sequence['outputs.CloudErrorBodyResponse']] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("message", message)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter
@@ -199,8 +229,19 @@ class HealthCheckStepPropertiesResponse(dict):
         :param str step_type: The type of step.
                Expected value is 'HealthCheck'.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "step_type", 'HealthCheck')
+        HealthCheckStepPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            step_type=step_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: 'outputs.RestHealthCheckStepAttributesResponse',
+             step_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("step_type", 'HealthCheck')
 
     @property
     @pulumi.getter
@@ -250,8 +291,19 @@ class IdentityResponse(dict):
         :param Sequence[str] identity_ids: The list of identities.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "type", type)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -283,8 +335,19 @@ class MessageResponse(dict):
         :param str message: The actual message text.
         :param str time_stamp: Time in UTC this message was provided.
         """
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "time_stamp", time_stamp)
+        MessageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            time_stamp=time_stamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: str,
+             time_stamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
+        _setter("time_stamp", time_stamp)
 
     @property
     @pulumi.getter
@@ -331,7 +394,16 @@ class PrePostStepResponse(dict):
         The properties that define a step.
         :param str step_id: The resource Id of the step to be run.
         """
-        pulumi.set(__self__, "step_id", step_id)
+        PrePostStepResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            step_id=step_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             step_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("step_id", step_id)
 
     @property
     @pulumi.getter(name="stepId")
@@ -363,14 +435,33 @@ class ResourceOperationResponse(dict):
         :param str resource_name: Name of the resource as specified in the artifacts. For ARM resources, this is the name of the resource specified in the template.
         :param str resource_type: Type of the resource as specified in the artifacts. For ARM resources, this is the type of the resource specified in the template.
         """
-        pulumi.set(__self__, "operation_id", operation_id)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "status_code", status_code)
-        pulumi.set(__self__, "status_message", status_message)
+        ResourceOperationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation_id=operation_id,
+            provisioning_state=provisioning_state,
+            status_code=status_code,
+            status_message=status_message,
+            resource_name=resource_name,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation_id: str,
+             provisioning_state: str,
+             status_code: str,
+             status_message: str,
+             resource_name: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operation_id", operation_id)
+        _setter("provisioning_state", provisioning_state)
+        _setter("status_code", status_code)
+        _setter("status_message", status_message)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="operationId")
@@ -436,10 +527,23 @@ class RestHealthCheckResponse(dict):
         :param 'RestRequestResponse' request: The request to the health provider.
         :param 'RestResponseResponse' response: The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "request", request)
+        RestHealthCheckResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            request=request,
+            response=response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             request: 'outputs.RestRequestResponse',
+             response: Optional['outputs.RestResponseResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("request", request)
         if response is not None:
-            pulumi.set(__self__, "response", response)
+            _setter("response", response)
 
     @property
     @pulumi.getter
@@ -509,13 +613,30 @@ class RestHealthCheckStepAttributesResponse(dict):
         :param str max_elastic_duration: The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
         :param str wait_duration: The duration in ISO 8601 format for which health check waits idly without any checks.
         """
-        pulumi.set(__self__, "health_checks", health_checks)
-        pulumi.set(__self__, "healthy_state_duration", healthy_state_duration)
-        pulumi.set(__self__, "type", 'REST')
+        RestHealthCheckStepAttributesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_checks=health_checks,
+            healthy_state_duration=healthy_state_duration,
+            type=type,
+            max_elastic_duration=max_elastic_duration,
+            wait_duration=wait_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_checks: Sequence['outputs.RestHealthCheckResponse'],
+             healthy_state_duration: str,
+             type: str,
+             max_elastic_duration: Optional[str] = None,
+             wait_duration: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("health_checks", health_checks)
+        _setter("healthy_state_duration", healthy_state_duration)
+        _setter("type", 'REST')
         if max_elastic_duration is not None:
-            pulumi.set(__self__, "max_elastic_duration", max_elastic_duration)
+            _setter("max_elastic_duration", max_elastic_duration)
         if wait_duration is not None:
-            pulumi.set(__self__, "wait_duration", wait_duration)
+            _setter("wait_duration", wait_duration)
 
     @property
     @pulumi.getter(name="healthChecks")
@@ -574,9 +695,22 @@ class RestRequestResponse(dict):
         :param str method: The HTTP method to use for the request.
         :param str uri: The HTTP URI to use for the request.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "uri", uri)
+        RestRequestResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            method=method,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Any,
+             method: str,
+             uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication", authentication)
+        _setter("method", method)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -633,10 +767,21 @@ class RestResponseResponse(dict):
         :param 'RestResponseResponseRegex' regex: The regular expressions to match the response content with.
         :param Sequence[str] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
         """
+        RestResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex=regex,
+            success_status_codes=success_status_codes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex: Optional['outputs.RestResponseResponseRegex'] = None,
+             success_status_codes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
         if success_status_codes is not None:
-            pulumi.set(__self__, "success_status_codes", success_status_codes)
+            _setter("success_status_codes", success_status_codes)
 
     @property
     @pulumi.getter
@@ -685,10 +830,21 @@ class RestResponseResponseRegex(dict):
         :param str match_quantifier: Indicates whether any or all of the expressions should match with the response content.
         :param Sequence[str] matches: The list of regular expressions.
         """
+        RestResponseResponseRegex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_quantifier=match_quantifier,
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_quantifier: Optional[str] = None,
+             matches: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if match_quantifier is not None:
-            pulumi.set(__self__, "match_quantifier", match_quantifier)
+            _setter("match_quantifier", match_quantifier)
         if matches is not None:
-            pulumi.set(__self__, "matches", matches)
+            _setter("matches", matches)
 
     @property
     @pulumi.getter(name="matchQuantifier")
@@ -719,7 +875,16 @@ class RolloutIdentityAuthenticationResponse(dict):
         :param str type: The authentication type.
                Expected value is 'RolloutIdentity'.
         """
-        pulumi.set(__self__, "type", 'RolloutIdentity')
+        RolloutIdentityAuthenticationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'RolloutIdentity')
 
     @property
     @pulumi.getter
@@ -750,11 +915,28 @@ class RolloutOperationInfoResponse(dict):
         :param bool skip_succeeded_on_retry: True, if all steps that succeeded on the previous run/attempt were chosen to be skipped in this retry attempt. False, otherwise.
         :param str start_time: The start time of the rollout in UTC.
         """
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "retry_attempt", retry_attempt)
-        pulumi.set(__self__, "skip_succeeded_on_retry", skip_succeeded_on_retry)
-        pulumi.set(__self__, "start_time", start_time)
+        RolloutOperationInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            error=error,
+            retry_attempt=retry_attempt,
+            skip_succeeded_on_retry=skip_succeeded_on_retry,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: str,
+             error: 'outputs.CloudErrorBodyResponse',
+             retry_attempt: int,
+             skip_succeeded_on_retry: bool,
+             start_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_time", end_time)
+        _setter("error", error)
+        _setter("retry_attempt", retry_attempt)
+        _setter("skip_succeeded_on_retry", skip_succeeded_on_retry)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="endTime")
@@ -818,13 +1000,32 @@ class RolloutStepResponse(dict):
         :param str status: Current state of the step.
         :param str step_group: The step group the current step is part of.
         """
-        pulumi.set(__self__, "messages", messages)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operation_info", operation_info)
-        pulumi.set(__self__, "resource_operations", resource_operations)
-        pulumi.set(__self__, "status", status)
+        RolloutStepResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            messages=messages,
+            name=name,
+            operation_info=operation_info,
+            resource_operations=resource_operations,
+            status=status,
+            step_group=step_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             messages: Sequence['outputs.MessageResponse'],
+             name: str,
+             operation_info: 'outputs.StepOperationInfoResponse',
+             resource_operations: Sequence['outputs.ResourceOperationResponse'],
+             status: str,
+             step_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("messages", messages)
+        _setter("name", name)
+        _setter("operation_info", operation_info)
+        _setter("resource_operations", resource_operations)
+        _setter("status", status)
         if step_group is not None:
-            pulumi.set(__self__, "step_group", step_group)
+            _setter("step_group", step_group)
 
     @property
     @pulumi.getter
@@ -906,8 +1107,19 @@ class SasAuthenticationResponse(dict):
         :param str type: The authentication type
                Expected value is 'Sas'.
         """
-        pulumi.set(__self__, "sas_uri", sas_uri)
-        pulumi.set(__self__, "type", 'Sas')
+        SasAuthenticationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sas_uri=sas_uri,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sas_uri: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sas_uri", sas_uri)
+        _setter("type", 'Sas')
 
     @property
     @pulumi.getter(name="sasUri")
@@ -944,12 +1156,27 @@ class ServiceResponse(dict):
         :param str name: Name of the service.
         :param Sequence['ServiceUnitResponse'] service_units: The detailed information about the units that make up the service.
         """
-        pulumi.set(__self__, "target_location", target_location)
-        pulumi.set(__self__, "target_subscription_id", target_subscription_id)
+        ServiceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_location=target_location,
+            target_subscription_id=target_subscription_id,
+            name=name,
+            service_units=service_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_location: str,
+             target_subscription_id: str,
+             name: Optional[str] = None,
+             service_units: Optional[Sequence['outputs.ServiceUnitResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_location", target_location)
+        _setter("target_subscription_id", target_subscription_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_units is not None:
-            pulumi.set(__self__, "service_units", service_units)
+            _setter("service_units", service_units)
 
     @property
     @pulumi.getter(name="targetLocation")
@@ -1024,14 +1251,29 @@ class ServiceUnitArtifactsResponse(dict):
         :param str template_artifact_source_relative_path: The path to the ARM template file relative to the artifact source.
         :param str template_uri: The full URI of the ARM template file with the SAS token.
         """
+        ServiceUnitArtifactsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameters_artifact_source_relative_path=parameters_artifact_source_relative_path,
+            parameters_uri=parameters_uri,
+            template_artifact_source_relative_path=template_artifact_source_relative_path,
+            template_uri=template_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameters_artifact_source_relative_path: Optional[str] = None,
+             parameters_uri: Optional[str] = None,
+             template_artifact_source_relative_path: Optional[str] = None,
+             template_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if parameters_artifact_source_relative_path is not None:
-            pulumi.set(__self__, "parameters_artifact_source_relative_path", parameters_artifact_source_relative_path)
+            _setter("parameters_artifact_source_relative_path", parameters_artifact_source_relative_path)
         if parameters_uri is not None:
-            pulumi.set(__self__, "parameters_uri", parameters_uri)
+            _setter("parameters_uri", parameters_uri)
         if template_artifact_source_relative_path is not None:
-            pulumi.set(__self__, "template_artifact_source_relative_path", template_artifact_source_relative_path)
+            _setter("template_artifact_source_relative_path", template_artifact_source_relative_path)
         if template_uri is not None:
-            pulumi.set(__self__, "template_uri", template_uri)
+            _setter("template_uri", template_uri)
 
     @property
     @pulumi.getter(name="parametersArtifactSourceRelativePath")
@@ -1085,14 +1327,31 @@ class ServiceUnitResponse(dict):
         :param str name: Name of the service unit.
         :param Sequence['RolloutStepResponse'] steps: Detailed step information, if present.
         """
-        pulumi.set(__self__, "deployment_mode", deployment_mode)
-        pulumi.set(__self__, "target_resource_group", target_resource_group)
+        ServiceUnitResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_mode=deployment_mode,
+            target_resource_group=target_resource_group,
+            artifacts=artifacts,
+            name=name,
+            steps=steps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_mode: str,
+             target_resource_group: str,
+             artifacts: Optional['outputs.ServiceUnitArtifactsResponse'] = None,
+             name: Optional[str] = None,
+             steps: Optional[Sequence['outputs.RolloutStepResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("deployment_mode", deployment_mode)
+        _setter("target_resource_group", target_resource_group)
         if artifacts is not None:
-            pulumi.set(__self__, "artifacts", artifacts)
+            _setter("artifacts", artifacts)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+            _setter("steps", steps)
 
     @property
     @pulumi.getter(name="deploymentMode")
@@ -1177,14 +1436,31 @@ class StepGroupResponse(dict):
         :param Sequence['PrePostStepResponse'] post_deployment_steps: The list of steps to be run after deploying the target.
         :param Sequence['PrePostStepResponse'] pre_deployment_steps: The list of steps to be run before deploying the target.
         """
-        pulumi.set(__self__, "deployment_target_id", deployment_target_id)
-        pulumi.set(__self__, "name", name)
+        StepGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_target_id=deployment_target_id,
+            name=name,
+            depends_on_step_groups=depends_on_step_groups,
+            post_deployment_steps=post_deployment_steps,
+            pre_deployment_steps=pre_deployment_steps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_target_id: str,
+             name: str,
+             depends_on_step_groups: Optional[Sequence[str]] = None,
+             post_deployment_steps: Optional[Sequence['outputs.PrePostStepResponse']] = None,
+             pre_deployment_steps: Optional[Sequence['outputs.PrePostStepResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("deployment_target_id", deployment_target_id)
+        _setter("name", name)
         if depends_on_step_groups is not None:
-            pulumi.set(__self__, "depends_on_step_groups", depends_on_step_groups)
+            _setter("depends_on_step_groups", depends_on_step_groups)
         if post_deployment_steps is not None:
-            pulumi.set(__self__, "post_deployment_steps", post_deployment_steps)
+            _setter("post_deployment_steps", post_deployment_steps)
         if pre_deployment_steps is not None:
-            pulumi.set(__self__, "pre_deployment_steps", pre_deployment_steps)
+            _setter("pre_deployment_steps", pre_deployment_steps)
 
     @property
     @pulumi.getter(name="deploymentTargetId")
@@ -1248,13 +1524,32 @@ class StepOperationInfoResponse(dict):
         :param str start_time: Start time of the action in UTC.
         :param 'CloudErrorBodyResponse' error: The errors, if any, for the action.
         """
-        pulumi.set(__self__, "correlation_id", correlation_id)
-        pulumi.set(__self__, "deployment_name", deployment_name)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "last_updated_time", last_updated_time)
-        pulumi.set(__self__, "start_time", start_time)
+        StepOperationInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            correlation_id=correlation_id,
+            deployment_name=deployment_name,
+            end_time=end_time,
+            last_updated_time=last_updated_time,
+            start_time=start_time,
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             correlation_id: str,
+             deployment_name: str,
+             end_time: str,
+             last_updated_time: str,
+             start_time: str,
+             error: Optional['outputs.CloudErrorBodyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("correlation_id", correlation_id)
+        _setter("deployment_name", deployment_name)
+        _setter("end_time", end_time)
+        _setter("last_updated_time", last_updated_time)
+        _setter("start_time", start_time)
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
 
     @property
     @pulumi.getter(name="correlationId")
@@ -1316,7 +1611,16 @@ class WaitStepAttributesResponse(dict):
         The parameters for the wait step.
         :param str duration: The duration in ISO 8601 format of how long the wait should be.
         """
-        pulumi.set(__self__, "duration", duration)
+        WaitStepAttributesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("duration", duration)
 
     @property
     @pulumi.getter
@@ -1358,8 +1662,19 @@ class WaitStepPropertiesResponse(dict):
         :param str step_type: The type of step.
                Expected value is 'Wait'.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "step_type", 'Wait')
+        WaitStepPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            step_type=step_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: 'outputs.WaitStepAttributesResponse',
+             step_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("step_type", 'Wait')
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,27 @@ class JobArgs:
         :param pulumi.Input[str] job_name: The job name.
         :param pulumi.Input['JobPropertiesArgs'] properties: Gets or sets the job properties.
         """
-        pulumi.set(__self__, "job_collection_name", job_collection_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        JobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_collection_name=job_collection_name,
+            resource_group_name=resource_group_name,
+            job_name=job_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_collection_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             job_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['JobPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_collection_name", job_collection_name)
+        _setter("resource_group_name", resource_group_name)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="jobCollectionName")
@@ -121,6 +136,10 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -143,6 +162,11 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'job_collection_name'")
             __props__.__dict__["job_collection_name"] = job_collection_name
             __props__.__dict__["job_name"] = job_name
+            if not isinstance(properties, JobPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                JobPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,31 +46,64 @@ class OpenShiftClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['WorkerProfileArgs']]] worker_profiles: The cluster worker profiles.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OpenShiftClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            apiserver_profile=apiserver_profile,
+            cluster_profile=cluster_profile,
+            console_profile=console_profile,
+            ingress_profiles=ingress_profiles,
+            location=location,
+            master_profile=master_profile,
+            network_profile=network_profile,
+            provisioning_state=provisioning_state,
+            resource_name=resource_name,
+            service_principal_profile=service_principal_profile,
+            tags=tags,
+            worker_profiles=worker_profiles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             apiserver_profile: Optional[pulumi.Input['APIServerProfileArgs']] = None,
+             cluster_profile: Optional[pulumi.Input['ClusterProfileArgs']] = None,
+             console_profile: Optional[pulumi.Input['ConsoleProfileArgs']] = None,
+             ingress_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['IngressProfileArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             master_profile: Optional[pulumi.Input['MasterProfileArgs']] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             service_principal_profile: Optional[pulumi.Input['ServicePrincipalProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             worker_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WorkerProfileArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if apiserver_profile is not None:
-            pulumi.set(__self__, "apiserver_profile", apiserver_profile)
+            _setter("apiserver_profile", apiserver_profile)
         if cluster_profile is not None:
-            pulumi.set(__self__, "cluster_profile", cluster_profile)
+            _setter("cluster_profile", cluster_profile)
         if console_profile is not None:
-            pulumi.set(__self__, "console_profile", console_profile)
+            _setter("console_profile", console_profile)
         if ingress_profiles is not None:
-            pulumi.set(__self__, "ingress_profiles", ingress_profiles)
+            _setter("ingress_profiles", ingress_profiles)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if master_profile is not None:
-            pulumi.set(__self__, "master_profile", master_profile)
+            _setter("master_profile", master_profile)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if service_principal_profile is not None:
-            pulumi.set(__self__, "service_principal_profile", service_principal_profile)
+            _setter("service_principal_profile", service_principal_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if worker_profiles is not None:
-            pulumi.set(__self__, "worker_profiles", worker_profiles)
+            _setter("worker_profiles", worker_profiles)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -288,6 +321,10 @@ class OpenShiftCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OpenShiftClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -315,18 +352,48 @@ class OpenShiftCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OpenShiftClusterArgs.__new__(OpenShiftClusterArgs)
 
+            if not isinstance(apiserver_profile, APIServerProfileArgs):
+                apiserver_profile = apiserver_profile or {}
+                def _setter(key, value):
+                    apiserver_profile[key] = value
+                APIServerProfileArgs._configure(_setter, **apiserver_profile)
             __props__.__dict__["apiserver_profile"] = apiserver_profile
+            if not isinstance(cluster_profile, ClusterProfileArgs):
+                cluster_profile = cluster_profile or {}
+                def _setter(key, value):
+                    cluster_profile[key] = value
+                ClusterProfileArgs._configure(_setter, **cluster_profile)
             __props__.__dict__["cluster_profile"] = cluster_profile
+            if not isinstance(console_profile, ConsoleProfileArgs):
+                console_profile = console_profile or {}
+                def _setter(key, value):
+                    console_profile[key] = value
+                ConsoleProfileArgs._configure(_setter, **console_profile)
             __props__.__dict__["console_profile"] = console_profile
             __props__.__dict__["ingress_profiles"] = ingress_profiles
             __props__.__dict__["location"] = location
+            if not isinstance(master_profile, MasterProfileArgs):
+                master_profile = master_profile or {}
+                def _setter(key, value):
+                    master_profile[key] = value
+                MasterProfileArgs._configure(_setter, **master_profile)
             __props__.__dict__["master_profile"] = master_profile
+            if not isinstance(network_profile, NetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                NetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
+            if not isinstance(service_principal_profile, ServicePrincipalProfileArgs):
+                service_principal_profile = service_principal_profile or {}
+                def _setter(key, value):
+                    service_principal_profile[key] = value
+                ServicePrincipalProfileArgs._configure(_setter, **service_principal_profile)
             __props__.__dict__["service_principal_profile"] = service_principal_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["worker_profiles"] = worker_profiles

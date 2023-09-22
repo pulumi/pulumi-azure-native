@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,32 +48,67 @@ class CustomImageArgs:
         :param pulumi.Input['CustomImagePropertiesCustomArgs'] vhd: The VHD from which the image is to be created.
         :param pulumi.Input['CustomImagePropertiesFromVmArgs'] vm: The virtual machine from which the image is to be created.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CustomImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            author=author,
+            custom_image_plan=custom_image_plan,
+            data_disk_storage_info=data_disk_storage_info,
+            description=description,
+            is_plan_authorized=is_plan_authorized,
+            location=location,
+            managed_image_id=managed_image_id,
+            managed_snapshot_id=managed_snapshot_id,
+            name=name,
+            tags=tags,
+            vhd=vhd,
+            vm=vm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             author: Optional[pulumi.Input[str]] = None,
+             custom_image_plan: Optional[pulumi.Input['CustomImagePropertiesFromPlanArgs']] = None,
+             data_disk_storage_info: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskStorageTypeInfoArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             is_plan_authorized: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_image_id: Optional[pulumi.Input[str]] = None,
+             managed_snapshot_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vhd: Optional[pulumi.Input['CustomImagePropertiesCustomArgs']] = None,
+             vm: Optional[pulumi.Input['CustomImagePropertiesFromVmArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
         if author is not None:
-            pulumi.set(__self__, "author", author)
+            _setter("author", author)
         if custom_image_plan is not None:
-            pulumi.set(__self__, "custom_image_plan", custom_image_plan)
+            _setter("custom_image_plan", custom_image_plan)
         if data_disk_storage_info is not None:
-            pulumi.set(__self__, "data_disk_storage_info", data_disk_storage_info)
+            _setter("data_disk_storage_info", data_disk_storage_info)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_plan_authorized is not None:
-            pulumi.set(__self__, "is_plan_authorized", is_plan_authorized)
+            _setter("is_plan_authorized", is_plan_authorized)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_image_id is not None:
-            pulumi.set(__self__, "managed_image_id", managed_image_id)
+            _setter("managed_image_id", managed_image_id)
         if managed_snapshot_id is not None:
-            pulumi.set(__self__, "managed_snapshot_id", managed_snapshot_id)
+            _setter("managed_snapshot_id", managed_snapshot_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vhd is not None:
-            pulumi.set(__self__, "vhd", vhd)
+            _setter("vhd", vhd)
         if vm is not None:
-            pulumi.set(__self__, "vm", vm)
+            _setter("vm", vm)
 
     @property
     @pulumi.getter(name="labName")
@@ -305,6 +340,10 @@ class CustomImage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -334,6 +373,11 @@ class CustomImage(pulumi.CustomResource):
             __props__ = CustomImageArgs.__new__(CustomImageArgs)
 
             __props__.__dict__["author"] = author
+            if not isinstance(custom_image_plan, CustomImagePropertiesFromPlanArgs):
+                custom_image_plan = custom_image_plan or {}
+                def _setter(key, value):
+                    custom_image_plan[key] = value
+                CustomImagePropertiesFromPlanArgs._configure(_setter, **custom_image_plan)
             __props__.__dict__["custom_image_plan"] = custom_image_plan
             __props__.__dict__["data_disk_storage_info"] = data_disk_storage_info
             __props__.__dict__["description"] = description
@@ -349,7 +393,17 @@ class CustomImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if not isinstance(vhd, CustomImagePropertiesCustomArgs):
+                vhd = vhd or {}
+                def _setter(key, value):
+                    vhd[key] = value
+                CustomImagePropertiesCustomArgs._configure(_setter, **vhd)
             __props__.__dict__["vhd"] = vhd
+            if not isinstance(vm, CustomImagePropertiesFromVmArgs):
+                vm = vm or {}
+                def _setter(key, value):
+                    vm[key] = value
+                CustomImagePropertiesFromVmArgs._configure(_setter, **vm)
             __props__.__dict__["vm"] = vm
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["provisioning_state"] = None

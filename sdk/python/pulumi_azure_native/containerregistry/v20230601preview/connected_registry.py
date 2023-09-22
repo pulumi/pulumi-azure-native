@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,41 @@ class ConnectedRegistryArgs:
         :param pulumi.Input['LoggingPropertiesArgs'] logging: The logging properties of the connected registry.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications_list: The list of notifications subscription information for the connected registry.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "parent", parent)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectedRegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            parent=parent,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            client_token_ids=client_token_ids,
+            connected_registry_name=connected_registry_name,
+            logging=logging,
+            notifications_list=notifications_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: pulumi.Input[Union[str, 'ConnectedRegistryMode']],
+             parent: pulumi.Input['ParentPropertiesArgs'],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connected_registry_name: Optional[pulumi.Input[str]] = None,
+             logging: Optional[pulumi.Input['LoggingPropertiesArgs']] = None,
+             notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("parent", parent)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if client_token_ids is not None:
-            pulumi.set(__self__, "client_token_ids", client_token_ids)
+            _setter("client_token_ids", client_token_ids)
         if connected_registry_name is not None:
-            pulumi.set(__self__, "connected_registry_name", connected_registry_name)
+            _setter("connected_registry_name", connected_registry_name)
         if logging is not None:
-            pulumi.set(__self__, "logging", logging)
+            _setter("logging", logging)
         if notifications_list is not None:
-            pulumi.set(__self__, "notifications_list", notifications_list)
+            _setter("notifications_list", notifications_list)
 
     @property
     @pulumi.getter
@@ -193,6 +216,10 @@ class ConnectedRegistry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectedRegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -217,11 +244,21 @@ class ConnectedRegistry(pulumi.CustomResource):
 
             __props__.__dict__["client_token_ids"] = client_token_ids
             __props__.__dict__["connected_registry_name"] = connected_registry_name
+            if not isinstance(logging, LoggingPropertiesArgs):
+                logging = logging or {}
+                def _setter(key, value):
+                    logging[key] = value
+                LoggingPropertiesArgs._configure(_setter, **logging)
             __props__.__dict__["logging"] = logging
             if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
             __props__.__dict__["mode"] = mode
             __props__.__dict__["notifications_list"] = notifications_list
+            if not isinstance(parent, ParentPropertiesArgs):
+                parent = parent or {}
+                def _setter(key, value):
+                    parent[key] = value
+                ParentPropertiesArgs._configure(_setter, **parent)
             if parent is None and not opts.urn:
                 raise TypeError("Missing required property 'parent'")
             __props__.__dict__["parent"] = parent

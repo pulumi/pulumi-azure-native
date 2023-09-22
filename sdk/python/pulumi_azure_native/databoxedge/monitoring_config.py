@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,10 +27,25 @@ class MonitoringConfigArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] role_name: The role name.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "metric_configurations", metric_configurations)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role_name", role_name)
+        MonitoringConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            metric_configurations=metric_configurations,
+            resource_group_name=resource_group_name,
+            role_name=role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             metric_configurations: pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]],
+             resource_group_name: pulumi.Input[str],
+             role_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_name", device_name)
+        _setter("metric_configurations", metric_configurations)
+        _setter("resource_group_name", resource_group_name)
+        _setter("role_name", role_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -122,6 +137,10 @@ class MonitoringConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitoringConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

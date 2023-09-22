@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,37 @@ class JobScheduleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets a list of job properties.
         :param pulumi.Input[str] run_on: Gets or sets the hybrid worker group that the scheduled job should run on.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "runbook", runbook)
-        pulumi.set(__self__, "schedule", schedule)
+        JobScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            resource_group_name=resource_group_name,
+            runbook=runbook,
+            schedule=schedule,
+            job_schedule_id=job_schedule_id,
+            parameters=parameters,
+            run_on=run_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             runbook: pulumi.Input['RunbookAssociationPropertyArgs'],
+             schedule: pulumi.Input['ScheduleAssociationPropertyArgs'],
+             job_schedule_id: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             run_on: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("runbook", runbook)
+        _setter("schedule", schedule)
         if job_schedule_id is not None:
-            pulumi.set(__self__, "job_schedule_id", job_schedule_id)
+            _setter("job_schedule_id", job_schedule_id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if run_on is not None:
-            pulumi.set(__self__, "run_on", run_on)
+            _setter("run_on", run_on)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -174,6 +195,10 @@ class JobSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -204,9 +229,19 @@ class JobSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["run_on"] = run_on
+            if not isinstance(runbook, RunbookAssociationPropertyArgs):
+                runbook = runbook or {}
+                def _setter(key, value):
+                    runbook[key] = value
+                RunbookAssociationPropertyArgs._configure(_setter, **runbook)
             if runbook is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook'")
             __props__.__dict__["runbook"] = runbook
+            if not isinstance(schedule, ScheduleAssociationPropertyArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                ScheduleAssociationPropertyArgs._configure(_setter, **schedule)
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -40,14 +40,27 @@ class ActionArgs:
         :param pulumi.Input[bool] requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param pulumi.Input[str] sql_expression: SQL expression. e.g. MyProperty='ABC'
         """
+        ActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compatibility_level=compatibility_level,
+            requires_preprocessing=requires_preprocessing,
+            sql_expression=sql_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compatibility_level: Optional[pulumi.Input[int]] = None,
+             requires_preprocessing: Optional[pulumi.Input[bool]] = None,
+             sql_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compatibility_level is not None:
-            pulumi.set(__self__, "compatibility_level", compatibility_level)
+            _setter("compatibility_level", compatibility_level)
         if requires_preprocessing is None:
             requires_preprocessing = True
         if requires_preprocessing is not None:
-            pulumi.set(__self__, "requires_preprocessing", requires_preprocessing)
+            _setter("requires_preprocessing", requires_preprocessing)
         if sql_expression is not None:
-            pulumi.set(__self__, "sql_expression", sql_expression)
+            _setter("sql_expression", sql_expression)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -96,10 +109,21 @@ class ConnectionStateArgs:
         :param pulumi.Input[str] description: Description of the connection state.
         :param pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']] status: Status of the connection.
         """
+        ConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -152,28 +176,55 @@ class CorrelationFilterArgs:
         :param pulumi.Input[str] session_id: Session identifier.
         :param pulumi.Input[str] to: Address to send to.
         """
+        CorrelationFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            correlation_id=correlation_id,
+            label=label,
+            message_id=message_id,
+            properties=properties,
+            reply_to=reply_to,
+            reply_to_session_id=reply_to_session_id,
+            requires_preprocessing=requires_preprocessing,
+            session_id=session_id,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[pulumi.Input[str]] = None,
+             correlation_id: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             reply_to: Optional[pulumi.Input[str]] = None,
+             reply_to_session_id: Optional[pulumi.Input[str]] = None,
+             requires_preprocessing: Optional[pulumi.Input[bool]] = None,
+             session_id: Optional[pulumi.Input[str]] = None,
+             to: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if correlation_id is not None:
-            pulumi.set(__self__, "correlation_id", correlation_id)
+            _setter("correlation_id", correlation_id)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if reply_to is not None:
-            pulumi.set(__self__, "reply_to", reply_to)
+            _setter("reply_to", reply_to)
         if reply_to_session_id is not None:
-            pulumi.set(__self__, "reply_to_session_id", reply_to_session_id)
+            _setter("reply_to_session_id", reply_to_session_id)
         if requires_preprocessing is None:
             requires_preprocessing = True
         if requires_preprocessing is not None:
-            pulumi.set(__self__, "requires_preprocessing", requires_preprocessing)
+            _setter("requires_preprocessing", requires_preprocessing)
         if session_id is not None:
-            pulumi.set(__self__, "session_id", session_id)
+            _setter("session_id", session_id)
         if to is not None:
-            pulumi.set(__self__, "to", to)
+            _setter("to", to)
 
     @property
     @pulumi.getter(name="contentType")
@@ -308,14 +359,27 @@ class EncryptionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]] key_vault_properties: Properties of KeyVault
         :param pulumi.Input[bool] require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
         """
+        EncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_source=key_source,
+            key_vault_properties=key_vault_properties,
+            require_infrastructure_encryption=require_infrastructure_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
+             key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]] = None,
+             require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_source is None:
             key_source = 'Microsoft.KeyVault'
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
         if require_infrastructure_encryption is not None:
-            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+            _setter("require_infrastructure_encryption", require_infrastructure_encryption)
 
     @property
     @pulumi.getter(name="keySource")
@@ -364,10 +428,21 @@ class IdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Properties for User Assigned Identities
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -407,14 +482,29 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_uri: Uri of KeyVault
         :param pulumi.Input[str] key_version: Version of KeyVault
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter
@@ -472,12 +562,23 @@ class NWRuleSetIpRulesArgs:
         :param pulumi.Input[Union[str, 'NetworkRuleIPAction']] action: The IP Filter Action
         :param pulumi.Input[str] ip_mask: IP Mask
         """
+        NWRuleSetIpRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            ip_mask=ip_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]] = None,
+             ip_mask: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is None:
             action = 'Allow'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if ip_mask is not None:
-            pulumi.set(__self__, "ip_mask", ip_mask)
+            _setter("ip_mask", ip_mask)
 
     @property
     @pulumi.getter
@@ -514,10 +615,21 @@ class NWRuleSetVirtualNetworkRulesArgs:
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing VNet Service Endpoint
         :param pulumi.Input['SubnetArgs'] subnet: Subnet properties
         """
+        NWRuleSetVirtualNetworkRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
+             subnet: Optional[pulumi.Input['SubnetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ignore_missing_vnet_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
@@ -556,12 +668,25 @@ class PrivateEndpointConnectionArgs:
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
         :param pulumi.Input[Union[str, 'EndPointProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
         """
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'EndPointProvisioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -608,8 +733,17 @@ class PrivateEndpointArgs:
         PrivateEndpoint information.
         :param pulumi.Input[str] id: The ARM identifier for Private Endpoint.
         """
+        PrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -636,12 +770,25 @@ class SBClientAffinePropertiesArgs:
         :param pulumi.Input[bool] is_durable: For client-affine subscriptions, this value indicates whether the subscription is durable or not.
         :param pulumi.Input[bool] is_shared: For client-affine subscriptions, this value indicates whether the subscription is shared or not.
         """
+        SBClientAffinePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            is_durable=is_durable,
+            is_shared=is_shared,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             is_durable: Optional[pulumi.Input[bool]] = None,
+             is_shared: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if is_durable is not None:
-            pulumi.set(__self__, "is_durable", is_durable)
+            _setter("is_durable", is_durable)
         if is_shared is not None:
-            pulumi.set(__self__, "is_shared", is_shared)
+            _setter("is_shared", is_shared)
 
     @property
     @pulumi.getter(name="clientId")
@@ -692,11 +839,24 @@ class SBSkuArgs:
         :param pulumi.Input[int] capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The billing tier of this particular SKU.
         """
-        pulumi.set(__self__, "name", name)
+        SBSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             capacity: Optional[pulumi.Input[int]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -747,14 +907,27 @@ class SqlFilterArgs:
         :param pulumi.Input[bool] requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param pulumi.Input[str] sql_expression: The SQL expression. e.g. MyProperty='ABC'
         """
+        SqlFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compatibility_level=compatibility_level,
+            requires_preprocessing=requires_preprocessing,
+            sql_expression=sql_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compatibility_level: Optional[pulumi.Input[int]] = None,
+             requires_preprocessing: Optional[pulumi.Input[bool]] = None,
+             sql_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compatibility_level is not None:
-            pulumi.set(__self__, "compatibility_level", compatibility_level)
+            _setter("compatibility_level", compatibility_level)
         if requires_preprocessing is None:
             requires_preprocessing = True
         if requires_preprocessing is not None:
-            pulumi.set(__self__, "requires_preprocessing", requires_preprocessing)
+            _setter("requires_preprocessing", requires_preprocessing)
         if sql_expression is not None:
-            pulumi.set(__self__, "sql_expression", sql_expression)
+            _setter("sql_expression", sql_expression)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -801,7 +974,16 @@ class SubnetArgs:
         Properties supplied for Subnet
         :param pulumi.Input[str] id: Resource ID of Virtual Network Subnet
         """
-        pulumi.set(__self__, "id", id)
+        SubnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -823,8 +1005,17 @@ class UserAssignedIdentityPropertiesArgs:
         """
         :param pulumi.Input[str] user_assigned_identity: ARM ID of user Identity selected for encryption
         """
+        UserAssignedIdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="userAssignedIdentity")

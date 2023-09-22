@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -47,29 +47,62 @@ class ActivityCustomEntityQueryArgs:
         :param pulumi.Input[str] template_name: The template id this activity was created from
         :param pulumi.Input[str] title: The entity query title
         """
-        pulumi.set(__self__, "kind", 'Activity')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ActivityCustomEntityQueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            content=content,
+            description=description,
+            enabled=enabled,
+            entities_filter=entities_filter,
+            entity_query_id=entity_query_id,
+            input_entity_type=input_entity_type,
+            query_definitions=query_definitions,
+            required_input_fields_sets=required_input_fields_sets,
+            template_name=template_name,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             entities_filter: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+             entity_query_id: Optional[pulumi.Input[str]] = None,
+             input_entity_type: Optional[pulumi.Input[Union[str, 'EntityType']]] = None,
+             query_definitions: Optional[pulumi.Input['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']] = None,
+             required_input_fields_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", 'Activity')
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if entities_filter is not None:
-            pulumi.set(__self__, "entities_filter", entities_filter)
+            _setter("entities_filter", entities_filter)
         if entity_query_id is not None:
-            pulumi.set(__self__, "entity_query_id", entity_query_id)
+            _setter("entity_query_id", entity_query_id)
         if input_entity_type is not None:
-            pulumi.set(__self__, "input_entity_type", input_entity_type)
+            _setter("input_entity_type", input_entity_type)
         if query_definitions is not None:
-            pulumi.set(__self__, "query_definitions", query_definitions)
+            _setter("query_definitions", query_definitions)
         if required_input_fields_sets is not None:
-            pulumi.set(__self__, "required_input_fields_sets", required_input_fields_sets)
+            _setter("required_input_fields_sets", required_input_fields_sets)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -289,6 +322,10 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActivityCustomEntityQueryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -325,6 +362,11 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Activity'
+            if not isinstance(query_definitions, ActivityEntityQueriesPropertiesQueryDefinitionsArgs):
+                query_definitions = query_definitions or {}
+                def _setter(key, value):
+                    query_definitions[key] = value
+                ActivityEntityQueriesPropertiesQueryDefinitionsArgs._configure(_setter, **query_definitions)
             __props__.__dict__["query_definitions"] = query_definitions
             __props__.__dict__["required_input_fields_sets"] = required_input_fields_sets
             if resource_group_name is None and not opts.urn:

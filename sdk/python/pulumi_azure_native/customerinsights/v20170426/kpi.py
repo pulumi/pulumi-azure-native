@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,33 +54,74 @@ class KpiArgs:
         :param pulumi.Input['KpiThresholdsArgs'] thres_holds: The KPI thresholds.
         :param pulumi.Input[str] unit: The unit of measurement for the KPI.
         """
-        pulumi.set(__self__, "calculation_window", calculation_window)
-        pulumi.set(__self__, "entity_type", entity_type)
-        pulumi.set(__self__, "entity_type_name", entity_type_name)
-        pulumi.set(__self__, "expression", expression)
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        KpiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            calculation_window=calculation_window,
+            entity_type=entity_type,
+            entity_type_name=entity_type_name,
+            expression=expression,
+            function=function,
+            hub_name=hub_name,
+            resource_group_name=resource_group_name,
+            aliases=aliases,
+            calculation_window_field_name=calculation_window_field_name,
+            description=description,
+            display_name=display_name,
+            extracts=extracts,
+            filter=filter,
+            group_by=group_by,
+            kpi_name=kpi_name,
+            thres_holds=thres_holds,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             calculation_window: pulumi.Input['CalculationWindowTypes'],
+             entity_type: pulumi.Input['EntityTypes'],
+             entity_type_name: pulumi.Input[str],
+             expression: pulumi.Input[str],
+             function: pulumi.Input['KpiFunctions'],
+             hub_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             aliases: Optional[pulumi.Input[Sequence[pulumi.Input['KpiAliasArgs']]]] = None,
+             calculation_window_field_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             extracts: Optional[pulumi.Input[Sequence[pulumi.Input['KpiExtractArgs']]]] = None,
+             filter: Optional[pulumi.Input[str]] = None,
+             group_by: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kpi_name: Optional[pulumi.Input[str]] = None,
+             thres_holds: Optional[pulumi.Input['KpiThresholdsArgs']] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("calculation_window", calculation_window)
+        _setter("entity_type", entity_type)
+        _setter("entity_type_name", entity_type_name)
+        _setter("expression", expression)
+        _setter("function", function)
+        _setter("hub_name", hub_name)
+        _setter("resource_group_name", resource_group_name)
         if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
+            _setter("aliases", aliases)
         if calculation_window_field_name is not None:
-            pulumi.set(__self__, "calculation_window_field_name", calculation_window_field_name)
+            _setter("calculation_window_field_name", calculation_window_field_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if extracts is not None:
-            pulumi.set(__self__, "extracts", extracts)
+            _setter("extracts", extracts)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if group_by is not None:
-            pulumi.set(__self__, "group_by", group_by)
+            _setter("group_by", group_by)
         if kpi_name is not None:
-            pulumi.set(__self__, "kpi_name", kpi_name)
+            _setter("kpi_name", kpi_name)
         if thres_holds is not None:
-            pulumi.set(__self__, "thres_holds", thres_holds)
+            _setter("thres_holds", thres_holds)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter(name="calculationWindow")
@@ -352,6 +393,10 @@ class Kpi(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KpiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -412,6 +457,11 @@ class Kpi(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(thres_holds, KpiThresholdsArgs):
+                thres_holds = thres_holds or {}
+                def _setter(key, value):
+                    thres_holds[key] = value
+                KpiThresholdsArgs._configure(_setter, **thres_holds)
             __props__.__dict__["thres_holds"] = thres_holds
             __props__.__dict__["unit"] = unit
             __props__.__dict__["group_by_metadata"] = None

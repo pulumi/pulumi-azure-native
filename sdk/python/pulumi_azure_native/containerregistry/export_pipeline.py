@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,38 @@ class ExportPipelineArgs:
         :param pulumi.Input[str] location: The location of the export pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]] options: The list of all options configured for the pipeline.
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target", target)
+        ExportPipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            target=target,
+            export_pipeline_name=export_pipeline_name,
+            identity=identity,
+            location=location,
+            options=options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             target: pulumi.Input['ExportPipelineTargetPropertiesArgs'],
+             export_pipeline_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target", target)
         if export_pipeline_name is not None:
-            pulumi.set(__self__, "export_pipeline_name", export_pipeline_name)
+            _setter("export_pipeline_name", export_pipeline_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
 
     @property
     @pulumi.getter(name="registryName")
@@ -178,6 +199,10 @@ class ExportPipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExportPipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,6 +225,11 @@ class ExportPipeline(pulumi.CustomResource):
             __props__ = ExportPipelineArgs.__new__(ExportPipelineArgs)
 
             __props__.__dict__["export_pipeline_name"] = export_pipeline_name
+            if not isinstance(identity, IdentityPropertiesArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityPropertiesArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["options"] = options
@@ -209,6 +239,11 @@ class ExportPipeline(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if not isinstance(target, ExportPipelineTargetPropertiesArgs):
+                target = target or {}
+                def _setter(key, value):
+                    target[key] = value
+                ExportPipelineTargetPropertiesArgs._configure(_setter, **target)
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target

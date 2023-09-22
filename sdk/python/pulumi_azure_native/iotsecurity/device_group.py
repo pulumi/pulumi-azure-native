@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -22,9 +22,20 @@ class DeviceGroupArgs:
         :param pulumi.Input[str] iot_defender_location: Defender for IoT location
         :param pulumi.Input[str] device_group_name: Device group name
         """
-        pulumi.set(__self__, "iot_defender_location", iot_defender_location)
+        DeviceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iot_defender_location=iot_defender_location,
+            device_group_name=device_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iot_defender_location: pulumi.Input[str],
+             device_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("iot_defender_location", iot_defender_location)
         if device_group_name is not None:
-            pulumi.set(__self__, "device_group_name", device_group_name)
+            _setter("device_group_name", device_group_name)
 
     @property
     @pulumi.getter(name="iotDefenderLocation")
@@ -88,6 +99,10 @@ class DeviceGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
