@@ -19,25 +19,6 @@ var forceNewMap = map[string]map[string]codegen.StringSet{
 	},
 	"ContainerService": {
 		"ManagedCluster": codegen.NewStringSet(
-			// agentPoolProfiles
-			"availabilityZones",
-			"enableEncryptionAtHost",
-			"enableFIPS",
-			"enableNodePublicIP",
-			"kubeletConfig",
-			"linuxOSConfig",
-			"maxPods",
-			"name",
-			"nodeLabels",
-			"nodePublicIPPrefixID",
-			"nodeTaints",
-			"osDiskSizeGB",
-			"osSKU",
-			"podSubnetID",
-			"proximityPlacementGroupID",
-			"type",
-			"vnetSubnetID",
-			"vmSize",
 			// cluster
 			"diskEncryptionSetID",
 			"dnsPrefix",
