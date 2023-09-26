@@ -742,8 +742,11 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		return nil, err
 	}
 
-	// Extract old inputs from the `__inputs` field of the old state.
-	oldInputs := parseCheckpointObject(oldState)
+	// Extract old inputs from the OldInputs, if available, or the `__inputs` field of the old state as a fallback.
+	oldInputs, err := parseCheckpointObject(req.OldInputs, oldState, label)
+	if err != nil {
+		return nil, err
+	}
 	if oldInputs == nil {
 		// Protect against a crash for the transition from pre-__inputs state files.
 		// This shouldn't happen in any real user's stack.
@@ -1025,7 +1028,10 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	// Extract old inputs from the `__inputs` field of the old state.
-	inputs := parseCheckpointObject(oldState)
+	inputs, err := parseCheckpointObject(req.GetInputs(), oldState, label)
+	if err != nil {
+		return nil, err
+	}
 	if inputs == nil {
 		// There may be no old state (i.e., importing a new resource).
 		// Extract inputs from resource's ID and response body.
@@ -1278,7 +1284,10 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 		if err != nil {
 			return nil, err
 		}
-		inputs := parseCheckpointObject(state)
+		inputs, err := parseCheckpointObject(req.OldInputs, state, label)
+		if err != nil {
+			return nil, err
+		}
 		if inputs == nil {
 			return nil, errors.Wrapf(err, "resource %s inputs are empty", label)
 		}
@@ -1994,12 +2003,22 @@ func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{
 }
 
 // parseCheckpointObject returns inputs that are saved in the `__inputs` field of the state.
-func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
+func parseCheckpointObject(reqOldInputs *structpb.Struct, obj resource.PropertyMap, label string) (resource.PropertyMap, error) {
+	// Prefer the old inputs from the RPC request if available.
+	if reqOldInputs != nil {
+		oldInputs, err := plugin.UnmarshalProperties(reqOldInputs, plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.oldInputs", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+		})
+		if err != nil {
+			return nil, err
+		}
+		return oldInputs, nil
+	}
 	if inputs, ok := obj["__inputs"]; ok {
-		return inputs.ObjectValue()
+		return inputs.ObjectValue(), nil
 	}
 
-	return nil
+	return nil, nil
 }
 
 func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environment {
