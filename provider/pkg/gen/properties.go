@@ -347,7 +347,10 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 	// Example: `StorageAccount.encryption.services.blob.keyType` is non-updatable, but a user can remove `blob`
 	// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
 	// very disruptive).
-	if mutability, ok := schema.Extensions.GetStringSlice(extensionMutability); ok {
+
+	hasMutabilityInfo, isUpdatable := hasMutabilityInfoAndUpdate(schema)
+
+	if hasMutabilityInfo && !isUpdatable {
 		if isType {
 			m.skippedForceNewTypes = append(m.skippedForceNewTypes, SkippedForceNewType{
 				Module:        m.module,
@@ -357,11 +360,6 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 				Property:      propertyName,
 			})
 		} else {
-			for _, v := range mutability {
-				if v == extensionMutabilityUpdate {
-					return false
-				}
-			}
 			return true
 		}
 	}
@@ -375,6 +373,21 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 	}
 
 	return false
+}
+
+// hasMutabilityInfoAndUpdate returns two booleans.
+// The first one indicates whether the schema has mutability extension.
+// The second one indicates whether the property is updatable.
+func hasMutabilityInfoAndUpdate(schema *openapi.Schema) (bool, bool) {
+	if mutability, ok := schema.Extensions.GetStringSlice(extensionMutability); ok {
+		for _, v := range mutability {
+			if v == extensionMutabilityUpdate {
+				return true, true // has mutability info and is updatable
+			}
+		}
+		return true, false // has mutability info but is not updatable
+	}
+	return false, false // does not have mutability info
 }
 
 // itemTypeToProperty converts a type of an element in an array or a dictionary to a corresponding
