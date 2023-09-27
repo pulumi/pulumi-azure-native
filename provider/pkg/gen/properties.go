@@ -348,9 +348,9 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 	// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
 	// very disruptive).
 
-	hasMutabilityInfo, isUpdatable := hasMutabilityInfoAndUpdate(schema)
+	hasMutabilityInfo, forcesRecreate := propChangeForcesRecreate(schema)
 
-	if hasMutabilityInfo && !isUpdatable {
+	if hasMutabilityInfo && forcesRecreate {
 		if isType {
 			m.skippedForceNewTypes = append(m.skippedForceNewTypes, SkippedForceNewType{
 				Module:        m.module,
@@ -375,14 +375,21 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 	return false
 }
 
-// hasMutabilityInfoAndUpdate returns two booleans.
+// propChangeForcesRecreate returns two booleans.
 // The first one indicates whether the schema has mutability extension.
-// The second one indicates whether the property is updatable.
-func hasMutabilityInfoAndUpdate(schema *openapi.Schema) (bool, bool) {
+// The second one indicates whether the property requires recreation to change.
+func propChangeForcesRecreate(schema *openapi.Schema) (bool, bool) {
+	hasNoUpdate, hasCreate := true, false
 	if mutability, ok := schema.Extensions.GetStringSlice(extensionMutability); ok {
 		for _, v := range mutability {
-			if v == extensionMutabilityUpdate {
-				return true, true // has mutability info and is updatable
+			switch v {
+			case extensionMutabilityCreate:
+				hasCreate = true
+			case extensionMutabilityUpdate:
+				hasNoUpdate = false
+			}
+			if hasCreate && !hasNoUpdate {
+				return true, true // has mutability info and is forces recreation
 			}
 		}
 		return true, false // has mutability info but is not updatable
