@@ -347,13 +347,23 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 	// Example: `StorageAccount.encryption.services.blob.keyType` is non-updatable, but a user can remove `blob`
 	// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
 	// very disruptive).
-	if mutability, ok := schema.Extensions.GetStringSlice(extensionMutability); ok && !isType {
-		for _, v := range mutability {
-			if v == extensionMutabilityUpdate {
-				return false
+	if mutability, ok := schema.Extensions.GetStringSlice(extensionMutability); ok {
+		if isType {
+			m.skippedForceNewTypes = append(m.skippedForceNewTypes, SkippedForceNewType{
+				Module:        m.module,
+				Provider:      m.prov,
+				ResourceName:  m.resourceName,
+				ReferenceName: schema.ReferenceContext.ReferenceName,
+				Property:      propertyName,
+			})
+		} else {
+			for _, v := range mutability {
+				if v == extensionMutabilityUpdate {
+					return false
+				}
 			}
+			return true
 		}
-		return true
 	}
 
 	if resourceMap, ok := forceNewMap[m.prov]; ok {

@@ -40,6 +40,7 @@ type BuildSchemaReports struct {
 	Pending                       openapi.ProviderVersionList
 	CurationViolations            []CurationViolation
 	NamingDisambiguations         []resources.NameDisambiguation
+	SkippedForceNewTypes          []gen.SkippedForceNewType
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
@@ -51,6 +52,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"pending.json":                       r.Pending,
 		"curationViolations.json":            r.CurationViolations,
 		"namingDisambiguations.json":         r.NamingDisambiguations,
+		"skippedForceNewTypes.json":          r.SkippedForceNewTypes,
 	})
 }
 
@@ -124,6 +126,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		Active:                        versionMetadata.Active,
 		Pending:                       versionMetadata.Pending,
 		CurationViolations:            versionMetadata.CurationViolations,
+		SkippedForceNewTypes:          generationResult.SkippedForceNewTypes,
 	}
 
 	return &BuildSchemaResult{

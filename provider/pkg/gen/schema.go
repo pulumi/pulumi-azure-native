@@ -50,14 +50,15 @@ type Versioning interface {
 }
 
 type GenerationResult struct {
-	Schema   *pschema.PackageSpec
-	Metadata *resources.AzureAPIMetadata
-	Examples map[string][]resources.AzureAPIExample
+	Schema               *pschema.PackageSpec
+	Metadata             *resources.AzureAPIMetadata
+	Examples             map[string][]resources.AzureAPIExample
+	SkippedForceNewTypes []SkippedForceNewType
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning Versioning) (*GenerationResult, error) {
-	warnings := []string{}
+	var skippedForceNewTypes []SkippedForceNewType
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -271,7 +272,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				invoke := items.Invokes[typeName]
 				gen.genPostFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
 			}
-			warnings = append(warnings, gen.warnings...)
+			skippedForceNewTypes = append(skippedForceNewTypes, gen.skippedForceNewTypes...)
 		}
 	}
 
@@ -325,9 +326,10 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	})
 
 	return &GenerationResult{
-		Schema:   &pkg,
-		Metadata: &metadata,
-		Examples: exampleMap,
+		Schema:               &pkg,
+		Metadata:             &metadata,
+		Examples:             exampleMap,
+		SkippedForceNewTypes: skippedForceNewTypes,
 	}, nil
 }
 
@@ -486,9 +488,9 @@ type packageGenerator struct {
 	examples   map[string][]resources.AzureAPIExample
 	apiVersion string
 	versioning Versioning
-	warnings   []string
 	// rootDir is used to resolve relative paths in the examples.
-	rootDir string
+	rootDir              string
+	skippedForceNewTypes []SkippedForceNewType
 }
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
@@ -787,6 +789,7 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 	g.metadata.Resources[resourceTok] = r
 
 	g.generateExampleReferences(resourceTok, path, swagger)
+	g.skippedForceNewTypes = append(g.skippedForceNewTypes, gen.skippedForceNewTypes...)
 	return nil
 }
 
@@ -1031,6 +1034,14 @@ func getResponseSchema(ctx *openapi.ReferenceContext, statusCodeResponses map[in
 	return nil, nil
 }
 
+type SkippedForceNewType struct {
+	Module        string
+	Provider      string
+	ResourceName  string
+	ReferenceName string
+	Property      string
+}
+
 type moduleGenerator struct {
 	pkg                    *pschema.PackageSpec
 	metadata               *resources.AzureAPIMetadata
@@ -1041,6 +1052,7 @@ type moduleGenerator struct {
 	visitedTypes           map[string]bool
 	inlineTypes            map[*openapi.ReferenceContext]codegen.StringSet
 	nestedResourceBodyRefs []string
+	skippedForceNewTypes   []SkippedForceNewType
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {
