@@ -379,18 +379,18 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 // The first one indicates whether the schema has mutability extension.
 // The second one indicates whether the property requires recreation to change.
 func propChangeForcesRecreate(schema *openapi.Schema) (bool, bool) {
-	hasNoUpdate, hasCreate := true, false
+	hasUpdate, hasCreate := false, false
 	if mutability, ok := schema.Extensions.GetStringSlice(extensionMutability); ok {
 		for _, v := range mutability {
 			switch v {
 			case extensionMutabilityCreate:
 				hasCreate = true
 			case extensionMutabilityUpdate:
-				hasNoUpdate = false
+				hasUpdate = true
 			}
-			if hasCreate && !hasNoUpdate {
-				return true, true // has mutability info and is forces recreation
-			}
+		}
+		if hasCreate && !hasUpdate {
+			return true, true // has mutability info and is forces recreation
 		}
 		return true, false // has mutability info but is not updatable
 	}
