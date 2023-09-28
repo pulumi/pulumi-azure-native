@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,8 +28,17 @@ class PrivateEndpointPropertyArgs:
         """
         :param pulumi.Input[str] id: Resource id of the private endpoint.
         """
+        PrivateEndpointPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -53,8 +62,19 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
         :param pulumi.Input[str] description: The private link service connection description.
         :param pulumi.Input[str] status: The private link service connection status.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        PrivateLinkServiceConnectionStatePropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             status: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -104,19 +124,42 @@ class ServerPropertiesForDefaultCreateArgs:
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
         """
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        pulumi.set(__self__, "create_mode", 'Default')
+        ServerPropertiesForDefaultCreateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            create_mode=create_mode,
+            minimal_tls_version=minimal_tls_version,
+            public_network_access=public_network_access,
+            ssl_enforcement=ssl_enforcement,
+            storage_profile=storage_profile,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_login: pulumi.Input[str],
+             administrator_login_password: pulumi.Input[str],
+             create_mode: pulumi.Input[str],
+             minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessEnum']]] = None,
+             ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("administrator_login", administrator_login)
+        _setter("administrator_login_password", administrator_login_password)
+        _setter("create_mode", 'Default')
         if minimal_tls_version is not None:
-            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
+            _setter("minimal_tls_version", minimal_tls_version)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if ssl_enforcement is not None:
-            pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
+            _setter("ssl_enforcement", ssl_enforcement)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -237,18 +280,39 @@ class ServerPropertiesForGeoRestoreArgs:
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
         """
-        pulumi.set(__self__, "create_mode", 'GeoRestore')
-        pulumi.set(__self__, "source_server_id", source_server_id)
+        ServerPropertiesForGeoRestoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_mode=create_mode,
+            source_server_id=source_server_id,
+            minimal_tls_version=minimal_tls_version,
+            public_network_access=public_network_access,
+            ssl_enforcement=ssl_enforcement,
+            storage_profile=storage_profile,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_mode: pulumi.Input[str],
+             source_server_id: pulumi.Input[str],
+             minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessEnum']]] = None,
+             ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("create_mode", 'GeoRestore')
+        _setter("source_server_id", source_server_id)
         if minimal_tls_version is not None:
-            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
+            _setter("minimal_tls_version", minimal_tls_version)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if ssl_enforcement is not None:
-            pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
+            _setter("ssl_enforcement", ssl_enforcement)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="createMode")
@@ -357,18 +421,39 @@ class ServerPropertiesForReplicaArgs:
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
         """
-        pulumi.set(__self__, "create_mode", 'Replica')
-        pulumi.set(__self__, "source_server_id", source_server_id)
+        ServerPropertiesForReplicaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_mode=create_mode,
+            source_server_id=source_server_id,
+            minimal_tls_version=minimal_tls_version,
+            public_network_access=public_network_access,
+            ssl_enforcement=ssl_enforcement,
+            storage_profile=storage_profile,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_mode: pulumi.Input[str],
+             source_server_id: pulumi.Input[str],
+             minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessEnum']]] = None,
+             ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("create_mode", 'Replica')
+        _setter("source_server_id", source_server_id)
         if minimal_tls_version is not None:
-            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
+            _setter("minimal_tls_version", minimal_tls_version)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if ssl_enforcement is not None:
-            pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
+            _setter("ssl_enforcement", ssl_enforcement)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="createMode")
@@ -479,19 +564,42 @@ class ServerPropertiesForRestoreArgs:
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
         """
-        pulumi.set(__self__, "create_mode", 'PointInTimeRestore')
-        pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
-        pulumi.set(__self__, "source_server_id", source_server_id)
+        ServerPropertiesForRestoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_mode=create_mode,
+            restore_point_in_time=restore_point_in_time,
+            source_server_id=source_server_id,
+            minimal_tls_version=minimal_tls_version,
+            public_network_access=public_network_access,
+            ssl_enforcement=ssl_enforcement,
+            storage_profile=storage_profile,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_mode: pulumi.Input[str],
+             restore_point_in_time: pulumi.Input[str],
+             source_server_id: pulumi.Input[str],
+             minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersionEnum']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessEnum']]] = None,
+             ssl_enforcement: Optional[pulumi.Input['SslEnforcementEnum']] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("create_mode", 'PointInTimeRestore')
+        _setter("restore_point_in_time", restore_point_in_time)
+        _setter("source_server_id", source_server_id)
         if minimal_tls_version is not None:
-            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
+            _setter("minimal_tls_version", minimal_tls_version)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if ssl_enforcement is not None:
-            pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
+            _setter("ssl_enforcement", ssl_enforcement)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="createMode")
@@ -607,15 +715,32 @@ class SkuArgs:
         :param pulumi.Input[str] size: The size code, to be interpreted by resource as appropriate.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The tier of the particular SKU, e.g. Basic.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -692,14 +817,29 @@ class StorageProfileArgs:
         :param pulumi.Input[Union[str, 'StorageAutogrow']] storage_autogrow: Enable Storage Auto Grow.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server.
         """
+        StorageProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_retention_days=backup_retention_days,
+            geo_redundant_backup=geo_redundant_backup,
+            storage_autogrow=storage_autogrow,
+            storage_mb=storage_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_retention_days: Optional[pulumi.Input[int]] = None,
+             geo_redundant_backup: Optional[pulumi.Input[Union[str, 'GeoRedundantBackup']]] = None,
+             storage_autogrow: Optional[pulumi.Input[Union[str, 'StorageAutogrow']]] = None,
+             storage_mb: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if geo_redundant_backup is not None:
-            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
+            _setter("geo_redundant_backup", geo_redundant_backup)
         if storage_autogrow is not None:
-            pulumi.set(__self__, "storage_autogrow", storage_autogrow)
+            _setter("storage_autogrow", storage_autogrow)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
 
     @property
     @pulumi.getter(name="backupRetentionDays")

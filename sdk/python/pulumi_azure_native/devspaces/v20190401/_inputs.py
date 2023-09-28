@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -24,9 +24,20 @@ class SkuArgs:
         :param pulumi.Input[Union[str, 'SkuName']] name: The name of the SKU for Azure Dev Spaces Controller.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The tier of the SKU for Azure Dev Spaces Controller.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

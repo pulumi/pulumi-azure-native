@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -49,37 +49,76 @@ class ScalingPlanArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] time_zone: Timezone of the scaling plan.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ScalingPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            description=description,
+            exclusion_tag=exclusion_tag,
+            friendly_name=friendly_name,
+            host_pool_references=host_pool_references,
+            host_pool_type=host_pool_type,
+            identity=identity,
+            kind=kind,
+            location=location,
+            managed_by=managed_by,
+            plan=plan,
+            scaling_plan_name=scaling_plan_name,
+            schedules=schedules,
+            sku=sku,
+            tags=tags,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             exclusion_tag: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingHostPoolReferenceArgs']]]] = None,
+             host_pool_type: Optional[pulumi.Input[Union[str, 'ScalingHostPoolType']]] = None,
+             identity: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+             scaling_plan_name: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingScheduleArgs']]]] = None,
+             sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if exclusion_tag is not None:
-            pulumi.set(__self__, "exclusion_tag", exclusion_tag)
+            _setter("exclusion_tag", exclusion_tag)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if host_pool_references is not None:
-            pulumi.set(__self__, "host_pool_references", host_pool_references)
+            _setter("host_pool_references", host_pool_references)
         if host_pool_type is not None:
-            pulumi.set(__self__, "host_pool_type", host_pool_type)
+            _setter("host_pool_type", host_pool_type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if scaling_plan_name is not None:
-            pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
+            _setter("scaling_plan_name", scaling_plan_name)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -325,6 +364,10 @@ class ScalingPlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScalingPlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -360,16 +403,31 @@ class ScalingPlan(pulumi.CustomResource):
             __props__.__dict__["friendly_name"] = friendly_name
             __props__.__dict__["host_pool_references"] = host_pool_references
             __props__.__dict__["host_pool_type"] = host_pool_type
+            if identity is not None and not isinstance(identity, ResourceModelWithAllowedPropertySetIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceModelWithAllowedPropertySetIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
+            if plan is not None and not isinstance(plan, ResourceModelWithAllowedPropertySetPlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                ResourceModelWithAllowedPropertySetPlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scaling_plan_name"] = scaling_plan_name
             __props__.__dict__["schedules"] = schedules
+            if sku is not None and not isinstance(sku, ResourceModelWithAllowedPropertySetSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ResourceModelWithAllowedPropertySetSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["time_zone"] = time_zone

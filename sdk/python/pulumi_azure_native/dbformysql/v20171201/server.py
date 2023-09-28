@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,39 @@ class ServerArgs:
         :param pulumi.Input['SkuArgs'] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata in the form of key-value pairs.
         """
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            resource_group_name=resource_group_name,
+            identity=identity,
+            location=location,
+            server_name=server_name,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForReplicaArgs', 'ServerPropertiesForRestoreArgs']],
+             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -177,6 +198,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -198,6 +223,11 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerArgs.__new__(ServerArgs)
 
+            if identity is not None and not isinstance(identity, ResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if properties is None and not opts.urn:
@@ -207,6 +237,11 @@ class Server(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["server_name"] = server_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["administrator_login"] = None

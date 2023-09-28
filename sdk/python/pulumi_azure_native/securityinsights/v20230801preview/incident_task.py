@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,19 +37,44 @@ class IncidentTaskArgs:
         :param pulumi.Input[str] incident_task_id: Incident task ID
         :param pulumi.Input['ClientInfoArgs'] last_modified_by: Information on the client (user or application) that made some action
         """
-        pulumi.set(__self__, "incident_id", incident_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        IncidentTaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_id=incident_id,
+            resource_group_name=resource_group_name,
+            status=status,
+            title=title,
+            workspace_name=workspace_name,
+            created_by=created_by,
+            description=description,
+            incident_task_id=incident_task_id,
+            last_modified_by=last_modified_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             status: pulumi.Input[Union[str, 'IncidentTaskStatus']],
+             title: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             created_by: Optional[pulumi.Input['ClientInfoArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             incident_task_id: Optional[pulumi.Input[str]] = None,
+             last_modified_by: Optional[pulumi.Input['ClientInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("incident_id", incident_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("status", status)
+        _setter("title", title)
+        _setter("workspace_name", workspace_name)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if incident_task_id is not None:
-            pulumi.set(__self__, "incident_task_id", incident_task_id)
+            _setter("incident_task_id", incident_task_id)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
 
     @property
     @pulumi.getter(name="incidentId")
@@ -203,6 +228,10 @@ class IncidentTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IncidentTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -226,12 +255,22 @@ class IncidentTask(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IncidentTaskArgs.__new__(IncidentTaskArgs)
 
+            if created_by is not None and not isinstance(created_by, ClientInfoArgs):
+                created_by = created_by or {}
+                def _setter(key, value):
+                    created_by[key] = value
+                ClientInfoArgs._configure(_setter, **created_by)
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["description"] = description
             if incident_id is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_id'")
             __props__.__dict__["incident_id"] = incident_id
             __props__.__dict__["incident_task_id"] = incident_task_id
+            if last_modified_by is not None and not isinstance(last_modified_by, ClientInfoArgs):
+                last_modified_by = last_modified_by or {}
+                def _setter(key, value):
+                    last_modified_by[key] = value
+                ClientInfoArgs._configure(_setter, **last_modified_by)
             __props__.__dict__["last_modified_by"] = last_modified_by
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

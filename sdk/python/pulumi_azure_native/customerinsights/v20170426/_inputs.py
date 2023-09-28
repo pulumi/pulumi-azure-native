@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -48,10 +48,23 @@ class AssignmentPrincipalArgs:
         :param pulumi.Input[str] principal_type: The Type of the principal ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] principal_metadata: Other metadata for the principal.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "principal_type", principal_type)
+        AssignmentPrincipalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            principal_type=principal_type,
+            principal_metadata=principal_metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: pulumi.Input[str],
+             principal_type: pulumi.Input[str],
+             principal_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("principal_type", principal_type)
         if principal_metadata is not None:
-            pulumi.set(__self__, "principal_metadata", principal_metadata)
+            _setter("principal_metadata", principal_metadata)
 
     @property
     @pulumi.getter(name="principalId")
@@ -100,9 +113,20 @@ class ConnectorMappingAvailabilityArgs:
         :param pulumi.Input[int] interval: The interval of the given frequency to use.
         :param pulumi.Input['FrequencyTypes'] frequency: The frequency to update.
         """
-        pulumi.set(__self__, "interval", interval)
+        ConnectorMappingAvailabilityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interval=interval,
+            frequency=frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interval: pulumi.Input[int],
+             frequency: Optional[pulumi.Input['FrequencyTypes']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("interval", interval)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
 
     @property
     @pulumi.getter
@@ -139,10 +163,21 @@ class ConnectorMappingCompleteOperationArgs:
         :param pulumi.Input['CompletionOperationTypes'] completion_operation_type: The type of completion operation.
         :param pulumi.Input[str] destination_folder: The destination folder where files will be moved to once the import is done.
         """
+        ConnectorMappingCompleteOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completion_operation_type=completion_operation_type,
+            destination_folder=destination_folder,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completion_operation_type: Optional[pulumi.Input['CompletionOperationTypes']] = None,
+             destination_folder: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if completion_operation_type is not None:
-            pulumi.set(__self__, "completion_operation_type", completion_operation_type)
+            _setter("completion_operation_type", completion_operation_type)
         if destination_folder is not None:
-            pulumi.set(__self__, "destination_folder", destination_folder)
+            _setter("destination_folder", destination_folder)
 
     @property
     @pulumi.getter(name="completionOperationType")
@@ -179,9 +214,20 @@ class ConnectorMappingErrorManagementArgs:
         :param pulumi.Input['ErrorManagementTypes'] error_management_type: The type of error management to use for the mapping.
         :param pulumi.Input[int] error_limit: The error limit allowed while importing data.
         """
-        pulumi.set(__self__, "error_management_type", error_management_type)
+        ConnectorMappingErrorManagementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_management_type=error_management_type,
+            error_limit=error_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_management_type: pulumi.Input['ErrorManagementTypes'],
+             error_limit: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_management_type", error_management_type)
         if error_limit is not None:
-            pulumi.set(__self__, "error_limit", error_limit)
+            _setter("error_limit", error_limit)
 
     @property
     @pulumi.getter(name="errorManagementType")
@@ -226,17 +272,36 @@ class ConnectorMappingFormatArgs:
         :param pulumi.Input[str] quote_character: Quote character, used to indicate enquoted fields.
         :param pulumi.Input[str] quote_escape_character: Escape character for quotes, can be the same as the quoteCharacter.
         """
-        pulumi.set(__self__, "format_type", format_type)
+        ConnectorMappingFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format_type=format_type,
+            accept_language=accept_language,
+            array_separator=array_separator,
+            column_delimiter=column_delimiter,
+            quote_character=quote_character,
+            quote_escape_character=quote_escape_character,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format_type: pulumi.Input['FormatTypes'],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             array_separator: Optional[pulumi.Input[str]] = None,
+             column_delimiter: Optional[pulumi.Input[str]] = None,
+             quote_character: Optional[pulumi.Input[str]] = None,
+             quote_escape_character: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("format_type", format_type)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if array_separator is not None:
-            pulumi.set(__self__, "array_separator", array_separator)
+            _setter("array_separator", array_separator)
         if column_delimiter is not None:
-            pulumi.set(__self__, "column_delimiter", column_delimiter)
+            _setter("column_delimiter", column_delimiter)
         if quote_character is not None:
-            pulumi.set(__self__, "quote_character", quote_character)
+            _setter("quote_character", quote_character)
         if quote_escape_character is not None:
-            pulumi.set(__self__, "quote_escape_character", quote_escape_character)
+            _setter("quote_escape_character", quote_escape_character)
 
     @property
     @pulumi.getter(name="formatType")
@@ -333,17 +398,40 @@ class ConnectorMappingPropertiesArgs:
         :param pulumi.Input[str] folder_path: The folder path for the mapping.
         :param pulumi.Input[bool] has_header: If the file contains a header or not.
         """
-        pulumi.set(__self__, "availability", availability)
-        pulumi.set(__self__, "complete_operation", complete_operation)
-        pulumi.set(__self__, "error_management", error_management)
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "structure", structure)
+        ConnectorMappingPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability=availability,
+            complete_operation=complete_operation,
+            error_management=error_management,
+            format=format,
+            structure=structure,
+            file_filter=file_filter,
+            folder_path=folder_path,
+            has_header=has_header,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability: pulumi.Input['ConnectorMappingAvailabilityArgs'],
+             complete_operation: pulumi.Input['ConnectorMappingCompleteOperationArgs'],
+             error_management: pulumi.Input['ConnectorMappingErrorManagementArgs'],
+             format: pulumi.Input['ConnectorMappingFormatArgs'],
+             structure: pulumi.Input[Sequence[pulumi.Input['ConnectorMappingStructureArgs']]],
+             file_filter: Optional[pulumi.Input[str]] = None,
+             folder_path: Optional[pulumi.Input[str]] = None,
+             has_header: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("availability", availability)
+        _setter("complete_operation", complete_operation)
+        _setter("error_management", error_management)
+        _setter("format", format)
+        _setter("structure", structure)
         if file_filter is not None:
-            pulumi.set(__self__, "file_filter", file_filter)
+            _setter("file_filter", file_filter)
         if folder_path is not None:
-            pulumi.set(__self__, "folder_path", folder_path)
+            _setter("folder_path", folder_path)
         if has_header is not None:
-            pulumi.set(__self__, "has_header", has_header)
+            _setter("has_header", has_header)
 
     @property
     @pulumi.getter
@@ -456,12 +544,27 @@ class ConnectorMappingStructureArgs:
         :param pulumi.Input[str] custom_format_specifier: Custom format specifier for input parsing.
         :param pulumi.Input[bool] is_encrypted: Indicates if the column is encrypted.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "property_name", property_name)
+        ConnectorMappingStructureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            property_name=property_name,
+            custom_format_specifier=custom_format_specifier,
+            is_encrypted=is_encrypted,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: pulumi.Input[str],
+             property_name: pulumi.Input[str],
+             custom_format_specifier: Optional[pulumi.Input[str]] = None,
+             is_encrypted: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("property_name", property_name)
         if custom_format_specifier is not None:
-            pulumi.set(__self__, "custom_format_specifier", custom_format_specifier)
+            _setter("custom_format_specifier", custom_format_specifier)
         if is_encrypted is not None:
-            pulumi.set(__self__, "is_encrypted", is_encrypted)
+            _setter("is_encrypted", is_encrypted)
 
     @property
     @pulumi.getter(name="columnName")
@@ -524,12 +627,25 @@ class HubBillingInfoFormatArgs:
         :param pulumi.Input[int] min_units: The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
         :param pulumi.Input[str] sku_name: The sku name.
         """
+        HubBillingInfoFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_units=max_units,
+            min_units=min_units,
+            sku_name=sku_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_units: Optional[pulumi.Input[int]] = None,
+             min_units: Optional[pulumi.Input[int]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_units is not None:
-            pulumi.set(__self__, "max_units", max_units)
+            _setter("max_units", max_units)
         if min_units is not None:
-            pulumi.set(__self__, "min_units", min_units)
+            _setter("min_units", min_units)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
 
     @property
     @pulumi.getter(name="maxUnits")
@@ -578,8 +694,19 @@ class KpiAliasArgs:
         :param pulumi.Input[str] alias_name: KPI alias name.
         :param pulumi.Input[str] expression: The expression.
         """
-        pulumi.set(__self__, "alias_name", alias_name)
-        pulumi.set(__self__, "expression", expression)
+        KpiAliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias_name=alias_name,
+            expression=expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias_name: pulumi.Input[str],
+             expression: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alias_name", alias_name)
+        _setter("expression", expression)
 
     @property
     @pulumi.getter(name="aliasName")
@@ -616,8 +743,19 @@ class KpiExtractArgs:
         :param pulumi.Input[str] expression: The expression.
         :param pulumi.Input[str] extract_name: KPI extract name.
         """
-        pulumi.set(__self__, "expression", expression)
-        pulumi.set(__self__, "extract_name", extract_name)
+        KpiExtractArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            extract_name=extract_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: pulumi.Input[str],
+             extract_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expression", expression)
+        _setter("extract_name", extract_name)
 
     @property
     @pulumi.getter
@@ -656,9 +794,22 @@ class KpiThresholdsArgs:
         :param pulumi.Input[float] lower_limit: The lower threshold limit.
         :param pulumi.Input[float] upper_limit: The upper threshold limit.
         """
-        pulumi.set(__self__, "increasing_kpi", increasing_kpi)
-        pulumi.set(__self__, "lower_limit", lower_limit)
-        pulumi.set(__self__, "upper_limit", upper_limit)
+        KpiThresholdsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            increasing_kpi=increasing_kpi,
+            lower_limit=lower_limit,
+            upper_limit=upper_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             increasing_kpi: pulumi.Input[bool],
+             lower_limit: pulumi.Input[float],
+             upper_limit: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("increasing_kpi", increasing_kpi)
+        _setter("lower_limit", lower_limit)
+        _setter("upper_limit", upper_limit)
 
     @property
     @pulumi.getter(name="increasingKpi")
@@ -707,8 +858,19 @@ class ParticipantProfilePropertyReferenceArgs:
         :param pulumi.Input[str] interaction_property_name: The source interaction property that maps to the target profile property.
         :param pulumi.Input[str] profile_property_name: The target profile property that maps to the source interaction property.
         """
-        pulumi.set(__self__, "interaction_property_name", interaction_property_name)
-        pulumi.set(__self__, "profile_property_name", profile_property_name)
+        ParticipantProfilePropertyReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interaction_property_name=interaction_property_name,
+            profile_property_name=profile_property_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interaction_property_name: pulumi.Input[str],
+             profile_property_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("interaction_property_name", interaction_property_name)
+        _setter("profile_property_name", profile_property_name)
 
     @property
     @pulumi.getter(name="interactionPropertyName")
@@ -745,8 +907,19 @@ class ParticipantPropertyReferenceArgs:
         :param pulumi.Input[str] source_property_name: The source property that maps to the target property.
         :param pulumi.Input[str] target_property_name: The target property that maps to the source property.
         """
-        pulumi.set(__self__, "source_property_name", source_property_name)
-        pulumi.set(__self__, "target_property_name", target_property_name)
+        ParticipantPropertyReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_property_name=source_property_name,
+            target_property_name=target_property_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_property_name: pulumi.Input[str],
+             target_property_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_property_name", source_property_name)
+        _setter("target_property_name", target_property_name)
 
     @property
     @pulumi.getter(name="sourcePropertyName")
@@ -785,12 +958,25 @@ class PredictionGradesArgs:
         :param pulumi.Input[int] max_score_threshold: Maximum score threshold.
         :param pulumi.Input[int] min_score_threshold: Minimum score threshold.
         """
+        PredictionGradesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grade_name=grade_name,
+            max_score_threshold=max_score_threshold,
+            min_score_threshold=min_score_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grade_name: Optional[pulumi.Input[str]] = None,
+             max_score_threshold: Optional[pulumi.Input[int]] = None,
+             min_score_threshold: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if grade_name is not None:
-            pulumi.set(__self__, "grade_name", grade_name)
+            _setter("grade_name", grade_name)
         if max_score_threshold is not None:
-            pulumi.set(__self__, "max_score_threshold", max_score_threshold)
+            _setter("max_score_threshold", max_score_threshold)
         if min_score_threshold is not None:
-            pulumi.set(__self__, "min_score_threshold", min_score_threshold)
+            _setter("min_score_threshold", min_score_threshold)
 
     @property
     @pulumi.getter(name="gradeName")
@@ -841,9 +1027,22 @@ class PredictionMappingsArgs:
         :param pulumi.Input[str] reason: The reason of the link mapping.
         :param pulumi.Input[str] score: The score of the link mapping.
         """
-        pulumi.set(__self__, "grade", grade)
-        pulumi.set(__self__, "reason", reason)
-        pulumi.set(__self__, "score", score)
+        PredictionMappingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grade=grade,
+            reason=reason,
+            score=score,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grade: pulumi.Input[str],
+             reason: pulumi.Input[str],
+             score: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("grade", grade)
+        _setter("reason", reason)
+        _setter("score", score)
 
     @property
     @pulumi.getter
@@ -892,10 +1091,21 @@ class ProfileEnumValidValuesFormatArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] localized_value_names: Localized names of the enum member.
         :param pulumi.Input[int] value: The integer value of the enum member.
         """
+        ProfileEnumValidValuesFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            localized_value_names=localized_value_names,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             localized_value_names: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             value: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if localized_value_names is not None:
-            pulumi.set(__self__, "localized_value_names", localized_value_names)
+            _setter("localized_value_names", localized_value_names)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="localizedValueNames")
@@ -958,34 +1168,71 @@ class PropertyDefinitionArgs:
         :param pulumi.Input[str] property_id: The ID associated with the property.
         :param pulumi.Input[str] schema_item_prop_link: URL encoded schema.org item prop link for the property.
         """
-        pulumi.set(__self__, "field_name", field_name)
-        pulumi.set(__self__, "field_type", field_type)
+        PropertyDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_name=field_name,
+            field_type=field_type,
+            array_value_separator=array_value_separator,
+            enum_valid_values=enum_valid_values,
+            is_array=is_array,
+            is_available_in_graph=is_available_in_graph,
+            is_enum=is_enum,
+            is_flag_enum=is_flag_enum,
+            is_image=is_image,
+            is_localized_string=is_localized_string,
+            is_name=is_name,
+            is_required=is_required,
+            max_length=max_length,
+            property_id=property_id,
+            schema_item_prop_link=schema_item_prop_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_name: pulumi.Input[str],
+             field_type: pulumi.Input[str],
+             array_value_separator: Optional[pulumi.Input[str]] = None,
+             enum_valid_values: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]] = None,
+             is_array: Optional[pulumi.Input[bool]] = None,
+             is_available_in_graph: Optional[pulumi.Input[bool]] = None,
+             is_enum: Optional[pulumi.Input[bool]] = None,
+             is_flag_enum: Optional[pulumi.Input[bool]] = None,
+             is_image: Optional[pulumi.Input[bool]] = None,
+             is_localized_string: Optional[pulumi.Input[bool]] = None,
+             is_name: Optional[pulumi.Input[bool]] = None,
+             is_required: Optional[pulumi.Input[bool]] = None,
+             max_length: Optional[pulumi.Input[int]] = None,
+             property_id: Optional[pulumi.Input[str]] = None,
+             schema_item_prop_link: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_name", field_name)
+        _setter("field_type", field_type)
         if array_value_separator is not None:
-            pulumi.set(__self__, "array_value_separator", array_value_separator)
+            _setter("array_value_separator", array_value_separator)
         if enum_valid_values is not None:
-            pulumi.set(__self__, "enum_valid_values", enum_valid_values)
+            _setter("enum_valid_values", enum_valid_values)
         if is_array is not None:
-            pulumi.set(__self__, "is_array", is_array)
+            _setter("is_array", is_array)
         if is_available_in_graph is not None:
-            pulumi.set(__self__, "is_available_in_graph", is_available_in_graph)
+            _setter("is_available_in_graph", is_available_in_graph)
         if is_enum is not None:
-            pulumi.set(__self__, "is_enum", is_enum)
+            _setter("is_enum", is_enum)
         if is_flag_enum is not None:
-            pulumi.set(__self__, "is_flag_enum", is_flag_enum)
+            _setter("is_flag_enum", is_flag_enum)
         if is_image is not None:
-            pulumi.set(__self__, "is_image", is_image)
+            _setter("is_image", is_image)
         if is_localized_string is not None:
-            pulumi.set(__self__, "is_localized_string", is_localized_string)
+            _setter("is_localized_string", is_localized_string)
         if is_name is not None:
-            pulumi.set(__self__, "is_name", is_name)
+            _setter("is_name", is_name)
         if is_required is not None:
-            pulumi.set(__self__, "is_required", is_required)
+            _setter("is_required", is_required)
         if max_length is not None:
-            pulumi.set(__self__, "max_length", max_length)
+            _setter("max_length", max_length)
         if property_id is not None:
-            pulumi.set(__self__, "property_id", property_id)
+            _setter("property_id", property_id)
         if schema_item_prop_link is not None:
-            pulumi.set(__self__, "schema_item_prop_link", schema_item_prop_link)
+            _setter("schema_item_prop_link", schema_item_prop_link)
 
     @property
     @pulumi.getter(name="fieldName")
@@ -1180,10 +1427,23 @@ class RelationshipLinkFieldMappingArgs:
         :param pulumi.Input[str] relationship_field_name: The field name on the Relationship metadata.
         :param pulumi.Input['LinkTypes'] link_type: Link type.
         """
-        pulumi.set(__self__, "interaction_field_name", interaction_field_name)
-        pulumi.set(__self__, "relationship_field_name", relationship_field_name)
+        RelationshipLinkFieldMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interaction_field_name=interaction_field_name,
+            relationship_field_name=relationship_field_name,
+            link_type=link_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interaction_field_name: pulumi.Input[str],
+             relationship_field_name: pulumi.Input[str],
+             link_type: Optional[pulumi.Input['LinkTypes']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("interaction_field_name", interaction_field_name)
+        _setter("relationship_field_name", relationship_field_name)
         if link_type is not None:
-            pulumi.set(__self__, "link_type", link_type)
+            _setter("link_type", link_type)
 
     @property
     @pulumi.getter(name="interactionFieldName")
@@ -1232,8 +1492,19 @@ class RelationshipTypeFieldMappingArgs:
         :param pulumi.Input[str] profile_field_name: Specifies the fieldName in profile.
         :param pulumi.Input[str] related_profile_key_property: Specifies the KeyProperty (from StrongId) of the related profile.
         """
-        pulumi.set(__self__, "profile_field_name", profile_field_name)
-        pulumi.set(__self__, "related_profile_key_property", related_profile_key_property)
+        RelationshipTypeFieldMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_field_name=profile_field_name,
+            related_profile_key_property=related_profile_key_property,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_field_name: pulumi.Input[str],
+             related_profile_key_property: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("profile_field_name", profile_field_name)
+        _setter("related_profile_key_property", related_profile_key_property)
 
     @property
     @pulumi.getter(name="profileFieldName")
@@ -1268,7 +1539,16 @@ class RelationshipTypeMappingArgs:
         Maps fields in Profile to their corresponding StrongIds in Related Profile.
         :param pulumi.Input[Sequence[pulumi.Input['RelationshipTypeFieldMappingArgs']]] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
-        pulumi.set(__self__, "field_mappings", field_mappings)
+        RelationshipTypeMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_mappings=field_mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_mappings: pulumi.Input[Sequence[pulumi.Input['RelationshipTypeFieldMappingArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="fieldMappings")
@@ -1293,10 +1573,21 @@ class ResourceSetDescriptionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] elements: The elements included in the set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exceptions: The elements that are not included in the set, in case elements contains '*' indicating 'all'.
         """
+        ResourceSetDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elements=elements,
+            exceptions=exceptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if elements is not None:
-            pulumi.set(__self__, "elements", elements)
+            _setter("elements", elements)
         if exceptions is not None:
-            pulumi.set(__self__, "exceptions", exceptions)
+            _setter("exceptions", exceptions)
 
     @property
     @pulumi.getter
@@ -1337,12 +1628,27 @@ class StrongIdArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name.
         """
-        pulumi.set(__self__, "key_property_names", key_property_names)
-        pulumi.set(__self__, "strong_id_name", strong_id_name)
+        StrongIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_property_names=key_property_names,
+            strong_id_name=strong_id_name,
+            description=description,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_property_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             strong_id_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_property_names", key_property_names)
+        _setter("strong_id_name", strong_id_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter(name="keyPropertyNames")
@@ -1405,10 +1711,23 @@ class TypePropertiesMappingArgs:
         :param pulumi.Input[str] target_property_name: Property name on the target Entity Type.
         :param pulumi.Input['LinkTypes'] link_type: Link type.
         """
-        pulumi.set(__self__, "source_property_name", source_property_name)
-        pulumi.set(__self__, "target_property_name", target_property_name)
+        TypePropertiesMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_property_name=source_property_name,
+            target_property_name=target_property_name,
+            link_type=link_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_property_name: pulumi.Input[str],
+             target_property_name: pulumi.Input[str],
+             link_type: Optional[pulumi.Input['LinkTypes']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_property_name", source_property_name)
+        _setter("target_property_name", target_property_name)
         if link_type is not None:
-            pulumi.set(__self__, "link_type", link_type)
+            _setter("link_type", link_type)
 
     @property
     @pulumi.getter(name="sourcePropertyName")

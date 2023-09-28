@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,43 @@ class TemplateSpecVersionArgs:
         :param Any template: The Azure Resource Manager template content.
         :param pulumi.Input[str] template_spec_version: The version of the Template Spec.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "template_spec_name", template_spec_name)
+        TemplateSpecVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            template_spec_name=template_spec_name,
+            artifacts=artifacts,
+            description=description,
+            location=location,
+            tags=tags,
+            template=template,
+            template_spec_version=template_spec_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             template_spec_name: pulumi.Input[str],
+             artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSpecTemplateArtifactArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template: Optional[Any] = None,
+             template_spec_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("template_spec_name", template_spec_name)
         if artifacts is not None:
-            pulumi.set(__self__, "artifacts", artifacts)
+            _setter("artifacts", artifacts)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if template_spec_version is not None:
-            pulumi.set(__self__, "template_spec_version", template_spec_version)
+            _setter("template_spec_version", template_spec_version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -194,6 +217,10 @@ class TemplateSpecVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TemplateSpecVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

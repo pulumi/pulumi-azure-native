@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -97,16 +97,35 @@ class CommunityGalleryInfoResponse(dict):
         :param str publisher_contact: Community gallery publisher support email. The email address of the publisher. Visible to all users.
         :param str publisher_uri: The link to the publisher website. Visible to all users.
         """
-        pulumi.set(__self__, "community_gallery_enabled", community_gallery_enabled)
-        pulumi.set(__self__, "public_names", public_names)
+        CommunityGalleryInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            community_gallery_enabled=community_gallery_enabled,
+            public_names=public_names,
+            eula=eula,
+            public_name_prefix=public_name_prefix,
+            publisher_contact=publisher_contact,
+            publisher_uri=publisher_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             community_gallery_enabled: bool,
+             public_names: Sequence[str],
+             eula: Optional[str] = None,
+             public_name_prefix: Optional[str] = None,
+             publisher_contact: Optional[str] = None,
+             publisher_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("community_gallery_enabled", community_gallery_enabled)
+        _setter("public_names", public_names)
         if eula is not None:
-            pulumi.set(__self__, "eula", eula)
+            _setter("eula", eula)
         if public_name_prefix is not None:
-            pulumi.set(__self__, "public_name_prefix", public_name_prefix)
+            _setter("public_name_prefix", public_name_prefix)
         if publisher_contact is not None:
-            pulumi.set(__self__, "publisher_contact", publisher_contact)
+            _setter("publisher_contact", publisher_contact)
         if publisher_uri is not None:
-            pulumi.set(__self__, "publisher_uri", publisher_uri)
+            _setter("publisher_uri", publisher_uri)
 
     @property
     @pulumi.getter(name="communityGalleryEnabled")
@@ -187,9 +206,20 @@ class DataDiskImageEncryptionResponse(dict):
         :param int lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         :param str disk_encryption_set_id: A relative URI containing the resource ID of the disk encryption set.
         """
-        pulumi.set(__self__, "lun", lun)
+        DataDiskImageEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lun=lun,
+            disk_encryption_set_id=disk_encryption_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lun: int,
+             disk_encryption_set_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lun", lun)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
 
     @property
     @pulumi.getter
@@ -236,8 +266,17 @@ class DisallowedResponse(dict):
         Describes the disallowed disk types.
         :param Sequence[str] disk_types: A list of disk types.
         """
+        DisallowedResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_types=disk_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_types: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_types is not None:
-            pulumi.set(__self__, "disk_types", disk_types)
+            _setter("disk_types", disk_types)
 
     @property
     @pulumi.getter(name="diskTypes")
@@ -280,10 +319,21 @@ class EncryptionImagesResponse(dict):
         :param Sequence['DataDiskImageEncryptionResponse'] data_disk_images: A list of encryption specifications for data disk images.
         :param 'OSDiskImageEncryptionResponse' os_disk_image: Contains encryption settings for an OS disk image.
         """
+        EncryptionImagesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_disk_images=data_disk_images,
+            os_disk_image=os_disk_image,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_disk_images: Optional[Sequence['outputs.DataDiskImageEncryptionResponse']] = None,
+             os_disk_image: Optional['outputs.OSDiskImageEncryptionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_disk_images is not None:
-            pulumi.set(__self__, "data_disk_images", data_disk_images)
+            _setter("data_disk_images", data_disk_images)
         if os_disk_image is not None:
-            pulumi.set(__self__, "os_disk_image", os_disk_image)
+            _setter("os_disk_image", os_disk_image)
 
     @property
     @pulumi.getter(name="dataDiskImages")
@@ -338,15 +388,32 @@ class GalleryApplicationCustomActionParameterResponse(dict):
         :param bool required: Indicates whether this parameter must be passed when running the custom action.
         :param str type: Specifies the type of the custom action parameter. Possible values are: String, ConfigurationDataBlob or LogOutputBlob
         """
-        pulumi.set(__self__, "name", name)
+        GalleryApplicationCustomActionParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            default_value=default_value,
+            description=description,
+            required=required,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             default_value: Optional[str] = None,
+             description: Optional[str] = None,
+             required: Optional[bool] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -406,12 +473,27 @@ class GalleryApplicationCustomActionResponse(dict):
         :param str description: Description to help the users understand what this custom action does.
         :param Sequence['GalleryApplicationCustomActionParameterResponse'] parameters: The parameters that this custom action uses
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "script", script)
+        GalleryApplicationCustomActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            script=script,
+            description=description,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             script: str,
+             description: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.GalleryApplicationCustomActionParameterResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("script", script)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -521,32 +603,67 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         :param Sequence['GalleryTargetExtendedLocationResponse'] target_extended_locations: The target extended locations where the Image Version is going to be replicated to. This property is updatable.
         :param Sequence['TargetRegionResponse'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
-        pulumi.set(__self__, "published_date", published_date)
-        pulumi.set(__self__, "source", source)
+        GalleryApplicationVersionPublishingProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            published_date=published_date,
+            source=source,
+            advanced_settings=advanced_settings,
+            custom_actions=custom_actions,
+            enable_health_check=enable_health_check,
+            end_of_life_date=end_of_life_date,
+            exclude_from_latest=exclude_from_latest,
+            manage_actions=manage_actions,
+            replica_count=replica_count,
+            replication_mode=replication_mode,
+            settings=settings,
+            storage_account_type=storage_account_type,
+            target_extended_locations=target_extended_locations,
+            target_regions=target_regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             published_date: str,
+             source: 'outputs.UserArtifactSourceResponse',
+             advanced_settings: Optional[Mapping[str, str]] = None,
+             custom_actions: Optional[Sequence['outputs.GalleryApplicationCustomActionResponse']] = None,
+             enable_health_check: Optional[bool] = None,
+             end_of_life_date: Optional[str] = None,
+             exclude_from_latest: Optional[bool] = None,
+             manage_actions: Optional['outputs.UserArtifactManageResponse'] = None,
+             replica_count: Optional[int] = None,
+             replication_mode: Optional[str] = None,
+             settings: Optional['outputs.UserArtifactSettingsResponse'] = None,
+             storage_account_type: Optional[str] = None,
+             target_extended_locations: Optional[Sequence['outputs.GalleryTargetExtendedLocationResponse']] = None,
+             target_regions: Optional[Sequence['outputs.TargetRegionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("published_date", published_date)
+        _setter("source", source)
         if advanced_settings is not None:
-            pulumi.set(__self__, "advanced_settings", advanced_settings)
+            _setter("advanced_settings", advanced_settings)
         if custom_actions is not None:
-            pulumi.set(__self__, "custom_actions", custom_actions)
+            _setter("custom_actions", custom_actions)
         if enable_health_check is not None:
-            pulumi.set(__self__, "enable_health_check", enable_health_check)
+            _setter("enable_health_check", enable_health_check)
         if end_of_life_date is not None:
-            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+            _setter("end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
-            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+            _setter("exclude_from_latest", exclude_from_latest)
         if manage_actions is not None:
-            pulumi.set(__self__, "manage_actions", manage_actions)
+            _setter("manage_actions", manage_actions)
         if replica_count is not None:
-            pulumi.set(__self__, "replica_count", replica_count)
+            _setter("replica_count", replica_count)
         if replication_mode is not None:
-            pulumi.set(__self__, "replication_mode", replication_mode)
+            _setter("replication_mode", replication_mode)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
         if target_extended_locations is not None:
-            pulumi.set(__self__, "target_extended_locations", target_extended_locations)
+            _setter("target_extended_locations", target_extended_locations)
         if target_regions is not None:
-            pulumi.set(__self__, "target_regions", target_regions)
+            _setter("target_regions", target_regions)
 
     @property
     @pulumi.getter(name="publishedDate")
@@ -686,8 +803,17 @@ class GalleryApplicationVersionSafetyProfileResponse(dict):
         The safety profile of the Gallery Application Version.
         :param bool allow_deletion_of_replicated_locations: Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
         """
+        GalleryApplicationVersionSafetyProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_deletion_of_replicated_locations=allow_deletion_of_replicated_locations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_deletion_of_replicated_locations: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_deletion_of_replicated_locations is not None:
-            pulumi.set(__self__, "allow_deletion_of_replicated_locations", allow_deletion_of_replicated_locations)
+            _setter("allow_deletion_of_replicated_locations", allow_deletion_of_replicated_locations)
 
     @property
     @pulumi.getter(name="allowDeletionOfReplicatedLocations")
@@ -728,10 +854,21 @@ class GalleryArtifactVersionFullSourceResponse(dict):
         :param str community_gallery_image_id: The resource Id of the source Community Gallery Image.  Only required when using Community Gallery Image as a source.
         :param str id: The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
         """
+        GalleryArtifactVersionFullSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            community_gallery_image_id=community_gallery_image_id,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             community_gallery_image_id: Optional[str] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if community_gallery_image_id is not None:
-            pulumi.set(__self__, "community_gallery_image_id", community_gallery_image_id)
+            _setter("community_gallery_image_id", community_gallery_image_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter(name="communityGalleryImageId")
@@ -786,12 +923,27 @@ class GalleryDataDiskImageResponse(dict):
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         :param 'GalleryDiskImageSourceResponse' source: The source for the disk image.
         """
-        pulumi.set(__self__, "lun", lun)
-        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        GalleryDataDiskImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lun=lun,
+            size_in_gb=size_in_gb,
+            host_caching=host_caching,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lun: int,
+             size_in_gb: int,
+             host_caching: Optional[str] = None,
+             source: Optional['outputs.GalleryDiskImageSourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lun", lun)
+        _setter("size_in_gb", size_in_gb)
         if host_caching is not None:
-            pulumi.set(__self__, "host_caching", host_caching)
+            _setter("host_caching", host_caching)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -858,12 +1010,25 @@ class GalleryDiskImageSourceResponse(dict):
         :param str storage_account_id: The Storage Account Id that contains the vhd blob being used as a source for this artifact version.
         :param str uri: The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
         """
+        GalleryDiskImageSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            storage_account_id=storage_account_id,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -902,10 +1067,21 @@ class GalleryExtendedLocationResponse(dict):
         The name of the extended location.
         :param str type: It is type of the extended location.
         """
+        GalleryExtendedLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -949,7 +1125,16 @@ class GalleryIdentifierResponse(dict):
         Describes the gallery unique name.
         :param str unique_name: The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
         """
-        pulumi.set(__self__, "unique_name", unique_name)
+        GalleryIdentifierResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unique_name=unique_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unique_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unique_name", unique_name)
 
     @property
     @pulumi.getter(name="uniqueName")
@@ -973,10 +1158,21 @@ class GalleryImageFeatureResponse(dict):
         :param str name: The name of the gallery image feature.
         :param str value: The value of the gallery image feature.
         """
+        GalleryImageFeatureResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1010,9 +1206,22 @@ class GalleryImageIdentifierResponse(dict):
         :param str publisher: The name of the gallery image definition publisher.
         :param str sku: The name of the gallery image definition SKU.
         """
-        pulumi.set(__self__, "offer", offer)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "sku", sku)
+        GalleryImageIdentifierResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: str,
+             publisher: str,
+             sku: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offer", offer)
+        _setter("publisher", publisher)
+        _setter("sku", sku)
 
     @property
     @pulumi.getter
@@ -1095,21 +1304,44 @@ class GalleryImageVersionPublishingProfileResponse(dict):
         :param Sequence['GalleryTargetExtendedLocationResponse'] target_extended_locations: The target extended locations where the Image Version is going to be replicated to. This property is updatable.
         :param Sequence['TargetRegionResponse'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
-        pulumi.set(__self__, "published_date", published_date)
+        GalleryImageVersionPublishingProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            published_date=published_date,
+            end_of_life_date=end_of_life_date,
+            exclude_from_latest=exclude_from_latest,
+            replica_count=replica_count,
+            replication_mode=replication_mode,
+            storage_account_type=storage_account_type,
+            target_extended_locations=target_extended_locations,
+            target_regions=target_regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             published_date: str,
+             end_of_life_date: Optional[str] = None,
+             exclude_from_latest: Optional[bool] = None,
+             replica_count: Optional[int] = None,
+             replication_mode: Optional[str] = None,
+             storage_account_type: Optional[str] = None,
+             target_extended_locations: Optional[Sequence['outputs.GalleryTargetExtendedLocationResponse']] = None,
+             target_regions: Optional[Sequence['outputs.TargetRegionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("published_date", published_date)
         if end_of_life_date is not None:
-            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+            _setter("end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
-            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+            _setter("exclude_from_latest", exclude_from_latest)
         if replica_count is not None:
-            pulumi.set(__self__, "replica_count", replica_count)
+            _setter("replica_count", replica_count)
         if replication_mode is not None:
-            pulumi.set(__self__, "replication_mode", replication_mode)
+            _setter("replication_mode", replication_mode)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
         if target_extended_locations is not None:
-            pulumi.set(__self__, "target_extended_locations", target_extended_locations)
+            _setter("target_extended_locations", target_extended_locations)
         if target_regions is not None:
-            pulumi.set(__self__, "target_regions", target_regions)
+            _setter("target_regions", target_regions)
 
     @property
     @pulumi.getter(name="publishedDate")
@@ -1212,10 +1444,23 @@ class GalleryImageVersionSafetyProfileResponse(dict):
         :param bool reported_for_policy_violation: Indicates whether this image has been reported as violating Microsoft's policies.
         :param bool allow_deletion_of_replicated_locations: Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
         """
-        pulumi.set(__self__, "policy_violations", policy_violations)
-        pulumi.set(__self__, "reported_for_policy_violation", reported_for_policy_violation)
+        GalleryImageVersionSafetyProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_violations=policy_violations,
+            reported_for_policy_violation=reported_for_policy_violation,
+            allow_deletion_of_replicated_locations=allow_deletion_of_replicated_locations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_violations: Sequence['outputs.PolicyViolationResponse'],
+             reported_for_policy_violation: bool,
+             allow_deletion_of_replicated_locations: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_violations", policy_violations)
+        _setter("reported_for_policy_violation", reported_for_policy_violation)
         if allow_deletion_of_replicated_locations is not None:
-            pulumi.set(__self__, "allow_deletion_of_replicated_locations", allow_deletion_of_replicated_locations)
+            _setter("allow_deletion_of_replicated_locations", allow_deletion_of_replicated_locations)
 
     @property
     @pulumi.getter(name="policyViolations")
@@ -1276,12 +1521,25 @@ class GalleryImageVersionStorageProfileResponse(dict):
         :param 'GalleryOSDiskImageResponse' os_disk_image: This is the OS disk image.
         :param 'GalleryArtifactVersionFullSourceResponse' source: The source of the gallery artifact version.
         """
+        GalleryImageVersionStorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_disk_images=data_disk_images,
+            os_disk_image=os_disk_image,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_disk_images: Optional[Sequence['outputs.GalleryDataDiskImageResponse']] = None,
+             os_disk_image: Optional['outputs.GalleryOSDiskImageResponse'] = None,
+             source: Optional['outputs.GalleryArtifactVersionFullSourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_disk_images is not None:
-            pulumi.set(__self__, "data_disk_images", data_disk_images)
+            _setter("data_disk_images", data_disk_images)
         if os_disk_image is not None:
-            pulumi.set(__self__, "os_disk_image", os_disk_image)
+            _setter("os_disk_image", os_disk_image)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter(name="dataDiskImages")
@@ -1342,11 +1600,24 @@ class GalleryOSDiskImageResponse(dict):
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         :param 'GalleryDiskImageSourceResponse' source: The source for the disk image.
         """
-        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        GalleryOSDiskImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size_in_gb=size_in_gb,
+            host_caching=host_caching,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size_in_gb: int,
+             host_caching: Optional[str] = None,
+             source: Optional['outputs.GalleryDiskImageSourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("size_in_gb", size_in_gb)
         if host_caching is not None:
-            pulumi.set(__self__, "host_caching", host_caching)
+            _setter("host_caching", host_caching)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter(name="sizeInGB")
@@ -1409,16 +1680,33 @@ class GalleryTargetExtendedLocationResponse(dict):
         :param str name: The name of the region.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
+        GalleryTargetExtendedLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption=encryption,
+            extended_location=extended_location,
+            extended_location_replica_count=extended_location_replica_count,
+            name=name,
+            storage_account_type=storage_account_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption: Optional['outputs.EncryptionImagesResponse'] = None,
+             extended_location: Optional['outputs.GalleryExtendedLocationResponse'] = None,
+             extended_location_replica_count: Optional[int] = None,
+             name: Optional[str] = None,
+             storage_account_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if extended_location_replica_count is not None:
-            pulumi.set(__self__, "extended_location_replica_count", extended_location_replica_count)
+            _setter("extended_location_replica_count", extended_location_replica_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
 
     @property
     @pulumi.getter
@@ -1476,12 +1764,25 @@ class ImagePurchasePlanResponse(dict):
         :param str product: The product ID.
         :param str publisher: The publisher ID.
         """
+        ImagePurchasePlanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product is not None:
-            pulumi.set(__self__, "product", product)
+            _setter("product", product)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
 
     @property
     @pulumi.getter
@@ -1540,10 +1841,21 @@ class OSDiskImageEncryptionResponse(dict):
         :param str disk_encryption_set_id: A relative URI containing the resource ID of the disk encryption set.
         :param 'OSDiskImageSecurityProfileResponse' security_profile: This property specifies the security profile of an OS disk image.
         """
+        OSDiskImageEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            security_profile=security_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[str] = None,
+             security_profile: Optional['outputs.OSDiskImageSecurityProfileResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -1594,10 +1906,21 @@ class OSDiskImageSecurityProfileResponse(dict):
         :param str confidential_vm_encryption_type: confidential VM encryption types
         :param str secure_vm_disk_encryption_set_id: secure VM disk encryption set id
         """
+        OSDiskImageSecurityProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            confidential_vm_encryption_type=confidential_vm_encryption_type,
+            secure_vm_disk_encryption_set_id=secure_vm_disk_encryption_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             confidential_vm_encryption_type: Optional[str] = None,
+             secure_vm_disk_encryption_set_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if confidential_vm_encryption_type is not None:
-            pulumi.set(__self__, "confidential_vm_encryption_type", confidential_vm_encryption_type)
+            _setter("confidential_vm_encryption_type", confidential_vm_encryption_type)
         if secure_vm_disk_encryption_set_id is not None:
-            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+            _setter("secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
 
     @property
     @pulumi.getter(name="confidentialVMEncryptionType")
@@ -1629,10 +1952,21 @@ class PolicyViolationResponse(dict):
         :param str category: Describes the nature of the policy violation.
         :param str details: Describes specific details about why this policy violation was reported.
         """
+        PolicyViolationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            details=details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[str] = None,
+             details: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
 
     @property
     @pulumi.getter
@@ -1681,10 +2015,21 @@ class RecommendedMachineConfigurationResponse(dict):
         :param 'ResourceRangeResponse' memory: Describes the resource range.
         :param 'ResourceRangeResponse' v_cpus: Describes the resource range.
         """
+        RecommendedMachineConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            memory=memory,
+            v_cpus=v_cpus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             memory: Optional['outputs.ResourceRangeResponse'] = None,
+             v_cpus: Optional['outputs.ResourceRangeResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
         if v_cpus is not None:
-            pulumi.set(__self__, "v_cpus", v_cpus)
+            _setter("v_cpus", v_cpus)
 
     @property
     @pulumi.getter
@@ -1720,10 +2065,25 @@ class RegionalReplicationStatusResponse(dict):
         :param str region: The region to which the gallery image version is being replicated to.
         :param str state: This is the regional replication state.
         """
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "progress", progress)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "state", state)
+        RegionalReplicationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            details=details,
+            progress=progress,
+            region=region,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             details: str,
+             progress: int,
+             region: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("details", details)
+        _setter("progress", progress)
+        _setter("region", region)
+        _setter("state", state)
 
     @property
     @pulumi.getter
@@ -1773,11 +2133,24 @@ class RegionalSharingStatusResponse(dict):
         :param str details: Details of gallery regional sharing failure.
         :param str region: Region name
         """
-        pulumi.set(__self__, "state", state)
+        RegionalSharingStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+            details=details,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: str,
+             details: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("state", state)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter
@@ -1834,8 +2207,19 @@ class ReplicationStatusResponse(dict):
         :param str aggregated_state: This is the aggregated replication status based on all the regional replication status flags.
         :param Sequence['RegionalReplicationStatusResponse'] summary: This is a summary of replication status for each region.
         """
-        pulumi.set(__self__, "aggregated_state", aggregated_state)
-        pulumi.set(__self__, "summary", summary)
+        ReplicationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregated_state=aggregated_state,
+            summary=summary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregated_state: str,
+             summary: Sequence['outputs.RegionalReplicationStatusResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aggregated_state", aggregated_state)
+        _setter("summary", summary)
 
     @property
     @pulumi.getter(name="aggregatedState")
@@ -1867,10 +2251,21 @@ class ResourceRangeResponse(dict):
         :param int max: The maximum number of the resource.
         :param int min: The minimum number of the resource.
         """
+        ResourceRangeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[int] = None,
+             min: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -1902,10 +2297,21 @@ class SharingProfileGroupResponse(dict):
         :param Sequence[str] ids: A list of subscription/tenant ids the gallery is aimed to be shared to.
         :param str type: This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
         """
+        SharingProfileGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ids=ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ids: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ids is not None:
-            pulumi.set(__self__, "ids", ids)
+            _setter("ids", ids)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1956,11 +2362,24 @@ class SharingProfileResponse(dict):
         :param 'CommunityGalleryInfoResponse' community_gallery_info: Information of community gallery if current gallery is shared to community.
         :param str permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups** <br><br> **Community**
         """
-        pulumi.set(__self__, "groups", groups)
+        SharingProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            community_gallery_info=community_gallery_info,
+            permissions=permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Sequence['outputs.SharingProfileGroupResponse'],
+             community_gallery_info: Optional['outputs.CommunityGalleryInfoResponse'] = None,
+             permissions: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("groups", groups)
         if community_gallery_info is not None:
-            pulumi.set(__self__, "community_gallery_info", community_gallery_info)
+            _setter("community_gallery_info", community_gallery_info)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
 
     @property
     @pulumi.getter
@@ -2017,9 +2436,20 @@ class SharingStatusResponse(dict):
         :param str aggregated_state: Aggregated sharing state of current gallery.
         :param Sequence['RegionalSharingStatusResponse'] summary: Summary of all regional sharing status.
         """
-        pulumi.set(__self__, "aggregated_state", aggregated_state)
+        SharingStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregated_state=aggregated_state,
+            summary=summary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregated_state: str,
+             summary: Optional[Sequence['outputs.RegionalSharingStatusResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aggregated_state", aggregated_state)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
 
     @property
     @pulumi.getter(name="aggregatedState")
@@ -2066,8 +2496,17 @@ class SoftDeletePolicyResponse(dict):
         Contains information about the soft deletion policy of the gallery.
         :param bool is_soft_delete_enabled: Enables soft-deletion for resources in this gallery, allowing them to be recovered within retention time.
         """
+        SoftDeletePolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_soft_delete_enabled=is_soft_delete_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_soft_delete_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_soft_delete_enabled is not None:
-            pulumi.set(__self__, "is_soft_delete_enabled", is_soft_delete_enabled)
+            _setter("is_soft_delete_enabled", is_soft_delete_enabled)
 
     @property
     @pulumi.getter(name="isSoftDeleteEnabled")
@@ -2118,15 +2557,32 @@ class TargetRegionResponse(dict):
         :param int regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
-        pulumi.set(__self__, "name", name)
+        TargetRegionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            encryption=encryption,
+            exclude_from_latest=exclude_from_latest,
+            regional_replica_count=regional_replica_count,
+            storage_account_type=storage_account_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             encryption: Optional['outputs.EncryptionImagesResponse'] = None,
+             exclude_from_latest: Optional[bool] = None,
+             regional_replica_count: Optional[int] = None,
+             storage_account_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if exclude_from_latest is not None:
-            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+            _setter("exclude_from_latest", exclude_from_latest)
         if regional_replica_count is not None:
-            pulumi.set(__self__, "regional_replica_count", regional_replica_count)
+            _setter("regional_replica_count", regional_replica_count)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
 
     @property
     @pulumi.getter
@@ -2180,10 +2636,23 @@ class UserArtifactManageResponse(dict):
         :param str remove: Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
         :param str update: Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
         """
-        pulumi.set(__self__, "install", install)
-        pulumi.set(__self__, "remove", remove)
+        UserArtifactManageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            install=install,
+            remove=remove,
+            update=update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             install: str,
+             remove: str,
+             update: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("install", install)
+        _setter("remove", remove)
         if update is not None:
-            pulumi.set(__self__, "update", update)
+            _setter("update", update)
 
     @property
     @pulumi.getter
@@ -2242,10 +2711,21 @@ class UserArtifactSettingsResponse(dict):
         :param str config_file_name: Optional. The name to assign the downloaded config file on the VM. This is limited to 4096 characters. If not specified, the config file will be named the Gallery Application name appended with "_config".
         :param str package_file_name: Optional. The name to assign the downloaded package file on the VM. This is limited to 4096 characters. If not specified, the package file will be named the same as the Gallery Application name.
         """
+        UserArtifactSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_file_name=config_file_name,
+            package_file_name=package_file_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_file_name: Optional[str] = None,
+             package_file_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if config_file_name is not None:
-            pulumi.set(__self__, "config_file_name", config_file_name)
+            _setter("config_file_name", config_file_name)
         if package_file_name is not None:
-            pulumi.set(__self__, "package_file_name", package_file_name)
+            _setter("package_file_name", package_file_name)
 
     @property
     @pulumi.getter(name="configFileName")
@@ -2296,9 +2776,20 @@ class UserArtifactSourceResponse(dict):
         :param str media_link: Required. The mediaLink of the artifact, must be a readable storage page blob.
         :param str default_configuration_link: Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
         """
-        pulumi.set(__self__, "media_link", media_link)
+        UserArtifactSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            media_link=media_link,
+            default_configuration_link=default_configuration_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             media_link: str,
+             default_configuration_link: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("media_link", media_link)
         if default_configuration_link is not None:
-            pulumi.set(__self__, "default_configuration_link", default_configuration_link)
+            _setter("default_configuration_link", default_configuration_link)
 
     @property
     @pulumi.getter(name="mediaLink")

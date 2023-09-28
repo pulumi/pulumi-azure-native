@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,45 +58,92 @@ class ConnectionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            api=api,
+            changed_time=changed_time,
+            connection_name=connection_name,
+            created_time=created_time,
+            custom_parameter_values=custom_parameter_values,
+            display_name=display_name,
+            first_expiration_time=first_expiration_time,
+            id=id,
+            keywords=keywords,
+            kind=kind,
+            location=location,
+            metadata=metadata,
+            name=name,
+            non_secret_parameter_values=non_secret_parameter_values,
+            parameter_values=parameter_values,
+            statuses=statuses,
+            tags=tags,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             api: Optional[pulumi.Input['ExpandedParentApiEntityArgs']] = None,
+             changed_time: Optional[pulumi.Input[str]] = None,
+             connection_name: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             custom_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterCustomLoginSettingValuesArgs']]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             first_expiration_time: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             non_secret_parameter_values: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             parameter_values: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionStatusArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if api is not None:
-            pulumi.set(__self__, "api", api)
+            _setter("api", api)
         if changed_time is not None:
-            pulumi.set(__self__, "changed_time", changed_time)
+            _setter("changed_time", changed_time)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if custom_parameter_values is not None:
-            pulumi.set(__self__, "custom_parameter_values", custom_parameter_values)
+            _setter("custom_parameter_values", custom_parameter_values)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if first_expiration_time is not None:
-            pulumi.set(__self__, "first_expiration_time", first_expiration_time)
+            _setter("first_expiration_time", first_expiration_time)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if keywords is not None:
-            pulumi.set(__self__, "keywords", keywords)
+            _setter("keywords", keywords)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if non_secret_parameter_values is not None:
-            pulumi.set(__self__, "non_secret_parameter_values", non_secret_parameter_values)
+            _setter("non_secret_parameter_values", non_secret_parameter_values)
         if parameter_values is not None:
-            pulumi.set(__self__, "parameter_values", parameter_values)
+            _setter("parameter_values", parameter_values)
         if statuses is not None:
-            pulumi.set(__self__, "statuses", statuses)
+            _setter("statuses", statuses)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -402,6 +449,10 @@ class Connection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -436,6 +487,11 @@ class Connection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
+            if api is not None and not isinstance(api, ExpandedParentApiEntityArgs):
+                api = api or {}
+                def _setter(key, value):
+                    api[key] = value
+                ExpandedParentApiEntityArgs._configure(_setter, **api)
             __props__.__dict__["api"] = api
             __props__.__dict__["changed_time"] = changed_time
             __props__.__dict__["connection_name"] = connection_name

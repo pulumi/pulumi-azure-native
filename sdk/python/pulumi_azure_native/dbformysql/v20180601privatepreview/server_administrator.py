@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,12 +30,31 @@ class ServerAdministratorArgs:
         :param pulumi.Input[str] sid: The server administrator Sid (Secure ID).
         :param pulumi.Input[str] tenant_id: The server Active Directory Administrator tenant id.
         """
-        pulumi.set(__self__, "administrator_type", administrator_type)
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "sid", sid)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ServerAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_type=administrator_type,
+            login=login,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            sid=sid,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_type: pulumi.Input[Union[str, 'AdministratorType']],
+             login: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             sid: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("administrator_type", administrator_type)
+        _setter("login", login)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("sid", sid)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="administratorType")
@@ -153,6 +172,10 @@ class ServerAdministrator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerAdministratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

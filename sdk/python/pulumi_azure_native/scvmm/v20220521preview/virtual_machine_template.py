@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,43 @@ class VirtualMachineTemplateArgs:
         :param pulumi.Input[str] virtual_machine_template_name: Name of the VirtualMachineTemplate.
         :param pulumi.Input[str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualMachineTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extended_location=extended_location,
+            resource_group_name=resource_group_name,
+            inventory_item_id=inventory_item_id,
+            location=location,
+            tags=tags,
+            uuid=uuid,
+            virtual_machine_template_name=virtual_machine_template_name,
+            vmm_server_id=vmm_server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extended_location: pulumi.Input['ExtendedLocationArgs'],
+             resource_group_name: pulumi.Input[str],
+             inventory_item_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             uuid: Optional[pulumi.Input[str]] = None,
+             virtual_machine_template_name: Optional[pulumi.Input[str]] = None,
+             vmm_server_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extended_location", extended_location)
+        _setter("resource_group_name", resource_group_name)
         if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+            _setter("inventory_item_id", inventory_item_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if uuid is not None:
-            pulumi.set(__self__, "uuid", uuid)
+            _setter("uuid", uuid)
         if virtual_machine_template_name is not None:
-            pulumi.set(__self__, "virtual_machine_template_name", virtual_machine_template_name)
+            _setter("virtual_machine_template_name", virtual_machine_template_name)
         if vmm_server_id is not None:
-            pulumi.set(__self__, "vmm_server_id", vmm_server_id)
+            _setter("vmm_server_id", vmm_server_id)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -194,6 +217,10 @@ class VirtualMachineTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -216,6 +243,11 @@ class VirtualMachineTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineTemplateArgs.__new__(VirtualMachineTemplateArgs)
 
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

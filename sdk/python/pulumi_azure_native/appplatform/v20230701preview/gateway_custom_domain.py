@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,30 @@ class GatewayCustomDomainArgs:
         :param pulumi.Input[str] domain_name: The name of the Spring Cloud Gateway custom domain.
         :param pulumi.Input['GatewayCustomDomainPropertiesArgs'] properties: The properties of custom domain for Spring Cloud Gateway
         """
-        pulumi.set(__self__, "gateway_name", gateway_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        GatewayCustomDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_name=gateway_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            domain_name=domain_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['GatewayCustomDomainPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("gateway_name", gateway_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="gatewayName")
@@ -139,6 +156,10 @@ class GatewayCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,6 +183,11 @@ class GatewayCustomDomain(pulumi.CustomResource):
             if gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_name'")
             __props__.__dict__["gateway_name"] = gateway_name
+            if properties is not None and not isinstance(properties, GatewayCustomDomainPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                GatewayCustomDomainPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

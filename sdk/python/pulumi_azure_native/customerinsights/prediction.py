@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,29 +51,68 @@ class PredictionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] involved_relationships: Relationships involved in the prediction.
         :param pulumi.Input[str] prediction_name: Name of the prediction.
         """
-        pulumi.set(__self__, "auto_analyze", auto_analyze)
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "mappings", mappings)
-        pulumi.set(__self__, "negative_outcome_expression", negative_outcome_expression)
-        pulumi.set(__self__, "positive_outcome_expression", positive_outcome_expression)
-        pulumi.set(__self__, "primary_profile_type", primary_profile_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope_expression", scope_expression)
-        pulumi.set(__self__, "score_label", score_label)
+        PredictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_analyze=auto_analyze,
+            hub_name=hub_name,
+            mappings=mappings,
+            negative_outcome_expression=negative_outcome_expression,
+            positive_outcome_expression=positive_outcome_expression,
+            primary_profile_type=primary_profile_type,
+            resource_group_name=resource_group_name,
+            scope_expression=scope_expression,
+            score_label=score_label,
+            description=description,
+            display_name=display_name,
+            grades=grades,
+            involved_interaction_types=involved_interaction_types,
+            involved_kpi_types=involved_kpi_types,
+            involved_relationships=involved_relationships,
+            prediction_name=prediction_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_analyze: pulumi.Input[bool],
+             hub_name: pulumi.Input[str],
+             mappings: pulumi.Input['PredictionMappingsArgs'],
+             negative_outcome_expression: pulumi.Input[str],
+             positive_outcome_expression: pulumi.Input[str],
+             primary_profile_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             scope_expression: pulumi.Input[str],
+             score_label: pulumi.Input[str],
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             grades: Optional[pulumi.Input[Sequence[pulumi.Input['PredictionGradesArgs']]]] = None,
+             involved_interaction_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             involved_kpi_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             involved_relationships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             prediction_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_analyze", auto_analyze)
+        _setter("hub_name", hub_name)
+        _setter("mappings", mappings)
+        _setter("negative_outcome_expression", negative_outcome_expression)
+        _setter("positive_outcome_expression", positive_outcome_expression)
+        _setter("primary_profile_type", primary_profile_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scope_expression", scope_expression)
+        _setter("score_label", score_label)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if grades is not None:
-            pulumi.set(__self__, "grades", grades)
+            _setter("grades", grades)
         if involved_interaction_types is not None:
-            pulumi.set(__self__, "involved_interaction_types", involved_interaction_types)
+            _setter("involved_interaction_types", involved_interaction_types)
         if involved_kpi_types is not None:
-            pulumi.set(__self__, "involved_kpi_types", involved_kpi_types)
+            _setter("involved_kpi_types", involved_kpi_types)
         if involved_relationships is not None:
-            pulumi.set(__self__, "involved_relationships", involved_relationships)
+            _setter("involved_relationships", involved_relationships)
         if prediction_name is not None:
-            pulumi.set(__self__, "prediction_name", prediction_name)
+            _setter("prediction_name", prediction_name)
 
     @property
     @pulumi.getter(name="autoAnalyze")
@@ -333,6 +372,10 @@ class Prediction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PredictionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -375,6 +418,11 @@ class Prediction(pulumi.CustomResource):
             __props__.__dict__["involved_interaction_types"] = involved_interaction_types
             __props__.__dict__["involved_kpi_types"] = involved_kpi_types
             __props__.__dict__["involved_relationships"] = involved_relationships
+            if mappings is not None and not isinstance(mappings, PredictionMappingsArgs):
+                mappings = mappings or {}
+                def _setter(key, value):
+                    mappings[key] = value
+                PredictionMappingsArgs._configure(_setter, **mappings)
             if mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'mappings'")
             __props__.__dict__["mappings"] = mappings

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,36 @@ class MoveCollectionArgs:
         :param pulumi.Input['MoveCollectionPropertiesArgs'] properties: Defines the move collection properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MoveCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            identity=identity,
+            location=location,
+            move_collection_name=move_collection_name,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             move_collection_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['MoveCollectionPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if move_collection_name is not None:
-            pulumi.set(__self__, "move_collection_name", move_collection_name)
+            _setter("move_collection_name", move_collection_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -160,6 +179,10 @@ class MoveCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MoveCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,9 +203,19 @@ class MoveCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MoveCollectionArgs.__new__(MoveCollectionArgs)
 
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["move_collection_name"] = move_collection_name
+            if properties is not None and not isinstance(properties, MoveCollectionPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                MoveCollectionPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

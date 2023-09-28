@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,13 +28,30 @@ class TransparentDataEncryptionArgs:
         :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
         :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        TransparentDataEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            status=status,
+            transparent_data_encryption_name=transparent_data_encryption_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             status: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]] = None,
+             transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if transparent_data_encryption_name is not None:
-            pulumi.set(__self__, "transparent_data_encryption_name", transparent_data_encryption_name)
+            _setter("transparent_data_encryption_name", transparent_data_encryption_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -138,6 +155,10 @@ class TransparentDataEncryption(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransparentDataEncryptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

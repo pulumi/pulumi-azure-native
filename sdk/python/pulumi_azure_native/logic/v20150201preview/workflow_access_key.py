@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['WorkflowAccessKeyArgs', 'WorkflowAccessKey']
@@ -29,16 +29,35 @@ class WorkflowAccessKeyArgs:
         :param pulumi.Input[str] not_after: Gets or sets the not-after time.
         :param pulumi.Input[str] not_before: Gets or sets the not-before time.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workflow_name", workflow_name)
+        WorkflowAccessKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workflow_name=workflow_name,
+            access_key_name=access_key_name,
+            id=id,
+            not_after=not_after,
+            not_before=not_before,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workflow_name: pulumi.Input[str],
+             access_key_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             not_after: Optional[pulumi.Input[str]] = None,
+             not_before: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("workflow_name", workflow_name)
         if access_key_name is not None:
-            pulumi.set(__self__, "access_key_name", access_key_name)
+            _setter("access_key_name", access_key_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if not_after is not None:
-            pulumi.set(__self__, "not_after", not_after)
+            _setter("not_after", not_after)
         if not_before is not None:
-            pulumi.set(__self__, "not_before", not_before)
+            _setter("not_before", not_before)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -154,6 +173,10 @@ class WorkflowAccessKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkflowAccessKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

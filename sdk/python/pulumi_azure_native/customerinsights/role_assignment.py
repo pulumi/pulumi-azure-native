@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -60,42 +60,89 @@ class RoleAssignmentArgs:
         :param pulumi.Input['ResourceSetDescriptionArgs'] views: Views set for the assignment.
         :param pulumi.Input['ResourceSetDescriptionArgs'] widget_types: Widget types set for the assignment.
         """
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "principals", principals)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role", role)
+        RoleAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hub_name=hub_name,
+            principals=principals,
+            resource_group_name=resource_group_name,
+            role=role,
+            assignment_name=assignment_name,
+            conflation_policies=conflation_policies,
+            connectors=connectors,
+            description=description,
+            display_name=display_name,
+            interactions=interactions,
+            kpis=kpis,
+            links=links,
+            profiles=profiles,
+            relationship_links=relationship_links,
+            relationships=relationships,
+            role_assignments=role_assignments,
+            sas_policies=sas_policies,
+            segments=segments,
+            views=views,
+            widget_types=widget_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hub_name: pulumi.Input[str],
+             principals: pulumi.Input[Sequence[pulumi.Input['AssignmentPrincipalArgs']]],
+             resource_group_name: pulumi.Input[str],
+             role: pulumi.Input['RoleTypes'],
+             assignment_name: Optional[pulumi.Input[str]] = None,
+             conflation_policies: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             connectors: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             interactions: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             kpis: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             links: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             profiles: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             relationship_links: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             relationships: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             role_assignments: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             sas_policies: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             segments: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             views: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             widget_types: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hub_name", hub_name)
+        _setter("principals", principals)
+        _setter("resource_group_name", resource_group_name)
+        _setter("role", role)
         if assignment_name is not None:
-            pulumi.set(__self__, "assignment_name", assignment_name)
+            _setter("assignment_name", assignment_name)
         if conflation_policies is not None:
-            pulumi.set(__self__, "conflation_policies", conflation_policies)
+            _setter("conflation_policies", conflation_policies)
         if connectors is not None:
-            pulumi.set(__self__, "connectors", connectors)
+            _setter("connectors", connectors)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if interactions is not None:
-            pulumi.set(__self__, "interactions", interactions)
+            _setter("interactions", interactions)
         if kpis is not None:
-            pulumi.set(__self__, "kpis", kpis)
+            _setter("kpis", kpis)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if profiles is not None:
-            pulumi.set(__self__, "profiles", profiles)
+            _setter("profiles", profiles)
         if relationship_links is not None:
-            pulumi.set(__self__, "relationship_links", relationship_links)
+            _setter("relationship_links", relationship_links)
         if relationships is not None:
-            pulumi.set(__self__, "relationships", relationships)
+            _setter("relationships", relationships)
         if role_assignments is not None:
-            pulumi.set(__self__, "role_assignments", role_assignments)
+            _setter("role_assignments", role_assignments)
         if sas_policies is not None:
-            pulumi.set(__self__, "sas_policies", sas_policies)
+            _setter("sas_policies", sas_policies)
         if segments is not None:
-            pulumi.set(__self__, "segments", segments)
+            _setter("segments", segments)
         if views is not None:
-            pulumi.set(__self__, "views", views)
+            _setter("views", views)
         if widget_types is not None:
-            pulumi.set(__self__, "widget_types", widget_types)
+            _setter("widget_types", widget_types)
 
     @property
     @pulumi.getter(name="hubName")
@@ -411,6 +458,10 @@ class RoleAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -446,21 +497,61 @@ class RoleAssignment(pulumi.CustomResource):
             __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
             __props__.__dict__["assignment_name"] = assignment_name
+            if conflation_policies is not None and not isinstance(conflation_policies, ResourceSetDescriptionArgs):
+                conflation_policies = conflation_policies or {}
+                def _setter(key, value):
+                    conflation_policies[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **conflation_policies)
             __props__.__dict__["conflation_policies"] = conflation_policies
+            if connectors is not None and not isinstance(connectors, ResourceSetDescriptionArgs):
+                connectors = connectors or {}
+                def _setter(key, value):
+                    connectors[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **connectors)
             __props__.__dict__["connectors"] = connectors
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__.__dict__["hub_name"] = hub_name
+            if interactions is not None and not isinstance(interactions, ResourceSetDescriptionArgs):
+                interactions = interactions or {}
+                def _setter(key, value):
+                    interactions[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **interactions)
             __props__.__dict__["interactions"] = interactions
+            if kpis is not None and not isinstance(kpis, ResourceSetDescriptionArgs):
+                kpis = kpis or {}
+                def _setter(key, value):
+                    kpis[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **kpis)
             __props__.__dict__["kpis"] = kpis
+            if links is not None and not isinstance(links, ResourceSetDescriptionArgs):
+                links = links or {}
+                def _setter(key, value):
+                    links[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **links)
             __props__.__dict__["links"] = links
             if principals is None and not opts.urn:
                 raise TypeError("Missing required property 'principals'")
             __props__.__dict__["principals"] = principals
+            if profiles is not None and not isinstance(profiles, ResourceSetDescriptionArgs):
+                profiles = profiles or {}
+                def _setter(key, value):
+                    profiles[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **profiles)
             __props__.__dict__["profiles"] = profiles
+            if relationship_links is not None and not isinstance(relationship_links, ResourceSetDescriptionArgs):
+                relationship_links = relationship_links or {}
+                def _setter(key, value):
+                    relationship_links[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **relationship_links)
             __props__.__dict__["relationship_links"] = relationship_links
+            if relationships is not None and not isinstance(relationships, ResourceSetDescriptionArgs):
+                relationships = relationships or {}
+                def _setter(key, value):
+                    relationships[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **relationships)
             __props__.__dict__["relationships"] = relationships
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -468,10 +559,35 @@ class RoleAssignment(pulumi.CustomResource):
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
+            if role_assignments is not None and not isinstance(role_assignments, ResourceSetDescriptionArgs):
+                role_assignments = role_assignments or {}
+                def _setter(key, value):
+                    role_assignments[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **role_assignments)
             __props__.__dict__["role_assignments"] = role_assignments
+            if sas_policies is not None and not isinstance(sas_policies, ResourceSetDescriptionArgs):
+                sas_policies = sas_policies or {}
+                def _setter(key, value):
+                    sas_policies[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **sas_policies)
             __props__.__dict__["sas_policies"] = sas_policies
+            if segments is not None and not isinstance(segments, ResourceSetDescriptionArgs):
+                segments = segments or {}
+                def _setter(key, value):
+                    segments[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **segments)
             __props__.__dict__["segments"] = segments
+            if views is not None and not isinstance(views, ResourceSetDescriptionArgs):
+                views = views or {}
+                def _setter(key, value):
+                    views[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **views)
             __props__.__dict__["views"] = views
+            if widget_types is not None and not isinstance(widget_types, ResourceSetDescriptionArgs):
+                widget_types = widget_types or {}
+                def _setter(key, value):
+                    widget_types[key] = value
+                ResourceSetDescriptionArgs._configure(_setter, **widget_types)
             __props__.__dict__["widget_types"] = widget_types
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ManagedServerDnsAliasArgs', 'ManagedServerDnsAlias']
@@ -24,14 +24,29 @@ class ManagedServerDnsAliasArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[bool] create_dns_record: Whether or not DNS record should be created for this alias.
         """
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedServerDnsAliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            create_dns_record=create_dns_record,
+            dns_alias_name=dns_alias_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             create_dns_record: Optional[pulumi.Input[bool]] = None,
+             dns_alias_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("managed_instance_name", managed_instance_name)
+        _setter("resource_group_name", resource_group_name)
         if create_dns_record is None:
             create_dns_record = True
         if create_dns_record is not None:
-            pulumi.set(__self__, "create_dns_record", create_dns_record)
+            _setter("create_dns_record", create_dns_record)
         if dns_alias_name is not None:
-            pulumi.set(__self__, "dns_alias_name", dns_alias_name)
+            _setter("dns_alias_name", dns_alias_name)
 
     @property
     @pulumi.getter(name="managedInstanceName")
@@ -117,6 +132,10 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedServerDnsAliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

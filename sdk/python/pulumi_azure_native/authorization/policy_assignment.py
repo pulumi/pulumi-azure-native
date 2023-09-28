@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,35 +48,70 @@ class PolicyAssignmentArgs:
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]] resource_selectors: The resource selector list to filter policies by resource properties.
         """
-        pulumi.set(__self__, "scope", scope)
+        PolicyAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            description=description,
+            display_name=display_name,
+            enforcement_mode=enforcement_mode,
+            identity=identity,
+            location=location,
+            metadata=metadata,
+            non_compliance_messages=non_compliance_messages,
+            not_scopes=not_scopes,
+            overrides=overrides,
+            parameters=parameters,
+            policy_assignment_name=policy_assignment_name,
+            policy_definition_id=policy_definition_id,
+            resource_selectors=resource_selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['NonComplianceMessageArgs']]]] = None,
+             not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OverrideArgs']]]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
+             policy_assignment_name: Optional[pulumi.Input[str]] = None,
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
+             resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scope", scope)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enforcement_mode is None:
             enforcement_mode = 'Default'
         if enforcement_mode is not None:
-            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+            _setter("enforcement_mode", enforcement_mode)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if non_compliance_messages is not None:
-            pulumi.set(__self__, "non_compliance_messages", non_compliance_messages)
+            _setter("non_compliance_messages", non_compliance_messages)
         if not_scopes is not None:
-            pulumi.set(__self__, "not_scopes", not_scopes)
+            _setter("not_scopes", not_scopes)
         if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
+            _setter("overrides", overrides)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_assignment_name is not None:
-            pulumi.set(__self__, "policy_assignment_name", policy_assignment_name)
+            _setter("policy_assignment_name", policy_assignment_name)
         if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+            _setter("policy_definition_id", policy_definition_id)
         if resource_selectors is not None:
-            pulumi.set(__self__, "resource_selectors", resource_selectors)
+            _setter("resource_selectors", resource_selectors)
 
     @property
     @pulumi.getter
@@ -308,6 +343,10 @@ class PolicyAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -341,6 +380,11 @@ class PolicyAssignment(pulumi.CustomResource):
             if enforcement_mode is None:
                 enforcement_mode = 'Default'
             __props__.__dict__["enforcement_mode"] = enforcement_mode
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["metadata"] = metadata

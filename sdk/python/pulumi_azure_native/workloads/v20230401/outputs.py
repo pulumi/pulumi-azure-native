@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -122,9 +122,22 @@ class ApplicationServerConfigurationResponse(dict):
         :param str subnet_id: The subnet id.
         :param 'VirtualMachineConfigurationResponse' virtual_machine_configuration: Gets or sets the virtual machine configuration.
         """
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
+        ApplicationServerConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_count=instance_count,
+            subnet_id=subnet_id,
+            virtual_machine_configuration=virtual_machine_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_count: float,
+             subnet_id: str,
+             virtual_machine_configuration: 'outputs.VirtualMachineConfigurationResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_count", instance_count)
+        _setter("subnet_id", subnet_id)
+        _setter("virtual_machine_configuration", virtual_machine_configuration)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -183,10 +196,21 @@ class ApplicationServerFullResourceNamesResponse(dict):
         :param str availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-App-AvSet.
         :param Sequence['VirtualMachineResourceNamesResponse'] virtual_machines: The list of virtual machine naming details.
         """
+        ApplicationServerFullResourceNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_set_name=availability_set_name,
+            virtual_machines=virtual_machines,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_set_name: Optional[str] = None,
+             virtual_machines: Optional[Sequence['outputs.VirtualMachineResourceNamesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_set_name is not None:
-            pulumi.set(__self__, "availability_set_name", availability_set_name)
+            _setter("availability_set_name", availability_set_name)
         if virtual_machines is not None:
-            pulumi.set(__self__, "virtual_machines", virtual_machines)
+            _setter("virtual_machines", virtual_machines)
 
     @property
     @pulumi.getter(name="availabilitySetName")
@@ -238,9 +262,22 @@ class ApplicationServerVmDetailsResponse(dict):
         :param Sequence['StorageInformationResponse'] storage_details: Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
         :param str type: Defines the type of application server VM.
         """
-        pulumi.set(__self__, "storage_details", storage_details)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        ApplicationServerVmDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_details=storage_details,
+            type=type,
+            virtual_machine_id=virtual_machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_details: Sequence['outputs.StorageInformationResponse'],
+             type: str,
+             virtual_machine_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_details", storage_details)
+        _setter("type", type)
+        _setter("virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter(name="storageDetails")
@@ -300,9 +337,22 @@ class CentralServerConfigurationResponse(dict):
         :param str subnet_id: The subnet id.
         :param 'VirtualMachineConfigurationResponse' virtual_machine_configuration: Gets or sets the virtual machine configuration.
         """
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
+        CentralServerConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_count=instance_count,
+            subnet_id=subnet_id,
+            virtual_machine_configuration=virtual_machine_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_count: float,
+             subnet_id: str,
+             virtual_machine_configuration: 'outputs.VirtualMachineConfigurationResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_count", instance_count)
+        _setter("subnet_id", subnet_id)
+        _setter("virtual_machine_configuration", virtual_machine_configuration)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -365,12 +415,25 @@ class CentralServerFullResourceNamesResponse(dict):
         :param 'LoadBalancerResourceNamesResponse' load_balancer: The resource names object for load balancer and related resources.
         :param Sequence['VirtualMachineResourceNamesResponse'] virtual_machines: The list of names for all ASCS virtual machines to be deployed. The number of entries in this list should be equal to the number VMs to be created for ASCS layer. At maximum, there can be two virtual machines at this layer: ASCS and ERS.
         """
+        CentralServerFullResourceNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_set_name=availability_set_name,
+            load_balancer=load_balancer,
+            virtual_machines=virtual_machines,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_set_name: Optional[str] = None,
+             load_balancer: Optional['outputs.LoadBalancerResourceNamesResponse'] = None,
+             virtual_machines: Optional[Sequence['outputs.VirtualMachineResourceNamesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_set_name is not None:
-            pulumi.set(__self__, "availability_set_name", availability_set_name)
+            _setter("availability_set_name", availability_set_name)
         if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
+            _setter("load_balancer", load_balancer)
         if virtual_machines is not None:
-            pulumi.set(__self__, "virtual_machines", virtual_machines)
+            _setter("virtual_machines", virtual_machines)
 
     @property
     @pulumi.getter(name="availabilitySetName")
@@ -430,9 +493,22 @@ class CentralServerVmDetailsResponse(dict):
         :param Sequence['StorageInformationResponse'] storage_details: Storage details of all the Storage Accounts attached to the ASCS Virtual Machine. For e.g. NFS on AFS Shared Storage.
         :param str type: Defines the type of central server VM.
         """
-        pulumi.set(__self__, "storage_details", storage_details)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        CentralServerVmDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_details=storage_details,
+            type=type,
+            virtual_machine_id=virtual_machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_details: Sequence['outputs.StorageInformationResponse'],
+             type: str,
+             virtual_machine_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_details", storage_details)
+        _setter("type", type)
+        _setter("virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter(name="storageDetails")
@@ -493,11 +569,24 @@ class CreateAndMountFileShareConfigurationResponse(dict):
         :param str resource_group: The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
         :param str storage_account_name: The name of file share storage account name . A custom name is used in case of missing input.
         """
-        pulumi.set(__self__, "configuration_type", 'CreateAndMount')
+        CreateAndMountFileShareConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_type=configuration_type,
+            resource_group=resource_group,
+            storage_account_name=storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_type: str,
+             resource_group: Optional[str] = None,
+             storage_account_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_type", 'CreateAndMount')
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -588,25 +677,52 @@ class DB2ProviderInstancePropertiesResponse(dict):
         :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the DB2 Database.
         :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
-        pulumi.set(__self__, "provider_type", 'Db2')
+        DB2ProviderInstancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_type=provider_type,
+            db_name=db_name,
+            db_password=db_password,
+            db_password_uri=db_password_uri,
+            db_port=db_port,
+            db_username=db_username,
+            hostname=hostname,
+            sap_sid=sap_sid,
+            ssl_certificate_uri=ssl_certificate_uri,
+            ssl_preference=ssl_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_type: str,
+             db_name: Optional[str] = None,
+             db_password: Optional[str] = None,
+             db_password_uri: Optional[str] = None,
+             db_port: Optional[str] = None,
+             db_username: Optional[str] = None,
+             hostname: Optional[str] = None,
+             sap_sid: Optional[str] = None,
+             ssl_certificate_uri: Optional[str] = None,
+             ssl_preference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_type", 'Db2')
         if db_name is not None:
-            pulumi.set(__self__, "db_name", db_name)
+            _setter("db_name", db_name)
         if db_password is not None:
-            pulumi.set(__self__, "db_password", db_password)
+            _setter("db_password", db_password)
         if db_password_uri is not None:
-            pulumi.set(__self__, "db_password_uri", db_password_uri)
+            _setter("db_password_uri", db_password_uri)
         if db_port is not None:
-            pulumi.set(__self__, "db_port", db_port)
+            _setter("db_port", db_port)
         if db_username is not None:
-            pulumi.set(__self__, "db_username", db_username)
+            _setter("db_username", db_username)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if sap_sid is not None:
-            pulumi.set(__self__, "sap_sid", sap_sid)
+            _setter("sap_sid", sap_sid)
         if ssl_certificate_uri is not None:
-            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+            _setter("ssl_certificate_uri", ssl_certificate_uri)
         if ssl_preference is not None:
-            pulumi.set(__self__, "ssl_preference", ssl_preference)
+            _setter("ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -734,13 +850,30 @@ class DatabaseConfigurationResponse(dict):
         :param str database_type: The database type.
         :param 'DiskConfigurationResponse' disk_configuration: Gets or sets the disk configuration.
         """
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
+        DatabaseConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_count=instance_count,
+            subnet_id=subnet_id,
+            virtual_machine_configuration=virtual_machine_configuration,
+            database_type=database_type,
+            disk_configuration=disk_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_count: float,
+             subnet_id: str,
+             virtual_machine_configuration: 'outputs.VirtualMachineConfigurationResponse',
+             database_type: Optional[str] = None,
+             disk_configuration: Optional['outputs.DiskConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_count", instance_count)
+        _setter("subnet_id", subnet_id)
+        _setter("virtual_machine_configuration", virtual_machine_configuration)
         if database_type is not None:
-            pulumi.set(__self__, "database_type", database_type)
+            _setter("database_type", database_type)
         if disk_configuration is not None:
-            pulumi.set(__self__, "disk_configuration", disk_configuration)
+            _setter("disk_configuration", disk_configuration)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -819,12 +952,25 @@ class DatabaseServerFullResourceNamesResponse(dict):
         :param 'LoadBalancerResourceNamesResponse' load_balancer: The resource names object for load balancer and related resources.
         :param Sequence['VirtualMachineResourceNamesResponse'] virtual_machines: The list of virtual machine naming details.
         """
+        DatabaseServerFullResourceNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_set_name=availability_set_name,
+            load_balancer=load_balancer,
+            virtual_machines=virtual_machines,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_set_name: Optional[str] = None,
+             load_balancer: Optional['outputs.LoadBalancerResourceNamesResponse'] = None,
+             virtual_machines: Optional[Sequence['outputs.VirtualMachineResourceNamesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_set_name is not None:
-            pulumi.set(__self__, "availability_set_name", availability_set_name)
+            _setter("availability_set_name", availability_set_name)
         if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
+            _setter("load_balancer", load_balancer)
         if virtual_machines is not None:
-            pulumi.set(__self__, "virtual_machines", virtual_machines)
+            _setter("virtual_machines", virtual_machines)
 
     @property
     @pulumi.getter(name="availabilitySetName")
@@ -884,9 +1030,22 @@ class DatabaseVmDetailsResponse(dict):
         :param str status: Defines the SAP Instance status.
         :param Sequence['StorageInformationResponse'] storage_details: Storage details of all the Storage Accounts attached to the Database Virtual Machine. For e.g. NFS on AFS Shared Storage.
         """
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "storage_details", storage_details)
-        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        DatabaseVmDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            storage_details=storage_details,
+            virtual_machine_id=virtual_machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: str,
+             storage_details: Sequence['outputs.StorageInformationResponse'],
+             virtual_machine_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status", status)
+        _setter("storage_details", storage_details)
+        _setter("virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -940,10 +1099,21 @@ class DeployerVmPackagesResponse(dict):
         :param str storage_account_id: The deployer VM packages storage account id
         :param str url: The URL to the deployer VM packages file.
         """
+        DeployerVmPackagesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_id=storage_account_id,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_id: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -1003,13 +1173,28 @@ class DeploymentConfigurationResponse(dict):
         :param Union['SingleServerConfigurationResponse', 'ThreeTierConfigurationResponse'] infrastructure_configuration: The infrastructure configuration.
         :param Union['ExternalInstallationSoftwareConfigurationResponse', 'SAPInstallWithoutOSConfigSoftwareConfigurationResponse', 'ServiceInitiatedSoftwareConfigurationResponse'] software_configuration: The software configuration.
         """
-        pulumi.set(__self__, "configuration_type", 'Deployment')
+        DeploymentConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_type=configuration_type,
+            app_location=app_location,
+            infrastructure_configuration=infrastructure_configuration,
+            software_configuration=software_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_type: str,
+             app_location: Optional[str] = None,
+             infrastructure_configuration: Optional[Any] = None,
+             software_configuration: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_type", 'Deployment')
         if app_location is not None:
-            pulumi.set(__self__, "app_location", app_location)
+            _setter("app_location", app_location)
         if infrastructure_configuration is not None:
-            pulumi.set(__self__, "infrastructure_configuration", infrastructure_configuration)
+            _setter("infrastructure_configuration", infrastructure_configuration)
         if software_configuration is not None:
-            pulumi.set(__self__, "software_configuration", software_configuration)
+            _setter("software_configuration", software_configuration)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -1090,15 +1275,32 @@ class DeploymentWithOSConfigurationResponse(dict):
         :param 'OsSapConfigurationResponse' os_sap_configuration: The OS and SAP configuration.
         :param Union['ExternalInstallationSoftwareConfigurationResponse', 'SAPInstallWithoutOSConfigSoftwareConfigurationResponse', 'ServiceInitiatedSoftwareConfigurationResponse'] software_configuration: The software configuration.
         """
-        pulumi.set(__self__, "configuration_type", 'DeploymentWithOSConfig')
+        DeploymentWithOSConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_type=configuration_type,
+            app_location=app_location,
+            infrastructure_configuration=infrastructure_configuration,
+            os_sap_configuration=os_sap_configuration,
+            software_configuration=software_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_type: str,
+             app_location: Optional[str] = None,
+             infrastructure_configuration: Optional[Any] = None,
+             os_sap_configuration: Optional['outputs.OsSapConfigurationResponse'] = None,
+             software_configuration: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_type", 'DeploymentWithOSConfig')
         if app_location is not None:
-            pulumi.set(__self__, "app_location", app_location)
+            _setter("app_location", app_location)
         if infrastructure_configuration is not None:
-            pulumi.set(__self__, "infrastructure_configuration", infrastructure_configuration)
+            _setter("infrastructure_configuration", infrastructure_configuration)
         if os_sap_configuration is not None:
-            pulumi.set(__self__, "os_sap_configuration", os_sap_configuration)
+            _setter("os_sap_configuration", os_sap_configuration)
         if software_configuration is not None:
-            pulumi.set(__self__, "software_configuration", software_configuration)
+            _setter("software_configuration", software_configuration)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -1183,12 +1385,27 @@ class DiscoveryConfigurationResponse(dict):
         :param str central_server_vm_id: The virtual machine ID of the Central Server.
         :param str managed_rg_storage_account_name: The custom storage account name for the storage account created by the service in the managed resource group created as part of VIS deployment.<br><br>Refer to the storage account naming rules [here](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).<br><br>If not provided, the service will create the storage account with a random name.
         """
-        pulumi.set(__self__, "app_location", app_location)
-        pulumi.set(__self__, "configuration_type", 'Discovery')
+        DiscoveryConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_location=app_location,
+            configuration_type=configuration_type,
+            central_server_vm_id=central_server_vm_id,
+            managed_rg_storage_account_name=managed_rg_storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_location: str,
+             configuration_type: str,
+             central_server_vm_id: Optional[str] = None,
+             managed_rg_storage_account_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_location", app_location)
+        _setter("configuration_type", 'Discovery')
         if central_server_vm_id is not None:
-            pulumi.set(__self__, "central_server_vm_id", central_server_vm_id)
+            _setter("central_server_vm_id", central_server_vm_id)
         if managed_rg_storage_account_name is not None:
-            pulumi.set(__self__, "managed_rg_storage_account_name", managed_rg_storage_account_name)
+            _setter("managed_rg_storage_account_name", managed_rg_storage_account_name)
 
     @property
     @pulumi.getter(name="appLocation")
@@ -1252,8 +1469,17 @@ class DiskConfigurationResponse(dict):
         The Disk Configuration Details.
         :param Mapping[str, 'DiskVolumeConfigurationResponse'] disk_volume_configurations: The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
         """
+        DiskConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_volume_configurations=disk_volume_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_volume_configurations: Optional[Mapping[str, 'outputs.DiskVolumeConfigurationResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_volume_configurations is not None:
-            pulumi.set(__self__, "disk_volume_configurations", disk_volume_configurations)
+            _setter("disk_volume_configurations", disk_volume_configurations)
 
     @property
     @pulumi.getter(name="diskVolumeConfigurations")
@@ -1287,20 +1513,41 @@ class DiskDetailsResponse(dict):
         :param float size_gb: The disk size in GB.
         :param 'DiskSkuResponse' sku: The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.
         """
+        DiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_tier=disk_tier,
+            iops_read_write=iops_read_write,
+            maximum_supported_disk_count=maximum_supported_disk_count,
+            mbps_read_write=mbps_read_write,
+            minimum_supported_disk_count=minimum_supported_disk_count,
+            size_gb=size_gb,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_tier: Optional[str] = None,
+             iops_read_write: Optional[float] = None,
+             maximum_supported_disk_count: Optional[float] = None,
+             mbps_read_write: Optional[float] = None,
+             minimum_supported_disk_count: Optional[float] = None,
+             size_gb: Optional[float] = None,
+             sku: Optional['outputs.DiskSkuResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_tier is not None:
-            pulumi.set(__self__, "disk_tier", disk_tier)
+            _setter("disk_tier", disk_tier)
         if iops_read_write is not None:
-            pulumi.set(__self__, "iops_read_write", iops_read_write)
+            _setter("iops_read_write", iops_read_write)
         if maximum_supported_disk_count is not None:
-            pulumi.set(__self__, "maximum_supported_disk_count", maximum_supported_disk_count)
+            _setter("maximum_supported_disk_count", maximum_supported_disk_count)
         if mbps_read_write is not None:
-            pulumi.set(__self__, "mbps_read_write", mbps_read_write)
+            _setter("mbps_read_write", mbps_read_write)
         if minimum_supported_disk_count is not None:
-            pulumi.set(__self__, "minimum_supported_disk_count", minimum_supported_disk_count)
+            _setter("minimum_supported_disk_count", minimum_supported_disk_count)
         if size_gb is not None:
-            pulumi.set(__self__, "size_gb", size_gb)
+            _setter("size_gb", size_gb)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
 
     @property
     @pulumi.getter(name="diskTier")
@@ -1370,8 +1617,17 @@ class DiskSkuResponse(dict):
         The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.
         :param str name: Defines the disk sku name.
         """
+        DiskSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1414,12 +1670,25 @@ class DiskVolumeConfigurationResponse(dict):
         :param float size_gb: The disk size in GB.
         :param 'DiskSkuResponse' sku: The disk SKU details.
         """
+        DiskVolumeConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            size_gb=size_gb,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[float] = None,
+             size_gb: Optional[float] = None,
+             sku: Optional['outputs.DiskSkuResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if size_gb is not None:
-            pulumi.set(__self__, "size_gb", size_gb)
+            _setter("size_gb", size_gb)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
 
     @property
     @pulumi.getter
@@ -1494,13 +1763,34 @@ class EnqueueReplicationServerPropertiesResponse(dict):
         :param str kernel_patch: ERS SAP Kernel Patch level.
         :param str kernel_version: ERS SAP Kernel Version.
         """
-        pulumi.set(__self__, "ers_version", ers_version)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "instance_no", instance_no)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "kernel_patch", kernel_patch)
-        pulumi.set(__self__, "kernel_version", kernel_version)
+        EnqueueReplicationServerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ers_version=ers_version,
+            health=health,
+            hostname=hostname,
+            instance_no=instance_no,
+            ip_address=ip_address,
+            kernel_patch=kernel_patch,
+            kernel_version=kernel_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ers_version: str,
+             health: str,
+             hostname: str,
+             instance_no: str,
+             ip_address: str,
+             kernel_patch: str,
+             kernel_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ers_version", ers_version)
+        _setter("health", health)
+        _setter("hostname", hostname)
+        _setter("instance_no", instance_no)
+        _setter("ip_address", ip_address)
+        _setter("kernel_patch", kernel_patch)
+        _setter("kernel_version", kernel_version)
 
     @property
     @pulumi.getter(name="ersVersion")
@@ -1593,10 +1883,25 @@ class EnqueueServerPropertiesResponse(dict):
         :param str ip_address: Enqueue Server SAP IP Address.
         :param float port: Enqueue Server Port.
         """
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "port", port)
+        EnqueueServerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health=health,
+            hostname=hostname,
+            ip_address=ip_address,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health: str,
+             hostname: str,
+             ip_address: str,
+             port: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("health", health)
+        _setter("hostname", hostname)
+        _setter("ip_address", ip_address)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -1646,9 +1951,22 @@ class ErrorDefinitionResponse(dict):
         :param Sequence['ErrorDefinitionResponse'] details: Internal error details.
         :param str message: Description of the error.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
+        ErrorDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             details: Sequence['outputs.ErrorDefinitionResponse'],
+             message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -1711,11 +2029,28 @@ class ErrorResponse(dict):
         :param str message: Human-readable representation of the error.
         :param str target: Target of the error.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "inner_error", inner_error)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            inner_error=inner_error,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             details: Sequence['outputs.ErrorResponse'],
+             inner_error: 'outputs.ErrorResponseInnerError',
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("details", details)
+        _setter("inner_error", inner_error)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -1786,8 +2121,17 @@ class ErrorResponseInnerError(dict):
         Object containing more specific information than  the current object about the error.
         :param 'ErrorResponse' inner_error: Standard error object.
         """
+        ErrorResponseInnerError._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inner_error=inner_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inner_error: Optional['outputs.ErrorResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if inner_error is not None:
-            pulumi.set(__self__, "inner_error", inner_error)
+            _setter("inner_error", inner_error)
 
     @property
     @pulumi.getter(name="innerError")
@@ -1831,9 +2175,20 @@ class ExternalInstallationSoftwareConfigurationResponse(dict):
                Expected value is 'External'.
         :param str central_server_vm_id: The resource ID of the virtual machine containing the central server instance.
         """
-        pulumi.set(__self__, "software_installation_type", 'External')
+        ExternalInstallationSoftwareConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            software_installation_type=software_installation_type,
+            central_server_vm_id=central_server_vm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             software_installation_type: str,
+             central_server_vm_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("software_installation_type", 'External')
         if central_server_vm_id is not None:
-            pulumi.set(__self__, "central_server_vm_id", central_server_vm_id)
+            _setter("central_server_vm_id", central_server_vm_id)
 
     @property
     @pulumi.getter(name="softwareInstallationType")
@@ -1866,8 +2221,19 @@ class GatewayServerPropertiesResponse(dict):
         :param str health: Defines the health of SAP Instances.
         :param float port: Gateway Port.
         """
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "port", port)
+        GatewayServerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health=health,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health: str,
+             port: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("health", health)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -1957,29 +2323,60 @@ class HanaDbProviderInstancePropertiesResponse(dict):
         :param str ssl_host_name_in_certificate: Gets or sets the hostname(s) in the SSL certificate.
         :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
-        pulumi.set(__self__, "provider_type", 'SapHana')
+        HanaDbProviderInstancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_type=provider_type,
+            db_name=db_name,
+            db_password=db_password,
+            db_password_uri=db_password_uri,
+            db_username=db_username,
+            hostname=hostname,
+            instance_number=instance_number,
+            sap_sid=sap_sid,
+            sql_port=sql_port,
+            ssl_certificate_uri=ssl_certificate_uri,
+            ssl_host_name_in_certificate=ssl_host_name_in_certificate,
+            ssl_preference=ssl_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_type: str,
+             db_name: Optional[str] = None,
+             db_password: Optional[str] = None,
+             db_password_uri: Optional[str] = None,
+             db_username: Optional[str] = None,
+             hostname: Optional[str] = None,
+             instance_number: Optional[str] = None,
+             sap_sid: Optional[str] = None,
+             sql_port: Optional[str] = None,
+             ssl_certificate_uri: Optional[str] = None,
+             ssl_host_name_in_certificate: Optional[str] = None,
+             ssl_preference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_type", 'SapHana')
         if db_name is not None:
-            pulumi.set(__self__, "db_name", db_name)
+            _setter("db_name", db_name)
         if db_password is not None:
-            pulumi.set(__self__, "db_password", db_password)
+            _setter("db_password", db_password)
         if db_password_uri is not None:
-            pulumi.set(__self__, "db_password_uri", db_password_uri)
+            _setter("db_password_uri", db_password_uri)
         if db_username is not None:
-            pulumi.set(__self__, "db_username", db_username)
+            _setter("db_username", db_username)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if instance_number is not None:
-            pulumi.set(__self__, "instance_number", instance_number)
+            _setter("instance_number", instance_number)
         if sap_sid is not None:
-            pulumi.set(__self__, "sap_sid", sap_sid)
+            _setter("sap_sid", sap_sid)
         if sql_port is not None:
-            pulumi.set(__self__, "sql_port", sql_port)
+            _setter("sql_port", sql_port)
         if ssl_certificate_uri is not None:
-            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+            _setter("ssl_certificate_uri", ssl_certificate_uri)
         if ssl_host_name_in_certificate is not None:
-            pulumi.set(__self__, "ssl_host_name_in_certificate", ssl_host_name_in_certificate)
+            _setter("ssl_host_name_in_certificate", ssl_host_name_in_certificate)
         if ssl_preference is not None:
-            pulumi.set(__self__, "ssl_preference", ssl_preference)
+            _setter("ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -2107,7 +2504,16 @@ class HighAvailabilityConfigurationResponse(dict):
         Gets or sets the high availability configuration.
         :param str high_availability_type: The high availability type.
         """
-        pulumi.set(__self__, "high_availability_type", high_availability_type)
+        HighAvailabilityConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            high_availability_type=high_availability_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             high_availability_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("high_availability_type", high_availability_type)
 
     @property
     @pulumi.getter(name="highAvailabilityType")
@@ -2150,8 +2556,19 @@ class HighAvailabilitySoftwareConfigurationResponse(dict):
         :param str fencing_client_id: The fencing client id.
         :param str fencing_client_password: The fencing client id secret/password. The secret should never expire. This will be used pacemaker to start/stop the cluster VMs.
         """
-        pulumi.set(__self__, "fencing_client_id", fencing_client_id)
-        pulumi.set(__self__, "fencing_client_password", fencing_client_password)
+        HighAvailabilitySoftwareConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fencing_client_id=fencing_client_id,
+            fencing_client_password=fencing_client_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fencing_client_id: str,
+             fencing_client_password: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fencing_client_id", fencing_client_id)
+        _setter("fencing_client_password", fencing_client_password)
 
     @property
     @pulumi.getter(name="fencingClientId")
@@ -2187,14 +2604,29 @@ class ImageReferenceResponse(dict):
         :param str sku: The image SKU.
         :param str version: Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
         """
+        ImageReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -2268,13 +2700,28 @@ class LinuxConfigurationResponse(dict):
         :param 'SshConfigurationResponse' ssh: Specifies the ssh key configuration for a Linux OS. (This property is deprecated, please use 'sshKeyPair' instead)
         :param 'SshKeyPairResponse' ssh_key_pair: The SSH Key-pair used to authenticate with the VM's.
         """
-        pulumi.set(__self__, "os_type", 'Linux')
+        LinuxConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            disable_password_authentication=disable_password_authentication,
+            ssh=ssh,
+            ssh_key_pair=ssh_key_pair,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: str,
+             disable_password_authentication: Optional[bool] = None,
+             ssh: Optional['outputs.SshConfigurationResponse'] = None,
+             ssh_key_pair: Optional['outputs.SshKeyPairResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os_type", 'Linux')
         if disable_password_authentication is not None:
-            pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+            _setter("disable_password_authentication", disable_password_authentication)
         if ssh is not None:
-            pulumi.set(__self__, "ssh", ssh)
+            _setter("ssh", ssh)
         if ssh_key_pair is not None:
-            pulumi.set(__self__, "ssh_key_pair", ssh_key_pair)
+            _setter("ssh_key_pair", ssh_key_pair)
 
     @property
     @pulumi.getter(name="osType")
@@ -2320,7 +2767,16 @@ class LoadBalancerDetailsResponse(dict):
         """
         The Load Balancer details such as Load Balancer ID.
         """
-        pulumi.set(__self__, "id", id)
+        LoadBalancerDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2368,14 +2824,29 @@ class LoadBalancerResourceNamesResponse(dict):
         :param Sequence[str] health_probe_names: The list of health probe names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
         :param str load_balancer_name: The full resource name for load balancer. If this value is not provided, load balancer will be name as {ASCS/DB}-loadBalancer.
         """
+        LoadBalancerResourceNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_pool_names=backend_pool_names,
+            frontend_ip_configuration_names=frontend_ip_configuration_names,
+            health_probe_names=health_probe_names,
+            load_balancer_name=load_balancer_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_pool_names: Optional[Sequence[str]] = None,
+             frontend_ip_configuration_names: Optional[Sequence[str]] = None,
+             health_probe_names: Optional[Sequence[str]] = None,
+             load_balancer_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backend_pool_names is not None:
-            pulumi.set(__self__, "backend_pool_names", backend_pool_names)
+            _setter("backend_pool_names", backend_pool_names)
         if frontend_ip_configuration_names is not None:
-            pulumi.set(__self__, "frontend_ip_configuration_names", frontend_ip_configuration_names)
+            _setter("frontend_ip_configuration_names", frontend_ip_configuration_names)
         if health_probe_names is not None:
-            pulumi.set(__self__, "health_probe_names", health_probe_names)
+            _setter("health_probe_names", health_probe_names)
         if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+            _setter("load_balancer_name", load_balancer_name)
 
     @property
     @pulumi.getter(name="backendPoolNames")
@@ -2421,8 +2892,17 @@ class ManagedRGConfigurationResponse(dict):
         Managed resource group configuration
         :param str name: Managed resource group name
         """
+        ManagedRGConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2481,13 +2961,34 @@ class MessageServerPropertiesResponse(dict):
         :param str ip_address: Message server IP Address.
         :param float ms_port: Message Server port.
         """
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "http_port", http_port)
-        pulumi.set(__self__, "https_port", https_port)
-        pulumi.set(__self__, "internal_ms_port", internal_ms_port)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "ms_port", ms_port)
+        MessageServerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health=health,
+            hostname=hostname,
+            http_port=http_port,
+            https_port=https_port,
+            internal_ms_port=internal_ms_port,
+            ip_address=ip_address,
+            ms_port=ms_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health: str,
+             hostname: str,
+             http_port: float,
+             https_port: float,
+             internal_ms_port: float,
+             ip_address: str,
+             ms_port: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("health", health)
+        _setter("hostname", hostname)
+        _setter("http_port", http_port)
+        _setter("https_port", https_port)
+        _setter("internal_ms_port", internal_ms_port)
+        _setter("ip_address", ip_address)
+        _setter("ms_port", ms_port)
 
     @property
     @pulumi.getter
@@ -2582,11 +3083,28 @@ class MonitorPropertiesResponseErrors(dict):
         :param str message: Human-readable representation of the error.
         :param str target: Target of the error.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "inner_error", inner_error)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        MonitorPropertiesResponseErrors._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            inner_error=inner_error,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             details: Sequence['outputs.ErrorResponse'],
+             inner_error: 'outputs.ErrorResponseInnerError',
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("details", details)
+        _setter("inner_error", inner_error)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -2664,9 +3182,22 @@ class MountFileShareConfigurationResponse(dict):
         :param str id: The fileshare resource ID
         :param str private_endpoint_id: The private endpoint resource ID
         """
-        pulumi.set(__self__, "configuration_type", 'Mount')
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "private_endpoint_id", private_endpoint_id)
+        MountFileShareConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_type=configuration_type,
+            id=id,
+            private_endpoint_id=private_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_type: str,
+             id: str,
+             private_endpoint_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_type", 'Mount')
+        _setter("id", id)
+        _setter("private_endpoint_id", private_endpoint_id)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -2753,23 +3284,48 @@ class MsSqlServerProviderInstancePropertiesResponse(dict):
         :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the SQL Database.
         :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
-        pulumi.set(__self__, "provider_type", 'MsSqlServer')
+        MsSqlServerProviderInstancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_type=provider_type,
+            db_password=db_password,
+            db_password_uri=db_password_uri,
+            db_port=db_port,
+            db_username=db_username,
+            hostname=hostname,
+            sap_sid=sap_sid,
+            ssl_certificate_uri=ssl_certificate_uri,
+            ssl_preference=ssl_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_type: str,
+             db_password: Optional[str] = None,
+             db_password_uri: Optional[str] = None,
+             db_port: Optional[str] = None,
+             db_username: Optional[str] = None,
+             hostname: Optional[str] = None,
+             sap_sid: Optional[str] = None,
+             ssl_certificate_uri: Optional[str] = None,
+             ssl_preference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_type", 'MsSqlServer')
         if db_password is not None:
-            pulumi.set(__self__, "db_password", db_password)
+            _setter("db_password", db_password)
         if db_password_uri is not None:
-            pulumi.set(__self__, "db_password_uri", db_password_uri)
+            _setter("db_password_uri", db_password_uri)
         if db_port is not None:
-            pulumi.set(__self__, "db_port", db_port)
+            _setter("db_port", db_port)
         if db_username is not None:
-            pulumi.set(__self__, "db_username", db_username)
+            _setter("db_username", db_username)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if sap_sid is not None:
-            pulumi.set(__self__, "sap_sid", sap_sid)
+            _setter("sap_sid", sap_sid)
         if ssl_certificate_uri is not None:
-            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+            _setter("ssl_certificate_uri", ssl_certificate_uri)
         if ssl_preference is not None:
-            pulumi.set(__self__, "ssl_preference", ssl_preference)
+            _setter("ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -2873,10 +3429,19 @@ class NetworkConfigurationResponse(dict):
         Defines the network configuration type for SAP system infrastructure that is being deployed 
         :param bool is_secondary_ip_enabled: Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
         """
+        NetworkConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_secondary_ip_enabled=is_secondary_ip_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_secondary_ip_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_secondary_ip_enabled is None:
             is_secondary_ip_enabled = False
         if is_secondary_ip_enabled is not None:
-            pulumi.set(__self__, "is_secondary_ip_enabled", is_secondary_ip_enabled)
+            _setter("is_secondary_ip_enabled", is_secondary_ip_enabled)
 
     @property
     @pulumi.getter(name="isSecondaryIpEnabled")
@@ -2915,8 +3480,17 @@ class NetworkInterfaceResourceNamesResponse(dict):
         The resource names object for network interface and related resources.
         :param str network_interface_name: The full name for network interface. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}-Nic. In case of HA-AvZone systems, default name will be {SID}-{App/ASCS/DB}-Zone{A/B}-Nic with an incrementor at the end in case of more than 1 instance per layer. For distributed and HA-AvSet systems, default name will be {SID}-{App/ASCS/DB}-Nic with an incrementor at the end in case of more than 1 instance per layer.
         """
+        NetworkInterfaceResourceNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interface_name=network_interface_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interface_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if network_interface_name is not None:
-            pulumi.set(__self__, "network_interface_name", network_interface_name)
+            _setter("network_interface_name", network_interface_name)
 
     @property
     @pulumi.getter(name="networkInterfaceName")
@@ -2963,12 +3537,25 @@ class OSProfileResponse(dict):
         :param str admin_username: Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
         :param Union['LinuxConfigurationResponse', 'WindowsConfigurationResponse'] os_configuration: Specifies Windows operating system settings on the virtual machine.
         """
+        OSProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_password=admin_password,
+            admin_username=admin_username,
+            os_configuration=os_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_password: Optional[str] = None,
+             admin_username: Optional[str] = None,
+             os_configuration: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if os_configuration is not None:
-            pulumi.set(__self__, "os_configuration", os_configuration)
+            _setter("os_configuration", os_configuration)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -3027,10 +3614,21 @@ class OsSapConfigurationResponse(dict):
         :param 'DeployerVmPackagesResponse' deployer_vm_packages: The url and storage account ID where deployer VM packages are uploaded
         :param str sap_fqdn: The FQDN to set for the SAP system
         """
+        OsSapConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployer_vm_packages=deployer_vm_packages,
+            sap_fqdn=sap_fqdn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployer_vm_packages: Optional['outputs.DeployerVmPackagesResponse'] = None,
+             sap_fqdn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployer_vm_packages is not None:
-            pulumi.set(__self__, "deployer_vm_packages", deployer_vm_packages)
+            _setter("deployer_vm_packages", deployer_vm_packages)
         if sap_fqdn is not None:
-            pulumi.set(__self__, "sap_fqdn", sap_fqdn)
+            _setter("sap_fqdn", sap_fqdn)
 
     @property
     @pulumi.getter(name="deployerVmPackages")
@@ -3098,19 +3696,40 @@ class PrometheusHaClusterProviderInstancePropertiesResponse(dict):
         :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
         :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
-        pulumi.set(__self__, "provider_type", 'PrometheusHaCluster')
+        PrometheusHaClusterProviderInstancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_type=provider_type,
+            cluster_name=cluster_name,
+            hostname=hostname,
+            prometheus_url=prometheus_url,
+            sid=sid,
+            ssl_certificate_uri=ssl_certificate_uri,
+            ssl_preference=ssl_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_type: str,
+             cluster_name: Optional[str] = None,
+             hostname: Optional[str] = None,
+             prometheus_url: Optional[str] = None,
+             sid: Optional[str] = None,
+             ssl_certificate_uri: Optional[str] = None,
+             ssl_preference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_type", 'PrometheusHaCluster')
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if prometheus_url is not None:
-            pulumi.set(__self__, "prometheus_url", prometheus_url)
+            _setter("prometheus_url", prometheus_url)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
         if ssl_certificate_uri is not None:
-            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+            _setter("ssl_certificate_uri", ssl_certificate_uri)
         if ssl_preference is not None:
-            pulumi.set(__self__, "ssl_preference", ssl_preference)
+            _setter("ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -3215,15 +3834,32 @@ class PrometheusOSProviderInstancePropertiesResponse(dict):
         :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
         :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
-        pulumi.set(__self__, "provider_type", 'PrometheusOS')
+        PrometheusOSProviderInstancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_type=provider_type,
+            prometheus_url=prometheus_url,
+            sap_sid=sap_sid,
+            ssl_certificate_uri=ssl_certificate_uri,
+            ssl_preference=ssl_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_type: str,
+             prometheus_url: Optional[str] = None,
+             sap_sid: Optional[str] = None,
+             ssl_certificate_uri: Optional[str] = None,
+             ssl_preference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_type", 'PrometheusOS')
         if prometheus_url is not None:
-            pulumi.set(__self__, "prometheus_url", prometheus_url)
+            _setter("prometheus_url", prometheus_url)
         if sap_sid is not None:
-            pulumi.set(__self__, "sap_sid", sap_sid)
+            _setter("sap_sid", sap_sid)
         if ssl_certificate_uri is not None:
-            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+            _setter("ssl_certificate_uri", ssl_certificate_uri)
         if ssl_preference is not None:
-            pulumi.set(__self__, "ssl_preference", ssl_preference)
+            _setter("ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -3303,11 +3939,28 @@ class ProviderInstancePropertiesResponseErrors(dict):
         :param str message: Human-readable representation of the error.
         :param str target: Target of the error.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "inner_error", inner_error)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ProviderInstancePropertiesResponseErrors._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            inner_error=inner_error,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             details: Sequence['outputs.ErrorResponse'],
+             inner_error: 'outputs.ErrorResponseInnerError',
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("details", details)
+        _setter("inner_error", inner_error)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -3363,10 +4016,21 @@ class SAPAvailabilityZonePairResponse(dict):
         :param float zone_a: The zone A.
         :param float zone_b: The zone B.
         """
+        SAPAvailabilityZonePairResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            zone_a=zone_a,
+            zone_b=zone_b,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             zone_a: Optional[float] = None,
+             zone_b: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if zone_a is not None:
-            pulumi.set(__self__, "zone_a", zone_a)
+            _setter("zone_a", zone_a)
         if zone_b is not None:
-            pulumi.set(__self__, "zone_b", zone_b)
+            _setter("zone_b", zone_b)
 
     @property
     @pulumi.getter(name="zoneA")
@@ -3398,10 +4062,21 @@ class SAPDiskConfigurationResponse(dict):
         :param 'DiskVolumeConfigurationResponse' recommended_configuration: The recommended disk details for a given VM Sku.
         :param Sequence['DiskDetailsResponse'] supported_configurations: The list of supported disks for a given VM Sku.
         """
+        SAPDiskConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recommended_configuration=recommended_configuration,
+            supported_configurations=supported_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recommended_configuration: Optional['outputs.DiskVolumeConfigurationResponse'] = None,
+             supported_configurations: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if recommended_configuration is not None:
-            pulumi.set(__self__, "recommended_configuration", recommended_configuration)
+            _setter("recommended_configuration", recommended_configuration)
         if supported_configurations is not None:
-            pulumi.set(__self__, "supported_configurations", supported_configurations)
+            _setter("supported_configurations", supported_configurations)
 
     @property
     @pulumi.getter(name="recommendedConfiguration")
@@ -3465,12 +4140,29 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationResponse(dict):
         :param str software_version: The software version to install.
         :param 'HighAvailabilitySoftwareConfigurationResponse' high_availability_software_configuration: Gets or sets the HA software configuration.
         """
-        pulumi.set(__self__, "bom_url", bom_url)
-        pulumi.set(__self__, "sap_bits_storage_account_id", sap_bits_storage_account_id)
-        pulumi.set(__self__, "software_installation_type", 'SAPInstallWithoutOSConfig')
-        pulumi.set(__self__, "software_version", software_version)
+        SAPInstallWithoutOSConfigSoftwareConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bom_url=bom_url,
+            sap_bits_storage_account_id=sap_bits_storage_account_id,
+            software_installation_type=software_installation_type,
+            software_version=software_version,
+            high_availability_software_configuration=high_availability_software_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bom_url: str,
+             sap_bits_storage_account_id: str,
+             software_installation_type: str,
+             software_version: str,
+             high_availability_software_configuration: Optional['outputs.HighAvailabilitySoftwareConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bom_url", bom_url)
+        _setter("sap_bits_storage_account_id", sap_bits_storage_account_id)
+        _setter("software_installation_type", 'SAPInstallWithoutOSConfig')
+        _setter("software_version", software_version)
         if high_availability_software_configuration is not None:
-            pulumi.set(__self__, "high_availability_software_configuration", high_availability_software_configuration)
+            _setter("high_availability_software_configuration", high_availability_software_configuration)
 
     @property
     @pulumi.getter(name="bomUrl")
@@ -3529,12 +4221,25 @@ class SAPSupportedSkuResponse(dict):
         :param bool is_database_certified: True if the Sku is certified for Database server in the SAP system.
         :param str vm_sku: The VM Sku.
         """
+        SAPSupportedSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_app_server_certified=is_app_server_certified,
+            is_database_certified=is_database_certified,
+            vm_sku=vm_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_app_server_certified: Optional[bool] = None,
+             is_database_certified: Optional[bool] = None,
+             vm_sku: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_app_server_certified is not None:
-            pulumi.set(__self__, "is_app_server_certified", is_app_server_certified)
+            _setter("is_app_server_certified", is_app_server_certified)
         if is_database_certified is not None:
-            pulumi.set(__self__, "is_database_certified", is_database_certified)
+            _setter("is_database_certified", is_database_certified)
         if vm_sku is not None:
-            pulumi.set(__self__, "vm_sku", vm_sku)
+            _setter("vm_sku", vm_sku)
 
     @property
     @pulumi.getter(name="isAppServerCertified")
@@ -3572,8 +4277,17 @@ class SAPVirtualInstanceErrorResponse(dict):
         An error response from the Virtual Instance for SAP Workload service.
         :param 'ErrorDefinitionResponse' properties: The Virtual Instance for SAP error body.
         """
+        SAPVirtualInstanceErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.ErrorDefinitionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -3601,14 +4315,29 @@ class SapLandscapeMonitorMetricThresholdsResponse(dict):
         :param float red: Gets or sets the threshold value for Red.
         :param float yellow: Gets or sets the threshold value for Yellow.
         """
+        SapLandscapeMonitorMetricThresholdsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            green=green,
+            name=name,
+            red=red,
+            yellow=yellow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             green: Optional[float] = None,
+             name: Optional[str] = None,
+             red: Optional[float] = None,
+             yellow: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if green is not None:
-            pulumi.set(__self__, "green", green)
+            _setter("green", green)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if red is not None:
-            pulumi.set(__self__, "red", red)
+            _setter("red", red)
         if yellow is not None:
-            pulumi.set(__self__, "yellow", yellow)
+            _setter("yellow", yellow)
 
     @property
     @pulumi.getter
@@ -3673,10 +4402,21 @@ class SapLandscapeMonitorPropertiesResponseGrouping(dict):
         :param Sequence['SapLandscapeMonitorSidMappingResponse'] landscape: Gets or sets the list of landscape to SID mappings.
         :param Sequence['SapLandscapeMonitorSidMappingResponse'] sap_application: Gets or sets the list of Sap Applications to SID mappings.
         """
+        SapLandscapeMonitorPropertiesResponseGrouping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            landscape=landscape,
+            sap_application=sap_application,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             landscape: Optional[Sequence['outputs.SapLandscapeMonitorSidMappingResponse']] = None,
+             sap_application: Optional[Sequence['outputs.SapLandscapeMonitorSidMappingResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if landscape is not None:
-            pulumi.set(__self__, "landscape", landscape)
+            _setter("landscape", landscape)
         if sap_application is not None:
-            pulumi.set(__self__, "sap_application", sap_application)
+            _setter("sap_application", sap_application)
 
     @property
     @pulumi.getter
@@ -3725,10 +4465,21 @@ class SapLandscapeMonitorSidMappingResponse(dict):
         :param str name: Gets or sets the name of the grouping.
         :param Sequence[str] top_sid: Gets or sets the list of SID's.
         """
+        SapLandscapeMonitorSidMappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            top_sid=top_sid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             top_sid: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if top_sid is not None:
-            pulumi.set(__self__, "top_sid", top_sid)
+            _setter("top_sid", top_sid)
 
     @property
     @pulumi.getter
@@ -3820,29 +4571,60 @@ class SapNetWeaverProviderInstancePropertiesResponse(dict):
         :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the SAP system.
         :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
-        pulumi.set(__self__, "provider_type", 'SapNetWeaver')
+        SapNetWeaverProviderInstancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_type=provider_type,
+            sap_client_id=sap_client_id,
+            sap_host_file_entries=sap_host_file_entries,
+            sap_hostname=sap_hostname,
+            sap_instance_nr=sap_instance_nr,
+            sap_password=sap_password,
+            sap_password_uri=sap_password_uri,
+            sap_port_number=sap_port_number,
+            sap_sid=sap_sid,
+            sap_username=sap_username,
+            ssl_certificate_uri=ssl_certificate_uri,
+            ssl_preference=ssl_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_type: str,
+             sap_client_id: Optional[str] = None,
+             sap_host_file_entries: Optional[Sequence[str]] = None,
+             sap_hostname: Optional[str] = None,
+             sap_instance_nr: Optional[str] = None,
+             sap_password: Optional[str] = None,
+             sap_password_uri: Optional[str] = None,
+             sap_port_number: Optional[str] = None,
+             sap_sid: Optional[str] = None,
+             sap_username: Optional[str] = None,
+             ssl_certificate_uri: Optional[str] = None,
+             ssl_preference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_type", 'SapNetWeaver')
         if sap_client_id is not None:
-            pulumi.set(__self__, "sap_client_id", sap_client_id)
+            _setter("sap_client_id", sap_client_id)
         if sap_host_file_entries is not None:
-            pulumi.set(__self__, "sap_host_file_entries", sap_host_file_entries)
+            _setter("sap_host_file_entries", sap_host_file_entries)
         if sap_hostname is not None:
-            pulumi.set(__self__, "sap_hostname", sap_hostname)
+            _setter("sap_hostname", sap_hostname)
         if sap_instance_nr is not None:
-            pulumi.set(__self__, "sap_instance_nr", sap_instance_nr)
+            _setter("sap_instance_nr", sap_instance_nr)
         if sap_password is not None:
-            pulumi.set(__self__, "sap_password", sap_password)
+            _setter("sap_password", sap_password)
         if sap_password_uri is not None:
-            pulumi.set(__self__, "sap_password_uri", sap_password_uri)
+            _setter("sap_password_uri", sap_password_uri)
         if sap_port_number is not None:
-            pulumi.set(__self__, "sap_port_number", sap_port_number)
+            _setter("sap_port_number", sap_port_number)
         if sap_sid is not None:
-            pulumi.set(__self__, "sap_sid", sap_sid)
+            _setter("sap_sid", sap_sid)
         if sap_username is not None:
-            pulumi.set(__self__, "sap_username", sap_username)
+            _setter("sap_username", sap_username)
         if ssl_certificate_uri is not None:
-            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+            _setter("ssl_certificate_uri", ssl_certificate_uri)
         if ssl_preference is not None:
-            pulumi.set(__self__, "ssl_preference", ssl_preference)
+            _setter("ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -3995,14 +4777,35 @@ class ServiceInitiatedSoftwareConfigurationResponse(dict):
         :param str ssh_private_key: The SSH private key.
         :param 'HighAvailabilitySoftwareConfigurationResponse' high_availability_software_configuration: Gets or sets the HA software configuration.
         """
-        pulumi.set(__self__, "bom_url", bom_url)
-        pulumi.set(__self__, "sap_bits_storage_account_id", sap_bits_storage_account_id)
-        pulumi.set(__self__, "sap_fqdn", sap_fqdn)
-        pulumi.set(__self__, "software_installation_type", 'ServiceInitiated')
-        pulumi.set(__self__, "software_version", software_version)
-        pulumi.set(__self__, "ssh_private_key", ssh_private_key)
+        ServiceInitiatedSoftwareConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bom_url=bom_url,
+            sap_bits_storage_account_id=sap_bits_storage_account_id,
+            sap_fqdn=sap_fqdn,
+            software_installation_type=software_installation_type,
+            software_version=software_version,
+            ssh_private_key=ssh_private_key,
+            high_availability_software_configuration=high_availability_software_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bom_url: str,
+             sap_bits_storage_account_id: str,
+             sap_fqdn: str,
+             software_installation_type: str,
+             software_version: str,
+             ssh_private_key: str,
+             high_availability_software_configuration: Optional['outputs.HighAvailabilitySoftwareConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bom_url", bom_url)
+        _setter("sap_bits_storage_account_id", sap_bits_storage_account_id)
+        _setter("sap_fqdn", sap_fqdn)
+        _setter("software_installation_type", 'ServiceInitiated')
+        _setter("software_version", software_version)
+        _setter("ssh_private_key", ssh_private_key)
         if high_availability_software_configuration is not None:
-            pulumi.set(__self__, "high_availability_software_configuration", high_availability_software_configuration)
+            _setter("high_availability_software_configuration", high_availability_software_configuration)
 
     @property
     @pulumi.getter(name="bomUrl")
@@ -4094,10 +4897,21 @@ class SharedStorageResourceNamesResponse(dict):
         :param str shared_storage_account_name: The full name of the shared storage account. If it is not provided, it will be defaulted to {SID}nfs{guid of 15 chars}.
         :param str shared_storage_account_private_end_point_name: The full name of private end point for the shared storage account. If it is not provided, it will be defaulted to {storageAccountName}_pe
         """
+        SharedStorageResourceNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            shared_storage_account_name=shared_storage_account_name,
+            shared_storage_account_private_end_point_name=shared_storage_account_private_end_point_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             shared_storage_account_name: Optional[str] = None,
+             shared_storage_account_private_end_point_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if shared_storage_account_name is not None:
-            pulumi.set(__self__, "shared_storage_account_name", shared_storage_account_name)
+            _setter("shared_storage_account_name", shared_storage_account_name)
         if shared_storage_account_private_end_point_name is not None:
-            pulumi.set(__self__, "shared_storage_account_private_end_point_name", shared_storage_account_private_end_point_name)
+            _setter("shared_storage_account_private_end_point_name", shared_storage_account_private_end_point_name)
 
     @property
     @pulumi.getter(name="sharedStorageAccountName")
@@ -4173,18 +4987,41 @@ class SingleServerConfigurationResponse(dict):
         :param 'DiskConfigurationResponse' db_disk_configuration: Gets or sets the disk configuration.
         :param 'NetworkConfigurationResponse' network_configuration: Network configuration for the server
         """
-        pulumi.set(__self__, "app_resource_group", app_resource_group)
-        pulumi.set(__self__, "deployment_type", 'SingleServer')
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
+        SingleServerConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_resource_group=app_resource_group,
+            deployment_type=deployment_type,
+            subnet_id=subnet_id,
+            virtual_machine_configuration=virtual_machine_configuration,
+            custom_resource_names=custom_resource_names,
+            database_type=database_type,
+            db_disk_configuration=db_disk_configuration,
+            network_configuration=network_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_resource_group: str,
+             deployment_type: str,
+             subnet_id: str,
+             virtual_machine_configuration: 'outputs.VirtualMachineConfigurationResponse',
+             custom_resource_names: Optional['outputs.SingleServerFullResourceNamesResponse'] = None,
+             database_type: Optional[str] = None,
+             db_disk_configuration: Optional['outputs.DiskConfigurationResponse'] = None,
+             network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_resource_group", app_resource_group)
+        _setter("deployment_type", 'SingleServer')
+        _setter("subnet_id", subnet_id)
+        _setter("virtual_machine_configuration", virtual_machine_configuration)
         if custom_resource_names is not None:
-            pulumi.set(__self__, "custom_resource_names", custom_resource_names)
+            _setter("custom_resource_names", custom_resource_names)
         if database_type is not None:
-            pulumi.set(__self__, "database_type", database_type)
+            _setter("database_type", database_type)
         if db_disk_configuration is not None:
-            pulumi.set(__self__, "db_disk_configuration", db_disk_configuration)
+            _setter("db_disk_configuration", db_disk_configuration)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
 
     @property
     @pulumi.getter(name="appResourceGroup")
@@ -4285,9 +5122,20 @@ class SingleServerFullResourceNamesResponse(dict):
                Expected value is 'FullResourceName'.
         :param 'VirtualMachineResourceNamesResponse' virtual_machine: The resource names object for virtual machine and related resources.
         """
-        pulumi.set(__self__, "naming_pattern_type", 'FullResourceName')
+        SingleServerFullResourceNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            naming_pattern_type=naming_pattern_type,
+            virtual_machine=virtual_machine,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             naming_pattern_type: str,
+             virtual_machine: Optional['outputs.VirtualMachineResourceNamesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("naming_pattern_type", 'FullResourceName')
         if virtual_machine is not None:
-            pulumi.set(__self__, "virtual_machine", virtual_machine)
+            _setter("virtual_machine", virtual_machine)
 
     @property
     @pulumi.getter(name="namingPatternType")
@@ -4336,7 +5184,16 @@ class SkipFileShareConfigurationResponse(dict):
         :param str configuration_type: The type of file share config.
                Expected value is 'Skip'.
         """
-        pulumi.set(__self__, "configuration_type", 'Skip')
+        SkipFileShareConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_type=configuration_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_type", 'Skip')
 
     @property
     @pulumi.getter(name="configurationType")
@@ -4376,8 +5233,17 @@ class SshConfigurationResponse(dict):
         SSH configuration for Linux based VMs running on Azure
         :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
+        SshConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_keys=public_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
+            _setter("public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
@@ -4420,10 +5286,21 @@ class SshKeyPairResponse(dict):
         :param str private_key: SSH private key.
         :param str public_key: SSH public key
         """
+        SshKeyPairResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_key=private_key,
+            public_key=public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_key: Optional[str] = None,
+             public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
 
     @property
     @pulumi.getter(name="privateKey")
@@ -4470,8 +5347,17 @@ class SshPublicKeyResponse(dict):
         Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
         :param str key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
+        SshPublicKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_data=key_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_data: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_data is not None:
-            pulumi.set(__self__, "key_data", key_data)
+            _setter("key_data", key_data)
 
     @property
     @pulumi.getter(name="keyData")
@@ -4510,8 +5396,17 @@ class StorageConfigurationResponse(dict):
         Gets or sets the storage configuration.
         :param Union['CreateAndMountFileShareConfigurationResponse', 'MountFileShareConfigurationResponse', 'SkipFileShareConfigurationResponse'] transport_file_share_configuration: The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
         """
+        StorageConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transport_file_share_configuration=transport_file_share_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transport_file_share_configuration: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if transport_file_share_configuration is not None:
-            pulumi.set(__self__, "transport_file_share_configuration", transport_file_share_configuration)
+            _setter("transport_file_share_configuration", transport_file_share_configuration)
 
     @property
     @pulumi.getter(name="transportFileShareConfiguration")
@@ -4532,7 +5427,16 @@ class StorageInformationResponse(dict):
         """
         Storage details of all the Storage accounts attached to the VM. For e.g. NFS on AFS Shared Storage. 
         """
-        pulumi.set(__self__, "id", id)
+        StorageInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4588,18 +5492,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -4711,19 +5634,44 @@ class ThreeTierConfigurationResponse(dict):
         :param 'NetworkConfigurationResponse' network_configuration: Network configuration common to all servers
         :param 'StorageConfigurationResponse' storage_configuration: The storage configuration.
         """
-        pulumi.set(__self__, "app_resource_group", app_resource_group)
-        pulumi.set(__self__, "application_server", application_server)
-        pulumi.set(__self__, "central_server", central_server)
-        pulumi.set(__self__, "database_server", database_server)
-        pulumi.set(__self__, "deployment_type", 'ThreeTier')
+        ThreeTierConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_resource_group=app_resource_group,
+            application_server=application_server,
+            central_server=central_server,
+            database_server=database_server,
+            deployment_type=deployment_type,
+            custom_resource_names=custom_resource_names,
+            high_availability_config=high_availability_config,
+            network_configuration=network_configuration,
+            storage_configuration=storage_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_resource_group: str,
+             application_server: 'outputs.ApplicationServerConfigurationResponse',
+             central_server: 'outputs.CentralServerConfigurationResponse',
+             database_server: 'outputs.DatabaseConfigurationResponse',
+             deployment_type: str,
+             custom_resource_names: Optional['outputs.ThreeTierFullResourceNamesResponse'] = None,
+             high_availability_config: Optional['outputs.HighAvailabilityConfigurationResponse'] = None,
+             network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None,
+             storage_configuration: Optional['outputs.StorageConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_resource_group", app_resource_group)
+        _setter("application_server", application_server)
+        _setter("central_server", central_server)
+        _setter("database_server", database_server)
+        _setter("deployment_type", 'ThreeTier')
         if custom_resource_names is not None:
-            pulumi.set(__self__, "custom_resource_names", custom_resource_names)
+            _setter("custom_resource_names", custom_resource_names)
         if high_availability_config is not None:
-            pulumi.set(__self__, "high_availability_config", high_availability_config)
+            _setter("high_availability_config", high_availability_config)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if storage_configuration is not None:
-            pulumi.set(__self__, "storage_configuration", storage_configuration)
+            _setter("storage_configuration", storage_configuration)
 
     @property
     @pulumi.getter(name="appResourceGroup")
@@ -4844,15 +5792,32 @@ class ThreeTierFullResourceNamesResponse(dict):
         :param 'DatabaseServerFullResourceNamesResponse' database_server: The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
         :param 'SharedStorageResourceNamesResponse' shared_storage: The resource names object for shared storage.
         """
-        pulumi.set(__self__, "naming_pattern_type", 'FullResourceName')
+        ThreeTierFullResourceNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            naming_pattern_type=naming_pattern_type,
+            application_server=application_server,
+            central_server=central_server,
+            database_server=database_server,
+            shared_storage=shared_storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             naming_pattern_type: str,
+             application_server: Optional['outputs.ApplicationServerFullResourceNamesResponse'] = None,
+             central_server: Optional['outputs.CentralServerFullResourceNamesResponse'] = None,
+             database_server: Optional['outputs.DatabaseServerFullResourceNamesResponse'] = None,
+             shared_storage: Optional['outputs.SharedStorageResourceNamesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("naming_pattern_type", 'FullResourceName')
         if application_server is not None:
-            pulumi.set(__self__, "application_server", application_server)
+            _setter("application_server", application_server)
         if central_server is not None:
-            pulumi.set(__self__, "central_server", central_server)
+            _setter("central_server", central_server)
         if database_server is not None:
-            pulumi.set(__self__, "database_server", database_server)
+            _setter("database_server", database_server)
         if shared_storage is not None:
-            pulumi.set(__self__, "shared_storage", shared_storage)
+            _setter("shared_storage", shared_storage)
 
     @property
     @pulumi.getter(name="namingPatternType")
@@ -4928,8 +5893,19 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -4978,9 +5954,20 @@ class UserAssignedServiceIdentityResponse(dict):
         :param str type: Type of manage identity
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: User assigned identities dictionary
         """
-        pulumi.set(__self__, "type", type)
+        UserAssignedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -5035,9 +6022,22 @@ class VirtualMachineConfigurationResponse(dict):
         :param 'OSProfileResponse' os_profile: The OS profile.
         :param str vm_size: The virtual machine size.
         """
-        pulumi.set(__self__, "image_reference", image_reference)
-        pulumi.set(__self__, "os_profile", os_profile)
-        pulumi.set(__self__, "vm_size", vm_size)
+        VirtualMachineConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_reference=image_reference,
+            os_profile=os_profile,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_reference: 'outputs.ImageReferenceResponse',
+             os_profile: 'outputs.OSProfileResponse',
+             vm_size: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("image_reference", image_reference)
+        _setter("os_profile", os_profile)
+        _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="imageReference")
@@ -5108,16 +6108,33 @@ class VirtualMachineResourceNamesResponse(dict):
         :param str os_disk_name: The full name for OS disk attached to the VM. If this value is not provided, it will be named by ARM as per its default naming standards (prefixed with vm name). There is only one OS disk attached per Virtual Machine.
         :param str vm_name: The full name for virtual machine. The length of this field can be upto 64 characters. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}vm. In case of HA-AvZone systems, default name will be {SID}{app/ascs/db}z{a/b}vm with an incrementor at the end in case of more than 1 vm per layer. For distributed and HA-AvSet systems, default name will be {SID}{app/ascs/db}vm with an incrementor at the end in case of more than 1 vm per layer.
         """
+        VirtualMachineResourceNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_disk_names=data_disk_names,
+            host_name=host_name,
+            network_interfaces=network_interfaces,
+            os_disk_name=os_disk_name,
+            vm_name=vm_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_disk_names: Optional[Mapping[str, Sequence[str]]] = None,
+             host_name: Optional[str] = None,
+             network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResourceNamesResponse']] = None,
+             os_disk_name: Optional[str] = None,
+             vm_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_disk_names is not None:
-            pulumi.set(__self__, "data_disk_names", data_disk_names)
+            _setter("data_disk_names", data_disk_names)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if os_disk_name is not None:
-            pulumi.set(__self__, "os_disk_name", os_disk_name)
+            _setter("os_disk_name", os_disk_name)
         if vm_name is not None:
-            pulumi.set(__self__, "vm_name", vm_name)
+            _setter("vm_name", vm_name)
 
     @property
     @pulumi.getter(name="dataDiskNames")
@@ -5189,7 +6206,16 @@ class WindowsConfigurationResponse(dict):
         :param str os_type: The OS Type
                Expected value is 'Windows'.
         """
-        pulumi.set(__self__, "os_type", 'Windows')
+        WindowsConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os_type", 'Windows')
 
     @property
     @pulumi.getter(name="osType")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -26,12 +26,27 @@ class ProjectArgs:
         :param pulumi.Input[str] description: A description for the Project.
         :param pulumi.Input[str] project_name: The name of the Project resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_mover_name", storage_mover_name)
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_mover_name=storage_mover_name,
+            description=description,
+            project_name=project_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             storage_mover_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_mover_name", storage_mover_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -123,6 +138,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

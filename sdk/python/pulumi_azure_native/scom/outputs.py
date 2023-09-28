@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -64,12 +64,25 @@ class AzureHybridBenefitPropertiesResponse(dict):
         :param str sql_server_license_type: SQL Server license type. Maximize savings by using Azure Hybrid Benefit for SQL Server with license you already own
         :param str windows_server_license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
         """
+        AzureHybridBenefitPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scom_license_type=scom_license_type,
+            sql_server_license_type=sql_server_license_type,
+            windows_server_license_type=windows_server_license_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scom_license_type: Optional[str] = None,
+             sql_server_license_type: Optional[str] = None,
+             windows_server_license_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if scom_license_type is not None:
-            pulumi.set(__self__, "scom_license_type", scom_license_type)
+            _setter("scom_license_type", scom_license_type)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if windows_server_license_type is not None:
-            pulumi.set(__self__, "windows_server_license_type", windows_server_license_type)
+            _setter("windows_server_license_type", windows_server_license_type)
 
     @property
     @pulumi.getter(name="scomLicenseType")
@@ -140,12 +153,29 @@ class DatabaseInstancePropertiesResponse(dict):
         :param str operational_database_id: Resource Id of operational database on database instance
         :param str database_instance_id: Resource Id of existing database instance
         """
-        pulumi.set(__self__, "database_fqdn", database_fqdn)
-        pulumi.set(__self__, "dw_database_id", dw_database_id)
-        pulumi.set(__self__, "dw_database_name", dw_database_name)
-        pulumi.set(__self__, "operational_database_id", operational_database_id)
+        DatabaseInstancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_fqdn=database_fqdn,
+            dw_database_id=dw_database_id,
+            dw_database_name=dw_database_name,
+            operational_database_id=operational_database_id,
+            database_instance_id=database_instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_fqdn: str,
+             dw_database_id: str,
+             dw_database_name: str,
+             operational_database_id: str,
+             database_instance_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_fqdn", database_fqdn)
+        _setter("dw_database_id", dw_database_id)
+        _setter("dw_database_name", dw_database_name)
+        _setter("operational_database_id", operational_database_id)
         if database_instance_id is not None:
-            pulumi.set(__self__, "database_instance_id", database_instance_id)
+            _setter("database_instance_id", database_instance_id)
 
     @property
     @pulumi.getter(name="databaseFqdn")
@@ -224,14 +254,27 @@ class DomainControllerPropertiesResponse(dict):
         :param str domain_name: Fully qualified domain name
         :param str ou_path: Organizational Unit path in which the SCOM servers will be present
         """
+        DomainControllerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_server=dns_server,
+            domain_name=domain_name,
+            ou_path=ou_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_server: Optional[str] = None,
+             domain_name: Optional[str] = None,
+             ou_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_server is not None:
-            pulumi.set(__self__, "dns_server", dns_server)
+            _setter("dns_server", dns_server)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if ou_path is None:
             ou_path = ''
         if ou_path is not None:
-            pulumi.set(__self__, "ou_path", ou_path)
+            _setter("ou_path", ou_path)
 
     @property
     @pulumi.getter(name="dnsServer")
@@ -294,12 +337,25 @@ class DomainUserCredentialsResponse(dict):
         :param str password_secret: Domain Password secret 
         :param str user_name_secret: Domain user name secret 
         """
+        DomainUserCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_url=key_vault_url,
+            password_secret=password_secret,
+            user_name_secret=user_name_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_url: Optional[str] = None,
+             password_secret: Optional[str] = None,
+             user_name_secret: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_vault_url is not None:
-            pulumi.set(__self__, "key_vault_url", key_vault_url)
+            _setter("key_vault_url", key_vault_url)
         if password_secret is not None:
-            pulumi.set(__self__, "password_secret", password_secret)
+            _setter("password_secret", password_secret)
         if user_name_secret is not None:
-            pulumi.set(__self__, "user_name_secret", user_name_secret)
+            _setter("user_name_secret", user_name_secret)
 
     @property
     @pulumi.getter(name="keyVaultUrl")
@@ -366,14 +422,29 @@ class GmsaDetailsResponse(dict):
         :param str load_balancer_ip: Frontend IP configuration for Load Balancer, which should be an available IP in customer VNet
         :param str management_server_group_name: OnPrem AD Computer Group where we will join VMs for ease of management
         """
+        GmsaDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            gmsa_account=gmsa_account,
+            load_balancer_ip=load_balancer_ip,
+            management_server_group_name=management_server_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: Optional[str] = None,
+             gmsa_account: Optional[str] = None,
+             load_balancer_ip: Optional[str] = None,
+             management_server_group_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if gmsa_account is not None:
-            pulumi.set(__self__, "gmsa_account", gmsa_account)
+            _setter("gmsa_account", gmsa_account)
         if load_balancer_ip is not None:
-            pulumi.set(__self__, "load_balancer_ip", load_balancer_ip)
+            _setter("load_balancer_ip", load_balancer_ip)
         if management_server_group_name is not None:
-            pulumi.set(__self__, "management_server_group_name", management_server_group_name)
+            _setter("management_server_group_name", management_server_group_name)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -444,14 +515,27 @@ class LogAnalyticsConfigurationResponse(dict):
         :param bool import_data: A one-time optional parameter to import data of last 7 days.
         :param str workspace_id: The resource ID of the Log Analytics workspace to be used.
         """
+        LogAnalyticsConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_types=data_types,
+            import_data=import_data,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_types: Optional[Sequence[str]] = None,
+             import_data: Optional[bool] = None,
+             workspace_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_types is not None:
-            pulumi.set(__self__, "data_types", data_types)
+            _setter("data_types", data_types)
         if import_data is None:
             import_data = False
         if import_data is not None:
-            pulumi.set(__self__, "import_data", import_data)
+            _setter("import_data", import_data)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -539,20 +623,47 @@ class ManagedGatewayPropertiesResponse(dict):
         :param str resource_id: ArmId of the gateway to be monitored.
         :param str resource_location: Location of the gateway to be monitored.
         """
-        pulumi.set(__self__, "connection_status", connection_status)
-        pulumi.set(__self__, "health_status", health_status)
-        pulumi.set(__self__, "install_type", install_type)
-        pulumi.set(__self__, "management_server_endpoint", management_server_endpoint)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "version", version)
+        ManagedGatewayPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_status=connection_status,
+            health_status=health_status,
+            install_type=install_type,
+            management_server_endpoint=management_server_endpoint,
+            provisioning_state=provisioning_state,
+            version=version,
+            computer_name=computer_name,
+            domain_name=domain_name,
+            resource_id=resource_id,
+            resource_location=resource_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_status: str,
+             health_status: str,
+             install_type: str,
+             management_server_endpoint: str,
+             provisioning_state: str,
+             version: str,
+             computer_name: Optional[str] = None,
+             domain_name: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             resource_location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_status", connection_status)
+        _setter("health_status", health_status)
+        _setter("install_type", install_type)
+        _setter("management_server_endpoint", management_server_endpoint)
+        _setter("provisioning_state", provisioning_state)
+        _setter("version", version)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_location is not None:
-            pulumi.set(__self__, "resource_location", resource_location)
+            _setter("resource_location", resource_location)
 
     @property
     @pulumi.getter(name="connectionStatus")
@@ -670,12 +781,27 @@ class ManagedIdentityResponse(dict):
         :param str type: The identity type
         :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: The resource ids of the user assigned identities to use
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ManagedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -744,9 +870,22 @@ class ManagedInstanceOperationStatusResponse(dict):
         :param str operation_name: Operation Name
         :param str operation_state: Operation status
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "operation_name", operation_name)
-        pulumi.set(__self__, "operation_state", operation_state)
+        ManagedInstanceOperationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            operation_name=operation_name,
+            operation_state=operation_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             operation_name: str,
+             operation_state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("operation_name", operation_name)
+        _setter("operation_state", operation_state)
 
     @property
     @pulumi.getter
@@ -815,11 +954,28 @@ class ManagementServerPropertiesResponse(dict):
         :param str server_roles: Represent whether the Server is a Management Server and/or Web Console Server.
         :param str vm_res_id: Azure VM Resource Id of the Management server.
         """
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health_state", health_state)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "server_roles", server_roles)
-        pulumi.set(__self__, "vm_res_id", vm_res_id)
+        ManagementServerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            health_state=health_state,
+            server_name=server_name,
+            server_roles=server_roles,
+            vm_res_id=vm_res_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: str,
+             health_state: str,
+             server_name: str,
+             server_roles: str,
+             vm_res_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fqdn", fqdn)
+        _setter("health_state", health_state)
+        _setter("server_name", server_name)
+        _setter("server_roles", server_roles)
+        _setter("vm_res_id", vm_res_id)
 
     @property
     @pulumi.getter
@@ -925,20 +1081,47 @@ class MonitoredResourcePropertiesResponse(dict):
         :param str resource_id: ArmId of the monitored resource.
         :param str resource_location: Location of the monitored resource.
         """
-        pulumi.set(__self__, "agent_version", agent_version)
-        pulumi.set(__self__, "connection_status", connection_status)
-        pulumi.set(__self__, "health_status", health_status)
-        pulumi.set(__self__, "install_type", install_type)
-        pulumi.set(__self__, "management_server_endpoint", management_server_endpoint)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        MonitoredResourcePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version=agent_version,
+            connection_status=connection_status,
+            health_status=health_status,
+            install_type=install_type,
+            management_server_endpoint=management_server_endpoint,
+            provisioning_state=provisioning_state,
+            computer_name=computer_name,
+            domain_name=domain_name,
+            resource_id=resource_id,
+            resource_location=resource_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version: str,
+             connection_status: str,
+             health_status: str,
+             install_type: str,
+             management_server_endpoint: str,
+             provisioning_state: str,
+             computer_name: Optional[str] = None,
+             domain_name: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             resource_location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_version", agent_version)
+        _setter("connection_status", connection_status)
+        _setter("health_status", health_status)
+        _setter("install_type", install_type)
+        _setter("management_server_endpoint", management_server_endpoint)
+        _setter("provisioning_state", provisioning_state)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_location is not None:
-            pulumi.set(__self__, "resource_location", resource_location)
+            _setter("resource_location", resource_location)
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -1086,23 +1269,52 @@ class MonitoringInstancePropertiesResponse(dict):
         :param 'GmsaDetailsResponse' gmsa_details: Gmsa Details for load balancer and vmss
         :param str v_net_subnet_id: Virtual Network subnet id on which Aquila instance will be provisioned
         """
-        pulumi.set(__self__, "log_analytics_properties", log_analytics_properties)
-        pulumi.set(__self__, "management_endpoints", management_endpoints)
-        pulumi.set(__self__, "operations_status", operations_status)
-        pulumi.set(__self__, "product_version", product_version)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        MonitoringInstancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_properties=log_analytics_properties,
+            management_endpoints=management_endpoints,
+            operations_status=operations_status,
+            product_version=product_version,
+            provisioning_state=provisioning_state,
+            azure_hybrid_benefit=azure_hybrid_benefit,
+            database_instance=database_instance,
+            domain_controller=domain_controller,
+            domain_user_credentials=domain_user_credentials,
+            gmsa_details=gmsa_details,
+            v_net_subnet_id=v_net_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_properties: 'outputs.LogAnalyticsConfigurationResponse',
+             management_endpoints: Sequence['outputs.ManagementServerPropertiesResponse'],
+             operations_status: Sequence['outputs.ManagedInstanceOperationStatusResponse'],
+             product_version: str,
+             provisioning_state: str,
+             azure_hybrid_benefit: Optional['outputs.AzureHybridBenefitPropertiesResponse'] = None,
+             database_instance: Optional['outputs.DatabaseInstancePropertiesResponse'] = None,
+             domain_controller: Optional['outputs.DomainControllerPropertiesResponse'] = None,
+             domain_user_credentials: Optional['outputs.DomainUserCredentialsResponse'] = None,
+             gmsa_details: Optional['outputs.GmsaDetailsResponse'] = None,
+             v_net_subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_properties", log_analytics_properties)
+        _setter("management_endpoints", management_endpoints)
+        _setter("operations_status", operations_status)
+        _setter("product_version", product_version)
+        _setter("provisioning_state", provisioning_state)
         if azure_hybrid_benefit is not None:
-            pulumi.set(__self__, "azure_hybrid_benefit", azure_hybrid_benefit)
+            _setter("azure_hybrid_benefit", azure_hybrid_benefit)
         if database_instance is not None:
-            pulumi.set(__self__, "database_instance", database_instance)
+            _setter("database_instance", database_instance)
         if domain_controller is not None:
-            pulumi.set(__self__, "domain_controller", domain_controller)
+            _setter("domain_controller", domain_controller)
         if domain_user_credentials is not None:
-            pulumi.set(__self__, "domain_user_credentials", domain_user_credentials)
+            _setter("domain_user_credentials", domain_user_credentials)
         if gmsa_details is not None:
-            pulumi.set(__self__, "gmsa_details", gmsa_details)
+            _setter("gmsa_details", gmsa_details)
         if v_net_subnet_id is not None:
-            pulumi.set(__self__, "v_net_subnet_id", v_net_subnet_id)
+            _setter("v_net_subnet_id", v_net_subnet_id)
 
     @property
     @pulumi.getter(name="logAnalyticsProperties")
@@ -1241,18 +1453,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1335,8 +1566,19 @@ class UserIdentityResponse(dict):
         :param str client_id: The Azure Active Directory client id.
         :param str principal_id: The Azure Active Directory principal id.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

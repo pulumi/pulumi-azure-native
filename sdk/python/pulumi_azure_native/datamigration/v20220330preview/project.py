@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,53 @@ class ProjectArgs:
         :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] source_connection_info: Information for connecting to source
         :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] target_connection_info: Information for connecting to target
         """
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "source_platform", source_platform)
-        pulumi.set(__self__, "target_platform", target_platform)
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            service_name=service_name,
+            source_platform=source_platform,
+            target_platform=target_platform,
+            azure_authentication_info=azure_authentication_info,
+            databases_info=databases_info,
+            location=location,
+            project_name=project_name,
+            source_connection_info=source_connection_info,
+            tags=tags,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             source_platform: pulumi.Input[Union[str, 'ProjectSourcePlatform']],
+             target_platform: pulumi.Input[Union[str, 'ProjectTargetPlatform']],
+             azure_authentication_info: Optional[pulumi.Input['AzureActiveDirectoryAppArgs']] = None,
+             databases_info: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             source_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_name", group_name)
+        _setter("service_name", service_name)
+        _setter("source_platform", source_platform)
+        _setter("target_platform", target_platform)
         if azure_authentication_info is not None:
-            pulumi.set(__self__, "azure_authentication_info", azure_authentication_info)
+            _setter("azure_authentication_info", azure_authentication_info)
         if databases_info is not None:
-            pulumi.set(__self__, "databases_info", databases_info)
+            _setter("databases_info", databases_info)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if source_connection_info is not None:
-            pulumi.set(__self__, "source_connection_info", source_connection_info)
+            _setter("source_connection_info", source_connection_info)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_connection_info is not None:
-            pulumi.set(__self__, "target_connection_info", target_connection_info)
+            _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="groupName")
@@ -237,6 +266,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -262,6 +295,11 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
+            if azure_authentication_info is not None and not isinstance(azure_authentication_info, AzureActiveDirectoryAppArgs):
+                azure_authentication_info = azure_authentication_info or {}
+                def _setter(key, value):
+                    azure_authentication_info[key] = value
+                AzureActiveDirectoryAppArgs._configure(_setter, **azure_authentication_info)
             __props__.__dict__["azure_authentication_info"] = azure_authentication_info
             __props__.__dict__["databases_info"] = databases_info
             if group_name is None and not opts.urn:

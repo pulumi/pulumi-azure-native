@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,12 +26,27 @@ class DatabaseMigrationsSqlDbArgs:
         :param pulumi.Input['DatabaseMigrationPropertiesSqlDbArgs'] properties: Database Migration Resource properties for SQL database.
         :param pulumi.Input[str] target_db_name: The name of the target database.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_db_instance_name", sql_db_instance_name)
+        DatabaseMigrationsSqlDbArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sql_db_instance_name=sql_db_instance_name,
+            properties=properties,
+            target_db_name=target_db_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sql_db_instance_name: pulumi.Input[str],
+             properties: Optional[pulumi.Input['DatabaseMigrationPropertiesSqlDbArgs']] = None,
+             target_db_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sql_db_instance_name", sql_db_instance_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if target_db_name is not None:
-            pulumi.set(__self__, "target_db_name", target_db_name)
+            _setter("target_db_name", target_db_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -119,6 +134,10 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseMigrationsSqlDbArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -137,6 +156,11 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DatabaseMigrationsSqlDbArgs.__new__(DatabaseMigrationsSqlDbArgs)
 
+            if properties is not None and not isinstance(properties, DatabaseMigrationPropertiesSqlDbArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                DatabaseMigrationPropertiesSqlDbArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

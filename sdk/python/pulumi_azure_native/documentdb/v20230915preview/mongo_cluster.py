@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,27 +40,54 @@ class MongoClusterArgs:
         :param pulumi.Input[str] server_version: The Mongo DB server version. Defaults to the latest available version if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MongoClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            create_mode=create_mode,
+            location=location,
+            mongo_cluster_name=mongo_cluster_name,
+            node_group_specs=node_group_specs,
+            restore_parameters=restore_parameters,
+            server_version=server_version,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mongo_cluster_name: Optional[pulumi.Input[str]] = None,
+             node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]]] = None,
+             restore_parameters: Optional[pulumi.Input['MongoClusterRestoreParametersArgs']] = None,
+             server_version: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if create_mode is None:
             create_mode = 'Default'
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mongo_cluster_name is not None:
-            pulumi.set(__self__, "mongo_cluster_name", mongo_cluster_name)
+            _setter("mongo_cluster_name", mongo_cluster_name)
         if node_group_specs is not None:
-            pulumi.set(__self__, "node_group_specs", node_group_specs)
+            _setter("node_group_specs", node_group_specs)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -234,6 +261,10 @@ class MongoCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MongoClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -269,6 +300,11 @@ class MongoCluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if restore_parameters is not None and not isinstance(restore_parameters, MongoClusterRestoreParametersArgs):
+                restore_parameters = restore_parameters or {}
+                def _setter(key, value):
+                    restore_parameters[key] = value
+                MongoClusterRestoreParametersArgs._configure(_setter, **restore_parameters)
             __props__.__dict__["restore_parameters"] = restore_parameters
             __props__.__dict__["server_version"] = server_version
             __props__.__dict__["tags"] = tags

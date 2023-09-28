@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,52 @@ class PolicySetDefinitionArgs:
         :param pulumi.Input[str] version: The policy set definition version in #.#.# format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] versions: A list of available versions for this policy set definition.
         """
-        pulumi.set(__self__, "policy_definitions", policy_definitions)
+        PolicySetDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_definitions=policy_definitions,
+            description=description,
+            display_name=display_name,
+            metadata=metadata,
+            parameters=parameters,
+            policy_definition_groups=policy_definition_groups,
+            policy_set_definition_name=policy_set_definition_name,
+            policy_type=policy_type,
+            version=version,
+            versions=versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_definitions: pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionReferenceArgs']]],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]] = None,
+             policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionGroupArgs']]]] = None,
+             policy_set_definition_name: Optional[pulumi.Input[str]] = None,
+             policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_definitions", policy_definitions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_groups is not None:
-            pulumi.set(__self__, "policy_definition_groups", policy_definition_groups)
+            _setter("policy_definition_groups", policy_definition_groups)
         if policy_set_definition_name is not None:
-            pulumi.set(__self__, "policy_set_definition_name", policy_set_definition_name)
+            _setter("policy_set_definition_name", policy_set_definition_name)
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if versions is not None:
-            pulumi.set(__self__, "versions", versions)
+            _setter("versions", versions)
 
     @property
     @pulumi.getter(name="policyDefinitions")
@@ -232,6 +259,10 @@ class PolicySetDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicySetDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

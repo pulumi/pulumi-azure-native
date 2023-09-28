@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'ListPolicySetDefinitionVersionAllBuiltinsResult',
     'AwaitableListPolicySetDefinitionVersionAllBuiltinsResult',
     'list_policy_set_definition_version_all_builtins',
+    'list_policy_set_definition_version_all_builtins_output',
 ]
 
 @pulumi.output_type
@@ -68,3 +69,12 @@ def list_policy_set_definition_version_all_builtins(opts: Optional[pulumi.Invoke
     return AwaitableListPolicySetDefinitionVersionAllBuiltinsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_policy_set_definition_version_all_builtins)
+def list_policy_set_definition_version_all_builtins_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicySetDefinitionVersionAllBuiltinsResult]:
+    """
+    This operation lists all the built-in policy set definition versions for all built-in policy set definitions.
+    Azure REST API version: 2023-04-01.
+    """
+    ...

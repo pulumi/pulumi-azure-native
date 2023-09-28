@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,44 @@ class CloudConnectionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['ResourceReferenceArgs'] virtual_hub: The virtualHub to which the cloud connection belongs.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CloudConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            cloud_connection_name=cloud_connection_name,
+            cloud_connector=cloud_connector,
+            location=location,
+            remote_resource_id=remote_resource_id,
+            shared_key=shared_key,
+            tags=tags,
+            virtual_hub=virtual_hub,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             cloud_connection_name: Optional[pulumi.Input[str]] = None,
+             cloud_connector: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             remote_resource_id: Optional[pulumi.Input[str]] = None,
+             shared_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if cloud_connection_name is not None:
-            pulumi.set(__self__, "cloud_connection_name", cloud_connection_name)
+            _setter("cloud_connection_name", cloud_connection_name)
         if cloud_connector is not None:
-            pulumi.set(__self__, "cloud_connector", cloud_connector)
+            _setter("cloud_connector", cloud_connector)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if remote_resource_id is not None:
-            pulumi.set(__self__, "remote_resource_id", remote_resource_id)
+            _setter("remote_resource_id", remote_resource_id)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -197,6 +220,10 @@ class CloudConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -220,6 +247,11 @@ class CloudConnection(pulumi.CustomResource):
             __props__ = CloudConnectionArgs.__new__(CloudConnectionArgs)
 
             __props__.__dict__["cloud_connection_name"] = cloud_connection_name
+            if cloud_connector is not None and not isinstance(cloud_connector, ResourceReferenceArgs):
+                cloud_connector = cloud_connector or {}
+                def _setter(key, value):
+                    cloud_connector[key] = value
+                ResourceReferenceArgs._configure(_setter, **cloud_connector)
             __props__.__dict__["cloud_connector"] = cloud_connector
             __props__.__dict__["location"] = location
             __props__.__dict__["remote_resource_id"] = remote_resource_id
@@ -228,6 +260,11 @@ class CloudConnection(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["shared_key"] = shared_key
             __props__.__dict__["tags"] = tags
+            if virtual_hub is not None and not isinstance(virtual_hub, ResourceReferenceArgs):
+                virtual_hub = virtual_hub or {}
+                def _setter(key, value):
+                    virtual_hub[key] = value
+                ResourceReferenceArgs._configure(_setter, **virtual_hub)
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -257,14 +257,29 @@ class AzureActiveDirectoryAppResponse(dict):
         :param bool ignore_azure_permissions: Ignore checking azure permissions on the AAD app
         :param str tenant_id: Tenant id of the customer
         """
+        AzureActiveDirectoryAppResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_key=app_key,
+            application_id=application_id,
+            ignore_azure_permissions=ignore_azure_permissions,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_key: Optional[str] = None,
+             application_id: Optional[str] = None,
+             ignore_azure_permissions: Optional[bool] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_key is not None:
-            pulumi.set(__self__, "app_key", app_key)
+            _setter("app_key", app_key)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if ignore_azure_permissions is not None:
-            pulumi.set(__self__, "ignore_azure_permissions", ignore_azure_permissions)
+            _setter("ignore_azure_permissions", ignore_azure_permissions)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="appKey")
@@ -333,12 +348,25 @@ class BackupFileInfoResponse(dict):
         :param str file_location: Location of the backup file in shared folder
         :param str status: Status of the backup file during migration
         """
+        BackupFileInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            family_sequence_number=family_sequence_number,
+            file_location=file_location,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             family_sequence_number: Optional[int] = None,
+             file_location: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if family_sequence_number is not None:
-            pulumi.set(__self__, "family_sequence_number", family_sequence_number)
+            _setter("family_sequence_number", family_sequence_number)
         if file_location is not None:
-            pulumi.set(__self__, "file_location", file_location)
+            _setter("file_location", file_location)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="familySequenceNumber")
@@ -429,26 +457,53 @@ class BackupSetInfoResponse(dict):
         :param str last_modified_time: Last modified time of the backup file in share location
         :param Sequence['BackupFileInfoResponse'] list_of_backup_files: List of files in the backup set
         """
+        BackupSetInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_finished_date=backup_finished_date,
+            backup_set_id=backup_set_id,
+            backup_start_date=backup_start_date,
+            backup_type=backup_type,
+            database_name=database_name,
+            first_lsn=first_lsn,
+            is_backup_restored=is_backup_restored,
+            last_lsn=last_lsn,
+            last_modified_time=last_modified_time,
+            list_of_backup_files=list_of_backup_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_finished_date: Optional[str] = None,
+             backup_set_id: Optional[str] = None,
+             backup_start_date: Optional[str] = None,
+             backup_type: Optional[str] = None,
+             database_name: Optional[str] = None,
+             first_lsn: Optional[str] = None,
+             is_backup_restored: Optional[bool] = None,
+             last_lsn: Optional[str] = None,
+             last_modified_time: Optional[str] = None,
+             list_of_backup_files: Optional[Sequence['outputs.BackupFileInfoResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup_finished_date is not None:
-            pulumi.set(__self__, "backup_finished_date", backup_finished_date)
+            _setter("backup_finished_date", backup_finished_date)
         if backup_set_id is not None:
-            pulumi.set(__self__, "backup_set_id", backup_set_id)
+            _setter("backup_set_id", backup_set_id)
         if backup_start_date is not None:
-            pulumi.set(__self__, "backup_start_date", backup_start_date)
+            _setter("backup_start_date", backup_start_date)
         if backup_type is not None:
-            pulumi.set(__self__, "backup_type", backup_type)
+            _setter("backup_type", backup_type)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if first_lsn is not None:
-            pulumi.set(__self__, "first_lsn", first_lsn)
+            _setter("first_lsn", first_lsn)
         if is_backup_restored is not None:
-            pulumi.set(__self__, "is_backup_restored", is_backup_restored)
+            _setter("is_backup_restored", is_backup_restored)
         if last_lsn is not None:
-            pulumi.set(__self__, "last_lsn", last_lsn)
+            _setter("last_lsn", last_lsn)
         if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
+            _setter("last_modified_time", last_modified_time)
         if list_of_backup_files is not None:
-            pulumi.set(__self__, "list_of_backup_files", list_of_backup_files)
+            _setter("list_of_backup_files", list_of_backup_files)
 
     @property
     @pulumi.getter(name="backupFinishedDate")
@@ -559,8 +614,17 @@ class BlobShareResponse(dict):
         Blob container storage information.
         :param str sas_uri: SAS URI of Azure Storage Account Container.
         """
+        BlobShareResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sas_uri=sas_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sas_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sas_uri is not None:
-            pulumi.set(__self__, "sas_uri", sas_uri)
+            _setter("sas_uri", sas_uri)
 
     @property
     @pulumi.getter(name="sasUri")
@@ -614,15 +678,36 @@ class ConnectToMongoDbTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MongoDbConnectionInfoResponse' input: Describes a connection to a MongoDB data source
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Connect.MongoDb')
+        ConnectToMongoDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.MongoDbClusterInfoResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MongoDbConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Connect.MongoDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -722,15 +807,30 @@ class ConnectToSourceMySqlTaskInputResponse(dict):
         :param bool is_offline_migration: Flag for whether or not the migration is offline
         :param str target_platform: Target Platform for the migration
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourceMySqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            check_permissions_group=check_permissions_group,
+            is_offline_migration=is_offline_migration,
+            target_platform=target_platform,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: 'outputs.MySqlConnectionInfoResponse',
+             check_permissions_group: Optional[str] = None,
+             is_offline_migration: Optional[bool] = None,
+             target_platform: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_connection_info", source_connection_info)
         if check_permissions_group is not None:
-            pulumi.set(__self__, "check_permissions_group", check_permissions_group)
+            _setter("check_permissions_group", check_permissions_group)
         if is_offline_migration is None:
             is_offline_migration = False
         if is_offline_migration is not None:
-            pulumi.set(__self__, "is_offline_migration", is_offline_migration)
+            _setter("is_offline_migration", is_offline_migration)
         if target_platform is not None:
-            pulumi.set(__self__, "target_platform", target_platform)
+            _setter("target_platform", target_platform)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -808,15 +908,36 @@ class ConnectToSourceMySqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceMySqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.MySql')
+        ConnectToSourceMySqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToSourceNonSqlTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourceMySqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.MySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -916,11 +1037,28 @@ class ConnectToSourceNonSqlTaskOutputResponse(dict):
         :param str source_server_brand_version: Server brand version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "server_properties", server_properties)
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourceNonSqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            server_properties=server_properties,
+            source_server_brand_version=source_server_brand_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Sequence[str],
+             id: str,
+             server_properties: 'outputs.ServerPropertiesResponse',
+             source_server_brand_version: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("server_properties", server_properties)
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -991,7 +1129,16 @@ class ConnectToSourceOracleSyncTaskInputResponse(dict):
         Input for the task that validates Oracle database connection
         :param 'OracleConnectionInfoResponse' source_connection_info: Information for connecting to Oracle source
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourceOracleSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: 'outputs.OracleConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_connection_info", source_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -1040,10 +1187,25 @@ class ConnectToSourceOracleSyncTaskOutputResponse(dict):
         :param str source_server_version: Version of the source server
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourceOracleSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Sequence[str],
+             source_server_brand_version: str,
+             source_server_version: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases", databases)
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -1121,15 +1283,36 @@ class ConnectToSourceOracleSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceOracleSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.Oracle.Sync')
+        ConnectToSourceOracleSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToSourceOracleSyncTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourceOracleSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.Oracle.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -1217,7 +1400,16 @@ class ConnectToSourcePostgreSqlSyncTaskInputResponse(dict):
         Input for the task that validates connection to PostgreSQL and source server requirements
         :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL server
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourcePostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_connection_info", source_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -1268,11 +1460,28 @@ class ConnectToSourcePostgreSqlSyncTaskOutputResponse(dict):
         :param str source_server_version: Version of the source server
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourcePostgreSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Sequence[str],
+             id: str,
+             source_server_brand_version: str,
+             source_server_version: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -1358,15 +1567,36 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourcePostgreSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.PostgreSql.Sync')
+        ConnectToSourcePostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToSourcePostgreSqlSyncTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourcePostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.PostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -1469,15 +1699,36 @@ class ConnectToSourceSqlServerSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceSqlServerTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer.Sync')
+        ConnectToSourceSqlServerSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.SqlServer.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -1593,31 +1844,54 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
         :param str encrypted_key_for_secure_fields: encrypted key for secure fields
         :param bool validate_ssis_catalog_only: Flag for whether to validate SSIS catalog is reachable on the source server.
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourceSqlServerTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            check_permissions_group=check_permissions_group,
+            collect_agent_jobs=collect_agent_jobs,
+            collect_databases=collect_databases,
+            collect_logins=collect_logins,
+            collect_tde_certificate_info=collect_tde_certificate_info,
+            encrypted_key_for_secure_fields=encrypted_key_for_secure_fields,
+            validate_ssis_catalog_only=validate_ssis_catalog_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             check_permissions_group: Optional[str] = None,
+             collect_agent_jobs: Optional[bool] = None,
+             collect_databases: Optional[bool] = None,
+             collect_logins: Optional[bool] = None,
+             collect_tde_certificate_info: Optional[bool] = None,
+             encrypted_key_for_secure_fields: Optional[str] = None,
+             validate_ssis_catalog_only: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_connection_info", source_connection_info)
         if check_permissions_group is not None:
-            pulumi.set(__self__, "check_permissions_group", check_permissions_group)
+            _setter("check_permissions_group", check_permissions_group)
         if collect_agent_jobs is None:
             collect_agent_jobs = False
         if collect_agent_jobs is not None:
-            pulumi.set(__self__, "collect_agent_jobs", collect_agent_jobs)
+            _setter("collect_agent_jobs", collect_agent_jobs)
         if collect_databases is None:
             collect_databases = True
         if collect_databases is not None:
-            pulumi.set(__self__, "collect_databases", collect_databases)
+            _setter("collect_databases", collect_databases)
         if collect_logins is None:
             collect_logins = False
         if collect_logins is not None:
-            pulumi.set(__self__, "collect_logins", collect_logins)
+            _setter("collect_logins", collect_logins)
         if collect_tde_certificate_info is None:
             collect_tde_certificate_info = False
         if collect_tde_certificate_info is not None:
-            pulumi.set(__self__, "collect_tde_certificate_info", collect_tde_certificate_info)
+            _setter("collect_tde_certificate_info", collect_tde_certificate_info)
         if encrypted_key_for_secure_fields is not None:
-            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
+            _setter("encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
         if validate_ssis_catalog_only is None:
             validate_ssis_catalog_only = False
         if validate_ssis_catalog_only is not None:
-            pulumi.set(__self__, "validate_ssis_catalog_only", validate_ssis_catalog_only)
+            _setter("validate_ssis_catalog_only", validate_ssis_catalog_only)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -1741,15 +2015,40 @@ class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(dict):
                Expected value is 'AgentJobLevelOutput'.
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "job_category", job_category)
-        pulumi.set(__self__, "job_owner", job_owner)
-        pulumi.set(__self__, "last_executed_on", last_executed_on)
-        pulumi.set(__self__, "migration_eligibility", migration_eligibility)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_type", 'AgentJobLevelOutput')
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            is_enabled=is_enabled,
+            job_category=job_category,
+            job_owner=job_owner,
+            last_executed_on=last_executed_on,
+            migration_eligibility=migration_eligibility,
+            name=name,
+            result_type=result_type,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             is_enabled: bool,
+             job_category: str,
+             job_owner: str,
+             last_executed_on: str,
+             migration_eligibility: 'outputs.MigrationEligibilityInfoResponse',
+             name: str,
+             result_type: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("is_enabled", is_enabled)
+        _setter("job_category", job_category)
+        _setter("job_owner", job_owner)
+        _setter("last_executed_on", last_executed_on)
+        _setter("migration_eligibility", migration_eligibility)
+        _setter("name", name)
+        _setter("result_type", 'AgentJobLevelOutput')
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -1874,13 +2173,34 @@ class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
                Expected value is 'DatabaseLevelOutput'.
         :param float size_mb: Size of the file in megabytes
         """
-        pulumi.set(__self__, "compatibility_level", compatibility_level)
-        pulumi.set(__self__, "database_files", database_files)
-        pulumi.set(__self__, "database_state", database_state)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "size_mb", size_mb)
+        ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compatibility_level=compatibility_level,
+            database_files=database_files,
+            database_state=database_state,
+            id=id,
+            name=name,
+            result_type=result_type,
+            size_mb=size_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compatibility_level: str,
+             database_files: Sequence['outputs.DatabaseFileInfoResponse'],
+             database_state: str,
+             id: str,
+             name: str,
+             result_type: str,
+             size_mb: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compatibility_level", compatibility_level)
+        _setter("database_files", database_files)
+        _setter("database_state", database_state)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("size_mb", size_mb)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -1989,13 +2309,34 @@ class ConnectToSourceSqlServerTaskOutputLoginLevelResponse(dict):
         :param str result_type: Type of result - database level or task level
                Expected value is 'LoginLevelOutput'.
         """
-        pulumi.set(__self__, "default_database", default_database)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "login_type", login_type)
-        pulumi.set(__self__, "migration_eligibility", migration_eligibility)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_type", 'LoginLevelOutput')
+        ConnectToSourceSqlServerTaskOutputLoginLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_database=default_database,
+            id=id,
+            is_enabled=is_enabled,
+            login_type=login_type,
+            migration_eligibility=migration_eligibility,
+            name=name,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_database: str,
+             id: str,
+             is_enabled: bool,
+             login_type: str,
+             migration_eligibility: 'outputs.MigrationEligibilityInfoResponse',
+             name: str,
+             result_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_database", default_database)
+        _setter("id", id)
+        _setter("is_enabled", is_enabled)
+        _setter("login_type", login_type)
+        _setter("migration_eligibility", migration_eligibility)
+        _setter("name", name)
+        _setter("result_type", 'LoginLevelOutput')
 
     @property
     @pulumi.getter(name="defaultDatabase")
@@ -2110,15 +2451,40 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
         :param str source_server_version: Source server version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "agent_jobs", agent_jobs)
-        pulumi.set(__self__, "database_tde_certificate_mapping", database_tde_certificate_mapping)
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "logins", logins)
-        pulumi.set(__self__, "result_type", 'TaskLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourceSqlServerTaskOutputTaskLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_jobs=agent_jobs,
+            database_tde_certificate_mapping=database_tde_certificate_mapping,
+            databases=databases,
+            id=id,
+            logins=logins,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_jobs: Mapping[str, str],
+             database_tde_certificate_mapping: Mapping[str, str],
+             databases: Mapping[str, str],
+             id: str,
+             logins: Mapping[str, str],
+             result_type: str,
+             source_server_brand_version: str,
+             source_server_version: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_jobs", agent_jobs)
+        _setter("database_tde_certificate_mapping", database_tde_certificate_mapping)
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("logins", logins)
+        _setter("result_type", 'TaskLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="agentJobs")
@@ -2241,17 +2607,40 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
         :param 'ConnectToSourceSqlServerTaskInputResponse' input: Task input
         :param str task_id: Task id 
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer')
+        ConnectToSourceSqlServerTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+            task_id=task_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None,
+             task_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.SqlServer')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if task_id is not None:
-            pulumi.set(__self__, "task_id", task_id)
+            _setter("task_id", task_id)
 
     @property
     @pulumi.getter
@@ -2355,12 +2744,25 @@ class ConnectToTargetAzureDbForMySqlTaskInputResponse(dict):
         :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL server
         :param bool is_offline_migration: Flag for whether or not the migration is offline
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetAzureDbForMySqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            is_offline_migration=is_offline_migration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: 'outputs.MySqlConnectionInfoResponse',
+             target_connection_info: 'outputs.MySqlConnectionInfoResponse',
+             is_offline_migration: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if is_offline_migration is None:
             is_offline_migration = False
         if is_offline_migration is not None:
-            pulumi.set(__self__, "is_offline_migration", is_offline_migration)
+            _setter("is_offline_migration", is_offline_migration)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -2427,11 +2829,28 @@ class ConnectToTargetAzureDbForMySqlTaskOutputResponse(dict):
         :param str target_server_brand_version: Target server brand version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "server_version", server_version)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetAzureDbForMySqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            server_version=server_version,
+            target_server_brand_version=target_server_brand_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Sequence[str],
+             id: str,
+             server_version: str,
+             target_server_brand_version: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("server_version", server_version)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -2517,15 +2936,36 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetAzureDbForMySqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureDbForMySql')
+        ConnectToTargetAzureDbForMySqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToTargetAzureDbForMySqlTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetAzureDbForMySqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.AzureDbForMySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -2617,8 +3057,19 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse(dict):
         :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL server
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
+             target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -2677,11 +3128,28 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse(dict):
         :param str target_server_version: Version of the target server
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Sequence[str],
+             id: str,
+             target_server_brand_version: str,
+             target_server_version: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -2767,15 +3235,36 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureDbForPostgreSql.Sync')
+        ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.AzureDbForPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -2863,7 +3352,16 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse(dict):
         Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -2916,12 +3414,29 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse(dict):
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         :param Sequence['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap'] database_schema_map: Mapping of schemas per database
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            validation_errors=validation_errors,
+            database_schema_map=database_schema_map,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Sequence[str],
+             target_server_brand_version: str,
+             target_server_version: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             database_schema_map: Optional[Sequence['outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases", databases)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
+        _setter("validation_errors", validation_errors)
         if database_schema_map is not None:
-            pulumi.set(__self__, "database_schema_map", database_schema_map)
+            _setter("database_schema_map", database_schema_map)
 
     @property
     @pulumi.getter
@@ -2969,10 +3484,21 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSch
     def __init__(__self__, *,
                  database: Optional[str] = None,
                  schemas: Optional[Sequence[str]] = None):
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            schemas=schemas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[str] = None,
+             schemas: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if schemas is not None:
-            pulumi.set(__self__, "schemas", schemas)
+            _setter("schemas", schemas)
 
     @property
     @pulumi.getter
@@ -3028,15 +3554,36 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync')
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -3128,9 +3675,20 @@ class ConnectToTargetSqlDbTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
         :param bool query_object_counts: Boolean flag indicating whether to query object counts for each database on the target server
         """
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlDbTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_connection_info=target_connection_info,
+            query_object_counts=query_object_counts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             query_object_counts: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_connection_info", target_connection_info)
         if query_object_counts is not None:
-            pulumi.set(__self__, "query_object_counts", query_object_counts)
+            _setter("query_object_counts", query_object_counts)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -3185,10 +3743,25 @@ class ConnectToTargetSqlDbTaskOutputResponse(dict):
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Version of the target server
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        ConnectToTargetSqlDbTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Mapping[str, str],
+             id: str,
+             target_server_brand_version: str,
+             target_server_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter
@@ -3270,17 +3843,40 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
         :param str created_on: DateTime in UTC when the task was created
         :param 'ConnectToTargetSqlDbTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb')
+        ConnectToTargetSqlDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            created_on=created_on,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToTargetSqlDbTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             created_on: Optional[str] = None,
+             input: Optional['outputs.ConnectToTargetSqlDbTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.SqlDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -3380,8 +3976,19 @@ class ConnectToTargetSqlMISyncTaskInputResponse(dict):
         :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         """
-        pulumi.set(__self__, "azure_app", azure_app)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlMISyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_app=azure_app,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_app: 'outputs.AzureActiveDirectoryAppResponse',
+             target_connection_info: 'outputs.MiSqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_app", azure_app)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="azureApp")
@@ -3436,9 +4043,22 @@ class ConnectToTargetSqlMISyncTaskOutputResponse(dict):
         :param str target_server_version: Target server version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetSqlMISyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_server_brand_version: str,
+             target_server_version: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="targetServerBrandVersion")
@@ -3508,15 +4128,36 @@ class ConnectToTargetSqlMISyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlMISyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureSqlDbMI.Sync.LRS')
+        ConnectToTargetSqlMISyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToTargetSqlMISyncTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetSqlMISyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -3616,19 +4257,34 @@ class ConnectToTargetSqlMITaskInputResponse(dict):
         :param bool collect_logins: Flag for whether to collect logins from target SQL MI server.
         :param bool validate_ssis_catalog_only: Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
         """
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlMITaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_connection_info=target_connection_info,
+            collect_agent_jobs=collect_agent_jobs,
+            collect_logins=collect_logins,
+            validate_ssis_catalog_only=validate_ssis_catalog_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             collect_agent_jobs: Optional[bool] = None,
+             collect_logins: Optional[bool] = None,
+             validate_ssis_catalog_only: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_connection_info", target_connection_info)
         if collect_agent_jobs is None:
             collect_agent_jobs = True
         if collect_agent_jobs is not None:
-            pulumi.set(__self__, "collect_agent_jobs", collect_agent_jobs)
+            _setter("collect_agent_jobs", collect_agent_jobs)
         if collect_logins is None:
             collect_logins = True
         if collect_logins is not None:
-            pulumi.set(__self__, "collect_logins", collect_logins)
+            _setter("collect_logins", collect_logins)
         if validate_ssis_catalog_only is None:
             validate_ssis_catalog_only = False
         if validate_ssis_catalog_only is not None:
-            pulumi.set(__self__, "validate_ssis_catalog_only", validate_ssis_catalog_only)
+            _setter("validate_ssis_catalog_only", validate_ssis_catalog_only)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -3707,12 +4363,31 @@ class ConnectToTargetSqlMITaskOutputResponse(dict):
         :param str target_server_version: Target server version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "agent_jobs", agent_jobs)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "logins", logins)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetSqlMITaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_jobs=agent_jobs,
+            id=id,
+            logins=logins,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_jobs: Sequence[str],
+             id: str,
+             logins: Sequence[str],
+             target_server_brand_version: str,
+             target_server_version: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_jobs", agent_jobs)
+        _setter("id", id)
+        _setter("logins", logins)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="agentJobs")
@@ -3806,15 +4481,36 @@ class ConnectToTargetSqlMITaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlMITaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureSqlDbMI')
+        ConnectToTargetSqlMITaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToTargetSqlMITaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetSqlMITaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.AzureSqlDbMI')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -3906,8 +4602,19 @@ class ConnectToTargetSqlSqlDbSyncTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlSqlDbSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -3969,15 +4676,36 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlSqlDbSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb.Sync')
+        ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ConnectToTargetSqlDbTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetSqlSqlDbSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.SqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -4103,17 +4831,46 @@ class CopyProgressDetailsResponse(dict):
         :param str table_name: Table Name
         :param int used_parallel_copies: The degree of parallelization.
         """
-        pulumi.set(__self__, "copy_duration", copy_duration)
-        pulumi.set(__self__, "copy_start", copy_start)
-        pulumi.set(__self__, "copy_throughput", copy_throughput)
-        pulumi.set(__self__, "data_read", data_read)
-        pulumi.set(__self__, "data_written", data_written)
-        pulumi.set(__self__, "parallel_copy_type", parallel_copy_type)
-        pulumi.set(__self__, "rows_copied", rows_copied)
-        pulumi.set(__self__, "rows_read", rows_read)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "used_parallel_copies", used_parallel_copies)
+        CopyProgressDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_duration=copy_duration,
+            copy_start=copy_start,
+            copy_throughput=copy_throughput,
+            data_read=data_read,
+            data_written=data_written,
+            parallel_copy_type=parallel_copy_type,
+            rows_copied=rows_copied,
+            rows_read=rows_read,
+            status=status,
+            table_name=table_name,
+            used_parallel_copies=used_parallel_copies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_duration: int,
+             copy_start: str,
+             copy_throughput: float,
+             data_read: float,
+             data_written: float,
+             parallel_copy_type: str,
+             rows_copied: float,
+             rows_read: float,
+             status: str,
+             table_name: str,
+             used_parallel_copies: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("copy_duration", copy_duration)
+        _setter("copy_start", copy_start)
+        _setter("copy_throughput", copy_throughput)
+        _setter("data_read", data_read)
+        _setter("data_written", data_written)
+        _setter("parallel_copy_type", parallel_copy_type)
+        _setter("rows_copied", rows_copied)
+        _setter("rows_read", rows_read)
+        _setter("status", status)
+        _setter("table_name", table_name)
+        _setter("used_parallel_copies", used_parallel_copies)
 
     @property
     @pulumi.getter(name="copyDuration")
@@ -4236,10 +4993,21 @@ class DataIntegrityValidationResultResponse(dict):
         :param Mapping[str, str] failed_objects: List of failed table names of source and target pair
         :param 'ValidationErrorResponse' validation_errors: List of errors that happened while performing data integrity validation
         """
+        DataIntegrityValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failed_objects=failed_objects,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failed_objects: Optional[Mapping[str, str]] = None,
+             validation_errors: Optional['outputs.ValidationErrorResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if failed_objects is not None:
-            pulumi.set(__self__, "failed_objects", failed_objects)
+            _setter("failed_objects", failed_objects)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="failedObjects")
@@ -4314,15 +5082,40 @@ class DataItemMigrationSummaryResultResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "items_completed_count", items_completed_count)
-        pulumi.set(__self__, "items_count", items_count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        DataItemMigrationSummaryResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            items_completed_count=items_completed_count,
+            items_count=items_count,
+            name=name,
+            result_prefix=result_prefix,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             error_prefix: str,
+             items_completed_count: float,
+             items_count: float,
+             name: str,
+             result_prefix: str,
+             started_on: str,
+             state: str,
+             status_message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("items_completed_count", items_completed_count)
+        _setter("items_count", items_count)
+        _setter("name", name)
+        _setter("result_prefix", result_prefix)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -4451,14 +5244,37 @@ class DatabaseBackupInfoResponse(dict):
         :param bool is_damaged: Database was damaged when backed up, but the backup operation was requested to continue despite errors.
         :param int position: Position of current database backup in the file.
         """
-        pulumi.set(__self__, "backup_files", backup_files)
-        pulumi.set(__self__, "backup_finish_date", backup_finish_date)
-        pulumi.set(__self__, "backup_type", backup_type)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "family_count", family_count)
-        pulumi.set(__self__, "is_compressed", is_compressed)
-        pulumi.set(__self__, "is_damaged", is_damaged)
-        pulumi.set(__self__, "position", position)
+        DatabaseBackupInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_files=backup_files,
+            backup_finish_date=backup_finish_date,
+            backup_type=backup_type,
+            database_name=database_name,
+            family_count=family_count,
+            is_compressed=is_compressed,
+            is_damaged=is_damaged,
+            position=position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_files: Sequence[str],
+             backup_finish_date: str,
+             backup_type: str,
+             database_name: str,
+             family_count: int,
+             is_compressed: bool,
+             is_damaged: bool,
+             position: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backup_files", backup_files)
+        _setter("backup_finish_date", backup_finish_date)
+        _setter("backup_type", backup_type)
+        _setter("database_name", database_name)
+        _setter("family_count", family_count)
+        _setter("is_compressed", is_compressed)
+        _setter("is_damaged", is_damaged)
+        _setter("position", position)
 
     @property
     @pulumi.getter(name="backupFiles")
@@ -4575,20 +5391,41 @@ class DatabaseFileInfoResponse(dict):
         :param str restore_full_name: Suggested full path of the file for restoring
         :param float size_mb: Size of the file in megabytes
         """
+        DatabaseFileInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            file_type=file_type,
+            id=id,
+            logical_name=logical_name,
+            physical_full_name=physical_full_name,
+            restore_full_name=restore_full_name,
+            size_mb=size_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             file_type: Optional[str] = None,
+             id: Optional[str] = None,
+             logical_name: Optional[str] = None,
+             physical_full_name: Optional[str] = None,
+             restore_full_name: Optional[str] = None,
+             size_mb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if file_type is not None:
-            pulumi.set(__self__, "file_type", file_type)
+            _setter("file_type", file_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if logical_name is not None:
-            pulumi.set(__self__, "logical_name", logical_name)
+            _setter("logical_name", logical_name)
         if physical_full_name is not None:
-            pulumi.set(__self__, "physical_full_name", physical_full_name)
+            _setter("physical_full_name", physical_full_name)
         if restore_full_name is not None:
-            pulumi.set(__self__, "restore_full_name", restore_full_name)
+            _setter("restore_full_name", restore_full_name)
         if size_mb is not None:
-            pulumi.set(__self__, "size_mb", size_mb)
+            _setter("size_mb", size_mb)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -4675,7 +5512,16 @@ class DatabaseInfoResponse(dict):
         Project Database Details
         :param str source_database_name: Name of the database
         """
-        pulumi.set(__self__, "source_database_name", source_database_name)
+        DatabaseInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_database_name=source_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_database_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_database_name", source_database_name)
 
     @property
     @pulumi.getter(name="sourceDatabaseName")
@@ -4779,33 +5625,76 @@ class DatabaseMigrationPropertiesSqlDbResponse(dict):
         :param str target_database_collation: Database collation to be used for the target database.
         :param 'SqlConnectionInformationResponse' target_sql_connection: Target SQL DB connection details.
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "kind", 'SqlDb')
-        pulumi.set(__self__, "migration_failure_error", migration_failure_error)
-        pulumi.set(__self__, "migration_status", migration_status)
-        pulumi.set(__self__, "migration_status_details", migration_status_details)
-        pulumi.set(__self__, "offline_configuration", offline_configuration)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "source_server_name", source_server_name)
-        pulumi.set(__self__, "started_on", started_on)
+        DatabaseMigrationPropertiesSqlDbResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            kind=kind,
+            migration_failure_error=migration_failure_error,
+            migration_status=migration_status,
+            migration_status_details=migration_status_details,
+            offline_configuration=offline_configuration,
+            provisioning_state=provisioning_state,
+            source_server_name=source_server_name,
+            started_on=started_on,
+            migration_operation_id=migration_operation_id,
+            migration_service=migration_service,
+            provisioning_error=provisioning_error,
+            scope=scope,
+            source_database_name=source_database_name,
+            source_sql_connection=source_sql_connection,
+            table_list=table_list,
+            target_database_collation=target_database_collation,
+            target_sql_connection=target_sql_connection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             kind: str,
+             migration_failure_error: 'outputs.ErrorInfoResponse',
+             migration_status: str,
+             migration_status_details: 'outputs.SqlDbMigrationStatusDetailsResponse',
+             offline_configuration: 'outputs.SqlDbOfflineConfigurationResponse',
+             provisioning_state: str,
+             source_server_name: str,
+             started_on: str,
+             migration_operation_id: Optional[str] = None,
+             migration_service: Optional[str] = None,
+             provisioning_error: Optional[str] = None,
+             scope: Optional[str] = None,
+             source_database_name: Optional[str] = None,
+             source_sql_connection: Optional['outputs.SqlConnectionInformationResponse'] = None,
+             table_list: Optional[Sequence[str]] = None,
+             target_database_collation: Optional[str] = None,
+             target_sql_connection: Optional['outputs.SqlConnectionInformationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("kind", 'SqlDb')
+        _setter("migration_failure_error", migration_failure_error)
+        _setter("migration_status", migration_status)
+        _setter("migration_status_details", migration_status_details)
+        _setter("offline_configuration", offline_configuration)
+        _setter("provisioning_state", provisioning_state)
+        _setter("source_server_name", source_server_name)
+        _setter("started_on", started_on)
         if migration_operation_id is not None:
-            pulumi.set(__self__, "migration_operation_id", migration_operation_id)
+            _setter("migration_operation_id", migration_operation_id)
         if migration_service is not None:
-            pulumi.set(__self__, "migration_service", migration_service)
+            _setter("migration_service", migration_service)
         if provisioning_error is not None:
-            pulumi.set(__self__, "provisioning_error", provisioning_error)
+            _setter("provisioning_error", provisioning_error)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if source_database_name is not None:
-            pulumi.set(__self__, "source_database_name", source_database_name)
+            _setter("source_database_name", source_database_name)
         if source_sql_connection is not None:
-            pulumi.set(__self__, "source_sql_connection", source_sql_connection)
+            _setter("source_sql_connection", source_sql_connection)
         if table_list is not None:
-            pulumi.set(__self__, "table_list", table_list)
+            _setter("table_list", table_list)
         if target_database_collation is not None:
-            pulumi.set(__self__, "target_database_collation", target_database_collation)
+            _setter("target_database_collation", target_database_collation)
         if target_sql_connection is not None:
-            pulumi.set(__self__, "target_sql_connection", target_sql_connection)
+            _setter("target_sql_connection", target_sql_connection)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -5013,16 +5902,43 @@ class DatabaseSummaryResultResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "items_completed_count", items_completed_count)
-        pulumi.set(__self__, "items_count", items_count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "size_mb", size_mb)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        DatabaseSummaryResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            items_completed_count=items_completed_count,
+            items_count=items_count,
+            name=name,
+            result_prefix=result_prefix,
+            size_mb=size_mb,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             error_prefix: str,
+             items_completed_count: float,
+             items_count: float,
+             name: str,
+             result_prefix: str,
+             size_mb: float,
+             started_on: str,
+             state: str,
+             status_message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("items_completed_count", items_completed_count)
+        _setter("items_count", items_count)
+        _setter("name", name)
+        _setter("result_prefix", result_prefix)
+        _setter("size_mb", size_mb)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -5135,8 +6051,19 @@ class DatabaseTableResponse(dict):
         :param bool has_rows: Indicates whether table is empty or not
         :param str name: Schema-qualified name of the table
         """
-        pulumi.set(__self__, "has_rows", has_rows)
-        pulumi.set(__self__, "name", name)
+        DatabaseTableResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            has_rows=has_rows,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             has_rows: bool,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("has_rows", has_rows)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="hasRows")
@@ -5168,8 +6095,19 @@ class ErrorInfoResponse(dict):
         :param str code: Error code.
         :param str message: Error message.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        ErrorInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -5236,18 +6174,37 @@ class ExecutionStatisticsResponse(dict):
         :param Sequence[str] sql_errors: List of sql Errors
         :param Mapping[str, 'WaitStatisticsResponse'] wait_stats: Dictionary of sql query execution wait types and the respective statistics
         """
+        ExecutionStatisticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_time_ms=cpu_time_ms,
+            elapsed_time_ms=elapsed_time_ms,
+            execution_count=execution_count,
+            has_errors=has_errors,
+            sql_errors=sql_errors,
+            wait_stats=wait_stats,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_time_ms: Optional[float] = None,
+             elapsed_time_ms: Optional[float] = None,
+             execution_count: Optional[float] = None,
+             has_errors: Optional[bool] = None,
+             sql_errors: Optional[Sequence[str]] = None,
+             wait_stats: Optional[Mapping[str, 'outputs.WaitStatisticsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cpu_time_ms is not None:
-            pulumi.set(__self__, "cpu_time_ms", cpu_time_ms)
+            _setter("cpu_time_ms", cpu_time_ms)
         if elapsed_time_ms is not None:
-            pulumi.set(__self__, "elapsed_time_ms", elapsed_time_ms)
+            _setter("elapsed_time_ms", elapsed_time_ms)
         if execution_count is not None:
-            pulumi.set(__self__, "execution_count", execution_count)
+            _setter("execution_count", execution_count)
         if has_errors is not None:
-            pulumi.set(__self__, "has_errors", has_errors)
+            _setter("has_errors", has_errors)
         if sql_errors is not None:
-            pulumi.set(__self__, "sql_errors", sql_errors)
+            _setter("sql_errors", sql_errors)
         if wait_stats is not None:
-            pulumi.set(__self__, "wait_stats", wait_stats)
+            _setter("wait_stats", wait_stats)
 
     @property
     @pulumi.getter(name="cpuTimeMs")
@@ -5330,11 +6287,24 @@ class FileShareResponse(dict):
         :param str password: Password credential used to connect to the share location.
         :param str user_name: User name credential to connect to the share location
         """
-        pulumi.set(__self__, "path", path)
+        FileShareResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -5397,9 +6367,22 @@ class GetTdeCertificatesSqlTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence['SelectedCertificateInputResponse'] selected_certificates: List containing certificate names and corresponding password to use for encrypting the exported certificate.
         """
-        pulumi.set(__self__, "backup_file_share", backup_file_share)
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_certificates", selected_certificates)
+        GetTdeCertificatesSqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_file_share=backup_file_share,
+            connection_info=connection_info,
+            selected_certificates=selected_certificates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_file_share: 'outputs.FileShareResponse',
+             connection_info: 'outputs.SqlConnectionInfoResponse',
+             selected_certificates: Sequence['outputs.SelectedCertificateInputResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backup_file_share", backup_file_share)
+        _setter("connection_info", connection_info)
+        _setter("selected_certificates", selected_certificates)
 
     @property
     @pulumi.getter(name="backupFileShare")
@@ -5458,8 +6441,19 @@ class GetTdeCertificatesSqlTaskOutputResponse(dict):
         :param Mapping[str, Sequence[str]] base64_encoded_certificates: Mapping from certificate name to base 64 encoded format.
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "base64_encoded_certificates", base64_encoded_certificates)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetTdeCertificatesSqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base64_encoded_certificates=base64_encoded_certificates,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base64_encoded_certificates: Mapping[str, Sequence[str]],
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base64_encoded_certificates", base64_encoded_certificates)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="base64EncodedCertificates")
@@ -5521,15 +6515,36 @@ class GetTdeCertificatesSqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetTdeCertificatesSqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetTDECertificates.Sql')
+        GetTdeCertificatesSqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.GetTdeCertificatesSqlTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetTdeCertificatesSqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetTDECertificates.Sql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -5621,8 +6636,19 @@ class GetUserTablesMySqlTaskInputResponse(dict):
         :param 'MySqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence[str] selected_databases: List of database names to collect tables for
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_databases", selected_databases)
+        GetUserTablesMySqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_databases=selected_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: 'outputs.MySqlConnectionInfoResponse',
+             selected_databases: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_info", connection_info)
+        _setter("selected_databases", selected_databases)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -5675,9 +6701,22 @@ class GetUserTablesMySqlTaskOutputResponse(dict):
         :param str id: Result identifier
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "databases_to_tables", databases_to_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesMySqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases_to_tables=databases_to_tables,
+            id=id,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases_to_tables: Mapping[str, Sequence['outputs.DatabaseTableResponse']],
+             id: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases_to_tables", databases_to_tables)
+        _setter("id", id)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="databasesToTables")
@@ -5747,15 +6786,36 @@ class GetUserTablesMySqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesMySqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTablesMySql')
+        GetUserTablesMySqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.GetUserTablesMySqlTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesMySqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTablesMySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -5847,8 +6907,19 @@ class GetUserTablesOracleTaskInputResponse(dict):
         :param 'OracleConnectionInfoResponse' connection_info: Information for connecting to Oracle source
         :param Sequence[str] selected_schemas: List of Oracle schemas for which to collect tables
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_schemas", selected_schemas)
+        GetUserTablesOracleTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_schemas=selected_schemas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: 'outputs.OracleConnectionInfoResponse',
+             selected_schemas: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_info", connection_info)
+        _setter("selected_schemas", selected_schemas)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -5901,9 +6972,22 @@ class GetUserTablesOracleTaskOutputResponse(dict):
         :param Sequence['DatabaseTableResponse'] tables: List of valid tables found for this schema
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "schema_name", schema_name)
-        pulumi.set(__self__, "tables", tables)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesOracleTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_name=schema_name,
+            tables=tables,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_name: str,
+             tables: Sequence['outputs.DatabaseTableResponse'],
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schema_name", schema_name)
+        _setter("tables", tables)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="schemaName")
@@ -5973,15 +7057,36 @@ class GetUserTablesOracleTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesOracleTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTablesOracle')
+        GetUserTablesOracleTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.GetUserTablesOracleTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesOracleTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTablesOracle')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -6073,8 +7178,19 @@ class GetUserTablesPostgreSqlTaskInputResponse(dict):
         :param 'PostgreSqlConnectionInfoResponse' connection_info: Information for connecting to PostgreSQL source
         :param Sequence[str] selected_databases: List of PostgreSQL databases for which to collect tables
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_databases", selected_databases)
+        GetUserTablesPostgreSqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_databases=selected_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
+             selected_databases: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_info", connection_info)
+        _setter("selected_databases", selected_databases)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -6127,9 +7243,22 @@ class GetUserTablesPostgreSqlTaskOutputResponse(dict):
         :param Sequence['DatabaseTableResponse'] tables: List of valid tables found for this database
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "tables", tables)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesPostgreSqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            tables=tables,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             tables: Sequence['outputs.DatabaseTableResponse'],
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("tables", tables)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -6199,15 +7328,36 @@ class GetUserTablesPostgreSqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesPostgreSqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTablesPostgreSql')
+        GetUserTablesPostgreSqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.GetUserTablesPostgreSqlTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesPostgreSqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTablesPostgreSql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -6307,10 +7457,25 @@ class GetUserTablesSqlSyncTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for SQL Server
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for SQL DB
         """
-        pulumi.set(__self__, "selected_source_databases", selected_source_databases)
-        pulumi.set(__self__, "selected_target_databases", selected_target_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        GetUserTablesSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_source_databases=selected_source_databases,
+            selected_target_databases=selected_target_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_source_databases: Sequence[str],
+             selected_target_databases: Sequence[str],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selected_source_databases", selected_source_databases)
+        _setter("selected_target_databases", selected_target_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedSourceDatabases")
@@ -6385,10 +7550,25 @@ class GetUserTablesSqlSyncTaskOutputResponse(dict):
         :param Mapping[str, Sequence[str]] table_validation_errors: Mapping from database name to list of validation errors
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "databases_to_source_tables", databases_to_source_tables)
-        pulumi.set(__self__, "databases_to_target_tables", databases_to_target_tables)
-        pulumi.set(__self__, "table_validation_errors", table_validation_errors)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases_to_source_tables=databases_to_source_tables,
+            databases_to_target_tables=databases_to_target_tables,
+            table_validation_errors=table_validation_errors,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases_to_source_tables: Mapping[str, Sequence['outputs.DatabaseTableResponse']],
+             databases_to_target_tables: Mapping[str, Sequence['outputs.DatabaseTableResponse']],
+             table_validation_errors: Mapping[str, Sequence[str]],
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases_to_source_tables", databases_to_source_tables)
+        _setter("databases_to_target_tables", databases_to_target_tables)
+        _setter("table_validation_errors", table_validation_errors)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="databasesToSourceTables")
@@ -6466,15 +7646,36 @@ class GetUserTablesSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTables.AzureSqlDb.Sync')
+        GetUserTablesSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.GetUserTablesSqlSyncTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTables.AzureSqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -6570,10 +7771,23 @@ class GetUserTablesSqlTaskInputResponse(dict):
         :param Sequence[str] selected_databases: List of database names to collect tables for
         :param str encrypted_key_for_secure_fields: encrypted key for secure fields
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_databases", selected_databases)
+        GetUserTablesSqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_databases=selected_databases,
+            encrypted_key_for_secure_fields=encrypted_key_for_secure_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: 'outputs.SqlConnectionInfoResponse',
+             selected_databases: Sequence[str],
+             encrypted_key_for_secure_fields: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_info", connection_info)
+        _setter("selected_databases", selected_databases)
         if encrypted_key_for_secure_fields is not None:
-            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
+            _setter("encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -6634,9 +7848,22 @@ class GetUserTablesSqlTaskOutputResponse(dict):
         :param str id: Result identifier
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "databases_to_tables", databases_to_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesSqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases_to_tables=databases_to_tables,
+            id=id,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases_to_tables: Mapping[str, Sequence['outputs.DatabaseTableResponse']],
+             id: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases_to_tables", databases_to_tables)
+        _setter("id", id)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="databasesToTables")
@@ -6710,17 +7937,40 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
         :param 'GetUserTablesSqlTaskInputResponse' input: Task input
         :param str task_id: Task id 
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTables.Sql')
+        GetUserTablesSqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+            task_id=task_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.GetUserTablesSqlTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesSqlTaskInputResponse'] = None,
+             task_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTables.Sql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if task_id is not None:
-            pulumi.set(__self__, "task_id", task_id)
+            _setter("task_id", task_id)
 
     @property
     @pulumi.getter
@@ -6825,12 +8075,27 @@ class MiSqlConnectionInfoResponse(dict):
         :param str password: Password credential.
         :param str user_name: User name
         """
-        pulumi.set(__self__, "managed_instance_resource_id", managed_instance_resource_id)
-        pulumi.set(__self__, "type", 'MiSqlConnectionInfo')
+        MiSqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_resource_id=managed_instance_resource_id,
+            type=type,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_resource_id: str,
+             type: str,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("managed_instance_resource_id", managed_instance_resource_id)
+        _setter("type", 'MiSqlConnectionInfo')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="managedInstanceResourceId")
@@ -6894,7 +8159,16 @@ class MigrateMISyncCompleteCommandInputResponse(dict):
         Input for command that completes online migration for an Azure SQL Database Managed Instance.
         :param str source_database_name: Name of managed instance database
         """
-        pulumi.set(__self__, "source_database_name", source_database_name)
+        MigrateMISyncCompleteCommandInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_database_name=source_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_database_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_database_name", source_database_name)
 
     @property
     @pulumi.getter(name="sourceDatabaseName")
@@ -6916,8 +8190,17 @@ class MigrateMISyncCompleteCommandOutputResponse(dict):
         Output for command that completes online migration for an Azure SQL Database Managed Instance.
         :param Sequence['ReportableExceptionResponse'] errors: List of errors that happened during the command execution
         """
+        MigrateMISyncCompleteCommandOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            errors=errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if errors is not None:
-            pulumi.set(__self__, "errors", errors)
+            _setter("errors", errors)
 
     @property
     @pulumi.getter
@@ -6965,12 +8248,29 @@ class MigrateMISyncCompleteCommandPropertiesResponse(dict):
         :param str state: The state of the command. This is ignored if submitted.
         :param 'MigrateMISyncCompleteCommandInputResponse' input: Command input
         """
-        pulumi.set(__self__, "command_type", 'Migrate.SqlServer.AzureDbSqlMi.Complete')
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
+        MigrateMISyncCompleteCommandPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command_type=command_type,
+            errors=errors,
+            output=output,
+            state=state,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command_type: str,
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: 'outputs.MigrateMISyncCompleteCommandOutputResponse',
+             state: str,
+             input: Optional['outputs.MigrateMISyncCompleteCommandInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("command_type", 'Migrate.SqlServer.AzureDbSqlMi.Complete')
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="commandType")
@@ -7056,15 +8356,36 @@ class MigrateMongoDbTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MongoDbMigrationSettingsResponse' input: Describes how a MongoDB data migration should be performed
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.MongoDb')
+        MigrateMongoDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MongoDbMigrationSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.MongoDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -7155,12 +8476,25 @@ class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse(dict):
         :param Mapping[str, str] table_map: Mapping of source to target tables
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         """
+        MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            table_map=table_map,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter
@@ -7239,19 +8573,40 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse(dict):
         :param Mapping[str, str] optional_agent_settings: Optional parameters for fine tuning the data transfer rate during migration
         :param str started_on: Parameter to specify when the migration started
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            encrypted_key_for_secure_fields=encrypted_key_for_secure_fields,
+            make_source_server_read_only=make_source_server_read_only,
+            optional_agent_settings=optional_agent_settings,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Sequence['outputs.MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse'],
+             source_connection_info: 'outputs.MySqlConnectionInfoResponse',
+             target_connection_info: 'outputs.MySqlConnectionInfoResponse',
+             encrypted_key_for_secure_fields: Optional[str] = None,
+             make_source_server_read_only: Optional[bool] = None,
+             optional_agent_settings: Optional[Mapping[str, str]] = None,
+             started_on: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if encrypted_key_for_secure_fields is not None:
-            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
+            _setter("encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
         if make_source_server_read_only is None:
             make_source_server_read_only = False
         if make_source_server_read_only is not None:
-            pulumi.set(__self__, "make_source_server_read_only", make_source_server_read_only)
+            _setter("make_source_server_read_only", make_source_server_read_only)
         if optional_agent_settings is not None:
-            pulumi.set(__self__, "optional_agent_settings", optional_agent_settings)
+            _setter("optional_agent_settings", optional_agent_settings)
         if started_on is not None:
-            pulumi.set(__self__, "started_on", started_on)
+            _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -7391,23 +8746,64 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskOutputDatabaseLevelResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_count", error_count)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_storage_update", last_storage_update)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "number_of_objects", number_of_objects)
-        pulumi.set(__self__, "number_of_objects_completed", number_of_objects_completed)
-        pulumi.set(__self__, "object_summary", object_summary)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        MigrateMySqlAzureDbForMySqlOfflineTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            ended_on=ended_on,
+            error_count=error_count,
+            error_prefix=error_prefix,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            last_storage_update=last_storage_update,
+            message=message,
+            number_of_objects=number_of_objects,
+            number_of_objects_completed=number_of_objects_completed,
+            object_summary=object_summary,
+            result_prefix=result_prefix,
+            result_type=result_type,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             ended_on: str,
+             error_count: float,
+             error_prefix: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             last_storage_update: str,
+             message: str,
+             number_of_objects: float,
+             number_of_objects_completed: float,
+             object_summary: Mapping[str, 'outputs.DataItemMigrationSummaryResultResponse'],
+             result_prefix: str,
+             result_type: str,
+             stage: str,
+             started_on: str,
+             state: str,
+             status_message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("error_count", error_count)
+        _setter("error_prefix", error_prefix)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("last_storage_update", last_storage_update)
+        _setter("message", message)
+        _setter("number_of_objects", number_of_objects)
+        _setter("number_of_objects_completed", number_of_objects_completed)
+        _setter("object_summary", object_summary)
+        _setter("result_prefix", result_prefix)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -7576,9 +8972,22 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateMySqlAzureDbForMySqlOfflineTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ReportableExceptionResponse',
+             id: str,
+             result_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -7687,25 +9096,66 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskOutputMigrationLevelResponse(dict):
         :param Mapping[str, str] databases: Selected databases as a map from database name to database id
         :param 'MigrationReportResultResponse' migration_report_result: Migration Report Result, provides unique url for downloading your migration report.
         """
-        pulumi.set(__self__, "database_summary", database_summary)
-        pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_storage_update", last_storage_update)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_message", status_message)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateMySqlAzureDbForMySqlOfflineTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_summary=database_summary,
+            duration_in_seconds=duration_in_seconds,
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            last_storage_update=last_storage_update,
+            message=message,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            status=status,
+            status_message=status_message,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            databases=databases,
+            migration_report_result=migration_report_result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_summary: Mapping[str, 'outputs.DatabaseSummaryResultResponse'],
+             duration_in_seconds: float,
+             ended_on: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             last_storage_update: str,
+             message: str,
+             result_type: str,
+             source_server_brand_version: str,
+             source_server_version: str,
+             started_on: str,
+             status: str,
+             status_message: str,
+             target_server_brand_version: str,
+             target_server_version: str,
+             databases: Optional[Mapping[str, str]] = None,
+             migration_report_result: Optional['outputs.MigrationReportResultResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_summary", database_summary)
+        _setter("duration_in_seconds", duration_in_seconds)
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("last_storage_update", last_storage_update)
+        _setter("message", message)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("status_message", status_message)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
         if databases is not None:
-            pulumi.set(__self__, "databases", databases)
+            _setter("databases", databases)
         if migration_report_result is not None:
-            pulumi.set(__self__, "migration_report_result", migration_report_result)
+            _setter("migration_report_result", migration_report_result)
 
     @property
     @pulumi.getter(name="databaseSummary")
@@ -7910,18 +9360,49 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskOutputTableLevelResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "items_completed_count", items_completed_count)
-        pulumi.set(__self__, "items_count", items_count)
-        pulumi.set(__self__, "last_storage_update", last_storage_update)
-        pulumi.set(__self__, "object_name", object_name)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        MigrateMySqlAzureDbForMySqlOfflineTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            id=id,
+            items_completed_count=items_completed_count,
+            items_count=items_count,
+            last_storage_update=last_storage_update,
+            object_name=object_name,
+            result_prefix=result_prefix,
+            result_type=result_type,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             error_prefix: str,
+             id: str,
+             items_completed_count: float,
+             items_count: float,
+             last_storage_update: str,
+             object_name: str,
+             result_prefix: str,
+             result_type: str,
+             started_on: str,
+             state: str,
+             status_message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("id", id)
+        _setter("items_completed_count", items_completed_count)
+        _setter("items_count", items_count)
+        _setter("last_storage_update", last_storage_update)
+        _setter("object_name", object_name)
+        _setter("result_prefix", result_prefix)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -8072,19 +9553,44 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
         :param bool is_cloneable: whether the task can be cloned or not
         :param str task_id: Task id 
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.MySql.AzureDbForMySql')
+        MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+            is_cloneable=is_cloneable,
+            task_id=task_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse'] = None,
+             is_cloneable: Optional[bool] = None,
+             task_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.MySql.AzureDbForMySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if is_cloneable is not None:
-            pulumi.set(__self__, "is_cloneable", is_cloneable)
+            _setter("is_cloneable", is_cloneable)
         if task_id is not None:
-            pulumi.set(__self__, "task_id", task_id)
+            _setter("task_id", task_id)
 
     @property
     @pulumi.getter
@@ -8206,18 +9712,37 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse(dict):
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            migration_setting=migration_setting,
+            name=name,
+            source_setting=source_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             migration_setting: Optional[Mapping[str, str]] = None,
+             name: Optional[str] = None,
+             source_setting: Optional[Mapping[str, str]] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             target_setting: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter(name="migrationSetting")
@@ -8304,9 +9829,22 @@ class MigrateMySqlAzureDbForMySqlSyncTaskInputResponse(dict):
         :param 'MySqlConnectionInfoResponse' source_connection_info: Connection information for source MySQL
         :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateMySqlAzureDbForMySqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Sequence['outputs.MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse'],
+             source_connection_info: 'outputs.MySqlConnectionInfoResponse',
+             target_connection_info: 'outputs.MySqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -8366,12 +9904,27 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse(dict):
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            result_type=result_type,
+            error_message=error_message,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             result_type: str,
+             error_message: Optional[str] = None,
+             events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("result_type", 'DatabaseLevelErrorOutput')
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -8492,23 +10045,64 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
                Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
-        pulumi.set(__self__, "applied_changes", applied_changes)
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "full_load_completed_tables", full_load_completed_tables)
-        pulumi.set(__self__, "full_load_errored_tables", full_load_errored_tables)
-        pulumi.set(__self__, "full_load_loading_tables", full_load_loading_tables)
-        pulumi.set(__self__, "full_load_queued_tables", full_load_queued_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "incoming_changes", incoming_changes)
-        pulumi.set(__self__, "initialization_completed", initialization_completed)
-        pulumi.set(__self__, "latency", latency)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_changes=applied_changes,
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            database_name=database_name,
+            ended_on=ended_on,
+            full_load_completed_tables=full_load_completed_tables,
+            full_load_errored_tables=full_load_errored_tables,
+            full_load_loading_tables=full_load_loading_tables,
+            full_load_queued_tables=full_load_queued_tables,
+            id=id,
+            incoming_changes=incoming_changes,
+            initialization_completed=initialization_completed,
+            latency=latency,
+            migration_state=migration_state,
+            result_type=result_type,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_changes: float,
+             cdc_delete_counter: float,
+             cdc_insert_counter: float,
+             cdc_update_counter: float,
+             database_name: str,
+             ended_on: str,
+             full_load_completed_tables: float,
+             full_load_errored_tables: float,
+             full_load_loading_tables: float,
+             full_load_queued_tables: float,
+             id: str,
+             incoming_changes: float,
+             initialization_completed: bool,
+             latency: float,
+             migration_state: str,
+             result_type: str,
+             started_on: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("applied_changes", applied_changes)
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("full_load_completed_tables", full_load_completed_tables)
+        _setter("full_load_errored_tables", full_load_errored_tables)
+        _setter("full_load_loading_tables", full_load_loading_tables)
+        _setter("full_load_queued_tables", full_load_queued_tables)
+        _setter("id", id)
+        _setter("incoming_changes", incoming_changes)
+        _setter("initialization_completed", initialization_completed)
+        _setter("latency", latency)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="appliedChanges")
@@ -8677,9 +10271,22 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ReportableExceptionResponse',
+             id: str,
+             result_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -8758,14 +10365,37 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse(dict):
         :param str target_server: Target server name
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server", source_server)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "target_server", target_server)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server=source_server,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            target_server=target_server,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             id: str,
+             result_type: str,
+             source_server: str,
+             source_server_version: str,
+             started_on: str,
+             target_server: str,
+             target_server_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server", source_server)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("target_server", target_server)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -8910,21 +10540,58 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse(dict):
         :param str table_name: Name of the table
         :param float total_changes_applied: Total number of applied changes
         """
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "data_errors_counter", data_errors_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "full_load_ended_on", full_load_ended_on)
-        pulumi.set(__self__, "full_load_est_finish_time", full_load_est_finish_time)
-        pulumi.set(__self__, "full_load_started_on", full_load_started_on)
-        pulumi.set(__self__, "full_load_total_rows", full_load_total_rows)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "total_changes_applied", total_changes_applied)
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            data_errors_counter=data_errors_counter,
+            database_name=database_name,
+            full_load_ended_on=full_load_ended_on,
+            full_load_est_finish_time=full_load_est_finish_time,
+            full_load_started_on=full_load_started_on,
+            full_load_total_rows=full_load_total_rows,
+            id=id,
+            last_modified_time=last_modified_time,
+            result_type=result_type,
+            state=state,
+            table_name=table_name,
+            total_changes_applied=total_changes_applied,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdc_delete_counter: str,
+             cdc_insert_counter: str,
+             cdc_update_counter: str,
+             data_errors_counter: float,
+             database_name: str,
+             full_load_ended_on: str,
+             full_load_est_finish_time: str,
+             full_load_started_on: str,
+             full_load_total_rows: float,
+             id: str,
+             last_modified_time: str,
+             result_type: str,
+             state: str,
+             table_name: str,
+             total_changes_applied: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("data_errors_counter", data_errors_counter)
+        _setter("database_name", database_name)
+        _setter("full_load_ended_on", full_load_ended_on)
+        _setter("full_load_est_finish_time", full_load_est_finish_time)
+        _setter("full_load_started_on", full_load_started_on)
+        _setter("full_load_total_rows", full_load_total_rows)
+        _setter("id", id)
+        _setter("last_modified_time", last_modified_time)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("state", state)
+        _setter("table_name", table_name)
+        _setter("total_changes_applied", total_changes_applied)
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
@@ -9091,15 +10758,36 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateMySqlAzureDbForMySqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.MySql.AzureDbForMySql.Sync')
+        MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateMySqlAzureDbForMySqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.MySql.AzureDbForMySql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -9202,15 +10890,36 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.Oracle.AzureDbForPostgreSql.Sync')
+        MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.Oracle.AzureDbForPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -9324,22 +11033,45 @@ class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse(dict):
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            case_manipulation=case_manipulation,
+            migration_setting=migration_setting,
+            name=name,
+            schema_name=schema_name,
+            source_setting=source_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             case_manipulation: Optional[str] = None,
+             migration_setting: Optional[Mapping[str, str]] = None,
+             name: Optional[str] = None,
+             schema_name: Optional[str] = None,
+             source_setting: Optional[Mapping[str, str]] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             target_setting: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if case_manipulation is not None:
-            pulumi.set(__self__, "case_manipulation", case_manipulation)
+            _setter("case_manipulation", case_manipulation)
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter(name="caseManipulation")
@@ -9442,9 +11174,22 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse(dict):
         :param 'OracleConnectionInfoResponse' source_connection_info: Connection information for source Oracle
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Sequence['outputs.MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse'],
+             source_connection_info: 'outputs.OracleConnectionInfoResponse',
+             target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -9504,12 +11249,27 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse(dict):
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            result_type=result_type,
+            error_message=error_message,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             result_type: str,
+             error_message: Optional[str] = None,
+             events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("result_type", 'DatabaseLevelErrorOutput')
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -9630,23 +11390,64 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse(dict):
                Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
-        pulumi.set(__self__, "applied_changes", applied_changes)
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "full_load_completed_tables", full_load_completed_tables)
-        pulumi.set(__self__, "full_load_errored_tables", full_load_errored_tables)
-        pulumi.set(__self__, "full_load_loading_tables", full_load_loading_tables)
-        pulumi.set(__self__, "full_load_queued_tables", full_load_queued_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "incoming_changes", incoming_changes)
-        pulumi.set(__self__, "initialization_completed", initialization_completed)
-        pulumi.set(__self__, "latency", latency)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_changes=applied_changes,
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            database_name=database_name,
+            ended_on=ended_on,
+            full_load_completed_tables=full_load_completed_tables,
+            full_load_errored_tables=full_load_errored_tables,
+            full_load_loading_tables=full_load_loading_tables,
+            full_load_queued_tables=full_load_queued_tables,
+            id=id,
+            incoming_changes=incoming_changes,
+            initialization_completed=initialization_completed,
+            latency=latency,
+            migration_state=migration_state,
+            result_type=result_type,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_changes: float,
+             cdc_delete_counter: float,
+             cdc_insert_counter: float,
+             cdc_update_counter: float,
+             database_name: str,
+             ended_on: str,
+             full_load_completed_tables: float,
+             full_load_errored_tables: float,
+             full_load_loading_tables: float,
+             full_load_queued_tables: float,
+             id: str,
+             incoming_changes: float,
+             initialization_completed: bool,
+             latency: float,
+             migration_state: str,
+             result_type: str,
+             started_on: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("applied_changes", applied_changes)
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("full_load_completed_tables", full_load_completed_tables)
+        _setter("full_load_errored_tables", full_load_errored_tables)
+        _setter("full_load_loading_tables", full_load_loading_tables)
+        _setter("full_load_queued_tables", full_load_queued_tables)
+        _setter("id", id)
+        _setter("incoming_changes", incoming_changes)
+        _setter("initialization_completed", initialization_completed)
+        _setter("latency", latency)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="appliedChanges")
@@ -9815,9 +11616,22 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ReportableExceptionResponse',
+             id: str,
+             result_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -9896,14 +11710,37 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse(dict):
         :param str target_server: Target server name
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server", source_server)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "target_server", target_server)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server=source_server,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            target_server=target_server,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             id: str,
+             result_type: str,
+             source_server: str,
+             source_server_version: str,
+             started_on: str,
+             target_server: str,
+             target_server_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server", source_server)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("target_server", target_server)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -10048,21 +11885,58 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse(dict):
         :param str table_name: Name of the table
         :param float total_changes_applied: Total number of applied changes
         """
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "data_errors_counter", data_errors_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "full_load_ended_on", full_load_ended_on)
-        pulumi.set(__self__, "full_load_est_finish_time", full_load_est_finish_time)
-        pulumi.set(__self__, "full_load_started_on", full_load_started_on)
-        pulumi.set(__self__, "full_load_total_rows", full_load_total_rows)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "total_changes_applied", total_changes_applied)
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            data_errors_counter=data_errors_counter,
+            database_name=database_name,
+            full_load_ended_on=full_load_ended_on,
+            full_load_est_finish_time=full_load_est_finish_time,
+            full_load_started_on=full_load_started_on,
+            full_load_total_rows=full_load_total_rows,
+            id=id,
+            last_modified_time=last_modified_time,
+            result_type=result_type,
+            state=state,
+            table_name=table_name,
+            total_changes_applied=total_changes_applied,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdc_delete_counter: float,
+             cdc_insert_counter: float,
+             cdc_update_counter: float,
+             data_errors_counter: float,
+             database_name: str,
+             full_load_ended_on: str,
+             full_load_est_finish_time: str,
+             full_load_started_on: str,
+             full_load_total_rows: float,
+             id: str,
+             last_modified_time: str,
+             result_type: str,
+             state: str,
+             table_name: str,
+             total_changes_applied: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("data_errors_counter", data_errors_counter)
+        _setter("database_name", database_name)
+        _setter("full_load_ended_on", full_load_ended_on)
+        _setter("full_load_est_finish_time", full_load_est_finish_time)
+        _setter("full_load_started_on", full_load_started_on)
+        _setter("full_load_total_rows", full_load_total_rows)
+        _setter("id", id)
+        _setter("last_modified_time", last_modified_time)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("state", state)
+        _setter("table_name", table_name)
+        _setter("total_changes_applied", total_changes_applied)
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
@@ -10234,19 +12108,40 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
-        pulumi.set(__self__, "id", id)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            migration_setting=migration_setting,
+            name=name,
+            selected_tables=selected_tables,
+            source_setting=source_setting,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             migration_setting: Optional[Any] = None,
+             name: Optional[str] = None,
+             selected_tables: Optional[Sequence['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse']] = None,
+             source_setting: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             target_setting: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if selected_tables is not None:
-            pulumi.set(__self__, "selected_tables", selected_tables)
+            _setter("selected_tables", selected_tables)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter
@@ -10316,8 +12211,17 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse(dict):
         Selected tables for the migration
         :param str name: Name of the table to migrate
         """
+        MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -10372,12 +12276,29 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse(dict):
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL
         :param str encrypted_key_for_secure_fields: encrypted key for secure fields
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            started_on=started_on,
+            target_connection_info=target_connection_info,
+            encrypted_key_for_secure_fields=encrypted_key_for_secure_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Sequence['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse'],
+             source_connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
+             started_on: str,
+             target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse',
+             encrypted_key_for_secure_fields: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("started_on", started_on)
+        _setter("target_connection_info", target_connection_info)
         if encrypted_key_for_secure_fields is not None:
-            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
+            _setter("encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -10453,12 +12374,27 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse(d
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            result_type=result_type,
+            error_message=error_message,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             result_type: str,
+             error_message: Optional[str] = None,
+             events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("result_type", 'DatabaseLevelErrorOutput')
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -10579,23 +12515,64 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
                Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
-        pulumi.set(__self__, "applied_changes", applied_changes)
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "full_load_completed_tables", full_load_completed_tables)
-        pulumi.set(__self__, "full_load_errored_tables", full_load_errored_tables)
-        pulumi.set(__self__, "full_load_loading_tables", full_load_loading_tables)
-        pulumi.set(__self__, "full_load_queued_tables", full_load_queued_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "incoming_changes", incoming_changes)
-        pulumi.set(__self__, "initialization_completed", initialization_completed)
-        pulumi.set(__self__, "latency", latency)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_changes=applied_changes,
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            database_name=database_name,
+            ended_on=ended_on,
+            full_load_completed_tables=full_load_completed_tables,
+            full_load_errored_tables=full_load_errored_tables,
+            full_load_loading_tables=full_load_loading_tables,
+            full_load_queued_tables=full_load_queued_tables,
+            id=id,
+            incoming_changes=incoming_changes,
+            initialization_completed=initialization_completed,
+            latency=latency,
+            migration_state=migration_state,
+            result_type=result_type,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_changes: float,
+             cdc_delete_counter: float,
+             cdc_insert_counter: float,
+             cdc_update_counter: float,
+             database_name: str,
+             ended_on: str,
+             full_load_completed_tables: float,
+             full_load_errored_tables: float,
+             full_load_loading_tables: float,
+             full_load_queued_tables: float,
+             id: str,
+             incoming_changes: float,
+             initialization_completed: bool,
+             latency: float,
+             migration_state: str,
+             result_type: str,
+             started_on: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("applied_changes", applied_changes)
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("full_load_completed_tables", full_load_completed_tables)
+        _setter("full_load_errored_tables", full_load_errored_tables)
+        _setter("full_load_loading_tables", full_load_loading_tables)
+        _setter("full_load_queued_tables", full_load_queued_tables)
+        _setter("id", id)
+        _setter("incoming_changes", incoming_changes)
+        _setter("initialization_completed", initialization_completed)
+        _setter("latency", latency)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="appliedChanges")
@@ -10766,11 +12743,26 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse(dict):
                Expected value is 'ErrorOutput'.
         :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ReportableExceptionResponse',
+             id: str,
+             result_type: str,
+             events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -10871,19 +12863,50 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
         :param str target_server_version: Target server version
         :param float database_count: Number of databases to include
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server", source_server)
-        pulumi.set(__self__, "source_server_type", source_server_type)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "target_server", target_server)
-        pulumi.set(__self__, "target_server_type", target_server_type)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server=source_server,
+            source_server_type=source_server_type,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            state=state,
+            target_server=target_server,
+            target_server_type=target_server_type,
+            target_server_version=target_server_version,
+            database_count=database_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             id: str,
+             result_type: str,
+             source_server: str,
+             source_server_type: str,
+             source_server_version: str,
+             started_on: str,
+             state: str,
+             target_server: str,
+             target_server_type: str,
+             target_server_version: str,
+             database_count: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server", source_server)
+        _setter("source_server_type", source_server_type)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("target_server", target_server)
+        _setter("target_server_type", target_server_type)
+        _setter("target_server_version", target_server_version)
         if database_count is not None:
-            pulumi.set(__self__, "database_count", database_count)
+            _setter("database_count", database_count)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -11060,21 +13083,58 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
         :param str table_name: Name of the table
         :param float total_changes_applied: Total number of applied changes
         """
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "data_errors_counter", data_errors_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "full_load_ended_on", full_load_ended_on)
-        pulumi.set(__self__, "full_load_est_finish_time", full_load_est_finish_time)
-        pulumi.set(__self__, "full_load_started_on", full_load_started_on)
-        pulumi.set(__self__, "full_load_total_rows", full_load_total_rows)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "total_changes_applied", total_changes_applied)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            data_errors_counter=data_errors_counter,
+            database_name=database_name,
+            full_load_ended_on=full_load_ended_on,
+            full_load_est_finish_time=full_load_est_finish_time,
+            full_load_started_on=full_load_started_on,
+            full_load_total_rows=full_load_total_rows,
+            id=id,
+            last_modified_time=last_modified_time,
+            result_type=result_type,
+            state=state,
+            table_name=table_name,
+            total_changes_applied=total_changes_applied,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdc_delete_counter: float,
+             cdc_insert_counter: float,
+             cdc_update_counter: float,
+             data_errors_counter: float,
+             database_name: str,
+             full_load_ended_on: str,
+             full_load_est_finish_time: str,
+             full_load_started_on: str,
+             full_load_total_rows: float,
+             id: str,
+             last_modified_time: str,
+             result_type: str,
+             state: str,
+             table_name: str,
+             total_changes_applied: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("data_errors_counter", data_errors_counter)
+        _setter("database_name", database_name)
+        _setter("full_load_ended_on", full_load_ended_on)
+        _setter("full_load_est_finish_time", full_load_est_finish_time)
+        _setter("full_load_started_on", full_load_started_on)
+        _setter("full_load_total_rows", full_load_total_rows)
+        _setter("id", id)
+        _setter("last_modified_time", last_modified_time)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("state", state)
+        _setter("table_name", table_name)
+        _setter("total_changes_applied", total_changes_applied)
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
@@ -11253,21 +13313,48 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param bool is_cloneable: whether the task can be cloned or not
         :param str task_id: task id
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2')
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            created_on=created_on,
+            input=input,
+            is_cloneable=is_cloneable,
+            task_id=task_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             created_on: Optional[str] = None,
+             input: Optional['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse'] = None,
+             is_cloneable: Optional[bool] = None,
+             task_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if is_cloneable is not None:
-            pulumi.set(__self__, "is_cloneable", is_cloneable)
+            _setter("is_cloneable", is_cloneable)
         if task_id is not None:
-            pulumi.set(__self__, "task_id", task_id)
+            _setter("task_id", task_id)
 
     @property
     @pulumi.getter
@@ -11395,18 +13482,37 @@ class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
         :param Mapping[str, str] table_map: Mapping of source to target tables
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         """
+        MigrateSqlServerSqlDbDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            make_source_db_read_only=make_source_db_read_only,
+            name=name,
+            schema_setting=schema_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             make_source_db_read_only: Optional[bool] = None,
+             name: Optional[str] = None,
+             schema_setting: Optional[Any] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if make_source_db_read_only is not None:
-            pulumi.set(__self__, "make_source_db_read_only", make_source_db_read_only)
+            _setter("make_source_db_read_only", make_source_db_read_only)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema_setting is not None:
-            pulumi.set(__self__, "schema_setting", schema_setting)
+            _setter("schema_setting", schema_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter
@@ -11509,22 +13615,45 @@ class MigrateSqlServerSqlDbSyncDatabaseInputResponse(dict):
         :param str target_database_name: Target database name
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigrateSqlServerSqlDbSyncDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            migration_setting=migration_setting,
+            name=name,
+            schema_name=schema_name,
+            source_setting=source_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             migration_setting: Optional[Mapping[str, str]] = None,
+             name: Optional[str] = None,
+             schema_name: Optional[str] = None,
+             source_setting: Optional[Mapping[str, str]] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             target_setting: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter
@@ -11631,11 +13760,26 @@ class MigrateSqlServerSqlDbSyncTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         :param 'MigrationValidationOptionsResponse' validation_options: Validation options
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlDbSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Sequence['outputs.MigrateSqlServerSqlDbSyncDatabaseInputResponse'],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -11703,12 +13847,27 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse(dict):
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
+        MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            result_type=result_type,
+            error_message=error_message,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             result_type: str,
+             error_message: Optional[str] = None,
+             events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("result_type", 'DatabaseLevelErrorOutput')
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -11829,23 +13988,64 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
                Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
-        pulumi.set(__self__, "applied_changes", applied_changes)
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "full_load_completed_tables", full_load_completed_tables)
-        pulumi.set(__self__, "full_load_errored_tables", full_load_errored_tables)
-        pulumi.set(__self__, "full_load_loading_tables", full_load_loading_tables)
-        pulumi.set(__self__, "full_load_queued_tables", full_load_queued_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "incoming_changes", incoming_changes)
-        pulumi.set(__self__, "initialization_completed", initialization_completed)
-        pulumi.set(__self__, "latency", latency)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
+        MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_changes=applied_changes,
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            database_name=database_name,
+            ended_on=ended_on,
+            full_load_completed_tables=full_load_completed_tables,
+            full_load_errored_tables=full_load_errored_tables,
+            full_load_loading_tables=full_load_loading_tables,
+            full_load_queued_tables=full_load_queued_tables,
+            id=id,
+            incoming_changes=incoming_changes,
+            initialization_completed=initialization_completed,
+            latency=latency,
+            migration_state=migration_state,
+            result_type=result_type,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_changes: float,
+             cdc_delete_counter: float,
+             cdc_insert_counter: float,
+             cdc_update_counter: float,
+             database_name: str,
+             ended_on: str,
+             full_load_completed_tables: float,
+             full_load_errored_tables: float,
+             full_load_loading_tables: float,
+             full_load_queued_tables: float,
+             id: str,
+             incoming_changes: float,
+             initialization_completed: bool,
+             latency: float,
+             migration_state: str,
+             result_type: str,
+             started_on: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("applied_changes", applied_changes)
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("full_load_completed_tables", full_load_completed_tables)
+        _setter("full_load_errored_tables", full_load_errored_tables)
+        _setter("full_load_loading_tables", full_load_loading_tables)
+        _setter("full_load_queued_tables", full_load_queued_tables)
+        _setter("id", id)
+        _setter("incoming_changes", incoming_changes)
+        _setter("initialization_completed", initialization_completed)
+        _setter("latency", latency)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="appliedChanges")
@@ -12014,9 +14214,22 @@ class MigrateSqlServerSqlDbSyncTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateSqlServerSqlDbSyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ReportableExceptionResponse',
+             id: str,
+             result_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -12099,15 +14312,40 @@ class MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse(dict):
         :param str target_server: Target server name
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "database_count", database_count)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server", source_server)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "target_server", target_server)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_count=database_count,
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server=source_server,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            target_server=target_server,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_count: int,
+             ended_on: str,
+             id: str,
+             result_type: str,
+             source_server: str,
+             source_server_version: str,
+             started_on: str,
+             target_server: str,
+             target_server_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_count", database_count)
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server", source_server)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("target_server", target_server)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="databaseCount")
@@ -12260,21 +14498,58 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
         :param str table_name: Name of the table
         :param float total_changes_applied: Total number of applied changes
         """
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "data_errors_counter", data_errors_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "full_load_ended_on", full_load_ended_on)
-        pulumi.set(__self__, "full_load_est_finish_time", full_load_est_finish_time)
-        pulumi.set(__self__, "full_load_started_on", full_load_started_on)
-        pulumi.set(__self__, "full_load_total_rows", full_load_total_rows)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "total_changes_applied", total_changes_applied)
+        MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            data_errors_counter=data_errors_counter,
+            database_name=database_name,
+            full_load_ended_on=full_load_ended_on,
+            full_load_est_finish_time=full_load_est_finish_time,
+            full_load_started_on=full_load_started_on,
+            full_load_total_rows=full_load_total_rows,
+            id=id,
+            last_modified_time=last_modified_time,
+            result_type=result_type,
+            state=state,
+            table_name=table_name,
+            total_changes_applied=total_changes_applied,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdc_delete_counter: float,
+             cdc_insert_counter: float,
+             cdc_update_counter: float,
+             data_errors_counter: float,
+             database_name: str,
+             full_load_ended_on: str,
+             full_load_est_finish_time: str,
+             full_load_started_on: str,
+             full_load_total_rows: float,
+             id: str,
+             last_modified_time: str,
+             result_type: str,
+             state: str,
+             table_name: str,
+             total_changes_applied: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("data_errors_counter", data_errors_counter)
+        _setter("database_name", database_name)
+        _setter("full_load_ended_on", full_load_ended_on)
+        _setter("full_load_est_finish_time", full_load_est_finish_time)
+        _setter("full_load_started_on", full_load_started_on)
+        _setter("full_load_total_rows", full_load_total_rows)
+        _setter("id", id)
+        _setter("last_modified_time", last_modified_time)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("state", state)
+        _setter("table_name", table_name)
+        _setter("total_changes_applied", total_changes_applied)
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
@@ -12441,15 +14716,36 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSqlServerSqlDbSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDb.Sync')
+        MigrateSqlServerSqlDbSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateSqlServerSqlDbSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.SqlServer.AzureSqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -12559,15 +14855,34 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
                 1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
                 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlDbTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            encrypted_key_for_secure_fields=encrypted_key_for_secure_fields,
+            started_on=started_on,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Sequence['outputs.MigrateSqlServerSqlDbDatabaseInputResponse'],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             encrypted_key_for_secure_fields: Optional[str] = None,
+             started_on: Optional[str] = None,
+             validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if encrypted_key_for_secure_fields is not None:
-            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
+            _setter("encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
         if started_on is not None:
-            pulumi.set(__self__, "started_on", started_on)
+            _setter("started_on", started_on)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -12697,22 +15012,61 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_count", error_count)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "number_of_objects", number_of_objects)
-        pulumi.set(__self__, "number_of_objects_completed", number_of_objects_completed)
-        pulumi.set(__self__, "object_summary", object_summary)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            ended_on=ended_on,
+            error_count=error_count,
+            error_prefix=error_prefix,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            message=message,
+            number_of_objects=number_of_objects,
+            number_of_objects_completed=number_of_objects_completed,
+            object_summary=object_summary,
+            result_prefix=result_prefix,
+            result_type=result_type,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             ended_on: str,
+             error_count: float,
+             error_prefix: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             message: str,
+             number_of_objects: float,
+             number_of_objects_completed: float,
+             object_summary: Mapping[str, 'outputs.DataItemMigrationSummaryResultResponse'],
+             result_prefix: str,
+             result_type: str,
+             stage: str,
+             started_on: str,
+             state: str,
+             status_message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("error_count", error_count)
+        _setter("error_prefix", error_prefix)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("number_of_objects", number_of_objects)
+        _setter("number_of_objects_completed", number_of_objects_completed)
+        _setter("object_summary", object_summary)
+        _setter("result_prefix", result_prefix)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -12905,17 +15259,46 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse(dict)
         :param str status: Current status of validation at the database level
         :param str target_database_name: Name of the target database
         """
-        pulumi.set(__self__, "data_integrity_validation_result", data_integrity_validation_result)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "migration_id", migration_id)
-        pulumi.set(__self__, "query_analysis_validation_result", query_analysis_validation_result)
-        pulumi.set(__self__, "result_type", 'MigrationDatabaseLevelValidationOutput')
-        pulumi.set(__self__, "schema_validation_result", schema_validation_result)
-        pulumi.set(__self__, "source_database_name", source_database_name)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "target_database_name", target_database_name)
+        MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_integrity_validation_result=data_integrity_validation_result,
+            ended_on=ended_on,
+            id=id,
+            migration_id=migration_id,
+            query_analysis_validation_result=query_analysis_validation_result,
+            result_type=result_type,
+            schema_validation_result=schema_validation_result,
+            source_database_name=source_database_name,
+            started_on=started_on,
+            status=status,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_integrity_validation_result: 'outputs.DataIntegrityValidationResultResponse',
+             ended_on: str,
+             id: str,
+             migration_id: str,
+             query_analysis_validation_result: 'outputs.QueryAnalysisValidationResultResponse',
+             result_type: str,
+             schema_validation_result: 'outputs.SchemaComparisonValidationResultResponse',
+             source_database_name: str,
+             started_on: str,
+             status: str,
+             target_database_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_integrity_validation_result", data_integrity_validation_result)
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("migration_id", migration_id)
+        _setter("query_analysis_validation_result", query_analysis_validation_result)
+        _setter("result_type", 'MigrationDatabaseLevelValidationOutput')
+        _setter("schema_validation_result", schema_validation_result)
+        _setter("source_database_name", source_database_name)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter(name="dataIntegrityValidationResult")
@@ -13036,9 +15419,22 @@ class MigrateSqlServerSqlDbTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateSqlServerSqlDbTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ReportableExceptionResponse',
+             id: str,
+             result_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -13147,25 +15543,66 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
         :param 'MigrationReportResultResponse' migration_report_result: Migration Report Result, provides unique url for downloading your migration report.
         :param 'MigrationValidationResultResponse' migration_validation_result: Migration Validation Results
         """
-        pulumi.set(__self__, "database_summary", database_summary)
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_message", status_message)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_summary=database_summary,
+            databases=databases,
+            duration_in_seconds=duration_in_seconds,
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            message=message,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            status=status,
+            status_message=status_message,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            migration_report_result=migration_report_result,
+            migration_validation_result=migration_validation_result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_summary: Mapping[str, 'outputs.DatabaseSummaryResultResponse'],
+             databases: Mapping[str, str],
+             duration_in_seconds: float,
+             ended_on: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             message: str,
+             result_type: str,
+             source_server_brand_version: str,
+             source_server_version: str,
+             started_on: str,
+             status: str,
+             status_message: str,
+             target_server_brand_version: str,
+             target_server_version: str,
+             migration_report_result: Optional['outputs.MigrationReportResultResponse'] = None,
+             migration_validation_result: Optional['outputs.MigrationValidationResultResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_summary", database_summary)
+        _setter("databases", databases)
+        _setter("duration_in_seconds", duration_in_seconds)
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("status_message", status_message)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
         if migration_report_result is not None:
-            pulumi.set(__self__, "migration_report_result", migration_report_result)
+            _setter("migration_report_result", migration_report_result)
         if migration_validation_result is not None:
-            pulumi.set(__self__, "migration_validation_result", migration_validation_result)
+            _setter("migration_validation_result", migration_validation_result)
 
     @property
     @pulumi.getter(name="databaseSummary")
@@ -13366,17 +15803,46 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "items_completed_count", items_completed_count)
-        pulumi.set(__self__, "items_count", items_count)
-        pulumi.set(__self__, "object_name", object_name)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        MigrateSqlServerSqlDbTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            id=id,
+            items_completed_count=items_completed_count,
+            items_count=items_count,
+            object_name=object_name,
+            result_prefix=result_prefix,
+            result_type=result_type,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             error_prefix: str,
+             id: str,
+             items_completed_count: float,
+             items_count: float,
+             object_name: str,
+             result_prefix: str,
+             result_type: str,
+             started_on: str,
+             state: str,
+             status_message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("id", id)
+        _setter("items_completed_count", items_completed_count)
+        _setter("items_count", items_count)
+        _setter("object_name", object_name)
+        _setter("result_prefix", result_prefix)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -13505,12 +15971,29 @@ class MigrateSqlServerSqlDbTaskOutputValidationResultResponse(dict):
         :param str status: Current status of validation at the migration level. Status from the database validation result status will be aggregated here.
         :param Mapping[str, 'MigrationValidationDatabaseSummaryResultResponse'] summary_results: Validation summary results for each database
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "migration_id", migration_id)
-        pulumi.set(__self__, "result_type", 'MigrationValidationOutput')
-        pulumi.set(__self__, "status", status)
+        MigrateSqlServerSqlDbTaskOutputValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            migration_id=migration_id,
+            result_type=result_type,
+            status=status,
+            summary_results=summary_results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             migration_id: str,
+             result_type: str,
+             status: str,
+             summary_results: Optional[Mapping[str, 'outputs.MigrationValidationDatabaseSummaryResultResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("migration_id", migration_id)
+        _setter("result_type", 'MigrationValidationOutput')
+        _setter("status", status)
         if summary_results is not None:
-            pulumi.set(__self__, "summary_results", summary_results)
+            _setter("summary_results", summary_results)
 
     @property
     @pulumi.getter
@@ -13609,21 +16092,48 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
         :param bool is_cloneable: whether the task can be cloned or not
         :param str task_id: task id
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.SqlDb')
+        MigrateSqlServerSqlDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            created_on=created_on,
+            input=input,
+            is_cloneable=is_cloneable,
+            task_id=task_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             created_on: Optional[str] = None,
+             input: Optional['outputs.MigrateSqlServerSqlDbTaskInputResponse'] = None,
+             is_cloneable: Optional[bool] = None,
+             task_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.SqlServer.SqlDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if is_cloneable is not None:
-            pulumi.set(__self__, "is_cloneable", is_cloneable)
+            _setter("is_cloneable", is_cloneable)
         if task_id is not None:
-            pulumi.set(__self__, "task_id", task_id)
+            _setter("task_id", task_id)
 
     @property
     @pulumi.getter
@@ -13747,14 +16257,31 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
         :param 'FileShareResponse' backup_file_share: Backup file share information for backing up this database.
         :param str id: id of the database
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "restore_database_name", restore_database_name)
+        MigrateSqlServerSqlMIDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            restore_database_name=restore_database_name,
+            backup_file_paths=backup_file_paths,
+            backup_file_share=backup_file_share,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             restore_database_name: str,
+             backup_file_paths: Optional[Sequence[str]] = None,
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("restore_database_name", restore_database_name)
         if backup_file_paths is not None:
-            pulumi.set(__self__, "backup_file_paths", backup_file_paths)
+            _setter("backup_file_paths", backup_file_paths)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -13849,15 +16376,36 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
         :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         :param float number_of_parallel_database_migrations: Number of database migrations to start in parallel
         """
-        pulumi.set(__self__, "azure_app", azure_app)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlMISyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_app=azure_app,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            storage_resource_id=storage_resource_id,
+            target_connection_info=target_connection_info,
+            backup_file_share=backup_file_share,
+            number_of_parallel_database_migrations=number_of_parallel_database_migrations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_app: 'outputs.AzureActiveDirectoryAppResponse',
+             selected_databases: Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse'],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             storage_resource_id: str,
+             target_connection_info: 'outputs.MiSqlConnectionInfoResponse',
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             number_of_parallel_database_migrations: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_app", azure_app)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("storage_resource_id", storage_resource_id)
+        _setter("target_connection_info", target_connection_info)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
         if number_of_parallel_database_migrations is not None:
-            pulumi.set(__self__, "number_of_parallel_database_migrations", number_of_parallel_database_migrations)
+            _setter("number_of_parallel_database_migrations", number_of_parallel_database_migrations)
 
     @property
     @pulumi.getter(name="azureApp")
@@ -13987,19 +16535,52 @@ class MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse(dict):
         :param str source_database_name: Name of the database
         :param str started_on: Database migration start time
         """
-        pulumi.set(__self__, "active_backup_sets", active_backup_sets)
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "full_backup_set_info", full_backup_set_info)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_full_backup_restored", is_full_backup_restored)
-        pulumi.set(__self__, "last_restored_backup_set_info", last_restored_backup_set_info)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "source_database_name", source_database_name)
-        pulumi.set(__self__, "started_on", started_on)
+        MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_backup_sets=active_backup_sets,
+            container_name=container_name,
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            exceptions_and_warnings=exceptions_and_warnings,
+            full_backup_set_info=full_backup_set_info,
+            id=id,
+            is_full_backup_restored=is_full_backup_restored,
+            last_restored_backup_set_info=last_restored_backup_set_info,
+            migration_state=migration_state,
+            result_type=result_type,
+            source_database_name=source_database_name,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_backup_sets: Sequence['outputs.BackupSetInfoResponse'],
+             container_name: str,
+             ended_on: str,
+             error_prefix: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             full_backup_set_info: 'outputs.BackupSetInfoResponse',
+             id: str,
+             is_full_backup_restored: bool,
+             last_restored_backup_set_info: 'outputs.BackupSetInfoResponse',
+             migration_state: str,
+             result_type: str,
+             source_database_name: str,
+             started_on: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("active_backup_sets", active_backup_sets)
+        _setter("container_name", container_name)
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("full_backup_set_info", full_backup_set_info)
+        _setter("id", id)
+        _setter("is_full_backup_restored", is_full_backup_restored)
+        _setter("last_restored_backup_set_info", last_restored_backup_set_info)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("source_database_name", source_database_name)
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="activeBackupSets")
@@ -14136,9 +16717,22 @@ class MigrateSqlServerSqlMISyncTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateSqlServerSqlMISyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ReportableExceptionResponse',
+             id: str,
+             result_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -14235,19 +16829,52 @@ class MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse(dict):
         :param str target_server_name: Target server name
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "database_count", database_count)
-        pulumi.set(__self__, "database_error_count", database_error_count)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_name", source_server_name)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_name", target_server_name)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_count=database_count,
+            database_error_count=database_error_count,
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_name=source_server_name,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            state=state,
+            target_server_brand_version=target_server_brand_version,
+            target_server_name=target_server_name,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_count: int,
+             database_error_count: int,
+             ended_on: str,
+             id: str,
+             result_type: str,
+             source_server_brand_version: str,
+             source_server_name: str,
+             source_server_version: str,
+             started_on: str,
+             state: str,
+             target_server_brand_version: str,
+             target_server_name: str,
+             target_server_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_count", database_count)
+        _setter("database_error_count", database_error_count)
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_name", source_server_name)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_name", target_server_name)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="databaseCount")
@@ -14402,17 +17029,40 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
         :param str created_on: DateTime in UTC when the task was created
         :param 'MigrateSqlServerSqlMISyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS')
+        MigrateSqlServerSqlMISyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            created_on=created_on,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             created_on: Optional[str] = None,
+             input: Optional['outputs.MigrateSqlServerSqlMISyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -14548,24 +17198,53 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
         :param Sequence[str] selected_logins: Logins to migrate.
         :param str started_on: Date and time relative to UTC when the migration was started on
         """
-        pulumi.set(__self__, "backup_blob_share", backup_blob_share)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlMITaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_blob_share=backup_blob_share,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            aad_domain_name=aad_domain_name,
+            backup_file_share=backup_file_share,
+            backup_mode=backup_mode,
+            encrypted_key_for_secure_fields=encrypted_key_for_secure_fields,
+            selected_agent_jobs=selected_agent_jobs,
+            selected_logins=selected_logins,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_blob_share: 'outputs.BlobShareResponse',
+             selected_databases: Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse'],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             aad_domain_name: Optional[str] = None,
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             backup_mode: Optional[str] = None,
+             encrypted_key_for_secure_fields: Optional[str] = None,
+             selected_agent_jobs: Optional[Sequence[str]] = None,
+             selected_logins: Optional[Sequence[str]] = None,
+             started_on: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backup_blob_share", backup_blob_share)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if aad_domain_name is not None:
-            pulumi.set(__self__, "aad_domain_name", aad_domain_name)
+            _setter("aad_domain_name", aad_domain_name)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
         if backup_mode is not None:
-            pulumi.set(__self__, "backup_mode", backup_mode)
+            _setter("backup_mode", backup_mode)
         if encrypted_key_for_secure_fields is not None:
-            pulumi.set(__self__, "encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
+            _setter("encrypted_key_for_secure_fields", encrypted_key_for_secure_fields)
         if selected_agent_jobs is not None:
-            pulumi.set(__self__, "selected_agent_jobs", selected_agent_jobs)
+            _setter("selected_agent_jobs", selected_agent_jobs)
         if selected_logins is not None:
-            pulumi.set(__self__, "selected_logins", selected_logins)
+            _setter("selected_logins", selected_logins)
         if started_on is not None:
-            pulumi.set(__self__, "started_on", started_on)
+            _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="backupBlobShare")
@@ -14705,15 +17384,40 @@ class MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse(dict):
         :param str started_on: Migration start time
         :param str state: Current state of migration
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_type", 'AgentJobLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
+        MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            is_enabled=is_enabled,
+            message=message,
+            name=name,
+            result_type=result_type,
+            started_on=started_on,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             is_enabled: bool,
+             message: str,
+             name: str,
+             result_type: str,
+             started_on: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("is_enabled", is_enabled)
+        _setter("message", message)
+        _setter("name", name)
+        _setter("result_type", 'AgentJobLevelOutput')
+        _setter("started_on", started_on)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -14842,16 +17546,43 @@ class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse(dict):
         :param str started_on: Migration start time
         :param str state: Current state of migration
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "size_mb", size_mb)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
+        MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            message=message,
+            result_type=result_type,
+            size_mb=size_mb,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             ended_on: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             message: str,
+             result_type: str,
+             size_mb: float,
+             stage: str,
+             started_on: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("size_mb", size_mb)
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -14964,9 +17695,22 @@ class MigrateSqlServerSqlMITaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateSqlServerSqlMITaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: 'outputs.ReportableExceptionResponse',
+             id: str,
+             result_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -15043,15 +17787,40 @@ class MigrateSqlServerSqlMITaskOutputLoginLevelResponse(dict):
         :param str started_on: Login migration start time
         :param str state: Current state of login
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "login_name", login_name)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'LoginLevelOutput')
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
+        MigrateSqlServerSqlMITaskOutputLoginLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            login_name=login_name,
+            message=message,
+            result_type=result_type,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             login_name: str,
+             message: str,
+             result_type: str,
+             stage: str,
+             started_on: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("login_name", login_name)
+        _setter("message", message)
+        _setter("result_type", 'LoginLevelOutput')
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -15204,23 +17973,64 @@ class MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(dict):
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "agent_jobs", agent_jobs)
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "logins", logins)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "orphaned_users_info", orphaned_users_info)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "server_role_results", server_role_results)
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSqlServerSqlMITaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_jobs=agent_jobs,
+            databases=databases,
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            logins=logins,
+            message=message,
+            orphaned_users_info=orphaned_users_info,
+            result_type=result_type,
+            server_role_results=server_role_results,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            state=state,
+            status=status,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_jobs: Mapping[str, str],
+             databases: Mapping[str, str],
+             ended_on: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             logins: Mapping[str, str],
+             message: str,
+             orphaned_users_info: Sequence['outputs.OrphanedUserInfoResponse'],
+             result_type: str,
+             server_role_results: Mapping[str, 'outputs.StartMigrationScenarioServerRoleResultResponse'],
+             source_server_brand_version: str,
+             source_server_version: str,
+             started_on: str,
+             state: str,
+             status: str,
+             target_server_brand_version: str,
+             target_server_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_jobs", agent_jobs)
+        _setter("databases", databases)
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("logins", logins)
+        _setter("message", message)
+        _setter("orphaned_users_info", orphaned_users_info)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("server_role_results", server_role_results)
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status", status)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="agentJobs")
@@ -15419,23 +18229,52 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
         :param str parent_task_id: parent task id
         :param str task_id: task id
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI')
+        MigrateSqlServerSqlMITaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            created_on=created_on,
+            input=input,
+            is_cloneable=is_cloneable,
+            parent_task_id=parent_task_id,
+            task_id=task_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             created_on: Optional[str] = None,
+             input: Optional['outputs.MigrateSqlServerSqlMITaskInputResponse'] = None,
+             is_cloneable: Optional[bool] = None,
+             parent_task_id: Optional[str] = None,
+             task_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.SqlServer.AzureSqlDbMI')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if is_cloneable is not None:
-            pulumi.set(__self__, "is_cloneable", is_cloneable)
+            _setter("is_cloneable", is_cloneable)
         if parent_task_id is not None:
-            pulumi.set(__self__, "parent_task_id", parent_task_id)
+            _setter("parent_task_id", parent_task_id)
         if task_id is not None:
-            pulumi.set(__self__, "task_id", task_id)
+            _setter("task_id", task_id)
 
     @property
     @pulumi.getter
@@ -15563,9 +18402,22 @@ class MigrateSsisTaskInputResponse(dict):
         :param 'SsisMigrationInfoResponse' ssis_migration_info: SSIS package migration information.
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "ssis_migration_info", ssis_migration_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSsisTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            ssis_migration_info=ssis_migration_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             ssis_migration_info: 'outputs.SsisMigrationInfoResponse',
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_connection_info", source_connection_info)
+        _setter("ssis_migration_info", ssis_migration_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -15653,18 +18505,49 @@ class MigrateSsisTaskOutputMigrationLevelResponse(dict):
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSsisTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            message=message,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            stage=stage,
+            started_on=started_on,
+            status=status,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             message: str,
+             result_type: str,
+             source_server_brand_version: str,
+             source_server_version: str,
+             stage: str,
+             started_on: str,
+             status: str,
+             target_server_brand_version: str,
+             target_server_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -15817,16 +18700,43 @@ class MigrateSsisTaskOutputProjectLevelResponse(dict):
         :param str started_on: Migration start time
         :param str state: Current state of migration
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "folder_name", folder_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "result_type", 'SsisProjectLevelOutput')
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
+        MigrateSsisTaskOutputProjectLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            folder_name=folder_name,
+            id=id,
+            message=message,
+            project_name=project_name,
+            result_type=result_type,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             folder_name: str,
+             id: str,
+             message: str,
+             project_name: str,
+             result_type: str,
+             stage: str,
+             started_on: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("folder_name", folder_name)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("project_name", project_name)
+        _setter("result_type", 'SsisProjectLevelOutput')
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -15953,15 +18863,36 @@ class MigrateSsisTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSsisTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.Ssis')
+        MigrateSsisTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence[Any],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateSsisTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.Ssis')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -16053,9 +18984,20 @@ class MigrateSyncCompleteCommandInputResponse(dict):
         :param str database_name: Name of database
         :param str commit_time_stamp: Time stamp to complete
         """
-        pulumi.set(__self__, "database_name", database_name)
+        MigrateSyncCompleteCommandInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            commit_time_stamp=commit_time_stamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             commit_time_stamp: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
         if commit_time_stamp is not None:
-            pulumi.set(__self__, "commit_time_stamp", commit_time_stamp)
+            _setter("commit_time_stamp", commit_time_stamp)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -16087,8 +19029,19 @@ class MigrateSyncCompleteCommandOutputResponse(dict):
         :param Sequence['ReportableExceptionResponse'] errors: List of errors that happened during the command execution
         :param str id: Result identifier
         """
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "id", id)
+        MigrateSyncCompleteCommandOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            errors=errors,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             errors: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("errors", errors)
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -16148,14 +19101,33 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
         :param str command_id: Command id
         :param 'MigrateSyncCompleteCommandInputResponse' input: Command input
         """
-        pulumi.set(__self__, "command_type", 'Migrate.Sync.Complete.Database')
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
+        MigrateSyncCompleteCommandPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command_type=command_type,
+            errors=errors,
+            output=output,
+            state=state,
+            command_id=command_id,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command_type: str,
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: 'outputs.MigrateSyncCompleteCommandOutputResponse',
+             state: str,
+             command_id: Optional[str] = None,
+             input: Optional['outputs.MigrateSyncCompleteCommandInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("command_type", 'Migrate.Sync.Complete.Database')
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
         if command_id is not None:
-            pulumi.set(__self__, "command_id", command_id)
+            _setter("command_id", command_id)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="commandType")
@@ -16239,8 +19211,19 @@ class MigrationEligibilityInfoResponse(dict):
         :param bool is_eligible_for_migration: Whether object is eligible for migration or not.
         :param Sequence[str] validation_messages: Information about eligibility failure for the server object.
         """
-        pulumi.set(__self__, "is_eligible_for_migration", is_eligible_for_migration)
-        pulumi.set(__self__, "validation_messages", validation_messages)
+        MigrationEligibilityInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_eligible_for_migration=is_eligible_for_migration,
+            validation_messages=validation_messages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_eligible_for_migration: bool,
+             validation_messages: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_eligible_for_migration", is_eligible_for_migration)
+        _setter("validation_messages", validation_messages)
 
     @property
     @pulumi.getter(name="isEligibleForMigration")
@@ -16289,10 +19272,21 @@ class MigrationReportResultResponse(dict):
         :param str id: Migration validation result identifier
         :param str report_url: The url of the report.
         """
+        MigrationReportResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            report_url=report_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             report_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if report_url is not None:
-            pulumi.set(__self__, "report_url", report_url)
+            _setter("report_url", report_url)
 
     @property
     @pulumi.getter
@@ -16359,13 +19353,34 @@ class MigrationValidationDatabaseSummaryResultResponse(dict):
         :param str status: Current status of validation at the database level
         :param str target_database_name: Name of the target database
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "migration_id", migration_id)
-        pulumi.set(__self__, "source_database_name", source_database_name)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "target_database_name", target_database_name)
+        MigrationValidationDatabaseSummaryResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            id=id,
+            migration_id=migration_id,
+            source_database_name=source_database_name,
+            started_on=started_on,
+            status=status,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: str,
+             id: str,
+             migration_id: str,
+             source_database_name: str,
+             started_on: str,
+             status: str,
+             target_database_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("migration_id", migration_id)
+        _setter("source_database_name", source_database_name)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -16460,12 +19475,25 @@ class MigrationValidationOptionsResponse(dict):
         :param bool enable_query_analysis_validation: Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
         :param bool enable_schema_validation: Allows to compare the schema information between source and target.
         """
+        MigrationValidationOptionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_data_integrity_validation=enable_data_integrity_validation,
+            enable_query_analysis_validation=enable_query_analysis_validation,
+            enable_schema_validation=enable_schema_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_data_integrity_validation: Optional[bool] = None,
+             enable_query_analysis_validation: Optional[bool] = None,
+             enable_schema_validation: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_data_integrity_validation is not None:
-            pulumi.set(__self__, "enable_data_integrity_validation", enable_data_integrity_validation)
+            _setter("enable_data_integrity_validation", enable_data_integrity_validation)
         if enable_query_analysis_validation is not None:
-            pulumi.set(__self__, "enable_query_analysis_validation", enable_query_analysis_validation)
+            _setter("enable_query_analysis_validation", enable_query_analysis_validation)
         if enable_schema_validation is not None:
-            pulumi.set(__self__, "enable_schema_validation", enable_schema_validation)
+            _setter("enable_schema_validation", enable_schema_validation)
 
     @property
     @pulumi.getter(name="enableDataIntegrityValidation")
@@ -16528,11 +19556,26 @@ class MigrationValidationResultResponse(dict):
         :param str status: Current status of validation at the migration level. Status from the database validation result status will be aggregated here.
         :param Mapping[str, 'MigrationValidationDatabaseSummaryResultResponse'] summary_results: Validation summary results for each database
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "migration_id", migration_id)
-        pulumi.set(__self__, "status", status)
+        MigrationValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            migration_id=migration_id,
+            status=status,
+            summary_results=summary_results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             migration_id: str,
+             status: str,
+             summary_results: Optional[Mapping[str, 'outputs.MigrationValidationDatabaseSummaryResultResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("migration_id", migration_id)
+        _setter("status", status)
         if summary_results is not None:
-            pulumi.set(__self__, "summary_results", summary_results)
+            _setter("summary_results", summary_results)
 
     @property
     @pulumi.getter
@@ -16601,10 +19644,25 @@ class MongoDbClusterInfoResponse(dict):
         :param str type: The type of data source
         :param str version: The version of the data source in the form x.y.z (e.g. 3.6.7). Not used if Type is BlobContainer.
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "supports_sharding", supports_sharding)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "version", version)
+        MongoDbClusterInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            supports_sharding=supports_sharding,
+            type=type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Sequence['outputs.MongoDbDatabaseInfoResponse'],
+             supports_sharding: bool,
+             type: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases", databases)
+        _setter("supports_sharding", supports_sharding)
+        _setter("type", type)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -16709,20 +19767,51 @@ class MongoDbCollectionInfoResponse(dict):
         :param 'MongoDbShardKeyInfoResponse' shard_key: The shard key on the collection, or null if the collection is not sharded
         :param str view_of: The name of the collection that this is a view of, if IsView is true
         """
-        pulumi.set(__self__, "average_document_size", average_document_size)
-        pulumi.set(__self__, "data_size", data_size)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "document_count", document_count)
-        pulumi.set(__self__, "is_capped", is_capped)
-        pulumi.set(__self__, "is_system_collection", is_system_collection)
-        pulumi.set(__self__, "is_view", is_view)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "qualified_name", qualified_name)
-        pulumi.set(__self__, "supports_sharding", supports_sharding)
+        MongoDbCollectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            average_document_size=average_document_size,
+            data_size=data_size,
+            database_name=database_name,
+            document_count=document_count,
+            is_capped=is_capped,
+            is_system_collection=is_system_collection,
+            is_view=is_view,
+            name=name,
+            qualified_name=qualified_name,
+            supports_sharding=supports_sharding,
+            shard_key=shard_key,
+            view_of=view_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             average_document_size: float,
+             data_size: float,
+             database_name: str,
+             document_count: float,
+             is_capped: bool,
+             is_system_collection: bool,
+             is_view: bool,
+             name: str,
+             qualified_name: str,
+             supports_sharding: bool,
+             shard_key: Optional['outputs.MongoDbShardKeyInfoResponse'] = None,
+             view_of: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("average_document_size", average_document_size)
+        _setter("data_size", data_size)
+        _setter("database_name", database_name)
+        _setter("document_count", document_count)
+        _setter("is_capped", is_capped)
+        _setter("is_system_collection", is_system_collection)
+        _setter("is_view", is_view)
+        _setter("name", name)
+        _setter("qualified_name", qualified_name)
+        _setter("supports_sharding", supports_sharding)
         if shard_key is not None:
-            pulumi.set(__self__, "shard_key", shard_key)
+            _setter("shard_key", shard_key)
         if view_of is not None:
-            pulumi.set(__self__, "view_of", view_of)
+            _setter("view_of", view_of)
 
     @property
     @pulumi.getter(name="averageDocumentSize")
@@ -16895,24 +19984,59 @@ class MongoDbCollectionProgressResponse(dict):
         :param str name: The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
         :param str qualified_name: The qualified name of the progress object. For a collection, this is the database-qualified name. For a database, this is the database name. For the overall migration, this is null.
         """
-        pulumi.set(__self__, "bytes_copied", bytes_copied)
-        pulumi.set(__self__, "documents_copied", documents_copied)
-        pulumi.set(__self__, "elapsed_time", elapsed_time)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "events_pending", events_pending)
-        pulumi.set(__self__, "events_replayed", events_replayed)
-        pulumi.set(__self__, "result_type", 'Collection')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "total_bytes", total_bytes)
-        pulumi.set(__self__, "total_documents", total_documents)
+        MongoDbCollectionProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bytes_copied=bytes_copied,
+            documents_copied=documents_copied,
+            elapsed_time=elapsed_time,
+            errors=errors,
+            events_pending=events_pending,
+            events_replayed=events_replayed,
+            result_type=result_type,
+            state=state,
+            total_bytes=total_bytes,
+            total_documents=total_documents,
+            last_event_time=last_event_time,
+            last_replay_time=last_replay_time,
+            name=name,
+            qualified_name=qualified_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bytes_copied: float,
+             documents_copied: float,
+             elapsed_time: str,
+             errors: Mapping[str, 'outputs.MongoDbErrorResponse'],
+             events_pending: float,
+             events_replayed: float,
+             result_type: str,
+             state: str,
+             total_bytes: float,
+             total_documents: float,
+             last_event_time: Optional[str] = None,
+             last_replay_time: Optional[str] = None,
+             name: Optional[str] = None,
+             qualified_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bytes_copied", bytes_copied)
+        _setter("documents_copied", documents_copied)
+        _setter("elapsed_time", elapsed_time)
+        _setter("errors", errors)
+        _setter("events_pending", events_pending)
+        _setter("events_replayed", events_replayed)
+        _setter("result_type", 'Collection')
+        _setter("state", state)
+        _setter("total_bytes", total_bytes)
+        _setter("total_documents", total_documents)
         if last_event_time is not None:
-            pulumi.set(__self__, "last_event_time", last_event_time)
+            _setter("last_event_time", last_event_time)
         if last_replay_time is not None:
-            pulumi.set(__self__, "last_replay_time", last_replay_time)
+            _setter("last_replay_time", last_replay_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
+            _setter("qualified_name", qualified_name)
 
     @property
     @pulumi.getter(name="bytesCopied")
@@ -17061,12 +20185,25 @@ class MongoDbCollectionSettingsResponse(dict):
         :param 'MongoDbShardKeySettingResponse' shard_key: Describes a MongoDB shard key
         :param int target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
         """
+        MongoDbCollectionSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            can_delete=can_delete,
+            shard_key=shard_key,
+            target_rus=target_rus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             can_delete: Optional[bool] = None,
+             shard_key: Optional['outputs.MongoDbShardKeySettingResponse'] = None,
+             target_rus: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if can_delete is not None:
-            pulumi.set(__self__, "can_delete", can_delete)
+            _setter("can_delete", can_delete)
         if shard_key is not None:
-            pulumi.set(__self__, "shard_key", shard_key)
+            _setter("shard_key", shard_key)
         if target_rus is not None:
-            pulumi.set(__self__, "target_rus", target_rus)
+            _setter("target_rus", target_rus)
 
     @property
     @pulumi.getter(name="canDelete")
@@ -17165,34 +20302,69 @@ class MongoDbConnectionInfoResponse(dict):
         :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "type", 'MongoDbConnectionInfo')
+        MongoDbConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            type=type,
+            additional_settings=additional_settings,
+            authentication=authentication,
+            data_source=data_source,
+            encrypt_connection=encrypt_connection,
+            enforce_ssl=enforce_ssl,
+            password=password,
+            port=port,
+            server_brand_version=server_brand_version,
+            server_name=server_name,
+            server_version=server_version,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: str,
+             type: str,
+             additional_settings: Optional[str] = None,
+             authentication: Optional[str] = None,
+             data_source: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             enforce_ssl: Optional[bool] = None,
+             password: Optional[str] = None,
+             port: Optional[int] = None,
+             server_brand_version: Optional[str] = None,
+             server_name: Optional[str] = None,
+             server_version: Optional[str] = None,
+             trust_server_certificate: Optional[bool] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("type", 'MongoDbConnectionInfo')
         if additional_settings is not None:
-            pulumi.set(__self__, "additional_settings", additional_settings)
+            _setter("additional_settings", additional_settings)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if enforce_ssl is not None:
-            pulumi.set(__self__, "enforce_ssl", enforce_ssl)
+            _setter("enforce_ssl", enforce_ssl)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if server_brand_version is not None:
-            pulumi.set(__self__, "server_brand_version", server_brand_version)
+            _setter("server_brand_version", server_brand_version)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -17353,13 +20525,34 @@ class MongoDbDatabaseInfoResponse(dict):
         :param str qualified_name: The qualified name of the database or collection. For a collection, this is the database-qualified name.
         :param bool supports_sharding: Whether the database has sharding enabled. Note that the migration task will enable sharding on the target if necessary.
         """
-        pulumi.set(__self__, "average_document_size", average_document_size)
-        pulumi.set(__self__, "collections", collections)
-        pulumi.set(__self__, "data_size", data_size)
-        pulumi.set(__self__, "document_count", document_count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "qualified_name", qualified_name)
-        pulumi.set(__self__, "supports_sharding", supports_sharding)
+        MongoDbDatabaseInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            average_document_size=average_document_size,
+            collections=collections,
+            data_size=data_size,
+            document_count=document_count,
+            name=name,
+            qualified_name=qualified_name,
+            supports_sharding=supports_sharding,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             average_document_size: float,
+             collections: Sequence['outputs.MongoDbCollectionInfoResponse'],
+             data_size: float,
+             document_count: float,
+             name: str,
+             qualified_name: str,
+             supports_sharding: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("average_document_size", average_document_size)
+        _setter("collections", collections)
+        _setter("data_size", data_size)
+        _setter("document_count", document_count)
+        _setter("name", name)
+        _setter("qualified_name", qualified_name)
+        _setter("supports_sharding", supports_sharding)
 
     @property
     @pulumi.getter(name="averageDocumentSize")
@@ -17494,26 +20687,63 @@ class MongoDbDatabaseProgressResponse(dict):
         :param str name: The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
         :param str qualified_name: The qualified name of the progress object. For a collection, this is the database-qualified name. For a database, this is the database name. For the overall migration, this is null.
         """
-        pulumi.set(__self__, "bytes_copied", bytes_copied)
-        pulumi.set(__self__, "documents_copied", documents_copied)
-        pulumi.set(__self__, "elapsed_time", elapsed_time)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "events_pending", events_pending)
-        pulumi.set(__self__, "events_replayed", events_replayed)
-        pulumi.set(__self__, "result_type", 'Database')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "total_bytes", total_bytes)
-        pulumi.set(__self__, "total_documents", total_documents)
+        MongoDbDatabaseProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bytes_copied=bytes_copied,
+            documents_copied=documents_copied,
+            elapsed_time=elapsed_time,
+            errors=errors,
+            events_pending=events_pending,
+            events_replayed=events_replayed,
+            result_type=result_type,
+            state=state,
+            total_bytes=total_bytes,
+            total_documents=total_documents,
+            collections=collections,
+            last_event_time=last_event_time,
+            last_replay_time=last_replay_time,
+            name=name,
+            qualified_name=qualified_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bytes_copied: float,
+             documents_copied: float,
+             elapsed_time: str,
+             errors: Mapping[str, 'outputs.MongoDbErrorResponse'],
+             events_pending: float,
+             events_replayed: float,
+             result_type: str,
+             state: str,
+             total_bytes: float,
+             total_documents: float,
+             collections: Optional[Mapping[str, 'outputs.MongoDbCollectionProgressResponse']] = None,
+             last_event_time: Optional[str] = None,
+             last_replay_time: Optional[str] = None,
+             name: Optional[str] = None,
+             qualified_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bytes_copied", bytes_copied)
+        _setter("documents_copied", documents_copied)
+        _setter("elapsed_time", elapsed_time)
+        _setter("errors", errors)
+        _setter("events_pending", events_pending)
+        _setter("events_replayed", events_replayed)
+        _setter("result_type", 'Database')
+        _setter("state", state)
+        _setter("total_bytes", total_bytes)
+        _setter("total_documents", total_documents)
         if collections is not None:
-            pulumi.set(__self__, "collections", collections)
+            _setter("collections", collections)
         if last_event_time is not None:
-            pulumi.set(__self__, "last_event_time", last_event_time)
+            _setter("last_event_time", last_event_time)
         if last_replay_time is not None:
-            pulumi.set(__self__, "last_replay_time", last_replay_time)
+            _setter("last_replay_time", last_replay_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
+            _setter("qualified_name", qualified_name)
 
     @property
     @pulumi.getter(name="bytesCopied")
@@ -17664,9 +20894,20 @@ class MongoDbDatabaseSettingsResponse(dict):
         :param Mapping[str, 'MongoDbCollectionSettingsResponse'] collections: The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
         :param int target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
         """
-        pulumi.set(__self__, "collections", collections)
+        MongoDbDatabaseSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collections=collections,
+            target_rus=target_rus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collections: Mapping[str, 'outputs.MongoDbCollectionSettingsResponse'],
+             target_rus: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("collections", collections)
         if target_rus is not None:
-            pulumi.set(__self__, "target_rus", target_rus)
+            _setter("target_rus", target_rus)
 
     @property
     @pulumi.getter
@@ -17702,14 +20943,29 @@ class MongoDbErrorResponse(dict):
         :param str message: The localized, human-readable message that describes the error or warning
         :param str type: The type of error or warning
         """
+        MongoDbErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            count=count,
+            message=message,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             count: Optional[int] = None,
+             message: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -17820,26 +21076,63 @@ class MongoDbMigrationProgressResponse(dict):
         :param str name: The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
         :param str qualified_name: The qualified name of the progress object. For a collection, this is the database-qualified name. For a database, this is the database name. For the overall migration, this is null.
         """
-        pulumi.set(__self__, "bytes_copied", bytes_copied)
-        pulumi.set(__self__, "documents_copied", documents_copied)
-        pulumi.set(__self__, "elapsed_time", elapsed_time)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "events_pending", events_pending)
-        pulumi.set(__self__, "events_replayed", events_replayed)
-        pulumi.set(__self__, "result_type", 'Migration')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "total_bytes", total_bytes)
-        pulumi.set(__self__, "total_documents", total_documents)
+        MongoDbMigrationProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bytes_copied=bytes_copied,
+            documents_copied=documents_copied,
+            elapsed_time=elapsed_time,
+            errors=errors,
+            events_pending=events_pending,
+            events_replayed=events_replayed,
+            result_type=result_type,
+            state=state,
+            total_bytes=total_bytes,
+            total_documents=total_documents,
+            databases=databases,
+            last_event_time=last_event_time,
+            last_replay_time=last_replay_time,
+            name=name,
+            qualified_name=qualified_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bytes_copied: float,
+             documents_copied: float,
+             elapsed_time: str,
+             errors: Mapping[str, 'outputs.MongoDbErrorResponse'],
+             events_pending: float,
+             events_replayed: float,
+             result_type: str,
+             state: str,
+             total_bytes: float,
+             total_documents: float,
+             databases: Optional[Mapping[str, 'outputs.MongoDbDatabaseProgressResponse']] = None,
+             last_event_time: Optional[str] = None,
+             last_replay_time: Optional[str] = None,
+             name: Optional[str] = None,
+             qualified_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bytes_copied", bytes_copied)
+        _setter("documents_copied", documents_copied)
+        _setter("elapsed_time", elapsed_time)
+        _setter("errors", errors)
+        _setter("events_pending", events_pending)
+        _setter("events_replayed", events_replayed)
+        _setter("result_type", 'Migration')
+        _setter("state", state)
+        _setter("total_bytes", total_bytes)
+        _setter("total_documents", total_documents)
         if databases is not None:
-            pulumi.set(__self__, "databases", databases)
+            _setter("databases", databases)
         if last_event_time is not None:
-            pulumi.set(__self__, "last_event_time", last_event_time)
+            _setter("last_event_time", last_event_time)
         if last_replay_time is not None:
-            pulumi.set(__self__, "last_replay_time", last_replay_time)
+            _setter("last_replay_time", last_replay_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
+            _setter("qualified_name", qualified_name)
 
     @property
     @pulumi.getter(name="bytesCopied")
@@ -17998,15 +21291,34 @@ class MongoDbMigrationSettingsResponse(dict):
         :param str replication: Describes how changes will be replicated from the source to the target. The default is OneTime.
         :param 'MongoDbThrottlingSettingsResponse' throttling: Settings used to limit the resource usage of the migration
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "target", target)
+        MongoDbMigrationSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            source=source,
+            target=target,
+            boost_rus=boost_rus,
+            replication=replication,
+            throttling=throttling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Mapping[str, 'outputs.MongoDbDatabaseSettingsResponse'],
+             source: 'outputs.MongoDbConnectionInfoResponse',
+             target: 'outputs.MongoDbConnectionInfoResponse',
+             boost_rus: Optional[int] = None,
+             replication: Optional[str] = None,
+             throttling: Optional['outputs.MongoDbThrottlingSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("databases", databases)
+        _setter("source", source)
+        _setter("target", target)
         if boost_rus is not None:
-            pulumi.set(__self__, "boost_rus", boost_rus)
+            _setter("boost_rus", boost_rus)
         if replication is not None:
-            pulumi.set(__self__, "replication", replication)
+            _setter("replication", replication)
         if throttling is not None:
-            pulumi.set(__self__, "throttling", throttling)
+            _setter("throttling", throttling)
 
     @property
     @pulumi.getter
@@ -18070,8 +21382,19 @@ class MongoDbShardKeyFieldResponse(dict):
         :param str name: The name of the field
         :param str order: The field ordering
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "order", order)
+        MongoDbShardKeyFieldResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             order: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("order", order)
 
     @property
     @pulumi.getter
@@ -18120,8 +21443,19 @@ class MongoDbShardKeyInfoResponse(dict):
         :param Sequence['MongoDbShardKeyFieldResponse'] fields: The fields within the shard key
         :param bool is_unique: Whether the shard key is unique
         """
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "is_unique", is_unique)
+        MongoDbShardKeyInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fields=fields,
+            is_unique=is_unique,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fields: Sequence['outputs.MongoDbShardKeyFieldResponse'],
+             is_unique: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fields", fields)
+        _setter("is_unique", is_unique)
 
     @property
     @pulumi.getter
@@ -18170,9 +21504,20 @@ class MongoDbShardKeySettingResponse(dict):
         :param Sequence['MongoDbShardKeyFieldResponse'] fields: The fields within the shard key
         :param bool is_unique: Whether the shard key is unique
         """
-        pulumi.set(__self__, "fields", fields)
+        MongoDbShardKeySettingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fields=fields,
+            is_unique=is_unique,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fields: Sequence['outputs.MongoDbShardKeyFieldResponse'],
+             is_unique: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fields", fields)
         if is_unique is not None:
-            pulumi.set(__self__, "is_unique", is_unique)
+            _setter("is_unique", is_unique)
 
     @property
     @pulumi.getter
@@ -18227,12 +21572,25 @@ class MongoDbThrottlingSettingsResponse(dict):
         :param int min_free_cpu: The percentage of CPU time that the migrator will try to avoid using, from 0 to 100
         :param int min_free_memory_mb: The number of megabytes of RAM that the migrator will try to avoid using
         """
+        MongoDbThrottlingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_parallelism=max_parallelism,
+            min_free_cpu=min_free_cpu,
+            min_free_memory_mb=min_free_memory_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_parallelism: Optional[int] = None,
+             min_free_cpu: Optional[int] = None,
+             min_free_memory_mb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_parallelism is not None:
-            pulumi.set(__self__, "max_parallelism", max_parallelism)
+            _setter("max_parallelism", max_parallelism)
         if min_free_cpu is not None:
-            pulumi.set(__self__, "min_free_cpu", min_free_cpu)
+            _setter("min_free_cpu", min_free_cpu)
         if min_free_memory_mb is not None:
-            pulumi.set(__self__, "min_free_memory_mb", min_free_memory_mb)
+            _setter("min_free_memory_mb", min_free_memory_mb)
 
     @property
     @pulumi.getter(name="maxParallelism")
@@ -18312,23 +21670,48 @@ class MySqlConnectionInfoResponse(dict):
         :param str password: Password credential.
         :param str user_name: User name
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "type", 'MySqlConnectionInfo')
+        MySqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            server_name=server_name,
+            type=type,
+            additional_settings=additional_settings,
+            authentication=authentication,
+            data_source=data_source,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             server_name: str,
+             type: str,
+             additional_settings: Optional[str] = None,
+             authentication: Optional[str] = None,
+             data_source: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("server_name", server_name)
+        _setter("type", 'MySqlConnectionInfo')
         if additional_settings is not None:
-            pulumi.set(__self__, "additional_settings", additional_settings)
+            _setter("additional_settings", additional_settings)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -18427,15 +21810,40 @@ class NodeMonitoringDataResponse(dict):
         :param float received_bytes: Received bytes on the integration runtime node.
         :param float sent_bytes: Sent bytes on the integration runtime node.
         """
-        pulumi.set(__self__, "additional_properties", additional_properties)
-        pulumi.set(__self__, "available_memory_in_mb", available_memory_in_mb)
-        pulumi.set(__self__, "concurrent_jobs_limit", concurrent_jobs_limit)
-        pulumi.set(__self__, "concurrent_jobs_running", concurrent_jobs_running)
-        pulumi.set(__self__, "cpu_utilization", cpu_utilization)
-        pulumi.set(__self__, "max_concurrent_jobs", max_concurrent_jobs)
-        pulumi.set(__self__, "node_name", node_name)
-        pulumi.set(__self__, "received_bytes", received_bytes)
-        pulumi.set(__self__, "sent_bytes", sent_bytes)
+        NodeMonitoringDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            available_memory_in_mb=available_memory_in_mb,
+            concurrent_jobs_limit=concurrent_jobs_limit,
+            concurrent_jobs_running=concurrent_jobs_running,
+            cpu_utilization=cpu_utilization,
+            max_concurrent_jobs=max_concurrent_jobs,
+            node_name=node_name,
+            received_bytes=received_bytes,
+            sent_bytes=sent_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Mapping[str, Any],
+             available_memory_in_mb: int,
+             concurrent_jobs_limit: int,
+             concurrent_jobs_running: int,
+             cpu_utilization: int,
+             max_concurrent_jobs: int,
+             node_name: str,
+             received_bytes: float,
+             sent_bytes: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("additional_properties", additional_properties)
+        _setter("available_memory_in_mb", available_memory_in_mb)
+        _setter("concurrent_jobs_limit", concurrent_jobs_limit)
+        _setter("concurrent_jobs_running", concurrent_jobs_running)
+        _setter("cpu_utilization", cpu_utilization)
+        _setter("max_concurrent_jobs", max_concurrent_jobs)
+        _setter("node_name", node_name)
+        _setter("received_bytes", received_bytes)
+        _setter("sent_bytes", sent_bytes)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -18525,12 +21933,25 @@ class ODataErrorResponse(dict):
         :param Sequence['ODataErrorResponse'] details: Inner errors that caused this error
         :param str message: The human-readable description of the error
         """
+        ODataErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             details: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -18606,20 +22027,43 @@ class OracleConnectionInfoResponse(dict):
         :param str server_version: server version
         :param str user_name: User name
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "type", 'OracleConnectionInfo')
+        OracleConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            type=type,
+            authentication=authentication,
+            password=password,
+            port=port,
+            server_name=server_name,
+            server_version=server_version,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: str,
+             type: str,
+             authentication: Optional[str] = None,
+             password: Optional[str] = None,
+             port: Optional[int] = None,
+             server_name: Optional[str] = None,
+             server_version: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source", data_source)
+        _setter("type", 'OracleConnectionInfo')
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -18717,10 +22161,21 @@ class OrphanedUserInfoResponse(dict):
         :param str database_name: Parent database of the user
         :param str name: Name of the orphaned user
         """
+        OrphanedUserInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -18808,33 +22263,66 @@ class PostgreSqlConnectionInfoResponse(dict):
         :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "type", 'PostgreSqlConnectionInfo')
+        PostgreSqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            server_name=server_name,
+            type=type,
+            additional_settings=additional_settings,
+            authentication=authentication,
+            data_source=data_source,
+            database_name=database_name,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            server_brand_version=server_brand_version,
+            server_version=server_version,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             server_name: str,
+             type: str,
+             additional_settings: Optional[str] = None,
+             authentication: Optional[str] = None,
+             data_source: Optional[str] = None,
+             database_name: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             server_brand_version: Optional[str] = None,
+             server_version: Optional[str] = None,
+             trust_server_certificate: Optional[bool] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("server_name", server_name)
+        _setter("type", 'PostgreSqlConnectionInfo')
         if additional_settings is not None:
-            pulumi.set(__self__, "additional_settings", additional_settings)
+            _setter("additional_settings", additional_settings)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if server_brand_version is not None:
-            pulumi.set(__self__, "server_brand_version", server_brand_version)
+            _setter("server_brand_version", server_brand_version)
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -18982,14 +22470,31 @@ class ProjectFilePropertiesResponse(dict):
         :param str file_path: Relative path of this file resource. This property can be set when creating or updating the file resource.
         :param str media_type: File content type. This property can be modified to reflect the file content type.
         """
-        pulumi.set(__self__, "last_modified", last_modified)
-        pulumi.set(__self__, "size", size)
+        ProjectFilePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_modified=last_modified,
+            size=size,
+            extension=extension,
+            file_path=file_path,
+            media_type=media_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_modified: str,
+             size: float,
+             extension: Optional[str] = None,
+             file_path: Optional[str] = None,
+             media_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last_modified", last_modified)
+        _setter("size", size)
         if extension is not None:
-            pulumi.set(__self__, "extension", extension)
+            _setter("extension", extension)
         if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
+            _setter("file_path", file_path)
         if media_type is not None:
-            pulumi.set(__self__, "media_type", media_type)
+            _setter("media_type", media_type)
 
     @property
     @pulumi.getter(name="lastModified")
@@ -19064,10 +22569,21 @@ class QueryAnalysisValidationResultResponse(dict):
         :param 'QueryExecutionResultResponse' query_results: List of queries executed and it's execution results in source and target
         :param 'ValidationErrorResponse' validation_errors: Errors that are part of the execution
         """
+        QueryAnalysisValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_results=query_results,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_results: Optional['outputs.QueryExecutionResultResponse'] = None,
+             validation_errors: Optional['outputs.ValidationErrorResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if query_results is not None:
-            pulumi.set(__self__, "query_results", query_results)
+            _setter("query_results", query_results)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="queryResults")
@@ -19126,14 +22642,29 @@ class QueryExecutionResultResponse(dict):
         :param float statements_in_batch: Total no. of statements in the batch
         :param 'ExecutionStatisticsResponse' target_result: Query analysis result from the target
         """
+        QueryExecutionResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_text=query_text,
+            source_result=source_result,
+            statements_in_batch=statements_in_batch,
+            target_result=target_result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_text: Optional[str] = None,
+             source_result: Optional['outputs.ExecutionStatisticsResponse'] = None,
+             statements_in_batch: Optional[float] = None,
+             target_result: Optional['outputs.ExecutionStatisticsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if query_text is not None:
-            pulumi.set(__self__, "query_text", query_text)
+            _setter("query_text", query_text)
         if source_result is not None:
-            pulumi.set(__self__, "source_result", source_result)
+            _setter("source_result", source_result)
         if statements_in_batch is not None:
-            pulumi.set(__self__, "statements_in_batch", statements_in_batch)
+            _setter("statements_in_batch", statements_in_batch)
         if target_result is not None:
-            pulumi.set(__self__, "target_result", target_result)
+            _setter("target_result", target_result)
 
     @property
     @pulumi.getter(name="queryText")
@@ -19214,18 +22745,37 @@ class ReportableExceptionResponse(dict):
         :param str message: Error message
         :param str stack_trace: Stack trace
         """
+        ReportableExceptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actionable_message=actionable_message,
+            file_path=file_path,
+            h_result=h_result,
+            line_number=line_number,
+            message=message,
+            stack_trace=stack_trace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actionable_message: Optional[str] = None,
+             file_path: Optional[str] = None,
+             h_result: Optional[int] = None,
+             line_number: Optional[str] = None,
+             message: Optional[str] = None,
+             stack_trace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actionable_message is not None:
-            pulumi.set(__self__, "actionable_message", actionable_message)
+            _setter("actionable_message", actionable_message)
         if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
+            _setter("file_path", file_path)
         if h_result is not None:
-            pulumi.set(__self__, "h_result", h_result)
+            _setter("h_result", h_result)
         if line_number is not None:
-            pulumi.set(__self__, "line_number", line_number)
+            _setter("line_number", line_number)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if stack_trace is not None:
-            pulumi.set(__self__, "stack_trace", stack_trace)
+            _setter("stack_trace", stack_trace)
 
     @property
     @pulumi.getter(name="actionableMessage")
@@ -19316,14 +22866,29 @@ class SchemaComparisonValidationResultResponse(dict):
         :param Mapping[str, float] target_database_object_count: Count of target database objects
         :param 'ValidationErrorResponse' validation_errors: List of errors that happened while performing schema compare validation
         """
+        SchemaComparisonValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_differences=schema_differences,
+            source_database_object_count=source_database_object_count,
+            target_database_object_count=target_database_object_count,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_differences: Optional['outputs.SchemaComparisonValidationResultTypeResponse'] = None,
+             source_database_object_count: Optional[Mapping[str, float]] = None,
+             target_database_object_count: Optional[Mapping[str, float]] = None,
+             validation_errors: Optional['outputs.ValidationErrorResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if schema_differences is not None:
-            pulumi.set(__self__, "schema_differences", schema_differences)
+            _setter("schema_differences", schema_differences)
         if source_database_object_count is not None:
-            pulumi.set(__self__, "source_database_object_count", source_database_object_count)
+            _setter("source_database_object_count", source_database_object_count)
         if target_database_object_count is not None:
-            pulumi.set(__self__, "target_database_object_count", target_database_object_count)
+            _setter("target_database_object_count", target_database_object_count)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="schemaDifferences")
@@ -19394,12 +22959,25 @@ class SchemaComparisonValidationResultTypeResponse(dict):
         :param str object_type: Type of the object that has the difference. e.g (Table/View/StoredProcedure)
         :param str update_action: Update action type with respect to target
         """
+        SchemaComparisonValidationResultTypeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_name=object_name,
+            object_type=object_type,
+            update_action=update_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_name: Optional[str] = None,
+             object_type: Optional[str] = None,
+             update_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if object_name is not None:
-            pulumi.set(__self__, "object_name", object_name)
+            _setter("object_name", object_name)
         if object_type is not None:
-            pulumi.set(__self__, "object_type", object_type)
+            _setter("object_type", object_type)
         if update_action is not None:
-            pulumi.set(__self__, "update_action", update_action)
+            _setter("update_action", update_action)
 
     @property
     @pulumi.getter(name="objectName")
@@ -19456,8 +23034,19 @@ class SelectedCertificateInputResponse(dict):
         :param str certificate_name: Name of certificate to be exported.
         :param str password: Password to use for encrypting the exported certificate.
         """
-        pulumi.set(__self__, "certificate_name", certificate_name)
-        pulumi.set(__self__, "password", password)
+        SelectedCertificateInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_name=certificate_name,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_name: str,
+             password: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_name", certificate_name)
+        _setter("password", password)
 
     @property
     @pulumi.getter(name="certificateName")
@@ -19524,12 +23113,31 @@ class ServerPropertiesResponse(dict):
         :param str server_platform: Name of the server platform
         :param str server_version: Version of the database server
         """
-        pulumi.set(__self__, "server_database_count", server_database_count)
-        pulumi.set(__self__, "server_edition", server_edition)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "server_operating_system_version", server_operating_system_version)
-        pulumi.set(__self__, "server_platform", server_platform)
-        pulumi.set(__self__, "server_version", server_version)
+        ServerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_database_count=server_database_count,
+            server_edition=server_edition,
+            server_name=server_name,
+            server_operating_system_version=server_operating_system_version,
+            server_platform=server_platform,
+            server_version=server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_database_count: int,
+             server_edition: str,
+             server_name: str,
+             server_operating_system_version: str,
+             server_platform: str,
+             server_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server_database_count", server_database_count)
+        _setter("server_edition", server_edition)
+        _setter("server_name", server_name)
+        _setter("server_operating_system_version", server_operating_system_version)
+        _setter("server_platform", server_platform)
+        _setter("server_version", server_version)
 
     @property
     @pulumi.getter(name="serverDatabaseCount")
@@ -19599,16 +23207,33 @@ class ServiceSkuResponse(dict):
         :param str size: The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
         :param str tier: The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
         """
+        ServiceSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            family=family,
+            name=name,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             name: Optional[str] = None,
+             size: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -19722,36 +23347,71 @@ class SqlConnectionInfoResponse(dict):
         :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "type", 'SqlConnectionInfo')
+        SqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            type=type,
+            additional_settings=additional_settings,
+            authentication=authentication,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            platform=platform,
+            port=port,
+            resource_id=resource_id,
+            server_brand_version=server_brand_version,
+            server_name=server_name,
+            server_version=server_version,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: str,
+             type: str,
+             additional_settings: Optional[str] = None,
+             authentication: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             platform: Optional[str] = None,
+             port: Optional[int] = None,
+             resource_id: Optional[str] = None,
+             server_brand_version: Optional[str] = None,
+             server_name: Optional[str] = None,
+             server_version: Optional[str] = None,
+             trust_server_certificate: Optional[bool] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source", data_source)
+        _setter("type", 'SqlConnectionInfo')
         if additional_settings is not None:
-            pulumi.set(__self__, "additional_settings", additional_settings)
+            _setter("additional_settings", additional_settings)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if server_brand_version is not None:
-            pulumi.set(__self__, "server_brand_version", server_brand_version)
+            _setter("server_brand_version", server_brand_version)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -19911,18 +23571,37 @@ class SqlConnectionInformationResponse(dict):
         :param bool trust_server_certificate: Whether to trust server certificate or not.
         :param str user_name: User name to connect to source SQL.
         """
+        SqlConnectionInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            data_source=data_source,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[str] = None,
+             data_source: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             trust_server_certificate: Optional[bool] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -20009,9 +23688,22 @@ class SqlDbMigrationStatusDetailsResponse(dict):
         :param str migration_state: Current State of Migration.
         :param Sequence[str] sql_data_copy_errors: Sql Data Copy errors, if any.
         """
-        pulumi.set(__self__, "list_of_copy_progress_details", list_of_copy_progress_details)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "sql_data_copy_errors", sql_data_copy_errors)
+        SqlDbMigrationStatusDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            list_of_copy_progress_details=list_of_copy_progress_details,
+            migration_state=migration_state,
+            sql_data_copy_errors=sql_data_copy_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             list_of_copy_progress_details: Sequence['outputs.CopyProgressDetailsResponse'],
+             migration_state: str,
+             sql_data_copy_errors: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("list_of_copy_progress_details", list_of_copy_progress_details)
+        _setter("migration_state", migration_state)
+        _setter("sql_data_copy_errors", sql_data_copy_errors)
 
     @property
     @pulumi.getter(name="listOfCopyProgressDetails")
@@ -20049,7 +23741,16 @@ class SqlDbOfflineConfigurationResponse(dict):
         Offline configuration
         :param bool offline: Offline migration
         """
-        pulumi.set(__self__, "offline", offline)
+        SqlDbOfflineConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offline=offline,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offline: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offline", offline)
 
     @property
     @pulumi.getter
@@ -20096,12 +23797,25 @@ class SsisMigrationInfoResponse(dict):
         :param str project_overwrite_option: The overwrite option for the SSIS project migration
         :param str ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
         """
+        SsisMigrationInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_overwrite_option=environment_overwrite_option,
+            project_overwrite_option=project_overwrite_option,
+            ssis_store_type=ssis_store_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_overwrite_option: Optional[str] = None,
+             project_overwrite_option: Optional[str] = None,
+             ssis_store_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if environment_overwrite_option is not None:
-            pulumi.set(__self__, "environment_overwrite_option", environment_overwrite_option)
+            _setter("environment_overwrite_option", environment_overwrite_option)
         if project_overwrite_option is not None:
-            pulumi.set(__self__, "project_overwrite_option", project_overwrite_option)
+            _setter("project_overwrite_option", project_overwrite_option)
         if ssis_store_type is not None:
-            pulumi.set(__self__, "ssis_store_type", ssis_store_type)
+            _setter("ssis_store_type", ssis_store_type)
 
     @property
     @pulumi.getter(name="environmentOverwriteOption")
@@ -20160,9 +23874,22 @@ class StartMigrationScenarioServerRoleResultResponse(dict):
         :param str name: Name of server role.
         :param str state: Current state of migration
         """
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "state", state)
+        StartMigrationScenarioServerRoleResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exceptions_and_warnings=exceptions_and_warnings,
+            name=name,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
+             name: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("name", name)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="exceptionsAndWarnings")
@@ -20225,9 +23952,22 @@ class SyncMigrationDatabaseErrorEventResponse(dict):
         :param str event_type_string: Event type.
         :param str timestamp_string: String value of timestamp.
         """
-        pulumi.set(__self__, "event_text", event_text)
-        pulumi.set(__self__, "event_type_string", event_type_string)
-        pulumi.set(__self__, "timestamp_string", timestamp_string)
+        SyncMigrationDatabaseErrorEventResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_text=event_text,
+            event_type_string=event_type_string,
+            timestamp_string=timestamp_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_text: str,
+             event_type_string: str,
+             timestamp_string: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_text", event_text)
+        _setter("event_type_string", event_type_string)
+        _setter("timestamp_string", timestamp_string)
 
     @property
     @pulumi.getter(name="eventText")
@@ -20290,18 +24030,37 @@ class SystemDataResponse(dict):
                  last_modified_at: Optional[str] = None,
                  last_modified_by: Optional[str] = None,
                  last_modified_by_type: Optional[str] = None):
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -20377,15 +24136,36 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ValidateSyncMigrationInputSqlServerTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.SqlDb.Sync')
+        ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ValidateSyncMigrationInputSqlServerTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ValidateSyncMigrationInputSqlServerTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ValidateMigrationInput.SqlServer.SqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -20493,13 +24273,32 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse(dict):
         :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         """
-        pulumi.set(__self__, "azure_app", azure_app)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_app=azure_app,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            storage_resource_id=storage_resource_id,
+            target_connection_info=target_connection_info,
+            backup_file_share=backup_file_share,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_app: 'outputs.AzureActiveDirectoryAppResponse',
+             selected_databases: Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse'],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             storage_resource_id: str,
+             target_connection_info: 'outputs.MiSqlConnectionInfoResponse',
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_app", azure_app)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("storage_resource_id", storage_resource_id)
+        _setter("target_connection_info", target_connection_info)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
 
     @property
     @pulumi.getter(name="azureApp")
@@ -20582,9 +24381,22 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse(dict):
         :param str name: Name of database
         :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -20654,15 +24466,36 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS')
+        ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -20774,16 +24607,37 @@ class ValidateMigrationInputSqlServerSqlMITaskInputResponse(dict):
         :param str backup_mode: Backup Mode to specify whether to use existing backup or create new backup.
         :param Sequence[str] selected_logins: Logins to migrate
         """
-        pulumi.set(__self__, "backup_blob_share", backup_blob_share)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ValidateMigrationInputSqlServerSqlMITaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_blob_share=backup_blob_share,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            backup_file_share=backup_file_share,
+            backup_mode=backup_mode,
+            selected_logins=selected_logins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_blob_share: 'outputs.BlobShareResponse',
+             selected_databases: Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse'],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             backup_mode: Optional[str] = None,
+             selected_logins: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backup_blob_share", backup_blob_share)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
         if backup_mode is not None:
-            pulumi.set(__self__, "backup_mode", backup_mode)
+            _setter("backup_mode", backup_mode)
         if selected_logins is not None:
-            pulumi.set(__self__, "selected_logins", selected_logins)
+            _setter("selected_logins", selected_logins)
 
     @property
     @pulumi.getter(name="backupBlobShare")
@@ -20894,15 +24748,38 @@ class ValidateMigrationInputSqlServerSqlMITaskOutputResponse(dict):
         :param Sequence['ReportableExceptionResponse'] restore_database_name_errors: Errors associated with the RestoreDatabaseName
         :param 'DatabaseBackupInfoResponse' database_backup_info: Information about backup files when existing backup mode is used.
         """
-        pulumi.set(__self__, "backup_folder_errors", backup_folder_errors)
-        pulumi.set(__self__, "backup_share_credentials_errors", backup_share_credentials_errors)
-        pulumi.set(__self__, "backup_storage_account_errors", backup_storage_account_errors)
-        pulumi.set(__self__, "existing_backup_errors", existing_backup_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "restore_database_name_errors", restore_database_name_errors)
+        ValidateMigrationInputSqlServerSqlMITaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_folder_errors=backup_folder_errors,
+            backup_share_credentials_errors=backup_share_credentials_errors,
+            backup_storage_account_errors=backup_storage_account_errors,
+            existing_backup_errors=existing_backup_errors,
+            id=id,
+            name=name,
+            restore_database_name_errors=restore_database_name_errors,
+            database_backup_info=database_backup_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_folder_errors: Sequence['outputs.ReportableExceptionResponse'],
+             backup_share_credentials_errors: Sequence['outputs.ReportableExceptionResponse'],
+             backup_storage_account_errors: Sequence['outputs.ReportableExceptionResponse'],
+             existing_backup_errors: Sequence['outputs.ReportableExceptionResponse'],
+             id: str,
+             name: str,
+             restore_database_name_errors: Sequence['outputs.ReportableExceptionResponse'],
+             database_backup_info: Optional['outputs.DatabaseBackupInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backup_folder_errors", backup_folder_errors)
+        _setter("backup_share_credentials_errors", backup_share_credentials_errors)
+        _setter("backup_storage_account_errors", backup_storage_account_errors)
+        _setter("existing_backup_errors", existing_backup_errors)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("restore_database_name_errors", restore_database_name_errors)
         if database_backup_info is not None:
-            pulumi.set(__self__, "database_backup_info", database_backup_info)
+            _setter("database_backup_info", database_backup_info)
 
     @property
     @pulumi.getter(name="backupFolderErrors")
@@ -21012,15 +24889,36 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ValidateMigrationInputSqlServerSqlMITaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI')
+        ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ValidateMigrationInputSqlServerSqlMITaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ValidateMigrationInputSqlServerSqlMITaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -21123,15 +25021,36 @@ class ValidateMongoDbTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MongoDbMigrationSettingsResponse' input: Describes how a MongoDB data migration should be performed
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Validate.MongoDb')
+        ValidateMongoDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.MongoDbMigrationProgressResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MongoDbMigrationSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Validate.MongoDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -21234,15 +25153,36 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse' input: Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Validate.Oracle.AzureDbPostgreSql.Sync')
+        ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Sequence[Any],
+             errors: Sequence['outputs.ODataErrorResponse'],
+             output: Sequence['outputs.ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse'],
+             state: str,
+             task_type: str,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Validate.Oracle.AzureDbPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -21330,7 +25270,16 @@ class ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse(dict):
         Output for task that validates migration input for Oracle to Azure Database for PostgreSQL for online migrations
         :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="validationErrors")
@@ -21377,9 +25326,22 @@ class ValidateSyncMigrationInputSqlServerTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source SQL server
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ValidateSyncMigrationInputSqlServerTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Sequence['outputs.MigrateSqlServerSqlDbSyncDatabaseInputResponse'],
+             source_connection_info: 'outputs.SqlConnectionInfoResponse',
+             target_connection_info: 'outputs.SqlConnectionInfoResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -21438,9 +25400,22 @@ class ValidateSyncMigrationInputSqlServerTaskOutputResponse(dict):
         :param str name: Name of database
         :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ValidateSyncMigrationInputSqlServerTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             validation_errors: Sequence['outputs.ReportableExceptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -21480,10 +25455,21 @@ class ValidationErrorResponse(dict):
         :param str severity: Severity of the error
         :param str text: Error Text
         """
+        ValidationErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            severity=severity,
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             severity: Optional[str] = None,
+             text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
 
     @property
     @pulumi.getter
@@ -21538,14 +25524,27 @@ class WaitStatisticsResponse(dict):
         :param float wait_time_ms: Total wait time in millisecond(s) 
         :param str wait_type: Type of the Wait
         """
+        WaitStatisticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            wait_count=wait_count,
+            wait_time_ms=wait_time_ms,
+            wait_type=wait_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             wait_count: Optional[float] = None,
+             wait_time_ms: Optional[float] = None,
+             wait_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if wait_count is not None:
-            pulumi.set(__self__, "wait_count", wait_count)
+            _setter("wait_count", wait_count)
         if wait_time_ms is None:
             wait_time_ms = 0
         if wait_time_ms is not None:
-            pulumi.set(__self__, "wait_time_ms", wait_time_ms)
+            _setter("wait_time_ms", wait_time_ms)
         if wait_type is not None:
-            pulumi.set(__self__, "wait_type", wait_type)
+            _setter("wait_type", wait_type)
 
     @property
     @pulumi.getter(name="waitCount")

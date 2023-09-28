@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -27,8 +27,17 @@ class EncryptionPropertiesArgs:
         The encryption settings for a configuration store.
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
         """
+        EncryptionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -53,10 +62,21 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] identity_client_id: The client id of the identity which will be used to access key vault.
         :param pulumi.Input[str] key_identifier: The URI of the key vault key used to encrypt data.
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_client_id=identity_client_id,
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_client_id: Optional[pulumi.Input[str]] = None,
+             key_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
+            _setter("identity_client_id", identity_client_id)
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="identityClientId")
@@ -91,8 +111,17 @@ class PrivateEndpointArgs:
         Private endpoint which a connection belongs to.
         :param pulumi.Input[str] id: The resource Id for private endpoint
         """
+        PrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -117,10 +146,21 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The private link service connection description.
         :param pulumi.Input[Union[str, 'ConnectionStatus']] status: The private link service connection status.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -157,10 +197,21 @@ class ResourceIdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -195,7 +246,16 @@ class SkuArgs:
         Describes a configuration store SKU.
         :param pulumi.Input[str] name: The SKU name of the configuration store.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter

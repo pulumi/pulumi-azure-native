@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,30 @@ class GatewayRouteConfigArgs:
         :param pulumi.Input['GatewayRouteConfigPropertiesArgs'] properties: API route config of the Spring Cloud Gateway
         :param pulumi.Input[str] route_config_name: The name of the Spring Cloud Gateway route config.
         """
-        pulumi.set(__self__, "gateway_name", gateway_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        GatewayRouteConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_name=gateway_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            properties=properties,
+            route_config_name=route_config_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             properties: Optional[pulumi.Input['GatewayRouteConfigPropertiesArgs']] = None,
+             route_config_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("gateway_name", gateway_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if route_config_name is not None:
-            pulumi.set(__self__, "route_config_name", route_config_name)
+            _setter("route_config_name", route_config_name)
 
     @property
     @pulumi.getter(name="gatewayName")
@@ -140,6 +157,10 @@ class GatewayRouteConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayRouteConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,6 +183,11 @@ class GatewayRouteConfig(pulumi.CustomResource):
             if gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_name'")
             __props__.__dict__["gateway_name"] = gateway_name
+            if properties is not None and not isinstance(properties, GatewayRouteConfigPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                GatewayRouteConfigPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

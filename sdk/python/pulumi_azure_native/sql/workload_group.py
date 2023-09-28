@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkloadGroupArgs', 'WorkloadGroup']
@@ -37,20 +37,47 @@ class WorkloadGroupArgs:
         :param pulumi.Input[int] query_execution_timeout: The workload group query execution timeout.
         :param pulumi.Input[str] workload_group_name: The name of the workload group.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "max_resource_percent", max_resource_percent)
-        pulumi.set(__self__, "min_resource_percent", min_resource_percent)
-        pulumi.set(__self__, "min_resource_percent_per_request", min_resource_percent_per_request)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        WorkloadGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            max_resource_percent=max_resource_percent,
+            min_resource_percent=min_resource_percent,
+            min_resource_percent_per_request=min_resource_percent_per_request,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            importance=importance,
+            max_resource_percent_per_request=max_resource_percent_per_request,
+            query_execution_timeout=query_execution_timeout,
+            workload_group_name=workload_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             max_resource_percent: pulumi.Input[int],
+             min_resource_percent: pulumi.Input[int],
+             min_resource_percent_per_request: pulumi.Input[float],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             importance: Optional[pulumi.Input[str]] = None,
+             max_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
+             query_execution_timeout: Optional[pulumi.Input[int]] = None,
+             workload_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("max_resource_percent", max_resource_percent)
+        _setter("min_resource_percent", min_resource_percent)
+        _setter("min_resource_percent_per_request", min_resource_percent_per_request)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if importance is not None:
-            pulumi.set(__self__, "importance", importance)
+            _setter("importance", importance)
         if max_resource_percent_per_request is not None:
-            pulumi.set(__self__, "max_resource_percent_per_request", max_resource_percent_per_request)
+            _setter("max_resource_percent_per_request", max_resource_percent_per_request)
         if query_execution_timeout is not None:
-            pulumi.set(__self__, "query_execution_timeout", query_execution_timeout)
+            _setter("query_execution_timeout", query_execution_timeout)
         if workload_group_name is not None:
-            pulumi.set(__self__, "workload_group_name", workload_group_name)
+            _setter("workload_group_name", workload_group_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -226,6 +253,10 @@ class WorkloadGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

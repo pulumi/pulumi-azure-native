@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -32,19 +32,40 @@ class PrivateStoreCollectionArgs:
         :param pulumi.Input[bool] enabled: Indicating whether the collection is enabled or disabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscriptions_list: Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
         """
-        pulumi.set(__self__, "private_store_id", private_store_id)
+        PrivateStoreCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_store_id=private_store_id,
+            all_subscriptions=all_subscriptions,
+            claim=claim,
+            collection_id=collection_id,
+            collection_name=collection_name,
+            enabled=enabled,
+            subscriptions_list=subscriptions_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_store_id: pulumi.Input[str],
+             all_subscriptions: Optional[pulumi.Input[bool]] = None,
+             claim: Optional[pulumi.Input[str]] = None,
+             collection_id: Optional[pulumi.Input[str]] = None,
+             collection_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             subscriptions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_store_id", private_store_id)
         if all_subscriptions is not None:
-            pulumi.set(__self__, "all_subscriptions", all_subscriptions)
+            _setter("all_subscriptions", all_subscriptions)
         if claim is not None:
-            pulumi.set(__self__, "claim", claim)
+            _setter("claim", claim)
         if collection_id is not None:
-            pulumi.set(__self__, "collection_id", collection_id)
+            _setter("collection_id", collection_id)
         if collection_name is not None:
-            pulumi.set(__self__, "collection_name", collection_name)
+            _setter("collection_name", collection_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if subscriptions_list is not None:
-            pulumi.set(__self__, "subscriptions_list", subscriptions_list)
+            _setter("subscriptions_list", subscriptions_list)
 
     @property
     @pulumi.getter(name="privateStoreId")
@@ -176,6 +197,10 @@ class PrivateStoreCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateStoreCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

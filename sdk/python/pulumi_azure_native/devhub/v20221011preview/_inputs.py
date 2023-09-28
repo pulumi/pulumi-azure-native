@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -31,14 +31,29 @@ class ACRArgs:
         :param pulumi.Input[str] acr_resource_group: ACR resource group
         :param pulumi.Input[str] acr_subscription_id: ACR subscription id
         """
+        ACRArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acr_registry_name=acr_registry_name,
+            acr_repository_name=acr_repository_name,
+            acr_resource_group=acr_resource_group,
+            acr_subscription_id=acr_subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acr_registry_name: Optional[pulumi.Input[str]] = None,
+             acr_repository_name: Optional[pulumi.Input[str]] = None,
+             acr_resource_group: Optional[pulumi.Input[str]] = None,
+             acr_subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acr_registry_name is not None:
-            pulumi.set(__self__, "acr_registry_name", acr_registry_name)
+            _setter("acr_registry_name", acr_registry_name)
         if acr_repository_name is not None:
-            pulumi.set(__self__, "acr_repository_name", acr_repository_name)
+            _setter("acr_repository_name", acr_repository_name)
         if acr_resource_group is not None:
-            pulumi.set(__self__, "acr_resource_group", acr_resource_group)
+            _setter("acr_resource_group", acr_resource_group)
         if acr_subscription_id is not None:
-            pulumi.set(__self__, "acr_subscription_id", acr_subscription_id)
+            _setter("acr_subscription_id", acr_subscription_id)
 
     @property
     @pulumi.getter(name="acrRegistryName")
@@ -103,16 +118,33 @@ class DeploymentPropertiesArgs:
         :param pulumi.Input[Union[str, 'ManifestType']] manifest_type: Determines the type of manifests within the repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] overrides: Manifest override values.
         """
+        DeploymentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            helm_chart_path=helm_chart_path,
+            helm_values=helm_values,
+            kube_manifest_locations=kube_manifest_locations,
+            manifest_type=manifest_type,
+            overrides=overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             helm_chart_path: Optional[pulumi.Input[str]] = None,
+             helm_values: Optional[pulumi.Input[str]] = None,
+             kube_manifest_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             manifest_type: Optional[pulumi.Input[Union[str, 'ManifestType']]] = None,
+             overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if helm_chart_path is not None:
-            pulumi.set(__self__, "helm_chart_path", helm_chart_path)
+            _setter("helm_chart_path", helm_chart_path)
         if helm_values is not None:
-            pulumi.set(__self__, "helm_values", helm_values)
+            _setter("helm_values", helm_values)
         if kube_manifest_locations is not None:
-            pulumi.set(__self__, "kube_manifest_locations", kube_manifest_locations)
+            _setter("kube_manifest_locations", kube_manifest_locations)
         if manifest_type is not None:
-            pulumi.set(__self__, "manifest_type", manifest_type)
+            _setter("manifest_type", manifest_type)
         if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
+            _setter("overrides", overrides)
 
     @property
     @pulumi.getter(name="helmChartPath")
@@ -182,10 +214,21 @@ class GitHubWorkflowProfileOidcCredentialsArgs:
         :param pulumi.Input[str] azure_client_id: Azure Application Client ID
         :param pulumi.Input[str] azure_tenant_id: Azure Directory (tenant) ID
         """
+        GitHubWorkflowProfileOidcCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_client_id=azure_client_id,
+            azure_tenant_id=azure_tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_client_id: Optional[pulumi.Input[str]] = None,
+             azure_tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_client_id is not None:
-            pulumi.set(__self__, "azure_client_id", azure_client_id)
+            _setter("azure_client_id", azure_client_id)
         if azure_tenant_id is not None:
-            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+            _setter("azure_tenant_id", azure_tenant_id)
 
     @property
     @pulumi.getter(name="azureClientId")
@@ -219,8 +262,17 @@ class WorkflowRunArgs:
         """
         :param pulumi.Input[Union[str, 'WorkflowRunStatus']] workflow_run_status: Describes the status of the workflow run
         """
+        WorkflowRunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            workflow_run_status=workflow_run_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             workflow_run_status: Optional[pulumi.Input[Union[str, 'WorkflowRunStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if workflow_run_status is not None:
-            pulumi.set(__self__, "workflow_run_status", workflow_run_status)
+            _setter("workflow_run_status", workflow_run_status)
 
     @property
     @pulumi.getter(name="workflowRunStatus")

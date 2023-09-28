@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -43,29 +43,62 @@ class ApplicationGroupArgs:
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "application_group_type", application_group_type)
-        pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_group_type=application_group_type,
+            host_pool_arm_path=host_pool_arm_path,
+            resource_group_name=resource_group_name,
+            application_group_name=application_group_name,
+            description=description,
+            friendly_name=friendly_name,
+            identity=identity,
+            kind=kind,
+            location=location,
+            managed_by=managed_by,
+            plan=plan,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_group_type: pulumi.Input[Union[str, 'ApplicationGroupType']],
+             host_pool_arm_path: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             application_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+             sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_group_type", application_group_type)
+        _setter("host_pool_arm_path", host_pool_arm_path)
+        _setter("resource_group_name", resource_group_name)
         if application_group_name is not None:
-            pulumi.set(__self__, "application_group_name", application_group_name)
+            _setter("application_group_name", application_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationGroupType")
@@ -271,6 +304,10 @@ class ApplicationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -307,14 +344,29 @@ class ApplicationGroup(pulumi.CustomResource):
             if host_pool_arm_path is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_arm_path'")
             __props__.__dict__["host_pool_arm_path"] = host_pool_arm_path
+            if identity is not None and not isinstance(identity, ResourceModelWithAllowedPropertySetIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceModelWithAllowedPropertySetIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
+            if plan is not None and not isinstance(plan, ResourceModelWithAllowedPropertySetPlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                ResourceModelWithAllowedPropertySetPlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, ResourceModelWithAllowedPropertySetSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ResourceModelWithAllowedPropertySetSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cloud_pc_resource"] = None

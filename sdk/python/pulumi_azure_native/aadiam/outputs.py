@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -43,7 +43,16 @@ class AzureADMetricsPropertiesFormatResponse(dict):
         """
         :param str provisioning_state: The provisioning state of the resource.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AzureADMetricsPropertiesFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -86,11 +95,24 @@ class LogSettingsResponse(dict):
         :param str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         :param 'RetentionPolicyResponse' retention_policy: The retention policy for this log.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        LogSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            category=category,
+            retention_policy=retention_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             category: Optional[str] = None,
+             retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
 
     @property
     @pulumi.getter
@@ -128,8 +150,17 @@ class PrivateEndpointResponse(dict):
         Private endpoint object properties.
         :param str id: Full identifier of the private endpoint resource.
         """
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -172,12 +203,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval or rejection.
         :param str status: Indicates whether the connection has been approved, rejected or removed by the given policy owner.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -217,8 +261,19 @@ class RetentionPolicyResponse(dict):
         :param int days: The number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param bool enabled: A value indicating whether the retention policy is enabled.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "enabled", enabled)
+        RetentionPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: int,
+             enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -42,27 +42,58 @@ class PolicyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] threshold: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "policy_set_name", policy_set_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            policy_set_name=policy_set_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            evaluator_type=evaluator_type,
+            fact_data=fact_data,
+            fact_name=fact_name,
+            location=location,
+            name=name,
+            status=status,
+            tags=tags,
+            threshold=threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             policy_set_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             evaluator_type: Optional[pulumi.Input[Union[str, 'PolicyEvaluatorType']]] = None,
+             fact_data: Optional[pulumi.Input[str]] = None,
+             fact_name: Optional[pulumi.Input[Union[str, 'PolicyFactName']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PolicyStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threshold: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_name", lab_name)
+        _setter("policy_set_name", policy_set_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if evaluator_type is not None:
-            pulumi.set(__self__, "evaluator_type", evaluator_type)
+            _setter("evaluator_type", evaluator_type)
         if fact_data is not None:
-            pulumi.set(__self__, "fact_data", fact_data)
+            _setter("fact_data", fact_data)
         if fact_name is not None:
-            pulumi.set(__self__, "fact_name", fact_name)
+            _setter("fact_name", fact_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
 
     @property
     @pulumi.getter(name="labName")
@@ -266,6 +297,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

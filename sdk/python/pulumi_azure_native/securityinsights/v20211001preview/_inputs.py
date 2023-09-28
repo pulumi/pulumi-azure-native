@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -38,14 +38,29 @@ class AlertDetailsOverrideArgs:
         :param pulumi.Input[str] alert_severity_column_name: the column name to take the alert severity from
         :param pulumi.Input[str] alert_tactics_column_name: the column name to take the alert tactics from
         """
+        AlertDetailsOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_description_format=alert_description_format,
+            alert_display_name_format=alert_display_name_format,
+            alert_severity_column_name=alert_severity_column_name,
+            alert_tactics_column_name=alert_tactics_column_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_description_format: Optional[pulumi.Input[str]] = None,
+             alert_display_name_format: Optional[pulumi.Input[str]] = None,
+             alert_severity_column_name: Optional[pulumi.Input[str]] = None,
+             alert_tactics_column_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_description_format is not None:
-            pulumi.set(__self__, "alert_description_format", alert_description_format)
+            _setter("alert_description_format", alert_description_format)
         if alert_display_name_format is not None:
-            pulumi.set(__self__, "alert_display_name_format", alert_display_name_format)
+            _setter("alert_display_name_format", alert_display_name_format)
         if alert_severity_column_name is not None:
-            pulumi.set(__self__, "alert_severity_column_name", alert_severity_column_name)
+            _setter("alert_severity_column_name", alert_severity_column_name)
         if alert_tactics_column_name is not None:
-            pulumi.set(__self__, "alert_tactics_column_name", alert_tactics_column_name)
+            _setter("alert_tactics_column_name", alert_tactics_column_name)
 
     @property
     @pulumi.getter(name="alertDescriptionFormat")
@@ -106,10 +121,21 @@ class EntityMappingArgs:
         :param pulumi.Input[Union[str, 'EntityMappingType']] entity_type: The V3 type of the mapped entity
         :param pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]] field_mappings: array of field mappings for the given entity mapping
         """
+        EntityMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_type=entity_type,
+            field_mappings=field_mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_type: Optional[pulumi.Input[Union[str, 'EntityMappingType']]] = None,
+             field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if entity_type is not None:
-            pulumi.set(__self__, "entity_type", entity_type)
+            _setter("entity_type", entity_type)
         if field_mappings is not None:
-            pulumi.set(__self__, "field_mappings", field_mappings)
+            _setter("field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="entityType")
@@ -146,10 +172,21 @@ class FieldMappingArgs:
         :param pulumi.Input[str] column_name: the column name to be mapped to the identifier
         :param pulumi.Input[str] identifier: the V3 identifier of the entity
         """
+        FieldMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            identifier=identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if column_name is not None:
-            pulumi.set(__self__, "column_name", column_name)
+            _setter("column_name", column_name)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
 
     @property
     @pulumi.getter(name="columnName")
@@ -186,8 +223,19 @@ class FusionScenarioExclusionPatternArgs:
         :param pulumi.Input[str] date_added_in_utc: DateTime when scenario exclusion pattern is added in UTC.
         :param pulumi.Input[str] exclusion_pattern: Scenario exclusion pattern.
         """
-        pulumi.set(__self__, "date_added_in_utc", date_added_in_utc)
-        pulumi.set(__self__, "exclusion_pattern", exclusion_pattern)
+        FusionScenarioExclusionPatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date_added_in_utc=date_added_in_utc,
+            exclusion_pattern=exclusion_pattern,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date_added_in_utc: pulumi.Input[str],
+             exclusion_pattern: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("date_added_in_utc", date_added_in_utc)
+        _setter("exclusion_pattern", exclusion_pattern)
 
     @property
     @pulumi.getter(name="dateAddedInUTC")
@@ -226,10 +274,23 @@ class FusionSourceSettingsArgs:
         :param pulumi.Input[str] source_name: Name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
         :param pulumi.Input[Sequence[pulumi.Input['FusionSourceSubTypeSettingArgs']]] source_sub_types: Configuration for all source subtypes under this source signal consumed in fusion detection.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "source_name", source_name)
+        FusionSourceSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            source_name=source_name,
+            source_sub_types=source_sub_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             source_name: pulumi.Input[str],
+             source_sub_types: Optional[pulumi.Input[Sequence[pulumi.Input['FusionSourceSubTypeSettingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("source_name", source_name)
         if source_sub_types is not None:
-            pulumi.set(__self__, "source_sub_types", source_sub_types)
+            _setter("source_sub_types", source_sub_types)
 
     @property
     @pulumi.getter
@@ -280,9 +341,22 @@ class FusionSourceSubTypeSettingArgs:
         :param pulumi.Input['FusionSubTypeSeverityFilterArgs'] severity_filters: Severity configuration for a source subtype consumed in fusion detection.
         :param pulumi.Input[str] source_sub_type_name: The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "severity_filters", severity_filters)
-        pulumi.set(__self__, "source_sub_type_name", source_sub_type_name)
+        FusionSourceSubTypeSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            severity_filters=severity_filters,
+            source_sub_type_name=source_sub_type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             severity_filters: pulumi.Input['FusionSubTypeSeverityFilterArgs'],
+             source_sub_type_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("severity_filters", severity_filters)
+        _setter("source_sub_type_name", source_sub_type_name)
 
     @property
     @pulumi.getter
@@ -331,8 +405,19 @@ class FusionSubTypeSeverityFiltersItemArgs:
         :param pulumi.Input[bool] enabled: Determines whether this severity is enabled or disabled for this source subtype consumed in Fusion detection.
         :param pulumi.Input[Union[str, 'AlertSeverity']] severity: The Severity for a given source subtype consumed in Fusion detection.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "severity", severity)
+        FusionSubTypeSeverityFiltersItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            severity=severity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             severity: pulumi.Input[Union[str, 'AlertSeverity']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("severity", severity)
 
     @property
     @pulumi.getter
@@ -367,8 +452,17 @@ class FusionSubTypeSeverityFilterArgs:
         Represents severity configuration for a source subtype consumed in Fusion detection.
         :param pulumi.Input[Sequence[pulumi.Input['FusionSubTypeSeverityFiltersItemArgs']]] filters: Individual Severity configuration settings for a given source subtype consumed in Fusion detection.
         """
+        FusionSubTypeSeverityFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['FusionSubTypeSeverityFiltersItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
 
     @property
     @pulumi.getter
@@ -403,16 +497,37 @@ class GroupingConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by_custom_details: A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]] group_by_entities: A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "lookback_duration", lookback_duration)
-        pulumi.set(__self__, "matching_method", matching_method)
-        pulumi.set(__self__, "reopen_closed_incident", reopen_closed_incident)
+        GroupingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            lookback_duration=lookback_duration,
+            matching_method=matching_method,
+            reopen_closed_incident=reopen_closed_incident,
+            group_by_alert_details=group_by_alert_details,
+            group_by_custom_details=group_by_custom_details,
+            group_by_entities=group_by_entities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             lookback_duration: pulumi.Input[str],
+             matching_method: pulumi.Input[Union[str, 'MatchingMethod']],
+             reopen_closed_incident: pulumi.Input[bool],
+             group_by_alert_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]]] = None,
+             group_by_custom_details: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             group_by_entities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("lookback_duration", lookback_duration)
+        _setter("matching_method", matching_method)
+        _setter("reopen_closed_incident", reopen_closed_incident)
         if group_by_alert_details is not None:
-            pulumi.set(__self__, "group_by_alert_details", group_by_alert_details)
+            _setter("group_by_alert_details", group_by_alert_details)
         if group_by_custom_details is not None:
-            pulumi.set(__self__, "group_by_custom_details", group_by_custom_details)
+            _setter("group_by_custom_details", group_by_custom_details)
         if group_by_entities is not None:
-            pulumi.set(__self__, "group_by_entities", group_by_entities)
+            _setter("group_by_entities", group_by_entities)
 
     @property
     @pulumi.getter
@@ -509,9 +624,20 @@ class IncidentConfigurationArgs:
         :param pulumi.Input[bool] create_incident: Create incidents from alerts triggered by this analytics rule
         :param pulumi.Input['GroupingConfigurationArgs'] grouping_configuration: Set how the alerts that are triggered by this analytics rule, are grouped into incidents
         """
-        pulumi.set(__self__, "create_incident", create_incident)
+        IncidentConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_incident=create_incident,
+            grouping_configuration=grouping_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_incident: pulumi.Input[bool],
+             grouping_configuration: Optional[pulumi.Input['GroupingConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("create_incident", create_incident)
         if grouping_configuration is not None:
-            pulumi.set(__self__, "grouping_configuration", grouping_configuration)
+            _setter("grouping_configuration", grouping_configuration)
 
     @property
     @pulumi.getter(name="createIncident")
@@ -546,8 +672,17 @@ class WatchlistUserInfoArgs:
         User information that made some action
         :param pulumi.Input[str] object_id: The object id of the user.
         """
+        WatchlistUserInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
 
     @property
     @pulumi.getter(name="objectId")

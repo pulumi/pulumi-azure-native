@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,26 @@ class IntegrationRuntimeArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime name.
         """
-        pulumi.set(__self__, "factory_name", factory_name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IntegrationRuntimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            factory_name=factory_name,
+            properties=properties,
+            resource_group_name=resource_group_name,
+            integration_runtime_name=integration_runtime_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             factory_name: pulumi.Input[str],
+             properties: pulumi.Input[Union['ManagedIntegrationRuntimeArgs', 'SelfHostedIntegrationRuntimeArgs']],
+             resource_group_name: pulumi.Input[str],
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("factory_name", factory_name)
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
 
     @property
     @pulumi.getter(name="factoryName")
@@ -122,6 +137,10 @@ class IntegrationRuntime(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationRuntimeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

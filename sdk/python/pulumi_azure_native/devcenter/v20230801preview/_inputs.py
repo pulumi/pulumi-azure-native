@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,12 +35,25 @@ class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] identity_type: Values can be systemAssignedIdentity or userAssignedIdentity
         :param pulumi.Input[str] user_assigned_identity_resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
         """
+        CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delegated_identity_client_id=delegated_identity_client_id,
+            identity_type=identity_type,
+            user_assigned_identity_resource_id=user_assigned_identity_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delegated_identity_client_id: Optional[pulumi.Input[str]] = None,
+             identity_type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+             user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delegated_identity_client_id is not None:
-            pulumi.set(__self__, "delegated_identity_client_id", delegated_identity_client_id)
+            _setter("delegated_identity_client_id", delegated_identity_client_id)
         if identity_type is not None:
-            pulumi.set(__self__, "identity_type", identity_type)
+            _setter("identity_type", identity_type)
         if user_assigned_identity_resource_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+            _setter("user_assigned_identity_resource_id", user_assigned_identity_resource_id)
 
     @property
     @pulumi.getter(name="delegatedIdentityClientId")
@@ -89,10 +102,21 @@ class CustomerManagedKeyEncryptionArgs:
         :param pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param pulumi.Input[str] key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
+        CustomerManagedKeyEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_encryption_key_identity=key_encryption_key_identity,
+            key_encryption_key_url=key_encryption_key_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_encryption_key_identity: Optional[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']] = None,
+             key_encryption_key_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_encryption_key_identity is not None:
-            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+            _setter("key_encryption_key_identity", key_encryption_key_identity)
         if key_encryption_key_url is not None:
-            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+            _setter("key_encryption_key_url", key_encryption_key_url)
 
     @property
     @pulumi.getter(name="keyEncryptionKeyIdentity")
@@ -126,8 +150,17 @@ class EncryptionArgs:
         """
         :param pulumi.Input['CustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
+        EncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_key_encryption=customer_managed_key_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_key_encryption: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if customer_managed_key_encryption is not None:
-            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+            _setter("customer_managed_key_encryption", customer_managed_key_encryption)
 
     @property
     @pulumi.getter(name="customerManagedKeyEncryption")
@@ -156,14 +189,29 @@ class GitCatalogArgs:
         :param pulumi.Input[str] secret_identifier: A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
         :param pulumi.Input[str] uri: Git URI.
         """
+        GitCatalogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            path=path,
+            secret_identifier=secret_identifier,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             secret_identifier: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if secret_identifier is not None:
-            pulumi.set(__self__, "secret_identifier", secret_identifier)
+            _setter("secret_identifier", secret_identifier)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -222,8 +270,17 @@ class ImageReferenceArgs:
         Image reference information
         :param pulumi.Input[str] id: Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
         """
+        ImageReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -248,9 +305,20 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -285,8 +353,17 @@ class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs:
         The role definition assigned to the environment creator on backing resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A map of roles to assign to the environment creator.
         """
+        ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter
@@ -317,15 +394,32 @@ class SkuArgs:
         :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input['SkuTier']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -398,10 +492,21 @@ class StopOnDisconnectConfigurationArgs:
         :param pulumi.Input[int] grace_period_minutes: The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
         :param pulumi.Input[Union[str, 'StopOnDisconnectEnableStatus']] status: Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
         """
+        StopOnDisconnectConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grace_period_minutes=grace_period_minutes,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grace_period_minutes: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[Union[str, 'StopOnDisconnectEnableStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if grace_period_minutes is not None:
-            pulumi.set(__self__, "grace_period_minutes", grace_period_minutes)
+            _setter("grace_period_minutes", grace_period_minutes)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="gracePeriodMinutes")
@@ -436,8 +541,17 @@ class UserRoleAssignmentArgs:
         Mapping of user object ID to role assignments.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A map of roles to assign to the parent user.
         """
+        UserRoleAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter

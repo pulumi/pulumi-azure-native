@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -24,10 +24,21 @@ class ClusterDesiredPropertiesArgs:
         :param pulumi.Input[Union[str, 'DiagnosticLevel']] diagnostic_level: Desired level of diagnostic data emitted by the cluster.
         :param pulumi.Input[Union[str, 'WindowsServerSubscription']] windows_server_subscription: Desired state of Windows Server Subscription.
         """
+        ClusterDesiredPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            diagnostic_level=diagnostic_level,
+            windows_server_subscription=windows_server_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             diagnostic_level: Optional[pulumi.Input[Union[str, 'DiagnosticLevel']]] = None,
+             windows_server_subscription: Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
+            _setter("diagnostic_level", diagnostic_level)
         if windows_server_subscription is not None:
-            pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
+            _setter("windows_server_subscription", windows_server_subscription)
 
     @property
     @pulumi.getter(name="diagnosticLevel")

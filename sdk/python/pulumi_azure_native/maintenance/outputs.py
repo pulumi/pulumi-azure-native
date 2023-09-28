@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -64,16 +64,33 @@ class ConfigurationAssignmentFilterPropertiesResponse(dict):
         :param Sequence[str] resource_types: List of allowed resources.
         :param 'TagSettingsPropertiesResponse' tag_settings: Tag settings for the VM.
         """
+        ConfigurationAssignmentFilterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+            os_types=os_types,
+            resource_groups=resource_groups,
+            resource_types=resource_types,
+            tag_settings=tag_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: Optional[Sequence[str]] = None,
+             os_types: Optional[Sequence[str]] = None,
+             resource_groups: Optional[Sequence[str]] = None,
+             resource_types: Optional[Sequence[str]] = None,
+             tag_settings: Optional['outputs.TagSettingsPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if os_types is not None:
-            pulumi.set(__self__, "os_types", os_types)
+            _setter("os_types", os_types)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
         if resource_types is not None:
-            pulumi.set(__self__, "resource_types", resource_types)
+            _setter("resource_types", resource_types)
         if tag_settings is not None:
-            pulumi.set(__self__, "tag_settings", tag_settings)
+            _setter("tag_settings", tag_settings)
 
     @property
     @pulumi.getter
@@ -152,12 +169,25 @@ class InputLinuxParametersResponse(dict):
         :param Sequence[str] package_name_masks_to_exclude: Package names to be excluded for patching.
         :param Sequence[str] package_name_masks_to_include: Package names to be included for patching.
         """
+        InputLinuxParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classifications_to_include=classifications_to_include,
+            package_name_masks_to_exclude=package_name_masks_to_exclude,
+            package_name_masks_to_include=package_name_masks_to_include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classifications_to_include: Optional[Sequence[str]] = None,
+             package_name_masks_to_exclude: Optional[Sequence[str]] = None,
+             package_name_masks_to_include: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if classifications_to_include is not None:
-            pulumi.set(__self__, "classifications_to_include", classifications_to_include)
+            _setter("classifications_to_include", classifications_to_include)
         if package_name_masks_to_exclude is not None:
-            pulumi.set(__self__, "package_name_masks_to_exclude", package_name_masks_to_exclude)
+            _setter("package_name_masks_to_exclude", package_name_masks_to_exclude)
         if package_name_masks_to_include is not None:
-            pulumi.set(__self__, "package_name_masks_to_include", package_name_masks_to_include)
+            _setter("package_name_masks_to_include", package_name_masks_to_include)
 
     @property
     @pulumi.getter(name="classificationsToInclude")
@@ -228,18 +258,35 @@ class InputPatchConfigurationResponse(dict):
         :param str reboot_setting: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         :param 'InputWindowsParametersResponse' windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
         """
+        InputPatchConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linux_parameters=linux_parameters,
+            post_tasks=post_tasks,
+            pre_tasks=pre_tasks,
+            reboot_setting=reboot_setting,
+            windows_parameters=windows_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linux_parameters: Optional['outputs.InputLinuxParametersResponse'] = None,
+             post_tasks: Optional[Sequence['outputs.TaskPropertiesResponse']] = None,
+             pre_tasks: Optional[Sequence['outputs.TaskPropertiesResponse']] = None,
+             reboot_setting: Optional[str] = None,
+             windows_parameters: Optional['outputs.InputWindowsParametersResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if linux_parameters is not None:
-            pulumi.set(__self__, "linux_parameters", linux_parameters)
+            _setter("linux_parameters", linux_parameters)
         if post_tasks is not None:
-            pulumi.set(__self__, "post_tasks", post_tasks)
+            _setter("post_tasks", post_tasks)
         if pre_tasks is not None:
-            pulumi.set(__self__, "pre_tasks", pre_tasks)
+            _setter("pre_tasks", pre_tasks)
         if reboot_setting is None:
             reboot_setting = 'IfRequired'
         if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
+            _setter("reboot_setting", reboot_setting)
         if windows_parameters is not None:
-            pulumi.set(__self__, "windows_parameters", windows_parameters)
+            _setter("windows_parameters", windows_parameters)
 
     @property
     @pulumi.getter(name="linuxParameters")
@@ -322,14 +369,29 @@ class InputWindowsParametersResponse(dict):
         :param Sequence[str] kb_numbers_to_exclude: Windows KBID to be excluded for patching.
         :param Sequence[str] kb_numbers_to_include: Windows KBID to be included for patching.
         """
+        InputWindowsParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classifications_to_include=classifications_to_include,
+            exclude_kbs_requiring_reboot=exclude_kbs_requiring_reboot,
+            kb_numbers_to_exclude=kb_numbers_to_exclude,
+            kb_numbers_to_include=kb_numbers_to_include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classifications_to_include: Optional[Sequence[str]] = None,
+             exclude_kbs_requiring_reboot: Optional[bool] = None,
+             kb_numbers_to_exclude: Optional[Sequence[str]] = None,
+             kb_numbers_to_include: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if classifications_to_include is not None:
-            pulumi.set(__self__, "classifications_to_include", classifications_to_include)
+            _setter("classifications_to_include", classifications_to_include)
         if exclude_kbs_requiring_reboot is not None:
-            pulumi.set(__self__, "exclude_kbs_requiring_reboot", exclude_kbs_requiring_reboot)
+            _setter("exclude_kbs_requiring_reboot", exclude_kbs_requiring_reboot)
         if kb_numbers_to_exclude is not None:
-            pulumi.set(__self__, "kb_numbers_to_exclude", kb_numbers_to_exclude)
+            _setter("kb_numbers_to_exclude", kb_numbers_to_exclude)
         if kb_numbers_to_include is not None:
-            pulumi.set(__self__, "kb_numbers_to_include", kb_numbers_to_include)
+            _setter("kb_numbers_to_include", kb_numbers_to_include)
 
     @property
     @pulumi.getter(name="classificationsToInclude")
@@ -404,14 +466,29 @@ class MaintenanceOverridePropertiesResponse(dict):
         :param str start_date_time: Effective start date of the maintenance override window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
         :param str time_zone: Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
         """
+        MaintenanceOverridePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_date_time=end_date_time,
+            override_properties=override_properties,
+            start_date_time=start_date_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_date_time: Optional[str] = None,
+             override_properties: Optional[Mapping[str, str]] = None,
+             start_date_time: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end_date_time is not None:
-            pulumi.set(__self__, "end_date_time", end_date_time)
+            _setter("end_date_time", end_date_time)
         if override_properties is not None:
-            pulumi.set(__self__, "override_properties", override_properties)
+            _setter("override_properties", override_properties)
         if start_date_time is not None:
-            pulumi.set(__self__, "start_date_time", start_date_time)
+            _setter("start_date_time", start_date_time)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="endDateTime")
@@ -494,18 +571,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -586,10 +682,21 @@ class TagSettingsPropertiesResponse(dict):
         :param str filter_operator: Filter VMs by Any or All specified tags.
         :param Mapping[str, Sequence[str]] tags: Dictionary of tags with its list of values.
         """
+        TagSettingsPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_operator=filter_operator,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_operator: Optional[str] = None,
+             tags: Optional[Mapping[str, Sequence[str]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filter_operator is not None:
-            pulumi.set(__self__, "filter_operator", filter_operator)
+            _setter("filter_operator", filter_operator)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="filterOperator")
@@ -640,14 +747,27 @@ class TaskPropertiesResponse(dict):
         :param str source: Gets or sets the name of the runbook.
         :param str task_scope: Global Task execute once when schedule trigger. Resource task execute for each VM.
         """
+        TaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameters=parameters,
+            source=source,
+            task_scope=task_scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameters: Optional[Mapping[str, str]] = None,
+             source: Optional[str] = None,
+             task_scope: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if task_scope is None:
             task_scope = 'Global'
         if task_scope is not None:
-            pulumi.set(__self__, "task_scope", task_scope)
+            _setter("task_scope", task_scope)
 
     @property
     @pulumi.getter

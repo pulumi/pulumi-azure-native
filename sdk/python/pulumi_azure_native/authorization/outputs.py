@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -110,23 +110,52 @@ class AccessReviewHistoryInstanceResponse(dict):
         :param str review_history_period_start_date_time: Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
         :param str run_date_time: Date time when the history data report is scheduled to be generated.
         """
-        pulumi.set(__self__, "download_uri", download_uri)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        AccessReviewHistoryInstanceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            download_uri=download_uri,
+            id=id,
+            name=name,
+            status=status,
+            type=type,
+            display_name=display_name,
+            expiration=expiration,
+            fulfilled_date_time=fulfilled_date_time,
+            review_history_period_end_date_time=review_history_period_end_date_time,
+            review_history_period_start_date_time=review_history_period_start_date_time,
+            run_date_time=run_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             download_uri: str,
+             id: str,
+             name: str,
+             status: str,
+             type: str,
+             display_name: Optional[str] = None,
+             expiration: Optional[str] = None,
+             fulfilled_date_time: Optional[str] = None,
+             review_history_period_end_date_time: Optional[str] = None,
+             review_history_period_start_date_time: Optional[str] = None,
+             run_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("download_uri", download_uri)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("status", status)
+        _setter("type", type)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if fulfilled_date_time is not None:
-            pulumi.set(__self__, "fulfilled_date_time", fulfilled_date_time)
+            _setter("fulfilled_date_time", fulfilled_date_time)
         if review_history_period_end_date_time is not None:
-            pulumi.set(__self__, "review_history_period_end_date_time", review_history_period_end_date_time)
+            _setter("review_history_period_end_date_time", review_history_period_end_date_time)
         if review_history_period_start_date_time is not None:
-            pulumi.set(__self__, "review_history_period_start_date_time", review_history_period_start_date_time)
+            _setter("review_history_period_start_date_time", review_history_period_start_date_time)
         if run_date_time is not None:
-            pulumi.set(__self__, "run_date_time", run_date_time)
+            _setter("run_date_time", run_date_time)
 
     @property
     @pulumi.getter(name="downloadUri")
@@ -267,19 +296,44 @@ class AccessReviewInstanceResponse(dict):
         :param Sequence['AccessReviewReviewerResponse'] reviewers: This is the collection of reviewers.
         :param str start_date_time: The DateTime when the review instance is scheduled to be start.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "reviewers_type", reviewers_type)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        AccessReviewInstanceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            reviewers_type=reviewers_type,
+            status=status,
+            type=type,
+            backup_reviewers=backup_reviewers,
+            end_date_time=end_date_time,
+            reviewers=reviewers,
+            start_date_time=start_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             reviewers_type: str,
+             status: str,
+             type: str,
+             backup_reviewers: Optional[Sequence['outputs.AccessReviewReviewerResponse']] = None,
+             end_date_time: Optional[str] = None,
+             reviewers: Optional[Sequence['outputs.AccessReviewReviewerResponse']] = None,
+             start_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("reviewers_type", reviewers_type)
+        _setter("status", status)
+        _setter("type", type)
         if backup_reviewers is not None:
-            pulumi.set(__self__, "backup_reviewers", backup_reviewers)
+            _setter("backup_reviewers", backup_reviewers)
         if end_date_time is not None:
-            pulumi.set(__self__, "end_date_time", end_date_time)
+            _setter("end_date_time", end_date_time)
         if reviewers is not None:
-            pulumi.set(__self__, "reviewers", reviewers)
+            _setter("reviewers", reviewers)
         if start_date_time is not None:
-            pulumi.set(__self__, "start_date_time", start_date_time)
+            _setter("start_date_time", start_date_time)
 
     @property
     @pulumi.getter
@@ -386,9 +440,20 @@ class AccessReviewReviewerResponse(dict):
         :param str principal_type: The identity type : user/servicePrincipal
         :param str principal_id: The id of the reviewer(user/servicePrincipal)
         """
-        pulumi.set(__self__, "principal_type", principal_type)
+        AccessReviewReviewerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_type=principal_type,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_type: str,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_type", principal_type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="principalType")
@@ -471,22 +536,49 @@ class AccessReviewScopeResponse(dict):
         :param bool include_access_below_resource: Flag to indicate whether to expand nested memberships or not.
         :param bool include_inherited_access: Flag to indicate whether to expand nested memberships or not.
         """
-        pulumi.set(__self__, "assignment_state", assignment_state)
-        pulumi.set(__self__, "principal_type", principal_type)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        AccessReviewScopeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_state=assignment_state,
+            principal_type=principal_type,
+            resource_id=resource_id,
+            role_definition_id=role_definition_id,
+            exclude_resource_id=exclude_resource_id,
+            exclude_role_definition_id=exclude_role_definition_id,
+            expand_nested_memberships=expand_nested_memberships,
+            inactive_duration=inactive_duration,
+            include_access_below_resource=include_access_below_resource,
+            include_inherited_access=include_inherited_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_state: str,
+             principal_type: str,
+             resource_id: str,
+             role_definition_id: str,
+             exclude_resource_id: Optional[str] = None,
+             exclude_role_definition_id: Optional[str] = None,
+             expand_nested_memberships: Optional[bool] = None,
+             inactive_duration: Optional[str] = None,
+             include_access_below_resource: Optional[bool] = None,
+             include_inherited_access: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assignment_state", assignment_state)
+        _setter("principal_type", principal_type)
+        _setter("resource_id", resource_id)
+        _setter("role_definition_id", role_definition_id)
         if exclude_resource_id is not None:
-            pulumi.set(__self__, "exclude_resource_id", exclude_resource_id)
+            _setter("exclude_resource_id", exclude_resource_id)
         if exclude_role_definition_id is not None:
-            pulumi.set(__self__, "exclude_role_definition_id", exclude_role_definition_id)
+            _setter("exclude_role_definition_id", exclude_role_definition_id)
         if expand_nested_memberships is not None:
-            pulumi.set(__self__, "expand_nested_memberships", expand_nested_memberships)
+            _setter("expand_nested_memberships", expand_nested_memberships)
         if inactive_duration is not None:
-            pulumi.set(__self__, "inactive_duration", inactive_duration)
+            _setter("inactive_duration", inactive_duration)
         if include_access_below_resource is not None:
-            pulumi.set(__self__, "include_access_below_resource", include_access_below_resource)
+            _setter("include_access_below_resource", include_access_below_resource)
         if include_inherited_access is not None:
-            pulumi.set(__self__, "include_inherited_access", include_inherited_access)
+            _setter("include_inherited_access", include_inherited_access)
 
     @property
     @pulumi.getter(name="assignmentState")
@@ -613,16 +705,33 @@ class ApprovalSettingsResponse(dict):
         :param bool is_approval_required_for_extension: Determines whether approval is required for assignment extension.
         :param bool is_requestor_justification_required: Determine whether requestor justification is required.
         """
+        ApprovalSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approval_mode=approval_mode,
+            approval_stages=approval_stages,
+            is_approval_required=is_approval_required,
+            is_approval_required_for_extension=is_approval_required_for_extension,
+            is_requestor_justification_required=is_requestor_justification_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approval_mode: Optional[str] = None,
+             approval_stages: Optional[Sequence['outputs.ApprovalStageResponse']] = None,
+             is_approval_required: Optional[bool] = None,
+             is_approval_required_for_extension: Optional[bool] = None,
+             is_requestor_justification_required: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if approval_mode is not None:
-            pulumi.set(__self__, "approval_mode", approval_mode)
+            _setter("approval_mode", approval_mode)
         if approval_stages is not None:
-            pulumi.set(__self__, "approval_stages", approval_stages)
+            _setter("approval_stages", approval_stages)
         if is_approval_required is not None:
-            pulumi.set(__self__, "is_approval_required", is_approval_required)
+            _setter("is_approval_required", is_approval_required)
         if is_approval_required_for_extension is not None:
-            pulumi.set(__self__, "is_approval_required_for_extension", is_approval_required_for_extension)
+            _setter("is_approval_required_for_extension", is_approval_required_for_extension)
         if is_requestor_justification_required is not None:
-            pulumi.set(__self__, "is_requestor_justification_required", is_requestor_justification_required)
+            _setter("is_requestor_justification_required", is_requestor_justification_required)
 
     @property
     @pulumi.getter(name="approvalMode")
@@ -713,18 +822,37 @@ class ApprovalStageResponse(dict):
         :param bool is_escalation_enabled: The value determine whether escalation feature is enabled.
         :param Sequence['UserSetResponse'] primary_approvers: The primary approver of the request.
         """
+        ApprovalStageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approval_stage_time_out_in_days=approval_stage_time_out_in_days,
+            escalation_approvers=escalation_approvers,
+            escalation_time_in_minutes=escalation_time_in_minutes,
+            is_approver_justification_required=is_approver_justification_required,
+            is_escalation_enabled=is_escalation_enabled,
+            primary_approvers=primary_approvers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approval_stage_time_out_in_days: Optional[int] = None,
+             escalation_approvers: Optional[Sequence['outputs.UserSetResponse']] = None,
+             escalation_time_in_minutes: Optional[int] = None,
+             is_approver_justification_required: Optional[bool] = None,
+             is_escalation_enabled: Optional[bool] = None,
+             primary_approvers: Optional[Sequence['outputs.UserSetResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if approval_stage_time_out_in_days is not None:
-            pulumi.set(__self__, "approval_stage_time_out_in_days", approval_stage_time_out_in_days)
+            _setter("approval_stage_time_out_in_days", approval_stage_time_out_in_days)
         if escalation_approvers is not None:
-            pulumi.set(__self__, "escalation_approvers", escalation_approvers)
+            _setter("escalation_approvers", escalation_approvers)
         if escalation_time_in_minutes is not None:
-            pulumi.set(__self__, "escalation_time_in_minutes", escalation_time_in_minutes)
+            _setter("escalation_time_in_minutes", escalation_time_in_minutes)
         if is_approver_justification_required is not None:
-            pulumi.set(__self__, "is_approver_justification_required", is_approver_justification_required)
+            _setter("is_approver_justification_required", is_approver_justification_required)
         if is_escalation_enabled is not None:
-            pulumi.set(__self__, "is_escalation_enabled", is_escalation_enabled)
+            _setter("is_escalation_enabled", is_escalation_enabled)
         if primary_approvers is not None:
-            pulumi.set(__self__, "primary_approvers", primary_approvers)
+            _setter("primary_approvers", primary_approvers)
 
     @property
     @pulumi.getter(name="approvalStageTimeOutInDays")
@@ -813,12 +941,27 @@ class IdentityResponse(dict):
         :param str type: The identity type. This is the only required field when adding a system or user assigned identity to a resource.
         :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -881,8 +1024,19 @@ class IdentityResponseUserAssignedIdentities(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        IdentityResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -929,8 +1083,17 @@ class ManagementLockOwnerResponse(dict):
         Lock owner properties.
         :param str application_id: The application ID of the lock owner.
         """
+        ManagementLockOwnerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -971,9 +1134,20 @@ class NonComplianceMessageResponse(dict):
         :param str message: A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
         :param str policy_definition_reference_id: The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
         """
-        pulumi.set(__self__, "message", message)
+        NonComplianceMessageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: str,
+             policy_definition_reference_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter
@@ -1007,12 +1181,25 @@ class OverrideResponse(dict):
         :param Sequence['SelectorResponse'] selectors: The list of the selector expressions.
         :param str value: The value to override the policy property.
         """
+        OverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            selectors=selectors,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[str] = None,
+             selectors: Optional[Sequence['outputs.SelectorResponse']] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1077,16 +1264,33 @@ class ParameterDefinitionsValueResponse(dict):
         :param Any schema: Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
         :param str type: The data type of the parameter.
         """
+        ParameterDefinitionsValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_values=allowed_values,
+            default_value=default_value,
+            metadata=metadata,
+            schema=schema,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_values: Optional[Sequence[Any]] = None,
+             default_value: Optional[Any] = None,
+             metadata: Optional['outputs.ParameterDefinitionsValueResponseMetadata'] = None,
+             schema: Optional[Any] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_values is not None:
-            pulumi.set(__self__, "allowed_values", allowed_values)
+            _setter("allowed_values", allowed_values)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="allowedValues")
@@ -1167,14 +1371,29 @@ class ParameterDefinitionsValueResponseMetadata(dict):
         :param str display_name: The display name for the parameter.
         :param str strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
         """
+        ParameterDefinitionsValueResponseMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assign_permissions=assign_permissions,
+            description=description,
+            display_name=display_name,
+            strong_type=strong_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assign_permissions: Optional[bool] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             strong_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assign_permissions is not None:
-            pulumi.set(__self__, "assign_permissions", assign_permissions)
+            _setter("assign_permissions", assign_permissions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if strong_type is not None:
-            pulumi.set(__self__, "strong_type", strong_type)
+            _setter("strong_type", strong_type)
 
     @property
     @pulumi.getter(name="assignPermissions")
@@ -1220,8 +1439,17 @@ class ParameterValuesValueResponse(dict):
         The value of a parameter.
         :param Any value: The value of the parameter.
         """
+        ParameterValuesValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1276,16 +1504,35 @@ class PermissionResponse(dict):
         :param Sequence[str] not_actions: Denied actions.
         :param Sequence[str] not_data_actions: Denied Data actions.
         """
-        pulumi.set(__self__, "condition", condition)
-        pulumi.set(__self__, "condition_version", condition_version)
+        PermissionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition=condition,
+            condition_version=condition_version,
+            actions=actions,
+            data_actions=data_actions,
+            not_actions=not_actions,
+            not_data_actions=not_data_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition: str,
+             condition_version: str,
+             actions: Optional[Sequence[str]] = None,
+             data_actions: Optional[Sequence[str]] = None,
+             not_actions: Optional[Sequence[str]] = None,
+             not_data_actions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("condition", condition)
+        _setter("condition_version", condition_version)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if data_actions is not None:
-            pulumi.set(__self__, "data_actions", data_actions)
+            _setter("data_actions", data_actions)
         if not_actions is not None:
-            pulumi.set(__self__, "not_actions", not_actions)
+            _setter("not_actions", not_actions)
         if not_data_actions is not None:
-            pulumi.set(__self__, "not_data_actions", not_data_actions)
+            _setter("not_data_actions", not_data_actions)
 
     @property
     @pulumi.getter
@@ -1368,12 +1615,25 @@ class PolicyAssignmentPropertiesResponse(dict):
         :param 'PolicyAssignmentPropertiesResponseRoleDefinition' role_definition: Details of role definition
         :param 'PolicyAssignmentPropertiesResponseScope' scope: Details of the resource scope
         """
+        PolicyAssignmentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            role_definition=role_definition,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional['outputs.PolicyAssignmentPropertiesResponsePolicy'] = None,
+             role_definition: Optional['outputs.PolicyAssignmentPropertiesResponseRoleDefinition'] = None,
+             scope: Optional['outputs.PolicyAssignmentPropertiesResponseScope'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if role_definition is not None:
-            pulumi.set(__self__, "role_definition", role_definition)
+            _setter("role_definition", role_definition)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -1434,11 +1694,24 @@ class PolicyAssignmentPropertiesResponsePolicy(dict):
         :param str id: Id of the policy
         :param str last_modified_date_time: The last modified date time.
         """
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        PolicyAssignmentPropertiesResponsePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_modified_by=last_modified_by,
+            id=id,
+            last_modified_date_time=last_modified_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_modified_by: 'outputs.PrincipalResponse',
+             id: Optional[str] = None,
+             last_modified_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last_modified_by", last_modified_by)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if last_modified_date_time is not None:
-            pulumi.set(__self__, "last_modified_date_time", last_modified_date_time)
+            _setter("last_modified_date_time", last_modified_date_time)
 
     @property
     @pulumi.getter(name="lastModifiedBy")
@@ -1497,12 +1770,25 @@ class PolicyAssignmentPropertiesResponseRoleDefinition(dict):
         :param str id: Id of the role definition
         :param str type: Type of the role definition
         """
+        PolicyAssignmentPropertiesResponseRoleDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="displayName")
@@ -1561,12 +1847,25 @@ class PolicyAssignmentPropertiesResponseScope(dict):
         :param str id: Scope id of the resource
         :param str type: Type of the resource
         """
+        PolicyAssignmentPropertiesResponseScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="displayName")
@@ -1631,15 +1930,32 @@ class PolicyDefinitionGroupResponse(dict):
         :param str description: The group's description.
         :param str display_name: The group's display name.
         """
-        pulumi.set(__self__, "name", name)
+        PolicyDefinitionGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            additional_metadata_id=additional_metadata_id,
+            category=category,
+            description=description,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             additional_metadata_id: Optional[str] = None,
+             category: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if additional_metadata_id is not None:
-            pulumi.set(__self__, "additional_metadata_id", additional_metadata_id)
+            _setter("additional_metadata_id", additional_metadata_id)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -1720,13 +2036,28 @@ class PolicyDefinitionReferenceResponse(dict):
         :param Mapping[str, 'ParameterValuesValueResponse'] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
         :param str policy_definition_reference_id: A unique id (within the policy set definition) for this policy definition reference.
         """
-        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        PolicyDefinitionReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_definition_id=policy_definition_id,
+            group_names=group_names,
+            parameters=parameters,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_definition_id: str,
+             group_names: Optional[Sequence[str]] = None,
+             parameters: Optional[Mapping[str, 'outputs.ParameterValuesValueResponse']] = None,
+             policy_definition_reference_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_definition_id", policy_definition_id)
         if group_names is not None:
-            pulumi.set(__self__, "group_names", group_names)
+            _setter("group_names", group_names)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter(name="policyDefinitionId")
@@ -1794,28 +2125,59 @@ class PolicyDefinitionVersionResponse(dict):
         :param str policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         :param str version: The policy definition version in #.#.# format.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PolicyDefinitionVersionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            system_data=system_data,
+            type=type,
+            description=description,
+            display_name=display_name,
+            metadata=metadata,
+            mode=mode,
+            parameters=parameters,
+            policy_rule=policy_rule,
+            policy_type=policy_type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             metadata: Optional[Any] = None,
+             mode: Optional[str] = None,
+             parameters: Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']] = None,
+             policy_rule: Optional[Any] = None,
+             policy_type: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if mode is None:
             mode = 'Indexed'
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_rule is not None:
-            pulumi.set(__self__, "policy_rule", policy_rule)
+            _setter("policy_rule", policy_rule)
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -1947,25 +2309,56 @@ class PolicySetDefinitionVersionResponse(dict):
         :param str policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         :param str version: The policy set definition version in #.#.# format.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "policy_definitions", policy_definitions)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PolicySetDefinitionVersionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            policy_definitions=policy_definitions,
+            system_data=system_data,
+            type=type,
+            description=description,
+            display_name=display_name,
+            metadata=metadata,
+            parameters=parameters,
+            policy_definition_groups=policy_definition_groups,
+            policy_type=policy_type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             policy_definitions: Sequence['outputs.PolicyDefinitionReferenceResponse'],
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             metadata: Optional[Any] = None,
+             parameters: Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']] = None,
+             policy_definition_groups: Optional[Sequence['outputs.PolicyDefinitionGroupResponse']] = None,
+             policy_type: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("policy_definitions", policy_definitions)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_groups is not None:
-            pulumi.set(__self__, "policy_definition_groups", policy_definition_groups)
+            _setter("policy_definition_groups", policy_definition_groups)
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -2092,7 +2485,16 @@ class PolicyVariableColumnResponse(dict):
         The variable column.
         :param str column_name: The name of this policy variable column.
         """
-        pulumi.set(__self__, "column_name", column_name)
+        PolicyVariableColumnResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
 
     @property
     @pulumi.getter(name="columnName")
@@ -2135,8 +2537,19 @@ class PolicyVariableValueColumnValueResponse(dict):
         :param str column_name: Column name for the variable value
         :param Any column_value: Column value for the variable value; this can be an integer, double, boolean, null or a string.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "column_value", column_value)
+        PolicyVariableValueColumnValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            column_value=column_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             column_value: Any,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("column_value", column_value)
 
     @property
     @pulumi.getter(name="columnName")
@@ -2189,14 +2602,29 @@ class PrincipalResponse(dict):
         :param str id: The id of the principal made changes
         :param str type: Type of principal such as user , group etc
         """
+        PrincipalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            email=email,
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             email: Optional[str] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="displayName")
@@ -2268,14 +2696,29 @@ class PrivateLinkAssociationPropertiesExpandedResponse(dict):
         :param str scope: The scope of the private link association.
         :param str tenant_id: The TenantID.
         """
+        PrivateLinkAssociationPropertiesExpandedResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link=private_link,
+            public_network_access=public_network_access,
+            scope=scope,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link: Optional[str] = None,
+             public_network_access: Optional[str] = None,
+             scope: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_link is not None:
-            pulumi.set(__self__, "private_link", private_link)
+            _setter("private_link", private_link)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="privateLink")
@@ -2331,8 +2774,17 @@ class ResourceManagementPrivateLinkEndpointConnectionsResponse(dict):
         """
         :param Sequence[str] private_endpoint_connections: The private endpoint connections.
         """
+        ResourceManagementPrivateLinkEndpointConnectionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint_connections=private_endpoint_connections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint_connections: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -2356,10 +2808,21 @@ class ResourceSelectorResponse(dict):
         :param str name: The name of the resource selector.
         :param Sequence['SelectorResponse'] selectors: The list of the selector expressions.
         """
+        ResourceSelectorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             selectors: Optional[Sequence['outputs.SelectorResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -2413,13 +2876,28 @@ class RoleManagementPolicyApprovalRuleResponse(dict):
         :param 'ApprovalSettingsResponse' setting: The approval setting
         :param 'RoleManagementPolicyRuleTargetResponse' target: The target of the current rule.
         """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyApprovalRule')
+        RoleManagementPolicyApprovalRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_type=rule_type,
+            id=id,
+            setting=setting,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_type: str,
+             id: Optional[str] = None,
+             setting: Optional['outputs.ApprovalSettingsResponse'] = None,
+             target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_type", 'RoleManagementPolicyApprovalRule')
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if setting is not None:
-            pulumi.set(__self__, "setting", setting)
+            _setter("setting", setting)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -2496,15 +2974,32 @@ class RoleManagementPolicyAuthenticationContextRuleResponse(dict):
         :param bool is_enabled: The value indicating if rule is enabled.
         :param 'RoleManagementPolicyRuleTargetResponse' target: The target of the current rule.
         """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyAuthenticationContextRule')
+        RoleManagementPolicyAuthenticationContextRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_type=rule_type,
+            claim_value=claim_value,
+            id=id,
+            is_enabled=is_enabled,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_type: str,
+             claim_value: Optional[str] = None,
+             id: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_type", 'RoleManagementPolicyAuthenticationContextRule')
         if claim_value is not None:
-            pulumi.set(__self__, "claim_value", claim_value)
+            _setter("claim_value", claim_value)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -2585,13 +3080,28 @@ class RoleManagementPolicyEnablementRuleResponse(dict):
         :param str id: The id of the rule.
         :param 'RoleManagementPolicyRuleTargetResponse' target: The target of the current rule.
         """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyEnablementRule')
+        RoleManagementPolicyEnablementRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_type=rule_type,
+            enabled_rules=enabled_rules,
+            id=id,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_type: str,
+             enabled_rules: Optional[Sequence[str]] = None,
+             id: Optional[str] = None,
+             target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_type", 'RoleManagementPolicyEnablementRule')
         if enabled_rules is not None:
-            pulumi.set(__self__, "enabled_rules", enabled_rules)
+            _setter("enabled_rules", enabled_rules)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -2668,15 +3178,32 @@ class RoleManagementPolicyExpirationRuleResponse(dict):
         :param str maximum_duration: The maximum duration of expiration in timespan.
         :param 'RoleManagementPolicyRuleTargetResponse' target: The target of the current rule.
         """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyExpirationRule')
+        RoleManagementPolicyExpirationRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_type=rule_type,
+            id=id,
+            is_expiration_required=is_expiration_required,
+            maximum_duration=maximum_duration,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_type: str,
+             id: Optional[str] = None,
+             is_expiration_required: Optional[bool] = None,
+             maximum_duration: Optional[str] = None,
+             target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_type", 'RoleManagementPolicyExpirationRule')
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if is_expiration_required is not None:
-            pulumi.set(__self__, "is_expiration_required", is_expiration_required)
+            _setter("is_expiration_required", is_expiration_required)
         if maximum_duration is not None:
-            pulumi.set(__self__, "maximum_duration", maximum_duration)
+            _setter("maximum_duration", maximum_duration)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -2773,21 +3300,44 @@ class RoleManagementPolicyNotificationRuleResponse(dict):
         :param str recipient_type: The recipient type.
         :param 'RoleManagementPolicyRuleTargetResponse' target: The target of the current rule.
         """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyNotificationRule')
+        RoleManagementPolicyNotificationRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_type=rule_type,
+            id=id,
+            is_default_recipients_enabled=is_default_recipients_enabled,
+            notification_level=notification_level,
+            notification_recipients=notification_recipients,
+            notification_type=notification_type,
+            recipient_type=recipient_type,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_type: str,
+             id: Optional[str] = None,
+             is_default_recipients_enabled: Optional[bool] = None,
+             notification_level: Optional[str] = None,
+             notification_recipients: Optional[Sequence[str]] = None,
+             notification_type: Optional[str] = None,
+             recipient_type: Optional[str] = None,
+             target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_type", 'RoleManagementPolicyNotificationRule')
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if is_default_recipients_enabled is not None:
-            pulumi.set(__self__, "is_default_recipients_enabled", is_default_recipients_enabled)
+            _setter("is_default_recipients_enabled", is_default_recipients_enabled)
         if notification_level is not None:
-            pulumi.set(__self__, "notification_level", notification_level)
+            _setter("notification_level", notification_level)
         if notification_recipients is not None:
-            pulumi.set(__self__, "notification_recipients", notification_recipients)
+            _setter("notification_recipients", notification_recipients)
         if notification_type is not None:
-            pulumi.set(__self__, "notification_type", notification_type)
+            _setter("notification_type", notification_type)
         if recipient_type is not None:
-            pulumi.set(__self__, "recipient_type", recipient_type)
+            _setter("recipient_type", recipient_type)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -2897,18 +3447,37 @@ class RoleManagementPolicyRuleTargetResponse(dict):
         :param Sequence[str] operations: The type of operation.
         :param Sequence[str] target_objects: The list of target objects.
         """
+        RoleManagementPolicyRuleTargetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            caller=caller,
+            enforced_settings=enforced_settings,
+            inheritable_settings=inheritable_settings,
+            level=level,
+            operations=operations,
+            target_objects=target_objects,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             caller: Optional[str] = None,
+             enforced_settings: Optional[Sequence[str]] = None,
+             inheritable_settings: Optional[Sequence[str]] = None,
+             level: Optional[str] = None,
+             operations: Optional[Sequence[str]] = None,
+             target_objects: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if caller is not None:
-            pulumi.set(__self__, "caller", caller)
+            _setter("caller", caller)
         if enforced_settings is not None:
-            pulumi.set(__self__, "enforced_settings", enforced_settings)
+            _setter("enforced_settings", enforced_settings)
         if inheritable_settings is not None:
-            pulumi.set(__self__, "inheritable_settings", inheritable_settings)
+            _setter("inheritable_settings", inheritable_settings)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if operations is not None:
-            pulumi.set(__self__, "operations", operations)
+            _setter("operations", operations)
         if target_objects is not None:
-            pulumi.set(__self__, "target_objects", target_objects)
+            _setter("target_objects", target_objects)
 
     @property
     @pulumi.getter
@@ -2993,12 +3562,25 @@ class SelectorResponse(dict):
         :param str kind: The selector kind.
         :param Sequence[str] not_in: The list of values to filter out.
         """
+        SelectorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_=in_,
+            kind=kind,
+            not_in=not_in,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_: Optional[Sequence[str]] = None,
+             kind: Optional[str] = None,
+             not_in: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if in_ is not None:
-            pulumi.set(__self__, "in_", in_)
+            _setter("in_", in_)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if not_in is not None:
-            pulumi.set(__self__, "not_in", not_in)
+            _setter("not_in", not_in)
 
     @property
     @pulumi.getter(name="in")
@@ -3073,18 +3655,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -3171,14 +3772,29 @@ class UserSetResponse(dict):
         :param bool is_backup: The value indicating whether the user is a backup fallback approver
         :param str user_type: The type of user.
         """
+        UserSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            id=id,
+            is_backup=is_backup,
+            user_type=user_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             id: Optional[str] = None,
+             is_backup: Optional[bool] = None,
+             user_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if is_backup is not None:
-            pulumi.set(__self__, "is_backup", is_backup)
+            _setter("is_backup", is_backup)
         if user_type is not None:
-            pulumi.set(__self__, "user_type", user_type)
+            _setter("user_type", user_type)
 
     @property
     @pulumi.getter

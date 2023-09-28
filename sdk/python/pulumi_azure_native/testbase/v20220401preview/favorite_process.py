@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,12 +28,29 @@ class FavoriteProcessArgs:
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[str] favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
         """
-        pulumi.set(__self__, "actual_process_name", actual_process_name)
-        pulumi.set(__self__, "package_name", package_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "test_base_account_name", test_base_account_name)
+        FavoriteProcessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actual_process_name=actual_process_name,
+            package_name=package_name,
+            resource_group_name=resource_group_name,
+            test_base_account_name=test_base_account_name,
+            favorite_process_resource_name=favorite_process_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actual_process_name: pulumi.Input[str],
+             package_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             test_base_account_name: pulumi.Input[str],
+             favorite_process_resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actual_process_name", actual_process_name)
+        _setter("package_name", package_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("test_base_account_name", test_base_account_name)
         if favorite_process_resource_name is not None:
-            pulumi.set(__self__, "favorite_process_resource_name", favorite_process_resource_name)
+            _setter("favorite_process_resource_name", favorite_process_resource_name)
 
     @property
     @pulumi.getter(name="actualProcessName")
@@ -137,6 +154,10 @@ class FavoriteProcess(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FavoriteProcessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

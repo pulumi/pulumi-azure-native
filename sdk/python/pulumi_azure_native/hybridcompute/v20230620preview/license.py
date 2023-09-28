@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,40 @@ class LicenseInitArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] tenant_id: Describes the tenant id.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LicenseInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            license_details=license_details,
+            license_name=license_name,
+            license_type=license_type,
+            location=location,
+            tags=tags,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             license_details: Optional[pulumi.Input['LicenseDetailsArgs']] = None,
+             license_name: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if license_details is not None:
-            pulumi.set(__self__, "license_details", license_details)
+            _setter("license_details", license_details)
         if license_name is not None:
-            pulumi.set(__self__, "license_name", license_name)
+            _setter("license_name", license_name)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -178,6 +199,10 @@ class License(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LicenseInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,6 +224,11 @@ class License(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LicenseInitArgs.__new__(LicenseInitArgs)
 
+            if license_details is not None and not isinstance(license_details, LicenseDetailsArgs):
+                license_details = license_details or {}
+                def _setter(key, value):
+                    license_details[key] = value
+                LicenseDetailsArgs._configure(_setter, **license_details)
             __props__.__dict__["license_details"] = license_details
             __props__.__dict__["license_name"] = license_name
             __props__.__dict__["license_type"] = license_type

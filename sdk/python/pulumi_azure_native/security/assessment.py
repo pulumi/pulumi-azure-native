@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,38 @@ class AssessmentArgs:
         :param pulumi.Input['SecurityAssessmentMetadataPropertiesArgs'] metadata: Describes properties of an assessment metadata.
         :param pulumi.Input['SecurityAssessmentPartnerDataArgs'] partners_data: Data regarding 3rd party partner integration
         """
-        pulumi.set(__self__, "resource_details", resource_details)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "status", status)
+        AssessmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_details=resource_details,
+            resource_id=resource_id,
+            status=status,
+            additional_data=additional_data,
+            assessment_name=assessment_name,
+            metadata=metadata,
+            partners_data=partners_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_details: pulumi.Input[Union['AzureResourceDetailsArgs', 'OnPremiseResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgs']],
+             resource_id: pulumi.Input[str],
+             status: pulumi.Input['AssessmentStatusArgs'],
+             additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             assessment_name: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesArgs']] = None,
+             partners_data: Optional[pulumi.Input['SecurityAssessmentPartnerDataArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_details", resource_details)
+        _setter("resource_id", resource_id)
+        _setter("status", status)
         if additional_data is not None:
-            pulumi.set(__self__, "additional_data", additional_data)
+            _setter("additional_data", additional_data)
         if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
+            _setter("assessment_name", assessment_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if partners_data is not None:
-            pulumi.set(__self__, "partners_data", partners_data)
+            _setter("partners_data", partners_data)
 
     @property
     @pulumi.getter(name="resourceDetails")
@@ -178,6 +199,10 @@ class Assessment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -201,7 +226,17 @@ class Assessment(pulumi.CustomResource):
 
             __props__.__dict__["additional_data"] = additional_data
             __props__.__dict__["assessment_name"] = assessment_name
+            if metadata is not None and not isinstance(metadata, SecurityAssessmentMetadataPropertiesArgs):
+                metadata = metadata or {}
+                def _setter(key, value):
+                    metadata[key] = value
+                SecurityAssessmentMetadataPropertiesArgs._configure(_setter, **metadata)
             __props__.__dict__["metadata"] = metadata
+            if partners_data is not None and not isinstance(partners_data, SecurityAssessmentPartnerDataArgs):
+                partners_data = partners_data or {}
+                def _setter(key, value):
+                    partners_data[key] = value
+                SecurityAssessmentPartnerDataArgs._configure(_setter, **partners_data)
             __props__.__dict__["partners_data"] = partners_data
             if resource_details is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_details'")
@@ -209,6 +244,11 @@ class Assessment(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
+            if status is not None and not isinstance(status, AssessmentStatusArgs):
+                status = status or {}
+                def _setter(key, value):
+                    status[key] = value
+                AssessmentStatusArgs._configure(_setter, **status)
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status

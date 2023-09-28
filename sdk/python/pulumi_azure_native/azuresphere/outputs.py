@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -45,16 +45,39 @@ class DeploymentResponse(dict):
         :param Sequence['ImageResponse'] deployed_images: Images deployed
         :param str deployment_id: Deployment ID
         """
-        pulumi.set(__self__, "deployment_date_utc", deployment_date_utc)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        DeploymentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_date_utc=deployment_date_utc,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            deployed_images=deployed_images,
+            deployment_id=deployment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_date_utc: str,
+             id: str,
+             name: str,
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             deployed_images: Optional[Sequence['outputs.ImageResponse']] = None,
+             deployment_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("deployment_date_utc", deployment_date_utc)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if deployed_images is not None:
-            pulumi.set(__self__, "deployed_images", deployed_images)
+            _setter("deployed_images", deployed_images)
         if deployment_id is not None:
-            pulumi.set(__self__, "deployment_id", deployment_id)
+            _setter("deployment_id", deployment_id)
 
     @property
     @pulumi.getter(name="deploymentDateUtc")
@@ -152,22 +175,51 @@ class DeviceGroupResponse(dict):
         :param str regional_data_boundary: Regional data boundary for the device group.
         :param str update_policy: Update policy of the device group.
         """
-        pulumi.set(__self__, "has_deployment", has_deployment)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        DeviceGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            has_deployment=has_deployment,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            allow_crash_dumps_collection=allow_crash_dumps_collection,
+            description=description,
+            os_feed_type=os_feed_type,
+            regional_data_boundary=regional_data_boundary,
+            update_policy=update_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             has_deployment: bool,
+             id: str,
+             name: str,
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             allow_crash_dumps_collection: Optional[str] = None,
+             description: Optional[str] = None,
+             os_feed_type: Optional[str] = None,
+             regional_data_boundary: Optional[str] = None,
+             update_policy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("has_deployment", has_deployment)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if allow_crash_dumps_collection is not None:
-            pulumi.set(__self__, "allow_crash_dumps_collection", allow_crash_dumps_collection)
+            _setter("allow_crash_dumps_collection", allow_crash_dumps_collection)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if os_feed_type is not None:
-            pulumi.set(__self__, "os_feed_type", os_feed_type)
+            _setter("os_feed_type", os_feed_type)
         if regional_data_boundary is not None:
-            pulumi.set(__self__, "regional_data_boundary", regional_data_boundary)
+            _setter("regional_data_boundary", regional_data_boundary)
         if update_policy is not None:
-            pulumi.set(__self__, "update_policy", update_policy)
+            _setter("update_policy", update_policy)
 
     @property
     @pulumi.getter(name="hasDeployment")
@@ -283,14 +335,37 @@ class DeviceInsightResponse(dict):
         :param str event_type: Event type
         :param str start_timestamp_utc: Event start timestamp
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "end_timestamp_utc", end_timestamp_utc)
-        pulumi.set(__self__, "event_category", event_category)
-        pulumi.set(__self__, "event_class", event_class)
-        pulumi.set(__self__, "event_count", event_count)
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "start_timestamp_utc", start_timestamp_utc)
+        DeviceInsightResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            device_id=device_id,
+            end_timestamp_utc=end_timestamp_utc,
+            event_category=event_category,
+            event_class=event_class,
+            event_count=event_count,
+            event_type=event_type,
+            start_timestamp_utc=start_timestamp_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             device_id: str,
+             end_timestamp_utc: str,
+             event_category: str,
+             event_class: str,
+             event_count: int,
+             event_type: str,
+             start_timestamp_utc: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("device_id", device_id)
+        _setter("end_timestamp_utc", end_timestamp_utc)
+        _setter("event_category", event_category)
+        _setter("event_class", event_class)
+        _setter("event_count", event_count)
+        _setter("event_type", event_type)
+        _setter("start_timestamp_utc", start_timestamp_utc)
 
     @property
     @pulumi.getter
@@ -388,18 +463,47 @@ class DeviceResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param str device_id: Device ID
         """
-        pulumi.set(__self__, "chip_sku", chip_sku)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_available_os_version", last_available_os_version)
-        pulumi.set(__self__, "last_installed_os_version", last_installed_os_version)
-        pulumi.set(__self__, "last_os_update_utc", last_os_update_utc)
-        pulumi.set(__self__, "last_update_request_utc", last_update_request_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        DeviceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            chip_sku=chip_sku,
+            id=id,
+            last_available_os_version=last_available_os_version,
+            last_installed_os_version=last_installed_os_version,
+            last_os_update_utc=last_os_update_utc,
+            last_update_request_utc=last_update_request_utc,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            device_id=device_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             chip_sku: str,
+             id: str,
+             last_available_os_version: str,
+             last_installed_os_version: str,
+             last_os_update_utc: str,
+             last_update_request_utc: str,
+             name: str,
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             device_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("chip_sku", chip_sku)
+        _setter("id", id)
+        _setter("last_available_os_version", last_available_os_version)
+        _setter("last_installed_os_version", last_installed_os_version)
+        _setter("last_os_update_utc", last_os_update_utc)
+        _setter("last_update_request_utc", last_update_request_utc)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if device_id is not None:
-            pulumi.set(__self__, "device_id", device_id)
+            _setter("device_id", device_id)
 
     @property
     @pulumi.getter(name="chipSku")
@@ -554,22 +658,55 @@ class ImageResponse(dict):
         :param str image_id: Image ID
         :param str regional_data_boundary: Regional data boundary for an image
         """
-        pulumi.set(__self__, "component_id", component_id)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "image_name", image_name)
-        pulumi.set(__self__, "image_type", image_type)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "uri", uri)
+        ImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_id=component_id,
+            description=description,
+            id=id,
+            image_name=image_name,
+            image_type=image_type,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            uri=uri,
+            image=image,
+            image_id=image_id,
+            regional_data_boundary=regional_data_boundary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_id: str,
+             description: str,
+             id: str,
+             image_name: str,
+             image_type: str,
+             name: str,
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             uri: str,
+             image: Optional[str] = None,
+             image_id: Optional[str] = None,
+             regional_data_boundary: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component_id", component_id)
+        _setter("description", description)
+        _setter("id", id)
+        _setter("image_name", image_name)
+        _setter("image_type", image_type)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
+        _setter("uri", uri)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if regional_data_boundary is not None:
-            pulumi.set(__self__, "regional_data_boundary", regional_data_boundary)
+            _setter("regional_data_boundary", regional_data_boundary)
 
     @property
     @pulumi.getter(name="componentId")
@@ -724,18 +861,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

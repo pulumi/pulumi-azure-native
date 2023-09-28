@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,16 +34,37 @@ class JitRequestArgs:
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "application_resource_id", application_resource_id)
-        pulumi.set(__self__, "jit_authorization_policies", jit_authorization_policies)
-        pulumi.set(__self__, "jit_scheduling_policy", jit_scheduling_policy)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        JitRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_resource_id=application_resource_id,
+            jit_authorization_policies=jit_authorization_policies,
+            jit_scheduling_policy=jit_scheduling_policy,
+            resource_group_name=resource_group_name,
+            jit_request_name=jit_request_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_resource_id: pulumi.Input[str],
+             jit_authorization_policies: pulumi.Input[Sequence[pulumi.Input['JitAuthorizationPoliciesArgs']]],
+             jit_scheduling_policy: pulumi.Input['JitSchedulingPolicyArgs'],
+             resource_group_name: pulumi.Input[str],
+             jit_request_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_resource_id", application_resource_id)
+        _setter("jit_authorization_policies", jit_authorization_policies)
+        _setter("jit_scheduling_policy", jit_scheduling_policy)
+        _setter("resource_group_name", resource_group_name)
         if jit_request_name is not None:
-            pulumi.set(__self__, "jit_request_name", jit_request_name)
+            _setter("jit_request_name", jit_request_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationResourceId")
@@ -175,6 +196,10 @@ class JitRequest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JitRequestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -203,6 +228,11 @@ class JitRequest(pulumi.CustomResource):
                 raise TypeError("Missing required property 'jit_authorization_policies'")
             __props__.__dict__["jit_authorization_policies"] = jit_authorization_policies
             __props__.__dict__["jit_request_name"] = jit_request_name
+            if jit_scheduling_policy is not None and not isinstance(jit_scheduling_policy, JitSchedulingPolicyArgs):
+                jit_scheduling_policy = jit_scheduling_policy or {}
+                def _setter(key, value):
+                    jit_scheduling_policy[key] = value
+                JitSchedulingPolicyArgs._configure(_setter, **jit_scheduling_policy)
             if jit_scheduling_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'jit_scheduling_policy'")
             __props__.__dict__["jit_scheduling_policy"] = jit_scheduling_policy

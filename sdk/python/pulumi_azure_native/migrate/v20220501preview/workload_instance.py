@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,35 @@ class WorkloadInstanceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the resource tags.
         :param pulumi.Input[str] workload_instance_name: Workload instance name.
         """
-        pulumi.set(__self__, "modernize_project_name", modernize_project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkloadInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            modernize_project_name=modernize_project_name,
+            resource_group_name=resource_group_name,
+            properties=properties,
+            subscription_id=subscription_id,
+            tags=tags,
+            workload_instance_name=workload_instance_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             modernize_project_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             properties: Optional[pulumi.Input['WorkloadInstanceModelPropertiesArgs']] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workload_instance_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("modernize_project_name", modernize_project_name)
+        _setter("resource_group_name", resource_group_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workload_instance_name is not None:
-            pulumi.set(__self__, "workload_instance_name", workload_instance_name)
+            _setter("workload_instance_name", workload_instance_name)
 
     @property
     @pulumi.getter(name="modernizeProjectName")
@@ -159,6 +178,10 @@ class WorkloadInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,6 +205,11 @@ class WorkloadInstance(pulumi.CustomResource):
             if modernize_project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'modernize_project_name'")
             __props__.__dict__["modernize_project_name"] = modernize_project_name
+            if properties is not None and not isinstance(properties, WorkloadInstanceModelPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                WorkloadInstanceModelPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -74,64 +74,123 @@ class WebAppSlotArgs:
         :param pulumi.Input[str] slot: Name of the deployment slot to create or update. The name 'production' is reserved.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            client_affinity_enabled=client_affinity_enabled,
+            client_cert_enabled=client_cert_enabled,
+            client_cert_exclusion_paths=client_cert_exclusion_paths,
+            cloning_info=cloning_info,
+            container_size=container_size,
+            daily_memory_time_quota=daily_memory_time_quota,
+            enabled=enabled,
+            geo_distributions=geo_distributions,
+            host_name_ssl_states=host_name_ssl_states,
+            host_names_disabled=host_names_disabled,
+            hosting_environment_profile=hosting_environment_profile,
+            https_only=https_only,
+            hyper_v=hyper_v,
+            identity=identity,
+            is_xenon=is_xenon,
+            kind=kind,
+            location=location,
+            redundancy_mode=redundancy_mode,
+            reserved=reserved,
+            scm_site_also_stopped=scm_site_also_stopped,
+            server_farm_id=server_farm_id,
+            site_config=site_config,
+            slot=slot,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+             client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+             client_cert_exclusion_paths: Optional[pulumi.Input[str]] = None,
+             cloning_info: Optional[pulumi.Input['CloningInfoArgs']] = None,
+             container_size: Optional[pulumi.Input[int]] = None,
+             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             geo_distributions: Optional[pulumi.Input[Sequence[pulumi.Input['GeoDistributionArgs']]]] = None,
+             host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input['HostNameSslStateArgs']]]] = None,
+             host_names_disabled: Optional[pulumi.Input[bool]] = None,
+             hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             hyper_v: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             is_xenon: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             redundancy_mode: Optional[pulumi.Input['RedundancyMode']] = None,
+             reserved: Optional[pulumi.Input[bool]] = None,
+             scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
+             server_farm_id: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['SiteConfigArgs']] = None,
+             slot: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+            _setter("client_affinity_enabled", client_affinity_enabled)
         if client_cert_enabled is not None:
-            pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
+            _setter("client_cert_enabled", client_cert_enabled)
         if client_cert_exclusion_paths is not None:
-            pulumi.set(__self__, "client_cert_exclusion_paths", client_cert_exclusion_paths)
+            _setter("client_cert_exclusion_paths", client_cert_exclusion_paths)
         if cloning_info is not None:
-            pulumi.set(__self__, "cloning_info", cloning_info)
+            _setter("cloning_info", cloning_info)
         if container_size is not None:
-            pulumi.set(__self__, "container_size", container_size)
+            _setter("container_size", container_size)
         if daily_memory_time_quota is not None:
-            pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
+            _setter("daily_memory_time_quota", daily_memory_time_quota)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if geo_distributions is not None:
-            pulumi.set(__self__, "geo_distributions", geo_distributions)
+            _setter("geo_distributions", geo_distributions)
         if host_name_ssl_states is not None:
-            pulumi.set(__self__, "host_name_ssl_states", host_name_ssl_states)
+            _setter("host_name_ssl_states", host_name_ssl_states)
         if host_names_disabled is not None:
-            pulumi.set(__self__, "host_names_disabled", host_names_disabled)
+            _setter("host_names_disabled", host_names_disabled)
         if hosting_environment_profile is not None:
-            pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
+            _setter("hosting_environment_profile", hosting_environment_profile)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if hyper_v is None:
             hyper_v = False
         if hyper_v is not None:
-            pulumi.set(__self__, "hyper_v", hyper_v)
+            _setter("hyper_v", hyper_v)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if is_xenon is None:
             is_xenon = False
         if is_xenon is not None:
-            pulumi.set(__self__, "is_xenon", is_xenon)
+            _setter("is_xenon", is_xenon)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if redundancy_mode is not None:
-            pulumi.set(__self__, "redundancy_mode", redundancy_mode)
+            _setter("redundancy_mode", redundancy_mode)
         if reserved is None:
             reserved = False
         if reserved is not None:
-            pulumi.set(__self__, "reserved", reserved)
+            _setter("reserved", reserved)
         if scm_site_also_stopped is None:
             scm_site_also_stopped = False
         if scm_site_also_stopped is not None:
-            pulumi.set(__self__, "scm_site_also_stopped", scm_site_also_stopped)
+            _setter("scm_site_also_stopped", scm_site_also_stopped)
         if server_farm_id is not None:
-            pulumi.set(__self__, "server_farm_id", server_farm_id)
+            _setter("server_farm_id", server_farm_id)
         if site_config is not None:
-            pulumi.set(__self__, "site_config", site_config)
+            _setter("site_config", site_config)
         if slot is not None:
-            pulumi.set(__self__, "slot", slot)
+            _setter("slot", slot)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -533,6 +592,10 @@ class WebAppSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -576,6 +639,11 @@ class WebAppSlot(pulumi.CustomResource):
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_cert_enabled"] = client_cert_enabled
             __props__.__dict__["client_cert_exclusion_paths"] = client_cert_exclusion_paths
+            if cloning_info is not None and not isinstance(cloning_info, CloningInfoArgs):
+                cloning_info = cloning_info or {}
+                def _setter(key, value):
+                    cloning_info[key] = value
+                CloningInfoArgs._configure(_setter, **cloning_info)
             __props__.__dict__["cloning_info"] = cloning_info
             __props__.__dict__["container_size"] = container_size
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
@@ -583,11 +651,21 @@ class WebAppSlot(pulumi.CustomResource):
             __props__.__dict__["geo_distributions"] = geo_distributions
             __props__.__dict__["host_name_ssl_states"] = host_name_ssl_states
             __props__.__dict__["host_names_disabled"] = host_names_disabled
+            if hosting_environment_profile is not None and not isinstance(hosting_environment_profile, HostingEnvironmentProfileArgs):
+                hosting_environment_profile = hosting_environment_profile or {}
+                def _setter(key, value):
+                    hosting_environment_profile[key] = value
+                HostingEnvironmentProfileArgs._configure(_setter, **hosting_environment_profile)
             __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
             __props__.__dict__["https_only"] = https_only
             if hyper_v is None:
                 hyper_v = False
             __props__.__dict__["hyper_v"] = hyper_v
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             if is_xenon is None:
                 is_xenon = False
@@ -608,6 +686,11 @@ class WebAppSlot(pulumi.CustomResource):
                 scm_site_also_stopped = False
             __props__.__dict__["scm_site_also_stopped"] = scm_site_also_stopped
             __props__.__dict__["server_farm_id"] = server_farm_id
+            if site_config is not None and not isinstance(site_config, SiteConfigArgs):
+                site_config = site_config or {}
+                def _setter(key, value):
+                    site_config[key] = value
+                SiteConfigArgs._configure(_setter, **site_config)
             __props__.__dict__["site_config"] = site_config
             __props__.__dict__["slot"] = slot
             __props__.__dict__["tags"] = tags

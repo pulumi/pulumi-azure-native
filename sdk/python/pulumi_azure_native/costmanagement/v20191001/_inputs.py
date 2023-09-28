@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -38,10 +38,23 @@ class ExportDeliveryDestinationArgs:
         :param pulumi.Input[str] resource_id: The resource id of the storage account where exports will be delivered.
         :param pulumi.Input[str] root_folder_path: The name of the directory where exports will be uploaded.
         """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "resource_id", resource_id)
+        ExportDeliveryDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            resource_id=resource_id,
+            root_folder_path=root_folder_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: pulumi.Input[str],
+             resource_id: pulumi.Input[str],
+             root_folder_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container", container)
+        _setter("resource_id", resource_id)
         if root_folder_path is not None:
-            pulumi.set(__self__, "root_folder_path", root_folder_path)
+            _setter("root_folder_path", root_folder_path)
 
     @property
     @pulumi.getter
@@ -88,7 +101,16 @@ class ExportDeliveryInfoArgs:
         The delivery information associated with a export.
         :param pulumi.Input['ExportDeliveryDestinationArgs'] destination: Has destination for the export being delivered.
         """
-        pulumi.set(__self__, "destination", destination)
+        ExportDeliveryInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: pulumi.Input['ExportDeliveryDestinationArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination", destination)
 
     @property
     @pulumi.getter
@@ -113,9 +135,20 @@ class ExportRecurrencePeriodArgs:
         :param pulumi.Input[str] from_: The start date of recurrence.
         :param pulumi.Input[str] to: The end date of recurrence.
         """
-        pulumi.set(__self__, "from_", from_)
+        ExportRecurrencePeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: pulumi.Input[str],
+             to: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("from_", from_)
         if to is not None:
-            pulumi.set(__self__, "to", to)
+            _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -154,11 +187,24 @@ class ExportScheduleArgs:
         :param pulumi.Input['ExportRecurrencePeriodArgs'] recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param pulumi.Input[Union[str, 'StatusType']] status: The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
         """
-        pulumi.set(__self__, "recurrence", recurrence)
+        ExportScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence=recurrence,
+            recurrence_period=recurrence_period,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence: pulumi.Input[Union[str, 'RecurrenceType']],
+             recurrence_period: Optional[pulumi.Input['ExportRecurrencePeriodArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'StatusType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recurrence", recurrence)
         if recurrence_period is not None:
-            pulumi.set(__self__, "recurrence_period", recurrence_period)
+            _setter("recurrence_period", recurrence_period)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -207,8 +253,19 @@ class QueryAggregationArgs:
         :param pulumi.Input[Union[str, 'FunctionType']] function: The name of the aggregation function to use.
         :param pulumi.Input[str] name: The name of the column to aggregate.
         """
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "name", name)
+        QueryAggregationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function=function,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function: pulumi.Input[Union[str, 'FunctionType']],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function", function)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -247,9 +304,22 @@ class QueryComparisonExpressionArgs:
         :param pulumi.Input[Union[str, 'OperatorType']] operator: The operator to use for comparison.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        QueryComparisonExpressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[Union[str, 'OperatorType']],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -296,8 +366,17 @@ class QueryDatasetConfigurationArgs:
         The configuration of dataset in the query.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
         """
+        QueryDatasetConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -330,18 +409,37 @@ class QueryDatasetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         :param pulumi.Input[Sequence[pulumi.Input['QuerySortingConfigurationArgs']]] sorting: Array of sorting by columns in query.
         """
+        QueryDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation=aggregation,
+            configuration=configuration,
+            filter=filter,
+            granularity=granularity,
+            grouping=grouping,
+            sorting=sorting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['QueryAggregationArgs']]]] = None,
+             configuration: Optional[pulumi.Input['QueryDatasetConfigurationArgs']] = None,
+             filter: Optional[pulumi.Input['QueryFilterArgs']] = None,
+             granularity: Optional[pulumi.Input[Union[str, 'GranularityType']]] = None,
+             grouping: Optional[pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]]] = None,
+             sorting: Optional[pulumi.Input[Sequence[pulumi.Input['QuerySortingConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aggregation is not None:
-            pulumi.set(__self__, "aggregation", aggregation)
+            _setter("aggregation", aggregation)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
+            _setter("granularity", granularity)
         if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
+            _setter("grouping", grouping)
         if sorting is not None:
-            pulumi.set(__self__, "sorting", sorting)
+            _setter("sorting", sorting)
 
     @property
     @pulumi.getter
@@ -430,12 +528,27 @@ class QueryDefinitionArgs:
         :param pulumi.Input['QueryDatasetArgs'] dataset: Has definition for data in this query.
         :param pulumi.Input['QueryTimePeriodArgs'] time_period: Has time period for pulling data for the query.
         """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
+        QueryDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timeframe=timeframe,
+            type=type,
+            dataset=dataset,
+            time_period=time_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timeframe: pulumi.Input[Union[str, 'TimeframeType']],
+             type: pulumi.Input[Union[str, 'ExportType']],
+             dataset: Optional[pulumi.Input['QueryDatasetArgs']] = None,
+             time_period: Optional[pulumi.Input['QueryTimePeriodArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("timeframe", timeframe)
+        _setter("type", type)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
+            _setter("time_period", time_period)
 
     @property
     @pulumi.getter
@@ -502,16 +615,33 @@ class QueryFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
         :param pulumi.Input['QueryComparisonExpressionArgs'] tag: Has comparison expression for a tag
         """
+        QueryFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimension=dimension,
+            not_=not_,
+            or_=or_,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]]] = None,
+             dimension: Optional[pulumi.Input['QueryComparisonExpressionArgs']] = None,
+             not_: Optional[pulumi.Input['QueryFilterArgs']] = None,
+             or_: Optional[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgs']]]] = None,
+             tag: Optional[pulumi.Input['QueryComparisonExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
+            _setter("dimension", dimension)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if or_ is not None:
-            pulumi.set(__self__, "or_", or_)
+            _setter("or_", or_)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
 
     @property
     @pulumi.getter(name="and")
@@ -584,8 +714,19 @@ class QueryGroupingArgs:
         :param pulumi.Input[str] name: The name of the column to group.
         :param pulumi.Input[Union[str, 'QueryColumnType']] type: Has type of the column to group.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        QueryGroupingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'QueryColumnType']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -622,10 +763,21 @@ class QuerySortingConfigurationArgs:
         :param pulumi.Input[str] name: The name of the column to use in sorting.
         :param pulumi.Input[Union[str, 'SortDirection']] query_sorting_direction: The sorting direction
         """
+        QuerySortingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            query_sorting_direction=query_sorting_direction,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             query_sorting_direction: Optional[pulumi.Input[Union[str, 'SortDirection']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query_sorting_direction is not None:
-            pulumi.set(__self__, "query_sorting_direction", query_sorting_direction)
+            _setter("query_sorting_direction", query_sorting_direction)
 
     @property
     @pulumi.getter
@@ -662,8 +814,19 @@ class QueryTimePeriodArgs:
         :param pulumi.Input[str] from_: The start date to pull data from.
         :param pulumi.Input[str] to: The end date to pull data to.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        QueryTimePeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: pulumi.Input[str],
+             to: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,23 +39,48 @@ class VpnGatewayArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The VirtualHub to which the gateway belongs
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VpnGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            bgp_settings=bgp_settings,
+            connections=connections,
+            gateway_name=gateway_name,
+            id=id,
+            location=location,
+            policies=policies,
+            tags=tags,
+            virtual_hub=virtual_hub,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
+             connections: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionArgs']]]] = None,
+             gateway_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input['PoliciesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if bgp_settings is not None:
-            pulumi.set(__self__, "bgp_settings", bgp_settings)
+            _setter("bgp_settings", bgp_settings)
         if connections is not None:
-            pulumi.set(__self__, "connections", connections)
+            _setter("connections", connections)
         if gateway_name is not None:
-            pulumi.set(__self__, "gateway_name", gateway_name)
+            _setter("gateway_name", gateway_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -217,6 +242,10 @@ class VpnGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -240,16 +269,31 @@ class VpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpnGatewayArgs.__new__(VpnGatewayArgs)
 
+            if bgp_settings is not None and not isinstance(bgp_settings, BgpSettingsArgs):
+                bgp_settings = bgp_settings or {}
+                def _setter(key, value):
+                    bgp_settings[key] = value
+                BgpSettingsArgs._configure(_setter, **bgp_settings)
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["connections"] = connections
             __props__.__dict__["gateway_name"] = gateway_name
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
+            if policies is not None and not isinstance(policies, PoliciesArgs):
+                policies = policies or {}
+                def _setter(key, value):
+                    policies[key] = value
+                PoliciesArgs._configure(_setter, **policies)
             __props__.__dict__["policies"] = policies
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if virtual_hub is not None and not isinstance(virtual_hub, SubResourceArgs):
+                virtual_hub = virtual_hub or {}
+                def _setter(key, value):
+                    virtual_hub[key] = value
+                SubResourceArgs._configure(_setter, **virtual_hub)
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -51,7 +51,16 @@ class CorsRuleResponse(dict):
         Specifies a CORS rule for the Map Account.
         :param Sequence[str] allowed_origins: Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        CorsRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_origins", allowed_origins)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -90,8 +99,17 @@ class CorsRulesResponse(dict):
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
         :param Sequence['CorsRuleResponse'] cors_rules: The list of CORS rules. You can include up to five CorsRule elements in the request. 
         """
+        CorsRulesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cors_rules=cors_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
 
     @property
     @pulumi.getter(name="corsRules")
@@ -134,8 +152,19 @@ class CreatorPropertiesResponse(dict):
         :param str provisioning_state: The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
         :param int storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "storage_units", storage_units)
+        CreatorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            storage_units=storage_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             storage_units: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provisioning_state", provisioning_state)
+        _setter("storage_units", storage_units)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -184,8 +213,19 @@ class LinkedResourceResponse(dict):
         :param str id: ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
         :param str unique_name: A provided name which uniquely identifies the linked resource.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "unique_name", unique_name)
+        LinkedResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            unique_name=unique_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             unique_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("unique_name", unique_name)
 
     @property
     @pulumi.getter
@@ -242,12 +282,27 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -310,8 +365,19 @@ class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        ManagedServiceIdentityResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -372,16 +438,33 @@ class MapsAccountPropertiesResponse(dict):
         :param bool disable_local_auth: Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
         :param Sequence['LinkedResourceResponse'] linked_resources: Sets the resources to be used for Managed Identities based operations for the Map account resource.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "unique_id", unique_id)
+        MapsAccountPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            unique_id=unique_id,
+            cors=cors,
+            disable_local_auth=disable_local_auth,
+            linked_resources=linked_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             unique_id: str,
+             cors: Optional['outputs.CorsRulesResponse'] = None,
+             disable_local_auth: Optional[bool] = None,
+             linked_resources: Optional[Sequence['outputs.LinkedResourceResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provisioning_state", provisioning_state)
+        _setter("unique_id", unique_id)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if linked_resources is not None:
-            pulumi.set(__self__, "linked_resources", linked_resources)
+            _setter("linked_resources", linked_resources)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -437,8 +520,19 @@ class SkuResponse(dict):
         :param str name: The name of the SKU, in standard format (such as S0).
         :param str tier: Gets the sku tier. This is based on the SKU name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -505,18 +599,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

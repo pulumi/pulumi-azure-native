@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,12 +28,29 @@ class CustomDomainArgs:
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] custom_domain_name: Name of the custom domain within an endpoint.
         """
-        pulumi.set(__self__, "endpoint_name", endpoint_name)
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CustomDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_name=endpoint_name,
+            host_name=host_name,
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            custom_domain_name=custom_domain_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_name: pulumi.Input[str],
+             host_name: pulumi.Input[str],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             custom_domain_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_name", endpoint_name)
+        _setter("host_name", host_name)
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if custom_domain_name is not None:
-            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+            _setter("custom_domain_name", custom_domain_name)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -137,6 +154,10 @@ class CustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

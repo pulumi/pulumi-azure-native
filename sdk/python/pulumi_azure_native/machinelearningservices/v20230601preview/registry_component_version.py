@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,12 +30,29 @@ class RegistryComponentVersionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] version: Version identifier.
         """
-        pulumi.set(__self__, "component_name", component_name)
-        pulumi.set(__self__, "component_version_properties", component_version_properties)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RegistryComponentVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_name=component_name,
+            component_version_properties=component_version_properties,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_name: pulumi.Input[str],
+             component_version_properties: pulumi.Input['ComponentVersionArgs'],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component_name", component_name)
+        _setter("component_version_properties", component_version_properties)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="componentName")
@@ -139,6 +156,10 @@ class RegistryComponentVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryComponentVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -161,6 +182,11 @@ class RegistryComponentVersion(pulumi.CustomResource):
             if component_name is None and not opts.urn:
                 raise TypeError("Missing required property 'component_name'")
             __props__.__dict__["component_name"] = component_name
+            if component_version_properties is not None and not isinstance(component_version_properties, ComponentVersionArgs):
+                component_version_properties = component_version_properties or {}
+                def _setter(key, value):
+                    component_version_properties[key] = value
+                ComponentVersionArgs._configure(_setter, **component_version_properties)
             if component_version_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version_properties'")
             __props__.__dict__["component_version_properties"] = component_version_properties

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,60 @@ class CustomLocationArgs:
         :param pulumi.Input[str] resource_name: Custom Locations name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CustomLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            authentication=authentication,
+            cluster_extension_ids=cluster_extension_ids,
+            display_name=display_name,
+            host_resource_id=host_resource_id,
+            host_type=host_type,
+            identity=identity,
+            location=location,
+            namespace=namespace,
+            provisioning_state=provisioning_state,
+            resource_name=resource_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             authentication: Optional[pulumi.Input['CustomLocationPropertiesAuthenticationArgs']] = None,
+             cluster_extension_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             host_resource_id: Optional[pulumi.Input[str]] = None,
+             host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if cluster_extension_ids is not None:
-            pulumi.set(__self__, "cluster_extension_ids", cluster_extension_ids)
+            _setter("cluster_extension_ids", cluster_extension_ids)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if host_resource_id is not None:
-            pulumi.set(__self__, "host_resource_id", host_resource_id)
+            _setter("host_resource_id", host_resource_id)
         if host_type is not None:
-            pulumi.set(__self__, "host_type", host_type)
+            _setter("host_type", host_type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -270,6 +301,10 @@ class CustomLocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomLocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -296,11 +331,21 @@ class CustomLocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomLocationArgs.__new__(CustomLocationArgs)
 
+            if authentication is not None and not isinstance(authentication, CustomLocationPropertiesAuthenticationArgs):
+                authentication = authentication or {}
+                def _setter(key, value):
+                    authentication[key] = value
+                CustomLocationPropertiesAuthenticationArgs._configure(_setter, **authentication)
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["cluster_extension_ids"] = cluster_extension_ids
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["host_resource_id"] = host_resource_id
             __props__.__dict__["host_type"] = host_type
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["namespace"] = namespace

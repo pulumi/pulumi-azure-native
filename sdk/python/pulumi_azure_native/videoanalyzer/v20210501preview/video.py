@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,14 +28,31 @@ class VideoArgs:
         :param pulumi.Input[str] title: Optional video title provided by the user. Value can be up to 256 characters long.
         :param pulumi.Input[str] video_name: The name of the video to create or update.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VideoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            title=title,
+            video_name=video_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             video_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if video_name is not None:
-            pulumi.set(__self__, "video_name", video_name)
+            _setter("video_name", video_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -139,6 +156,10 @@ class Video(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VideoArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

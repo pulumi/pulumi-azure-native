@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,21 +37,44 @@ class RouteTableInitArgs:
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RouteTableInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            disable_bgp_route_propagation=disable_bgp_route_propagation,
+            id=id,
+            location=location,
+            provisioning_state=provisioning_state,
+            route_table_name=route_table_name,
+            routes=routes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             route_table_name: Optional[pulumi.Input[str]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if disable_bgp_route_propagation is not None:
-            pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
+            _setter("disable_bgp_route_propagation", disable_bgp_route_propagation)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if route_table_name is not None:
-            pulumi.set(__self__, "route_table_name", route_table_name)
+            _setter("route_table_name", route_table_name)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -199,6 +222,10 @@ class RouteTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteTableInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

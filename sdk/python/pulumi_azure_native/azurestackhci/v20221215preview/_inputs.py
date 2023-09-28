@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -59,8 +59,17 @@ class ArcConnectivityPropertiesArgs:
         Connectivity related configuration required by arc server.
         :param pulumi.Input[bool] enabled: True indicates ARC connectivity is enabled
         """
+        ArcConnectivityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -85,10 +94,21 @@ class ClusterDesiredPropertiesArgs:
         :param pulumi.Input[Union[str, 'DiagnosticLevel']] diagnostic_level: Desired level of diagnostic data emitted by the cluster.
         :param pulumi.Input[Union[str, 'WindowsServerSubscription']] windows_server_subscription: Desired state of Windows Server Subscription.
         """
+        ClusterDesiredPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            diagnostic_level=diagnostic_level,
+            windows_server_subscription=windows_server_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             diagnostic_level: Optional[pulumi.Input[Union[str, 'DiagnosticLevel']]] = None,
+             windows_server_subscription: Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
+            _setter("diagnostic_level", diagnostic_level)
         if windows_server_subscription is not None:
-            pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
+            _setter("windows_server_subscription", windows_server_subscription)
 
     @property
     @pulumi.getter(name="diagnosticLevel")
@@ -125,10 +145,21 @@ class ExtendedLocationArgs:
         :param pulumi.Input[str] name: The name of the extended location.
         :param pulumi.Input[Union[str, 'ExtendedLocationTypes']] type: The type of the extended location.
         """
+        ExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -167,9 +198,22 @@ class GalleryImageIdentifierArgs:
         :param pulumi.Input[str] publisher: The name of the gallery image definition publisher.
         :param pulumi.Input[str] sku: The name of the gallery image definition SKU.
         """
-        pulumi.set(__self__, "offer", offer)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "sku", sku)
+        GalleryImageIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             sku: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offer", offer)
+        _setter("publisher", publisher)
+        _setter("sku", sku)
 
     @property
     @pulumi.getter
@@ -216,8 +260,17 @@ class GalleryImageVersionArgs:
         Specifies information about the gallery image version that you want to create or update.
         :param pulumi.Input[str] name: This is the version of the gallery image.
         """
+        GalleryImageVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -242,10 +295,21 @@ class GuestCredentialArgs:
         :param pulumi.Input[str] password: The password to connect with the guest.
         :param pulumi.Input[str] username: The username to connect with the guest.
         """
+        GuestCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -280,8 +344,17 @@ class HttpProxyConfigurationArgs:
         HTTP Proxy configuration for the VM.
         :param pulumi.Input[str] https_proxy: The httpsProxy url.
         """
+        HttpProxyConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            https_proxy=https_proxy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             https_proxy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if https_proxy is not None:
-            pulumi.set(__self__, "https_proxy", https_proxy)
+            _setter("https_proxy", https_proxy)
 
     @property
     @pulumi.getter(name="httpsProxy")
@@ -310,14 +383,29 @@ class IPConfigurationPropertiesArgs:
         :param pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']] private_ip_allocation_method: PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
         :param pulumi.Input['IPConfigurationSubnetArgs'] subnet: Subnet - Name of Subnet bound to the IP configuration.
         """
+        IPConfigurationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefix_length=prefix_length,
+            private_ip_address=private_ip_address,
+            private_ip_allocation_method=private_ip_allocation_method,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefix_length: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']]] = None,
+             subnet: Optional[pulumi.Input['IPConfigurationSubnetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if prefix_length is not None:
-            pulumi.set(__self__, "prefix_length", prefix_length)
+            _setter("prefix_length", prefix_length)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
-            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+            _setter("private_ip_allocation_method", private_ip_allocation_method)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="prefixLength")
@@ -376,8 +464,17 @@ class IPConfigurationSubnetArgs:
         Subnet - Name of Subnet bound to the IP configuration.
         :param pulumi.Input[str] id: ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
+        IPConfigurationSubnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -402,10 +499,21 @@ class IPConfigurationArgs:
         :param pulumi.Input[str] name: Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['IPConfigurationPropertiesArgs'] properties: InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
         """
+        IPConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['IPConfigurationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -443,12 +551,25 @@ class IPPoolArgs:
         :param pulumi.Input['IPPoolTypeEnum'] ip_pool_type: ip pool type
         :param pulumi.Input[str] start: start of the ip address pool
         """
+        IPPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            ip_pool_type=ip_pool_type,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: Optional[pulumi.Input[str]] = None,
+             ip_pool_type: Optional[pulumi.Input['IPPoolTypeEnum']] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if ip_pool_type is not None:
-            pulumi.set(__self__, "ip_pool_type", ip_pool_type)
+            _setter("ip_pool_type", ip_pool_type)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter
@@ -495,8 +616,17 @@ class IdentityArgs:
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -518,8 +648,17 @@ class InterfaceDNSSettingsArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of DNS server IP Addresses for the interface
         """
+        InterfaceDNSSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_servers=dns_servers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -544,10 +683,21 @@ class SoftwareAssurancePropertiesArgs:
         :param pulumi.Input[Union[str, 'SoftwareAssuranceIntent']] software_assurance_intent: Customer Intent for Software Assurance Benefit.
         :param pulumi.Input[Union[str, 'SoftwareAssuranceStatus']] software_assurance_status: Status of the Software Assurance for the cluster.
         """
+        SoftwareAssurancePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            software_assurance_intent=software_assurance_intent,
+            software_assurance_status=software_assurance_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             software_assurance_intent: Optional[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]] = None,
+             software_assurance_status: Optional[pulumi.Input[Union[str, 'SoftwareAssuranceStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if software_assurance_intent is not None:
-            pulumi.set(__self__, "software_assurance_intent", software_assurance_intent)
+            _setter("software_assurance_intent", software_assurance_intent)
         if software_assurance_status is not None:
-            pulumi.set(__self__, "software_assurance_status", software_assurance_status)
+            _setter("software_assurance_status", software_assurance_status)
 
     @property
     @pulumi.getter(name="softwareAssuranceIntent")
@@ -598,24 +748,49 @@ class StepArgs:
         :param pulumi.Input[str] status: Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
         :param pulumi.Input[Sequence[pulumi.Input['StepArgs']]] steps: Recursive model for child steps of this step.
         """
+        StepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            end_time_utc=end_time_utc,
+            error_message=error_message,
+            expected_execution_time=expected_execution_time,
+            last_updated_time_utc=last_updated_time_utc,
+            name=name,
+            start_time_utc=start_time_utc,
+            status=status,
+            steps=steps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             end_time_utc: Optional[pulumi.Input[str]] = None,
+             error_message: Optional[pulumi.Input[str]] = None,
+             expected_execution_time: Optional[pulumi.Input[str]] = None,
+             last_updated_time_utc: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_time_utc: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_time_utc is not None:
-            pulumi.set(__self__, "end_time_utc", end_time_utc)
+            _setter("end_time_utc", end_time_utc)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if expected_execution_time is not None:
-            pulumi.set(__self__, "expected_execution_time", expected_execution_time)
+            _setter("expected_execution_time", expected_execution_time)
         if last_updated_time_utc is not None:
-            pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
+            _setter("last_updated_time_utc", last_updated_time_utc)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_time_utc is not None:
-            pulumi.set(__self__, "start_time_utc", start_time_utc)
+            _setter("start_time_utc", start_time_utc)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+            _setter("steps", steps)
 
     @property
     @pulumi.getter
@@ -738,12 +913,25 @@ class UpdatePrerequisiteArgs:
         :param pulumi.Input[str] update_type: Updatable component type.
         :param pulumi.Input[str] version: Version of the prerequisite.
         """
+        UpdatePrerequisiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_name=package_name,
+            update_type=update_type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_name: Optional[pulumi.Input[str]] = None,
+             update_type: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
+            _setter("package_name", package_name)
         if update_type is not None:
-            pulumi.set(__self__, "update_type", update_type)
+            _setter("update_type", update_type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="packageName")
@@ -789,8 +977,17 @@ class VirtualMachinePropertiesDataDisksArgs:
         """
         :param pulumi.Input[str] id: Resource ID of the data disk
         """
+        VirtualMachinePropertiesDataDisksArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -814,12 +1011,25 @@ class VirtualMachinePropertiesDynamicMemoryConfigArgs:
         """
         :param pulumi.Input[int] target_memory_buffer: Defines the amount of extra memory that should be reserved for a virtual machine at runtime, as a percentage of the total memory that the virtual machine is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000.
         """
+        VirtualMachinePropertiesDynamicMemoryConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_memory_mb=maximum_memory_mb,
+            minimum_memory_mb=minimum_memory_mb,
+            target_memory_buffer=target_memory_buffer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_memory_mb: Optional[pulumi.Input[float]] = None,
+             minimum_memory_mb: Optional[pulumi.Input[float]] = None,
+             target_memory_buffer: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if maximum_memory_mb is not None:
-            pulumi.set(__self__, "maximum_memory_mb", maximum_memory_mb)
+            _setter("maximum_memory_mb", maximum_memory_mb)
         if minimum_memory_mb is not None:
-            pulumi.set(__self__, "minimum_memory_mb", minimum_memory_mb)
+            _setter("minimum_memory_mb", minimum_memory_mb)
         if target_memory_buffer is not None:
-            pulumi.set(__self__, "target_memory_buffer", target_memory_buffer)
+            _setter("target_memory_buffer", target_memory_buffer)
 
     @property
     @pulumi.getter(name="maximumMemoryMB")
@@ -864,16 +1074,31 @@ class VirtualMachinePropertiesHardwareProfileArgs:
         :param pulumi.Input[float] memory_mb: RAM in MB for the virtual machine
         :param pulumi.Input[int] processors: number of processors for the virtual machine
         """
+        VirtualMachinePropertiesHardwareProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dynamic_memory_config=dynamic_memory_config,
+            memory_mb=memory_mb,
+            processors=processors,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dynamic_memory_config: Optional[pulumi.Input['VirtualMachinePropertiesDynamicMemoryConfigArgs']] = None,
+             memory_mb: Optional[pulumi.Input[float]] = None,
+             processors: Optional[pulumi.Input[int]] = None,
+             vm_size: Optional[pulumi.Input[Union[str, 'VmSizeEnum']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dynamic_memory_config is not None:
-            pulumi.set(__self__, "dynamic_memory_config", dynamic_memory_config)
+            _setter("dynamic_memory_config", dynamic_memory_config)
         if memory_mb is not None:
-            pulumi.set(__self__, "memory_mb", memory_mb)
+            _setter("memory_mb", memory_mb)
         if processors is not None:
-            pulumi.set(__self__, "processors", processors)
+            _setter("processors", processors)
         if vm_size is None:
             vm_size = 'Default'
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="dynamicMemoryConfig")
@@ -926,8 +1151,17 @@ class VirtualMachinePropertiesImageReferenceArgs:
         Which Image to use for the virtual machine
         :param pulumi.Input[str] id: Resource ID of the image
         """
+        VirtualMachinePropertiesImageReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -954,12 +1188,25 @@ class VirtualMachinePropertiesLinuxConfigurationArgs:
         :param pulumi.Input[bool] provision_vm_agent: Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
         :param pulumi.Input['VirtualMachinePropertiesSshArgs'] ssh: SSH - contains settings related to ssh configuration
         """
+        VirtualMachinePropertiesLinuxConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_password_authentication=disable_password_authentication,
+            provision_vm_agent=provision_vm_agent,
+            ssh=ssh,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+             provision_vm_agent: Optional[pulumi.Input[bool]] = None,
+             ssh: Optional[pulumi.Input['VirtualMachinePropertiesSshArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disable_password_authentication is not None:
-            pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+            _setter("disable_password_authentication", disable_password_authentication)
         if provision_vm_agent is not None:
-            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+            _setter("provision_vm_agent", provision_vm_agent)
         if ssh is not None:
-            pulumi.set(__self__, "ssh", ssh)
+            _setter("ssh", ssh)
 
     @property
     @pulumi.getter(name="disablePasswordAuthentication")
@@ -1005,8 +1252,17 @@ class VirtualMachinePropertiesNetworkInterfacesArgs:
         """
         :param pulumi.Input[str] id: ID - Resource Id of the network interface
         """
+        VirtualMachinePropertiesNetworkInterfacesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1029,8 +1285,17 @@ class VirtualMachinePropertiesNetworkProfileArgs:
         NetworkProfile - describes the network configuration the virtual machine
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesNetworkInterfacesArgs']]] network_interfaces: NetworkInterfaces - list of network interfaces to be attached to the virtual machine
         """
+        VirtualMachinePropertiesNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interfaces=network_interfaces,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesNetworkInterfacesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -1053,8 +1318,17 @@ class VirtualMachinePropertiesOsDiskArgs:
         VHD to attach as OS disk
         :param pulumi.Input[str] id: Resource ID of the OS disk
         """
+        VirtualMachinePropertiesOsDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1087,18 +1361,37 @@ class VirtualMachinePropertiesOsProfileArgs:
         :param pulumi.Input[Union[str, 'OsTypeEnum']] os_type: OsType - string specifying whether the OS is Linux or Windows
         :param pulumi.Input['VirtualMachinePropertiesWindowsConfigurationArgs'] windows_configuration: Windows Configuration for the virtual machine 
         """
+        VirtualMachinePropertiesOsProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_password=admin_password,
+            admin_username=admin_username,
+            computer_name=computer_name,
+            linux_configuration=linux_configuration,
+            os_type=os_type,
+            windows_configuration=windows_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_password: Optional[pulumi.Input[str]] = None,
+             admin_username: Optional[pulumi.Input[str]] = None,
+             computer_name: Optional[pulumi.Input[str]] = None,
+             linux_configuration: Optional[pulumi.Input['VirtualMachinePropertiesLinuxConfigurationArgs']] = None,
+             os_type: Optional[pulumi.Input[Union[str, 'OsTypeEnum']]] = None,
+             windows_configuration: Optional[pulumi.Input['VirtualMachinePropertiesWindowsConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if linux_configuration is not None:
-            pulumi.set(__self__, "linux_configuration", linux_configuration)
+            _setter("linux_configuration", linux_configuration)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if windows_configuration is not None:
-            pulumi.set(__self__, "windows_configuration", windows_configuration)
+            _setter("windows_configuration", windows_configuration)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -1182,10 +1475,21 @@ class VirtualMachinePropertiesPublicKeysPublicKeysArgs:
         :param pulumi.Input[str] key_data: KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param pulumi.Input[str] path: Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
         """
+        VirtualMachinePropertiesPublicKeysPublicKeysArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_data=key_data,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_data: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_data is not None:
-            pulumi.set(__self__, "key_data", key_data)
+            _setter("key_data", key_data)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="keyData")
@@ -1221,10 +1525,21 @@ class VirtualMachinePropertiesPublicKeysArgs:
         :param pulumi.Input[str] key_data: KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param pulumi.Input[str] path: Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
         """
+        VirtualMachinePropertiesPublicKeysArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_data=key_data,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_data: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_data is not None:
-            pulumi.set(__self__, "key_data", key_data)
+            _setter("key_data", key_data)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="keyData")
@@ -1259,12 +1574,23 @@ class VirtualMachinePropertiesSecurityProfileArgs:
         """
         SecurityProfile - Specifies the security settings for the virtual machine.
         """
+        VirtualMachinePropertiesSecurityProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_tpm=enable_tpm,
+            uefi_settings=uefi_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_tpm: Optional[pulumi.Input[bool]] = None,
+             uefi_settings: Optional[pulumi.Input['VirtualMachinePropertiesUefiSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_tpm is None:
             enable_tpm = False
         if enable_tpm is not None:
-            pulumi.set(__self__, "enable_tpm", enable_tpm)
+            _setter("enable_tpm", enable_tpm)
         if uefi_settings is not None:
-            pulumi.set(__self__, "uefi_settings", uefi_settings)
+            _setter("uefi_settings", uefi_settings)
 
     @property
     @pulumi.getter(name="enableTPM")
@@ -1293,8 +1619,17 @@ class VirtualMachinePropertiesSshSshArgs:
         SSH Configuration
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]] public_keys: PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
         """
+        VirtualMachinePropertiesSshSshArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_keys=public_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
+            _setter("public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
@@ -1317,8 +1652,17 @@ class VirtualMachinePropertiesSshArgs:
         SSH - contains settings related to ssh configuration
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysArgs']]] public_keys: PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
         """
+        VirtualMachinePropertiesSshArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_keys=public_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
+            _setter("public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
@@ -1347,14 +1691,29 @@ class VirtualMachinePropertiesStorageProfileArgs:
         :param pulumi.Input['VirtualMachinePropertiesOsDiskArgs'] os_disk: VHD to attach as OS disk
         :param pulumi.Input[str] vm_config_storage_path_id: Id of the storage container that hosts the VM configuration file
         """
+        VirtualMachinePropertiesStorageProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_disks=data_disks,
+            image_reference=image_reference,
+            os_disk=os_disk,
+            vm_config_storage_path_id=vm_config_storage_path_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesDataDisksArgs']]]] = None,
+             image_reference: Optional[pulumi.Input['VirtualMachinePropertiesImageReferenceArgs']] = None,
+             os_disk: Optional[pulumi.Input['VirtualMachinePropertiesOsDiskArgs']] = None,
+             vm_config_storage_path_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
+            _setter("data_disks", data_disks)
         if image_reference is not None:
-            pulumi.set(__self__, "image_reference", image_reference)
+            _setter("image_reference", image_reference)
         if os_disk is not None:
-            pulumi.set(__self__, "os_disk", os_disk)
+            _setter("os_disk", os_disk)
         if vm_config_storage_path_id is not None:
-            pulumi.set(__self__, "vm_config_storage_path_id", vm_config_storage_path_id)
+            _setter("vm_config_storage_path_id", vm_config_storage_path_id)
 
     @property
     @pulumi.getter(name="dataDisks")
@@ -1412,10 +1771,19 @@ class VirtualMachinePropertiesUefiSettingsArgs:
         """
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine.
         """
+        VirtualMachinePropertiesUefiSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secure_boot_enabled=secure_boot_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if secure_boot_enabled is None:
             secure_boot_enabled = False
         if secure_boot_enabled is not None:
-            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+            _setter("secure_boot_enabled", secure_boot_enabled)
 
     @property
     @pulumi.getter(name="secureBootEnabled")
@@ -1444,14 +1812,29 @@ class VirtualMachinePropertiesWindowsConfigurationArgs:
         :param pulumi.Input['VirtualMachinePropertiesSshSshArgs'] ssh: SSH Configuration
         :param pulumi.Input[str] time_zone: TimeZone for the virtual machine
         """
+        VirtualMachinePropertiesWindowsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_automatic_updates=enable_automatic_updates,
+            provision_vm_agent=provision_vm_agent,
+            ssh=ssh,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
+             provision_vm_agent: Optional[pulumi.Input[bool]] = None,
+             ssh: Optional[pulumi.Input['VirtualMachinePropertiesSshSshArgs']] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_automatic_updates is not None:
-            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
+            _setter("enable_automatic_updates", enable_automatic_updates)
         if provision_vm_agent is not None:
-            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+            _setter("provision_vm_agent", provision_vm_agent)
         if ssh is not None:
-            pulumi.set(__self__, "ssh", ssh)
+            _setter("ssh", ssh)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
@@ -1510,8 +1893,17 @@ class VirtualNetworkPropertiesDhcpOptionsArgs:
         DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: The list of DNS servers IP addresses.
         """
+        VirtualNetworkPropertiesDhcpOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_servers=dns_servers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -1534,8 +1926,17 @@ class VirtualNetworkPropertiesIpConfigurationReferencesArgs:
         IPConfigurationReference - Describes a IPConfiguration under the virtual network
         :param pulumi.Input[str] id: IPConfigurationID
         """
+        VirtualNetworkPropertiesIpConfigurationReferencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1564,14 +1965,29 @@ class VirtualNetworkPropertiesRouteTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesRoutesArgs']]] routes: Routes - Collection of routes contained within a route table.
         :param pulumi.Input[str] type: Type - READ-ONLY; Resource type.
         """
+        VirtualNetworkPropertiesRouteTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            routes=routes,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesRoutesArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1634,12 +2050,25 @@ class VirtualNetworkPropertiesRoutesArgs:
         :param pulumi.Input[str] name: Name - name of the subnet
         :param pulumi.Input[str] next_hop_ip_address: NextHopIPAddress - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
         """
+        VirtualNetworkPropertiesRoutesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefix=address_prefix,
+            name=name,
+            next_hop_ip_address=next_hop_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             next_hop_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_hop_ip_address is not None:
-            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+            _setter("next_hop_ip_address", next_hop_ip_address)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -1700,22 +2129,45 @@ class VirtualNetworkPropertiesSubnetsArgs:
         :param pulumi.Input['VirtualNetworkPropertiesRouteTableArgs'] route_table: RouteTable for the subnet
         :param pulumi.Input[int] vlan: Vlan to use for the subnet
         """
+        VirtualNetworkPropertiesSubnetsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefix=address_prefix,
+            address_prefixes=address_prefixes,
+            ip_allocation_method=ip_allocation_method,
+            ip_configuration_references=ip_configuration_references,
+            ip_pools=ip_pools,
+            name=name,
+            route_table=route_table,
+            vlan=vlan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_allocation_method: Optional[pulumi.Input[Union[str, 'IpAllocationMethodEnum']]] = None,
+             ip_configuration_references: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesIpConfigurationReferencesArgs']]]] = None,
+             ip_pools: Optional[pulumi.Input[Sequence[pulumi.Input['IPPoolArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             route_table: Optional[pulumi.Input['VirtualNetworkPropertiesRouteTableArgs']] = None,
+             vlan: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
+            _setter("address_prefixes", address_prefixes)
         if ip_allocation_method is not None:
-            pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
+            _setter("ip_allocation_method", ip_allocation_method)
         if ip_configuration_references is not None:
-            pulumi.set(__self__, "ip_configuration_references", ip_configuration_references)
+            _setter("ip_configuration_references", ip_configuration_references)
         if ip_pools is not None:
-            pulumi.set(__self__, "ip_pools", ip_pools)
+            _setter("ip_pools", ip_pools)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if route_table is not None:
-            pulumi.set(__self__, "route_table", route_table)
+            _setter("route_table", route_table)
         if vlan is not None:
-            pulumi.set(__self__, "vlan", vlan)
+            _setter("vlan", vlan)
 
     @property
     @pulumi.getter(name="addressPrefix")

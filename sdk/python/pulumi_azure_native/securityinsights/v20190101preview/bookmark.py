@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,35 +54,76 @@ class BookmarkArgs:
         :param pulumi.Input[str] updated: The last time the bookmark was updated
         :param pulumi.Input['UserInfoArgs'] updated_by: Describes a user that updated the bookmark
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        BookmarkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            query=query,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            bookmark_id=bookmark_id,
+            created=created,
+            created_by=created_by,
+            event_time=event_time,
+            incident_info=incident_info,
+            labels=labels,
+            notes=notes,
+            query_end_time=query_end_time,
+            query_result=query_result,
+            query_start_time=query_start_time,
+            updated=updated,
+            updated_by=updated_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             operational_insights_resource_provider: pulumi.Input[str],
+             query: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             bookmark_id: Optional[pulumi.Input[str]] = None,
+             created: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input['UserInfoArgs']] = None,
+             event_time: Optional[pulumi.Input[str]] = None,
+             incident_info: Optional[pulumi.Input['IncidentInfoArgs']] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             query_end_time: Optional[pulumi.Input[str]] = None,
+             query_result: Optional[pulumi.Input[str]] = None,
+             query_start_time: Optional[pulumi.Input[str]] = None,
+             updated: Optional[pulumi.Input[str]] = None,
+             updated_by: Optional[pulumi.Input['UserInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("query", query)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if bookmark_id is not None:
-            pulumi.set(__self__, "bookmark_id", bookmark_id)
+            _setter("bookmark_id", bookmark_id)
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if incident_info is not None:
-            pulumi.set(__self__, "incident_info", incident_info)
+            _setter("incident_info", incident_info)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if query_end_time is not None:
-            pulumi.set(__self__, "query_end_time", query_end_time)
+            _setter("query_end_time", query_end_time)
         if query_result is not None:
-            pulumi.set(__self__, "query_result", query_result)
+            _setter("query_result", query_result)
         if query_start_time is not None:
-            pulumi.set(__self__, "query_start_time", query_start_time)
+            _setter("query_start_time", query_start_time)
         if updated is not None:
-            pulumi.set(__self__, "updated", updated)
+            _setter("updated", updated)
         if updated_by is not None:
-            pulumi.set(__self__, "updated_by", updated_by)
+            _setter("updated_by", updated_by)
 
     @property
     @pulumi.getter(name="displayName")
@@ -354,6 +395,10 @@ class Bookmark(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BookmarkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -387,11 +432,21 @@ class Bookmark(pulumi.CustomResource):
 
             __props__.__dict__["bookmark_id"] = bookmark_id
             __props__.__dict__["created"] = created
+            if created_by is not None and not isinstance(created_by, UserInfoArgs):
+                created_by = created_by or {}
+                def _setter(key, value):
+                    created_by[key] = value
+                UserInfoArgs._configure(_setter, **created_by)
             __props__.__dict__["created_by"] = created_by
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["event_time"] = event_time
+            if incident_info is not None and not isinstance(incident_info, IncidentInfoArgs):
+                incident_info = incident_info or {}
+                def _setter(key, value):
+                    incident_info[key] = value
+                IncidentInfoArgs._configure(_setter, **incident_info)
             __props__.__dict__["incident_info"] = incident_info
             __props__.__dict__["labels"] = labels
             __props__.__dict__["notes"] = notes
@@ -408,6 +463,11 @@ class Bookmark(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["updated"] = updated
+            if updated_by is not None and not isinstance(updated_by, UserInfoArgs):
+                updated_by = updated_by or {}
+                def _setter(key, value):
+                    updated_by[key] = value
+                UserInfoArgs._configure(_setter, **updated_by)
             __props__.__dict__["updated_by"] = updated_by
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

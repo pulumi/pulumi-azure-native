@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -60,12 +60,27 @@ class IdentityResponse(dict):
         :param str type: The identity type. This is the only required field when adding a system or user assigned identity to a resource.
         :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -128,8 +143,19 @@ class IdentityResponseUserAssignedIdentities(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        IdentityResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -178,9 +204,20 @@ class NonComplianceMessageResponse(dict):
         :param str message: A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
         :param str policy_definition_reference_id: The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
         """
-        pulumi.set(__self__, "message", message)
+        NonComplianceMessageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: str,
+             policy_definition_reference_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter
@@ -214,12 +251,25 @@ class OverrideResponse(dict):
         :param Sequence['SelectorResponse'] selectors: The list of the selector expressions.
         :param str value: The value to override the policy property.
         """
+        OverrideResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            selectors=selectors,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[str] = None,
+             selectors: Optional[Sequence['outputs.SelectorResponse']] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -257,8 +307,17 @@ class ParameterValuesValueResponse(dict):
         The value of a parameter.
         :param Any value: The value of the parameter.
         """
+        ParameterValuesValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -282,10 +341,21 @@ class ResourceSelectorResponse(dict):
         :param str name: The name of the resource selector.
         :param Sequence['SelectorResponse'] selectors: The list of the selector expressions.
         """
+        ResourceSelectorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             selectors: Optional[Sequence['outputs.SelectorResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -338,12 +408,25 @@ class SelectorResponse(dict):
         :param str kind: The selector kind.
         :param Sequence[str] not_in: The list of values to filter out.
         """
+        SelectorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_=in_,
+            kind=kind,
+            not_in=not_in,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_: Optional[Sequence[str]] = None,
+             kind: Optional[str] = None,
+             not_in: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if in_ is not None:
-            pulumi.set(__self__, "in_", in_)
+            _setter("in_", in_)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if not_in is not None:
-            pulumi.set(__self__, "not_in", not_in)
+            _setter("not_in", not_in)
 
     @property
     @pulumi.getter(name="in")
@@ -418,18 +501,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

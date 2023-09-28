@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -28,8 +28,19 @@ class FleetCredentialResultResponse(dict):
         :param str name: The name of the credential.
         :param str value: Base64-encoded Kubernetes configuration file.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        FleetCredentialResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -82,10 +93,23 @@ class FleetHubProfileResponse(dict):
         :param str kubernetes_version: The Kubernetes version of the Fleet hub.
         :param str dns_prefix: DNS prefix used to create the FQDN for the Fleet hub.
         """
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        FleetHubProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            kubernetes_version=kubernetes_version,
+            dns_prefix=dns_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: str,
+             kubernetes_version: str,
+             dns_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fqdn", fqdn)
+        _setter("kubernetes_version", kubernetes_version)
         if dns_prefix is not None:
-            pulumi.set(__self__, "dns_prefix", dns_prefix)
+            _setter("dns_prefix", dns_prefix)
 
     @property
     @pulumi.getter
@@ -160,18 +184,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

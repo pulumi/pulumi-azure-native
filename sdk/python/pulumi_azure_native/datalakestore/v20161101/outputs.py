@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,9 +50,20 @@ class EncryptionConfigResponse(dict):
         :param str type: The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
         :param 'KeyVaultMetaInfoResponse' key_vault_meta_info: The Key Vault information for connecting to user managed encryption keys.
         """
-        pulumi.set(__self__, "type", type)
+        EncryptionConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            key_vault_meta_info=key_vault_meta_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             key_vault_meta_info: Optional['outputs.KeyVaultMetaInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if key_vault_meta_info is not None:
-            pulumi.set(__self__, "key_vault_meta_info", key_vault_meta_info)
+            _setter("key_vault_meta_info", key_vault_meta_info)
 
     @property
     @pulumi.getter
@@ -105,9 +116,22 @@ class EncryptionIdentityResponse(dict):
         :param str tenant_id: The tenant identifier associated with the encryption.
         :param str type: The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        EncryptionIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -172,11 +196,28 @@ class FirewallRuleResponse(dict):
         :param str start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
-        pulumi.set(__self__, "type", type)
+        FirewallRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            id=id,
+            name=name,
+            start_ip_address=start_ip_address,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: str,
+             id: str,
+             name: str,
+             start_ip_address: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_ip_address", end_ip_address)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("start_ip_address", start_ip_address)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -255,9 +296,22 @@ class KeyVaultMetaInfoResponse(dict):
         :param str encryption_key_version: The version of the user managed encryption key.
         :param str key_vault_resource_id: The resource identifier for the user managed Key Vault being used to encrypt.
         """
-        pulumi.set(__self__, "encryption_key_name", encryption_key_name)
-        pulumi.set(__self__, "encryption_key_version", encryption_key_version)
-        pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+        KeyVaultMetaInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_key_name=encryption_key_name,
+            encryption_key_version=encryption_key_version,
+            key_vault_resource_id=key_vault_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_key_name: str,
+             encryption_key_version: str,
+             key_vault_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("encryption_key_name", encryption_key_name)
+        _setter("encryption_key_version", encryption_key_version)
+        _setter("key_vault_resource_id", key_vault_resource_id)
 
     @property
     @pulumi.getter(name="encryptionKeyName")
@@ -318,10 +372,25 @@ class TrustedIdProviderResponse(dict):
         :param str name: The resource name.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "id_provider", id_provider)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        TrustedIdProviderResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            id_provider=id_provider,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             id_provider: str,
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("id_provider", id_provider)
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -390,10 +459,25 @@ class VirtualNetworkRuleResponse(dict):
         :param str subnet_id: The resource identifier for the subnet.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "type", type)
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            subnet_id=subnet_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             subnet_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("subnet_id", subnet_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,43 @@ class ResourceSyncRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_resource_group: For an unmapped custom resource, its labels will be used to find matching resource sync rules. If this resource sync rule is one of the matching rules with highest priority, then the unmapped custom resource will be projected to the target resource group associated with this resource sync rule. The user creating this resource sync rule should have write permissions on the target resource group and this write permission will be validated when creating the resource sync rule.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        ResourceSyncRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            child_resource_name=child_resource_name,
+            location=location,
+            priority=priority,
+            selector=selector,
+            tags=tags,
+            target_resource_group=target_resource_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             child_resource_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             selector: Optional[pulumi.Input['ResourceSyncRulePropertiesSelectorArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if child_resource_name is not None:
-            pulumi.set(__self__, "child_resource_name", child_resource_name)
+            _setter("child_resource_name", child_resource_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_group is not None:
-            pulumi.set(__self__, "target_resource_group", target_resource_group)
+            _setter("target_resource_group", target_resource_group)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -194,6 +217,10 @@ class ResourceSyncRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceSyncRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -225,6 +252,11 @@ class ResourceSyncRule(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            if selector is not None and not isinstance(selector, ResourceSyncRulePropertiesSelectorArgs):
+                selector = selector or {}
+                def _setter(key, value):
+                    selector[key] = value
+                ResourceSyncRulePropertiesSelectorArgs._configure(_setter, **selector)
             __props__.__dict__["selector"] = selector
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_resource_group"] = target_resource_group

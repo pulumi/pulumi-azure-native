@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['WorkspaceApiSchemaArgs', 'WorkspaceApiSchema']
@@ -35,19 +35,44 @@ class WorkspaceApiSchemaArgs:
         :param pulumi.Input[str] schema_id: Schema id identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] value: Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceApiSchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            content_type=content_type,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            workspace_id=workspace_id,
+            components=components,
+            definitions=definitions,
+            schema_id=schema_id,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             content_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             components: Optional[Any] = None,
+             definitions: Optional[Any] = None,
+             schema_id: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
+        _setter("content_type", content_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("workspace_id", workspace_id)
         if components is not None:
-            pulumi.set(__self__, "components", components)
+            _setter("components", components)
         if definitions is not None:
-            pulumi.set(__self__, "definitions", definitions)
+            _setter("definitions", definitions)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="apiId")
@@ -207,6 +232,10 @@ class WorkspaceApiSchema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceApiSchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

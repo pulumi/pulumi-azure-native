@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -32,16 +32,37 @@ class ApplicationTypeVersionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] version: The application type version.
         """
-        pulumi.set(__self__, "app_package_url", app_package_url)
-        pulumi.set(__self__, "application_type_name", application_type_name)
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationTypeVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_package_url=app_package_url,
+            application_type_name=application_type_name,
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_package_url: pulumi.Input[str],
+             application_type_name: pulumi.Input[str],
+             cluster_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_package_url", app_package_url)
+        _setter("application_type_name", application_type_name)
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="appPackageUrl")
@@ -173,6 +194,10 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationTypeVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -33,12 +33,25 @@ class CapabilityResponse(dict):
         :param str reason: Reason of the SKU capability.
         :param str value: Value of the SKU capability.
         """
+        CapabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            reason=reason,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             reason: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reason is not None:
-            pulumi.set(__self__, "reason", reason)
+            _setter("reason", reason)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -80,10 +93,23 @@ class HostingEnvironmentProfileResponse(dict):
         :param str type: Resource type of the App Service Environment.
         :param str id: Resource ID of the App Service Environment.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        HostingEnvironmentProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -144,14 +170,29 @@ class SkuCapacityResponse(dict):
         :param int minimum: Minimum number of workers for this App Service plan SKU.
         :param str scale_type: Available scale configurations for an App Service plan.
         """
+        SkuCapacityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default=default,
+            maximum=maximum,
+            minimum=minimum,
+            scale_type=scale_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default: Optional[int] = None,
+             maximum: Optional[int] = None,
+             minimum: Optional[int] = None,
+             scale_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if maximum is not None:
-            pulumi.set(__self__, "maximum", maximum)
+            _setter("maximum", maximum)
         if minimum is not None:
-            pulumi.set(__self__, "minimum", minimum)
+            _setter("minimum", minimum)
         if scale_type is not None:
-            pulumi.set(__self__, "scale_type", scale_type)
+            _setter("scale_type", scale_type)
 
     @property
     @pulumi.getter
@@ -228,22 +269,45 @@ class SkuDescriptionResponse(dict):
         :param 'SkuCapacityResponse' sku_capacity: Min, max, and default scale values of the SKU.
         :param str tier: Service tier of the resource SKU.
         """
+        SkuDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capabilities=capabilities,
+            capacity=capacity,
+            family=family,
+            locations=locations,
+            name=name,
+            size=size,
+            sku_capacity=sku_capacity,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capabilities: Optional[Sequence['outputs.CapabilityResponse']] = None,
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             locations: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             size: Optional[str] = None,
+             sku_capacity: Optional['outputs.SkuCapacityResponse'] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if sku_capacity is not None:
-            pulumi.set(__self__, "sku_capacity", sku_capacity)
+            _setter("sku_capacity", sku_capacity)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

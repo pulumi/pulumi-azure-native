@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -95,106 +95,189 @@ class VolumeArgs:
         :param pulumi.Input[str] volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         :param pulumi.Input[str] volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "creation_token", creation_token)
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            creation_token=creation_token,
+            pool_name=pool_name,
+            resource_group_name=resource_group_name,
+            subnet_id=subnet_id,
+            usage_threshold=usage_threshold,
+            avs_data_store=avs_data_store,
+            backup_id=backup_id,
+            capacity_pool_resource_id=capacity_pool_resource_id,
+            cool_access=cool_access,
+            coolness_period=coolness_period,
+            data_protection=data_protection,
+            default_group_quota_in_ki_bs=default_group_quota_in_ki_bs,
+            default_user_quota_in_ki_bs=default_user_quota_in_ki_bs,
+            enable_subvolumes=enable_subvolumes,
+            encryption_key_source=encryption_key_source,
+            export_policy=export_policy,
+            is_default_quota_enabled=is_default_quota_enabled,
+            is_restoring=is_restoring,
+            kerberos_enabled=kerberos_enabled,
+            ldap_enabled=ldap_enabled,
+            location=location,
+            network_features=network_features,
+            placement_rules=placement_rules,
+            protocol_types=protocol_types,
+            proximity_placement_group=proximity_placement_group,
+            security_style=security_style,
+            service_level=service_level,
+            smb_continuously_available=smb_continuously_available,
+            smb_encryption=smb_encryption,
+            snapshot_directory_visible=snapshot_directory_visible,
+            snapshot_id=snapshot_id,
+            tags=tags,
+            throughput_mibps=throughput_mibps,
+            unix_permissions=unix_permissions,
+            volume_name=volume_name,
+            volume_spec_name=volume_spec_name,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             creation_token: pulumi.Input[str],
+             pool_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             usage_threshold: Optional[pulumi.Input[float]] = None,
+             avs_data_store: Optional[pulumi.Input[Union[str, 'AvsDataStore']]] = None,
+             backup_id: Optional[pulumi.Input[str]] = None,
+             capacity_pool_resource_id: Optional[pulumi.Input[str]] = None,
+             cool_access: Optional[pulumi.Input[bool]] = None,
+             coolness_period: Optional[pulumi.Input[int]] = None,
+             data_protection: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']] = None,
+             default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
+             default_user_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
+             enable_subvolumes: Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]] = None,
+             encryption_key_source: Optional[pulumi.Input[str]] = None,
+             export_policy: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']] = None,
+             is_default_quota_enabled: Optional[pulumi.Input[bool]] = None,
+             is_restoring: Optional[pulumi.Input[bool]] = None,
+             kerberos_enabled: Optional[pulumi.Input[bool]] = None,
+             ldap_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_features: Optional[pulumi.Input[Union[str, 'NetworkFeatures']]] = None,
+             placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
+             protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             proximity_placement_group: Optional[pulumi.Input[str]] = None,
+             security_style: Optional[pulumi.Input[Union[str, 'SecurityStyle']]] = None,
+             service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
+             smb_continuously_available: Optional[pulumi.Input[bool]] = None,
+             smb_encryption: Optional[pulumi.Input[bool]] = None,
+             snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
+             snapshot_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             throughput_mibps: Optional[pulumi.Input[float]] = None,
+             unix_permissions: Optional[pulumi.Input[str]] = None,
+             volume_name: Optional[pulumi.Input[str]] = None,
+             volume_spec_name: Optional[pulumi.Input[str]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("creation_token", creation_token)
+        _setter("pool_name", pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subnet_id", subnet_id)
         if usage_threshold is None:
             usage_threshold = 107374182400
-        pulumi.set(__self__, "usage_threshold", usage_threshold)
+        _setter("usage_threshold", usage_threshold)
         if avs_data_store is None:
             avs_data_store = 'Disabled'
         if avs_data_store is not None:
-            pulumi.set(__self__, "avs_data_store", avs_data_store)
+            _setter("avs_data_store", avs_data_store)
         if backup_id is not None:
-            pulumi.set(__self__, "backup_id", backup_id)
+            _setter("backup_id", backup_id)
         if capacity_pool_resource_id is not None:
-            pulumi.set(__self__, "capacity_pool_resource_id", capacity_pool_resource_id)
+            _setter("capacity_pool_resource_id", capacity_pool_resource_id)
         if cool_access is None:
             cool_access = False
         if cool_access is not None:
-            pulumi.set(__self__, "cool_access", cool_access)
+            _setter("cool_access", cool_access)
         if coolness_period is not None:
-            pulumi.set(__self__, "coolness_period", coolness_period)
+            _setter("coolness_period", coolness_period)
         if data_protection is not None:
-            pulumi.set(__self__, "data_protection", data_protection)
+            _setter("data_protection", data_protection)
         if default_group_quota_in_ki_bs is None:
             default_group_quota_in_ki_bs = 0
         if default_group_quota_in_ki_bs is not None:
-            pulumi.set(__self__, "default_group_quota_in_ki_bs", default_group_quota_in_ki_bs)
+            _setter("default_group_quota_in_ki_bs", default_group_quota_in_ki_bs)
         if default_user_quota_in_ki_bs is None:
             default_user_quota_in_ki_bs = 0
         if default_user_quota_in_ki_bs is not None:
-            pulumi.set(__self__, "default_user_quota_in_ki_bs", default_user_quota_in_ki_bs)
+            _setter("default_user_quota_in_ki_bs", default_user_quota_in_ki_bs)
         if enable_subvolumes is None:
             enable_subvolumes = 'Disabled'
         if enable_subvolumes is not None:
-            pulumi.set(__self__, "enable_subvolumes", enable_subvolumes)
+            _setter("enable_subvolumes", enable_subvolumes)
         if encryption_key_source is not None:
-            pulumi.set(__self__, "encryption_key_source", encryption_key_source)
+            _setter("encryption_key_source", encryption_key_source)
         if export_policy is not None:
-            pulumi.set(__self__, "export_policy", export_policy)
+            _setter("export_policy", export_policy)
         if is_default_quota_enabled is None:
             is_default_quota_enabled = False
         if is_default_quota_enabled is not None:
-            pulumi.set(__self__, "is_default_quota_enabled", is_default_quota_enabled)
+            _setter("is_default_quota_enabled", is_default_quota_enabled)
         if is_restoring is not None:
-            pulumi.set(__self__, "is_restoring", is_restoring)
+            _setter("is_restoring", is_restoring)
         if kerberos_enabled is None:
             kerberos_enabled = False
         if kerberos_enabled is not None:
-            pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
+            _setter("kerberos_enabled", kerberos_enabled)
         if ldap_enabled is None:
             ldap_enabled = False
         if ldap_enabled is not None:
-            pulumi.set(__self__, "ldap_enabled", ldap_enabled)
+            _setter("ldap_enabled", ldap_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_features is None:
             network_features = 'Basic'
         if network_features is not None:
-            pulumi.set(__self__, "network_features", network_features)
+            _setter("network_features", network_features)
         if placement_rules is not None:
-            pulumi.set(__self__, "placement_rules", placement_rules)
+            _setter("placement_rules", placement_rules)
         if protocol_types is not None:
-            pulumi.set(__self__, "protocol_types", protocol_types)
+            _setter("protocol_types", protocol_types)
         if proximity_placement_group is not None:
-            pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+            _setter("proximity_placement_group", proximity_placement_group)
         if security_style is None:
             security_style = 'unix'
         if security_style is not None:
-            pulumi.set(__self__, "security_style", security_style)
+            _setter("security_style", security_style)
         if service_level is not None:
-            pulumi.set(__self__, "service_level", service_level)
+            _setter("service_level", service_level)
         if smb_continuously_available is None:
             smb_continuously_available = False
         if smb_continuously_available is not None:
-            pulumi.set(__self__, "smb_continuously_available", smb_continuously_available)
+            _setter("smb_continuously_available", smb_continuously_available)
         if smb_encryption is None:
             smb_encryption = False
         if smb_encryption is not None:
-            pulumi.set(__self__, "smb_encryption", smb_encryption)
+            _setter("smb_encryption", smb_encryption)
         if snapshot_directory_visible is None:
             snapshot_directory_visible = True
         if snapshot_directory_visible is not None:
-            pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
+            _setter("snapshot_directory_visible", snapshot_directory_visible)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if throughput_mibps is not None:
-            pulumi.set(__self__, "throughput_mibps", throughput_mibps)
+            _setter("throughput_mibps", throughput_mibps)
         if unix_permissions is None:
             unix_permissions = '0770'
         if unix_permissions is not None:
-            pulumi.set(__self__, "unix_permissions", unix_permissions)
+            _setter("unix_permissions", unix_permissions)
         if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+            _setter("volume_name", volume_name)
         if volume_spec_name is not None:
-            pulumi.set(__self__, "volume_spec_name", volume_spec_name)
+            _setter("volume_spec_name", volume_spec_name)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="accountName")
@@ -756,6 +839,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -823,6 +910,11 @@ class Volume(pulumi.CustomResource):
             if creation_token is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_token'")
             __props__.__dict__["creation_token"] = creation_token
+            if data_protection is not None and not isinstance(data_protection, VolumePropertiesDataProtectionArgs):
+                data_protection = data_protection or {}
+                def _setter(key, value):
+                    data_protection[key] = value
+                VolumePropertiesDataProtectionArgs._configure(_setter, **data_protection)
             __props__.__dict__["data_protection"] = data_protection
             if default_group_quota_in_ki_bs is None:
                 default_group_quota_in_ki_bs = 0
@@ -834,6 +926,11 @@ class Volume(pulumi.CustomResource):
                 enable_subvolumes = 'Disabled'
             __props__.__dict__["enable_subvolumes"] = enable_subvolumes
             __props__.__dict__["encryption_key_source"] = encryption_key_source
+            if export_policy is not None and not isinstance(export_policy, VolumePropertiesExportPolicyArgs):
+                export_policy = export_policy or {}
+                def _setter(key, value):
+                    export_policy[key] = value
+                VolumePropertiesExportPolicyArgs._configure(_setter, **export_policy)
             __props__.__dict__["export_policy"] = export_policy
             if is_default_quota_enabled is None:
                 is_default_quota_enabled = False

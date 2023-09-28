@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,31 +48,66 @@ class SyncGroupArgs:
         :param pulumi.Input[str] sync_group_name: The name of the sync group.
         :param pulumi.Input[bool] use_private_link_connection: If use private link connection is enabled.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        SyncGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            conflict_logging_retention_in_days=conflict_logging_retention_in_days,
+            conflict_resolution_policy=conflict_resolution_policy,
+            enable_conflict_logging=enable_conflict_logging,
+            hub_database_password=hub_database_password,
+            hub_database_user_name=hub_database_user_name,
+            interval=interval,
+            schema=schema,
+            sku=sku,
+            sync_database_id=sync_database_id,
+            sync_group_name=sync_group_name,
+            use_private_link_connection=use_private_link_connection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             conflict_logging_retention_in_days: Optional[pulumi.Input[int]] = None,
+             conflict_resolution_policy: Optional[pulumi.Input[Union[str, 'SyncConflictResolutionPolicy']]] = None,
+             enable_conflict_logging: Optional[pulumi.Input[bool]] = None,
+             hub_database_password: Optional[pulumi.Input[str]] = None,
+             hub_database_user_name: Optional[pulumi.Input[str]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             schema: Optional[pulumi.Input['SyncGroupSchemaArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             sync_database_id: Optional[pulumi.Input[str]] = None,
+             sync_group_name: Optional[pulumi.Input[str]] = None,
+             use_private_link_connection: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if conflict_logging_retention_in_days is not None:
-            pulumi.set(__self__, "conflict_logging_retention_in_days", conflict_logging_retention_in_days)
+            _setter("conflict_logging_retention_in_days", conflict_logging_retention_in_days)
         if conflict_resolution_policy is not None:
-            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+            _setter("conflict_resolution_policy", conflict_resolution_policy)
         if enable_conflict_logging is not None:
-            pulumi.set(__self__, "enable_conflict_logging", enable_conflict_logging)
+            _setter("enable_conflict_logging", enable_conflict_logging)
         if hub_database_password is not None:
-            pulumi.set(__self__, "hub_database_password", hub_database_password)
+            _setter("hub_database_password", hub_database_password)
         if hub_database_user_name is not None:
-            pulumi.set(__self__, "hub_database_user_name", hub_database_user_name)
+            _setter("hub_database_user_name", hub_database_user_name)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if sync_database_id is not None:
-            pulumi.set(__self__, "sync_database_id", sync_database_id)
+            _setter("sync_database_id", sync_database_id)
         if sync_group_name is not None:
-            pulumi.set(__self__, "sync_group_name", sync_group_name)
+            _setter("sync_group_name", sync_group_name)
         if use_private_link_connection is not None:
-            pulumi.set(__self__, "use_private_link_connection", use_private_link_connection)
+            _setter("use_private_link_connection", use_private_link_connection)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -304,6 +339,10 @@ class SyncGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SyncGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -344,10 +383,20 @@ class SyncGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if schema is not None and not isinstance(schema, SyncGroupSchemaArgs):
+                schema = schema or {}
+                def _setter(key, value):
+                    schema[key] = value
+                SyncGroupSchemaArgs._configure(_setter, **schema)
             __props__.__dict__["schema"] = schema
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["sync_database_id"] = sync_database_id
             __props__.__dict__["sync_group_name"] = sync_group_name

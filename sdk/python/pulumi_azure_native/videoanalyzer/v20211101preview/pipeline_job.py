@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class PipelineJobArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ParameterDefinitionArgs']]] parameters: List of the instance level parameter values for the user-defined topology parameters. A pipeline can only define or override parameters values for parameters which have been declared in the referenced topology. Topology parameters without a default value must be defined. Topology parameters with a default value can be optionally be overridden.
         :param pulumi.Input[str] pipeline_job_name: The pipeline job name.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "topology_name", topology_name)
+        PipelineJobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            topology_name=topology_name,
+            description=description,
+            parameters=parameters,
+            pipeline_job_name=pipeline_job_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             topology_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterDefinitionArgs']]]] = None,
+             pipeline_job_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("topology_name", topology_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if pipeline_job_name is not None:
-            pulumi.set(__self__, "pipeline_job_name", pipeline_job_name)
+            _setter("pipeline_job_name", pipeline_job_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -157,6 +176,10 @@ class PipelineJob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineJobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

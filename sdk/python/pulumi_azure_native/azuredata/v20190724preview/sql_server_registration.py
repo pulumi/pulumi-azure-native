@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -32,19 +32,40 @@ class SqlServerRegistrationArgs:
         :param pulumi.Input[str] subscription_id: Subscription Id
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SqlServerRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            location=location,
+            property_bag=property_bag,
+            resource_group=resource_group,
+            sql_server_registration_name=sql_server_registration_name,
+            subscription_id=subscription_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             property_bag: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             sql_server_registration_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if property_bag is not None:
-            pulumi.set(__self__, "property_bag", property_bag)
+            _setter("property_bag", property_bag)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if sql_server_registration_name is not None:
-            pulumi.set(__self__, "sql_server_registration_name", sql_server_registration_name)
+            _setter("sql_server_registration_name", sql_server_registration_name)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -176,6 +197,10 @@ class SqlServerRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlServerRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

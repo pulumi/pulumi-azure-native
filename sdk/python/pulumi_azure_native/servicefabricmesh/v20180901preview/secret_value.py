@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['SecretValueArgs', 'SecretValue']
@@ -29,16 +29,35 @@ class SecretValueArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] value: The actual value of the secret.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "secret_resource_name", secret_resource_name)
+        SecretValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            secret_resource_name=secret_resource_name,
+            location=location,
+            secret_value_resource_name=secret_value_resource_name,
+            tags=tags,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             secret_resource_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             secret_value_resource_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("secret_resource_name", secret_resource_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if secret_value_resource_name is not None:
-            pulumi.set(__self__, "secret_value_resource_name", secret_value_resource_name)
+            _setter("secret_value_resource_name", secret_value_resource_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -156,6 +175,10 @@ class SecretValue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecretValueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

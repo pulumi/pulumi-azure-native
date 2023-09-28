@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,40 +48,75 @@ class RegistryArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[Union[str, 'ZoneRedundancy']] zone_redundancy: Whether or not zone redundancy is enabled for this container registry
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        RegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            admin_user_enabled=admin_user_enabled,
+            data_endpoint_enabled=data_endpoint_enabled,
+            encryption=encryption,
+            identity=identity,
+            location=location,
+            network_rule_bypass_options=network_rule_bypass_options,
+            network_rule_set=network_rule_set,
+            policies=policies,
+            public_network_access=public_network_access,
+            registry_name=registry_name,
+            tags=tags,
+            zone_redundancy=zone_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['SkuArgs'],
+             admin_user_enabled: Optional[pulumi.Input[bool]] = None,
+             data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             encryption: Optional[pulumi.Input['EncryptionPropertyArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_rule_bypass_options: Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]] = None,
+             network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+             policies: Optional[pulumi.Input['PoliciesArgs']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if admin_user_enabled is None:
             admin_user_enabled = False
         if admin_user_enabled is not None:
-            pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
+            _setter("admin_user_enabled", admin_user_enabled)
         if data_endpoint_enabled is not None:
-            pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
+            _setter("data_endpoint_enabled", data_endpoint_enabled)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_rule_bypass_options is None:
             network_rule_bypass_options = 'AzureServices'
         if network_rule_bypass_options is not None:
-            pulumi.set(__self__, "network_rule_bypass_options", network_rule_bypass_options)
+            _setter("network_rule_bypass_options", network_rule_bypass_options)
         if network_rule_set is not None:
-            pulumi.set(__self__, "network_rule_set", network_rule_set)
+            _setter("network_rule_set", network_rule_set)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundancy is None:
             zone_redundancy = 'Disabled'
         if zone_redundancy is not None:
-            pulumi.set(__self__, "zone_redundancy", zone_redundancy)
+            _setter("zone_redundancy", zone_redundancy)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -311,6 +346,10 @@ class Registry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -343,13 +382,33 @@ class Registry(pulumi.CustomResource):
                 admin_user_enabled = False
             __props__.__dict__["admin_user_enabled"] = admin_user_enabled
             __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
+            if encryption is not None and not isinstance(encryption, EncryptionPropertyArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                EncryptionPropertyArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if identity is not None and not isinstance(identity, IdentityPropertiesArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityPropertiesArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if network_rule_bypass_options is None:
                 network_rule_bypass_options = 'AzureServices'
             __props__.__dict__["network_rule_bypass_options"] = network_rule_bypass_options
+            if network_rule_set is not None and not isinstance(network_rule_set, NetworkRuleSetArgs):
+                network_rule_set = network_rule_set or {}
+                def _setter(key, value):
+                    network_rule_set[key] = value
+                NetworkRuleSetArgs._configure(_setter, **network_rule_set)
             __props__.__dict__["network_rule_set"] = network_rule_set
+            if policies is not None and not isinstance(policies, PoliciesArgs):
+                policies = policies or {}
+                def _setter(key, value):
+                    policies[key] = value
+                PoliciesArgs._configure(_setter, **policies)
             __props__.__dict__["policies"] = policies
             if public_network_access is None:
                 public_network_access = 'Enabled'
@@ -358,6 +417,11 @@ class Registry(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

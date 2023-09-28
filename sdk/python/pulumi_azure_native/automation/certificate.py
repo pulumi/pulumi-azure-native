@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -33,18 +33,41 @@ class CertificateArgs:
         :param pulumi.Input[bool] is_exportable: Gets or sets the is exportable flag of the certificate.
         :param pulumi.Input[str] thumbprint: Gets or sets the thumbprint of the certificate.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "base64_value", base64_value)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            base64_value=base64_value,
+            name=name,
+            resource_group_name=resource_group_name,
+            certificate_name=certificate_name,
+            description=description,
+            is_exportable=is_exportable,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             base64_value: pulumi.Input[str],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             is_exportable: Optional[pulumi.Input[bool]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("base64_value", base64_value)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_exportable is not None:
-            pulumi.set(__self__, "is_exportable", is_exportable)
+            _setter("is_exportable", is_exportable)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -192,6 +215,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

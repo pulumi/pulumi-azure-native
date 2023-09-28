@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -49,29 +49,58 @@ class WebPubSubArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         :param pulumi.Input['WebPubSubTlsSettingsArgs'] tls: TLS settings.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebPubSubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            event_handler=event_handler,
+            features=features,
+            identity=identity,
+            location=location,
+            network_acls=network_acls,
+            public_network_access=public_network_access,
+            resource_name=resource_name,
+            sku=sku,
+            tags=tags,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             event_handler: Optional[pulumi.Input['EventHandlerSettingsArgs']] = None,
+             features: Optional[pulumi.Input[Sequence[pulumi.Input['WebPubSubFeatureArgs']]]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_acls: Optional[pulumi.Input['WebPubSubNetworkACLsArgs']] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls: Optional[pulumi.Input['WebPubSubTlsSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if event_handler is not None:
-            pulumi.set(__self__, "event_handler", event_handler)
+            _setter("event_handler", event_handler)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -273,6 +302,10 @@ class WebPubSub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebPubSubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -298,10 +331,25 @@ class WebPubSub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebPubSubArgs.__new__(WebPubSubArgs)
 
+            if event_handler is not None and not isinstance(event_handler, EventHandlerSettingsArgs):
+                event_handler = event_handler or {}
+                def _setter(key, value):
+                    event_handler[key] = value
+                EventHandlerSettingsArgs._configure(_setter, **event_handler)
             __props__.__dict__["event_handler"] = event_handler
             __props__.__dict__["features"] = features
+            if identity is not None and not isinstance(identity, ManagedIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if network_acls is not None and not isinstance(network_acls, WebPubSubNetworkACLsArgs):
+                network_acls = network_acls or {}
+                def _setter(key, value):
+                    network_acls[key] = value
+                WebPubSubNetworkACLsArgs._configure(_setter, **network_acls)
             __props__.__dict__["network_acls"] = network_acls
             if public_network_access is None:
                 public_network_access = 'Enabled'
@@ -310,8 +358,18 @@ class WebPubSub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
+            if sku is not None and not isinstance(sku, ResourceSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ResourceSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if tls is not None and not isinstance(tls, WebPubSubTlsSettingsArgs):
+                tls = tls or {}
+                def _setter(key, value):
+                    tls[key] = value
+                WebPubSubTlsSettingsArgs._configure(_setter, **tls)
             __props__.__dict__["tls"] = tls
             __props__.__dict__["external_ip"] = None
             __props__.__dict__["host_name"] = None

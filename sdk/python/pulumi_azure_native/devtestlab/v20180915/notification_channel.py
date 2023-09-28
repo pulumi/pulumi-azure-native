@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,51 @@ class NotificationChannelArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] web_hook_url: The webhook URL to send notifications to.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NotificationChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            email_recipient=email_recipient,
+            events=events,
+            location=location,
+            name=name,
+            notification_locale=notification_locale,
+            tags=tags,
+            web_hook_url=web_hook_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             email_recipient: Optional[pulumi.Input[str]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input['EventArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_locale: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             web_hook_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if email_recipient is not None:
-            pulumi.set(__self__, "email_recipient", email_recipient)
+            _setter("email_recipient", email_recipient)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_locale is not None:
-            pulumi.set(__self__, "notification_locale", notification_locale)
+            _setter("notification_locale", notification_locale)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if web_hook_url is not None:
-            pulumi.set(__self__, "web_hook_url", web_hook_url)
+            _setter("web_hook_url", web_hook_url)
 
     @property
     @pulumi.getter(name="labName")
@@ -231,6 +258,10 @@ class NotificationChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

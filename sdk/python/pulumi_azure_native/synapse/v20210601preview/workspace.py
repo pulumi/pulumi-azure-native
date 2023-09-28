@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -61,49 +61,96 @@ class WorkspaceArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input['WorkspaceRepositoryConfigurationArgs'] workspace_repository_configuration: Git integration settings
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            azure_ad_only_authentication=azure_ad_only_authentication,
+            csp_workspace_admin_properties=csp_workspace_admin_properties,
+            default_data_lake_storage=default_data_lake_storage,
+            encryption=encryption,
+            identity=identity,
+            location=location,
+            managed_resource_group_name=managed_resource_group_name,
+            managed_virtual_network=managed_virtual_network,
+            managed_virtual_network_settings=managed_virtual_network_settings,
+            private_endpoint_connections=private_endpoint_connections,
+            public_network_access=public_network_access,
+            purview_configuration=purview_configuration,
+            sql_administrator_login=sql_administrator_login,
+            sql_administrator_login_password=sql_administrator_login_password,
+            tags=tags,
+            trusted_service_bypass_enabled=trusted_service_bypass_enabled,
+            virtual_network_profile=virtual_network_profile,
+            workspace_name=workspace_name,
+            workspace_repository_configuration=workspace_repository_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
+             csp_workspace_admin_properties: Optional[pulumi.Input['CspWorkspaceAdminPropertiesArgs']] = None,
+             default_data_lake_storage: Optional[pulumi.Input['DataLakeStorageAccountDetailsArgs']] = None,
+             encryption: Optional[pulumi.Input['EncryptionDetailsArgs']] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             managed_virtual_network: Optional[pulumi.Input[str]] = None,
+             managed_virtual_network_settings: Optional[pulumi.Input['ManagedVirtualNetworkSettingsArgs']] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'WorkspacePublicNetworkAccess']]] = None,
+             purview_configuration: Optional[pulumi.Input['PurviewConfigurationArgs']] = None,
+             sql_administrator_login: Optional[pulumi.Input[str]] = None,
+             sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trusted_service_bypass_enabled: Optional[pulumi.Input[bool]] = None,
+             virtual_network_profile: Optional[pulumi.Input['VirtualNetworkProfileArgs']] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             workspace_repository_configuration: Optional[pulumi.Input['WorkspaceRepositoryConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if azure_ad_only_authentication is not None:
-            pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+            _setter("azure_ad_only_authentication", azure_ad_only_authentication)
         if csp_workspace_admin_properties is not None:
-            pulumi.set(__self__, "csp_workspace_admin_properties", csp_workspace_admin_properties)
+            _setter("csp_workspace_admin_properties", csp_workspace_admin_properties)
         if default_data_lake_storage is not None:
-            pulumi.set(__self__, "default_data_lake_storage", default_data_lake_storage)
+            _setter("default_data_lake_storage", default_data_lake_storage)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_name is not None:
-            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+            _setter("managed_resource_group_name", managed_resource_group_name)
         if managed_virtual_network is not None:
-            pulumi.set(__self__, "managed_virtual_network", managed_virtual_network)
+            _setter("managed_virtual_network", managed_virtual_network)
         if managed_virtual_network_settings is not None:
-            pulumi.set(__self__, "managed_virtual_network_settings", managed_virtual_network_settings)
+            _setter("managed_virtual_network_settings", managed_virtual_network_settings)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if purview_configuration is not None:
-            pulumi.set(__self__, "purview_configuration", purview_configuration)
+            _setter("purview_configuration", purview_configuration)
         if sql_administrator_login is not None:
-            pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
+            _setter("sql_administrator_login", sql_administrator_login)
         if sql_administrator_login_password is not None:
-            pulumi.set(__self__, "sql_administrator_login_password", sql_administrator_login_password)
+            _setter("sql_administrator_login_password", sql_administrator_login_password)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trusted_service_bypass_enabled is None:
             trusted_service_bypass_enabled = False
         if trusted_service_bypass_enabled is not None:
-            pulumi.set(__self__, "trusted_service_bypass_enabled", trusted_service_bypass_enabled)
+            _setter("trusted_service_bypass_enabled", trusted_service_bypass_enabled)
         if virtual_network_profile is not None:
-            pulumi.set(__self__, "virtual_network_profile", virtual_network_profile)
+            _setter("virtual_network_profile", virtual_network_profile)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
         if workspace_repository_configuration is not None:
-            pulumi.set(__self__, "workspace_repository_configuration", workspace_repository_configuration)
+            _setter("workspace_repository_configuration", workspace_repository_configuration)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -419,6 +466,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -454,18 +505,48 @@ class Workspace(pulumi.CustomResource):
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             __props__.__dict__["azure_ad_only_authentication"] = azure_ad_only_authentication
+            if csp_workspace_admin_properties is not None and not isinstance(csp_workspace_admin_properties, CspWorkspaceAdminPropertiesArgs):
+                csp_workspace_admin_properties = csp_workspace_admin_properties or {}
+                def _setter(key, value):
+                    csp_workspace_admin_properties[key] = value
+                CspWorkspaceAdminPropertiesArgs._configure(_setter, **csp_workspace_admin_properties)
             __props__.__dict__["csp_workspace_admin_properties"] = csp_workspace_admin_properties
+            if default_data_lake_storage is not None and not isinstance(default_data_lake_storage, DataLakeStorageAccountDetailsArgs):
+                default_data_lake_storage = default_data_lake_storage or {}
+                def _setter(key, value):
+                    default_data_lake_storage[key] = value
+                DataLakeStorageAccountDetailsArgs._configure(_setter, **default_data_lake_storage)
             __props__.__dict__["default_data_lake_storage"] = default_data_lake_storage
+            if encryption is not None and not isinstance(encryption, EncryptionDetailsArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                EncryptionDetailsArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if identity is not None and not isinstance(identity, ManagedIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
             __props__.__dict__["managed_virtual_network"] = managed_virtual_network
+            if managed_virtual_network_settings is not None and not isinstance(managed_virtual_network_settings, ManagedVirtualNetworkSettingsArgs):
+                managed_virtual_network_settings = managed_virtual_network_settings or {}
+                def _setter(key, value):
+                    managed_virtual_network_settings[key] = value
+                ManagedVirtualNetworkSettingsArgs._configure(_setter, **managed_virtual_network_settings)
             __props__.__dict__["managed_virtual_network_settings"] = managed_virtual_network_settings
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
+            if purview_configuration is not None and not isinstance(purview_configuration, PurviewConfigurationArgs):
+                purview_configuration = purview_configuration or {}
+                def _setter(key, value):
+                    purview_configuration[key] = value
+                PurviewConfigurationArgs._configure(_setter, **purview_configuration)
             __props__.__dict__["purview_configuration"] = purview_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -476,8 +557,18 @@ class Workspace(pulumi.CustomResource):
             if trusted_service_bypass_enabled is None:
                 trusted_service_bypass_enabled = False
             __props__.__dict__["trusted_service_bypass_enabled"] = trusted_service_bypass_enabled
+            if virtual_network_profile is not None and not isinstance(virtual_network_profile, VirtualNetworkProfileArgs):
+                virtual_network_profile = virtual_network_profile or {}
+                def _setter(key, value):
+                    virtual_network_profile[key] = value
+                VirtualNetworkProfileArgs._configure(_setter, **virtual_network_profile)
             __props__.__dict__["virtual_network_profile"] = virtual_network_profile
             __props__.__dict__["workspace_name"] = workspace_name
+            if workspace_repository_configuration is not None and not isinstance(workspace_repository_configuration, WorkspaceRepositoryConfigurationArgs):
+                workspace_repository_configuration = workspace_repository_configuration or {}
+                def _setter(key, value):
+                    workspace_repository_configuration[key] = value
+                WorkspaceRepositoryConfigurationArgs._configure(_setter, **workspace_repository_configuration)
             __props__.__dict__["workspace_repository_configuration"] = workspace_repository_configuration
             __props__.__dict__["adla_resource_id"] = None
             __props__.__dict__["connectivity_endpoints"] = None

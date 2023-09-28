@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -23,8 +23,19 @@ class AzureSkuArgs:
         :param pulumi.Input[Union[str, 'AzureSkuName']] name: SKU name
         :param pulumi.Input[Union[str, 'AzureSkuTier']] tier: SKU tier
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        AzureSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'AzureSkuName']],
+             tier: pulumi.Input[Union[str, 'AzureSkuTier']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter

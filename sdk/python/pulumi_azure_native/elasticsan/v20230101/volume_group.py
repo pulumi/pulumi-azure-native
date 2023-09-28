@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,43 @@ class VolumeGroupArgs:
         :param pulumi.Input[Union[str, 'StorageTargetType']] protocol_type: Type of storage target
         :param pulumi.Input[str] volume_group_name: The name of the VolumeGroup.
         """
-        pulumi.set(__self__, "elastic_san_name", elastic_san_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VolumeGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elastic_san_name=elastic_san_name,
+            resource_group_name=resource_group_name,
+            encryption=encryption,
+            encryption_properties=encryption_properties,
+            identity=identity,
+            network_acls=network_acls,
+            protocol_type=protocol_type,
+            volume_group_name=volume_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elastic_san_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             encryption: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
+             encryption_properties: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+             protocol_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
+             volume_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("elastic_san_name", elastic_san_name)
+        _setter("resource_group_name", resource_group_name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if encryption_properties is not None:
-            pulumi.set(__self__, "encryption_properties", encryption_properties)
+            _setter("encryption_properties", encryption_properties)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if protocol_type is not None:
-            pulumi.set(__self__, "protocol_type", protocol_type)
+            _setter("protocol_type", protocol_type)
         if volume_group_name is not None:
-            pulumi.set(__self__, "volume_group_name", volume_group_name)
+            _setter("volume_group_name", volume_group_name)
 
     @property
     @pulumi.getter(name="elasticSanName")
@@ -195,6 +218,10 @@ class VolumeGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -221,8 +248,23 @@ class VolumeGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'elastic_san_name'")
             __props__.__dict__["elastic_san_name"] = elastic_san_name
             __props__.__dict__["encryption"] = encryption
+            if encryption_properties is not None and not isinstance(encryption_properties, EncryptionPropertiesArgs):
+                encryption_properties = encryption_properties or {}
+                def _setter(key, value):
+                    encryption_properties[key] = value
+                EncryptionPropertiesArgs._configure(_setter, **encryption_properties)
             __props__.__dict__["encryption_properties"] = encryption_properties
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if network_acls is not None and not isinstance(network_acls, NetworkRuleSetArgs):
+                network_acls = network_acls or {}
+                def _setter(key, value):
+                    network_acls[key] = value
+                NetworkRuleSetArgs._configure(_setter, **network_acls)
             __props__.__dict__["network_acls"] = network_acls
             __props__.__dict__["protocol_type"] = protocol_type
             if resource_group_name is None and not opts.urn:

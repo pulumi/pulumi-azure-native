@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,8 +30,17 @@ class ExtensionAksAssignedIdentityArgs:
         Identity of the Extension resource in an AKS cluster
         :param pulumi.Input['AKSIdentityType'] type: The identity type.
         """
+        ExtensionAksAssignedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['AKSIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -62,18 +71,35 @@ class ExtensionStatusArgs:
         :param pulumi.Input[str] message: Detailed message of the status from the Extension.
         :param pulumi.Input[str] time: DateLiteral (per ISO8601) noting the time of installation status.
         """
+        ExtensionStatusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            display_status=display_status,
+            level=level,
+            message=message,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[pulumi.Input[str]] = None,
+             display_status: Optional[pulumi.Input[str]] = None,
+             level: Optional[pulumi.Input[Union[str, 'LevelType']]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
+            _setter("display_status", display_status)
         if level is None:
             level = 'Information'
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -144,8 +170,17 @@ class IdentityArgs:
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -170,9 +205,20 @@ class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
         :param pulumi.Input[str] cluster_resource_id: Managed Cluster ARM ID for the private link scope  (Required)
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
         """
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        KubernetesConfigurationPrivateLinkScopePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_resource_id=cluster_resource_id,
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_resource_id: pulumi.Input[str],
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_resource_id", cluster_resource_id)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="clusterResourceId")
@@ -215,13 +261,30 @@ class PlanArgs:
         :param pulumi.Input[str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[str] version: The version of the desired product/artifact.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
+        PlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            promotion_code=promotion_code,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             product: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             promotion_code: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -296,12 +359,25 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -348,8 +424,17 @@ class ScopeClusterArgs:
         Specifies that the scope of the extension is Cluster
         :param pulumi.Input[str] release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
         """
+        ScopeClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            release_namespace=release_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             release_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if release_namespace is not None:
-            pulumi.set(__self__, "release_namespace", release_namespace)
+            _setter("release_namespace", release_namespace)
 
     @property
     @pulumi.getter(name="releaseNamespace")
@@ -372,8 +457,17 @@ class ScopeNamespaceArgs:
         Specifies that the scope of the extension is Namespace
         :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         """
+        ScopeNamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="targetNamespace")
@@ -398,10 +492,21 @@ class ScopeArgs:
         :param pulumi.Input['ScopeClusterArgs'] cluster: Specifies that the scope of the extension is Cluster
         :param pulumi.Input['ScopeNamespaceArgs'] namespace: Specifies that the scope of the extension is Namespace
         """
+        ScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster=cluster,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster: Optional[pulumi.Input['ScopeClusterArgs']] = None,
+             namespace: Optional[pulumi.Input['ScopeNamespaceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster is not None:
-            pulumi.set(__self__, "cluster", cluster)
+            _setter("cluster", cluster)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter

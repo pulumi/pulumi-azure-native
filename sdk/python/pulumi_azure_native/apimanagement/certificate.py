@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,35 @@ class CertificateArgs:
         :param pulumi.Input['KeyVaultContractCreatePropertiesArgs'] key_vault: KeyVault location details of the certificate.
         :param pulumi.Input[str] password: Password for the Certificate
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            certificate_id=certificate_id,
+            data=data,
+            key_vault=key_vault,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             certificate_id: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             key_vault: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if certificate_id is not None:
-            pulumi.set(__self__, "certificate_id", certificate_id)
+            _setter("certificate_id", certificate_id)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -160,6 +179,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,6 +205,11 @@ class Certificate(pulumi.CustomResource):
 
             __props__.__dict__["certificate_id"] = certificate_id
             __props__.__dict__["data"] = data
+            if key_vault is not None and not isinstance(key_vault, KeyVaultContractCreatePropertiesArgs):
+                key_vault = key_vault or {}
+                def _setter(key, value):
+                    key_vault[key] = value
+                KeyVaultContractCreatePropertiesArgs._configure(_setter, **key_vault)
             __props__.__dict__["key_vault"] = key_vault
             __props__.__dict__["password"] = password
             if resource_group_name is None and not opts.urn:

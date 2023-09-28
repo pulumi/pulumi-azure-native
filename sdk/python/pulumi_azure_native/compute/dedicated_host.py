@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,21 +38,46 @@ class DedicatedHostArgs:
         :param pulumi.Input[int] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "host_group_name", host_group_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        DedicatedHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_group_name=host_group_name,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            auto_replace_on_failure=auto_replace_on_failure,
+            host_name=host_name,
+            license_type=license_type,
+            location=location,
+            platform_fault_domain=platform_fault_domain,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_group_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['SkuArgs'],
+             auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input['DedicatedHostLicenseTypes']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             platform_fault_domain: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_group_name", host_group_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if auto_replace_on_failure is not None:
-            pulumi.set(__self__, "auto_replace_on_failure", auto_replace_on_failure)
+            _setter("auto_replace_on_failure", auto_replace_on_failure)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if platform_fault_domain is not None:
-            pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
+            _setter("platform_fault_domain", platform_fault_domain)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="hostGroupName")
@@ -214,6 +239,10 @@ class DedicatedHost(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DedicatedHostArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -248,6 +277,11 @@ class DedicatedHost(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

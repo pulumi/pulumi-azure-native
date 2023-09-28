@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -52,9 +52,22 @@ class ApplicationArtifactResponse(dict):
         :param str type: The managed application artifact type.
         :param str uri: The managed application artifact blob uri.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "uri", uri)
+        ApplicationArtifactResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -113,8 +126,19 @@ class ApplicationAuthorizationResponse(dict):
         :param str principal_id: The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
         :param str role_definition_id: The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        ApplicationAuthorizationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             role_definition_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -161,8 +185,17 @@ class ApplicationBillingDetailsDefinitionResponse(dict):
         Managed application billing details definition.
         :param str resource_usage_id: The managed application resource usage Id.
         """
+        ApplicationBillingDetailsDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_usage_id=resource_usage_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_usage_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_usage_id is not None:
-            pulumi.set(__self__, "resource_usage_id", resource_usage_id)
+            _setter("resource_usage_id", resource_usage_id)
 
     @property
     @pulumi.getter(name="resourceUsageId")
@@ -205,12 +238,25 @@ class ApplicationClientDetailsResponse(dict):
         :param str oid: The client Oid.
         :param str puid: The client Puid
         """
+        ApplicationClientDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            oid=oid,
+            puid=puid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[str] = None,
+             oid: Optional[str] = None,
+             puid: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if oid is not None:
-            pulumi.set(__self__, "oid", oid)
+            _setter("oid", oid)
         if puid is not None:
-            pulumi.set(__self__, "puid", puid)
+            _setter("puid", puid)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -252,9 +298,22 @@ class ApplicationDefinitionArtifactResponse(dict):
         :param str type: The managed application definition artifact type.
         :param str uri: The managed application definition artifact blob uri.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "uri", uri)
+        ApplicationDefinitionArtifactResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -309,7 +368,16 @@ class ApplicationDeploymentPolicyResponse(dict):
         Managed application deployment policy.
         :param str deployment_mode: The managed application deployment mode.
         """
-        pulumi.set(__self__, "deployment_mode", deployment_mode)
+        ApplicationDeploymentPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_mode=deployment_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_mode: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("deployment_mode", deployment_mode)
 
     @property
     @pulumi.getter(name="deploymentMode")
@@ -360,13 +428,28 @@ class ApplicationJitAccessPolicyResponse(dict):
         :param Sequence['JitApproverDefinitionResponse'] jit_approvers: The JIT approvers
         :param str maximum_jit_access_duration: The maximum duration JIT access is granted. This is an ISO8601 time period value.
         """
-        pulumi.set(__self__, "jit_access_enabled", jit_access_enabled)
+        ApplicationJitAccessPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jit_access_enabled=jit_access_enabled,
+            jit_approval_mode=jit_approval_mode,
+            jit_approvers=jit_approvers,
+            maximum_jit_access_duration=maximum_jit_access_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jit_access_enabled: bool,
+             jit_approval_mode: Optional[str] = None,
+             jit_approvers: Optional[Sequence['outputs.JitApproverDefinitionResponse']] = None,
+             maximum_jit_access_duration: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("jit_access_enabled", jit_access_enabled)
         if jit_approval_mode is not None:
-            pulumi.set(__self__, "jit_approval_mode", jit_approval_mode)
+            _setter("jit_approval_mode", jit_approval_mode)
         if jit_approvers is not None:
-            pulumi.set(__self__, "jit_approvers", jit_approvers)
+            _setter("jit_approvers", jit_approvers)
         if maximum_jit_access_duration is not None:
-            pulumi.set(__self__, "maximum_jit_access_duration", maximum_jit_access_duration)
+            _setter("maximum_jit_access_duration", maximum_jit_access_duration)
 
     @property
     @pulumi.getter(name="jitAccessEnabled")
@@ -412,8 +495,17 @@ class ApplicationManagementPolicyResponse(dict):
         Managed application management policy.
         :param str mode: The managed application management mode.
         """
+        ApplicationManagementPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -435,7 +527,16 @@ class ApplicationNotificationEndpointResponse(dict):
         Managed application notification endpoint.
         :param str uri: The managed application notification endpoint uri.
         """
-        pulumi.set(__self__, "uri", uri)
+        ApplicationNotificationEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -474,7 +575,16 @@ class ApplicationNotificationPolicyResponse(dict):
         Managed application notification policy.
         :param Sequence['ApplicationNotificationEndpointResponse'] notification_endpoints: The managed application notification endpoint.
         """
-        pulumi.set(__self__, "notification_endpoints", notification_endpoints)
+        ApplicationNotificationPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notification_endpoints=notification_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notification_endpoints: Sequence['outputs.ApplicationNotificationEndpointResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("notification_endpoints", notification_endpoints)
 
     @property
     @pulumi.getter(name="notificationEndpoints")
@@ -517,10 +627,23 @@ class ApplicationPackageContactResponse(dict):
         :param str phone: The contact phone number.
         :param str contact_name: The contact name.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "phone", phone)
+        ApplicationPackageContactResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            phone=phone,
+            contact_name=contact_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: str,
+             phone: str,
+             contact_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
+        _setter("phone", phone)
         if contact_name is not None:
-            pulumi.set(__self__, "contact_name", contact_name)
+            _setter("contact_name", contact_name)
 
     @property
     @pulumi.getter
@@ -579,10 +702,21 @@ class ApplicationPackageLockingPolicyDefinitionResponse(dict):
         :param Sequence[str] allowed_actions: The deny assignment excluded actions.
         :param Sequence[str] allowed_data_actions: The deny assignment excluded data actions.
         """
+        ApplicationPackageLockingPolicyDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_actions=allowed_actions,
+            allowed_data_actions=allowed_data_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_actions: Optional[Sequence[str]] = None,
+             allowed_data_actions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_actions is not None:
-            pulumi.set(__self__, "allowed_actions", allowed_actions)
+            _setter("allowed_actions", allowed_actions)
         if allowed_data_actions is not None:
-            pulumi.set(__self__, "allowed_data_actions", allowed_data_actions)
+            _setter("allowed_data_actions", allowed_data_actions)
 
     @property
     @pulumi.getter(name="allowedActions")
@@ -633,10 +767,21 @@ class ApplicationPackageSupportUrlsResponse(dict):
         :param str government_cloud: The government cloud support URL.
         :param str public_azure: The public azure support URL.
         """
+        ApplicationPackageSupportUrlsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            government_cloud=government_cloud,
+            public_azure=public_azure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             government_cloud: Optional[str] = None,
+             public_azure: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if government_cloud is not None:
-            pulumi.set(__self__, "government_cloud", government_cloud)
+            _setter("government_cloud", government_cloud)
         if public_azure is not None:
-            pulumi.set(__self__, "public_azure", public_azure)
+            _setter("public_azure", public_azure)
 
     @property
     @pulumi.getter(name="governmentCloud")
@@ -687,12 +832,25 @@ class ApplicationPolicyResponse(dict):
         :param str parameters: The policy parameters.
         :param str policy_definition_id: The policy definition Id.
         """
+        ApplicationPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+            policy_definition_id=policy_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             parameters: Optional[str] = None,
+             policy_definition_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+            _setter("policy_definition_id", policy_definition_id)
 
     @property
     @pulumi.getter
@@ -757,12 +915,27 @@ class IdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'UserAssignedResourceIdentityResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedResourceIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -829,11 +1002,24 @@ class JitApproverDefinitionResponse(dict):
         :param str display_name: The approver display name.
         :param str type: The approver type.
         """
-        pulumi.set(__self__, "id", id)
+        JitApproverDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            display_name=display_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             display_name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -892,8 +1078,19 @@ class JitAuthorizationPoliciesResponse(dict):
         :param str principal_id: The the principal id that will be granted JIT access.
         :param str role_definition_id: The role definition id that will be granted to the Principal.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        JitAuthorizationPoliciesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             role_definition_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -943,9 +1140,22 @@ class JitSchedulingPolicyResponse(dict):
         :param str start_time: The start time of the request.
         :param str type: The type of JIT schedule.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "type", type)
+        JitSchedulingPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            start_time=start_time,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: str,
+             start_time: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("duration", duration)
+        _setter("start_time", start_time)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -992,20 +1202,41 @@ class ManagedIdentityTokenResponse(dict):
         :param str resource_id: The Azure resource ID for the issued token. This is either the managed application ID or the user-assigned identity ID.
         :param str token_type: The type of the token.
         """
+        ManagedIdentityTokenResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            authorization_audience=authorization_audience,
+            expires_in=expires_in,
+            expires_on=expires_on,
+            not_before=not_before,
+            resource_id=resource_id,
+            token_type=token_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[str] = None,
+             authorization_audience: Optional[str] = None,
+             expires_in: Optional[str] = None,
+             expires_on: Optional[str] = None,
+             not_before: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             token_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if authorization_audience is not None:
-            pulumi.set(__self__, "authorization_audience", authorization_audience)
+            _setter("authorization_audience", authorization_audience)
         if expires_in is not None:
-            pulumi.set(__self__, "expires_in", expires_in)
+            _setter("expires_in", expires_in)
         if expires_on is not None:
-            pulumi.set(__self__, "expires_on", expires_on)
+            _setter("expires_on", expires_on)
         if not_before is not None:
-            pulumi.set(__self__, "not_before", not_before)
+            _setter("not_before", not_before)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if token_type is not None:
-            pulumi.set(__self__, "token_type", token_type)
+            _setter("token_type", token_type)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -1100,12 +1331,29 @@ class PlanResponse(dict):
         :param str version: The plan's version.
         :param str promotion_code: The promotion code.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "version", version)
+        PlanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            version=version,
+            promotion_code=promotion_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             product: str,
+             publisher: str,
+             version: str,
+             promotion_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
+        _setter("version", version)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
 
     @property
     @pulumi.getter
@@ -1169,17 +1417,36 @@ class SkuResponse(dict):
         :param str size: The SKU size.
         :param str tier: The SKU tier.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            model=model,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             model: Optional[str] = None,
+             size: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if model is not None:
-            pulumi.set(__self__, "model", model)
+            _setter("model", model)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1278,18 +1545,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1372,8 +1658,19 @@ class UserAssignedResourceIdentityResponse(dict):
         :param str principal_id: The principal id of user assigned identity.
         :param str tenant_id: The tenant id of user assigned identity.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        UserAssignedResourceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="principalId")

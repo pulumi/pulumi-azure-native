@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -76,68 +76,131 @@ class VirtualMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The user name of the virtual machine.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            allow_claim=allow_claim,
+            artifacts=artifacts,
+            created_date=created_date,
+            custom_image_id=custom_image_id,
+            data_disk_parameters=data_disk_parameters,
+            disallow_public_ip_address=disallow_public_ip_address,
+            environment_id=environment_id,
+            expiration_date=expiration_date,
+            gallery_image_reference=gallery_image_reference,
+            is_authentication_with_ssh_key=is_authentication_with_ssh_key,
+            lab_subnet_name=lab_subnet_name,
+            lab_virtual_network_id=lab_virtual_network_id,
+            location=location,
+            name=name,
+            network_interface=network_interface,
+            notes=notes,
+            owner_object_id=owner_object_id,
+            owner_user_principal_name=owner_user_principal_name,
+            password=password,
+            plan_id=plan_id,
+            schedule_parameters=schedule_parameters,
+            size=size,
+            ssh_key=ssh_key,
+            storage_type=storage_type,
+            tags=tags,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             allow_claim: Optional[pulumi.Input[bool]] = None,
+             artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             custom_image_id: Optional[pulumi.Input[str]] = None,
+             data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskPropertiesArgs']]]] = None,
+             disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             gallery_image_reference: Optional[pulumi.Input['GalleryImageReferenceArgs']] = None,
+             is_authentication_with_ssh_key: Optional[pulumi.Input[bool]] = None,
+             lab_subnet_name: Optional[pulumi.Input[str]] = None,
+             lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_interface: Optional[pulumi.Input['NetworkInterfacePropertiesArgs']] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             owner_object_id: Optional[pulumi.Input[str]] = None,
+             owner_user_principal_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             plan_id: Optional[pulumi.Input[str]] = None,
+             schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleCreationParameterArgs']]]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             ssh_key: Optional[pulumi.Input[str]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
         if allow_claim is None:
             allow_claim = False
         if allow_claim is not None:
-            pulumi.set(__self__, "allow_claim", allow_claim)
+            _setter("allow_claim", allow_claim)
         if artifacts is not None:
-            pulumi.set(__self__, "artifacts", artifacts)
+            _setter("artifacts", artifacts)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if custom_image_id is not None:
-            pulumi.set(__self__, "custom_image_id", custom_image_id)
+            _setter("custom_image_id", custom_image_id)
         if data_disk_parameters is not None:
-            pulumi.set(__self__, "data_disk_parameters", data_disk_parameters)
+            _setter("data_disk_parameters", data_disk_parameters)
         if disallow_public_ip_address is None:
             disallow_public_ip_address = False
         if disallow_public_ip_address is not None:
-            pulumi.set(__self__, "disallow_public_ip_address", disallow_public_ip_address)
+            _setter("disallow_public_ip_address", disallow_public_ip_address)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if gallery_image_reference is not None:
-            pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
+            _setter("gallery_image_reference", gallery_image_reference)
         if is_authentication_with_ssh_key is not None:
-            pulumi.set(__self__, "is_authentication_with_ssh_key", is_authentication_with_ssh_key)
+            _setter("is_authentication_with_ssh_key", is_authentication_with_ssh_key)
         if lab_subnet_name is not None:
-            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+            _setter("lab_subnet_name", lab_subnet_name)
         if lab_virtual_network_id is not None:
-            pulumi.set(__self__, "lab_virtual_network_id", lab_virtual_network_id)
+            _setter("lab_virtual_network_id", lab_virtual_network_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_interface is not None:
-            pulumi.set(__self__, "network_interface", network_interface)
+            _setter("network_interface", network_interface)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if owner_object_id is None:
             owner_object_id = 'dynamicValue'
         if owner_object_id is not None:
-            pulumi.set(__self__, "owner_object_id", owner_object_id)
+            _setter("owner_object_id", owner_object_id)
         if owner_user_principal_name is not None:
-            pulumi.set(__self__, "owner_user_principal_name", owner_user_principal_name)
+            _setter("owner_user_principal_name", owner_user_principal_name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
+            _setter("plan_id", plan_id)
         if schedule_parameters is not None:
-            pulumi.set(__self__, "schedule_parameters", schedule_parameters)
+            _setter("schedule_parameters", schedule_parameters)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if storage_type is None:
             storage_type = 'labStorageType'
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="labName")
@@ -565,6 +628,10 @@ class VirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -619,6 +686,11 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["disallow_public_ip_address"] = disallow_public_ip_address
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["expiration_date"] = expiration_date
+            if gallery_image_reference is not None and not isinstance(gallery_image_reference, GalleryImageReferenceArgs):
+                gallery_image_reference = gallery_image_reference or {}
+                def _setter(key, value):
+                    gallery_image_reference[key] = value
+                GalleryImageReferenceArgs._configure(_setter, **gallery_image_reference)
             __props__.__dict__["gallery_image_reference"] = gallery_image_reference
             __props__.__dict__["is_authentication_with_ssh_key"] = is_authentication_with_ssh_key
             if lab_name is None and not opts.urn:
@@ -628,6 +700,11 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["lab_virtual_network_id"] = lab_virtual_network_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if network_interface is not None and not isinstance(network_interface, NetworkInterfacePropertiesArgs):
+                network_interface = network_interface or {}
+                def _setter(key, value):
+                    network_interface[key] = value
+                NetworkInterfacePropertiesArgs._configure(_setter, **network_interface)
             __props__.__dict__["network_interface"] = network_interface
             __props__.__dict__["notes"] = notes
             if owner_object_id is None:

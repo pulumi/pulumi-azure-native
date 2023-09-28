@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -31,9 +31,20 @@ class EnterpriseSkuResponse(dict):
         :param str name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
         :param int capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
         """
-        pulumi.set(__self__, "name", name)
+        EnterpriseSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -94,13 +105,32 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             provisioning_state: str,
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -162,7 +192,16 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -205,12 +244,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,19 +35,42 @@ class IpCommunityArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]] well_known_communities: Supported well known Community List.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "community_members", community_members)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IpCommunityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            community_members=community_members,
+            resource_group_name=resource_group_name,
+            annotation=annotation,
+            ip_community_name=ip_community_name,
+            location=location,
+            tags=tags,
+            well_known_communities=well_known_communities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[Union[str, 'CommunityActionTypes']],
+             community_members: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: pulumi.Input[str],
+             annotation: Optional[pulumi.Input[str]] = None,
+             ip_community_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             well_known_communities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("community_members", community_members)
+        _setter("resource_group_name", resource_group_name)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if ip_community_name is not None:
-            pulumi.set(__self__, "ip_community_name", ip_community_name)
+            _setter("ip_community_name", ip_community_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if well_known_communities is not None:
-            pulumi.set(__self__, "well_known_communities", well_known_communities)
+            _setter("well_known_communities", well_known_communities)
 
     @property
     @pulumi.getter
@@ -195,6 +218,10 @@ class IpCommunity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IpCommunityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

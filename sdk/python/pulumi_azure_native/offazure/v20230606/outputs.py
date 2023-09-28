@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -89,19 +89,52 @@ class HealthErrorDetailsResponse(dict):
         :param str summary_message: Gets the error summary message.
         :param str updated_time_stamp: Gets the time stamp when the error was updated.
         """
-        pulumi.set(__self__, "appliance_name", appliance_name)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "discovery_scope", discovery_scope)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "message_parameters", message_parameters)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
-        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "summary_message", summary_message)
-        pulumi.set(__self__, "updated_time_stamp", updated_time_stamp)
+        HealthErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            appliance_name=appliance_name,
+            code=code,
+            discovery_scope=discovery_scope,
+            id=id,
+            message=message,
+            message_parameters=message_parameters,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+            run_as_account_id=run_as_account_id,
+            severity=severity,
+            source=source,
+            summary_message=summary_message,
+            updated_time_stamp=updated_time_stamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             appliance_name: str,
+             code: str,
+             discovery_scope: str,
+             id: float,
+             message: str,
+             message_parameters: Mapping[str, str],
+             possible_causes: str,
+             recommended_action: str,
+             run_as_account_id: str,
+             severity: str,
+             source: str,
+             summary_message: str,
+             updated_time_stamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("appliance_name", appliance_name)
+        _setter("code", code)
+        _setter("discovery_scope", discovery_scope)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("message_parameters", message_parameters)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
+        _setter("run_as_account_id", run_as_account_id)
+        _setter("severity", severity)
+        _setter("source", source)
+        _setter("summary_message", summary_message)
+        _setter("updated_time_stamp", updated_time_stamp)
 
     @property
     @pulumi.getter(name="applianceName")
@@ -258,15 +291,38 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: private endpoints connection state
         """
-        pulumi.set(__self__, "group_ids", group_ids)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            id=id,
+            name=name,
+            private_endpoint=private_endpoint,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Sequence[str],
+             id: str,
+             name: str,
+             private_endpoint: 'outputs.ResourceIdResponse',
+             provisioning_state: str,
+             system_data: 'outputs.SystemDataResponse',
+             type: str,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_ids", group_ids)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_endpoint", private_endpoint)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -365,12 +421,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: description string
         :param str status: state status
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -408,7 +477,16 @@ class ResourceIdResponse(dict):
         PrivateEndpointModelsResourceId
         :param str id: id name
         """
-        pulumi.set(__self__, "id", id)
+        ResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -459,13 +537,30 @@ class SiteAgentPropertiesResponse(dict):
         :param str key_vault_id: Gets or sets the key vault ARM Id.
         :param str key_vault_uri: Gets or sets the key vault URI.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heart_beat_utc", last_heart_beat_utc)
-        pulumi.set(__self__, "version", version)
+        SiteAgentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            last_heart_beat_utc=last_heart_beat_utc,
+            version=version,
+            key_vault_id=key_vault_id,
+            key_vault_uri=key_vault_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             last_heart_beat_utc: str,
+             version: str,
+             key_vault_id: Optional[str] = None,
+             key_vault_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("last_heart_beat_utc", last_heart_beat_utc)
+        _setter("version", version)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
 
     @property
     @pulumi.getter
@@ -544,12 +639,25 @@ class SiteAppliancePropertiesResponse(dict):
         :param str appliance_name: Gets or sets the Appliance Name.
         :param 'SiteSpnPropertiesResponse' service_principal_identity_details:  Gets or sets the service principal identity details used by agent for  communication              to the service.  
         """
+        SiteAppliancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_details=agent_details,
+            appliance_name=appliance_name,
+            service_principal_identity_details=service_principal_identity_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_details: Optional['outputs.SiteAgentPropertiesResponse'] = None,
+             appliance_name: Optional[str] = None,
+             service_principal_identity_details: Optional['outputs.SiteSpnPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if agent_details is not None:
-            pulumi.set(__self__, "agent_details", agent_details)
+            _setter("agent_details", agent_details)
         if appliance_name is not None:
-            pulumi.set(__self__, "appliance_name", appliance_name)
+            _setter("appliance_name", appliance_name)
         if service_principal_identity_details is not None:
-            pulumi.set(__self__, "service_principal_identity_details", service_principal_identity_details)
+            _setter("service_principal_identity_details", service_principal_identity_details)
 
     @property
     @pulumi.getter(name="agentDetails")
@@ -609,22 +717,53 @@ class SiteHealthSummaryResponse(dict):
         :param Sequence[str] fabric_layout_update_sources: Gets or sets sources of the exception.
         :param float hit_count: Gets or sets the hit count of the error.
         """
-        pulumi.set(__self__, "affected_resource_type", affected_resource_type)
-        pulumi.set(__self__, "appliance_name", appliance_name)
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_id", error_id)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "remediation_guidance", remediation_guidance)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "summary_message", summary_message)
+        SiteHealthSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            affected_resource_type=affected_resource_type,
+            appliance_name=appliance_name,
+            error_code=error_code,
+            error_id=error_id,
+            error_message=error_message,
+            remediation_guidance=remediation_guidance,
+            severity=severity,
+            summary_message=summary_message,
+            affected_objects_count=affected_objects_count,
+            affected_resources=affected_resources,
+            fabric_layout_update_sources=fabric_layout_update_sources,
+            hit_count=hit_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             affected_resource_type: str,
+             appliance_name: str,
+             error_code: str,
+             error_id: float,
+             error_message: str,
+             remediation_guidance: str,
+             severity: str,
+             summary_message: str,
+             affected_objects_count: Optional[float] = None,
+             affected_resources: Optional[Sequence[str]] = None,
+             fabric_layout_update_sources: Optional[Sequence[str]] = None,
+             hit_count: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("affected_resource_type", affected_resource_type)
+        _setter("appliance_name", appliance_name)
+        _setter("error_code", error_code)
+        _setter("error_id", error_id)
+        _setter("error_message", error_message)
+        _setter("remediation_guidance", remediation_guidance)
+        _setter("severity", severity)
+        _setter("summary_message", summary_message)
         if affected_objects_count is not None:
-            pulumi.set(__self__, "affected_objects_count", affected_objects_count)
+            _setter("affected_objects_count", affected_objects_count)
         if affected_resources is not None:
-            pulumi.set(__self__, "affected_resources", affected_resources)
+            _setter("affected_resources", affected_resources)
         if fabric_layout_update_sources is not None:
-            pulumi.set(__self__, "fabric_layout_update_sources", fabric_layout_update_sources)
+            _setter("fabric_layout_update_sources", fabric_layout_update_sources)
         if hit_count is not None:
-            pulumi.set(__self__, "hit_count", hit_count)
+            _setter("hit_count", hit_count)
 
     @property
     @pulumi.getter(name="affectedResourceType")
@@ -781,18 +920,37 @@ class SiteSpnPropertiesResponse(dict):
                            management/data plane components would communicate with
                our Azure services.
         """
+        SiteSpnPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_authority=aad_authority,
+            application_id=application_id,
+            audience=audience,
+            object_id=object_id,
+            raw_cert_data=raw_cert_data,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_authority: Optional[str] = None,
+             application_id: Optional[str] = None,
+             audience: Optional[str] = None,
+             object_id: Optional[str] = None,
+             raw_cert_data: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aad_authority is not None:
-            pulumi.set(__self__, "aad_authority", aad_authority)
+            _setter("aad_authority", aad_authority)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if raw_cert_data is not None:
-            pulumi.set(__self__, "raw_cert_data", raw_cert_data)
+            _setter("raw_cert_data", raw_cert_data)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aadAuthority")
@@ -903,18 +1061,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

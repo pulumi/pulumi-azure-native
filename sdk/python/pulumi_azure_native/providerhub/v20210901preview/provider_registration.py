@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -23,10 +23,21 @@ class ProviderRegistrationArgs:
         The set of arguments for constructing a ProviderRegistration resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
+        ProviderRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            provider_namespace=provider_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None,
+             provider_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if provider_namespace is not None:
-            pulumi.set(__self__, "provider_namespace", provider_namespace)
+            _setter("provider_namespace", provider_namespace)
 
     @property
     @pulumi.getter
@@ -82,6 +93,10 @@ class ProviderRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -98,6 +113,11 @@ class ProviderRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderRegistrationArgs.__new__(ProviderRegistrationArgs)
 
+            if properties is not None and not isinstance(properties, ProviderRegistrationPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ProviderRegistrationPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             __props__.__dict__["provider_namespace"] = provider_namespace
             __props__.__dict__["name"] = None

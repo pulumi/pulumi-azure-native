@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['WorkloadNetworkVMGroupArgs', 'WorkloadNetworkVMGroup']
@@ -29,16 +29,35 @@ class WorkloadNetworkVMGroupArgs:
         :param pulumi.Input[float] revision: NSX revision number.
         :param pulumi.Input[str] vm_group_id: NSX VM Group identifier. Generally the same as the VM Group's display name
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkloadNetworkVMGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            display_name=display_name,
+            members=members,
+            revision=revision,
+            vm_group_id=vm_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             revision: Optional[pulumi.Input[float]] = None,
+             vm_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if vm_group_id is not None:
-            pulumi.set(__self__, "vm_group_id", vm_group_id)
+            _setter("vm_group_id", vm_group_id)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -156,6 +175,10 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadNetworkVMGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

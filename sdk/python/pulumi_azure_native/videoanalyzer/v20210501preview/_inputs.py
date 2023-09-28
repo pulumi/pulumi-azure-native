@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,11 +30,24 @@ class AccountEncryptionArgs:
         :param pulumi.Input['ResourceIdentityArgs'] identity: The Key Vault identity.
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: The properties of the key used to encrypt the account.
         """
-        pulumi.set(__self__, "type", type)
+        AccountEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity=identity,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'AccountEncryptionKeyType']],
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter
@@ -81,7 +94,16 @@ class KeyVaultPropertiesArgs:
         The details for accessing the encryption keys in Key Vault.
         :param pulumi.Input[str] key_identifier: The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
         """
-        pulumi.set(__self__, "key_identifier", key_identifier)
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -104,7 +126,16 @@ class ResourceIdentityArgs:
         The user assigned managed identity to use when accessing a resource.
         :param pulumi.Input[str] user_assigned_identity: The user assigned managed identity's resource identifier to use when accessing a resource.
         """
-        pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identity: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="userAssignedIdentity")
@@ -129,10 +160,21 @@ class StorageAccountArgs:
         :param pulumi.Input[str] id: The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
         :param pulumi.Input['ResourceIdentityArgs'] identity: A managed identity that Video Analyzer will use to access the storage account.
         """
+        StorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter
@@ -169,9 +211,20 @@ class VideoAnalyzerIdentityArgs:
         :param pulumi.Input[str] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The User Assigned Managed Identities.
         """
-        pulumi.set(__self__, "type", type)
+        VideoAnalyzerIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter

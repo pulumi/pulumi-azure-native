@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,14 +27,27 @@ class InboundEndpointIPConfigurationArgs:
         :param pulumi.Input[Union[str, 'IpAllocationMethod']] private_ip_allocation_method: Private IP address allocation method.
         :param pulumi.Input['SubResourceArgs'] subnet: The reference to the subnet bound to the IP configuration.
         """
+        InboundEndpointIPConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_ip_address=private_ip_address,
+            private_ip_allocation_method=private_ip_allocation_method,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IpAllocationMethod']]] = None,
+             subnet: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_allocation_method is None:
             private_ip_allocation_method = 'Dynamic'
         if private_ip_allocation_method is not None:
-            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+            _setter("private_ip_allocation_method", private_ip_allocation_method)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -84,8 +97,17 @@ class SubResourceArgs:
                A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
                Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
+        SubResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter

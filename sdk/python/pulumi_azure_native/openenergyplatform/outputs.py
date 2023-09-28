@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -27,8 +27,17 @@ class DataPartitionNamesResponse(dict):
         """
         The list of Energy services resource's Data Partition Names.
         """
+        DataPartitionNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -49,10 +58,21 @@ class DataPartitionPropertiesResponse(dict):
         :param str name: Name of the data partition
         :param str provisioning_state: Name of the data partition
         """
+        DataPartitionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -101,12 +121,27 @@ class EnergyServicePropertiesResponse(dict):
                  provisioning_state: str,
                  auth_app_id: Optional[str] = None,
                  data_partition_names: Optional[Sequence['outputs.DataPartitionNamesResponse']] = None):
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        EnergyServicePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            provisioning_state=provisioning_state,
+            auth_app_id=auth_app_id,
+            data_partition_names=data_partition_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: str,
+             provisioning_state: str,
+             auth_app_id: Optional[str] = None,
+             data_partition_names: Optional[Sequence['outputs.DataPartitionNamesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dns_name", dns_name)
+        _setter("provisioning_state", provisioning_state)
         if auth_app_id is not None:
-            pulumi.set(__self__, "auth_app_id", auth_app_id)
+            _setter("auth_app_id", auth_app_id)
         if data_partition_names is not None:
-            pulumi.set(__self__, "data_partition_names", data_partition_names)
+            _setter("data_partition_names", data_partition_names)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -177,18 +212,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

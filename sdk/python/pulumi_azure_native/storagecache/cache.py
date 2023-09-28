@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,33 +48,68 @@ class CacheArgs:
         :param pulumi.Input['CacheUpgradeSettingsArgs'] upgrade_settings: Upgrade settings of the cache.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CacheArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            cache_name=cache_name,
+            cache_size_gb=cache_size_gb,
+            directory_services_settings=directory_services_settings,
+            encryption_settings=encryption_settings,
+            identity=identity,
+            location=location,
+            network_settings=network_settings,
+            security_settings=security_settings,
+            sku=sku,
+            subnet=subnet,
+            tags=tags,
+            upgrade_settings=upgrade_settings,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             cache_name: Optional[pulumi.Input[str]] = None,
+             cache_size_gb: Optional[pulumi.Input[int]] = None,
+             directory_services_settings: Optional[pulumi.Input['CacheDirectorySettingsArgs']] = None,
+             encryption_settings: Optional[pulumi.Input['CacheEncryptionSettingsArgs']] = None,
+             identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_settings: Optional[pulumi.Input['CacheNetworkSettingsArgs']] = None,
+             security_settings: Optional[pulumi.Input['CacheSecuritySettingsArgs']] = None,
+             sku: Optional[pulumi.Input['CacheSkuArgs']] = None,
+             subnet: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             upgrade_settings: Optional[pulumi.Input['CacheUpgradeSettingsArgs']] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if cache_name is not None:
-            pulumi.set(__self__, "cache_name", cache_name)
+            _setter("cache_name", cache_name)
         if cache_size_gb is not None:
-            pulumi.set(__self__, "cache_size_gb", cache_size_gb)
+            _setter("cache_size_gb", cache_size_gb)
         if directory_services_settings is not None:
-            pulumi.set(__self__, "directory_services_settings", directory_services_settings)
+            _setter("directory_services_settings", directory_services_settings)
         if encryption_settings is not None:
-            pulumi.set(__self__, "encryption_settings", encryption_settings)
+            _setter("encryption_settings", encryption_settings)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_settings is not None:
-            pulumi.set(__self__, "network_settings", network_settings)
+            _setter("network_settings", network_settings)
         if security_settings is not None:
-            pulumi.set(__self__, "security_settings", security_settings)
+            _setter("security_settings", security_settings)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if upgrade_settings is not None:
-            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+            _setter("upgrade_settings", upgrade_settings)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -306,6 +341,10 @@ class Cache(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CacheArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -336,18 +375,53 @@ class Cache(pulumi.CustomResource):
 
             __props__.__dict__["cache_name"] = cache_name
             __props__.__dict__["cache_size_gb"] = cache_size_gb
+            if directory_services_settings is not None and not isinstance(directory_services_settings, CacheDirectorySettingsArgs):
+                directory_services_settings = directory_services_settings or {}
+                def _setter(key, value):
+                    directory_services_settings[key] = value
+                CacheDirectorySettingsArgs._configure(_setter, **directory_services_settings)
             __props__.__dict__["directory_services_settings"] = directory_services_settings
+            if encryption_settings is not None and not isinstance(encryption_settings, CacheEncryptionSettingsArgs):
+                encryption_settings = encryption_settings or {}
+                def _setter(key, value):
+                    encryption_settings[key] = value
+                CacheEncryptionSettingsArgs._configure(_setter, **encryption_settings)
             __props__.__dict__["encryption_settings"] = encryption_settings
+            if identity is not None and not isinstance(identity, CacheIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                CacheIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if network_settings is not None and not isinstance(network_settings, CacheNetworkSettingsArgs):
+                network_settings = network_settings or {}
+                def _setter(key, value):
+                    network_settings[key] = value
+                CacheNetworkSettingsArgs._configure(_setter, **network_settings)
             __props__.__dict__["network_settings"] = network_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if security_settings is not None and not isinstance(security_settings, CacheSecuritySettingsArgs):
+                security_settings = security_settings or {}
+                def _setter(key, value):
+                    security_settings[key] = value
+                CacheSecuritySettingsArgs._configure(_setter, **security_settings)
             __props__.__dict__["security_settings"] = security_settings
+            if sku is not None and not isinstance(sku, CacheSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                CacheSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
+            if upgrade_settings is not None and not isinstance(upgrade_settings, CacheUpgradeSettingsArgs):
+                upgrade_settings = upgrade_settings or {}
+                def _setter(key, value):
+                    upgrade_settings[key] = value
+                CacheUpgradeSettingsArgs._configure(_setter, **upgrade_settings)
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             __props__.__dict__["zones"] = zones
             __props__.__dict__["health"] = None

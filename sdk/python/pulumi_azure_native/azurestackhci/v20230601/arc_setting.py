@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,47 @@ class ArcSettingArgs:
         :param pulumi.Input[str] arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
         :param pulumi.Input[Sequence[pulumi.Input['ArcConnectivityPropertiesArgs']]] connectivity_properties: contains connectivity related configuration for ARC resources
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ArcSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            arc_application_client_id=arc_application_client_id,
+            arc_application_object_id=arc_application_object_id,
+            arc_application_tenant_id=arc_application_tenant_id,
+            arc_instance_resource_group=arc_instance_resource_group,
+            arc_service_principal_object_id=arc_service_principal_object_id,
+            arc_setting_name=arc_setting_name,
+            connectivity_properties=connectivity_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             arc_application_client_id: Optional[pulumi.Input[str]] = None,
+             arc_application_object_id: Optional[pulumi.Input[str]] = None,
+             arc_application_tenant_id: Optional[pulumi.Input[str]] = None,
+             arc_instance_resource_group: Optional[pulumi.Input[str]] = None,
+             arc_service_principal_object_id: Optional[pulumi.Input[str]] = None,
+             arc_setting_name: Optional[pulumi.Input[str]] = None,
+             connectivity_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ArcConnectivityPropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if arc_application_client_id is not None:
-            pulumi.set(__self__, "arc_application_client_id", arc_application_client_id)
+            _setter("arc_application_client_id", arc_application_client_id)
         if arc_application_object_id is not None:
-            pulumi.set(__self__, "arc_application_object_id", arc_application_object_id)
+            _setter("arc_application_object_id", arc_application_object_id)
         if arc_application_tenant_id is not None:
-            pulumi.set(__self__, "arc_application_tenant_id", arc_application_tenant_id)
+            _setter("arc_application_tenant_id", arc_application_tenant_id)
         if arc_instance_resource_group is not None:
-            pulumi.set(__self__, "arc_instance_resource_group", arc_instance_resource_group)
+            _setter("arc_instance_resource_group", arc_instance_resource_group)
         if arc_service_principal_object_id is not None:
-            pulumi.set(__self__, "arc_service_principal_object_id", arc_service_principal_object_id)
+            _setter("arc_service_principal_object_id", arc_service_principal_object_id)
         if arc_setting_name is not None:
-            pulumi.set(__self__, "arc_setting_name", arc_setting_name)
+            _setter("arc_setting_name", arc_setting_name)
         if connectivity_properties is not None:
-            pulumi.set(__self__, "connectivity_properties", connectivity_properties)
+            _setter("connectivity_properties", connectivity_properties)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -213,6 +238,10 @@ class ArcSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ArcSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

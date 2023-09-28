@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,8 +33,17 @@ class AgentPropertiesArgs:
         The properties that determine the run agent configuration.
         :param pulumi.Input[int] cpu: The CPU configuration in terms of number of cores required for the run.
         """
+        AgentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
 
     @property
     @pulumi.getter
@@ -65,14 +74,31 @@ class AuthInfoArgs:
         :param pulumi.Input[str] refresh_token: The refresh token used to refresh the access token.
         :param pulumi.Input[str] scope: The scope of the access token.
         """
-        pulumi.set(__self__, "token", token)
-        pulumi.set(__self__, "token_type", token_type)
+        AuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+            token_type=token_type,
+            expires_in=expires_in,
+            refresh_token=refresh_token,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: pulumi.Input[str],
+             token_type: pulumi.Input[Union[str, 'TokenType']],
+             expires_in: Optional[pulumi.Input[int]] = None,
+             refresh_token: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("token", token)
+        _setter("token_type", token_type)
         if expires_in is not None:
-            pulumi.set(__self__, "expires_in", expires_in)
+            _setter("expires_in", expires_in)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -147,12 +173,25 @@ class BaseImageTriggerArgs:
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input[Union[str, 'TriggerStatus']] status: The current status of trigger.
         """
-        pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
-        pulumi.set(__self__, "name", name)
+        BaseImageTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_image_trigger_type=base_image_trigger_type,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_image_trigger_type: pulumi.Input[Union[str, 'BaseImageTriggerType']],
+             name: pulumi.Input[str],
+             status: Optional[pulumi.Input[Union[str, 'TriggerStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_image_trigger_type", base_image_trigger_type)
+        _setter("name", name)
         if status is None:
             status = 'Enabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="baseImageTriggerType")
@@ -203,10 +242,21 @@ class CredentialsArgs:
                the value of the item will be the registry credentials for accessing the registry.
         :param pulumi.Input['SourceRegistryCredentialsArgs'] source_registry: Describes the credential parameters for accessing the source registry.
         """
+        CredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_registries=custom_registries,
+            source_registry=source_registry,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_registries: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomRegistryCredentialsArgs']]]] = None,
+             source_registry: Optional[pulumi.Input['SourceRegistryCredentialsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_registries is not None:
-            pulumi.set(__self__, "custom_registries", custom_registries)
+            _setter("custom_registries", custom_registries)
         if source_registry is not None:
-            pulumi.set(__self__, "source_registry", source_registry)
+            _setter("source_registry", source_registry)
 
     @property
     @pulumi.getter(name="customRegistries")
@@ -246,10 +296,21 @@ class CustomRegistryCredentialsArgs:
                object that allows multiple ways of providing the value for it.
         :param pulumi.Input['SecretObjectArgs'] user_name: The username for logging into the custom registry.
         """
+        CustomRegistryCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input['SecretObjectArgs']] = None,
+             user_name: Optional[pulumi.Input['SecretObjectArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -289,11 +350,24 @@ class PlatformPropertiesArgs:
         :param pulumi.Input[Union[str, 'Architecture']] architecture: The OS architecture.
         :param pulumi.Input[Union[str, 'Variant']] variant: Variant of the CPU.
         """
-        pulumi.set(__self__, "os", os)
+        PlatformPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os=os,
+            architecture=architecture,
+            variant=variant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os: pulumi.Input[Union[str, 'OS']],
+             architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
+             variant: Optional[pulumi.Input[Union[str, 'Variant']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os", os)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if variant is not None:
-            pulumi.set(__self__, "variant", variant)
+            _setter("variant", variant)
 
     @property
     @pulumi.getter
@@ -345,10 +419,21 @@ class SecretObjectArgs:
                based on the type of the secret object. If the type is Opaque, the value will be
                used as is without any modification.
         """
+        SecretObjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'SecretObjectType']]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -393,12 +478,27 @@ class SourcePropertiesArgs:
         :param pulumi.Input['AuthInfoArgs'] source_control_auth_properties: The authorization properties for accessing the source code repository and to set up
                webhooks for notifications.
         """
-        pulumi.set(__self__, "repository_url", repository_url)
-        pulumi.set(__self__, "source_control_type", source_control_type)
+        SourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_url=repository_url,
+            source_control_type=source_control_type,
+            branch=branch,
+            source_control_auth_properties=source_control_auth_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_url: pulumi.Input[str],
+             source_control_type: pulumi.Input[Union[str, 'SourceControlType']],
+             branch: Optional[pulumi.Input[str]] = None,
+             source_control_auth_properties: Optional[pulumi.Input['AuthInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_url", repository_url)
+        _setter("source_control_type", source_control_type)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if source_control_auth_properties is not None:
-            pulumi.set(__self__, "source_control_auth_properties", source_control_auth_properties)
+            _setter("source_control_auth_properties", source_control_auth_properties)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -460,8 +560,17 @@ class SourceRegistryCredentialsArgs:
                will be generated using the given scope. These credentials will be used to login to
                the source registry during the run.
         """
+        SourceRegistryCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login_mode=login_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login_mode: Optional[pulumi.Input[Union[str, 'SourceRegistryLoginMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if login_mode is not None:
-            pulumi.set(__self__, "login_mode", login_mode)
+            _setter("login_mode", login_mode)
 
     @property
     @pulumi.getter(name="loginMode")
@@ -492,13 +601,28 @@ class SourceTriggerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SourceTriggerEvent']]]] source_trigger_events: The source event corresponding to the trigger.
         :param pulumi.Input[Union[str, 'TriggerStatus']] status: The current status of trigger.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "source_repository", source_repository)
-        pulumi.set(__self__, "source_trigger_events", source_trigger_events)
+        SourceTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            source_repository=source_repository,
+            source_trigger_events=source_trigger_events,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             source_repository: pulumi.Input['SourcePropertiesArgs'],
+             source_trigger_events: pulumi.Input[Sequence[pulumi.Input[Union[str, 'SourceTriggerEvent']]]],
+             status: Optional[pulumi.Input[Union[str, 'TriggerStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("source_repository", source_repository)
+        _setter("source_trigger_events", source_trigger_events)
         if status is None:
             status = 'Enabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -559,10 +683,21 @@ class TaskStepPropertiesArgs:
         :param pulumi.Input[str] context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param pulumi.Input[str] context_path: The URL(absolute or relative) of the source context for the task step.
         """
+        TaskStepPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            context_access_token=context_access_token,
+            context_path=context_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             context_access_token: Optional[pulumi.Input[str]] = None,
+             context_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if context_access_token is not None:
-            pulumi.set(__self__, "context_access_token", context_access_token)
+            _setter("context_access_token", context_access_token)
         if context_path is not None:
-            pulumi.set(__self__, "context_path", context_path)
+            _setter("context_path", context_path)
 
     @property
     @pulumi.getter(name="contextAccessToken")
@@ -599,10 +734,21 @@ class TriggerPropertiesArgs:
         :param pulumi.Input['BaseImageTriggerArgs'] base_image_trigger: The trigger based on base image dependencies.
         :param pulumi.Input[Sequence[pulumi.Input['SourceTriggerArgs']]] source_triggers: The collection of triggers based on source code repository.
         """
+        TriggerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_image_trigger=base_image_trigger,
+            source_triggers=source_triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_image_trigger: Optional[pulumi.Input['BaseImageTriggerArgs']] = None,
+             source_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['SourceTriggerArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_image_trigger is not None:
-            pulumi.set(__self__, "base_image_trigger", base_image_trigger)
+            _setter("base_image_trigger", base_image_trigger)
         if source_triggers is not None:
-            pulumi.set(__self__, "source_triggers", source_triggers)
+            _setter("source_triggers", source_triggers)
 
     @property
     @pulumi.getter(name="baseImageTrigger")

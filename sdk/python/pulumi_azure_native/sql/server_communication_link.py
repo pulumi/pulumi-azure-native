@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerCommunicationLinkArgs', 'ServerCommunicationLink']
@@ -25,11 +25,26 @@ class ServerCommunicationLinkArgs:
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] communication_link_name: The name of the server communication link.
         """
-        pulumi.set(__self__, "partner_server", partner_server)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        ServerCommunicationLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_server=partner_server,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            communication_link_name=communication_link_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_server: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             communication_link_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("partner_server", partner_server)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if communication_link_name is not None:
-            pulumi.set(__self__, "communication_link_name", communication_link_name)
+            _setter("communication_link_name", communication_link_name)
 
     @property
     @pulumi.getter(name="partnerServer")
@@ -121,6 +136,10 @@ class ServerCommunicationLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerCommunicationLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

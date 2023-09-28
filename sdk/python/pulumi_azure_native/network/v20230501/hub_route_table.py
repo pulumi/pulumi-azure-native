@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,39 @@ class HubRouteTableArgs:
         :param pulumi.Input[str] route_table_name: The name of the RouteTable.
         :param pulumi.Input[Sequence[pulumi.Input['HubRouteArgs']]] routes: List of all routes.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+        HubRouteTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_hub_name=virtual_hub_name,
+            id=id,
+            labels=labels,
+            name=name,
+            route_table_name=route_table_name,
+            routes=routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_hub_name: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             route_table_name: Optional[pulumi.Input[str]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['HubRouteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_hub_name", virtual_hub_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if route_table_name is not None:
-            pulumi.set(__self__, "route_table_name", route_table_name)
+            _setter("route_table_name", route_table_name)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -176,6 +197,10 @@ class HubRouteTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HubRouteTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

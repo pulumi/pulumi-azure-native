@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -28,13 +28,28 @@ class LocationDataArgs:
         :param pulumi.Input[str] country_or_region: The country or region where the resource is located
         :param pulumi.Input[str] district: The district, state, or province where the resource is located.
         """
-        pulumi.set(__self__, "name", name)
+        LocationDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            city=city,
+            country_or_region=country_or_region,
+            district=district,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             city: Optional[pulumi.Input[str]] = None,
+             country_or_region: Optional[pulumi.Input[str]] = None,
+             district: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if country_or_region is not None:
-            pulumi.set(__self__, "country_or_region", country_or_region)
+            _setter("country_or_region", country_or_region)
         if district is not None:
-            pulumi.set(__self__, "district", district)
+            _setter("district", district)
 
     @property
     @pulumi.getter
@@ -92,8 +107,17 @@ class MachineIdentityArgs:
         """
         :param pulumi.Input[str] type: The identity type.
         """
+        MachineIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

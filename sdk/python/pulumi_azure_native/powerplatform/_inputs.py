@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -31,8 +31,17 @@ class EnterprisePolicyIdentityArgs:
         The identity of the EnterprisePolicy.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         """
+        EnterprisePolicyIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -57,10 +66,21 @@ class KeyPropertiesArgs:
         :param pulumi.Input[str] name: The identifier of the key vault key used to encrypt data.
         :param pulumi.Input[str] version: The version of the identity which will be used to access key vault.
         """
+        KeyPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -97,10 +117,21 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] id: Uri of KeyVault
         :param pulumi.Input['KeyPropertiesArgs'] key: Identity of the secret that includes name and version.
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input['KeyPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -139,12 +170,25 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -193,10 +237,21 @@ class PropertiesEncryptionArgs:
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault: Key vault properties.
         :param pulumi.Input[Union[str, 'State']] state: The state of onboarding, which only appears in the response.
         """
+        PropertiesEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault=key_vault,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="keyVault")
@@ -231,8 +286,17 @@ class PropertiesLockboxArgs:
         Settings concerning lockbox.
         :param pulumi.Input[Union[str, 'State']] state: lockbox configuration
         """
+        PropertiesLockboxArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -255,8 +319,17 @@ class PropertiesNetworkInjectionArgs:
         Settings concerning network injection.
         :param pulumi.Input['VirtualNetworkPropertiesListArgs'] virtual_networks: Network injection configuration
         """
+        PropertiesNetworkInjectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_networks=virtual_networks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_networks: Optional[pulumi.Input['VirtualNetworkPropertiesListArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if virtual_networks is not None:
-            pulumi.set(__self__, "virtual_networks", virtual_networks)
+            _setter("virtual_networks", virtual_networks)
 
     @property
     @pulumi.getter(name="virtualNetworks")
@@ -279,8 +352,17 @@ class SubnetPropertiesArgs:
         Properties of a subnet.
         :param pulumi.Input[str] name: Subnet name.
         """
+        SubnetPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -305,10 +387,21 @@ class VirtualNetworkPropertiesListArgs:
         :param pulumi.Input[str] next_link: Next page link if any.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]] value: Array of virtual networks.
         """
+        VirtualNetworkPropertiesListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            next_link=next_link,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             next_link: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if next_link is not None:
-            pulumi.set(__self__, "next_link", next_link)
+            _setter("next_link", next_link)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="nextLink")
@@ -345,10 +438,21 @@ class VirtualNetworkPropertiesArgs:
         :param pulumi.Input[str] id: Uri of the virtual network.
         :param pulumi.Input['SubnetPropertiesArgs'] subnet: Properties of a subnet.
         """
+        VirtualNetworkPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             subnet: Optional[pulumi.Input['SubnetPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter

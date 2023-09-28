@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -47,9 +47,20 @@ class AccessKeyInfoBaseArgs:
                Expected value is 'accessKey'.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessKeyPermissions']]]] permissions: Permissions of the accessKey. `Read` and `Write` are for Azure Cosmos DB and Azure App Configuration, `Listen`, `Send` and `Manage` are for Azure Event Hub and Azure Service Bus.
         """
-        pulumi.set(__self__, "auth_type", 'accessKey')
+        AccessKeyInfoBaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            permissions=permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessKeyPermissions']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'accessKey')
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
 
     @property
     @pulumi.getter(name="authType")
@@ -88,9 +99,20 @@ class AzureKeyVaultPropertiesArgs:
                Expected value is 'KeyVault'.
         :param pulumi.Input[bool] connect_as_kubernetes_csi_driver: True if connect via Kubernetes CSI Driver.
         """
-        pulumi.set(__self__, "type", 'KeyVault')
+        AzureKeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            connect_as_kubernetes_csi_driver=connect_as_kubernetes_csi_driver,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             connect_as_kubernetes_csi_driver: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'KeyVault')
         if connect_as_kubernetes_csi_driver is not None:
-            pulumi.set(__self__, "connect_as_kubernetes_csi_driver", connect_as_kubernetes_csi_driver)
+            _setter("connect_as_kubernetes_csi_driver", connect_as_kubernetes_csi_driver)
 
     @property
     @pulumi.getter
@@ -131,11 +153,24 @@ class AzureResourceArgs:
         :param pulumi.Input[str] id: The Id of azure resource.
         :param pulumi.Input['AzureKeyVaultPropertiesArgs'] resource_properties: The azure resource connection related properties.
         """
-        pulumi.set(__self__, "type", 'AzureResource')
+        AzureResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            id=id,
+            resource_properties=resource_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             resource_properties: Optional[pulumi.Input['AzureKeyVaultPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'AzureResource')
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if resource_properties is not None:
-            pulumi.set(__self__, "resource_properties", resource_properties)
+            _setter("resource_properties", resource_properties)
 
     @property
     @pulumi.getter
@@ -191,16 +226,33 @@ class ConfigurationInfoArgs:
         :param pulumi.Input['DaprPropertiesArgs'] dapr_properties: Indicates some additional properties for dapr client type
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         """
+        ConfigurationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            additional_configurations=additional_configurations,
+            customized_keys=customized_keys,
+            dapr_properties=dapr_properties,
+            delete_or_update_behavior=delete_or_update_behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'ActionType']]] = None,
+             additional_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             customized_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             dapr_properties: Optional[pulumi.Input['DaprPropertiesArgs']] = None,
+             delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if additional_configurations is not None:
-            pulumi.set(__self__, "additional_configurations", additional_configurations)
+            _setter("additional_configurations", additional_configurations)
         if customized_keys is not None:
-            pulumi.set(__self__, "customized_keys", customized_keys)
+            _setter("customized_keys", customized_keys)
         if dapr_properties is not None:
-            pulumi.set(__self__, "dapr_properties", dapr_properties)
+            _setter("dapr_properties", dapr_properties)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
 
     @property
     @pulumi.getter
@@ -274,9 +326,20 @@ class ConfluentBootstrapServerArgs:
                Expected value is 'ConfluentBootstrapServer'.
         :param pulumi.Input[str] endpoint: The endpoint of service.
         """
-        pulumi.set(__self__, "type", 'ConfluentBootstrapServer')
+        ConfluentBootstrapServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'ConfluentBootstrapServer')
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter
@@ -315,9 +378,20 @@ class ConfluentSchemaRegistryArgs:
                Expected value is 'ConfluentSchemaRegistry'.
         :param pulumi.Input[str] endpoint: The endpoint of service.
         """
-        pulumi.set(__self__, "type", 'ConfluentSchemaRegistry')
+        ConfluentSchemaRegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'ConfluentSchemaRegistry')
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter
@@ -370,23 +444,48 @@ class CreateOrUpdateDryrunParametersArgs:
         :param pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']] target_service: The target service properties
         :param pulumi.Input['VNetSolutionArgs'] v_net_solution: The VNet solution.
         """
-        pulumi.set(__self__, "action_name", 'createOrUpdate')
+        CreateOrUpdateDryrunParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_name=action_name,
+            auth_info=auth_info,
+            client_type=client_type,
+            configuration_info=configuration_info,
+            public_network_solution=public_network_solution,
+            scope=scope,
+            secret_store=secret_store,
+            target_service=target_service,
+            v_net_solution=v_net_solution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_name: pulumi.Input[str],
+             auth_info: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
+             client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
+             configuration_info: Optional[pulumi.Input['ConfigurationInfoArgs']] = None,
+             public_network_solution: Optional[pulumi.Input['PublicNetworkSolutionArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             secret_store: Optional[pulumi.Input['SecretStoreArgs']] = None,
+             target_service: Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']]] = None,
+             v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_name", 'createOrUpdate')
         if auth_info is not None:
-            pulumi.set(__self__, "auth_info", auth_info)
+            _setter("auth_info", auth_info)
         if client_type is not None:
-            pulumi.set(__self__, "client_type", client_type)
+            _setter("client_type", client_type)
         if configuration_info is not None:
-            pulumi.set(__self__, "configuration_info", configuration_info)
+            _setter("configuration_info", configuration_info)
         if public_network_solution is not None:
-            pulumi.set(__self__, "public_network_solution", public_network_solution)
+            _setter("public_network_solution", public_network_solution)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
+            _setter("secret_store", secret_store)
         if target_service is not None:
-            pulumi.set(__self__, "target_service", target_service)
+            _setter("target_service", target_service)
         if v_net_solution is not None:
-            pulumi.set(__self__, "v_net_solution", v_net_solution)
+            _setter("v_net_solution", v_net_solution)
 
     @property
     @pulumi.getter(name="actionName")
@@ -510,12 +609,25 @@ class DaprMetadataArgs:
         :param pulumi.Input[str] secret_ref: The secret name where dapr could get value
         :param pulumi.Input[str] value: Metadata property value.
         """
+        DaprMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_ref=secret_ref,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             secret_ref: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_ref is not None:
-            pulumi.set(__self__, "secret_ref", secret_ref)
+            _setter("secret_ref", secret_ref)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -570,16 +682,33 @@ class DaprPropertiesArgs:
         :param pulumi.Input[str] secret_store_component: The name of a secret store dapr to retrieve secret
         :param pulumi.Input[str] version: The dapr component version
         """
+        DaprPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_type=component_type,
+            metadata=metadata,
+            scopes=scopes,
+            secret_store_component=secret_store_component,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_type: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             secret_store_component: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if component_type is not None:
-            pulumi.set(__self__, "component_type", component_type)
+            _setter("component_type", component_type)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if secret_store_component is not None:
-            pulumi.set(__self__, "secret_store_component", secret_store_component)
+            _setter("secret_store_component", secret_store_component)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="componentType")
@@ -654,12 +783,25 @@ class FirewallRulesArgs:
         :param pulumi.Input[Union[str, 'AllowType']] caller_client_ip: Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_ranges: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account.
         """
+        FirewallRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_services=azure_services,
+            caller_client_ip=caller_client_ip,
+            ip_ranges=ip_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_services: Optional[pulumi.Input[Union[str, 'AllowType']]] = None,
+             caller_client_ip: Optional[pulumi.Input[Union[str, 'AllowType']]] = None,
+             ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_services is not None:
-            pulumi.set(__self__, "azure_services", azure_services)
+            _setter("azure_services", azure_services)
         if caller_client_ip is not None:
-            pulumi.set(__self__, "caller_client_ip", caller_client_ip)
+            _setter("caller_client_ip", caller_client_ip)
         if ip_ranges is not None:
-            pulumi.set(__self__, "ip_ranges", ip_ranges)
+            _setter("ip_ranges", ip_ranges)
 
     @property
     @pulumi.getter(name="azureServices")
@@ -711,11 +853,24 @@ class KeyVaultSecretReferenceSecretInfoArgs:
         :param pulumi.Input[str] name: Name of the Key Vault secret.
         :param pulumi.Input[str] version: Version of the Key Vault secret.
         """
-        pulumi.set(__self__, "secret_type", 'keyVaultSecretReference')
+        KeyVaultSecretReferenceSecretInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_type=secret_type,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_type", 'keyVaultSecretReference')
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="secretType")
@@ -766,9 +921,20 @@ class KeyVaultSecretUriSecretInfoArgs:
                Expected value is 'keyVaultSecretUri'.
         :param pulumi.Input[str] value: URI to the keyvault secret
         """
-        pulumi.set(__self__, "secret_type", 'keyVaultSecretUri')
+        KeyVaultSecretUriSecretInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_type=secret_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_type: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_type", 'keyVaultSecretUri')
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="secretType")
@@ -808,12 +974,25 @@ class PublicNetworkSolutionArgs:
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation(such as firewall rules) when Linker is updating or deleting
         :param pulumi.Input['FirewallRulesArgs'] firewall_rules: Describe firewall rules of target service to make sure source application could connect to the target.
         """
+        PublicNetworkSolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            delete_or_update_behavior=delete_or_update_behavior,
+            firewall_rules=firewall_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'ActionType']]] = None,
+             delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
+             firewall_rules: Optional[pulumi.Input['FirewallRulesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if firewall_rules is not None:
-            pulumi.set(__self__, "firewall_rules", firewall_rules)
+            _setter("firewall_rules", firewall_rules)
 
     @property
     @pulumi.getter
@@ -865,11 +1044,24 @@ class SecretAuthInfoArgs:
         :param pulumi.Input[str] name: Username or account name for secret auth.
         :param pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgs', 'KeyVaultSecretUriSecretInfoArgs', 'ValueSecretInfoArgs']] secret_info: Password or key vault secret for secret auth.
         """
-        pulumi.set(__self__, "auth_type", 'secret')
+        SecretAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            name=name,
+            secret_info=secret_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             secret_info: Optional[pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgs', 'KeyVaultSecretUriSecretInfoArgs', 'ValueSecretInfoArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'secret')
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_info is not None:
-            pulumi.set(__self__, "secret_info", secret_info)
+            _setter("secret_info", secret_info)
 
     @property
     @pulumi.getter(name="authType")
@@ -919,10 +1111,21 @@ class SecretStoreArgs:
         :param pulumi.Input[str] key_vault_id: The key vault id to store secret
         :param pulumi.Input[str] key_vault_secret_name: The key vault secret name to store secret, only valid when storing one secret
         """
+        SecretStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+            key_vault_secret_name=key_vault_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             key_vault_secret_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_secret_name is not None:
-            pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+            _setter("key_vault_secret_name", key_vault_secret_name)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -960,9 +1163,20 @@ class SelfHostedServerArgs:
                Expected value is 'SelfHostedServer'.
         :param pulumi.Input[str] endpoint: The endpoint of service.
         """
-        pulumi.set(__self__, "type", 'SelfHostedServer')
+        SelfHostedServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'SelfHostedServer')
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter
@@ -1009,14 +1223,33 @@ class ServicePrincipalCertificateAuthInfoArgs:
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         """
-        pulumi.set(__self__, "auth_type", 'servicePrincipalCertificate')
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        ServicePrincipalCertificateAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            certificate=certificate,
+            client_id=client_id,
+            principal_id=principal_id,
+            delete_or_update_behavior=delete_or_update_behavior,
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             certificate: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             principal_id: pulumi.Input[str],
+             delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'servicePrincipalCertificate')
+        _setter("certificate", certificate)
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter(name="authType")
@@ -1113,16 +1346,37 @@ class ServicePrincipalSecretAuthInfoArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         :param pulumi.Input[str] user_name: Username created in the database which is mapped to a user in AAD.
         """
-        pulumi.set(__self__, "auth_type", 'servicePrincipalSecret')
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "secret", secret)
+        ServicePrincipalSecretAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            client_id=client_id,
+            principal_id=principal_id,
+            secret=secret,
+            delete_or_update_behavior=delete_or_update_behavior,
+            roles=roles,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             principal_id: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'servicePrincipalSecret')
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
+        _setter("secret", secret)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -1225,13 +1479,28 @@ class SystemAssignedIdentityAuthInfoArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Optional, this value specifies the Azure role to be assigned
         :param pulumi.Input[str] user_name: Username created in the database which is mapped to a user in AAD.
         """
-        pulumi.set(__self__, "auth_type", 'systemAssignedIdentity')
+        SystemAssignedIdentityAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            delete_or_update_behavior=delete_or_update_behavior,
+            roles=roles,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'systemAssignedIdentity')
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -1300,15 +1569,32 @@ class UserAccountAuthInfoArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         :param pulumi.Input[str] user_name: Username created in the database which is mapped to a user in AAD.
         """
-        pulumi.set(__self__, "auth_type", 'userAccount')
+        UserAccountAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            delete_or_update_behavior=delete_or_update_behavior,
+            principal_id=principal_id,
+            roles=roles,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'userAccount')
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -1391,17 +1677,36 @@ class UserAssignedIdentityAuthInfoArgs:
         :param pulumi.Input[str] subscription_id: Subscription id for userAssignedIdentity.
         :param pulumi.Input[str] user_name: Username created in the database which is mapped to a user in AAD.
         """
-        pulumi.set(__self__, "auth_type", 'userAssignedIdentity')
+        UserAssignedIdentityAuthInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            client_id=client_id,
+            delete_or_update_behavior=delete_or_update_behavior,
+            roles=roles,
+            subscription_id=subscription_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'userAssignedIdentity')
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -1487,10 +1792,21 @@ class VNetSolutionArgs:
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param pulumi.Input[Union[str, 'VNetSolutionType']] type: Type of VNet solution.
         """
+        VNetSolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_or_update_behavior=delete_or_update_behavior,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
+             type: Optional[pulumi.Input[Union[str, 'VNetSolutionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_or_update_behavior is not None:
-            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+            _setter("delete_or_update_behavior", delete_or_update_behavior)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="deleteOrUpdateBehavior")
@@ -1528,9 +1844,20 @@ class ValueSecretInfoArgs:
                Expected value is 'rawValue'.
         :param pulumi.Input[str] value: The actual value of the secret.
         """
-        pulumi.set(__self__, "secret_type", 'rawValue')
+        ValueSecretInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_type=secret_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_type: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_type", 'rawValue')
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="secretType")

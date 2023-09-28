@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -23,8 +23,19 @@ class StorageAccountArgs:
         :param pulumi.Input[str] id: The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
         :param pulumi.Input[bool] is_primary: Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_primary", is_primary)
+        StorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            is_primary=is_primary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             is_primary: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("is_primary", is_primary)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -57,16 +57,35 @@ class PermissionResponse(dict):
         :param Sequence[str] not_actions: Denied actions.
         :param Sequence[str] not_data_actions: Denied Data actions.
         """
-        pulumi.set(__self__, "condition", condition)
-        pulumi.set(__self__, "condition_version", condition_version)
+        PermissionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition=condition,
+            condition_version=condition_version,
+            actions=actions,
+            data_actions=data_actions,
+            not_actions=not_actions,
+            not_data_actions=not_data_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition: str,
+             condition_version: str,
+             actions: Optional[Sequence[str]] = None,
+             data_actions: Optional[Sequence[str]] = None,
+             not_actions: Optional[Sequence[str]] = None,
+             not_data_actions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("condition", condition)
+        _setter("condition_version", condition_version)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if data_actions is not None:
-            pulumi.set(__self__, "data_actions", data_actions)
+            _setter("data_actions", data_actions)
         if not_actions is not None:
-            pulumi.set(__self__, "not_actions", not_actions)
+            _setter("not_actions", not_actions)
         if not_data_actions is not None:
-            pulumi.set(__self__, "not_data_actions", not_data_actions)
+            _setter("not_data_actions", not_data_actions)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,14 +28,31 @@ class CaCertificateArgs:
         :param pulumi.Input[str] description: Description for the CA Certificate resource.
         :param pulumi.Input[str] encoded_certificate: Base64 encoded PEM (Privacy Enhanced Mail) format certificate data.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CaCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            ca_certificate_name=ca_certificate_name,
+            description=description,
+            encoded_certificate=encoded_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             ca_certificate_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encoded_certificate: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if ca_certificate_name is not None:
-            pulumi.set(__self__, "ca_certificate_name", ca_certificate_name)
+            _setter("ca_certificate_name", ca_certificate_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encoded_certificate is not None:
-            pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+            _setter("encoded_certificate", encoded_certificate)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -141,6 +158,10 @@ class CaCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CaCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

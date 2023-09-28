@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -39,9 +39,20 @@ class AssignmentInfoResponse(dict):
         :param str name: Name of the guest configuration assignment.
         :param 'ConfigurationInfoResponse' configuration: Information about the configuration.
         """
-        pulumi.set(__self__, "name", name)
+        AssignmentInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            configuration=configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             configuration: Optional['outputs.ConfigurationInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
 
     @property
     @pulumi.getter
@@ -73,8 +84,19 @@ class AssignmentReportResourceComplianceReasonResponse(dict):
         :param str code: Code for the compliance of the guest configuration assignment resource.
         :param str phrase: Reason for the compliance of the guest configuration assignment resource.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "phrase", phrase)
+        AssignmentReportResourceComplianceReasonResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            phrase=phrase,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             phrase: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("phrase", phrase)
 
     @property
     @pulumi.getter
@@ -129,11 +151,26 @@ class AssignmentReportResourceResponse(dict):
         :param str resource_id: Name of the guest configuration assignment resource setting.
         :param Sequence['AssignmentReportResourceComplianceReasonResponse'] reasons: Compliance reason and reason code for a resource.
         """
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_id", resource_id)
+        AssignmentReportResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_status=compliance_status,
+            properties=properties,
+            resource_id=resource_id,
+            reasons=reasons,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_status: str,
+             properties: Any,
+             resource_id: str,
+             reasons: Optional[Sequence['outputs.AssignmentReportResourceComplianceReasonResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compliance_status", compliance_status)
+        _setter("properties", properties)
+        _setter("resource_id", resource_id)
         if reasons is not None:
-            pulumi.set(__self__, "reasons", reasons)
+            _setter("reasons", reasons)
 
     @property
     @pulumi.getter(name="complianceStatus")
@@ -216,18 +253,43 @@ class AssignmentReportResponse(dict):
         :param Sequence['AssignmentReportResourceResponse'] resources: The list of resources for which guest configuration assignment compliance is checked.
         :param 'VMInfoResponse' vm: Information about the VM.
         """
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "operation_type", operation_type)
-        pulumi.set(__self__, "report_id", report_id)
-        pulumi.set(__self__, "start_time", start_time)
+        AssignmentReportResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_status=compliance_status,
+            end_time=end_time,
+            id=id,
+            operation_type=operation_type,
+            report_id=report_id,
+            start_time=start_time,
+            assignment=assignment,
+            resources=resources,
+            vm=vm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_status: str,
+             end_time: str,
+             id: str,
+             operation_type: str,
+             report_id: str,
+             start_time: str,
+             assignment: Optional['outputs.AssignmentInfoResponse'] = None,
+             resources: Optional[Sequence['outputs.AssignmentReportResourceResponse']] = None,
+             vm: Optional['outputs.VMInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compliance_status", compliance_status)
+        _setter("end_time", end_time)
+        _setter("id", id)
+        _setter("operation_type", operation_type)
+        _setter("report_id", report_id)
+        _setter("start_time", start_time)
         if assignment is not None:
-            pulumi.set(__self__, "assignment", assignment)
+            _setter("assignment", assignment)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if vm is not None:
-            pulumi.set(__self__, "vm", vm)
+            _setter("vm", vm)
 
     @property
     @pulumi.getter(name="complianceStatus")
@@ -315,8 +377,19 @@ class ConfigurationInfoResponse(dict):
         :param str name: Name of the configuration.
         :param str version: Version of the configuration.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        ConfigurationInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -348,10 +421,21 @@ class ConfigurationParameterResponse(dict):
         :param str name: Name of the configuration parameter.
         :param str value: Value of the configuration parameter.
         """
+        ConfigurationParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -418,16 +502,35 @@ class ConfigurationSettingResponse(dict):
         :param bool reboot_if_needed: Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
         :param float refresh_frequency_mins: The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
         """
-        pulumi.set(__self__, "action_after_reboot", action_after_reboot)
-        pulumi.set(__self__, "allow_module_overwrite", allow_module_overwrite)
-        pulumi.set(__self__, "configuration_mode", configuration_mode)
+        ConfigurationSettingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_after_reboot=action_after_reboot,
+            allow_module_overwrite=allow_module_overwrite,
+            configuration_mode=configuration_mode,
+            configuration_mode_frequency_mins=configuration_mode_frequency_mins,
+            reboot_if_needed=reboot_if_needed,
+            refresh_frequency_mins=refresh_frequency_mins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_after_reboot: str,
+             allow_module_overwrite: bool,
+             configuration_mode: str,
+             configuration_mode_frequency_mins: Optional[float] = None,
+             reboot_if_needed: bool,
+             refresh_frequency_mins: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_after_reboot", action_after_reboot)
+        _setter("allow_module_overwrite", allow_module_overwrite)
+        _setter("configuration_mode", configuration_mode)
         if configuration_mode_frequency_mins is None:
             configuration_mode_frequency_mins = 15
-        pulumi.set(__self__, "configuration_mode_frequency_mins", configuration_mode_frequency_mins)
-        pulumi.set(__self__, "reboot_if_needed", reboot_if_needed)
+        _setter("configuration_mode_frequency_mins", configuration_mode_frequency_mins)
+        _setter("reboot_if_needed", reboot_if_needed)
         if refresh_frequency_mins is None:
             refresh_frequency_mins = 30
-        pulumi.set(__self__, "refresh_frequency_mins", refresh_frequency_mins)
+        _setter("refresh_frequency_mins", refresh_frequency_mins)
 
     @property
     @pulumi.getter(name="actionAfterReboot")
@@ -548,22 +651,53 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         :param 'AssignmentReportResponse' latest_assignment_report: Last reported guest configuration assignment report.
         :param Sequence['VMSSVMInfoResponse'] vmss_vm_list: The list of VM Compliance data for VMSS
         """
-        pulumi.set(__self__, "assignment_hash", assignment_hash)
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "last_compliance_status_checked", last_compliance_status_checked)
-        pulumi.set(__self__, "latest_report_id", latest_report_id)
-        pulumi.set(__self__, "parameter_hash", parameter_hash)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        GuestConfigurationAssignmentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_hash=assignment_hash,
+            compliance_status=compliance_status,
+            last_compliance_status_checked=last_compliance_status_checked,
+            latest_report_id=latest_report_id,
+            parameter_hash=parameter_hash,
+            provisioning_state=provisioning_state,
+            resource_type=resource_type,
+            target_resource_id=target_resource_id,
+            context=context,
+            guest_configuration=guest_configuration,
+            latest_assignment_report=latest_assignment_report,
+            vmss_vm_list=vmss_vm_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_hash: str,
+             compliance_status: str,
+             last_compliance_status_checked: str,
+             latest_report_id: str,
+             parameter_hash: str,
+             provisioning_state: str,
+             resource_type: str,
+             target_resource_id: str,
+             context: Optional[str] = None,
+             guest_configuration: Optional['outputs.GuestConfigurationNavigationResponse'] = None,
+             latest_assignment_report: Optional['outputs.AssignmentReportResponse'] = None,
+             vmss_vm_list: Optional[Sequence['outputs.VMSSVMInfoResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assignment_hash", assignment_hash)
+        _setter("compliance_status", compliance_status)
+        _setter("last_compliance_status_checked", last_compliance_status_checked)
+        _setter("latest_report_id", latest_report_id)
+        _setter("parameter_hash", parameter_hash)
+        _setter("provisioning_state", provisioning_state)
+        _setter("resource_type", resource_type)
+        _setter("target_resource_id", target_resource_id)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if guest_configuration is not None:
-            pulumi.set(__self__, "guest_configuration", guest_configuration)
+            _setter("guest_configuration", guest_configuration)
         if latest_assignment_report is not None:
-            pulumi.set(__self__, "latest_assignment_report", latest_assignment_report)
+            _setter("latest_assignment_report", latest_assignment_report)
         if vmss_vm_list is not None:
-            pulumi.set(__self__, "vmss_vm_list", vmss_vm_list)
+            _setter("vmss_vm_list", vmss_vm_list)
 
     @property
     @pulumi.getter(name="assignmentHash")
@@ -724,25 +858,54 @@ class GuestConfigurationNavigationResponse(dict):
         :param str name: Name of the guest configuration.
         :param str version: Version of the guest configuration.
         """
-        pulumi.set(__self__, "assignment_source", assignment_source)
-        pulumi.set(__self__, "configuration_setting", configuration_setting)
-        pulumi.set(__self__, "content_type", content_type)
+        GuestConfigurationNavigationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_source=assignment_source,
+            configuration_setting=configuration_setting,
+            content_type=content_type,
+            assignment_type=assignment_type,
+            configuration_parameter=configuration_parameter,
+            configuration_protected_parameter=configuration_protected_parameter,
+            content_hash=content_hash,
+            content_uri=content_uri,
+            kind=kind,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_source: str,
+             configuration_setting: 'outputs.ConfigurationSettingResponse',
+             content_type: str,
+             assignment_type: Optional[str] = None,
+             configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
+             configuration_protected_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
+             content_hash: Optional[str] = None,
+             content_uri: Optional[str] = None,
+             kind: Optional[str] = None,
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assignment_source", assignment_source)
+        _setter("configuration_setting", configuration_setting)
+        _setter("content_type", content_type)
         if assignment_type is not None:
-            pulumi.set(__self__, "assignment_type", assignment_type)
+            _setter("assignment_type", assignment_type)
         if configuration_parameter is not None:
-            pulumi.set(__self__, "configuration_parameter", configuration_parameter)
+            _setter("configuration_parameter", configuration_parameter)
         if configuration_protected_parameter is not None:
-            pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
+            _setter("configuration_protected_parameter", configuration_protected_parameter)
         if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
+            _setter("content_hash", content_hash)
         if content_uri is not None:
-            pulumi.set(__self__, "content_uri", content_uri)
+            _setter("content_uri", content_uri)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="assignmentSource")
@@ -881,18 +1044,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -956,8 +1138,19 @@ class VMInfoResponse(dict):
         :param str id: Azure resource Id of the VM.
         :param str uuid: UUID(Universally Unique Identifier) of the VM.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "uuid", uuid)
+        VMInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            uuid=uuid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             uuid: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("uuid", uuid)
 
     @property
     @pulumi.getter
@@ -1020,11 +1213,28 @@ class VMSSVMInfoResponse(dict):
         :param str vm_id: UUID of the VM.
         :param str vm_resource_id: Azure resource Id of the VM.
         """
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "last_compliance_checked", last_compliance_checked)
-        pulumi.set(__self__, "latest_report_id", latest_report_id)
-        pulumi.set(__self__, "vm_id", vm_id)
-        pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+        VMSSVMInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_status=compliance_status,
+            last_compliance_checked=last_compliance_checked,
+            latest_report_id=latest_report_id,
+            vm_id=vm_id,
+            vm_resource_id=vm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_status: str,
+             last_compliance_checked: str,
+             latest_report_id: str,
+             vm_id: str,
+             vm_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compliance_status", compliance_status)
+        _setter("last_compliance_checked", last_compliance_checked)
+        _setter("latest_report_id", latest_report_id)
+        _setter("vm_id", vm_id)
+        _setter("vm_resource_id", vm_resource_id)
 
     @property
     @pulumi.getter(name="complianceStatus")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -33,14 +33,35 @@ class FusionAlertRuleArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] rule_id: Alert rule ID
         """
-        pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "kind", 'Fusion')
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        FusionAlertRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_rule_template_name=alert_rule_template_name,
+            enabled=enabled,
+            kind=kind,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            rule_id=rule_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_rule_template_name: pulumi.Input[str],
+             enabled: pulumi.Input[bool],
+             kind: pulumi.Input[str],
+             operational_insights_resource_provider: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             rule_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alert_rule_template_name", alert_rule_template_name)
+        _setter("enabled", enabled)
+        _setter("kind", 'Fusion')
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
+            _setter("rule_id", rule_id)
 
     @property
     @pulumi.getter(name="alertRuleTemplateName")
@@ -174,6 +195,10 @@ class FusionAlertRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FusionAlertRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

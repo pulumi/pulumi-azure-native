@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,14 +28,29 @@ class ProtocolCustomSettingsFormatArgs:
         :param pulumi.Input[str] trigger_rate_override: The customized DDoS protection trigger rate.
         :param pulumi.Input[Union[str, 'DdosCustomPolicyTriggerSensitivityOverride']] trigger_sensitivity_override: The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
         """
+        ProtocolCustomSettingsFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            source_rate_override=source_rate_override,
+            trigger_rate_override=trigger_rate_override,
+            trigger_sensitivity_override=trigger_sensitivity_override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: Optional[pulumi.Input[Union[str, 'DdosCustomPolicyProtocol']]] = None,
+             source_rate_override: Optional[pulumi.Input[str]] = None,
+             trigger_rate_override: Optional[pulumi.Input[str]] = None,
+             trigger_sensitivity_override: Optional[pulumi.Input[Union[str, 'DdosCustomPolicyTriggerSensitivityOverride']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if source_rate_override is not None:
-            pulumi.set(__self__, "source_rate_override", source_rate_override)
+            _setter("source_rate_override", source_rate_override)
         if trigger_rate_override is not None:
-            pulumi.set(__self__, "trigger_rate_override", trigger_rate_override)
+            _setter("trigger_rate_override", trigger_rate_override)
         if trigger_sensitivity_override is not None:
-            pulumi.set(__self__, "trigger_sensitivity_override", trigger_sensitivity_override)
+            _setter("trigger_sensitivity_override", trigger_sensitivity_override)
 
     @property
     @pulumi.getter

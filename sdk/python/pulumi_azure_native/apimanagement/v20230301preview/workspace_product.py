@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -40,24 +40,53 @@ class WorkspaceProductArgs:
         :param pulumi.Input[int] subscriptions_limit: Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
         :param pulumi.Input[str] terms: Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceProductArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            workspace_id=workspace_id,
+            approval_required=approval_required,
+            description=description,
+            product_id=product_id,
+            state=state,
+            subscription_required=subscription_required,
+            subscriptions_limit=subscriptions_limit,
+            terms=terms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             approval_required: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input['ProductState']] = None,
+             subscription_required: Optional[pulumi.Input[bool]] = None,
+             subscriptions_limit: Optional[pulumi.Input[int]] = None,
+             terms: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("workspace_id", workspace_id)
         if approval_required is not None:
-            pulumi.set(__self__, "approval_required", approval_required)
+            _setter("approval_required", approval_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
+            _setter("product_id", product_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if subscription_required is not None:
-            pulumi.set(__self__, "subscription_required", subscription_required)
+            _setter("subscription_required", subscription_required)
         if subscriptions_limit is not None:
-            pulumi.set(__self__, "subscriptions_limit", subscriptions_limit)
+            _setter("subscriptions_limit", subscriptions_limit)
         if terms is not None:
-            pulumi.set(__self__, "terms", terms)
+            _setter("terms", terms)
 
     @property
     @pulumi.getter(name="displayName")
@@ -245,6 +274,10 @@ class WorkspaceProduct(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceProductArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

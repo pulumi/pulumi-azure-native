@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IPv6FirewallRuleArgs', 'IPv6FirewallRule']
@@ -29,16 +29,35 @@ class IPv6FirewallRuleArgs:
         :param pulumi.Input[str] name: Resource name.
         :param pulumi.Input[str] start_i_pv6_address: The start IP address of the firewall rule. Must be IPv6 format.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        IPv6FirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            end_i_pv6_address=end_i_pv6_address,
+            firewall_rule_name=firewall_rule_name,
+            name=name,
+            start_i_pv6_address=start_i_pv6_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             end_i_pv6_address: Optional[pulumi.Input[str]] = None,
+             firewall_rule_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_i_pv6_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if end_i_pv6_address is not None:
-            pulumi.set(__self__, "end_i_pv6_address", end_i_pv6_address)
+            _setter("end_i_pv6_address", end_i_pv6_address)
         if firewall_rule_name is not None:
-            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
+            _setter("firewall_rule_name", firewall_rule_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_i_pv6_address is not None:
-            pulumi.set(__self__, "start_i_pv6_address", start_i_pv6_address)
+            _setter("start_i_pv6_address", start_i_pv6_address)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -158,6 +177,10 @@ class IPv6FirewallRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IPv6FirewallRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,44 @@ class InterfaceEndpointArgs:
         :param pulumi.Input['SubnetArgs'] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        InterfaceEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            endpoint_service=endpoint_service,
+            fqdn=fqdn,
+            id=id,
+            interface_endpoint_name=interface_endpoint_name,
+            location=location,
+            subnet=subnet,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             endpoint_service: Optional[pulumi.Input['EndpointServiceArgs']] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             interface_endpoint_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             subnet: Optional[pulumi.Input['SubnetArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if endpoint_service is not None:
-            pulumi.set(__self__, "endpoint_service", endpoint_service)
+            _setter("endpoint_service", endpoint_service)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if interface_endpoint_name is not None:
-            pulumi.set(__self__, "interface_endpoint_name", interface_endpoint_name)
+            _setter("interface_endpoint_name", interface_endpoint_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -198,6 +221,10 @@ class InterfaceEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InterfaceEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -220,6 +247,11 @@ class InterfaceEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InterfaceEndpointArgs.__new__(InterfaceEndpointArgs)
 
+            if endpoint_service is not None and not isinstance(endpoint_service, EndpointServiceArgs):
+                endpoint_service = endpoint_service or {}
+                def _setter(key, value):
+                    endpoint_service[key] = value
+                EndpointServiceArgs._configure(_setter, **endpoint_service)
             __props__.__dict__["endpoint_service"] = endpoint_service
             __props__.__dict__["fqdn"] = fqdn
             __props__.__dict__["id"] = id
@@ -228,6 +260,11 @@ class InterfaceEndpoint(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if subnet is not None and not isinstance(subnet, SubnetArgs):
+                subnet = subnet or {}
+                def _setter(key, value):
+                    subnet[key] = value
+                SubnetArgs._configure(_setter, **subnet)
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None

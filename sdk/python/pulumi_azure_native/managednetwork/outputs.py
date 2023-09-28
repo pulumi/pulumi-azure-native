@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,8 +33,19 @@ class ConnectivityCollectionResponse(dict):
         :param Sequence['ManagedNetworkGroupResponse'] groups: The collection of connectivity related Managed Network Groups within the Managed Network
         :param Sequence['ManagedNetworkPeeringPolicyResponse'] peerings: The collection of Managed Network Peering Policies within the Managed Network
         """
-        pulumi.set(__self__, "groups", groups)
-        pulumi.set(__self__, "peerings", peerings)
+        ConnectivityCollectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            peerings=peerings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Sequence['outputs.ManagedNetworkGroupResponse'],
+             peerings: Sequence['outputs.ManagedNetworkPeeringPolicyResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("groups", groups)
+        _setter("peerings", peerings)
 
     @property
     @pulumi.getter
@@ -105,23 +116,52 @@ class ManagedNetworkGroupResponse(dict):
         :param Sequence['ResourceIdResponse'] subscriptions: The collection of subscriptions covered by the Managed Network
         :param Sequence['ResourceIdResponse'] virtual_networks: The collection of virtual nets covered by the Managed Network
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        ManagedNetworkGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            type=type,
+            kind=kind,
+            location=location,
+            management_groups=management_groups,
+            subnets=subnets,
+            subscriptions=subscriptions,
+            virtual_networks=virtual_networks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             name: str,
+             provisioning_state: str,
+             type: str,
+             kind: Optional[str] = None,
+             location: Optional[str] = None,
+             management_groups: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             subnets: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             subscriptions: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             virtual_networks: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
+            _setter("management_groups", management_groups)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if subscriptions is not None:
-            pulumi.set(__self__, "subscriptions", subscriptions)
+            _setter("subscriptions", subscriptions)
         if virtual_networks is not None:
-            pulumi.set(__self__, "virtual_networks", virtual_networks)
+            _setter("virtual_networks", virtual_networks)
 
     @property
     @pulumi.getter
@@ -250,15 +290,34 @@ class ManagedNetworkPeeringPolicyPropertiesResponse(dict):
         :param Sequence['ResourceIdResponse'] mesh: Gets or sets the mesh group IDs
         :param Sequence['ResourceIdResponse'] spokes: Gets or sets the spokes group IDs
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        ManagedNetworkPeeringPolicyPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            provisioning_state=provisioning_state,
+            type=type,
+            hub=hub,
+            mesh=mesh,
+            spokes=spokes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             provisioning_state: str,
+             type: str,
+             hub: Optional['outputs.ResourceIdResponse'] = None,
+             mesh: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             spokes: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if hub is not None:
-            pulumi.set(__self__, "hub", hub)
+            _setter("hub", hub)
         if mesh is not None:
-            pulumi.set(__self__, "mesh", mesh)
+            _setter("mesh", mesh)
         if spokes is not None:
-            pulumi.set(__self__, "spokes", spokes)
+            _setter("spokes", spokes)
 
     @property
     @pulumi.getter
@@ -328,13 +387,30 @@ class ManagedNetworkPeeringPolicyResponse(dict):
         :param str location: The geo-location where the resource lives
         :param 'ManagedNetworkPeeringPolicyPropertiesResponse' properties: Gets or sets the properties of a Managed Network Policy
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ManagedNetworkPeeringPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            type=type,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             type: str,
+             location: Optional[str] = None,
+             properties: Optional['outputs.ManagedNetworkPeeringPolicyPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -388,8 +464,17 @@ class ResourceIdResponse(dict):
         Generic pointer to a resource
         :param str id: Resource Id
         """
+        ResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -436,14 +521,29 @@ class ScopeResponse(dict):
         :param Sequence['ResourceIdResponse'] subscriptions: The collection of subscriptions covered by the Managed Network
         :param Sequence['ResourceIdResponse'] virtual_networks: The collection of virtual nets covered by the Managed Network
         """
+        ScopeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_groups=management_groups,
+            subnets=subnets,
+            subscriptions=subscriptions,
+            virtual_networks=virtual_networks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_groups: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             subnets: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             subscriptions: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             virtual_networks: Optional[Sequence['outputs.ResourceIdResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
+            _setter("management_groups", management_groups)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if subscriptions is not None:
-            pulumi.set(__self__, "subscriptions", subscriptions)
+            _setter("subscriptions", subscriptions)
         if virtual_networks is not None:
-            pulumi.set(__self__, "virtual_networks", virtual_networks)
+            _setter("virtual_networks", virtual_networks)
 
     @property
     @pulumi.getter(name="managementGroups")

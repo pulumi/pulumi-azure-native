@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -57,12 +57,25 @@ class AzureFileFilterDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] file_prefix_list: Prefix list of the Azure files to be transferred.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] file_share_list: List of file shares to be transferred.
         """
+        AzureFileFilterDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_path_list=file_path_list,
+            file_prefix_list=file_prefix_list,
+            file_share_list=file_share_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             file_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             file_share_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if file_path_list is not None:
-            pulumi.set(__self__, "file_path_list", file_path_list)
+            _setter("file_path_list", file_path_list)
         if file_prefix_list is not None:
-            pulumi.set(__self__, "file_prefix_list", file_prefix_list)
+            _setter("file_prefix_list", file_prefix_list)
         if file_share_list is not None:
-            pulumi.set(__self__, "file_share_list", file_share_list)
+            _setter("file_share_list", file_share_list)
 
     @property
     @pulumi.getter(name="filePathList")
@@ -113,12 +126,25 @@ class BlobFilterDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_prefix_list: Prefix list of the Azure blobs to be transferred.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] container_list: List of blob containers to be transferred.
         """
+        BlobFilterDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_path_list=blob_path_list,
+            blob_prefix_list=blob_prefix_list,
+            container_list=container_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             blob_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             container_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if blob_path_list is not None:
-            pulumi.set(__self__, "blob_path_list", blob_path_list)
+            _setter("blob_path_list", blob_path_list)
         if blob_prefix_list is not None:
-            pulumi.set(__self__, "blob_prefix_list", blob_prefix_list)
+            _setter("blob_prefix_list", blob_prefix_list)
         if container_list is not None:
-            pulumi.set(__self__, "container_list", container_list)
+            _setter("container_list", container_list)
 
     @property
     @pulumi.getter(name="blobPathList")
@@ -175,15 +201,34 @@ class ContactDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]] notification_preference: Notification preference for a job stage.
         :param pulumi.Input[str] phone_extension: Phone extension number of the contact person.
         """
-        pulumi.set(__self__, "contact_name", contact_name)
-        pulumi.set(__self__, "email_list", email_list)
-        pulumi.set(__self__, "phone", phone)
+        ContactDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_name=contact_name,
+            email_list=email_list,
+            phone=phone,
+            mobile=mobile,
+            notification_preference=notification_preference,
+            phone_extension=phone_extension,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_name: pulumi.Input[str],
+             email_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             phone: pulumi.Input[str],
+             mobile: Optional[pulumi.Input[str]] = None,
+             notification_preference: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]] = None,
+             phone_extension: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_name", contact_name)
+        _setter("email_list", email_list)
+        _setter("phone", phone)
         if mobile is not None:
-            pulumi.set(__self__, "mobile", mobile)
+            _setter("mobile", mobile)
         if notification_preference is not None:
-            pulumi.set(__self__, "notification_preference", notification_preference)
+            _setter("notification_preference", notification_preference)
         if phone_extension is not None:
-            pulumi.set(__self__, "phone_extension", phone_extension)
+            _setter("phone_extension", phone_extension)
 
     @property
     @pulumi.getter(name="contactName")
@@ -272,12 +317,27 @@ class ContactInfoArgs:
         :param pulumi.Input[str] mobile: Mobile number of the contact person.
         :param pulumi.Input[str] phone_extension: Phone extension number of the contact person.
         """
-        pulumi.set(__self__, "contact_name", contact_name)
-        pulumi.set(__self__, "phone", phone)
+        ContactInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_name=contact_name,
+            phone=phone,
+            mobile=mobile,
+            phone_extension=phone_extension,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_name: pulumi.Input[str],
+             phone: pulumi.Input[str],
+             mobile: Optional[pulumi.Input[str]] = None,
+             phone_extension: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_name", contact_name)
+        _setter("phone", phone)
         if mobile is not None:
-            pulumi.set(__self__, "mobile", mobile)
+            _setter("mobile", mobile)
         if phone_extension is not None:
-            pulumi.set(__self__, "phone_extension", phone_extension)
+            _setter("phone_extension", phone_extension)
 
     @property
     @pulumi.getter(name="contactName")
@@ -359,29 +419,60 @@ class DataBoxCustomerDiskJobDetailsArgs:
         :param pulumi.Input['ReverseShippingDetailsArgs'] reverse_shipping_details: Optional Reverse Shipping details for order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "job_details_type", 'DataBoxCustomerDisk')
-        pulumi.set(__self__, "return_to_customer_package_details", return_to_customer_package_details)
+        DataBoxCustomerDiskJobDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_details=contact_details,
+            job_details_type=job_details_type,
+            return_to_customer_package_details=return_to_customer_package_details,
+            data_export_details=data_export_details,
+            data_import_details=data_import_details,
+            enable_manifest_backup=enable_manifest_backup,
+            expected_data_size_in_tera_bytes=expected_data_size_in_tera_bytes,
+            import_disk_details_collection=import_disk_details_collection,
+            key_encryption_key=key_encryption_key,
+            preferences=preferences,
+            reverse_shipping_details=reverse_shipping_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_details: pulumi.Input['ContactDetailsArgs'],
+             job_details_type: pulumi.Input[str],
+             return_to_customer_package_details: pulumi.Input['PackageCarrierDetailsArgs'],
+             data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+             data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+             enable_manifest_backup: Optional[pulumi.Input[bool]] = None,
+             expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
+             import_disk_details_collection: Optional[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]] = None,
+             key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
+             preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+             reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
+             shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_details", contact_details)
+        _setter("job_details_type", 'DataBoxCustomerDisk')
+        _setter("return_to_customer_package_details", return_to_customer_package_details)
         if data_export_details is not None:
-            pulumi.set(__self__, "data_export_details", data_export_details)
+            _setter("data_export_details", data_export_details)
         if data_import_details is not None:
-            pulumi.set(__self__, "data_import_details", data_import_details)
+            _setter("data_import_details", data_import_details)
         if enable_manifest_backup is None:
             enable_manifest_backup = False
         if enable_manifest_backup is not None:
-            pulumi.set(__self__, "enable_manifest_backup", enable_manifest_backup)
+            _setter("enable_manifest_backup", enable_manifest_backup)
         if expected_data_size_in_tera_bytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+            _setter("expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if import_disk_details_collection is not None:
-            pulumi.set(__self__, "import_disk_details_collection", import_disk_details_collection)
+            _setter("import_disk_details_collection", import_disk_details_collection)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
         if reverse_shipping_details is not None:
-            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+            _setter("reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="contactDetails")
@@ -558,26 +649,55 @@ class DataBoxDiskJobDetailsArgs:
         :param pulumi.Input['ReverseShippingDetailsArgs'] reverse_shipping_details: Optional Reverse Shipping details for order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
+        DataBoxDiskJobDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_details=contact_details,
+            job_details_type=job_details_type,
+            data_export_details=data_export_details,
+            data_import_details=data_import_details,
+            expected_data_size_in_tera_bytes=expected_data_size_in_tera_bytes,
+            key_encryption_key=key_encryption_key,
+            passkey=passkey,
+            preferences=preferences,
+            preferred_disks=preferred_disks,
+            reverse_shipping_details=reverse_shipping_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_details: pulumi.Input['ContactDetailsArgs'],
+             job_details_type: pulumi.Input[str],
+             data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+             data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+             expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
+             key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
+             passkey: Optional[pulumi.Input[str]] = None,
+             preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+             preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None,
+             reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
+             shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_details", contact_details)
+        _setter("job_details_type", 'DataBoxDisk')
         if data_export_details is not None:
-            pulumi.set(__self__, "data_export_details", data_export_details)
+            _setter("data_export_details", data_export_details)
         if data_import_details is not None:
-            pulumi.set(__self__, "data_import_details", data_import_details)
+            _setter("data_import_details", data_import_details)
         if expected_data_size_in_tera_bytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+            _setter("expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
         if passkey is not None:
-            pulumi.set(__self__, "passkey", passkey)
+            _setter("passkey", passkey)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
         if preferred_disks is not None:
-            pulumi.set(__self__, "preferred_disks", preferred_disks)
+            _setter("preferred_disks", preferred_disks)
         if reverse_shipping_details is not None:
-            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+            _setter("reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="contactDetails")
@@ -740,24 +860,51 @@ class DataBoxHeavyJobDetailsArgs:
         :param pulumi.Input['ReverseShippingDetailsArgs'] reverse_shipping_details: Optional Reverse Shipping details for order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "job_details_type", 'DataBoxHeavy')
+        DataBoxHeavyJobDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_details=contact_details,
+            job_details_type=job_details_type,
+            data_export_details=data_export_details,
+            data_import_details=data_import_details,
+            device_password=device_password,
+            expected_data_size_in_tera_bytes=expected_data_size_in_tera_bytes,
+            key_encryption_key=key_encryption_key,
+            preferences=preferences,
+            reverse_shipping_details=reverse_shipping_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_details: pulumi.Input['ContactDetailsArgs'],
+             job_details_type: pulumi.Input[str],
+             data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+             data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+             device_password: Optional[pulumi.Input[str]] = None,
+             expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
+             key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
+             preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+             reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
+             shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_details", contact_details)
+        _setter("job_details_type", 'DataBoxHeavy')
         if data_export_details is not None:
-            pulumi.set(__self__, "data_export_details", data_export_details)
+            _setter("data_export_details", data_export_details)
         if data_import_details is not None:
-            pulumi.set(__self__, "data_import_details", data_import_details)
+            _setter("data_import_details", data_import_details)
         if device_password is not None:
-            pulumi.set(__self__, "device_password", device_password)
+            _setter("device_password", device_password)
         if expected_data_size_in_tera_bytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+            _setter("expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
         if reverse_shipping_details is not None:
-            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+            _setter("reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="contactDetails")
@@ -908,24 +1055,51 @@ class DataBoxJobDetailsArgs:
         :param pulumi.Input['ReverseShippingDetailsArgs'] reverse_shipping_details: Optional Reverse Shipping details for order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "job_details_type", 'DataBox')
+        DataBoxJobDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_details=contact_details,
+            job_details_type=job_details_type,
+            data_export_details=data_export_details,
+            data_import_details=data_import_details,
+            device_password=device_password,
+            expected_data_size_in_tera_bytes=expected_data_size_in_tera_bytes,
+            key_encryption_key=key_encryption_key,
+            preferences=preferences,
+            reverse_shipping_details=reverse_shipping_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_details: pulumi.Input['ContactDetailsArgs'],
+             job_details_type: pulumi.Input[str],
+             data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+             data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+             device_password: Optional[pulumi.Input[str]] = None,
+             expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
+             key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
+             preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+             reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
+             shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_details", contact_details)
+        _setter("job_details_type", 'DataBox')
         if data_export_details is not None:
-            pulumi.set(__self__, "data_export_details", data_export_details)
+            _setter("data_export_details", data_export_details)
         if data_import_details is not None:
-            pulumi.set(__self__, "data_import_details", data_import_details)
+            _setter("data_import_details", data_import_details)
         if device_password is not None:
-            pulumi.set(__self__, "device_password", device_password)
+            _setter("device_password", device_password)
         if expected_data_size_in_tera_bytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+            _setter("expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
         if reverse_shipping_details is not None:
-            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+            _setter("reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="contactDetails")
@@ -1061,12 +1235,25 @@ class DataExportDetailsArgs:
         :param pulumi.Input['TransferConfigurationArgs'] transfer_configuration: Configuration for the data transfer.
         :param pulumi.Input[Union[str, 'LogCollectionLevel']] log_collection_level: Level of the logs to be collected.
         """
-        pulumi.set(__self__, "account_details", account_details)
-        pulumi.set(__self__, "transfer_configuration", transfer_configuration)
+        DataExportDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_details=account_details,
+            transfer_configuration=transfer_configuration,
+            log_collection_level=log_collection_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']],
+             transfer_configuration: pulumi.Input['TransferConfigurationArgs'],
+             log_collection_level: Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_details", account_details)
+        _setter("transfer_configuration", transfer_configuration)
         if log_collection_level is None:
             log_collection_level = 'Error'
         if log_collection_level is not None:
-            pulumi.set(__self__, "log_collection_level", log_collection_level)
+            _setter("log_collection_level", log_collection_level)
 
     @property
     @pulumi.getter(name="accountDetails")
@@ -1115,11 +1302,22 @@ class DataImportDetailsArgs:
         :param pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']] account_details: Account details of the data to be transferred
         :param pulumi.Input[Union[str, 'LogCollectionLevel']] log_collection_level: Level of the logs to be collected.
         """
-        pulumi.set(__self__, "account_details", account_details)
+        DataImportDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_details=account_details,
+            log_collection_level=log_collection_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']],
+             log_collection_level: Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_details", account_details)
         if log_collection_level is None:
             log_collection_level = 'Error'
         if log_collection_level is not None:
-            pulumi.set(__self__, "log_collection_level", log_collection_level)
+            _setter("log_collection_level", log_collection_level)
 
     @property
     @pulumi.getter(name="accountDetails")
@@ -1156,12 +1354,23 @@ class EncryptionPreferencesArgs:
         :param pulumi.Input[Union[str, 'DoubleEncryption']] double_encryption: Defines secondary layer of software-based encryption enablement.
         :param pulumi.Input[Union[str, 'HardwareEncryption']] hardware_encryption: Defines Hardware level encryption (Only for disk)
         """
+        EncryptionPreferencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            double_encryption=double_encryption,
+            hardware_encryption=hardware_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             double_encryption: Optional[pulumi.Input[Union[str, 'DoubleEncryption']]] = None,
+             hardware_encryption: Optional[pulumi.Input[Union[str, 'HardwareEncryption']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if double_encryption is None:
             double_encryption = 'Disabled'
         if double_encryption is not None:
-            pulumi.set(__self__, "double_encryption", double_encryption)
+            _setter("double_encryption", double_encryption)
         if hardware_encryption is not None:
-            pulumi.set(__self__, "hardware_encryption", hardware_encryption)
+            _setter("hardware_encryption", hardware_encryption)
 
     @property
     @pulumi.getter(name="doubleEncryption")
@@ -1198,8 +1407,19 @@ class FilterFileDetailsArgs:
         :param pulumi.Input[str] filter_file_path: Path of the file that contains the details of all items to transfer.
         :param pulumi.Input[Union[str, 'FilterFileType']] filter_file_type: Type of the filter file.
         """
-        pulumi.set(__self__, "filter_file_path", filter_file_path)
-        pulumi.set(__self__, "filter_file_type", filter_file_type)
+        FilterFileDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_file_path=filter_file_path,
+            filter_file_type=filter_file_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_file_path: pulumi.Input[str],
+             filter_file_type: pulumi.Input[Union[str, 'FilterFileType']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter_file_path", filter_file_path)
+        _setter("filter_file_type", filter_file_type)
 
     @property
     @pulumi.getter(name="filterFilePath")
@@ -1236,10 +1456,21 @@ class IdentityPropertiesArgs:
         :param pulumi.Input[str] type: Managed service identity type.
         :param pulumi.Input['UserAssignedPropertiesArgs'] user_assigned: User assigned identity properties.
         """
+        IdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned=user_assigned,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             user_assigned: Optional[pulumi.Input['UserAssignedPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned is not None:
-            pulumi.set(__self__, "user_assigned", user_assigned)
+            _setter("user_assigned", user_assigned)
 
     @property
     @pulumi.getter
@@ -1278,9 +1509,22 @@ class ImportDiskDetailsArgs:
         :param pulumi.Input[str] manifest_file: The relative path of the manifest file on the disk.
         :param pulumi.Input[str] manifest_hash: The Base16-encoded MD5 hash of the manifest file on the disk.
         """
-        pulumi.set(__self__, "bit_locker_key", bit_locker_key)
-        pulumi.set(__self__, "manifest_file", manifest_file)
-        pulumi.set(__self__, "manifest_hash", manifest_hash)
+        ImportDiskDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bit_locker_key=bit_locker_key,
+            manifest_file=manifest_file,
+            manifest_hash=manifest_hash,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bit_locker_key: pulumi.Input[str],
+             manifest_file: pulumi.Input[str],
+             manifest_hash: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bit_locker_key", bit_locker_key)
+        _setter("manifest_file", manifest_file)
+        _setter("manifest_hash", manifest_hash)
 
     @property
     @pulumi.getter(name="bitLockerKey")
@@ -1327,8 +1571,17 @@ class JobDeliveryInfoArgs:
         Additional delivery info.
         :param pulumi.Input[str] scheduled_date_time: Scheduled date time.
         """
+        JobDeliveryInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scheduled_date_time=scheduled_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scheduled_date_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if scheduled_date_time is not None:
-            pulumi.set(__self__, "scheduled_date_time", scheduled_date_time)
+            _setter("scheduled_date_time", scheduled_date_time)
 
     @property
     @pulumi.getter(name="scheduledDateTime")
@@ -1357,15 +1610,30 @@ class KeyEncryptionKeyArgs:
         :param pulumi.Input[str] kek_url: Key encryption key. It is required in case of Customer managed KekType.
         :param pulumi.Input[str] kek_vault_resource_id: Kek vault resource id. It is required in case of Customer managed KekType.
         """
+        KeyEncryptionKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kek_type=kek_type,
+            identity_properties=identity_properties,
+            kek_url=kek_url,
+            kek_vault_resource_id=kek_vault_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kek_type: Optional[pulumi.Input[Union[str, 'KekType']]] = None,
+             identity_properties: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+             kek_url: Optional[pulumi.Input[str]] = None,
+             kek_vault_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kek_type is None:
             kek_type = 'MicrosoftManaged'
-        pulumi.set(__self__, "kek_type", kek_type)
+        _setter("kek_type", kek_type)
         if identity_properties is not None:
-            pulumi.set(__self__, "identity_properties", identity_properties)
+            _setter("identity_properties", identity_properties)
         if kek_url is not None:
-            pulumi.set(__self__, "kek_url", kek_url)
+            _setter("kek_url", kek_url)
         if kek_vault_resource_id is not None:
-            pulumi.set(__self__, "kek_vault_resource_id", kek_vault_resource_id)
+            _setter("kek_vault_resource_id", kek_vault_resource_id)
 
     @property
     @pulumi.getter(name="kekType")
@@ -1431,13 +1699,28 @@ class ManagedDiskDetailsArgs:
         :param pulumi.Input[str] staging_storage_account_id: Resource Id of the storage account that can be used to copy the vhd for staging.
         :param pulumi.Input[str] share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
         """
+        ManagedDiskDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_account_type=data_account_type,
+            resource_group_id=resource_group_id,
+            staging_storage_account_id=staging_storage_account_id,
+            share_password=share_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_account_type: Optional[pulumi.Input[str]] = None,
+             resource_group_id: pulumi.Input[str],
+             staging_storage_account_id: pulumi.Input[str],
+             share_password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_account_type is None:
             data_account_type = 'StorageAccount'
-        pulumi.set(__self__, "data_account_type", 'ManagedDisk')
-        pulumi.set(__self__, "resource_group_id", resource_group_id)
-        pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
+        _setter("data_account_type", 'ManagedDisk')
+        _setter("resource_group_id", resource_group_id)
+        _setter("staging_storage_account_id", staging_storage_account_id)
         if share_password is not None:
-            pulumi.set(__self__, "share_password", share_password)
+            _setter("share_password", share_password)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -1499,10 +1782,21 @@ class NotificationPreferenceArgs:
         :param pulumi.Input[bool] send_notification: Notification is required or not.
         :param pulumi.Input[Union[str, 'NotificationStageName']] stage_name: Name of the stage.
         """
+        NotificationPreferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            send_notification=send_notification,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             send_notification: Optional[pulumi.Input[bool]] = None,
+             stage_name: pulumi.Input[Union[str, 'NotificationStageName']],
+             opts: Optional[pulumi.ResourceOptions]=None):
         if send_notification is None:
             send_notification = True
-        pulumi.set(__self__, "send_notification", send_notification)
-        pulumi.set(__self__, "stage_name", stage_name)
+        _setter("send_notification", send_notification)
+        _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="sendNotification")
@@ -1541,12 +1835,25 @@ class PackageCarrierDetailsArgs:
         :param pulumi.Input[str] carrier_name: Name of the carrier.
         :param pulumi.Input[str] tracking_id: Tracking Id of shipment.
         """
+        PackageCarrierDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_account_number=carrier_account_number,
+            carrier_name=carrier_name,
+            tracking_id=tracking_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_account_number: Optional[pulumi.Input[str]] = None,
+             carrier_name: Optional[pulumi.Input[str]] = None,
+             tracking_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if carrier_account_number is not None:
-            pulumi.set(__self__, "carrier_account_number", carrier_account_number)
+            _setter("carrier_account_number", carrier_account_number)
         if carrier_name is not None:
-            pulumi.set(__self__, "carrier_name", carrier_name)
+            _setter("carrier_name", carrier_name)
         if tracking_id is not None:
-            pulumi.set(__self__, "tracking_id", tracking_id)
+            _setter("tracking_id", tracking_id)
 
     @property
     @pulumi.getter(name="carrierAccountNumber")
@@ -1601,16 +1908,33 @@ class PreferencesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'StorageAccountAccessTier']]]] storage_account_access_tier_preferences: Preferences related to the Access Tier of storage accounts.
         :param pulumi.Input['TransportPreferencesArgs'] transport_preferences: Preferences related to the shipment logistics of the sku.
         """
+        PreferencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_preferences=encryption_preferences,
+            preferred_data_center_region=preferred_data_center_region,
+            reverse_transport_preferences=reverse_transport_preferences,
+            storage_account_access_tier_preferences=storage_account_access_tier_preferences,
+            transport_preferences=transport_preferences,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_preferences: Optional[pulumi.Input['EncryptionPreferencesArgs']] = None,
+             preferred_data_center_region: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             reverse_transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None,
+             storage_account_access_tier_preferences: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StorageAccountAccessTier']]]]] = None,
+             transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_preferences is not None:
-            pulumi.set(__self__, "encryption_preferences", encryption_preferences)
+            _setter("encryption_preferences", encryption_preferences)
         if preferred_data_center_region is not None:
-            pulumi.set(__self__, "preferred_data_center_region", preferred_data_center_region)
+            _setter("preferred_data_center_region", preferred_data_center_region)
         if reverse_transport_preferences is not None:
-            pulumi.set(__self__, "reverse_transport_preferences", reverse_transport_preferences)
+            _setter("reverse_transport_preferences", reverse_transport_preferences)
         if storage_account_access_tier_preferences is not None:
-            pulumi.set(__self__, "storage_account_access_tier_preferences", storage_account_access_tier_preferences)
+            _setter("storage_account_access_tier_preferences", storage_account_access_tier_preferences)
         if transport_preferences is not None:
-            pulumi.set(__self__, "transport_preferences", transport_preferences)
+            _setter("transport_preferences", transport_preferences)
 
     @property
     @pulumi.getter(name="encryptionPreferences")
@@ -1683,12 +2007,23 @@ class ResourceIdentityArgs:
         :param pulumi.Input[str] type: Identity type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: User Assigned Identities
         """
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is None:
             type = 'None'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -1725,10 +2060,21 @@ class ReverseShippingDetailsArgs:
         :param pulumi.Input['ContactInfoArgs'] contact_details: Contact Info.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address where customer wishes to receive the device.
         """
+        ReverseShippingDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_details=contact_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_details: Optional[pulumi.Input['ContactInfoArgs']] = None,
+             shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if contact_details is not None:
-            pulumi.set(__self__, "contact_details", contact_details)
+            _setter("contact_details", contact_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="contactDetails")
@@ -1785,30 +2131,61 @@ class ShippingAddressArgs:
         :param pulumi.Input[str] tax_identification_number: Tax Identification Number
         :param pulumi.Input[str] zip_extended_code: Extended Zip Code.
         """
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "street_address1", street_address1)
+        ShippingAddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country=country,
+            street_address1=street_address1,
+            address_type=address_type,
+            city=city,
+            company_name=company_name,
+            postal_code=postal_code,
+            skip_address_validation=skip_address_validation,
+            state_or_province=state_or_province,
+            street_address2=street_address2,
+            street_address3=street_address3,
+            tax_identification_number=tax_identification_number,
+            zip_extended_code=zip_extended_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country: pulumi.Input[str],
+             street_address1: pulumi.Input[str],
+             address_type: Optional[pulumi.Input[Union[str, 'AddressType']]] = None,
+             city: Optional[pulumi.Input[str]] = None,
+             company_name: Optional[pulumi.Input[str]] = None,
+             postal_code: Optional[pulumi.Input[str]] = None,
+             skip_address_validation: Optional[pulumi.Input[bool]] = None,
+             state_or_province: Optional[pulumi.Input[str]] = None,
+             street_address2: Optional[pulumi.Input[str]] = None,
+             street_address3: Optional[pulumi.Input[str]] = None,
+             tax_identification_number: Optional[pulumi.Input[str]] = None,
+             zip_extended_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country", country)
+        _setter("street_address1", street_address1)
         if address_type is None:
             address_type = 'None'
         if address_type is not None:
-            pulumi.set(__self__, "address_type", address_type)
+            _setter("address_type", address_type)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if skip_address_validation is not None:
-            pulumi.set(__self__, "skip_address_validation", skip_address_validation)
+            _setter("skip_address_validation", skip_address_validation)
         if state_or_province is not None:
-            pulumi.set(__self__, "state_or_province", state_or_province)
+            _setter("state_or_province", state_or_province)
         if street_address2 is not None:
-            pulumi.set(__self__, "street_address2", street_address2)
+            _setter("street_address2", street_address2)
         if street_address3 is not None:
-            pulumi.set(__self__, "street_address3", street_address3)
+            _setter("street_address3", street_address3)
         if tax_identification_number is not None:
-            pulumi.set(__self__, "tax_identification_number", tax_identification_number)
+            _setter("tax_identification_number", tax_identification_number)
         if zip_extended_code is not None:
-            pulumi.set(__self__, "zip_extended_code", zip_extended_code)
+            _setter("zip_extended_code", zip_extended_code)
 
     @property
     @pulumi.getter
@@ -1967,11 +2344,24 @@ class SkuArgs:
         :param pulumi.Input[str] display_name: The display name of the sku.
         :param pulumi.Input[str] family: The sku family.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            display_name=display_name,
+            family=family,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             display_name: Optional[pulumi.Input[str]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
 
     @property
     @pulumi.getter
@@ -2023,12 +2413,25 @@ class StorageAccountDetailsArgs:
         :param pulumi.Input[str] storage_account_id: Storage Account Resource Id.
         :param pulumi.Input[str] share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
         """
+        StorageAccountDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_account_type=data_account_type,
+            storage_account_id=storage_account_id,
+            share_password=share_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_account_type: Optional[pulumi.Input[str]] = None,
+             storage_account_id: pulumi.Input[str],
+             share_password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_account_type is None:
             data_account_type = 'StorageAccount'
-        pulumi.set(__self__, "data_account_type", 'StorageAccount')
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        _setter("data_account_type", 'StorageAccount')
+        _setter("storage_account_id", storage_account_id)
         if share_password is not None:
-            pulumi.set(__self__, "share_password", share_password)
+            _setter("share_password", share_password)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -2080,13 +2483,26 @@ class TransferAllDetailsArgs:
         :param pulumi.Input[bool] transfer_all_blobs: To indicate if all Azure blobs have to be transferred
         :param pulumi.Input[bool] transfer_all_files: To indicate if all Azure Files have to be transferred
         """
+        TransferAllDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_account_type=data_account_type,
+            transfer_all_blobs=transfer_all_blobs,
+            transfer_all_files=transfer_all_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_account_type: Optional[pulumi.Input[Union[str, 'DataAccountType']]] = None,
+             transfer_all_blobs: Optional[pulumi.Input[bool]] = None,
+             transfer_all_files: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_account_type is None:
             data_account_type = 'StorageAccount'
-        pulumi.set(__self__, "data_account_type", data_account_type)
+        _setter("data_account_type", data_account_type)
         if transfer_all_blobs is not None:
-            pulumi.set(__self__, "transfer_all_blobs", transfer_all_blobs)
+            _setter("transfer_all_blobs", transfer_all_blobs)
         if transfer_all_files is not None:
-            pulumi.set(__self__, "transfer_all_files", transfer_all_files)
+            _setter("transfer_all_files", transfer_all_files)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -2133,8 +2549,17 @@ class TransferConfigurationTransferAllDetailsArgs:
         Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
         :param pulumi.Input['TransferAllDetailsArgs'] include: Details to transfer all data.
         """
+        TransferConfigurationTransferAllDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include=include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include: Optional[pulumi.Input['TransferAllDetailsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if include is not None:
-            pulumi.set(__self__, "include", include)
+            _setter("include", include)
 
     @property
     @pulumi.getter
@@ -2157,8 +2582,17 @@ class TransferConfigurationTransferFilterDetailsArgs:
         Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
         :param pulumi.Input['TransferFilterDetailsArgs'] include: Details of the filtering the transfer of data.
         """
+        TransferConfigurationTransferFilterDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include=include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include: Optional[pulumi.Input['TransferFilterDetailsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if include is not None:
-            pulumi.set(__self__, "include", include)
+            _setter("include", include)
 
     @property
     @pulumi.getter
@@ -2185,11 +2619,24 @@ class TransferConfigurationArgs:
         :param pulumi.Input['TransferConfigurationTransferAllDetailsArgs'] transfer_all_details: Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
         :param pulumi.Input['TransferConfigurationTransferFilterDetailsArgs'] transfer_filter_details: Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
         """
-        pulumi.set(__self__, "transfer_configuration_type", transfer_configuration_type)
+        TransferConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transfer_configuration_type=transfer_configuration_type,
+            transfer_all_details=transfer_all_details,
+            transfer_filter_details=transfer_filter_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transfer_configuration_type: pulumi.Input[Union[str, 'TransferConfigurationType']],
+             transfer_all_details: Optional[pulumi.Input['TransferConfigurationTransferAllDetailsArgs']] = None,
+             transfer_filter_details: Optional[pulumi.Input['TransferConfigurationTransferFilterDetailsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("transfer_configuration_type", transfer_configuration_type)
         if transfer_all_details is not None:
-            pulumi.set(__self__, "transfer_all_details", transfer_all_details)
+            _setter("transfer_all_details", transfer_all_details)
         if transfer_filter_details is not None:
-            pulumi.set(__self__, "transfer_filter_details", transfer_filter_details)
+            _setter("transfer_filter_details", transfer_filter_details)
 
     @property
     @pulumi.getter(name="transferConfigurationType")
@@ -2242,15 +2689,30 @@ class TransferFilterDetailsArgs:
         :param pulumi.Input['BlobFilterDetailsArgs'] blob_filter_details: Filter details to transfer blobs.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]] filter_file_details: Details of the filter files to be used for data transfer.
         """
+        TransferFilterDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_account_type=data_account_type,
+            azure_file_filter_details=azure_file_filter_details,
+            blob_filter_details=blob_filter_details,
+            filter_file_details=filter_file_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_account_type: Optional[pulumi.Input[Union[str, 'DataAccountType']]] = None,
+             azure_file_filter_details: Optional[pulumi.Input['AzureFileFilterDetailsArgs']] = None,
+             blob_filter_details: Optional[pulumi.Input['BlobFilterDetailsArgs']] = None,
+             filter_file_details: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_account_type is None:
             data_account_type = 'StorageAccount'
-        pulumi.set(__self__, "data_account_type", data_account_type)
+        _setter("data_account_type", data_account_type)
         if azure_file_filter_details is not None:
-            pulumi.set(__self__, "azure_file_filter_details", azure_file_filter_details)
+            _setter("azure_file_filter_details", azure_file_filter_details)
         if blob_filter_details is not None:
-            pulumi.set(__self__, "blob_filter_details", blob_filter_details)
+            _setter("blob_filter_details", blob_filter_details)
         if filter_file_details is not None:
-            pulumi.set(__self__, "filter_file_details", filter_file_details)
+            _setter("filter_file_details", filter_file_details)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -2309,7 +2771,16 @@ class TransportPreferencesArgs:
         Preferences related to the shipment logistics of the sku
         :param pulumi.Input[Union[str, 'TransportShipmentTypes']] preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
-        pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
+        TransportPreferencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_shipment_type=preferred_shipment_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_shipment_type: pulumi.Input[Union[str, 'TransportShipmentTypes']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("preferred_shipment_type", preferred_shipment_type)
 
     @property
     @pulumi.getter(name="preferredShipmentType")
@@ -2332,8 +2803,17 @@ class UserAssignedPropertiesArgs:
         User assigned identity properties.
         :param pulumi.Input[str] resource_id: Arm resource id for user assigned identity to be used to fetch MSI token.
         """
+        UserAssignedPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")

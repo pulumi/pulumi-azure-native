@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,43 @@ class CapacityDetailsArgs:
         :param pulumi.Input['SystemDataArgs'] system_data: Metadata pertaining to creation and last modification of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        CapacityDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            administration=administration,
+            dedicated_capacity_name=dedicated_capacity_name,
+            location=location,
+            mode=mode,
+            system_data=system_data,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['CapacitySkuArgs'],
+             administration: Optional[pulumi.Input['DedicatedCapacityAdministratorsArgs']] = None,
+             dedicated_capacity_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'Mode']]] = None,
+             system_data: Optional[pulumi.Input['SystemDataArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if administration is not None:
-            pulumi.set(__self__, "administration", administration)
+            _setter("administration", administration)
         if dedicated_capacity_name is not None:
-            pulumi.set(__self__, "dedicated_capacity_name", dedicated_capacity_name)
+            _setter("dedicated_capacity_name", dedicated_capacity_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if system_data is not None:
-            pulumi.set(__self__, "system_data", system_data)
+            _setter("system_data", system_data)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -197,6 +220,10 @@ class CapacityDetails(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CapacityDetailsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -219,6 +246,11 @@ class CapacityDetails(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapacityDetailsArgs.__new__(CapacityDetailsArgs)
 
+            if administration is not None and not isinstance(administration, DedicatedCapacityAdministratorsArgs):
+                administration = administration or {}
+                def _setter(key, value):
+                    administration[key] = value
+                DedicatedCapacityAdministratorsArgs._configure(_setter, **administration)
             __props__.__dict__["administration"] = administration
             __props__.__dict__["dedicated_capacity_name"] = dedicated_capacity_name
             __props__.__dict__["location"] = location
@@ -226,9 +258,19 @@ class CapacityDetails(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, CapacitySkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                CapacitySkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            if system_data is not None and not isinstance(system_data, SystemDataArgs):
+                system_data = system_data or {}
+                def _setter(key, value):
+                    system_data[key] = value
+                SystemDataArgs._configure(_setter, **system_data)
             __props__.__dict__["system_data"] = system_data
             __props__.__dict__["tags"] = tags
             __props__.__dict__["friendly_name"] = None

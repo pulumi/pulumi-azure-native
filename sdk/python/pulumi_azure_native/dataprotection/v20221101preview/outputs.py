@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -51,10 +51,23 @@ class DppIdentityDetailsResponse(dict):
         :param str tenant_id: A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the resource is now a member.
         :param str type: The identityType which can be either SystemAssigned or None
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        DppIdentityDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -113,8 +126,19 @@ class ResourceGuardOperationResponse(dict):
         :param str request_resource_type: Type of resource request.
         :param str vault_critical_operation: Name of the critical operation.
         """
-        pulumi.set(__self__, "request_resource_type", request_resource_type)
-        pulumi.set(__self__, "vault_critical_operation", vault_critical_operation)
+        ResourceGuardOperationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request_resource_type=request_resource_type,
+            vault_critical_operation=vault_critical_operation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request_resource_type: str,
+             vault_critical_operation: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("request_resource_type", request_resource_type)
+        _setter("vault_critical_operation", vault_critical_operation)
 
     @property
     @pulumi.getter(name="requestResourceType")
@@ -171,12 +195,29 @@ class ResourceGuardResponse(dict):
         :param Sequence['ResourceGuardOperationResponse'] resource_guard_operations: {readonly} List of operation details those are protected by the ResourceGuard resource
         :param Sequence[str] vault_critical_operation_exclusion_list: List of critical operations which are not protected by this resourceGuard
         """
-        pulumi.set(__self__, "allow_auto_approvals", allow_auto_approvals)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_guard_operations", resource_guard_operations)
+        ResourceGuardResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_auto_approvals=allow_auto_approvals,
+            description=description,
+            provisioning_state=provisioning_state,
+            resource_guard_operations=resource_guard_operations,
+            vault_critical_operation_exclusion_list=vault_critical_operation_exclusion_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_auto_approvals: bool,
+             description: str,
+             provisioning_state: str,
+             resource_guard_operations: Sequence['outputs.ResourceGuardOperationResponse'],
+             vault_critical_operation_exclusion_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_auto_approvals", allow_auto_approvals)
+        _setter("description", description)
+        _setter("provisioning_state", provisioning_state)
+        _setter("resource_guard_operations", resource_guard_operations)
         if vault_critical_operation_exclusion_list is not None:
-            pulumi.set(__self__, "vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
+            _setter("vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
 
     @property
     @pulumi.getter(name="allowAutoApprovals")
@@ -267,18 +308,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

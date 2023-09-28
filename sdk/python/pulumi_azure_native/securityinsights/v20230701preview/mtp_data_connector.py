@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,15 +35,36 @@ class MTPDataConnectorArgs:
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['MtpFilteredProvidersArgs'] filtered_providers: The available filtered providers for the connector.
         """
-        pulumi.set(__self__, "data_types", data_types)
-        pulumi.set(__self__, "kind", 'MicrosoftThreatProtection')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        MTPDataConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_types=data_types,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            tenant_id=tenant_id,
+            workspace_name=workspace_name,
+            data_connector_id=data_connector_id,
+            filtered_providers=filtered_providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_types: pulumi.Input['MTPDataConnectorDataTypesArgs'],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             data_connector_id: Optional[pulumi.Input[str]] = None,
+             filtered_providers: Optional[pulumi.Input['MtpFilteredProvidersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_types", data_types)
+        _setter("kind", 'MicrosoftThreatProtection')
+        _setter("resource_group_name", resource_group_name)
+        _setter("tenant_id", tenant_id)
+        _setter("workspace_name", workspace_name)
         if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
+            _setter("data_connector_id", data_connector_id)
         if filtered_providers is not None:
-            pulumi.set(__self__, "filtered_providers", filtered_providers)
+            _setter("filtered_providers", filtered_providers)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -177,6 +198,10 @@ class MTPDataConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MTPDataConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,9 +224,19 @@ class MTPDataConnector(pulumi.CustomResource):
             __props__ = MTPDataConnectorArgs.__new__(MTPDataConnectorArgs)
 
             __props__.__dict__["data_connector_id"] = data_connector_id
+            if data_types is not None and not isinstance(data_types, MTPDataConnectorDataTypesArgs):
+                data_types = data_types or {}
+                def _setter(key, value):
+                    data_types[key] = value
+                MTPDataConnectorDataTypesArgs._configure(_setter, **data_types)
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types
+            if filtered_providers is not None and not isinstance(filtered_providers, MtpFilteredProvidersArgs):
+                filtered_providers = filtered_providers or {}
+                def _setter(key, value):
+                    filtered_providers[key] = value
+                MtpFilteredProvidersArgs._configure(_setter, **filtered_providers)
             __props__.__dict__["filtered_providers"] = filtered_providers
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,31 +48,64 @@ class ManagedEnvironmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkloadProfileArgs']]] workload_profiles: Workload profiles configured for the Managed Environment.
         :param pulumi.Input[bool] zone_redundant: Whether or not this Managed Environment is zone-redundant.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            app_logs_configuration=app_logs_configuration,
+            custom_domain_configuration=custom_domain_configuration,
+            dapr_ai_connection_string=dapr_ai_connection_string,
+            dapr_ai_instrumentation_key=dapr_ai_instrumentation_key,
+            environment_name=environment_name,
+            kind=kind,
+            location=location,
+            sku=sku,
+            tags=tags,
+            vnet_configuration=vnet_configuration,
+            workload_profiles=workload_profiles,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             app_logs_configuration: Optional[pulumi.Input['AppLogsConfigurationArgs']] = None,
+             custom_domain_configuration: Optional[pulumi.Input['CustomDomainConfigurationArgs']] = None,
+             dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
+             dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
+             environment_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['EnvironmentSkuPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vnet_configuration: Optional[pulumi.Input['VnetConfigurationArgs']] = None,
+             workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadProfileArgs']]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if app_logs_configuration is not None:
-            pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
+            _setter("app_logs_configuration", app_logs_configuration)
         if custom_domain_configuration is not None:
-            pulumi.set(__self__, "custom_domain_configuration", custom_domain_configuration)
+            _setter("custom_domain_configuration", custom_domain_configuration)
         if dapr_ai_connection_string is not None:
-            pulumi.set(__self__, "dapr_ai_connection_string", dapr_ai_connection_string)
+            _setter("dapr_ai_connection_string", dapr_ai_connection_string)
         if dapr_ai_instrumentation_key is not None:
-            pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
+            _setter("dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vnet_configuration is not None:
-            pulumi.set(__self__, "vnet_configuration", vnet_configuration)
+            _setter("vnet_configuration", vnet_configuration)
         if workload_profiles is not None:
-            pulumi.set(__self__, "workload_profiles", workload_profiles)
+            _setter("workload_profiles", workload_profiles)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -292,6 +325,10 @@ class ManagedEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -319,7 +356,17 @@ class ManagedEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedEnvironmentArgs.__new__(ManagedEnvironmentArgs)
 
+            if app_logs_configuration is not None and not isinstance(app_logs_configuration, AppLogsConfigurationArgs):
+                app_logs_configuration = app_logs_configuration or {}
+                def _setter(key, value):
+                    app_logs_configuration[key] = value
+                AppLogsConfigurationArgs._configure(_setter, **app_logs_configuration)
             __props__.__dict__["app_logs_configuration"] = app_logs_configuration
+            if custom_domain_configuration is not None and not isinstance(custom_domain_configuration, CustomDomainConfigurationArgs):
+                custom_domain_configuration = custom_domain_configuration or {}
+                def _setter(key, value):
+                    custom_domain_configuration[key] = value
+                CustomDomainConfigurationArgs._configure(_setter, **custom_domain_configuration)
             __props__.__dict__["custom_domain_configuration"] = custom_domain_configuration
             __props__.__dict__["dapr_ai_connection_string"] = dapr_ai_connection_string
             __props__.__dict__["dapr_ai_instrumentation_key"] = dapr_ai_instrumentation_key
@@ -329,8 +376,18 @@ class ManagedEnvironment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, EnvironmentSkuPropertiesArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                EnvironmentSkuPropertiesArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if vnet_configuration is not None and not isinstance(vnet_configuration, VnetConfigurationArgs):
+                vnet_configuration = vnet_configuration or {}
+                def _setter(key, value):
+                    vnet_configuration[key] = value
+                VnetConfigurationArgs._configure(_setter, **vnet_configuration)
             __props__.__dict__["vnet_configuration"] = vnet_configuration
             __props__.__dict__["workload_profiles"] = workload_profiles
             __props__.__dict__["zone_redundant"] = zone_redundant

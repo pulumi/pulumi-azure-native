@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -112,96 +112,195 @@ class AgentPoolArgs:
         :param pulumi.Input['AgentPoolWindowsProfileArgs'] windows_profile: The Windows agent pool's specific profile.
         :param pulumi.Input[Union[str, 'WorkloadRuntime']] workload_runtime: Determines the type of workload a node can run.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        AgentPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            agent_pool_name=agent_pool_name,
+            availability_zones=availability_zones,
+            capacity_reservation_group_id=capacity_reservation_group_id,
+            count=count,
+            creation_data=creation_data,
+            enable_auto_scaling=enable_auto_scaling,
+            enable_custom_ca_trust=enable_custom_ca_trust,
+            enable_encryption_at_host=enable_encryption_at_host,
+            enable_fips=enable_fips,
+            enable_node_public_ip=enable_node_public_ip,
+            enable_ultra_ssd=enable_ultra_ssd,
+            gpu_instance_profile=gpu_instance_profile,
+            host_group_id=host_group_id,
+            kubelet_config=kubelet_config,
+            kubelet_disk_type=kubelet_disk_type,
+            linux_os_config=linux_os_config,
+            max_count=max_count,
+            max_pods=max_pods,
+            message_of_the_day=message_of_the_day,
+            min_count=min_count,
+            mode=mode,
+            network_profile=network_profile,
+            node_labels=node_labels,
+            node_public_ip_prefix_id=node_public_ip_prefix_id,
+            node_taints=node_taints,
+            orchestrator_version=orchestrator_version,
+            os_disk_size_gb=os_disk_size_gb,
+            os_disk_type=os_disk_type,
+            os_sku=os_sku,
+            os_type=os_type,
+            pod_subnet_id=pod_subnet_id,
+            power_state=power_state,
+            proximity_placement_group_id=proximity_placement_group_id,
+            scale_down_mode=scale_down_mode,
+            scale_set_eviction_policy=scale_set_eviction_policy,
+            scale_set_priority=scale_set_priority,
+            spot_max_price=spot_max_price,
+            tags=tags,
+            type=type,
+            upgrade_settings=upgrade_settings,
+            vm_size=vm_size,
+            vnet_subnet_id=vnet_subnet_id,
+            windows_profile=windows_profile,
+            workload_runtime=workload_runtime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             agent_pool_name: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             count: Optional[pulumi.Input[int]] = None,
+             creation_data: Optional[pulumi.Input['CreationDataArgs']] = None,
+             enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+             enable_custom_ca_trust: Optional[pulumi.Input[bool]] = None,
+             enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
+             enable_fips: Optional[pulumi.Input[bool]] = None,
+             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+             enable_ultra_ssd: Optional[pulumi.Input[bool]] = None,
+             gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
+             host_group_id: Optional[pulumi.Input[str]] = None,
+             kubelet_config: Optional[pulumi.Input['KubeletConfigArgs']] = None,
+             kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
+             linux_os_config: Optional[pulumi.Input['LinuxOSConfigArgs']] = None,
+             max_count: Optional[pulumi.Input[int]] = None,
+             max_pods: Optional[pulumi.Input[int]] = None,
+             message_of_the_day: Optional[pulumi.Input[str]] = None,
+             min_count: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]] = None,
+             network_profile: Optional[pulumi.Input['AgentPoolNetworkProfileArgs']] = None,
+             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             orchestrator_version: Optional[pulumi.Input[str]] = None,
+             os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+             os_disk_type: Optional[pulumi.Input[Union[str, 'OSDiskType']]] = None,
+             os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
+             os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+             pod_subnet_id: Optional[pulumi.Input[str]] = None,
+             power_state: Optional[pulumi.Input['PowerStateArgs']] = None,
+             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             scale_down_mode: Optional[pulumi.Input[Union[str, 'ScaleDownMode']]] = None,
+             scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
+             scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
+             spot_max_price: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
+             upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+             windows_profile: Optional[pulumi.Input['AgentPoolWindowsProfileArgs']] = None,
+             workload_runtime: Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if agent_pool_name is not None:
-            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+            _setter("agent_pool_name", agent_pool_name)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if capacity_reservation_group_id is not None:
-            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if creation_data is not None:
-            pulumi.set(__self__, "creation_data", creation_data)
+            _setter("creation_data", creation_data)
         if enable_auto_scaling is not None:
-            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+            _setter("enable_auto_scaling", enable_auto_scaling)
         if enable_custom_ca_trust is not None:
-            pulumi.set(__self__, "enable_custom_ca_trust", enable_custom_ca_trust)
+            _setter("enable_custom_ca_trust", enable_custom_ca_trust)
         if enable_encryption_at_host is not None:
-            pulumi.set(__self__, "enable_encryption_at_host", enable_encryption_at_host)
+            _setter("enable_encryption_at_host", enable_encryption_at_host)
         if enable_fips is not None:
-            pulumi.set(__self__, "enable_fips", enable_fips)
+            _setter("enable_fips", enable_fips)
         if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+            _setter("enable_node_public_ip", enable_node_public_ip)
         if enable_ultra_ssd is not None:
-            pulumi.set(__self__, "enable_ultra_ssd", enable_ultra_ssd)
+            _setter("enable_ultra_ssd", enable_ultra_ssd)
         if gpu_instance_profile is not None:
-            pulumi.set(__self__, "gpu_instance_profile", gpu_instance_profile)
+            _setter("gpu_instance_profile", gpu_instance_profile)
         if host_group_id is not None:
-            pulumi.set(__self__, "host_group_id", host_group_id)
+            _setter("host_group_id", host_group_id)
         if kubelet_config is not None:
-            pulumi.set(__self__, "kubelet_config", kubelet_config)
+            _setter("kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
-            pulumi.set(__self__, "kubelet_disk_type", kubelet_disk_type)
+            _setter("kubelet_disk_type", kubelet_disk_type)
         if linux_os_config is not None:
-            pulumi.set(__self__, "linux_os_config", linux_os_config)
+            _setter("linux_os_config", linux_os_config)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
+            _setter("max_pods", max_pods)
         if message_of_the_day is not None:
-            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
+            _setter("message_of_the_day", message_of_the_day)
         if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
+            _setter("min_count", min_count)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
+            _setter("node_labels", node_labels)
         if node_public_ip_prefix_id is not None:
-            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
+            _setter("node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
+            _setter("node_taints", node_taints)
         if orchestrator_version is not None:
-            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
+            _setter("orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
-            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+            _setter("os_disk_size_gb", os_disk_size_gb)
         if os_disk_type is not None:
-            pulumi.set(__self__, "os_disk_type", os_disk_type)
+            _setter("os_disk_type", os_disk_type)
         if os_sku is not None:
-            pulumi.set(__self__, "os_sku", os_sku)
+            _setter("os_sku", os_sku)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if pod_subnet_id is not None:
-            pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
+            _setter("pod_subnet_id", pod_subnet_id)
         if power_state is not None:
-            pulumi.set(__self__, "power_state", power_state)
+            _setter("power_state", power_state)
         if proximity_placement_group_id is not None:
-            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+            _setter("proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
-            pulumi.set(__self__, "scale_down_mode", scale_down_mode)
+            _setter("scale_down_mode", scale_down_mode)
         if scale_set_eviction_policy is not None:
-            pulumi.set(__self__, "scale_set_eviction_policy", scale_set_eviction_policy)
+            _setter("scale_set_eviction_policy", scale_set_eviction_policy)
         if scale_set_priority is not None:
-            pulumi.set(__self__, "scale_set_priority", scale_set_priority)
+            _setter("scale_set_priority", scale_set_priority)
         if spot_max_price is not None:
-            pulumi.set(__self__, "spot_max_price", spot_max_price)
+            _setter("spot_max_price", spot_max_price)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if upgrade_settings is not None:
-            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+            _setter("upgrade_settings", upgrade_settings)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
         if vnet_subnet_id is not None:
-            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+            _setter("vnet_subnet_id", vnet_subnet_id)
         if windows_profile is not None:
-            pulumi.set(__self__, "windows_profile", windows_profile)
+            _setter("windows_profile", windows_profile)
         if workload_runtime is not None:
-            pulumi.set(__self__, "workload_runtime", workload_runtime)
+            _setter("workload_runtime", workload_runtime)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -879,6 +978,10 @@ class AgentPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgentPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -943,6 +1046,11 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["count"] = count
+            if creation_data is not None and not isinstance(creation_data, CreationDataArgs):
+                creation_data = creation_data or {}
+                def _setter(key, value):
+                    creation_data[key] = value
+                CreationDataArgs._configure(_setter, **creation_data)
             __props__.__dict__["creation_data"] = creation_data
             __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
             __props__.__dict__["enable_custom_ca_trust"] = enable_custom_ca_trust
@@ -952,14 +1060,29 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["enable_ultra_ssd"] = enable_ultra_ssd
             __props__.__dict__["gpu_instance_profile"] = gpu_instance_profile
             __props__.__dict__["host_group_id"] = host_group_id
+            if kubelet_config is not None and not isinstance(kubelet_config, KubeletConfigArgs):
+                kubelet_config = kubelet_config or {}
+                def _setter(key, value):
+                    kubelet_config[key] = value
+                KubeletConfigArgs._configure(_setter, **kubelet_config)
             __props__.__dict__["kubelet_config"] = kubelet_config
             __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
+            if linux_os_config is not None and not isinstance(linux_os_config, LinuxOSConfigArgs):
+                linux_os_config = linux_os_config or {}
+                def _setter(key, value):
+                    linux_os_config[key] = value
+                LinuxOSConfigArgs._configure(_setter, **linux_os_config)
             __props__.__dict__["linux_os_config"] = linux_os_config
             __props__.__dict__["max_count"] = max_count
             __props__.__dict__["max_pods"] = max_pods
             __props__.__dict__["message_of_the_day"] = message_of_the_day
             __props__.__dict__["min_count"] = min_count
             __props__.__dict__["mode"] = mode
+            if network_profile is not None and not isinstance(network_profile, AgentPoolNetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                AgentPoolNetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_labels"] = node_labels
             __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
@@ -970,6 +1093,11 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["os_sku"] = os_sku
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["pod_subnet_id"] = pod_subnet_id
+            if power_state is not None and not isinstance(power_state, PowerStateArgs):
+                power_state = power_state or {}
+                def _setter(key, value):
+                    power_state[key] = value
+                PowerStateArgs._configure(_setter, **power_state)
             __props__.__dict__["power_state"] = power_state
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             if resource_group_name is None and not opts.urn:
@@ -984,9 +1112,19 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
+            if upgrade_settings is not None and not isinstance(upgrade_settings, AgentPoolUpgradeSettingsArgs):
+                upgrade_settings = upgrade_settings or {}
+                def _setter(key, value):
+                    upgrade_settings[key] = value
+                AgentPoolUpgradeSettingsArgs._configure(_setter, **upgrade_settings)
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
+            if windows_profile is not None and not isinstance(windows_profile, AgentPoolWindowsProfileArgs):
+                windows_profile = windows_profile or {}
+                def _setter(key, value):
+                    windows_profile[key] = value
+                AgentPoolWindowsProfileArgs._configure(_setter, **windows_profile)
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_runtime"] = workload_runtime
             __props__.__dict__["current_orchestrator_version"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,30 +39,57 @@ class PoolArgs:
         :param pulumi.Input[Union[str, 'QosType']] qos_type: The qos type of the pool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_level", service_level)
+        PoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            service_level=service_level,
+            size=size,
+            cool_access=cool_access,
+            encryption_type=encryption_type,
+            location=location,
+            pool_name=pool_name,
+            qos_type=qos_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_level: pulumi.Input[Union[str, 'ServiceLevel']],
+             size: Optional[pulumi.Input[float]] = None,
+             cool_access: Optional[pulumi.Input[bool]] = None,
+             encryption_type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             qos_type: Optional[pulumi.Input[Union[str, 'QosType']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_level", service_level)
         if size is None:
             size = 4398046511104
-        pulumi.set(__self__, "size", size)
+        _setter("size", size)
         if cool_access is None:
             cool_access = False
         if cool_access is not None:
-            pulumi.set(__self__, "cool_access", cool_access)
+            _setter("cool_access", cool_access)
         if encryption_type is None:
             encryption_type = 'Single'
         if encryption_type is not None:
-            pulumi.set(__self__, "encryption_type", encryption_type)
+            _setter("encryption_type", encryption_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if pool_name is not None:
-            pulumi.set(__self__, "pool_name", pool_name)
+            _setter("pool_name", pool_name)
         if qos_type is None:
             qos_type = 'Auto'
         if qos_type is not None:
-            pulumi.set(__self__, "qos_type", qos_type)
+            _setter("qos_type", qos_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountName")
@@ -236,6 +263,10 @@ class Pool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

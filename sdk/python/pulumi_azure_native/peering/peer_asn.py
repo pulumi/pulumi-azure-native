@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,14 +28,29 @@ class PeerAsnArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]] peer_contact_detail: The contact details of the peer.
         :param pulumi.Input[str] peer_name: The name of the peer.
         """
+        PeerAsnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peer_asn=peer_asn,
+            peer_asn_name=peer_asn_name,
+            peer_contact_detail=peer_contact_detail,
+            peer_name=peer_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peer_asn: Optional[pulumi.Input[int]] = None,
+             peer_asn_name: Optional[pulumi.Input[str]] = None,
+             peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]]] = None,
+             peer_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
         if peer_asn_name is not None:
-            pulumi.set(__self__, "peer_asn_name", peer_asn_name)
+            _setter("peer_asn_name", peer_asn_name)
         if peer_contact_detail is not None:
-            pulumi.set(__self__, "peer_contact_detail", peer_contact_detail)
+            _setter("peer_contact_detail", peer_contact_detail)
         if peer_name is not None:
-            pulumi.set(__self__, "peer_name", peer_name)
+            _setter("peer_name", peer_name)
 
     @property
     @pulumi.getter(name="peerAsn")
@@ -127,6 +142,10 @@ class PeerAsn(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PeerAsnArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,39 @@ class VideoArgs:
         :param pulumi.Input[str] title: Optional video title provided by the user. Value can be up to 256 characters long.
         :param pulumi.Input[str] video_name: The Video name.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VideoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            archival=archival,
+            description=description,
+            media_info=media_info,
+            title=title,
+            video_name=video_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             archival: Optional[pulumi.Input['VideoArchivalArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             media_info: Optional[pulumi.Input['VideoMediaInfoArgs']] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             video_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if archival is not None:
-            pulumi.set(__self__, "archival", archival)
+            _setter("archival", archival)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if media_info is not None:
-            pulumi.set(__self__, "media_info", media_info)
+            _setter("media_info", media_info)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if video_name is not None:
-            pulumi.set(__self__, "video_name", video_name)
+            _setter("video_name", video_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -176,6 +197,10 @@ class Video(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VideoArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,8 +225,18 @@ class Video(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if archival is not None and not isinstance(archival, VideoArchivalArgs):
+                archival = archival or {}
+                def _setter(key, value):
+                    archival[key] = value
+                VideoArchivalArgs._configure(_setter, **archival)
             __props__.__dict__["archival"] = archival
             __props__.__dict__["description"] = description
+            if media_info is not None and not isinstance(media_info, VideoMediaInfoArgs):
+                media_info = media_info or {}
+                def _setter(key, value):
+                    media_info[key] = value
+                VideoMediaInfoArgs._configure(_setter, **media_info)
             __props__.__dict__["media_info"] = media_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

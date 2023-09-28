@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class OrganizationArgs:
         :param pulumi.Input[str] organization_name: Organization resource name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
         """
-        pulumi.set(__self__, "offer_detail", offer_detail)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_detail", user_detail)
+        OrganizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer_detail=offer_detail,
+            resource_group_name=resource_group_name,
+            user_detail=user_detail,
+            location=location,
+            organization_name=organization_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer_detail: pulumi.Input['OfferDetailArgs'],
+             resource_group_name: pulumi.Input[str],
+             user_detail: pulumi.Input['UserDetailArgs'],
+             location: Optional[pulumi.Input[str]] = None,
+             organization_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offer_detail", offer_detail)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_detail", user_detail)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if organization_name is not None:
-            pulumi.set(__self__, "organization_name", organization_name)
+            _setter("organization_name", organization_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="offerDetail")
@@ -159,6 +178,10 @@ class Organization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,6 +203,11 @@ class Organization(pulumi.CustomResource):
             __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
             __props__.__dict__["location"] = location
+            if offer_detail is not None and not isinstance(offer_detail, OfferDetailArgs):
+                offer_detail = offer_detail or {}
+                def _setter(key, value):
+                    offer_detail[key] = value
+                OfferDetailArgs._configure(_setter, **offer_detail)
             if offer_detail is None and not opts.urn:
                 raise TypeError("Missing required property 'offer_detail'")
             __props__.__dict__["offer_detail"] = offer_detail
@@ -188,6 +216,11 @@ class Organization(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if user_detail is not None and not isinstance(user_detail, UserDetailArgs):
+                user_detail = user_detail or {}
+                def _setter(key, value):
+                    user_detail[key] = value
+                UserDetailArgs._configure(_setter, **user_detail)
             if user_detail is None and not opts.urn:
                 raise TypeError("Missing required property 'user_detail'")
             __props__.__dict__["user_detail"] = user_detail

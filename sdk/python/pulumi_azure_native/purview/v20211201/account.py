@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,29 +38,54 @@ class AccountArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags on the azure resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            account_name=account_name,
+            identity=identity,
+            location=location,
+            managed_event_hub_state=managed_event_hub_state,
+            managed_resource_group_name=managed_resource_group_name,
+            managed_resources_public_network_access=managed_resources_public_network_access,
+            public_network_access=public_network_access,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_event_hub_state: Optional[pulumi.Input[Union[str, 'ManagedEventHubState']]] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             managed_resources_public_network_access: Optional[pulumi.Input[Union[str, 'ManagedResourcesPublicNetworkAccess']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_event_hub_state is None:
             managed_event_hub_state = 'NotSpecified'
         if managed_event_hub_state is not None:
-            pulumi.set(__self__, "managed_event_hub_state", managed_event_hub_state)
+            _setter("managed_event_hub_state", managed_event_hub_state)
         if managed_resource_group_name is not None:
-            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+            _setter("managed_resource_group_name", managed_resource_group_name)
         if managed_resources_public_network_access is None:
             managed_resources_public_network_access = 'NotSpecified'
         if managed_resources_public_network_access is not None:
-            pulumi.set(__self__, "managed_resources_public_network_access", managed_resources_public_network_access)
+            _setter("managed_resources_public_network_access", managed_resources_public_network_access)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -220,6 +245,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -244,6 +273,11 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["account_name"] = account_name
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if managed_event_hub_state is None:

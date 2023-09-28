@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -72,59 +72,120 @@ class WorkflowArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workflow_name: The name of the workflow resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkflowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            acr=acr,
+            aks_resource_id=aks_resource_id,
+            app_name=app_name,
+            branch_name=branch_name,
+            builder_version=builder_version,
+            deployment_properties=deployment_properties,
+            docker_build_context=docker_build_context,
+            dockerfile=dockerfile,
+            dockerfile_generation_mode=dockerfile_generation_mode,
+            dockerfile_output_directory=dockerfile_output_directory,
+            generation_language=generation_language,
+            image_name=image_name,
+            image_tag=image_tag,
+            language_version=language_version,
+            last_workflow_run=last_workflow_run,
+            location=location,
+            manifest_generation_mode=manifest_generation_mode,
+            manifest_output_directory=manifest_output_directory,
+            manifest_type=manifest_type,
+            namespace=namespace,
+            oidc_credentials=oidc_credentials,
+            port=port,
+            repository_name=repository_name,
+            repository_owner=repository_owner,
+            tags=tags,
+            workflow_name=workflow_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             acr: Optional[pulumi.Input['ACRArgs']] = None,
+             aks_resource_id: Optional[pulumi.Input[str]] = None,
+             app_name: Optional[pulumi.Input[str]] = None,
+             branch_name: Optional[pulumi.Input[str]] = None,
+             builder_version: Optional[pulumi.Input[str]] = None,
+             deployment_properties: Optional[pulumi.Input['DeploymentPropertiesArgs']] = None,
+             docker_build_context: Optional[pulumi.Input[str]] = None,
+             dockerfile: Optional[pulumi.Input[str]] = None,
+             dockerfile_generation_mode: Optional[pulumi.Input[Union[str, 'DockerfileGenerationMode']]] = None,
+             dockerfile_output_directory: Optional[pulumi.Input[str]] = None,
+             generation_language: Optional[pulumi.Input[Union[str, 'GenerationLanguage']]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             image_tag: Optional[pulumi.Input[str]] = None,
+             language_version: Optional[pulumi.Input[str]] = None,
+             last_workflow_run: Optional[pulumi.Input['WorkflowRunArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             manifest_generation_mode: Optional[pulumi.Input[Union[str, 'ManifestGenerationMode']]] = None,
+             manifest_output_directory: Optional[pulumi.Input[str]] = None,
+             manifest_type: Optional[pulumi.Input[Union[str, 'GenerationManifestType']]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             oidc_credentials: Optional[pulumi.Input['GitHubWorkflowProfileOidcCredentialsArgs']] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             repository_owner: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workflow_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if acr is not None:
-            pulumi.set(__self__, "acr", acr)
+            _setter("acr", acr)
         if aks_resource_id is not None:
-            pulumi.set(__self__, "aks_resource_id", aks_resource_id)
+            _setter("aks_resource_id", aks_resource_id)
         if app_name is not None:
-            pulumi.set(__self__, "app_name", app_name)
+            _setter("app_name", app_name)
         if branch_name is not None:
-            pulumi.set(__self__, "branch_name", branch_name)
+            _setter("branch_name", branch_name)
         if builder_version is not None:
-            pulumi.set(__self__, "builder_version", builder_version)
+            _setter("builder_version", builder_version)
         if deployment_properties is not None:
-            pulumi.set(__self__, "deployment_properties", deployment_properties)
+            _setter("deployment_properties", deployment_properties)
         if docker_build_context is not None:
-            pulumi.set(__self__, "docker_build_context", docker_build_context)
+            _setter("docker_build_context", docker_build_context)
         if dockerfile is not None:
-            pulumi.set(__self__, "dockerfile", dockerfile)
+            _setter("dockerfile", dockerfile)
         if dockerfile_generation_mode is not None:
-            pulumi.set(__self__, "dockerfile_generation_mode", dockerfile_generation_mode)
+            _setter("dockerfile_generation_mode", dockerfile_generation_mode)
         if dockerfile_output_directory is not None:
-            pulumi.set(__self__, "dockerfile_output_directory", dockerfile_output_directory)
+            _setter("dockerfile_output_directory", dockerfile_output_directory)
         if generation_language is not None:
-            pulumi.set(__self__, "generation_language", generation_language)
+            _setter("generation_language", generation_language)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if image_tag is not None:
-            pulumi.set(__self__, "image_tag", image_tag)
+            _setter("image_tag", image_tag)
         if language_version is not None:
-            pulumi.set(__self__, "language_version", language_version)
+            _setter("language_version", language_version)
         if last_workflow_run is not None:
-            pulumi.set(__self__, "last_workflow_run", last_workflow_run)
+            _setter("last_workflow_run", last_workflow_run)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if manifest_generation_mode is not None:
-            pulumi.set(__self__, "manifest_generation_mode", manifest_generation_mode)
+            _setter("manifest_generation_mode", manifest_generation_mode)
         if manifest_output_directory is not None:
-            pulumi.set(__self__, "manifest_output_directory", manifest_output_directory)
+            _setter("manifest_output_directory", manifest_output_directory)
         if manifest_type is not None:
-            pulumi.set(__self__, "manifest_type", manifest_type)
+            _setter("manifest_type", manifest_type)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if oidc_credentials is not None:
-            pulumi.set(__self__, "oidc_credentials", oidc_credentials)
+            _setter("oidc_credentials", oidc_credentials)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
         if repository_owner is not None:
-            pulumi.set(__self__, "repository_owner", repository_owner)
+            _setter("repository_owner", repository_owner)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workflow_name is not None:
-            pulumi.set(__self__, "workflow_name", workflow_name)
+            _setter("workflow_name", workflow_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -530,6 +591,10 @@ class Workflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -571,11 +636,21 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
+            if acr is not None and not isinstance(acr, ACRArgs):
+                acr = acr or {}
+                def _setter(key, value):
+                    acr[key] = value
+                ACRArgs._configure(_setter, **acr)
             __props__.__dict__["acr"] = acr
             __props__.__dict__["aks_resource_id"] = aks_resource_id
             __props__.__dict__["app_name"] = app_name
             __props__.__dict__["branch_name"] = branch_name
             __props__.__dict__["builder_version"] = builder_version
+            if deployment_properties is not None and not isinstance(deployment_properties, DeploymentPropertiesArgs):
+                deployment_properties = deployment_properties or {}
+                def _setter(key, value):
+                    deployment_properties[key] = value
+                DeploymentPropertiesArgs._configure(_setter, **deployment_properties)
             __props__.__dict__["deployment_properties"] = deployment_properties
             __props__.__dict__["docker_build_context"] = docker_build_context
             __props__.__dict__["dockerfile"] = dockerfile
@@ -585,12 +660,22 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["image_name"] = image_name
             __props__.__dict__["image_tag"] = image_tag
             __props__.__dict__["language_version"] = language_version
+            if last_workflow_run is not None and not isinstance(last_workflow_run, WorkflowRunArgs):
+                last_workflow_run = last_workflow_run or {}
+                def _setter(key, value):
+                    last_workflow_run[key] = value
+                WorkflowRunArgs._configure(_setter, **last_workflow_run)
             __props__.__dict__["last_workflow_run"] = last_workflow_run
             __props__.__dict__["location"] = location
             __props__.__dict__["manifest_generation_mode"] = manifest_generation_mode
             __props__.__dict__["manifest_output_directory"] = manifest_output_directory
             __props__.__dict__["manifest_type"] = manifest_type
             __props__.__dict__["namespace"] = namespace
+            if oidc_credentials is not None and not isinstance(oidc_credentials, GitHubWorkflowProfileOidcCredentialsArgs):
+                oidc_credentials = oidc_credentials or {}
+                def _setter(key, value):
+                    oidc_credentials[key] = value
+                GitHubWorkflowProfileOidcCredentialsArgs._configure(_setter, **oidc_credentials)
             __props__.__dict__["oidc_credentials"] = oidc_credentials
             __props__.__dict__["port"] = port
             __props__.__dict__["repository_name"] = repository_name

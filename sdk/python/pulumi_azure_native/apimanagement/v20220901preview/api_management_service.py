@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -68,60 +68,115 @@ class ApiManagementServiceArgs:
         :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
-        pulumi.set(__self__, "publisher_email", publisher_email)
-        pulumi.set(__self__, "publisher_name", publisher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ApiManagementServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher_email=publisher_email,
+            publisher_name=publisher_name,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            additional_locations=additional_locations,
+            api_version_constraint=api_version_constraint,
+            certificates=certificates,
+            custom_properties=custom_properties,
+            disable_gateway=disable_gateway,
+            enable_client_certificate=enable_client_certificate,
+            hostname_configurations=hostname_configurations,
+            identity=identity,
+            location=location,
+            nat_gateway_state=nat_gateway_state,
+            notification_sender_email=notification_sender_email,
+            private_endpoint_connections=private_endpoint_connections,
+            public_ip_address_id=public_ip_address_id,
+            public_network_access=public_network_access,
+            restore=restore,
+            service_name=service_name,
+            tags=tags,
+            virtual_network_configuration=virtual_network_configuration,
+            virtual_network_type=virtual_network_type,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher_email: pulumi.Input[str],
+             publisher_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgs'],
+             additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]]] = None,
+             api_version_constraint: Optional[pulumi.Input['ApiVersionConstraintArgs']] = None,
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]]] = None,
+             custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             disable_gateway: Optional[pulumi.Input[bool]] = None,
+             enable_client_certificate: Optional[pulumi.Input[bool]] = None,
+             hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]] = None,
+             identity: Optional[pulumi.Input['ApiManagementServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             nat_gateway_state: Optional[pulumi.Input[Union[str, 'NatGatewayState']]] = None,
+             notification_sender_email: Optional[pulumi.Input[str]] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['RemotePrivateEndpointConnectionWrapperArgs']]]] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             restore: Optional[pulumi.Input[bool]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
+             virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("publisher_email", publisher_email)
+        _setter("publisher_name", publisher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if additional_locations is not None:
-            pulumi.set(__self__, "additional_locations", additional_locations)
+            _setter("additional_locations", additional_locations)
         if api_version_constraint is not None:
-            pulumi.set(__self__, "api_version_constraint", api_version_constraint)
+            _setter("api_version_constraint", api_version_constraint)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
         if disable_gateway is None:
             disable_gateway = False
         if disable_gateway is not None:
-            pulumi.set(__self__, "disable_gateway", disable_gateway)
+            _setter("disable_gateway", disable_gateway)
         if enable_client_certificate is None:
             enable_client_certificate = False
         if enable_client_certificate is not None:
-            pulumi.set(__self__, "enable_client_certificate", enable_client_certificate)
+            _setter("enable_client_certificate", enable_client_certificate)
         if hostname_configurations is not None:
-            pulumi.set(__self__, "hostname_configurations", hostname_configurations)
+            _setter("hostname_configurations", hostname_configurations)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if nat_gateway_state is None:
             nat_gateway_state = 'Disabled'
         if nat_gateway_state is not None:
-            pulumi.set(__self__, "nat_gateway_state", nat_gateway_state)
+            _setter("nat_gateway_state", nat_gateway_state)
         if notification_sender_email is not None:
-            pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+            _setter("notification_sender_email", notification_sender_email)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+            _setter("public_ip_address_id", public_ip_address_id)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if restore is None:
             restore = False
         if restore is not None:
-            pulumi.set(__self__, "restore", restore)
+            _setter("restore", restore)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
         if virtual_network_type is None:
             virtual_network_type = 'None'
         if virtual_network_type is not None:
-            pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+            _setter("virtual_network_type", virtual_network_type)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="publisherEmail")
@@ -491,6 +546,10 @@ class ApiManagementService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiManagementServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -530,6 +589,11 @@ class ApiManagementService(pulumi.CustomResource):
             __props__ = ApiManagementServiceArgs.__new__(ApiManagementServiceArgs)
 
             __props__.__dict__["additional_locations"] = additional_locations
+            if api_version_constraint is not None and not isinstance(api_version_constraint, ApiVersionConstraintArgs):
+                api_version_constraint = api_version_constraint or {}
+                def _setter(key, value):
+                    api_version_constraint[key] = value
+                ApiVersionConstraintArgs._configure(_setter, **api_version_constraint)
             __props__.__dict__["api_version_constraint"] = api_version_constraint
             __props__.__dict__["certificates"] = certificates
             __props__.__dict__["custom_properties"] = custom_properties
@@ -540,6 +604,11 @@ class ApiManagementService(pulumi.CustomResource):
                 enable_client_certificate = False
             __props__.__dict__["enable_client_certificate"] = enable_client_certificate
             __props__.__dict__["hostname_configurations"] = hostname_configurations
+            if identity is not None and not isinstance(identity, ApiManagementServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ApiManagementServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if nat_gateway_state is None:
@@ -562,10 +631,20 @@ class ApiManagementService(pulumi.CustomResource):
                 restore = False
             __props__.__dict__["restore"] = restore
             __props__.__dict__["service_name"] = service_name
+            if sku is not None and not isinstance(sku, ApiManagementServiceSkuPropertiesArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ApiManagementServiceSkuPropertiesArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if virtual_network_configuration is not None and not isinstance(virtual_network_configuration, VirtualNetworkConfigurationArgs):
+                virtual_network_configuration = virtual_network_configuration or {}
+                def _setter(key, value):
+                    virtual_network_configuration[key] = value
+                VirtualNetworkConfigurationArgs._configure(_setter, **virtual_network_configuration)
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             if virtual_network_type is None:
                 virtual_network_type = 'None'

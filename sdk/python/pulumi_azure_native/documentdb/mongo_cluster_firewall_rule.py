@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,12 +28,29 @@ class MongoClusterFirewallRuleArgs:
         :param pulumi.Input[str] start_ip_address: The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
         :param pulumi.Input[str] firewall_rule_name: The name of the mongo cluster firewall rule.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "mongo_cluster_name", mongo_cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        MongoClusterFirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            mongo_cluster_name=mongo_cluster_name,
+            resource_group_name=resource_group_name,
+            start_ip_address=start_ip_address,
+            firewall_rule_name=firewall_rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: pulumi.Input[str],
+             mongo_cluster_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             start_ip_address: pulumi.Input[str],
+             firewall_rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_ip_address", end_ip_address)
+        _setter("mongo_cluster_name", mongo_cluster_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("start_ip_address", start_ip_address)
         if firewall_rule_name is not None:
-            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
+            _setter("firewall_rule_name", firewall_rule_name)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -139,6 +156,10 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MongoClusterFirewallRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -41,8 +41,19 @@ class CopyCompletionErrorArgs:
         :param pulumi.Input[Union[str, 'CopyCompletionErrorReason']] error_code: Indicates the error code if the background copy of a resource created via the CopyStart operation fails.
         :param pulumi.Input[str] error_message: Indicates the error message if the background copy of a resource created via the CopyStart operation fails.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
+        CopyCompletionErrorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: pulumi.Input[Union[str, 'CopyCompletionErrorReason']],
+             error_message: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -97,27 +108,56 @@ class CreationDataArgs:
         :param pulumi.Input[str] storage_account_id: Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
         :param pulumi.Input[float] upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
-        pulumi.set(__self__, "create_option", create_option)
+        CreationDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_option=create_option,
+            elastic_san_resource_id=elastic_san_resource_id,
+            gallery_image_reference=gallery_image_reference,
+            image_reference=image_reference,
+            logical_sector_size=logical_sector_size,
+            performance_plus=performance_plus,
+            security_data_uri=security_data_uri,
+            source_resource_id=source_resource_id,
+            source_uri=source_uri,
+            storage_account_id=storage_account_id,
+            upload_size_bytes=upload_size_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_option: pulumi.Input[Union[str, 'DiskCreateOption']],
+             elastic_san_resource_id: Optional[pulumi.Input[str]] = None,
+             gallery_image_reference: Optional[pulumi.Input['ImageDiskReferenceArgs']] = None,
+             image_reference: Optional[pulumi.Input['ImageDiskReferenceArgs']] = None,
+             logical_sector_size: Optional[pulumi.Input[int]] = None,
+             performance_plus: Optional[pulumi.Input[bool]] = None,
+             security_data_uri: Optional[pulumi.Input[str]] = None,
+             source_resource_id: Optional[pulumi.Input[str]] = None,
+             source_uri: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             upload_size_bytes: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("create_option", create_option)
         if elastic_san_resource_id is not None:
-            pulumi.set(__self__, "elastic_san_resource_id", elastic_san_resource_id)
+            _setter("elastic_san_resource_id", elastic_san_resource_id)
         if gallery_image_reference is not None:
-            pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
+            _setter("gallery_image_reference", gallery_image_reference)
         if image_reference is not None:
-            pulumi.set(__self__, "image_reference", image_reference)
+            _setter("image_reference", image_reference)
         if logical_sector_size is not None:
-            pulumi.set(__self__, "logical_sector_size", logical_sector_size)
+            _setter("logical_sector_size", logical_sector_size)
         if performance_plus is not None:
-            pulumi.set(__self__, "performance_plus", performance_plus)
+            _setter("performance_plus", performance_plus)
         if security_data_uri is not None:
-            pulumi.set(__self__, "security_data_uri", security_data_uri)
+            _setter("security_data_uri", security_data_uri)
         if source_resource_id is not None:
-            pulumi.set(__self__, "source_resource_id", source_resource_id)
+            _setter("source_resource_id", source_resource_id)
         if source_uri is not None:
-            pulumi.set(__self__, "source_uri", source_uri)
+            _setter("source_uri", source_uri)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if upload_size_bytes is not None:
-            pulumi.set(__self__, "upload_size_bytes", upload_size_bytes)
+            _setter("upload_size_bytes", upload_size_bytes)
 
     @property
     @pulumi.getter(name="createOption")
@@ -262,10 +302,21 @@ class DiskSecurityProfileArgs:
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: ResourceId of the disk encryption set associated to Confidential VM supported disk encrypted with customer managed key
         :param pulumi.Input[Union[str, 'DiskSecurityTypes']] security_type: Specifies the SecurityType of the VM. Applicable for OS disks only.
         """
+        DiskSecurityProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secure_vm_disk_encryption_set_id=secure_vm_disk_encryption_set_id,
+            security_type=security_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             security_type: Optional[pulumi.Input[Union[str, 'DiskSecurityTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if secure_vm_disk_encryption_set_id is not None:
-            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+            _setter("secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
         if security_type is not None:
-            pulumi.set(__self__, "security_type", security_type)
+            _setter("security_type", security_type)
 
     @property
     @pulumi.getter(name="secureVMDiskEncryptionSetId")
@@ -300,8 +351,17 @@ class DiskSkuArgs:
         The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
         :param pulumi.Input[Union[str, 'DiskStorageAccountTypes']] name: The sku name.
         """
+        DiskSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'DiskStorageAccountTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -326,10 +386,21 @@ class EncryptionSetIdentityArgs:
         :param pulumi.Input[Union[str, 'DiskEncryptionSetIdentityType']] type: The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        EncryptionSetIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -368,11 +439,24 @@ class EncryptionSettingsCollectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]] encryption_settings: A collection of encryption settings, one for each disk volume.
         :param pulumi.Input[str] encryption_settings_version: Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        EncryptionSettingsCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            encryption_settings=encryption_settings,
+            encryption_settings_version=encryption_settings_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             encryption_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]]] = None,
+             encryption_settings_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if encryption_settings is not None:
-            pulumi.set(__self__, "encryption_settings", encryption_settings)
+            _setter("encryption_settings", encryption_settings)
         if encryption_settings_version is not None:
-            pulumi.set(__self__, "encryption_settings_version", encryption_settings_version)
+            _setter("encryption_settings_version", encryption_settings_version)
 
     @property
     @pulumi.getter
@@ -421,10 +505,21 @@ class EncryptionSettingsElementArgs:
         :param pulumi.Input['KeyVaultAndSecretReferenceArgs'] disk_encryption_key: Key Vault Secret Url and vault id of the disk encryption key
         :param pulumi.Input['KeyVaultAndKeyReferenceArgs'] key_encryption_key: Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
         """
+        EncryptionSettingsElementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_key=disk_encryption_key,
+            key_encryption_key=key_encryption_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_key: Optional[pulumi.Input['KeyVaultAndSecretReferenceArgs']] = None,
+             key_encryption_key: Optional[pulumi.Input['KeyVaultAndKeyReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_encryption_key is not None:
-            pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
+            _setter("disk_encryption_key", disk_encryption_key)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
@@ -461,10 +556,21 @@ class EncryptionArgs:
         :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
         :param pulumi.Input[Union[str, 'EncryptionType']] type: The type of key used to encrypt the data of the disk.
         """
+        EncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -501,10 +607,21 @@ class ExtendedLocationArgs:
         :param pulumi.Input[str] name: The name of the extended location.
         :param pulumi.Input[Union[str, 'ExtendedLocationTypes']] type: The type of the extended location.
         """
+        ExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -545,14 +662,29 @@ class ImageDiskReferenceArgs:
         :param pulumi.Input[int] lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         :param pulumi.Input[str] shared_gallery_image_id: A relative uri containing a direct shared Azure Compute Gallery image reference.
         """
+        ImageDiskReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            community_gallery_image_id=community_gallery_image_id,
+            id=id,
+            lun=lun,
+            shared_gallery_image_id=shared_gallery_image_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             community_gallery_image_id: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             lun: Optional[pulumi.Input[int]] = None,
+             shared_gallery_image_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if community_gallery_image_id is not None:
-            pulumi.set(__self__, "community_gallery_image_id", community_gallery_image_id)
+            _setter("community_gallery_image_id", community_gallery_image_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if lun is not None:
-            pulumi.set(__self__, "lun", lun)
+            _setter("lun", lun)
         if shared_gallery_image_id is not None:
-            pulumi.set(__self__, "shared_gallery_image_id", shared_gallery_image_id)
+            _setter("shared_gallery_image_id", shared_gallery_image_id)
 
     @property
     @pulumi.getter(name="communityGalleryImageId")
@@ -613,9 +745,20 @@ class KeyForDiskEncryptionSetArgs:
         :param pulumi.Input[str] key_url: Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
         :param pulumi.Input['SourceVaultArgs'] source_vault: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
         """
-        pulumi.set(__self__, "key_url", key_url)
+        KeyForDiskEncryptionSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_url=key_url,
+            source_vault=source_vault,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_url: pulumi.Input[str],
+             source_vault: Optional[pulumi.Input['SourceVaultArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_url", key_url)
         if source_vault is not None:
-            pulumi.set(__self__, "source_vault", source_vault)
+            _setter("source_vault", source_vault)
 
     @property
     @pulumi.getter(name="keyUrl")
@@ -652,8 +795,19 @@ class KeyVaultAndKeyReferenceArgs:
         :param pulumi.Input[str] key_url: Url pointing to a key or secret in KeyVault
         :param pulumi.Input['SourceVaultArgs'] source_vault: Resource id of the KeyVault containing the key or secret
         """
-        pulumi.set(__self__, "key_url", key_url)
-        pulumi.set(__self__, "source_vault", source_vault)
+        KeyVaultAndKeyReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_url=key_url,
+            source_vault=source_vault,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_url: pulumi.Input[str],
+             source_vault: pulumi.Input['SourceVaultArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_url", key_url)
+        _setter("source_vault", source_vault)
 
     @property
     @pulumi.getter(name="keyUrl")
@@ -690,8 +844,19 @@ class KeyVaultAndSecretReferenceArgs:
         :param pulumi.Input[str] secret_url: Url pointing to a key or secret in KeyVault
         :param pulumi.Input['SourceVaultArgs'] source_vault: Resource id of the KeyVault containing the key or secret
         """
-        pulumi.set(__self__, "secret_url", secret_url)
-        pulumi.set(__self__, "source_vault", source_vault)
+        KeyVaultAndSecretReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_url=secret_url,
+            source_vault=source_vault,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_url: pulumi.Input[str],
+             source_vault: pulumi.Input['SourceVaultArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_url", secret_url)
+        _setter("source_vault", source_vault)
 
     @property
     @pulumi.getter(name="secretUrl")
@@ -730,12 +895,25 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -788,11 +966,26 @@ class PurchasePlanArgs:
         :param pulumi.Input[str] publisher: The publisher ID.
         :param pulumi.Input[str] promotion_code: The Offer Promotion Code.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
+        PurchasePlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            promotion_code=promotion_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             product: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             promotion_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
 
     @property
     @pulumi.getter
@@ -851,8 +1044,17 @@ class SnapshotSkuArgs:
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         :param pulumi.Input[Union[str, 'SnapshotStorageAccountTypes']] name: The sku name.
         """
+        SnapshotSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SnapshotStorageAccountTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -875,8 +1077,17 @@ class SourceVaultArgs:
         The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
         :param pulumi.Input[str] id: Resource Id
         """
+        SourceVaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -903,12 +1114,25 @@ class SupportedCapabilitiesArgs:
         :param pulumi.Input[Union[str, 'Architecture']] architecture: CPU architecture supported by an OS disk.
         :param pulumi.Input[str] disk_controller_types: The disk controllers that an OS disk supports. If set it can be SCSI or SCSI, NVME or NVME, SCSI.
         """
+        SupportedCapabilitiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerated_network=accelerated_network,
+            architecture=architecture,
+            disk_controller_types=disk_controller_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerated_network: Optional[pulumi.Input[bool]] = None,
+             architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
+             disk_controller_types: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accelerated_network is not None:
-            pulumi.set(__self__, "accelerated_network", accelerated_network)
+            _setter("accelerated_network", accelerated_network)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if disk_controller_types is not None:
-            pulumi.set(__self__, "disk_controller_types", disk_controller_types)
+            _setter("disk_controller_types", disk_controller_types)
 
     @property
     @pulumi.getter(name="acceleratedNetwork")

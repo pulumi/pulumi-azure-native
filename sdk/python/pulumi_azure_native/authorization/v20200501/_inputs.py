@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -23,8 +23,17 @@ class ManagementLockOwnerArgs:
         Lock owner properties.
         :param pulumi.Input[str] application_id: The application ID of the lock owner.
         """
+        ManagementLockOwnerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -47,10 +56,21 @@ class PrivateLinkAssociationPropertiesArgs:
         """
         :param pulumi.Input[str] private_link: The rmpl Resource ID.
         """
+        PrivateLinkAssociationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link=private_link,
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOptions']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_link is not None:
-            pulumi.set(__self__, "private_link", private_link)
+            _setter("private_link", private_link)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="privateLink")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -33,15 +33,36 @@ class DefaultUserRuleArgs:
         :param pulumi.Input[str] flag: Default rule flag.
         :param pulumi.Input[str] rule_name: The name of the rule.
         """
-        pulumi.set(__self__, "configuration_name", configuration_name)
-        pulumi.set(__self__, "kind", 'Default')
-        pulumi.set(__self__, "network_manager_name", network_manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_collection_name", rule_collection_name)
+        DefaultUserRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_name=configuration_name,
+            kind=kind,
+            network_manager_name=network_manager_name,
+            resource_group_name=resource_group_name,
+            rule_collection_name=rule_collection_name,
+            flag=flag,
+            rule_name=rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_name: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             network_manager_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             rule_collection_name: pulumi.Input[str],
+             flag: Optional[pulumi.Input[str]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_name", configuration_name)
+        _setter("kind", 'Default')
+        _setter("network_manager_name", network_manager_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("rule_collection_name", rule_collection_name)
         if flag is not None:
-            pulumi.set(__self__, "flag", flag)
+            _setter("flag", flag)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -175,6 +196,10 @@ class DefaultUserRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DefaultUserRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

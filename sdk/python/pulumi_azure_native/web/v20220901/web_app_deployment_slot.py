@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['WebAppDeploymentSlotArgs', 'WebAppDeploymentSlot']
@@ -45,31 +45,66 @@ class WebAppDeploymentSlotArgs:
         :param pulumi.Input[str] start_time: Start time.
         :param pulumi.Input[int] status: Deployment status.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "slot", slot)
+        WebAppDeploymentSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            slot=slot,
+            active=active,
+            author=author,
+            author_email=author_email,
+            deployer=deployer,
+            details=details,
+            end_time=end_time,
+            id=id,
+            kind=kind,
+            message=message,
+            start_time=start_time,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             slot: pulumi.Input[str],
+             active: Optional[pulumi.Input[bool]] = None,
+             author: Optional[pulumi.Input[str]] = None,
+             author_email: Optional[pulumi.Input[str]] = None,
+             deployer: Optional[pulumi.Input[str]] = None,
+             details: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("slot", slot)
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if author is not None:
-            pulumi.set(__self__, "author", author)
+            _setter("author", author)
         if author_email is not None:
-            pulumi.set(__self__, "author_email", author_email)
+            _setter("author_email", author_email)
         if deployer is not None:
-            pulumi.set(__self__, "deployer", deployer)
+            _setter("deployer", deployer)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -299,6 +334,10 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppDeploymentSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

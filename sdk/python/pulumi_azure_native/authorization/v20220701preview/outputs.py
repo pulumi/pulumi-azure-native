@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,10 +30,21 @@ class ResourceSelectorResponse(dict):
         :param str name: The name of the resource selector.
         :param Sequence['SelectorResponse'] selectors: The list of the selector expressions.
         """
+        ResourceSelectorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             selectors: Optional[Sequence['outputs.SelectorResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -86,12 +97,25 @@ class SelectorResponse(dict):
         :param str kind: The selector kind.
         :param Sequence[str] not_in: The list of values to filter out.
         """
+        SelectorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_=in_,
+            kind=kind,
+            not_in=not_in,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_: Optional[Sequence[str]] = None,
+             kind: Optional[str] = None,
+             not_in: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if in_ is not None:
-            pulumi.set(__self__, "in_", in_)
+            _setter("in_", in_)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if not_in is not None:
-            pulumi.set(__self__, "not_in", not_in)
+            _setter("not_in", not_in)
 
     @property
     @pulumi.getter(name="in")
@@ -166,18 +190,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

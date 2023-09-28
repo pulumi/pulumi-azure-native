@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,12 +28,25 @@ class ConnectionStateArgs:
         :param pulumi.Input[str] description: Description of the connection state.
         :param pulumi.Input[Union[str, 'PersistedConnectionStatus']] status: Status of the connection.
         """
+        ConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PersistedConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -83,12 +96,25 @@ class PrivateEndpointConnectionArgs:
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Specifies the connection state.
         :param pulumi.Input[Union[str, 'ResourceProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
         """
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -134,8 +160,17 @@ class PrivateEndpointArgs:
         """
         :param pulumi.Input[str] id: Specifies the id of private endpoint.
         """
+        PrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter

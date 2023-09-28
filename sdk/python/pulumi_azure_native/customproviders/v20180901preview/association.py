@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['AssociationArgs', 'Association']
@@ -23,11 +23,24 @@ class AssociationArgs:
         :param pulumi.Input[str] association_name: The name of the association.
         :param pulumi.Input[str] target_resource_id: The REST resource instance of the target resource for this association.
         """
-        pulumi.set(__self__, "scope", scope)
+        AssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            association_name=association_name,
+            target_resource_id=target_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             association_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scope", scope)
         if association_name is not None:
-            pulumi.set(__self__, "association_name", association_name)
+            _setter("association_name", association_name)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter
@@ -103,6 +116,10 @@ class Association(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

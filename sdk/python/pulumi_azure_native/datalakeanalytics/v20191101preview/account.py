@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,51 +54,92 @@ class AccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AddStorageAccountWithAccountParametersArgs']]] storage_accounts: The list of Azure Blob Storage accounts associated with this account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "data_lake_store_accounts", data_lake_store_accounts)
-        pulumi.set(__self__, "default_data_lake_store_account", default_data_lake_store_account)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_lake_store_accounts=data_lake_store_accounts,
+            default_data_lake_store_account=default_data_lake_store_account,
+            resource_group_name=resource_group_name,
+            account_name=account_name,
+            compute_policies=compute_policies,
+            firewall_allow_azure_ips=firewall_allow_azure_ips,
+            firewall_rules=firewall_rules,
+            firewall_state=firewall_state,
+            location=location,
+            max_degree_of_parallelism=max_degree_of_parallelism,
+            max_degree_of_parallelism_per_job=max_degree_of_parallelism_per_job,
+            max_job_count=max_job_count,
+            min_priority_per_job=min_priority_per_job,
+            new_tier=new_tier,
+            query_store_retention=query_store_retention,
+            storage_accounts=storage_accounts,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_lake_store_accounts: pulumi.Input[Sequence[pulumi.Input['AddDataLakeStoreWithAccountParametersArgs']]],
+             default_data_lake_store_account: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CreateComputePolicyWithAccountParametersArgs']]]] = None,
+             firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
+             firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]] = None,
+             firewall_state: Optional[pulumi.Input['FirewallState']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_degree_of_parallelism: Optional[pulumi.Input[int]] = None,
+             max_degree_of_parallelism_per_job: Optional[pulumi.Input[int]] = None,
+             max_job_count: Optional[pulumi.Input[int]] = None,
+             min_priority_per_job: Optional[pulumi.Input[int]] = None,
+             new_tier: Optional[pulumi.Input['TierType']] = None,
+             query_store_retention: Optional[pulumi.Input[int]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AddStorageAccountWithAccountParametersArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_lake_store_accounts", data_lake_store_accounts)
+        _setter("default_data_lake_store_account", default_data_lake_store_account)
+        _setter("resource_group_name", resource_group_name)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if compute_policies is not None:
-            pulumi.set(__self__, "compute_policies", compute_policies)
+            _setter("compute_policies", compute_policies)
         if firewall_allow_azure_ips is None:
             firewall_allow_azure_ips = 'Disabled'
         if firewall_allow_azure_ips is not None:
-            pulumi.set(__self__, "firewall_allow_azure_ips", firewall_allow_azure_ips)
+            _setter("firewall_allow_azure_ips", firewall_allow_azure_ips)
         if firewall_rules is not None:
-            pulumi.set(__self__, "firewall_rules", firewall_rules)
+            _setter("firewall_rules", firewall_rules)
         if firewall_state is None:
             firewall_state = 'Disabled'
         if firewall_state is not None:
-            pulumi.set(__self__, "firewall_state", firewall_state)
+            _setter("firewall_state", firewall_state)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_degree_of_parallelism is None:
             max_degree_of_parallelism = 30
         if max_degree_of_parallelism is not None:
-            pulumi.set(__self__, "max_degree_of_parallelism", max_degree_of_parallelism)
+            _setter("max_degree_of_parallelism", max_degree_of_parallelism)
         if max_degree_of_parallelism_per_job is None:
             max_degree_of_parallelism_per_job = 32
         if max_degree_of_parallelism_per_job is not None:
-            pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
+            _setter("max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
         if max_job_count is None:
             max_job_count = 3
         if max_job_count is not None:
-            pulumi.set(__self__, "max_job_count", max_job_count)
+            _setter("max_job_count", max_job_count)
         if min_priority_per_job is not None:
-            pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
+            _setter("min_priority_per_job", min_priority_per_job)
         if new_tier is None:
             new_tier = 'Consumption'
         if new_tier is not None:
-            pulumi.set(__self__, "new_tier", new_tier)
+            _setter("new_tier", new_tier)
         if query_store_retention is None:
             query_store_retention = 30
         if query_store_retention is not None:
-            pulumi.set(__self__, "query_store_retention", query_store_retention)
+            _setter("query_store_retention", query_store_retention)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dataLakeStoreAccounts")
@@ -370,6 +411,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

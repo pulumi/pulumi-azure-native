@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,18 +32,37 @@ class NamespaceTopicArgs:
         :param pulumi.Input[Union[str, 'PublisherType']] publisher_type: Publisher type of the namespace topic.
         :param pulumi.Input[str] topic_name: Name of the namespace topic.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NamespaceTopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            event_retention_in_days=event_retention_in_days,
+            input_schema=input_schema,
+            publisher_type=publisher_type,
+            topic_name=topic_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             event_retention_in_days: Optional[pulumi.Input[int]] = None,
+             input_schema: Optional[pulumi.Input[Union[str, 'EventInputSchema']]] = None,
+             publisher_type: Optional[pulumi.Input[Union[str, 'PublisherType']]] = None,
+             topic_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if event_retention_in_days is not None:
-            pulumi.set(__self__, "event_retention_in_days", event_retention_in_days)
+            _setter("event_retention_in_days", event_retention_in_days)
         if input_schema is None:
             input_schema = 'CloudEventSchemaV1_0'
         if input_schema is not None:
-            pulumi.set(__self__, "input_schema", input_schema)
+            _setter("input_schema", input_schema)
         if publisher_type is not None:
-            pulumi.set(__self__, "publisher_type", publisher_type)
+            _setter("publisher_type", publisher_type)
         if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
+            _setter("topic_name", topic_name)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -165,6 +184,10 @@ class NamespaceTopic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceTopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

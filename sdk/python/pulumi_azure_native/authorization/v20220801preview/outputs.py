@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -43,7 +43,16 @@ class PolicyVariableColumnResponse(dict):
         The variable column.
         :param str column_name: The name of this policy variable column.
         """
-        pulumi.set(__self__, "column_name", column_name)
+        PolicyVariableColumnResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
 
     @property
     @pulumi.getter(name="columnName")
@@ -86,8 +95,19 @@ class PolicyVariableValueColumnValueResponse(dict):
         :param str column_name: Column name for the variable value
         :param Any column_value: Column value for the variable value; this can be an integer, double, boolean, null or a string.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "column_value", column_value)
+        PolicyVariableValueColumnValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            column_value=column_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             column_value: Any,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("column_value", column_value)
 
     @property
     @pulumi.getter(name="columnName")
@@ -154,18 +174,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

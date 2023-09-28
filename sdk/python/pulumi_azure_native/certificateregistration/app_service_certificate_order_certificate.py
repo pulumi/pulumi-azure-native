@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AppServiceCertificateOrderCertificateArgs', 'AppServiceCertificateOrderCertificate']
@@ -33,20 +33,43 @@ class AppServiceCertificateOrderCertificateArgs:
         :param pulumi.Input[str] name: Name of the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "certificate_order_name", certificate_order_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AppServiceCertificateOrderCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_order_name=certificate_order_name,
+            resource_group_name=resource_group_name,
+            key_vault_id=key_vault_id,
+            key_vault_secret_name=key_vault_secret_name,
+            kind=kind,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_order_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             key_vault_secret_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_order_name", certificate_order_name)
+        _setter("resource_group_name", resource_group_name)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_secret_name is not None:
-            pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+            _setter("key_vault_secret_name", key_vault_secret_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="certificateOrderName")
@@ -194,6 +217,10 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppServiceCertificateOrderCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

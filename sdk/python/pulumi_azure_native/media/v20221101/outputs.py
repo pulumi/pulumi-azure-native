@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -69,8 +69,17 @@ class AkamaiAccessControlResponse(dict):
         Akamai access control
         :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponse'] akamai_signature_header_authentication_key_list: authentication key list
         """
+        AkamaiAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            akamai_signature_header_authentication_key_list=akamai_signature_header_authentication_key_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if akamai_signature_header_authentication_key_list is not None:
-            pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
+            _setter("akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
 
     @property
     @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeyList")
@@ -113,12 +122,25 @@ class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
         :param str expiration: The expiration time of the authentication key.
         :param str identifier: identifier of the key
         """
+        AkamaiSignatureHeaderAuthenticationKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base64_key=base64_key,
+            expiration=expiration,
+            identifier=identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base64_key: Optional[str] = None,
+             expiration: Optional[str] = None,
+             identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base64_key is not None:
-            pulumi.set(__self__, "base64_key", base64_key)
+            _setter("base64_key", base64_key)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
 
     @property
     @pulumi.getter(name="base64Key")
@@ -158,9 +180,20 @@ class ArmStreamingEndpointCurrentSkuResponse(dict):
         :param str name: The streaming endpoint sku name.
         :param int capacity: The streaming endpoint sku capacity.
         """
-        pulumi.set(__self__, "name", name)
+        ArmStreamingEndpointCurrentSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -211,10 +244,21 @@ class CrossSiteAccessPoliciesResponse(dict):
         :param str client_access_policy: The content of clientaccesspolicy.xml used by Silverlight.
         :param str cross_domain_policy: The content of crossdomain.xml used by Silverlight.
         """
+        CrossSiteAccessPoliciesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_access_policy=client_access_policy,
+            cross_domain_policy=cross_domain_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_access_policy: Optional[str] = None,
+             cross_domain_policy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_access_policy is not None:
-            pulumi.set(__self__, "client_access_policy", client_access_policy)
+            _setter("client_access_policy", client_access_policy)
         if cross_domain_policy is not None:
-            pulumi.set(__self__, "cross_domain_policy", cross_domain_policy)
+            _setter("cross_domain_policy", cross_domain_policy)
 
     @property
     @pulumi.getter(name="clientAccessPolicy")
@@ -261,8 +305,17 @@ class HlsResponse(dict):
         HTTP Live Streaming (HLS) packing setting for the live output.
         :param int fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
         """
+        HlsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fragments_per_ts_segment=fragments_per_ts_segment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fragments_per_ts_segment: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fragments_per_ts_segment is not None:
-            pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
+            _setter("fragments_per_ts_segment", fragments_per_ts_segment)
 
     @property
     @pulumi.getter(name="fragmentsPerTsSegment")
@@ -284,8 +337,17 @@ class IPAccessControlResponse(dict):
         The IP access control.
         :param Sequence['IPRangeResponse'] allow: The IP allow list.
         """
+        IPAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional[Sequence['outputs.IPRangeResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
 
     @property
     @pulumi.getter
@@ -328,12 +390,25 @@ class IPRangeResponse(dict):
         :param str name: The friendly name for the IP address range.
         :param int subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
         """
+        IPRangeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            name=name,
+            subnet_prefix_length=subnet_prefix_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             name: Optional[str] = None,
+             subnet_prefix_length: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet_prefix_length is not None:
-            pulumi.set(__self__, "subnet_prefix_length", subnet_prefix_length)
+            _setter("subnet_prefix_length", subnet_prefix_length)
 
     @property
     @pulumi.getter
@@ -400,14 +475,29 @@ class LiveEventEncodingResponse(dict):
         :param str preset_name: The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
         :param str stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
         """
+        LiveEventEncodingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoding_type=encoding_type,
+            key_frame_interval=key_frame_interval,
+            preset_name=preset_name,
+            stretch_mode=stretch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoding_type: Optional[str] = None,
+             key_frame_interval: Optional[str] = None,
+             preset_name: Optional[str] = None,
+             stretch_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if preset_name is not None:
-            pulumi.set(__self__, "preset_name", preset_name)
+            _setter("preset_name", preset_name)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
 
     @property
     @pulumi.getter(name="encodingType")
@@ -455,10 +545,21 @@ class LiveEventEndpointResponse(dict):
         :param str protocol: The endpoint protocol.
         :param str url: The endpoint URL.
         """
+        LiveEventEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -494,14 +595,29 @@ class LiveEventIngestInterruptionResponse(dict):
         :param str end: UTC time of interruption end, encoder re-connected.
         :param str reason: Interruption reason.
         """
+        LiveEventIngestInterruptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin=begin,
+            duration=duration,
+            end=end,
+            reason=reason,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin: Optional[str] = None,
+             duration: Optional[str] = None,
+             end: Optional[str] = None,
+             reason: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if begin is not None:
-            pulumi.set(__self__, "begin", begin)
+            _setter("begin", begin)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if reason is not None:
-            pulumi.set(__self__, "reason", reason)
+            _setter("reason", reason)
 
     @property
     @pulumi.getter
@@ -555,16 +671,33 @@ class LiveEventIngestionResponse(dict):
         :param Sequence['LiveEventIngestInterruptionResponse'] ingest_interruptions: IngestInterruption entry list.
         :param str stream_name: Ingestion stream name.
         """
+        LiveEventIngestionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin=begin,
+            end=end,
+            end_reason=end_reason,
+            ingest_interruptions=ingest_interruptions,
+            stream_name=stream_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin: Optional[str] = None,
+             end: Optional[str] = None,
+             end_reason: Optional[str] = None,
+             ingest_interruptions: Optional[Sequence['outputs.LiveEventIngestInterruptionResponse']] = None,
+             stream_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if begin is not None:
-            pulumi.set(__self__, "begin", begin)
+            _setter("begin", begin)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if end_reason is not None:
-            pulumi.set(__self__, "end_reason", end_reason)
+            _setter("end_reason", end_reason)
         if ingest_interruptions is not None:
-            pulumi.set(__self__, "ingest_interruptions", ingest_interruptions)
+            _setter("ingest_interruptions", ingest_interruptions)
         if stream_name is not None:
-            pulumi.set(__self__, "stream_name", stream_name)
+            _setter("stream_name", stream_name)
 
     @property
     @pulumi.getter
@@ -618,8 +751,17 @@ class LiveEventInputAccessControlResponse(dict):
         The IP access control for live event input.
         :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
+        LiveEventInputAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional['outputs.IPAccessControlResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -676,17 +818,36 @@ class LiveEventInputResponse(dict):
         :param str key_frame_interval_duration: ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
         :param Sequence['LiveEventTimedMetadataEndpointResponse'] timed_metadata_endpoints: The metadata endpoints for the live event.
         """
-        pulumi.set(__self__, "streaming_protocol", streaming_protocol)
+        LiveEventInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            streaming_protocol=streaming_protocol,
+            access_control=access_control,
+            access_token=access_token,
+            endpoints=endpoints,
+            key_frame_interval_duration=key_frame_interval_duration,
+            timed_metadata_endpoints=timed_metadata_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             streaming_protocol: str,
+             access_control: Optional['outputs.LiveEventInputAccessControlResponse'] = None,
+             access_token: Optional[str] = None,
+             endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
+             key_frame_interval_duration: Optional[str] = None,
+             timed_metadata_endpoints: Optional[Sequence['outputs.LiveEventTimedMetadataEndpointResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("streaming_protocol", streaming_protocol)
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if key_frame_interval_duration is not None:
-            pulumi.set(__self__, "key_frame_interval_duration", key_frame_interval_duration)
+            _setter("key_frame_interval_duration", key_frame_interval_duration)
         if timed_metadata_endpoints is not None:
-            pulumi.set(__self__, "timed_metadata_endpoints", timed_metadata_endpoints)
+            _setter("timed_metadata_endpoints", timed_metadata_endpoints)
 
     @property
     @pulumi.getter(name="streamingProtocol")
@@ -752,12 +913,25 @@ class LiveEventInputTrackSelectionResponse(dict):
         :param str property: Property name to select. This property is reserved for future use, any value set on this property will be ignored.
         :param str value: Property value to select. This property is reserved for future use, any value set on this property will be ignored.
         """
+        LiveEventInputTrackSelectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            property=property,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: Optional[str] = None,
+             property: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
         if property is not None:
-            pulumi.set(__self__, "property", property)
+            _setter("property", property)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -812,7 +986,16 @@ class LiveEventOutputTranscriptionTrackResponse(dict):
         Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
         :param str track_name: The output track name. This property is reserved for future use, any value set on this property will be ignored.
         """
-        pulumi.set(__self__, "track_name", track_name)
+        LiveEventOutputTranscriptionTrackResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            track_name=track_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             track_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("track_name", track_name)
 
     @property
     @pulumi.getter(name="trackName")
@@ -834,8 +1017,17 @@ class LiveEventPreviewAccessControlResponse(dict):
         The IP access control for the live event preview endpoint.
         :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
+        LiveEventPreviewAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional['outputs.IPAccessControlResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -888,16 +1080,33 @@ class LiveEventPreviewResponse(dict):
         :param str preview_locator: The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
         :param str streaming_policy_name: The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
         """
+        LiveEventPreviewResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control=access_control,
+            alternative_media_id=alternative_media_id,
+            endpoints=endpoints,
+            preview_locator=preview_locator,
+            streaming_policy_name=streaming_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control: Optional['outputs.LiveEventPreviewAccessControlResponse'] = None,
+             alternative_media_id: Optional[str] = None,
+             endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
+             preview_locator: Optional[str] = None,
+             streaming_policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if alternative_media_id is not None:
-            pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+            _setter("alternative_media_id", alternative_media_id)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if preview_locator is not None:
-            pulumi.set(__self__, "preview_locator", preview_locator)
+            _setter("preview_locator", preview_locator)
         if streaming_policy_name is not None:
-            pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+            _setter("streaming_policy_name", streaming_policy_name)
 
     @property
     @pulumi.getter(name="accessControl")
@@ -961,18 +1170,37 @@ class LiveEventStatusResponse(dict):
         :param str state: Current state of the live event. See https://go.microsoft.com/fwlink/?linkid=2139012 for more information.
         :param Sequence['LiveEventTrackStatusResponse'] track_status: Track entry list.
         """
+        LiveEventStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_descriptions=health_descriptions,
+            health_status=health_status,
+            ingestion=ingestion,
+            last_updated_time=last_updated_time,
+            state=state,
+            track_status=track_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_descriptions: Optional[Sequence[str]] = None,
+             health_status: Optional[str] = None,
+             ingestion: Optional['outputs.LiveEventIngestionResponse'] = None,
+             last_updated_time: Optional[str] = None,
+             state: Optional[str] = None,
+             track_status: Optional[Sequence['outputs.LiveEventTrackStatusResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if health_descriptions is not None:
-            pulumi.set(__self__, "health_descriptions", health_descriptions)
+            _setter("health_descriptions", health_descriptions)
         if health_status is not None:
-            pulumi.set(__self__, "health_status", health_status)
+            _setter("health_status", health_status)
         if ingestion is not None:
-            pulumi.set(__self__, "ingestion", ingestion)
+            _setter("ingestion", ingestion)
         if last_updated_time is not None:
-            pulumi.set(__self__, "last_updated_time", last_updated_time)
+            _setter("last_updated_time", last_updated_time)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if track_status is not None:
-            pulumi.set(__self__, "track_status", track_status)
+            _setter("track_status", track_status)
 
     @property
     @pulumi.getter(name="healthDescriptions")
@@ -1090,64 +1318,129 @@ class LiveEventStreamEventDataResponse(dict):
         :param int track_id: Track index.
         :param str track_name: Name of the track. 
         """
+        LiveEventStreamEventDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+            current_fragment_timestamp=current_fragment_timestamp,
+            discontinuity_gap=discontinuity_gap,
+            duration=duration,
+            fragment_drop_reason=fragment_drop_reason,
+            fragment_one_duration=fragment_one_duration,
+            fragment_one_timestamp=fragment_one_timestamp,
+            fragment_two_duration=fragment_two_duration,
+            fragment_two_timestamp=fragment_two_timestamp,
+            max_time=max_time,
+            max_time_media_type=max_time_media_type,
+            media_timestamp=media_timestamp,
+            media_type=media_type,
+            min_time=min_time,
+            min_time_media_type=min_time_media_type,
+            previous_fragment_duration=previous_fragment_duration,
+            previous_fragment_timestamp=previous_fragment_timestamp,
+            remote_ip=remote_ip,
+            remote_port=remote_port,
+            resolution=resolution,
+            result_code=result_code,
+            result_message=result_message,
+            stream_id=stream_id,
+            stream_name=stream_name,
+            timescale=timescale,
+            timescale_of_max_time=timescale_of_max_time,
+            timescale_of_min_time=timescale_of_min_time,
+            track_id=track_id,
+            track_name=track_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: Optional[float] = None,
+             current_fragment_timestamp: Optional[str] = None,
+             discontinuity_gap: Optional[float] = None,
+             duration: Optional[str] = None,
+             fragment_drop_reason: Optional[str] = None,
+             fragment_one_duration: Optional[str] = None,
+             fragment_one_timestamp: Optional[str] = None,
+             fragment_two_duration: Optional[str] = None,
+             fragment_two_timestamp: Optional[str] = None,
+             max_time: Optional[str] = None,
+             max_time_media_type: Optional[str] = None,
+             media_timestamp: Optional[str] = None,
+             media_type: Optional[str] = None,
+             min_time: Optional[str] = None,
+             min_time_media_type: Optional[str] = None,
+             previous_fragment_duration: Optional[str] = None,
+             previous_fragment_timestamp: Optional[str] = None,
+             remote_ip: Optional[str] = None,
+             remote_port: Optional[str] = None,
+             resolution: Optional[str] = None,
+             result_code: Optional[str] = None,
+             result_message: Optional[str] = None,
+             stream_id: Optional[str] = None,
+             stream_name: Optional[str] = None,
+             timescale: Optional[str] = None,
+             timescale_of_max_time: Optional[str] = None,
+             timescale_of_min_time: Optional[str] = None,
+             track_id: Optional[int] = None,
+             track_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if current_fragment_timestamp is not None:
-            pulumi.set(__self__, "current_fragment_timestamp", current_fragment_timestamp)
+            _setter("current_fragment_timestamp", current_fragment_timestamp)
         if discontinuity_gap is not None:
-            pulumi.set(__self__, "discontinuity_gap", discontinuity_gap)
+            _setter("discontinuity_gap", discontinuity_gap)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if fragment_drop_reason is not None:
-            pulumi.set(__self__, "fragment_drop_reason", fragment_drop_reason)
+            _setter("fragment_drop_reason", fragment_drop_reason)
         if fragment_one_duration is not None:
-            pulumi.set(__self__, "fragment_one_duration", fragment_one_duration)
+            _setter("fragment_one_duration", fragment_one_duration)
         if fragment_one_timestamp is not None:
-            pulumi.set(__self__, "fragment_one_timestamp", fragment_one_timestamp)
+            _setter("fragment_one_timestamp", fragment_one_timestamp)
         if fragment_two_duration is not None:
-            pulumi.set(__self__, "fragment_two_duration", fragment_two_duration)
+            _setter("fragment_two_duration", fragment_two_duration)
         if fragment_two_timestamp is not None:
-            pulumi.set(__self__, "fragment_two_timestamp", fragment_two_timestamp)
+            _setter("fragment_two_timestamp", fragment_two_timestamp)
         if max_time is not None:
-            pulumi.set(__self__, "max_time", max_time)
+            _setter("max_time", max_time)
         if max_time_media_type is not None:
-            pulumi.set(__self__, "max_time_media_type", max_time_media_type)
+            _setter("max_time_media_type", max_time_media_type)
         if media_timestamp is not None:
-            pulumi.set(__self__, "media_timestamp", media_timestamp)
+            _setter("media_timestamp", media_timestamp)
         if media_type is not None:
-            pulumi.set(__self__, "media_type", media_type)
+            _setter("media_type", media_type)
         if min_time is not None:
-            pulumi.set(__self__, "min_time", min_time)
+            _setter("min_time", min_time)
         if min_time_media_type is not None:
-            pulumi.set(__self__, "min_time_media_type", min_time_media_type)
+            _setter("min_time_media_type", min_time_media_type)
         if previous_fragment_duration is not None:
-            pulumi.set(__self__, "previous_fragment_duration", previous_fragment_duration)
+            _setter("previous_fragment_duration", previous_fragment_duration)
         if previous_fragment_timestamp is not None:
-            pulumi.set(__self__, "previous_fragment_timestamp", previous_fragment_timestamp)
+            _setter("previous_fragment_timestamp", previous_fragment_timestamp)
         if remote_ip is not None:
-            pulumi.set(__self__, "remote_ip", remote_ip)
+            _setter("remote_ip", remote_ip)
         if remote_port is not None:
-            pulumi.set(__self__, "remote_port", remote_port)
+            _setter("remote_port", remote_port)
         if resolution is not None:
-            pulumi.set(__self__, "resolution", resolution)
+            _setter("resolution", resolution)
         if result_code is not None:
-            pulumi.set(__self__, "result_code", result_code)
+            _setter("result_code", result_code)
         if result_message is not None:
-            pulumi.set(__self__, "result_message", result_message)
+            _setter("result_message", result_message)
         if stream_id is not None:
-            pulumi.set(__self__, "stream_id", stream_id)
+            _setter("stream_id", stream_id)
         if stream_name is not None:
-            pulumi.set(__self__, "stream_name", stream_name)
+            _setter("stream_name", stream_name)
         if timescale is not None:
-            pulumi.set(__self__, "timescale", timescale)
+            _setter("timescale", timescale)
         if timescale_of_max_time is not None:
-            pulumi.set(__self__, "timescale_of_max_time", timescale_of_max_time)
+            _setter("timescale_of_max_time", timescale_of_max_time)
         if timescale_of_min_time is not None:
-            pulumi.set(__self__, "timescale_of_min_time", timescale_of_min_time)
+            _setter("timescale_of_min_time", timescale_of_min_time)
         if track_id is not None:
-            pulumi.set(__self__, "track_id", track_id)
+            _setter("track_id", track_id)
         if track_name is not None:
-            pulumi.set(__self__, "track_name", track_name)
+            _setter("track_name", track_name)
 
     @property
     @pulumi.getter
@@ -1399,14 +1692,29 @@ class LiveEventStreamEventResponse(dict):
         :param str event_time: The time event raised.
         :param str event_type: The type of the stream event. Format: StreamEvent/{eventType}
         """
+        LiveEventStreamEventResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data=data,
+            event_level=event_level,
+            event_time=event_time,
+            event_type=event_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data: Optional['outputs.LiveEventStreamEventDataResponse'] = None,
+             event_level: Optional[str] = None,
+             event_time: Optional[str] = None,
+             event_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
         if event_level is not None:
-            pulumi.set(__self__, "event_level", event_level)
+            _setter("event_level", event_level)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
 
     @property
     @pulumi.getter
@@ -1452,8 +1760,17 @@ class LiveEventTimedMetadataEndpointResponse(dict):
         The live event metadata insertion endpoint.
         :param str url: The metadata endpoint URL.
         """
+        LiveEventTimedMetadataEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1505,38 +1822,77 @@ class LiveEventTrackEventDataResponse(dict):
         :param str transcription_state: This value is "On" for audio track heartbeats if live transcription is turned on, otherwise you will see an empty string. This state is only applicable to track type of "audio" for Live transcription. All other tracks will have an empty value.
         :param bool unexpected_bitrate: If expected and actual bitrates differ by more than allowed limit in last 20 seconds.
         """
+        LiveEventTrackEventDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+            discontinuity_count=discontinuity_count,
+            healthy=healthy,
+            incoming_bitrate=incoming_bitrate,
+            ingest_drift_value=ingest_drift_value,
+            last_fragment_arrival_time=last_fragment_arrival_time,
+            last_timestamp=last_timestamp,
+            nonincreasing_count=nonincreasing_count,
+            overlap_count=overlap_count,
+            state=state,
+            timescale=timescale,
+            track_name=track_name,
+            track_type=track_type,
+            transcription_language=transcription_language,
+            transcription_state=transcription_state,
+            unexpected_bitrate=unexpected_bitrate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: Optional[float] = None,
+             discontinuity_count: Optional[float] = None,
+             healthy: Optional[bool] = None,
+             incoming_bitrate: Optional[float] = None,
+             ingest_drift_value: Optional[str] = None,
+             last_fragment_arrival_time: Optional[str] = None,
+             last_timestamp: Optional[str] = None,
+             nonincreasing_count: Optional[float] = None,
+             overlap_count: Optional[float] = None,
+             state: Optional[str] = None,
+             timescale: Optional[str] = None,
+             track_name: Optional[str] = None,
+             track_type: Optional[str] = None,
+             transcription_language: Optional[str] = None,
+             transcription_state: Optional[str] = None,
+             unexpected_bitrate: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if discontinuity_count is not None:
-            pulumi.set(__self__, "discontinuity_count", discontinuity_count)
+            _setter("discontinuity_count", discontinuity_count)
         if healthy is not None:
-            pulumi.set(__self__, "healthy", healthy)
+            _setter("healthy", healthy)
         if incoming_bitrate is not None:
-            pulumi.set(__self__, "incoming_bitrate", incoming_bitrate)
+            _setter("incoming_bitrate", incoming_bitrate)
         if ingest_drift_value is not None:
-            pulumi.set(__self__, "ingest_drift_value", ingest_drift_value)
+            _setter("ingest_drift_value", ingest_drift_value)
         if last_fragment_arrival_time is not None:
-            pulumi.set(__self__, "last_fragment_arrival_time", last_fragment_arrival_time)
+            _setter("last_fragment_arrival_time", last_fragment_arrival_time)
         if last_timestamp is not None:
-            pulumi.set(__self__, "last_timestamp", last_timestamp)
+            _setter("last_timestamp", last_timestamp)
         if nonincreasing_count is not None:
-            pulumi.set(__self__, "nonincreasing_count", nonincreasing_count)
+            _setter("nonincreasing_count", nonincreasing_count)
         if overlap_count is not None:
-            pulumi.set(__self__, "overlap_count", overlap_count)
+            _setter("overlap_count", overlap_count)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if timescale is not None:
-            pulumi.set(__self__, "timescale", timescale)
+            _setter("timescale", timescale)
         if track_name is not None:
-            pulumi.set(__self__, "track_name", track_name)
+            _setter("track_name", track_name)
         if track_type is not None:
-            pulumi.set(__self__, "track_type", track_type)
+            _setter("track_type", track_type)
         if transcription_language is not None:
-            pulumi.set(__self__, "transcription_language", transcription_language)
+            _setter("transcription_language", transcription_language)
         if transcription_state is not None:
-            pulumi.set(__self__, "transcription_state", transcription_state)
+            _setter("transcription_state", transcription_state)
         if unexpected_bitrate is not None:
-            pulumi.set(__self__, "unexpected_bitrate", unexpected_bitrate)
+            _setter("unexpected_bitrate", unexpected_bitrate)
 
     @property
     @pulumi.getter
@@ -1682,12 +2038,25 @@ class LiveEventTrackEventResponse(dict):
         :param str event_time: The time event raised.
         :param str event_type: The type of the track event.
         """
+        LiveEventTrackEventResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data=data,
+            event_time=event_time,
+            event_type=event_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data: Optional['outputs.LiveEventTrackEventDataResponse'] = None,
+             event_time: Optional[str] = None,
+             event_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
 
     @property
     @pulumi.getter
@@ -1735,18 +2104,37 @@ class LiveEventTrackStatusResponse(dict):
         :param float request_succeeded: Total number of successful timed metadata request received.
         :param str track_id: Track Id.
         """
+        LiveEventTrackStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expected_bitrate=expected_bitrate,
+            incoming_bitrate=incoming_bitrate,
+            ingest_drift=ingest_drift,
+            request_received=request_received,
+            request_succeeded=request_succeeded,
+            track_id=track_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expected_bitrate: Optional[float] = None,
+             incoming_bitrate: Optional[float] = None,
+             ingest_drift: Optional[str] = None,
+             request_received: Optional[float] = None,
+             request_succeeded: Optional[float] = None,
+             track_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expected_bitrate is not None:
-            pulumi.set(__self__, "expected_bitrate", expected_bitrate)
+            _setter("expected_bitrate", expected_bitrate)
         if incoming_bitrate is not None:
-            pulumi.set(__self__, "incoming_bitrate", incoming_bitrate)
+            _setter("incoming_bitrate", incoming_bitrate)
         if ingest_drift is not None:
-            pulumi.set(__self__, "ingest_drift", ingest_drift)
+            _setter("ingest_drift", ingest_drift)
         if request_received is not None:
-            pulumi.set(__self__, "request_received", request_received)
+            _setter("request_received", request_received)
         if request_succeeded is not None:
-            pulumi.set(__self__, "request_succeeded", request_succeeded)
+            _setter("request_succeeded", request_succeeded)
         if track_id is not None:
-            pulumi.set(__self__, "track_id", track_id)
+            _setter("track_id", track_id)
 
     @property
     @pulumi.getter(name="expectedBitrate")
@@ -1831,12 +2219,25 @@ class LiveEventTranscriptionResponse(dict):
         :param str language: Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
         :param 'LiveEventOutputTranscriptionTrackResponse' output_transcription_track: Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
         """
+        LiveEventTranscriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_track_selection=input_track_selection,
+            language=language,
+            output_transcription_track=output_transcription_track,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_track_selection: Optional[Sequence['outputs.LiveEventInputTrackSelectionResponse']] = None,
+             language: Optional[str] = None,
+             output_transcription_track: Optional['outputs.LiveEventOutputTranscriptionTrackResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if input_track_selection is not None:
-            pulumi.set(__self__, "input_track_selection", input_track_selection)
+            _setter("input_track_selection", input_track_selection)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if output_transcription_track is not None:
-            pulumi.set(__self__, "output_transcription_track", output_transcription_track)
+            _setter("output_transcription_track", output_transcription_track)
 
     @property
     @pulumi.getter(name="inputTrackSelection")
@@ -1876,10 +2277,21 @@ class StreamingEndpointAccessControlResponse(dict):
         :param 'AkamaiAccessControlResponse' akamai: The access control of Akamai
         :param 'IPAccessControlResponse' ip: The IP access control of the streaming endpoint.
         """
+        StreamingEndpointAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            akamai=akamai,
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             akamai: Optional['outputs.AkamaiAccessControlResponse'] = None,
+             ip: Optional['outputs.IPAccessControlResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if akamai is not None:
-            pulumi.set(__self__, "akamai", akamai)
+            _setter("akamai", akamai)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -1946,18 +2358,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

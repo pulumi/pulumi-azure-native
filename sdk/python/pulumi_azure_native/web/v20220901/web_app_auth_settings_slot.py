@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -154,87 +154,178 @@ class WebAppAuthSettingsSlotArgs:
         :param pulumi.Input['UnauthenticatedClientAction'] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app.
         :param pulumi.Input[bool] validate_issuer: Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "slot", slot)
+        WebAppAuthSettingsSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            slot=slot,
+            aad_claims_authorization=aad_claims_authorization,
+            additional_login_params=additional_login_params,
+            allowed_audiences=allowed_audiences,
+            allowed_external_redirect_urls=allowed_external_redirect_urls,
+            auth_file_path=auth_file_path,
+            client_id=client_id,
+            client_secret=client_secret,
+            client_secret_certificate_thumbprint=client_secret_certificate_thumbprint,
+            client_secret_setting_name=client_secret_setting_name,
+            config_version=config_version,
+            default_provider=default_provider,
+            enabled=enabled,
+            facebook_app_id=facebook_app_id,
+            facebook_app_secret=facebook_app_secret,
+            facebook_app_secret_setting_name=facebook_app_secret_setting_name,
+            facebook_o_auth_scopes=facebook_o_auth_scopes,
+            git_hub_client_id=git_hub_client_id,
+            git_hub_client_secret=git_hub_client_secret,
+            git_hub_client_secret_setting_name=git_hub_client_secret_setting_name,
+            git_hub_o_auth_scopes=git_hub_o_auth_scopes,
+            google_client_id=google_client_id,
+            google_client_secret=google_client_secret,
+            google_client_secret_setting_name=google_client_secret_setting_name,
+            google_o_auth_scopes=google_o_auth_scopes,
+            is_auth_from_file=is_auth_from_file,
+            issuer=issuer,
+            kind=kind,
+            microsoft_account_client_id=microsoft_account_client_id,
+            microsoft_account_client_secret=microsoft_account_client_secret,
+            microsoft_account_client_secret_setting_name=microsoft_account_client_secret_setting_name,
+            microsoft_account_o_auth_scopes=microsoft_account_o_auth_scopes,
+            runtime_version=runtime_version,
+            token_refresh_extension_hours=token_refresh_extension_hours,
+            token_store_enabled=token_store_enabled,
+            twitter_consumer_key=twitter_consumer_key,
+            twitter_consumer_secret=twitter_consumer_secret,
+            twitter_consumer_secret_setting_name=twitter_consumer_secret_setting_name,
+            unauthenticated_client_action=unauthenticated_client_action,
+            validate_issuer=validate_issuer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             slot: pulumi.Input[str],
+             aad_claims_authorization: Optional[pulumi.Input[str]] = None,
+             additional_login_params: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             auth_file_path: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             client_secret_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             config_version: Optional[pulumi.Input[str]] = None,
+             default_provider: Optional[pulumi.Input['BuiltInAuthenticationProvider']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             facebook_app_id: Optional[pulumi.Input[str]] = None,
+             facebook_app_secret: Optional[pulumi.Input[str]] = None,
+             facebook_app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             facebook_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             git_hub_client_id: Optional[pulumi.Input[str]] = None,
+             git_hub_client_secret: Optional[pulumi.Input[str]] = None,
+             git_hub_client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             git_hub_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             google_client_id: Optional[pulumi.Input[str]] = None,
+             google_client_secret: Optional[pulumi.Input[str]] = None,
+             google_client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             google_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_auth_from_file: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             microsoft_account_client_id: Optional[pulumi.Input[str]] = None,
+             microsoft_account_client_secret: Optional[pulumi.Input[str]] = None,
+             microsoft_account_client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             microsoft_account_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+             token_store_enabled: Optional[pulumi.Input[bool]] = None,
+             twitter_consumer_key: Optional[pulumi.Input[str]] = None,
+             twitter_consumer_secret: Optional[pulumi.Input[str]] = None,
+             twitter_consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientAction']] = None,
+             validate_issuer: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("slot", slot)
         if aad_claims_authorization is not None:
-            pulumi.set(__self__, "aad_claims_authorization", aad_claims_authorization)
+            _setter("aad_claims_authorization", aad_claims_authorization)
         if additional_login_params is not None:
-            pulumi.set(__self__, "additional_login_params", additional_login_params)
+            _setter("additional_login_params", additional_login_params)
         if allowed_audiences is not None:
-            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+            _setter("allowed_audiences", allowed_audiences)
         if allowed_external_redirect_urls is not None:
-            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+            _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if auth_file_path is not None:
-            pulumi.set(__self__, "auth_file_path", auth_file_path)
+            _setter("auth_file_path", auth_file_path)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if client_secret_certificate_thumbprint is not None:
-            pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
+            _setter("client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
         if client_secret_setting_name is not None:
-            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+            _setter("client_secret_setting_name", client_secret_setting_name)
         if config_version is not None:
-            pulumi.set(__self__, "config_version", config_version)
+            _setter("config_version", config_version)
         if default_provider is not None:
-            pulumi.set(__self__, "default_provider", default_provider)
+            _setter("default_provider", default_provider)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if facebook_app_id is not None:
-            pulumi.set(__self__, "facebook_app_id", facebook_app_id)
+            _setter("facebook_app_id", facebook_app_id)
         if facebook_app_secret is not None:
-            pulumi.set(__self__, "facebook_app_secret", facebook_app_secret)
+            _setter("facebook_app_secret", facebook_app_secret)
         if facebook_app_secret_setting_name is not None:
-            pulumi.set(__self__, "facebook_app_secret_setting_name", facebook_app_secret_setting_name)
+            _setter("facebook_app_secret_setting_name", facebook_app_secret_setting_name)
         if facebook_o_auth_scopes is not None:
-            pulumi.set(__self__, "facebook_o_auth_scopes", facebook_o_auth_scopes)
+            _setter("facebook_o_auth_scopes", facebook_o_auth_scopes)
         if git_hub_client_id is not None:
-            pulumi.set(__self__, "git_hub_client_id", git_hub_client_id)
+            _setter("git_hub_client_id", git_hub_client_id)
         if git_hub_client_secret is not None:
-            pulumi.set(__self__, "git_hub_client_secret", git_hub_client_secret)
+            _setter("git_hub_client_secret", git_hub_client_secret)
         if git_hub_client_secret_setting_name is not None:
-            pulumi.set(__self__, "git_hub_client_secret_setting_name", git_hub_client_secret_setting_name)
+            _setter("git_hub_client_secret_setting_name", git_hub_client_secret_setting_name)
         if git_hub_o_auth_scopes is not None:
-            pulumi.set(__self__, "git_hub_o_auth_scopes", git_hub_o_auth_scopes)
+            _setter("git_hub_o_auth_scopes", git_hub_o_auth_scopes)
         if google_client_id is not None:
-            pulumi.set(__self__, "google_client_id", google_client_id)
+            _setter("google_client_id", google_client_id)
         if google_client_secret is not None:
-            pulumi.set(__self__, "google_client_secret", google_client_secret)
+            _setter("google_client_secret", google_client_secret)
         if google_client_secret_setting_name is not None:
-            pulumi.set(__self__, "google_client_secret_setting_name", google_client_secret_setting_name)
+            _setter("google_client_secret_setting_name", google_client_secret_setting_name)
         if google_o_auth_scopes is not None:
-            pulumi.set(__self__, "google_o_auth_scopes", google_o_auth_scopes)
+            _setter("google_o_auth_scopes", google_o_auth_scopes)
         if is_auth_from_file is not None:
-            pulumi.set(__self__, "is_auth_from_file", is_auth_from_file)
+            _setter("is_auth_from_file", is_auth_from_file)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if microsoft_account_client_id is not None:
-            pulumi.set(__self__, "microsoft_account_client_id", microsoft_account_client_id)
+            _setter("microsoft_account_client_id", microsoft_account_client_id)
         if microsoft_account_client_secret is not None:
-            pulumi.set(__self__, "microsoft_account_client_secret", microsoft_account_client_secret)
+            _setter("microsoft_account_client_secret", microsoft_account_client_secret)
         if microsoft_account_client_secret_setting_name is not None:
-            pulumi.set(__self__, "microsoft_account_client_secret_setting_name", microsoft_account_client_secret_setting_name)
+            _setter("microsoft_account_client_secret_setting_name", microsoft_account_client_secret_setting_name)
         if microsoft_account_o_auth_scopes is not None:
-            pulumi.set(__self__, "microsoft_account_o_auth_scopes", microsoft_account_o_auth_scopes)
+            _setter("microsoft_account_o_auth_scopes", microsoft_account_o_auth_scopes)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
         if token_refresh_extension_hours is not None:
-            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+            _setter("token_refresh_extension_hours", token_refresh_extension_hours)
         if token_store_enabled is not None:
-            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+            _setter("token_store_enabled", token_store_enabled)
         if twitter_consumer_key is not None:
-            pulumi.set(__self__, "twitter_consumer_key", twitter_consumer_key)
+            _setter("twitter_consumer_key", twitter_consumer_key)
         if twitter_consumer_secret is not None:
-            pulumi.set(__self__, "twitter_consumer_secret", twitter_consumer_secret)
+            _setter("twitter_consumer_secret", twitter_consumer_secret)
         if twitter_consumer_secret_setting_name is not None:
-            pulumi.set(__self__, "twitter_consumer_secret_setting_name", twitter_consumer_secret_setting_name)
+            _setter("twitter_consumer_secret_setting_name", twitter_consumer_secret_setting_name)
         if unauthenticated_client_action is not None:
-            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+            _setter("unauthenticated_client_action", unauthenticated_client_action)
         if validate_issuer is not None:
-            pulumi.set(__self__, "validate_issuer", validate_issuer)
+            _setter("validate_issuer", validate_issuer)
 
     @property
     @pulumi.getter
@@ -960,6 +1051,10 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppAuthSettingsSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -60,44 +60,91 @@ class ScalingPlanPooledScheduleArgs:
         :param pulumi.Input['TimeArgs'] ramp_up_start_time: Starting time for ramp up period.
         :param pulumi.Input[str] scaling_plan_schedule_name: The name of the ScalingPlanSchedule
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
+        ScalingPlanPooledScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            scaling_plan_name=scaling_plan_name,
+            days_of_week=days_of_week,
+            off_peak_load_balancing_algorithm=off_peak_load_balancing_algorithm,
+            off_peak_start_time=off_peak_start_time,
+            peak_load_balancing_algorithm=peak_load_balancing_algorithm,
+            peak_start_time=peak_start_time,
+            ramp_down_capacity_threshold_pct=ramp_down_capacity_threshold_pct,
+            ramp_down_force_logoff_users=ramp_down_force_logoff_users,
+            ramp_down_load_balancing_algorithm=ramp_down_load_balancing_algorithm,
+            ramp_down_minimum_hosts_pct=ramp_down_minimum_hosts_pct,
+            ramp_down_notification_message=ramp_down_notification_message,
+            ramp_down_start_time=ramp_down_start_time,
+            ramp_down_stop_hosts_when=ramp_down_stop_hosts_when,
+            ramp_down_wait_time_minutes=ramp_down_wait_time_minutes,
+            ramp_up_capacity_threshold_pct=ramp_up_capacity_threshold_pct,
+            ramp_up_load_balancing_algorithm=ramp_up_load_balancing_algorithm,
+            ramp_up_minimum_hosts_pct=ramp_up_minimum_hosts_pct,
+            ramp_up_start_time=ramp_up_start_time,
+            scaling_plan_schedule_name=scaling_plan_schedule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             scaling_plan_name: pulumi.Input[str],
+             days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
+             off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+             off_peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+             peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             ramp_down_capacity_threshold_pct: Optional[pulumi.Input[int]] = None,
+             ramp_down_force_logoff_users: Optional[pulumi.Input[bool]] = None,
+             ramp_down_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+             ramp_down_minimum_hosts_pct: Optional[pulumi.Input[int]] = None,
+             ramp_down_notification_message: Optional[pulumi.Input[str]] = None,
+             ramp_down_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             ramp_down_stop_hosts_when: Optional[pulumi.Input[Union[str, 'StopHostsWhen']]] = None,
+             ramp_down_wait_time_minutes: Optional[pulumi.Input[int]] = None,
+             ramp_up_capacity_threshold_pct: Optional[pulumi.Input[int]] = None,
+             ramp_up_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+             ramp_up_minimum_hosts_pct: Optional[pulumi.Input[int]] = None,
+             ramp_up_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("scaling_plan_name", scaling_plan_name)
         if days_of_week is not None:
-            pulumi.set(__self__, "days_of_week", days_of_week)
+            _setter("days_of_week", days_of_week)
         if off_peak_load_balancing_algorithm is not None:
-            pulumi.set(__self__, "off_peak_load_balancing_algorithm", off_peak_load_balancing_algorithm)
+            _setter("off_peak_load_balancing_algorithm", off_peak_load_balancing_algorithm)
         if off_peak_start_time is not None:
-            pulumi.set(__self__, "off_peak_start_time", off_peak_start_time)
+            _setter("off_peak_start_time", off_peak_start_time)
         if peak_load_balancing_algorithm is not None:
-            pulumi.set(__self__, "peak_load_balancing_algorithm", peak_load_balancing_algorithm)
+            _setter("peak_load_balancing_algorithm", peak_load_balancing_algorithm)
         if peak_start_time is not None:
-            pulumi.set(__self__, "peak_start_time", peak_start_time)
+            _setter("peak_start_time", peak_start_time)
         if ramp_down_capacity_threshold_pct is not None:
-            pulumi.set(__self__, "ramp_down_capacity_threshold_pct", ramp_down_capacity_threshold_pct)
+            _setter("ramp_down_capacity_threshold_pct", ramp_down_capacity_threshold_pct)
         if ramp_down_force_logoff_users is not None:
-            pulumi.set(__self__, "ramp_down_force_logoff_users", ramp_down_force_logoff_users)
+            _setter("ramp_down_force_logoff_users", ramp_down_force_logoff_users)
         if ramp_down_load_balancing_algorithm is not None:
-            pulumi.set(__self__, "ramp_down_load_balancing_algorithm", ramp_down_load_balancing_algorithm)
+            _setter("ramp_down_load_balancing_algorithm", ramp_down_load_balancing_algorithm)
         if ramp_down_minimum_hosts_pct is not None:
-            pulumi.set(__self__, "ramp_down_minimum_hosts_pct", ramp_down_minimum_hosts_pct)
+            _setter("ramp_down_minimum_hosts_pct", ramp_down_minimum_hosts_pct)
         if ramp_down_notification_message is not None:
-            pulumi.set(__self__, "ramp_down_notification_message", ramp_down_notification_message)
+            _setter("ramp_down_notification_message", ramp_down_notification_message)
         if ramp_down_start_time is not None:
-            pulumi.set(__self__, "ramp_down_start_time", ramp_down_start_time)
+            _setter("ramp_down_start_time", ramp_down_start_time)
         if ramp_down_stop_hosts_when is not None:
-            pulumi.set(__self__, "ramp_down_stop_hosts_when", ramp_down_stop_hosts_when)
+            _setter("ramp_down_stop_hosts_when", ramp_down_stop_hosts_when)
         if ramp_down_wait_time_minutes is not None:
-            pulumi.set(__self__, "ramp_down_wait_time_minutes", ramp_down_wait_time_minutes)
+            _setter("ramp_down_wait_time_minutes", ramp_down_wait_time_minutes)
         if ramp_up_capacity_threshold_pct is not None:
-            pulumi.set(__self__, "ramp_up_capacity_threshold_pct", ramp_up_capacity_threshold_pct)
+            _setter("ramp_up_capacity_threshold_pct", ramp_up_capacity_threshold_pct)
         if ramp_up_load_balancing_algorithm is not None:
-            pulumi.set(__self__, "ramp_up_load_balancing_algorithm", ramp_up_load_balancing_algorithm)
+            _setter("ramp_up_load_balancing_algorithm", ramp_up_load_balancing_algorithm)
         if ramp_up_minimum_hosts_pct is not None:
-            pulumi.set(__self__, "ramp_up_minimum_hosts_pct", ramp_up_minimum_hosts_pct)
+            _setter("ramp_up_minimum_hosts_pct", ramp_up_minimum_hosts_pct)
         if ramp_up_start_time is not None:
-            pulumi.set(__self__, "ramp_up_start_time", ramp_up_start_time)
+            _setter("ramp_up_start_time", ramp_up_start_time)
         if scaling_plan_schedule_name is not None:
-            pulumi.set(__self__, "scaling_plan_schedule_name", scaling_plan_schedule_name)
+            _setter("scaling_plan_schedule_name", scaling_plan_schedule_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -413,6 +460,10 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScalingPlanPooledScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -449,20 +500,40 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
 
             __props__.__dict__["days_of_week"] = days_of_week
             __props__.__dict__["off_peak_load_balancing_algorithm"] = off_peak_load_balancing_algorithm
+            if off_peak_start_time is not None and not isinstance(off_peak_start_time, TimeArgs):
+                off_peak_start_time = off_peak_start_time or {}
+                def _setter(key, value):
+                    off_peak_start_time[key] = value
+                TimeArgs._configure(_setter, **off_peak_start_time)
             __props__.__dict__["off_peak_start_time"] = off_peak_start_time
             __props__.__dict__["peak_load_balancing_algorithm"] = peak_load_balancing_algorithm
+            if peak_start_time is not None and not isinstance(peak_start_time, TimeArgs):
+                peak_start_time = peak_start_time or {}
+                def _setter(key, value):
+                    peak_start_time[key] = value
+                TimeArgs._configure(_setter, **peak_start_time)
             __props__.__dict__["peak_start_time"] = peak_start_time
             __props__.__dict__["ramp_down_capacity_threshold_pct"] = ramp_down_capacity_threshold_pct
             __props__.__dict__["ramp_down_force_logoff_users"] = ramp_down_force_logoff_users
             __props__.__dict__["ramp_down_load_balancing_algorithm"] = ramp_down_load_balancing_algorithm
             __props__.__dict__["ramp_down_minimum_hosts_pct"] = ramp_down_minimum_hosts_pct
             __props__.__dict__["ramp_down_notification_message"] = ramp_down_notification_message
+            if ramp_down_start_time is not None and not isinstance(ramp_down_start_time, TimeArgs):
+                ramp_down_start_time = ramp_down_start_time or {}
+                def _setter(key, value):
+                    ramp_down_start_time[key] = value
+                TimeArgs._configure(_setter, **ramp_down_start_time)
             __props__.__dict__["ramp_down_start_time"] = ramp_down_start_time
             __props__.__dict__["ramp_down_stop_hosts_when"] = ramp_down_stop_hosts_when
             __props__.__dict__["ramp_down_wait_time_minutes"] = ramp_down_wait_time_minutes
             __props__.__dict__["ramp_up_capacity_threshold_pct"] = ramp_up_capacity_threshold_pct
             __props__.__dict__["ramp_up_load_balancing_algorithm"] = ramp_up_load_balancing_algorithm
             __props__.__dict__["ramp_up_minimum_hosts_pct"] = ramp_up_minimum_hosts_pct
+            if ramp_up_start_time is not None and not isinstance(ramp_up_start_time, TimeArgs):
+                ramp_up_start_time = ramp_up_start_time or {}
+                def _setter(key, value):
+                    ramp_up_start_time[key] = value
+                TimeArgs._configure(_setter, **ramp_up_start_time)
             __props__.__dict__["ramp_up_start_time"] = ramp_up_start_time
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

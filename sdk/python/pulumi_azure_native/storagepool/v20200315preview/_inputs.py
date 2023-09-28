@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,10 +32,25 @@ class AclArgs:
         :param pulumi.Input[str] password: Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
         :param pulumi.Input[str] username: Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
-        pulumi.set(__self__, "initiator_iqn", initiator_iqn)
-        pulumi.set(__self__, "mapped_luns", mapped_luns)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        AclArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initiator_iqn=initiator_iqn,
+            mapped_luns=mapped_luns,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initiator_iqn: pulumi.Input[str],
+             mapped_luns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("initiator_iqn", initiator_iqn)
+        _setter("mapped_luns", mapped_luns)
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="initiatorIqn")
@@ -96,8 +111,19 @@ class AttributesArgs:
         :param pulumi.Input[bool] authentication: Indicates whether or not authentication is enabled on the ACL.
         :param pulumi.Input[bool] prod_mode_write_protect: Indicates whether or not write protect is enabled on the LUNs.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "prod_mode_write_protect", prod_mode_write_protect)
+        AttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            prod_mode_write_protect=prod_mode_write_protect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: pulumi.Input[bool],
+             prod_mode_write_protect: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication", authentication)
+        _setter("prod_mode_write_protect", prod_mode_write_protect)
 
     @property
     @pulumi.getter
@@ -132,7 +158,16 @@ class DiskArgs:
         Azure Managed Disk to attach to the Disk pool.
         :param pulumi.Input[str] id: Unique Azure Resource ID of the Managed Disk.
         """
-        pulumi.set(__self__, "id", id)
+        DiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -157,8 +192,19 @@ class IscsiLunArgs:
         :param pulumi.Input[str] managed_disk_azure_resource_id: Azure Resource ID of the Managed Disk.
         :param pulumi.Input[str] name: User defined name for iSCSI LUN; example: "lun0"
         """
-        pulumi.set(__self__, "managed_disk_azure_resource_id", managed_disk_azure_resource_id)
-        pulumi.set(__self__, "name", name)
+        IscsiLunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_disk_azure_resource_id=managed_disk_azure_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_disk_azure_resource_id: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("managed_disk_azure_resource_id", managed_disk_azure_resource_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="managedDiskAzureResourceId")
@@ -197,9 +243,22 @@ class TargetPortalGroupCreateArgs:
         :param pulumi.Input['AttributesArgs'] attributes: Attributes of an iSCSI target portal group.
         :param pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]] luns: List of LUNs to be exposed through the iSCSI target portal group.
         """
-        pulumi.set(__self__, "acls", acls)
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "luns", luns)
+        TargetPortalGroupCreateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acls=acls,
+            attributes=attributes,
+            luns=luns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acls: pulumi.Input[Sequence[pulumi.Input['AclArgs']]],
+             attributes: pulumi.Input['AttributesArgs'],
+             luns: pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acls", acls)
+        _setter("attributes", attributes)
+        _setter("luns", luns)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -95,26 +95,53 @@ class CognitiveServicesAccountApiPropertiesResponse(dict):
         :param str super_user: (Metrics Advisor Only) The super user of Metrics Advisor.
         :param str website_name: (Metrics Advisor Only) The website name of Metrics Advisor.
         """
+        CognitiveServicesAccountApiPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_client_id=aad_client_id,
+            aad_tenant_id=aad_tenant_id,
+            event_hub_connection_string=event_hub_connection_string,
+            qna_azure_search_endpoint_id=qna_azure_search_endpoint_id,
+            qna_azure_search_endpoint_key=qna_azure_search_endpoint_key,
+            qna_runtime_endpoint=qna_runtime_endpoint,
+            statistics_enabled=statistics_enabled,
+            storage_account_connection_string=storage_account_connection_string,
+            super_user=super_user,
+            website_name=website_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_client_id: Optional[str] = None,
+             aad_tenant_id: Optional[str] = None,
+             event_hub_connection_string: Optional[str] = None,
+             qna_azure_search_endpoint_id: Optional[str] = None,
+             qna_azure_search_endpoint_key: Optional[str] = None,
+             qna_runtime_endpoint: Optional[str] = None,
+             statistics_enabled: Optional[bool] = None,
+             storage_account_connection_string: Optional[str] = None,
+             super_user: Optional[str] = None,
+             website_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aad_client_id is not None:
-            pulumi.set(__self__, "aad_client_id", aad_client_id)
+            _setter("aad_client_id", aad_client_id)
         if aad_tenant_id is not None:
-            pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
+            _setter("aad_tenant_id", aad_tenant_id)
         if event_hub_connection_string is not None:
-            pulumi.set(__self__, "event_hub_connection_string", event_hub_connection_string)
+            _setter("event_hub_connection_string", event_hub_connection_string)
         if qna_azure_search_endpoint_id is not None:
-            pulumi.set(__self__, "qna_azure_search_endpoint_id", qna_azure_search_endpoint_id)
+            _setter("qna_azure_search_endpoint_id", qna_azure_search_endpoint_id)
         if qna_azure_search_endpoint_key is not None:
-            pulumi.set(__self__, "qna_azure_search_endpoint_key", qna_azure_search_endpoint_key)
+            _setter("qna_azure_search_endpoint_key", qna_azure_search_endpoint_key)
         if qna_runtime_endpoint is not None:
-            pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
+            _setter("qna_runtime_endpoint", qna_runtime_endpoint)
         if statistics_enabled is not None:
-            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+            _setter("statistics_enabled", statistics_enabled)
         if storage_account_connection_string is not None:
-            pulumi.set(__self__, "storage_account_connection_string", storage_account_connection_string)
+            _setter("storage_account_connection_string", storage_account_connection_string)
         if super_user is not None:
-            pulumi.set(__self__, "super_user", super_user)
+            _setter("super_user", super_user)
         if website_name is not None:
-            pulumi.set(__self__, "website_name", website_name)
+            _setter("website_name", website_name)
 
     @property
     @pulumi.getter(name="aadClientId")
@@ -271,27 +298,62 @@ class CognitiveServicesAccountPropertiesResponse(dict):
         :param str public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param Sequence['UserOwnedStorageResponse'] user_owned_storage: The storage accounts for this resource.
         """
-        pulumi.set(__self__, "capabilities", capabilities)
-        pulumi.set(__self__, "date_created", date_created)
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "internal_id", internal_id)
-        pulumi.set(__self__, "is_migrated", is_migrated)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "sku_change_info", sku_change_info)
+        CognitiveServicesAccountPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capabilities=capabilities,
+            date_created=date_created,
+            endpoint=endpoint,
+            internal_id=internal_id,
+            is_migrated=is_migrated,
+            provisioning_state=provisioning_state,
+            sku_change_info=sku_change_info,
+            api_properties=api_properties,
+            custom_sub_domain_name=custom_sub_domain_name,
+            encryption=encryption,
+            network_acls=network_acls,
+            private_endpoint_connections=private_endpoint_connections,
+            public_network_access=public_network_access,
+            user_owned_storage=user_owned_storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capabilities: Sequence['outputs.SkuCapabilityResponse'],
+             date_created: str,
+             endpoint: str,
+             internal_id: str,
+             is_migrated: bool,
+             provisioning_state: str,
+             sku_change_info: 'outputs.CognitiveServicesAccountSkuChangeInfoResponse',
+             api_properties: Optional['outputs.CognitiveServicesAccountApiPropertiesResponse'] = None,
+             custom_sub_domain_name: Optional[str] = None,
+             encryption: Optional['outputs.EncryptionResponse'] = None,
+             network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
+             private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResponse']] = None,
+             public_network_access: Optional[str] = None,
+             user_owned_storage: Optional[Sequence['outputs.UserOwnedStorageResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capabilities", capabilities)
+        _setter("date_created", date_created)
+        _setter("endpoint", endpoint)
+        _setter("internal_id", internal_id)
+        _setter("is_migrated", is_migrated)
+        _setter("provisioning_state", provisioning_state)
+        _setter("sku_change_info", sku_change_info)
         if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
+            _setter("api_properties", api_properties)
         if custom_sub_domain_name is not None:
-            pulumi.set(__self__, "custom_sub_domain_name", custom_sub_domain_name)
+            _setter("custom_sub_domain_name", custom_sub_domain_name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if user_owned_storage is not None:
-            pulumi.set(__self__, "user_owned_storage", user_owned_storage)
+            _setter("user_owned_storage", user_owned_storage)
 
     @property
     @pulumi.getter
@@ -442,9 +504,22 @@ class CognitiveServicesAccountSkuChangeInfoResponse(dict):
         :param float count_of_upgrades_after_downgrades: Gets the count of upgrades after downgrades.
         :param str last_change_date: Gets the last change date.
         """
-        pulumi.set(__self__, "count_of_downgrades", count_of_downgrades)
-        pulumi.set(__self__, "count_of_upgrades_after_downgrades", count_of_upgrades_after_downgrades)
-        pulumi.set(__self__, "last_change_date", last_change_date)
+        CognitiveServicesAccountSkuChangeInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count_of_downgrades=count_of_downgrades,
+            count_of_upgrades_after_downgrades=count_of_upgrades_after_downgrades,
+            last_change_date=last_change_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count_of_downgrades: float,
+             count_of_upgrades_after_downgrades: float,
+             last_change_date: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("count_of_downgrades", count_of_downgrades)
+        _setter("count_of_upgrades_after_downgrades", count_of_upgrades_after_downgrades)
+        _setter("last_change_date", last_change_date)
 
     @property
     @pulumi.getter(name="countOfDowngrades")
@@ -503,12 +578,23 @@ class EncryptionResponse(dict):
         :param str key_source: Enumerates the possible value of keySource for Encryption
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties of KeyVault
         """
+        EncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_source=key_source,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_source: Optional[str] = None,
+             key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_source is None:
             key_source = 'Microsoft.KeyVault'
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter(name="keySource")
@@ -565,12 +651,27 @@ class IdentityResponse(dict):
         :param str type: Type of managed service identity.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -616,7 +717,16 @@ class IpRuleResponse(dict):
         A rule governing the accessibility from a specific ip address or ip range.
         :param str value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
-        pulumi.set(__self__, "value", value)
+        IpRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -663,12 +773,25 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_vault_uri: Uri of KeyVault
         :param str key_version: Version of the Key from KeyVault
         """
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[str] = None,
+             key_vault_uri: Optional[str] = None,
+             key_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -731,12 +854,25 @@ class NetworkRuleSetResponse(dict):
         :param Sequence['IpRuleResponse'] ip_rules: The list of IP address rules.
         :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
+        NetworkRuleSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[str] = None,
+             ip_rules: Optional[Sequence['outputs.IpRuleResponse']] = None,
+             virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -799,11 +935,24 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         :param Sequence[str] group_ids: The private link resource group ids.
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        PrivateEndpointConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+            group_ids=group_ids,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             group_ids: Optional[Sequence[str]] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -851,14 +1000,33 @@ class PrivateEndpointConnectionResponse(dict):
         :param str location: The location of the private endpoint connection
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: Resource properties.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            name=name,
+            type=type,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             id: str,
+             name: str,
+             type: str,
+             location: Optional[str] = None,
+             properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -920,7 +1088,16 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -963,12 +1140,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1008,10 +1198,21 @@ class SkuCapabilityResponse(dict):
         :param str name: The name of the SkuCapability.
         :param str value: The value of the SkuCapability.
         """
+        SkuCapabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1043,8 +1244,19 @@ class SkuResponse(dict):
         :param str name: Gets or sets the sku name. Required for account creation, optional for update.
         :param str tier: Gets the sku tier. This is based on the SKU name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1095,10 +1307,21 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: Client App Id associated with this identity.
         :param str principal_id: Azure Active Directory principal ID associated with this Identity.
         """
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1145,8 +1368,17 @@ class UserOwnedStorageResponse(dict):
         The user owned storage for Cognitive Services account.
         :param str resource_id: Full resource id of a Microsoft.Storage resource.
         """
+        UserOwnedStorageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -1189,11 +1421,24 @@ class VirtualNetworkRuleResponse(dict):
         :param bool ignore_missing_vnet_service_endpoint: Ignore missing vnet service endpoint or not.
         :param str state: Gets the state of virtual network rule.
         """
-        pulumi.set(__self__, "id", id)
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             ignore_missing_vnet_service_endpoint: Optional[bool] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if ignore_missing_vnet_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
