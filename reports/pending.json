@@ -121,7 +121,9 @@
   ],
   "CertificateRegistration": [],
   "ChangeAnalysis": [],
-  "Chaos": [],
+  "Chaos": [
+    "2023-09-01-preview"
+  ],
   "CognitiveServices": [],
   "Commerce": [],
   "Communication": [
@@ -293,7 +295,10 @@
   "Databricks": [
     "2023-05-01"
   ],
-  "Datadog": [],
+  "Datadog": [
+    "2022-08-01",
+    "2023-01-01"
+  ],
   "DelegatedNetwork": [
     "2023-05-18-preview",
     "2023-06-27-preview"
@@ -767,7 +772,8 @@
     "2022-10-01-preview"
   ],
   "ServiceFabric": [
-    "2023-07-01-preview"
+    "2023-07-01-preview",
+    "2023-09-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [],
@@ -812,7 +818,8 @@
   "StorageActions": [],
   "StorageCache": [],
   "StorageMover": [
-    "2023-07-01-preview"
+    "2023-07-01-preview",
+    "2023-10-01"
   ],
   "StoragePool": [],
   "StorageSync": [],

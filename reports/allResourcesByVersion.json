@@ -3193,6 +3193,11 @@
       "Capability",
       "Experiment",
       "Target"
+    ],
+    "2023-09-01-preview": [
+      "Capability",
+      "Experiment",
+      "Target"
     ]
   },
   "CognitiveServices": {
@@ -6028,6 +6033,23 @@
     ],
     "2022-06-01": [
       "Monitor",
+      "getMonitorDefaultKey",
+      "listMonitorApiKeys",
+      "listMonitorHosts",
+      "listMonitorLinkedResources",
+      "listMonitorMonitoredResources"
+    ],
+    "2022-08-01": [
+      "Monitor",
+      "getMonitorDefaultKey",
+      "listMonitorApiKeys",
+      "listMonitorHosts",
+      "listMonitorLinkedResources",
+      "listMonitorMonitoredResources"
+    ],
+    "2023-01-01": [
+      "Monitor",
+      "MonitoredSubscription",
       "getMonitorDefaultKey",
       "listMonitorApiKeys",
       "listMonitorHosts",
@@ -16943,6 +16965,16 @@
       "NodeType",
       "getmanagedAzResiliencyStatus",
       "getmanagedMaintenanceWindowStatus"
+    ],
+    "2023-09-01-preview": [
+      "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType",
+      "getmanagedAzResiliencyStatus",
+      "getmanagedMaintenanceWindowStatus"
     ]
   },
   "ServiceFabricMesh": {
@@ -18458,6 +18490,13 @@
       "StorageMover"
     ],
     "2023-07-01-preview": [
+      "Agent",
+      "Endpoint",
+      "JobDefinition",
+      "Project",
+      "StorageMover"
+    ],
+    "2023-10-01": [
       "Agent",
       "Endpoint",
       "JobDefinition",

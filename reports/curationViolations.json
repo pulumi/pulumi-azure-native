@@ -48,6 +48,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "Datadog",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "DevCenter",
     "Detail": "expected tracking preview but found stable"
   },
