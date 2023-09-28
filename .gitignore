@@ -36,3 +36,5 @@ pulumi-azure-native-sdk
 .DS_Store
 *.sentinel
 .make/
+
+sdk/python/venv
