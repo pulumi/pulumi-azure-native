@@ -531,6 +531,8 @@ DBforPostgreSQL:
           detail: version 2023-03-01-preview is greater than 2017-12-01
 Dashboard:
     tracking: "2022-08-01"
+    additions:
+        ManagedPrivateEndpoint: 2022-10-01-preview
 DataBox:
     tracking: "2022-12-01"
 DataBoxEdge:
@@ -564,6 +566,8 @@ Databricks:
         vNetPeering: "2023-02-01"
 Datadog:
     tracking: "2022-06-01"
+    additions:
+        MonitoredSubscription: "2023-01-01"
 DelegatedNetwork:
     tracking: "2021-03-15"
 DeploymentManager:
@@ -927,14 +931,17 @@ Migrate:
         MoveResource: "2022-08-01"
         PrivateEndpointConnection: "2019-10-01"
         PrivateEndpointConnectionControllerPrivateEndpointConnection: "2020-05-01"
+        PrivateEndpointConnectionProxyController: "2023-01-01"
         Project: "2019-10-01"
         ServerCollector: "2019-10-01"
         Solution: 2018-09-01-preview
+        SolutionsControllerSolution: "2023-01-01"
         VMwareCollector: "2019-10-01"
         WorkloadDeployment: 2022-05-01-preview
         WorkloadInstance: 2022-05-01-preview
         getProjectKeys: "2018-02-02"
         getSolutionConfig: 2018-09-01-preview
+        getSolutionsControllerConfig: "2023-01-01"
         getWorkloadDeploymentSecretConfigurations: 2022-05-01-preview
 MixedReality:
     tracking: "2021-01-01"

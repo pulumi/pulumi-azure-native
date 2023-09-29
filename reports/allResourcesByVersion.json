@@ -3193,6 +3193,11 @@
       "Capability",
       "Experiment",
       "Target"
+    ],
+    "2023-09-01-preview": [
+      "Capability",
+      "Experiment",
+      "Target"
     ]
   },
   "CognitiveServices": {
@@ -4903,6 +4908,18 @@
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
     ],
+    "2023-08-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
     "2023-08-15-preview": [
       "Fleet",
       "FleetMember",
@@ -5324,6 +5341,11 @@
     ],
     "2022-08-01": [
       "Grafana",
+      "PrivateEndpointConnection"
+    ],
+    "2022-10-01-preview": [
+      "Grafana",
+      "ManagedPrivateEndpoint",
       "PrivateEndpointConnection"
     ]
   },
@@ -6028,6 +6050,23 @@
     ],
     "2022-06-01": [
       "Monitor",
+      "getMonitorDefaultKey",
+      "listMonitorApiKeys",
+      "listMonitorHosts",
+      "listMonitorLinkedResources",
+      "listMonitorMonitoredResources"
+    ],
+    "2022-08-01": [
+      "Monitor",
+      "getMonitorDefaultKey",
+      "listMonitorApiKeys",
+      "listMonitorHosts",
+      "listMonitorLinkedResources",
+      "listMonitorMonitoredResources"
+    ],
+    "2023-01-01": [
+      "Monitor",
+      "MonitoredSubscription",
       "getMonitorDefaultKey",
       "listMonitorApiKeys",
       "listMonitorHosts",
@@ -10770,6 +10809,13 @@
       "MoveCollection",
       "MoveResource"
     ],
+    "2023-01-01": [
+      "MigrateProjectsControllerMigrateProject",
+      "PrivateEndpointConnectionControllerPrivateEndpointConnection",
+      "PrivateEndpointConnectionProxyController",
+      "SolutionsControllerSolution",
+      "getSolutionsControllerConfig"
+    ],
     "2023-08-01": [
       "MoveCollection",
       "MoveResource"
@@ -15454,6 +15500,15 @@
       "SyncSet",
       "listOpenShiftClusterAdminCredentials",
       "listOpenShiftClusterCredentials"
+    ],
+    "2023-09-04": [
+      "MachinePool",
+      "OpenShiftCluster",
+      "Secret",
+      "SyncIdentityProvider",
+      "SyncSet",
+      "listOpenShiftClusterAdminCredentials",
+      "listOpenShiftClusterCredentials"
     ]
   },
   "Relay": {
@@ -16935,6 +16990,16 @@
       "getmanagedAzResiliencyStatus"
     ],
     "2023-07-01-preview": [
+      "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType",
+      "getmanagedAzResiliencyStatus",
+      "getmanagedMaintenanceWindowStatus"
+    ],
+    "2023-09-01-preview": [
       "ManagedCluster",
       "ManagedClusterApplication",
       "ManagedClusterApplicationType",
@@ -18458,6 +18523,13 @@
       "StorageMover"
     ],
     "2023-07-01-preview": [
+      "Agent",
+      "Endpoint",
+      "JobDefinition",
+      "Project",
+      "StorageMover"
+    ],
+    "2023-10-01": [
       "Agent",
       "Endpoint",
       "JobDefinition",

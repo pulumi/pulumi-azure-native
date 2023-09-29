@@ -18335,7 +18335,6 @@
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2023-06-01-preview",
           "2022-06-15",
           "2021-12-01",
           "2021-10-15-preview",
@@ -30329,6 +30328,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-10-01-preview",
           "2023-07-01",
           "2023-05-01-preview",
           "2022-12-12-preview"
@@ -30345,6 +30345,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-10-01-preview",
           "2023-07-01",
           "2023-05-01-preview",
           "2022-12-12-preview"
@@ -30369,6 +30370,7 @@
       {
         "resourceType": "registeredSubscriptions",
         "apiVersions": [
+          "2023-10-01-preview",
           "2023-07-01",
           "2023-05-01-preview",
           "2022-12-12-preview"
