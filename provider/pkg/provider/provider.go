@@ -73,7 +73,6 @@ type azureNativeProvider struct {
 	config          map[string]string
 	schemaBytes     []byte
 	metadataBytes   []byte
-	schemaString    string // optimization, this and schemaBytes should have same underlying repr
 	fullPkgSpec     *schema.PackageSpec
 	fullResourceMap *resources.AzureAPIMetadata
 	converter       *resources.SdkShapeConverter
@@ -81,7 +80,7 @@ type azureNativeProvider struct {
 	rgLocationMap   map[string]string
 }
 
-func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte, schemaString string,
+func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
 	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
 	autorest.Count429AsRetry = false
 	// Creating a REST client, defaulting to Pulumi Partner ID until the Configure method is invoked.

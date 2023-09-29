@@ -29,5 +29,5 @@ func unsafeStringToBytes(data string) []byte {
 }
 
 func main() {
-	provider.Serve(providerName, version.Version, unsafeStringToBytes(pulumiSchema), pulumiSchema, unsafeStringToBytes(azureApiResources))
+	provider.Serve(providerName, version.Version, unsafeStringToBytes(pulumiSchema), unsafeStringToBytes(azureApiResources))
 }
