@@ -122,9 +122,11 @@ arm2pulumi_coverage_report: .make/provider_mod_download provider/cmd/$(PROVIDER)
 	(cd provider/pkg/arm2pulumi/internal/testdata && if [ ! -d azure-quickstart-templates ]; then git clone https://github.com/Azure/azure-quickstart-templates && cd azure-quickstart-templates && git checkout 3b2757465c2de537e333f5e2d1c3776c349b8483; fi)
 	(cd provider && go test -v -tags=coverage -run TestQuickstartTemplateCoverage github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi/internal/test)
 
+# Use PROVIDER_TEST_TAGS=all to run all tests including examples integrate tests
+PROVIDER_TEST_TAGS ?= unit # Default to unit tests only for quick local feedback
 .PHONY: test_provider
 test_provider: .make/provider_mod_download .make/provider_prebuild provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
-	cd provider && go test -v -coverprofile="coverage.txt" -coverpkg=./... $(PROVIDER_PKGS)
+	cd provider && go test -v --tags=$(PROVIDER_TEST_TAGS) -coverprofile="coverage.txt" -coverpkg=./... $(PROVIDER_PKGS)
 
 .PHONY: lint_provider
 lint_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
