@@ -25,6 +25,10 @@ func TestStorageBlob(t *testing.T) {
 	runExample(t, "storage-blob")
 }
 
+func TestApi(t *testing.T) {
+	runExample(t, "api")
+}
+
 // runExample runs an example from ./examples/<initialDir>
 // Any editDirs are applied in order, and the program is run after each edit. e.g. ./examples/<editDir>
 func runExample(t *testing.T, initialDir string, editDirs ...string) {

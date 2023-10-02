@@ -12,16 +12,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAccApiTs(t *testing.T) {
-	skipIfShort(t)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "api"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccAppServiceTs(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
