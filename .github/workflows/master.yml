@@ -49,3 +49,6 @@ jobs:
       ref: ${{ github.ref }}
       version: ${{ needs.version.outputs.version }}
       prerelease: true
+      # Skip creating the GH release draft because we never publish these prereleases.
+      # Push a prerelease tag instead if we want something that's publically visible.
+      publishGhRelease: false

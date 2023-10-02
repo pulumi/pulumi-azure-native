@@ -14,6 +14,10 @@ on:
         required: true
         type: boolean
         description: Indicates if we're doing a pre- or proper release.
+      publishGhRelease:
+        type: boolean
+        description: Indicates if we're publishing a GitHub release.
+        default: true
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -106,9 +110,11 @@ jobs:
 
       - name: Create GH Release
         uses: softprops/action-gh-release@v1
+        if: inputs.publishGhRelease
         with:
           tag_name: v${{ inputs.version }}
           prerelease: ${{ inputs.prerelease }}
+          # We keep pre-releases as drafts so they're not visible until we manually publish them.
           draft: ${{ inputs.prerelease }}
           body: ${{ steps.schema-summary.outputs.summary }}
           generate_release_notes: true
