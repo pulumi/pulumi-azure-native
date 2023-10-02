@@ -44,8 +44,16 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "Dashboard",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "DataReplication",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "Datadog",
+    "Detail": "expected no additions but found some"
   },
   {
     "Provider": "DevCenter",
