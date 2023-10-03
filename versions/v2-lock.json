@@ -662,6 +662,7 @@
   },
   "Dashboard": {
     "Grafana": "2022-08-01",
+    "ManagedPrivateEndpoint": "2022-10-01-preview",
     "PrivateEndpointConnection": "2022-08-01"
   },
   "DataBox": {
@@ -773,6 +774,7 @@
   },
   "Datadog": {
     "Monitor": "2022-06-01",
+    "MonitoredSubscription": "2023-01-01",
     "getMonitorDefaultKey": "2022-06-01",
     "listMonitorApiKeys": "2022-06-01",
     "listMonitorHosts": "2022-06-01",
@@ -1491,14 +1493,17 @@
     "MoveResource": "2022-08-01",
     "PrivateEndpointConnection": "2019-10-01",
     "PrivateEndpointConnectionControllerPrivateEndpointConnection": "2020-05-01",
+    "PrivateEndpointConnectionProxyController": "2023-01-01",
     "Project": "2019-10-01",
     "ServerCollector": "2019-10-01",
     "Solution": "2018-09-01-preview",
+    "SolutionsControllerSolution": "2023-01-01",
     "VMwareCollector": "2019-10-01",
     "WorkloadDeployment": "2022-05-01-preview",
     "WorkloadInstance": "2022-05-01-preview",
     "getProjectKeys": "2018-02-02",
     "getSolutionConfig": "2018-09-01-preview",
+    "getSolutionsControllerConfig": "2023-01-01",
     "getWorkloadDeploymentSecretConfigurations": "2022-05-01-preview"
   },
   "MixedReality": {
@@ -1699,6 +1704,11 @@
     "listNetworkManagerEffectiveConnectivityConfigurations": "2023-02-01",
     "listNetworkManagerEffectiveSecurityAdminRule": "2021-02-01-preview",
     "listNetworkManagerEffectiveSecurityAdminRules": "2023-02-01"
+  },
+  "NetworkAnalytics": {
+    "DataProduct": "2023-11-15",
+    "DataType": "2023-11-15",
+    "listDataProductRolesAssignments": "2023-11-15"
   },
   "NetworkCloud": {
     "AgentPool": "2023-05-01-preview",

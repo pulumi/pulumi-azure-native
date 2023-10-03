@@ -99,7 +99,9 @@
     "2023-06-01",
     "2023-07-01-preview"
   ],
-  "BareMetalInfrastructure": [],
+  "BareMetalInfrastructure": [
+    "2023-08-04-preview"
+  ],
   "Batch": [],
   "Billing": [
     "2020-05-01"
@@ -121,7 +123,9 @@
   ],
   "CertificateRegistration": [],
   "ChangeAnalysis": [],
-  "Chaos": [],
+  "Chaos": [
+    "2023-09-01-preview"
+  ],
   "CognitiveServices": [],
   "Commerce": [],
   "Communication": [
@@ -222,6 +226,7 @@
     "2023-07-01",
     "2023-07-02-preview",
     "2023-08-01",
+    "2023-08-02-preview",
     "2023-08-15-preview"
   ],
   "ContainerStorage": [],
@@ -264,7 +269,9 @@
     "2022-12-01",
     "2023-03-01-preview"
   ],
-  "Dashboard": [],
+  "Dashboard": [
+    "2022-10-01-preview"
+  ],
   "DataBox": [
     "2023-03-01"
   ],
@@ -293,7 +300,10 @@
   "Databricks": [
     "2023-05-01"
   ],
-  "Datadog": [],
+  "Datadog": [
+    "2022-08-01",
+    "2023-01-01"
+  ],
   "DelegatedNetwork": [
     "2023-05-18-preview",
     "2023-06-27-preview"
@@ -575,6 +585,7 @@
     "2021-08-01",
     "2022-05-01-preview",
     "2022-08-01",
+    "2023-01-01",
     "2023-08-01"
   ],
   "MixedReality": [
@@ -639,6 +650,7 @@
     "2023-05-01",
     "2023-07-01-preview"
   ],
+  "NetworkAnalytics": [],
   "NetworkCloud": [
     "2023-05-01-preview",
     "2023-07-01"
@@ -694,7 +706,8 @@
   ],
   "RedHatOpenShift": [
     "2023-04-01",
-    "2023-07-01-preview"
+    "2023-07-01-preview",
+    "2023-09-04"
   ],
   "Relay": [],
   "ResourceConnector": [
@@ -767,7 +780,8 @@
     "2022-10-01-preview"
   ],
   "ServiceFabric": [
-    "2023-07-01-preview"
+    "2023-07-01-preview",
+    "2023-09-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [],
@@ -812,7 +826,8 @@
   "StorageActions": [],
   "StorageCache": [],
   "StorageMover": [
-    "2023-07-01-preview"
+    "2023-07-01-preview",
+    "2023-10-01"
   ],
   "StoragePool": [],
   "StorageSync": [],
