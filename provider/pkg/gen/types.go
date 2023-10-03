@@ -73,6 +73,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			return discriminatedType, nil
 		}
 
+		tok = m.caseSensitiveTypes.NormalizeTokenCase(tok)
 		if _, ok := m.visitedTypes[tok]; !ok {
 			m.visitedTypes[tok] = true
 
@@ -126,16 +127,16 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 				},
 			}
 
-			if v, has := m.pkg.Types[tok]; has {
+			if existing, has := m.pkg.Types[tok]; has {
 				// Work around error
 				//     incompatible type "azure-native:netapp:ReplicationObject" for resource "VolumeGroup"
 				//     ("azure-native:netapp:VolumeGroup"): required properties do not match: only required in B:
 				//     replicationSchedule"
 				// Originally tracked by https://github.com/pulumi/pulumi-azure-native/issues/1606 but still happening.
-				if tok == "azure-native:netapp:ReplicationObject" && len(v.Properties) == 5 {
-					v = spec
+				if tok == "azure-native:netapp:ReplicationObject" && len(existing.Properties) == 5 {
+					existing = spec
 				}
-				merged, err := mergeTypes(spec, v, isOutput)
+				merged, err := mergeTypes(spec, existing, isOutput)
 				if err != nil {
 					return nil, errors.Wrapf(err, "incompatible type %q for resource %q (%q)", tok, m.resourceName,
 						m.resourceToken)
