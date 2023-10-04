@@ -50,9 +50,10 @@ type Versioning interface {
 }
 
 type GenerationResult struct {
-	Schema   *pschema.PackageSpec
-	Metadata *resources.AzureAPIMetadata
-	Examples map[string][]resources.AzureAPIExample
+	Schema            *pschema.PackageSpec
+	Metadata          *resources.AzureAPIMetadata
+	Examples          map[string][]resources.AzureAPIExample
+	TypeCaseConflicts CaseConflicts
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
@@ -212,6 +213,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	}
 	sort.Strings(providers)
 
+	caseSensitiveTypes := newCaseSensitiveTokens()
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
@@ -223,12 +225,13 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 
 		for _, version := range versions {
 			gen := packageGenerator{
-				pkg:        &pkg,
-				metadata:   &metadata,
-				apiVersion: version,
-				examples:   exampleMap,
-				versioning: versioning,
-				rootDir:    rootDir,
+				pkg:                &pkg,
+				metadata:           &metadata,
+				apiVersion:         version,
+				examples:           exampleMap,
+				versioning:         versioning,
+				caseSensitiveTypes: caseSensitiveTypes,
+				rootDir:            rootDir,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -328,9 +331,10 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	})
 
 	return &GenerationResult{
-		Schema:   &pkg,
-		Metadata: &metadata,
-		Examples: exampleMap,
+		Schema:            &pkg,
+		Metadata:          &metadata,
+		Examples:          exampleMap,
+		TypeCaseConflicts: caseSensitiveTypes.findCaseConflicts(),
 	}, nil
 }
 
@@ -484,12 +488,13 @@ const (
 )
 
 type packageGenerator struct {
-	pkg        *pschema.PackageSpec
-	metadata   *resources.AzureAPIMetadata
-	examples   map[string][]resources.AzureAPIExample
-	apiVersion string
-	versioning Versioning
-	warnings   []string
+	pkg                *pschema.PackageSpec
+	metadata           *resources.AzureAPIMetadata
+	examples           map[string][]resources.AzureAPIExample
+	apiVersion         string
+	versioning         Versioning
+	caseSensitiveTypes caseSensitiveTokens
+	warnings           []string
 	// rootDir is used to resolve relative paths in the examples.
 	rootDir string
 }
@@ -645,6 +650,7 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 		resourceName:           resource.typeName,
 		resourceToken:          resourceTok,
 		visitedTypes:           make(map[string]bool),
+		caseSensitiveTypes:     g.caseSensitiveTypes,
 		inlineTypes:            map[*openapi.ReferenceContext]codegen.StringSet{},
 		nestedResourceBodyRefs: nestedResourceBodyRefs,
 	}
@@ -872,14 +878,15 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathItem *spec.PathItem, swagger *openapi.Spec) {
 	module := g.providerToModule(prov)
 	gen := moduleGenerator{
-		pkg:           g.pkg,
-		metadata:      g.metadata,
-		module:        module,
-		resourceToken: fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
-		prov:          prov,
-		resourceName:  typeName,
-		visitedTypes:  make(map[string]bool),
-		inlineTypes:   map[*openapi.ReferenceContext]codegen.StringSet{},
+		pkg:                g.pkg,
+		metadata:           g.metadata,
+		module:             module,
+		resourceToken:      fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
+		prov:               prov,
+		resourceName:       typeName,
+		visitedTypes:       make(map[string]bool),
+		caseSensitiveTypes: g.caseSensitiveTypes,
+		inlineTypes:        map[*openapi.ReferenceContext]codegen.StringSet{},
 	}
 
 	// Generate the function to get this resource.
@@ -1034,6 +1041,53 @@ func getResponseSchema(ctx *openapi.ReferenceContext, statusCodeResponses map[in
 	return nil, nil
 }
 
+type caseSensitiveTokens struct {
+	// Map of the lowered tokens to the list of all case variants. The first item in the list is the
+	// first seen casing which will be used everywhere.
+	tokensLowered map[string][]string
+}
+
+func newCaseSensitiveTokens() caseSensitiveTokens {
+	return caseSensitiveTokens{tokensLowered: make(map[string][]string)}
+}
+
+// normalizeTokenCase returns the normalized token.
+// This normalizes all casing to the first seen casing. For this to be consistent,
+// we rely on iterating all specs in the same order each time.
+func (t *caseSensitiveTokens) normalizeTokenCase(token string) string {
+	tokenLowered := strings.ToLower(token)
+	caseVariants, alreadySeen := t.tokensLowered[tokenLowered]
+	if !alreadySeen {
+		t.tokensLowered[tokenLowered] = []string{token}
+		return token
+	}
+	foundExactCasing := false
+	for _, v := range caseVariants {
+		if v == token {
+			foundExactCasing = true
+			break
+		}
+	}
+	if !foundExactCasing {
+		caseVariants = append(caseVariants, token)
+		t.tokensLowered[tokenLowered] = caseVariants
+	}
+	return caseVariants[0]
+}
+
+// Map of the resolved type and a list of all its case variants.
+type CaseConflicts map[string][]string
+
+func (t *caseSensitiveTokens) findCaseConflicts() CaseConflicts {
+	conflicts := make(map[string][]string)
+	for _, caseVariants := range t.tokensLowered {
+		if len(caseVariants) > 1 {
+			conflicts[caseVariants[0]] = caseVariants[1:]
+		}
+	}
+	return conflicts
+}
+
 type moduleGenerator struct {
 	pkg                    *pschema.PackageSpec
 	metadata               *resources.AzureAPIMetadata
@@ -1042,6 +1096,7 @@ type moduleGenerator struct {
 	resourceName           string
 	resourceToken          string
 	visitedTypes           map[string]bool
+	caseSensitiveTypes     caseSensitiveTokens
 	inlineTypes            map[*openapi.ReferenceContext]codegen.StringSet
 	nestedResourceBodyRefs []string
 }
