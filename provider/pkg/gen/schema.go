@@ -1042,21 +1042,23 @@ func getResponseSchema(ctx *openapi.ReferenceContext, statusCodeResponses map[in
 }
 
 type caseSensitiveTokens struct {
-	typesLowered map[string][]string
+	// Map of the lowered tokens to the list of all case variants. The first item in the list is the
+	// first seen casing which will be used everywhere.
+	tokensLowered map[string][]string
 }
 
 func newCaseSensitiveTokens() caseSensitiveTokens {
-	return caseSensitiveTokens{typesLowered: make(map[string][]string)}
+	return caseSensitiveTokens{tokensLowered: make(map[string][]string)}
 }
 
 // normalizeTokenCase returns the normalized token.
 // This normalizes all casing to the first seen casing. For this to be consistent,
 // we rely on iterating all specs in the same order each time.
-func (v *caseSensitiveTokens) normalizeTokenCase(token string) string {
+func (t *caseSensitiveTokens) normalizeTokenCase(token string) string {
 	tokenLowered := strings.ToLower(token)
-	caseVariants, alreadySeen := v.typesLowered[tokenLowered]
+	caseVariants, alreadySeen := t.tokensLowered[tokenLowered]
 	if !alreadySeen {
-		v.typesLowered[tokenLowered] = []string{token}
+		t.tokensLowered[tokenLowered] = []string{token}
 		return token
 	}
 	foundExactCasing := false
@@ -1068,7 +1070,7 @@ func (v *caseSensitiveTokens) normalizeTokenCase(token string) string {
 	}
 	if !foundExactCasing {
 		caseVariants = append(caseVariants, token)
-		v.typesLowered[tokenLowered] = caseVariants
+		t.tokensLowered[tokenLowered] = caseVariants
 	}
 	return caseVariants[0]
 }
@@ -1076,9 +1078,9 @@ func (v *caseSensitiveTokens) normalizeTokenCase(token string) string {
 // Map of the resolved type and a list of all its case variants.
 type CaseConflicts map[string][]string
 
-func (v *caseSensitiveTokens) findCaseConflicts() CaseConflicts {
+func (t *caseSensitiveTokens) findCaseConflicts() CaseConflicts {
 	conflicts := make(map[string][]string)
-	for _, caseVariants := range v.typesLowered {
+	for _, caseVariants := range t.tokensLowered {
 		if len(caseVariants) > 1 {
 			conflicts[caseVariants[0]] = caseVariants[1:]
 		}
