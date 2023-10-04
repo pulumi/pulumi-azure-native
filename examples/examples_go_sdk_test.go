@@ -62,21 +62,6 @@ func TestAccAksGoSdk(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestServicebusRecreateSdk(t *testing.T) {
-	skipIfShort(t)
-	test := getGoBaseOptionsSdk(t, testDir(t, "go-servicebus-recreate", "step1")).
-		With(integration.ProgramTestOptions{
-			EditDirs: []integration.EditDir{
-				{
-					Dir:      testDir(t, "go-servicebus-recreate", "step2"),
-					Additive: true,
-				},
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func getGoBaseOptionsSdk(t *testing.T, dir string) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 

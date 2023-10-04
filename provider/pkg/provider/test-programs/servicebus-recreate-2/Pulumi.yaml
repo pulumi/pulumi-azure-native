@@ -1,0 +1,16 @@
+name: servicebus-recreate
+runtime: yaml
+description: Check servicebus auto-recreates on duplicate detection change
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+  namespace:
+    type: azure-native:servicebus:Namespace
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+  topic:
+    type: azure-native:servicebus:Topic
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      namespaceName: ${namespace.name}
+      requiresDuplicateDetection: true # Changing this should trigger recreation otherwise will be rejected.
