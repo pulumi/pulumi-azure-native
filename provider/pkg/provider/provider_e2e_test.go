@@ -10,7 +10,9 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"google.golang.org/grpc"
@@ -43,30 +45,86 @@ func runTestProgram(t *testing.T, initialDir string, editDirs ...string) {
 	if t.Skipped() {
 		return
 	}
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	port, err := startProvider(ctx)
-	if err != nil {
-		t.Fatal(err)
-	}
+	t.Run("yaml", func(t *testing.T) {
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
+		port, err := startProvider(ctx)
+		if err != nil {
+			t.Fatal(err)
+		}
 
-	opts, err := getTestOptions(initialDir, editDirs, port)
-	if err != nil {
-		t.Fatal(err)
+		opts := getYamlTestOptions(initialDir, editDirs, port)
+		if err != nil {
+			t.Fatal(err)
+			return
+		}
+		integration.ProgramTest(t, opts)
+	})
+
+	// Run locally using: PULUMI_MATRIX_TEST_LANGUAGES=typescript,dotnet PROVIDER_TEST_TAGS=all make test_provider
+	languagesEnv, enableMatrixTest := os.LookupEnv("PULUMI_MATRIX_TEST_LANGUAGES")
+	if !enableMatrixTest {
 		return
 	}
+	languages := strings.Split(languagesEnv, ",")
+	for _, language := range languages {
+		currentLanguage := language
+		t.Run(currentLanguage, func(t *testing.T) {
+			nodeDir := t.TempDir()
 
-	integration.ProgramTest(t, opts)
+			cmd := exec.Command("pulumi", "convert", "--language", currentLanguage, "--generate-only", "--out", nodeDir)
+			cmd.Dir = resolveTestProgramDir(initialDir)
+			out, err := cmd.CombinedOutput()
+			if err != nil {
+				t.Fatalf("failed to convert to nodejs: %s\n%s", err, out)
+			}
+
+			nodejsEditDirs := make([]string, len(editDirs))
+			for _, editDir := range editDirs {
+				nodejsEditDir := t.TempDir()
+				nodejsEditDirs = append(nodejsEditDirs, nodejsEditDir)
+				cmd := exec.Command("pulumi", "convert", "--language", currentLanguage, "--generate-only", "--out", nodeDir)
+				cmd.Dir = resolveTestProgramDir(editDir)
+				out, err := cmd.CombinedOutput()
+				if err != nil {
+					t.Fatalf("failed to convert to nodejs: %s\n%s", err, out)
+				}
+			}
+
+			ctx, cancel := context.WithCancel(context.Background())
+			defer cancel()
+			port, err := startProvider(ctx)
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			opts := getTestOptions(nodeDir, nodejsEditDirs, port)
+			integration.ProgramTest(t, opts)
+		})
+	}
 }
 
-func getTestOptions(initialDir string, editDirs []string, port int) (*integration.ProgramTestOptions, error) {
+func getYamlTestOptions(initialDir string, editDirs []string, port int) *integration.ProgramTestOptions {
+	resolvedEditDirs := make([]string, len(editDirs))
+	for i, editDir := range editDirs {
+		resolvedEditDirs[i] = resolveTestProgramDir(editDir)
+	}
+	return getTestOptions(resolveTestProgramDir(initialDir), resolvedEditDirs, port)
+}
+
+func resolveTestProgramDir(dir string) string {
 	cwd, err := os.Getwd()
 	if err != nil {
-		return nil, err
+		// If we can't get the current working directory, we'll fail hard.
+		panic(err)
 	}
+	return filepath.Join(cwd, "test-programs", dir)
+}
+
+func getTestOptions(initialDir string, editDirs []string, port int) *integration.ProgramTestOptions {
 	azureLocation := getLocation()
 	test := integration.ProgramTestOptions{
-		Dir:                  filepath.Join(cwd, "test-programs", initialDir),
+		Dir:                  initialDir,
 		ExpectRefreshChanges: true,
 		Config: map[string]string{
 			"azure-native:location": azureLocation,
@@ -77,11 +135,11 @@ func getTestOptions(initialDir string, editDirs []string, port int) (*integratio
 	}
 	for _, editDir := range editDirs {
 		test.EditDirs = append(test.EditDirs, integration.EditDir{
-			Dir:      filepath.Join(cwd, "test-programs", editDir),
+			Dir:      editDir,
 			Additive: true,
 		})
 	}
-	return &test, nil
+	return &test
 }
 
 // startProvider starts the provider in a goProc and returns the port it's listening on.
