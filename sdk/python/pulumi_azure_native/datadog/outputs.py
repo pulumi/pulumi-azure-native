@@ -18,11 +18,17 @@ __all__ = [
     'DatadogInstallMethodResponse',
     'DatadogLogsAgentResponse',
     'DatadogOrganizationPropertiesResponse',
+    'FilteringTagResponse',
     'IdentityPropertiesResponse',
     'LinkedResourceResponse',
+    'LogRulesResponse',
+    'MetricRulesResponse',
     'MonitorPropertiesResponse',
     'MonitoredResourceResponse',
+    'MonitoredSubscriptionResponse',
+    'MonitoringTagRulesPropertiesResponse',
     'ResourceSkuResponse',
+    'SubscriptionListResponse',
     'SystemDataResponse',
     'UserInfoResponse',
 ]
@@ -265,6 +271,53 @@ class DatadogOrganizationPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class FilteringTagResponse(dict):
+    """
+    The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+    """
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+        :param str action: Valid actions for a filtering tag. Exclusion takes priority over inclusion.
+        :param str name: The name (also known as the key) of the tag.
+        :param str value: The value of the tag.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Valid actions for a filtering tag. Exclusion takes priority over inclusion.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name (also known as the key) of the tag.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class IdentityPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -345,6 +398,128 @@ class LinkedResourceResponse(dict):
         The ARM id of the linked resource.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class LogRulesResponse(dict):
+    """
+    Set of rules for sending logs for the Monitor resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filteringTags":
+            suggest = "filtering_tags"
+        elif key == "sendAadLogs":
+            suggest = "send_aad_logs"
+        elif key == "sendResourceLogs":
+            suggest = "send_resource_logs"
+        elif key == "sendSubscriptionLogs":
+            suggest = "send_subscription_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filtering_tags: Optional[Sequence['outputs.FilteringTagResponse']] = None,
+                 send_aad_logs: Optional[bool] = None,
+                 send_resource_logs: Optional[bool] = None,
+                 send_subscription_logs: Optional[bool] = None):
+        """
+        Set of rules for sending logs for the Monitor resource.
+        :param Sequence['FilteringTagResponse'] filtering_tags: List of filtering tags to be used for capturing logs. This only takes effect if SendResourceLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        :param bool send_aad_logs: Flag specifying if AAD logs should be sent for the Monitor resource.
+        :param bool send_resource_logs: Flag specifying if Azure resource logs should be sent for the Monitor resource.
+        :param bool send_subscription_logs: Flag specifying if Azure subscription logs should be sent for the Monitor resource.
+        """
+        if filtering_tags is not None:
+            pulumi.set(__self__, "filtering_tags", filtering_tags)
+        if send_aad_logs is not None:
+            pulumi.set(__self__, "send_aad_logs", send_aad_logs)
+        if send_resource_logs is not None:
+            pulumi.set(__self__, "send_resource_logs", send_resource_logs)
+        if send_subscription_logs is not None:
+            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+
+    @property
+    @pulumi.getter(name="filteringTags")
+    def filtering_tags(self) -> Optional[Sequence['outputs.FilteringTagResponse']]:
+        """
+        List of filtering tags to be used for capturing logs. This only takes effect if SendResourceLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        return pulumi.get(self, "filtering_tags")
+
+    @property
+    @pulumi.getter(name="sendAadLogs")
+    def send_aad_logs(self) -> Optional[bool]:
+        """
+        Flag specifying if AAD logs should be sent for the Monitor resource.
+        """
+        return pulumi.get(self, "send_aad_logs")
+
+    @property
+    @pulumi.getter(name="sendResourceLogs")
+    def send_resource_logs(self) -> Optional[bool]:
+        """
+        Flag specifying if Azure resource logs should be sent for the Monitor resource.
+        """
+        return pulumi.get(self, "send_resource_logs")
+
+    @property
+    @pulumi.getter(name="sendSubscriptionLogs")
+    def send_subscription_logs(self) -> Optional[bool]:
+        """
+        Flag specifying if Azure subscription logs should be sent for the Monitor resource.
+        """
+        return pulumi.get(self, "send_subscription_logs")
+
+
+@pulumi.output_type
+class MetricRulesResponse(dict):
+    """
+    Set of rules for sending metrics for the Monitor resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filteringTags":
+            suggest = "filtering_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filtering_tags: Optional[Sequence['outputs.FilteringTagResponse']] = None):
+        """
+        Set of rules for sending metrics for the Monitor resource.
+        :param Sequence['FilteringTagResponse'] filtering_tags: List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        if filtering_tags is not None:
+            pulumi.set(__self__, "filtering_tags", filtering_tags)
+
+    @property
+    @pulumi.getter(name="filteringTags")
+    def filtering_tags(self) -> Optional[Sequence['outputs.FilteringTagResponse']]:
+        """
+        List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        return pulumi.get(self, "filtering_tags")
 
 
 @pulumi.output_type
@@ -531,6 +706,159 @@ class MonitoredResourceResponse(dict):
 
 
 @pulumi.output_type
+class MonitoredSubscriptionResponse(dict):
+    """
+    The list of subscriptions and it's monitoring status by current Datadog monitor.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tagRules":
+            suggest = "tag_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoredSubscriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoredSubscriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoredSubscriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error: Optional[str] = None,
+                 status: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
+                 tag_rules: Optional['outputs.MonitoringTagRulesPropertiesResponse'] = None):
+        """
+        The list of subscriptions and it's monitoring status by current Datadog monitor.
+        :param str error: The reason of not monitoring the subscription.
+        :param str status: The state of monitoring.
+        :param str subscription_id: The subscriptionId to be monitored.
+        :param 'MonitoringTagRulesPropertiesResponse' tag_rules: Definition of the properties for a TagRules resource.
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tag_rules is not None:
+            pulumi.set(__self__, "tag_rules", tag_rules)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[str]:
+        """
+        The reason of not monitoring the subscription.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The state of monitoring.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        The subscriptionId to be monitored.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="tagRules")
+    def tag_rules(self) -> Optional['outputs.MonitoringTagRulesPropertiesResponse']:
+        """
+        Definition of the properties for a TagRules resource.
+        """
+        return pulumi.get(self, "tag_rules")
+
+
+@pulumi.output_type
+class MonitoringTagRulesPropertiesResponse(dict):
+    """
+    Definition of the properties for a TagRules resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "logRules":
+            suggest = "log_rules"
+        elif key == "metricRules":
+            suggest = "metric_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringTagRulesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringTagRulesPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringTagRulesPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 automuting: Optional[bool] = None,
+                 log_rules: Optional['outputs.LogRulesResponse'] = None,
+                 metric_rules: Optional['outputs.MetricRulesResponse'] = None):
+        """
+        Definition of the properties for a TagRules resource.
+        :param bool automuting: Configuration to enable/disable auto-muting flag
+        :param 'LogRulesResponse' log_rules: Set of rules for sending logs for the Monitor resource.
+        :param 'MetricRulesResponse' metric_rules: Set of rules for sending metrics for the Monitor resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if automuting is not None:
+            pulumi.set(__self__, "automuting", automuting)
+        if log_rules is not None:
+            pulumi.set(__self__, "log_rules", log_rules)
+        if metric_rules is not None:
+            pulumi.set(__self__, "metric_rules", metric_rules)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def automuting(self) -> Optional[bool]:
+        """
+        Configuration to enable/disable auto-muting flag
+        """
+        return pulumi.get(self, "automuting")
+
+    @property
+    @pulumi.getter(name="logRules")
+    def log_rules(self) -> Optional['outputs.LogRulesResponse']:
+        """
+        Set of rules for sending logs for the Monitor resource.
+        """
+        return pulumi.get(self, "log_rules")
+
+    @property
+    @pulumi.getter(name="metricRules")
+    def metric_rules(self) -> Optional['outputs.MetricRulesResponse']:
+        """
+        Set of rules for sending metrics for the Monitor resource.
+        """
+        return pulumi.get(self, "metric_rules")
+
+
+@pulumi.output_type
 class ResourceSkuResponse(dict):
     def __init__(__self__, *,
                  name: str):
@@ -546,6 +874,46 @@ class ResourceSkuResponse(dict):
         Name of the SKU.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SubscriptionListResponse(dict):
+    """
+    The request to update subscriptions needed to be monitored by the Datadog monitor resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoredSubscriptionList":
+            suggest = "monitored_subscription_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionListResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionListResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionListResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monitored_subscription_list: Optional[Sequence['outputs.MonitoredSubscriptionResponse']] = None):
+        """
+        The request to update subscriptions needed to be monitored by the Datadog monitor resource.
+        :param Sequence['MonitoredSubscriptionResponse'] monitored_subscription_list: List of subscriptions and the state of the monitoring.
+        """
+        if monitored_subscription_list is not None:
+            pulumi.set(__self__, "monitored_subscription_list", monitored_subscription_list)
+
+    @property
+    @pulumi.getter(name="monitoredSubscriptionList")
+    def monitored_subscription_list(self) -> Optional[Sequence['outputs.MonitoredSubscriptionResponse']]:
+        """
+        List of subscriptions and the state of the monitoring.
+        """
+        return pulumi.get(self, "monitored_subscription_list")
 
 
 @pulumi.output_type

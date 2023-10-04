@@ -5528,20 +5528,20 @@ class SolutionDetailsArgs:
 @pulumi.input_type
 class SolutionPropertiesArgs:
     def __init__(__self__, *,
-                 cleanup_state: Optional[pulumi.Input[str]] = None,
+                 cleanup_state: Optional[pulumi.Input[Union[str, 'CleanupState']]] = None,
                  details: Optional[pulumi.Input['SolutionDetailsArgs']] = None,
-                 goal: Optional[pulumi.Input[str]] = None,
-                 purpose: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 tool: Optional[pulumi.Input[str]] = None):
+                 goal: Optional[pulumi.Input[Union[str, 'Goal']]] = None,
+                 purpose: Optional[pulumi.Input[Union[str, 'Purpose']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+                 tool: Optional[pulumi.Input[Union[str, 'Tool']]] = None):
         """
         Class for solution properties.
-        :param pulumi.Input[str] cleanup_state: Gets or sets the cleanup state of the solution.
+        :param pulumi.Input[Union[str, 'CleanupState']] cleanup_state: Gets or sets the cleanup state of the solution.
         :param pulumi.Input['SolutionDetailsArgs'] details: Gets or sets the details of the solution.
-        :param pulumi.Input[str] goal: Gets or sets the goal of the solution.
-        :param pulumi.Input[str] purpose: Gets or sets the purpose of the solution.
-        :param pulumi.Input[str] status: Gets or sets the current status of the solution.
-        :param pulumi.Input[str] tool: Gets or sets the tool being used in the solution.
+        :param pulumi.Input[Union[str, 'Goal']] goal: Gets or sets the goal of the solution.
+        :param pulumi.Input[Union[str, 'Purpose']] purpose: Gets or sets the purpose of the solution.
+        :param pulumi.Input[Union[str, 'Status']] status: Gets or sets the current status of the solution.
+        :param pulumi.Input[Union[str, 'Tool']] tool: Gets or sets the tool being used in the solution.
         """
         if cleanup_state is not None:
             pulumi.set(__self__, "cleanup_state", cleanup_state)
@@ -5558,14 +5558,14 @@ class SolutionPropertiesArgs:
 
     @property
     @pulumi.getter(name="cleanupState")
-    def cleanup_state(self) -> Optional[pulumi.Input[str]]:
+    def cleanup_state(self) -> Optional[pulumi.Input[Union[str, 'CleanupState']]]:
         """
         Gets or sets the cleanup state of the solution.
         """
         return pulumi.get(self, "cleanup_state")
 
     @cleanup_state.setter
-    def cleanup_state(self, value: Optional[pulumi.Input[str]]):
+    def cleanup_state(self, value: Optional[pulumi.Input[Union[str, 'CleanupState']]]):
         pulumi.set(self, "cleanup_state", value)
 
     @property
@@ -5582,50 +5582,50 @@ class SolutionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def goal(self) -> Optional[pulumi.Input[str]]:
+    def goal(self) -> Optional[pulumi.Input[Union[str, 'Goal']]]:
         """
         Gets or sets the goal of the solution.
         """
         return pulumi.get(self, "goal")
 
     @goal.setter
-    def goal(self, value: Optional[pulumi.Input[str]]):
+    def goal(self, value: Optional[pulumi.Input[Union[str, 'Goal']]]):
         pulumi.set(self, "goal", value)
 
     @property
     @pulumi.getter
-    def purpose(self) -> Optional[pulumi.Input[str]]:
+    def purpose(self) -> Optional[pulumi.Input[Union[str, 'Purpose']]]:
         """
         Gets or sets the purpose of the solution.
         """
         return pulumi.get(self, "purpose")
 
     @purpose.setter
-    def purpose(self, value: Optional[pulumi.Input[str]]):
+    def purpose(self, value: Optional[pulumi.Input[Union[str, 'Purpose']]]):
         pulumi.set(self, "purpose", value)
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'Status']]]:
         """
         Gets or sets the current status of the solution.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'Status']]]):
         pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter
-    def tool(self) -> Optional[pulumi.Input[str]]:
+    def tool(self) -> Optional[pulumi.Input[Union[str, 'Tool']]]:
         """
         Gets or sets the tool being used in the solution.
         """
         return pulumi.get(self, "tool")
 
     @tool.setter
-    def tool(self, value: Optional[pulumi.Input[str]]):
+    def tool(self, value: Optional[pulumi.Input[Union[str, 'Tool']]]):
         pulumi.set(self, "tool", value)
 
 

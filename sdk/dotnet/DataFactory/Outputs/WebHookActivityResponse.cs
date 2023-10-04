@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? OnInactiveMarkAs;
         /// <summary>
+        /// Activity policy.
+        /// </summary>
+        public readonly Outputs.SecureInputOutputPolicyResponse? Policy;
+        /// <summary>
         /// When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode &gt;= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? ReportStatusOnCallBack;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? onInactiveMarkAs,
 
+            Outputs.SecureInputOutputPolicyResponse? policy,
+
             object? reportStatusOnCallBack,
 
             string? state,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Method = method;
             Name = name;
             OnInactiveMarkAs = onInactiveMarkAs;
+            Policy = policy;
             ReportStatusOnCallBack = reportStatusOnCallBack;
             State = state;
             Timeout = timeout;

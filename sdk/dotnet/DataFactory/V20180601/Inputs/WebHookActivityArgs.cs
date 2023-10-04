@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ActivityOnInactiveMarkAs>? OnInactiveMarkAs { get; set; }
 
         /// <summary>
+        /// Activity policy.
+        /// </summary>
+        [Input("policy")]
+        public Input<Inputs.SecureInputOutputPolicyArgs>? Policy { get; set; }
+
+        /// <summary>
         /// When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode &gt;= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("reportStatusOnCallBack")]

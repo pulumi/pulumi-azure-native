@@ -2816,7 +2816,8 @@
   },
   "BareMetalInfrastructure": {
     "AzureBareMetalStorageInstance": [
-      "2023-04-06"
+      "2023-04-06",
+      "2023-08-04-preview"
     ]
   },
   "Batch": {
@@ -3415,21 +3416,24 @@
       "2022-07-01-preview",
       "2022-10-01-preview",
       "2023-04-01-preview",
-      "2023-04-15-preview"
+      "2023-04-15-preview",
+      "2023-09-01-preview"
     ],
     "Experiment": [
       "2021-09-15-preview",
       "2022-07-01-preview",
       "2022-10-01-preview",
       "2023-04-01-preview",
-      "2023-04-15-preview"
+      "2023-04-15-preview",
+      "2023-09-01-preview"
     ],
     "Target": [
       "2021-09-15-preview",
       "2022-07-01-preview",
       "2022-10-01-preview",
       "2023-04-01-preview",
-      "2023-04-15-preview"
+      "2023-04-15-preview",
+      "2023-09-01-preview"
     ]
   },
   "CognitiveServices": {
@@ -4485,7 +4489,8 @@
       "2023-06-02-preview",
       "2023-07-01",
       "2023-07-02-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2023-08-02-preview"
     ],
     "ContainerService": [
       "2015-11-01-preview",
@@ -4556,7 +4561,8 @@
       "2023-06-02-preview",
       "2023-07-01",
       "2023-07-02-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2023-08-02-preview"
     ],
     "ManagedCluster": [
       "2017-08-31",
@@ -4619,7 +4625,8 @@
       "2023-06-02-preview",
       "2023-07-01",
       "2023-07-02-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2023-08-02-preview"
     ],
     "ManagedClusterSnapshot": [
       "2022-02-02-preview",
@@ -4639,7 +4646,8 @@
       "2023-04-02-preview",
       "2023-05-02-preview",
       "2023-06-02-preview",
-      "2023-07-02-preview"
+      "2023-07-02-preview",
+      "2023-08-02-preview"
     ],
     "OpenShiftManagedCluster": [
       "2018-09-30-preview",
@@ -4695,7 +4703,8 @@
       "2023-06-02-preview",
       "2023-07-01",
       "2023-07-02-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2023-08-02-preview"
     ],
     "Snapshot": [
       "2021-08-01",
@@ -4736,7 +4745,8 @@
       "2023-06-02-preview",
       "2023-07-01",
       "2023-07-02-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2023-08-02-preview"
     ],
     "TrustedAccessRoleBinding": [
       "2022-04-02-preview",
@@ -4754,7 +4764,8 @@
       "2023-04-02-preview",
       "2023-05-02-preview",
       "2023-06-02-preview",
-      "2023-07-02-preview"
+      "2023-07-02-preview",
+      "2023-08-02-preview"
     ],
     "UpdateRun": [
       "2023-03-15-preview",
@@ -4843,7 +4854,8 @@
       "2023-06-02-preview",
       "2023-07-01",
       "2023-07-02-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2023-08-02-preview"
     ],
     "listManagedClusterMonitoringUserCredentials": [
       "2019-10-01",
@@ -4899,7 +4911,8 @@
       "2023-06-02-preview",
       "2023-07-01",
       "2023-07-02-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2023-08-02-preview"
     ],
     "listManagedClusterUserCredentials": [
       "2018-03-31",
@@ -4961,7 +4974,8 @@
       "2023-06-02-preview",
       "2023-07-01",
       "2023-07-02-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2023-08-02-preview"
     ]
   },
   "ContainerStorage": {
@@ -5377,11 +5391,16 @@
     "Grafana": [
       "2021-09-01-preview",
       "2022-05-01-preview",
-      "2022-08-01"
+      "2022-08-01",
+      "2022-10-01-preview"
+    ],
+    "ManagedPrivateEndpoint": [
+      "2022-10-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2022-05-01-preview",
-      "2022-08-01"
+      "2022-08-01",
+      "2022-10-01-preview"
     ]
   },
   "DataBox": {
@@ -6093,32 +6112,47 @@
     "Monitor": [
       "2020-02-01-preview",
       "2021-03-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-08-01",
+      "2023-01-01"
+    ],
+    "MonitoredSubscription": [
+      "2023-01-01"
     ],
     "getMonitorDefaultKey": [
       "2020-02-01-preview",
       "2021-03-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-08-01",
+      "2023-01-01"
     ],
     "listMonitorApiKeys": [
       "2020-02-01-preview",
       "2021-03-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-08-01",
+      "2023-01-01"
     ],
     "listMonitorHosts": [
       "2020-02-01-preview",
       "2021-03-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-08-01",
+      "2023-01-01"
     ],
     "listMonitorLinkedResources": [
       "2020-02-01-preview",
       "2021-03-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-08-01",
+      "2023-01-01"
     ],
     "listMonitorMonitoredResources": [
       "2020-02-01-preview",
       "2021-03-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2022-08-01",
+      "2023-01-01"
     ]
   },
   "DelegatedNetwork": {
@@ -11017,7 +11051,8 @@
       "2018-09-01-preview"
     ],
     "MigrateProjectsControllerMigrateProject": [
-      "2020-05-01"
+      "2020-05-01",
+      "2023-01-01"
     ],
     "ModernizeProject": [
       "2022-05-01-preview"
@@ -11040,7 +11075,11 @@
       "2019-10-01"
     ],
     "PrivateEndpointConnectionControllerPrivateEndpointConnection": [
-      "2020-05-01"
+      "2020-05-01",
+      "2023-01-01"
+    ],
+    "PrivateEndpointConnectionProxyController": [
+      "2023-01-01"
     ],
     "Project": [
       "2017-11-11-preview",
@@ -11052,6 +11091,9 @@
     ],
     "Solution": [
       "2018-09-01-preview"
+    ],
+    "SolutionsControllerSolution": [
+      "2023-01-01"
     ],
     "VMwareCollector": [
       "2019-10-01"
@@ -11068,6 +11110,9 @@
     ],
     "getSolutionConfig": [
       "2018-09-01-preview"
+    ],
+    "getSolutionsControllerConfig": [
+      "2023-01-01"
     ],
     "getWorkloadDeploymentSecretConfigurations": [
       "2022-05-01-preview"
@@ -14839,6 +14884,17 @@
       "2023-05-01"
     ]
   },
+  "NetworkAnalytics": {
+    "DataProduct": [
+      "2023-11-15"
+    ],
+    "DataType": [
+      "2023-11-15"
+    ],
+    "listDataProductRolesAssignments": [
+      "2023-11-15"
+    ]
+  },
   "NetworkCloud": {
     "AgentPool": [
       "2023-05-01-preview",
@@ -15941,7 +15997,8 @@
     "MachinePool": [
       "2022-09-04",
       "2023-04-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-04"
     ],
     "OpenShiftCluster": [
       "2020-04-30",
@@ -15949,29 +16006,34 @@
       "2022-04-01",
       "2022-09-04",
       "2023-04-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-04"
     ],
     "Secret": [
       "2022-09-04",
       "2023-04-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-04"
     ],
     "SyncIdentityProvider": [
       "2022-09-04",
       "2023-04-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-04"
     ],
     "SyncSet": [
       "2022-09-04",
       "2023-04-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-04"
     ],
     "listOpenShiftClusterAdminCredentials": [
       "2021-09-01-preview",
       "2022-04-01",
       "2022-09-04",
       "2023-04-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-04"
     ],
     "listOpenShiftClusterCredentials": [
       "2020-04-30",
@@ -15979,7 +16041,8 @@
       "2022-04-01",
       "2022-09-04",
       "2023-04-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-04"
     ]
   },
   "Relay": {
@@ -17420,7 +17483,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-03-01-preview",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-01-preview"
     ],
     "ManagedClusterApplication": [
       "2021-01-01-preview",
@@ -17435,7 +17499,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-03-01-preview",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-01-preview"
     ],
     "ManagedClusterApplicationType": [
       "2021-01-01-preview",
@@ -17450,7 +17515,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-03-01-preview",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-01-preview"
     ],
     "ManagedClusterApplicationTypeVersion": [
       "2021-01-01-preview",
@@ -17465,7 +17531,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-03-01-preview",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-01-preview"
     ],
     "ManagedClusterService": [
       "2021-01-01-preview",
@@ -17480,7 +17547,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-03-01-preview",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-01-preview"
     ],
     "NodeType": [
       "2020-01-01-preview",
@@ -17496,7 +17564,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-03-01-preview",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-01-preview"
     ],
     "Service": [
       "2017-07-01-preview",
@@ -17515,10 +17584,12 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-03-01-preview",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-01-preview"
     ],
     "getmanagedMaintenanceWindowStatus": [
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-09-01-preview"
     ],
     "listClusterUpgradableVersions": [
       "2021-06-01"
@@ -19123,27 +19194,32 @@
     "Agent": [
       "2022-07-01-preview",
       "2023-03-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-10-01"
     ],
     "Endpoint": [
       "2022-07-01-preview",
       "2023-03-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-10-01"
     ],
     "JobDefinition": [
       "2022-07-01-preview",
       "2023-03-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-10-01"
     ],
     "Project": [
       "2022-07-01-preview",
       "2023-03-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-10-01"
     ],
     "StorageMover": [
       "2022-07-01-preview",
       "2023-03-01",
-      "2023-07-01-preview"
+      "2023-07-01-preview",
+      "2023-10-01"
     ]
   },
   "StoragePool": {

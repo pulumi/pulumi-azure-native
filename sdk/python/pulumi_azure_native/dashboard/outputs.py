@@ -15,6 +15,7 @@ __all__ = [
     'AzureMonitorWorkspaceIntegrationResponse',
     'GrafanaIntegrationsResponse',
     'ManagedGrafanaPropertiesResponse',
+    'ManagedPrivateEndpointConnectionStateResponse',
     'ManagedServiceIdentityResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -271,6 +272,39 @@ class ManagedGrafanaPropertiesResponse(dict):
         The zone redundancy setting of the Grafana instance.
         """
         return pulumi.get(self, "zone_redundancy")
+
+
+@pulumi.output_type
+class ManagedPrivateEndpointConnectionStateResponse(dict):
+    """
+    The state of managed private endpoint connection.
+    """
+    def __init__(__self__, *,
+                 description: str,
+                 status: str):
+        """
+        The state of managed private endpoint connection.
+        :param str description: Gets or sets the reason for approval/rejection of the connection.
+        :param str status: The approval/rejection status of managed private endpoint connection.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Gets or sets the reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The approval/rejection status of managed private endpoint connection.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

@@ -15,6 +15,11 @@ export const getMonitorDefaultKey: typeof import("./getMonitorDefaultKey").getMo
 export const getMonitorDefaultKeyOutput: typeof import("./getMonitorDefaultKey").getMonitorDefaultKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitorDefaultKey","getMonitorDefaultKeyOutput"], () => require("./getMonitorDefaultKey"));
 
+export { GetMonitoredSubscriptionArgs, GetMonitoredSubscriptionResult, GetMonitoredSubscriptionOutputArgs } from "./getMonitoredSubscription";
+export const getMonitoredSubscription: typeof import("./getMonitoredSubscription").getMonitoredSubscription = null as any;
+export const getMonitoredSubscriptionOutput: typeof import("./getMonitoredSubscription").getMonitoredSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoredSubscription","getMonitoredSubscriptionOutput"], () => require("./getMonitoredSubscription"));
+
 export { ListMonitorApiKeysArgs, ListMonitorApiKeysResult, ListMonitorApiKeysOutputArgs } from "./listMonitorApiKeys";
 export const listMonitorApiKeys: typeof import("./listMonitorApiKeys").listMonitorApiKeys = null as any;
 export const listMonitorApiKeysOutput: typeof import("./listMonitorApiKeys").listMonitorApiKeysOutput = null as any;
@@ -40,15 +45,24 @@ export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
 
+export { MonitoredSubscriptionArgs } from "./monitoredSubscription";
+export type MonitoredSubscription = import("./monitoredSubscription").MonitoredSubscription;
+export const MonitoredSubscription: typeof import("./monitoredSubscription").MonitoredSubscription = null as any;
+utilities.lazyLoad(exports, ["MonitoredSubscription"], () => require("./monitoredSubscription"));
+
 
 // Export enums:
 export * from "../types/enums/datadog";
 
 // Export sub-modules:
 import * as v20220601 from "./v20220601";
+import * as v20220801 from "./v20220801";
+import * as v20230101 from "./v20230101";
 
 export {
     v20220601,
+    v20220801,
+    v20230101,
 };
 
 const _module = {
@@ -57,6 +71,8 @@ const _module = {
         switch (type) {
             case "azure-native:datadog:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
+            case "azure-native:datadog:MonitoredSubscription":
+                return new MonitoredSubscription(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

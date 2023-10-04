@@ -291,6 +291,8 @@ if typing.TYPE_CHECKING:
     netapp = __netapp
     import pulumi_azure_native.network as __network
     network = __network
+    import pulumi_azure_native.networkanalytics as __networkanalytics
+    networkanalytics = __networkanalytics
     import pulumi_azure_native.networkcloud as __networkcloud
     networkcloud = __networkcloud
     import pulumi_azure_native.networkfunction as __networkfunction
@@ -575,6 +577,7 @@ else:
     monitor = _utilities.lazy_import('pulumi_azure_native.monitor')
     netapp = _utilities.lazy_import('pulumi_azure_native.netapp')
     network = _utilities.lazy_import('pulumi_azure_native.network')
+    networkanalytics = _utilities.lazy_import('pulumi_azure_native.networkanalytics')
     networkcloud = _utilities.lazy_import('pulumi_azure_native.networkcloud')
     networkfunction = _utilities.lazy_import('pulumi_azure_native.networkfunction')
     notificationhubs = _utilities.lazy_import('pulumi_azure_native.notificationhubs')
@@ -2363,6 +2366,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "baremetalinfrastructure/v20230804preview",
+  "fqn": "pulumi_azure_native.baremetalinfrastructure.v20230804preview",
+  "classes": {
+   "azure-native:baremetalinfrastructure/v20230804preview:AzureBareMetalStorageInstance": "AzureBareMetalStorageInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "batch",
   "fqn": "pulumi_azure_native.batch",
   "classes": {
@@ -2736,6 +2747,16 @@ _utilities.register(
    "azure-native:chaos/v20230415preview:Capability": "Capability",
    "azure-native:chaos/v20230415preview:Experiment": "Experiment",
    "azure-native:chaos/v20230415preview:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "chaos/v20230901preview",
+  "fqn": "pulumi_azure_native.chaos.v20230901preview",
+  "classes": {
+   "azure-native:chaos/v20230901preview:Capability": "Capability",
+   "azure-native:chaos/v20230901preview:Experiment": "Experiment",
+   "azure-native:chaos/v20230901preview:Target": "Target"
   }
  },
  {
@@ -3534,6 +3555,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20230802preview",
+  "fqn": "pulumi_azure_native.containerservice.v20230802preview",
+  "classes": {
+   "azure-native:containerservice/v20230802preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20230802preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20230802preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20230802preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20230802preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20230802preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20230802preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerservice/v20230815preview",
   "fqn": "pulumi_azure_native.containerservice.v20230815preview",
   "classes": {
@@ -3769,6 +3804,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.dashboard",
   "classes": {
    "azure-native:dashboard:Grafana": "Grafana",
+   "azure-native:dashboard:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
    "azure-native:dashboard:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
@@ -3787,6 +3823,16 @@ _utilities.register(
   "classes": {
    "azure-native:dashboard/v20220801:Grafana": "Grafana",
    "azure-native:dashboard/v20220801:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dashboard/v20221001preview",
+  "fqn": "pulumi_azure_native.dashboard.v20221001preview",
+  "classes": {
+   "azure-native:dashboard/v20221001preview:Grafana": "Grafana",
+   "azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
+   "azure-native:dashboard/v20221001preview:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -3985,7 +4031,8 @@ _utilities.register(
   "mod": "datadog",
   "fqn": "pulumi_azure_native.datadog",
   "classes": {
-   "azure-native:datadog:Monitor": "Monitor"
+   "azure-native:datadog:Monitor": "Monitor",
+   "azure-native:datadog:MonitoredSubscription": "MonitoredSubscription"
   }
  },
  {
@@ -3994,6 +4041,23 @@ _utilities.register(
   "fqn": "pulumi_azure_native.datadog.v20220601",
   "classes": {
    "azure-native:datadog/v20220601:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "datadog/v20220801",
+  "fqn": "pulumi_azure_native.datadog.v20220801",
+  "classes": {
+   "azure-native:datadog/v20220801:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "datadog/v20230101",
+  "fqn": "pulumi_azure_native.datadog.v20230101",
+  "classes": {
+   "azure-native:datadog/v20230101:Monitor": "Monitor",
+   "azure-native:datadog/v20230101:MonitoredSubscription": "MonitoredSubscription"
   }
  },
  {
@@ -7721,9 +7785,11 @@ _utilities.register(
    "azure-native:migrate:MoveResource": "MoveResource",
    "azure-native:migrate:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection": "PrivateEndpointConnectionControllerPrivateEndpointConnection",
+   "azure-native:migrate:PrivateEndpointConnectionProxyController": "PrivateEndpointConnectionProxyController",
    "azure-native:migrate:Project": "Project",
    "azure-native:migrate:ServerCollector": "ServerCollector",
    "azure-native:migrate:Solution": "Solution",
+   "azure-native:migrate:SolutionsControllerSolution": "SolutionsControllerSolution",
    "azure-native:migrate:VMwareCollector": "VMwareCollector",
    "azure-native:migrate:WorkloadDeployment": "WorkloadDeployment",
    "azure-native:migrate:WorkloadInstance": "WorkloadInstance"
@@ -7790,6 +7856,17 @@ _utilities.register(
   "classes": {
    "azure-native:migrate/v20220801:MoveCollection": "MoveCollection",
    "azure-native:migrate/v20220801:MoveResource": "MoveResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "migrate/v20230101",
+  "fqn": "pulumi_azure_native.migrate.v20230101",
+  "classes": {
+   "azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject": "MigrateProjectsControllerMigrateProject",
+   "azure-native:migrate/v20230101:PrivateEndpointConnectionControllerPrivateEndpointConnection": "PrivateEndpointConnectionControllerPrivateEndpointConnection",
+   "azure-native:migrate/v20230101:PrivateEndpointConnectionProxyController": "PrivateEndpointConnectionProxyController",
+   "azure-native:migrate/v20230101:SolutionsControllerSolution": "SolutionsControllerSolution"
   }
  },
  {
@@ -8779,6 +8856,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "networkanalytics",
+  "fqn": "pulumi_azure_native.networkanalytics",
+  "classes": {
+   "azure-native:networkanalytics:DataProduct": "DataProduct",
+   "azure-native:networkanalytics:DataType": "DataType"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "networkanalytics/v20231115",
+  "fqn": "pulumi_azure_native.networkanalytics.v20231115",
+  "classes": {
+   "azure-native:networkanalytics/v20231115:DataProduct": "DataProduct",
+   "azure-native:networkanalytics/v20231115:DataType": "DataType"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "networkcloud",
   "fqn": "pulumi_azure_native.networkcloud",
   "classes": {
@@ -9621,6 +9716,18 @@ _utilities.register(
    "azure-native:redhatopenshift/v20230701preview:Secret": "Secret",
    "azure-native:redhatopenshift/v20230701preview:SyncIdentityProvider": "SyncIdentityProvider",
    "azure-native:redhatopenshift/v20230701preview:SyncSet": "SyncSet"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redhatopenshift/v20230904",
+  "fqn": "pulumi_azure_native.redhatopenshift.v20230904",
+  "classes": {
+   "azure-native:redhatopenshift/v20230904:MachinePool": "MachinePool",
+   "azure-native:redhatopenshift/v20230904:OpenShiftCluster": "OpenShiftCluster",
+   "azure-native:redhatopenshift/v20230904:Secret": "Secret",
+   "azure-native:redhatopenshift/v20230904:SyncIdentityProvider": "SyncIdentityProvider",
+   "azure-native:redhatopenshift/v20230904:SyncSet": "SyncSet"
   }
  },
  {
@@ -10826,6 +10933,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "servicefabric/v20230901preview",
+  "fqn": "pulumi_azure_native.servicefabric.v20230901preview",
+  "classes": {
+   "azure-native:servicefabric/v20230901preview:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20230901preview:ManagedClusterApplication": "ManagedClusterApplication",
+   "azure-native:servicefabric/v20230901preview:ManagedClusterApplicationType": "ManagedClusterApplicationType",
+   "azure-native:servicefabric/v20230901preview:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
+   "azure-native:servicefabric/v20230901preview:ManagedClusterService": "ManagedClusterService",
+   "azure-native:servicefabric/v20230901preview:NodeType": "NodeType"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "servicefabricmesh",
   "fqn": "pulumi_azure_native.servicefabricmesh",
   "classes": {
@@ -11549,6 +11669,18 @@ _utilities.register(
    "azure-native:storagemover/v20230701preview:JobDefinition": "JobDefinition",
    "azure-native:storagemover/v20230701preview:Project": "Project",
    "azure-native:storagemover/v20230701preview:StorageMover": "StorageMover"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storagemover/v20231001",
+  "fqn": "pulumi_azure_native.storagemover.v20231001",
+  "classes": {
+   "azure-native:storagemover/v20231001:Agent": "Agent",
+   "azure-native:storagemover/v20231001:Endpoint": "Endpoint",
+   "azure-native:storagemover/v20231001:JobDefinition": "JobDefinition",
+   "azure-native:storagemover/v20231001:Project": "Project",
+   "azure-native:storagemover/v20231001:StorageMover": "StorageMover"
   }
  },
  {

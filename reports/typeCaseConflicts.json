@@ -1,1 +1,8 @@
-{}
+{
+  "azure-native:servicefabric/v20230901preview:IPTag": [
+    "azure-native:servicefabric/v20230901preview:IpTag"
+  ],
+  "azure-native:servicefabric/v20230901preview:IPTagResponse": [
+    "azure-native:servicefabric/v20230901preview:IpTagResponse"
+  ]
+}

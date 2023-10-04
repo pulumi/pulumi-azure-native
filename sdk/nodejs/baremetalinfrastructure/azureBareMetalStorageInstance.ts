@@ -100,7 +100,7 @@ export class AzureBareMetalStorageInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:baremetalinfrastructure/v20230406:AzureBareMetalStorageInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:baremetalinfrastructure/v20230406:AzureBareMetalStorageInstance" }, { type: "azure-native:baremetalinfrastructure/v20230804preview:AzureBareMetalStorageInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureBareMetalStorageInstance.__pulumiType, name, resourceInputs, opts);
     }

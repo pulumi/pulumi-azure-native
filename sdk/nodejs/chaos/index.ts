@@ -41,9 +41,11 @@ export * from "../types/enums/chaos";
 
 // Export sub-modules:
 import * as v20230415preview from "./v20230415preview";
+import * as v20230901preview from "./v20230901preview";
 
 export {
     v20230415preview,
+    v20230901preview,
 };
 
 const _module = {

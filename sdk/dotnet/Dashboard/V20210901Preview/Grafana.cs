@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Dashboard.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:dashboard:Grafana"},
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20220501preview:Grafana"},
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20220801:Grafana"},
+                    new global::Pulumi.Alias { Type = "azure-native:dashboard/v20221001preview:Grafana"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

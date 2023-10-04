@@ -81821,6 +81821,7 @@ class WebHookActivityArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[Any] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]] = None,
+                 policy: Optional[pulumi.Input['SecureInputOutputPolicyArgs']] = None,
                  report_status_on_call_back: Optional[Any] = None,
                  state: Optional[pulumi.Input[Union[str, 'ActivityState']]] = None,
                  timeout: Optional[pulumi.Input[str]] = None,
@@ -81838,6 +81839,7 @@ class WebHookActivityArgs:
         :param pulumi.Input[str] description: Activity description.
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param pulumi.Input['SecureInputOutputPolicyArgs'] policy: Activity policy.
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Union[str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param pulumi.Input[str] timeout: The timeout within which the webhook should be called back. If there is no value specified, it defaults to 10 minutes. Type: string. Pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -81859,6 +81861,8 @@ class WebHookActivityArgs:
             pulumi.set(__self__, "headers", headers)
         if on_inactive_mark_as is not None:
             pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if report_status_on_call_back is not None:
             pulumi.set(__self__, "report_status_on_call_back", report_status_on_call_back)
         if state is not None:
@@ -81988,6 +81992,18 @@ class WebHookActivityArgs:
     @on_inactive_mark_as.setter
     def on_inactive_mark_as(self, value: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]]):
         pulumi.set(self, "on_inactive_mark_as", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['SecureInputOutputPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['SecureInputOutputPolicyArgs']]):
+        pulumi.set(self, "policy", value)
 
     @property
     @pulumi.getter(name="reportStatusOnCallBack")

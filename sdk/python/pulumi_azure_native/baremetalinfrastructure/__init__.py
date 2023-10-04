@@ -15,6 +15,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.baremetalinfrastructure.v20230406 as __v20230406
     v20230406 = __v20230406
+    import pulumi_azure_native.baremetalinfrastructure.v20230804preview as __v20230804preview
+    v20230804preview = __v20230804preview
 else:
     v20230406 = _utilities.lazy_import('pulumi_azure_native.baremetalinfrastructure.v20230406')
+    v20230804preview = _utilities.lazy_import('pulumi_azure_native.baremetalinfrastructure.v20230804preview')
 

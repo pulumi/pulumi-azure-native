@@ -92,7 +92,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:Project" }, { type: "azure-native:storagemover/v20230301:Project" }, { type: "azure-native:storagemover/v20230701preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:Project" }, { type: "azure-native:storagemover/v20230301:Project" }, { type: "azure-native:storagemover/v20230701preview:Project" }, { type: "azure-native:storagemover/v20231001:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }

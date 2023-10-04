@@ -7,6 +7,9 @@ from enum import Enum
 __all__ = [
     'ManagedIdentityTypes',
     'MonitoringStatus',
+    'Operation',
+    'Status',
+    'TagAction',
 ]
 
 
@@ -24,3 +27,32 @@ class MonitoringStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class Operation(str, Enum):
+    """
+    The operation for the patch on the resource.
+    """
+    ADD_BEGIN = "AddBegin"
+    ADD_COMPLETE = "AddComplete"
+    DELETE_BEGIN = "DeleteBegin"
+    DELETE_COMPLETE = "DeleteComplete"
+    ACTIVE = "Active"
+
+
+class Status(str, Enum):
+    """
+    The state of monitoring.
+    """
+    IN_PROGRESS = "InProgress"
+    ACTIVE = "Active"
+    FAILED = "Failed"
+    DELETING = "Deleting"
+
+
+class TagAction(str, Enum):
+    """
+    Valid actions for a filtering tag. Exclusion takes priority over inclusion.
+    """
+    INCLUDE = "Include"
+    EXCLUDE = "Exclude"

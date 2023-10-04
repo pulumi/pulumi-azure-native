@@ -93,7 +93,7 @@ export class MigrateProject extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:MigrateProject" }, { type: "azure-native:migrate/v20200501:MigrateProject" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:MigrateProject" }, { type: "azure-native:migrate/v20200501:MigrateProject" }, { type: "azure-native:migrate/v20230101:MigrateProject" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MigrateProject.__pulumiType, name, resourceInputs, opts);
     }

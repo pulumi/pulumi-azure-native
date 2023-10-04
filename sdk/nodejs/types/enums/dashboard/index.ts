@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20210901preview from "./v20210901preview";
 import * as v20220801 from "./v20220801";
+import * as v20221001preview from "./v20221001preview";
 
 export {
     v20210901preview,
     v20220801,
+    v20221001preview,
 };
 
 export const ApiKey = {

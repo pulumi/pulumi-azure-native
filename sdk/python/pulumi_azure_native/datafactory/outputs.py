@@ -79498,6 +79498,7 @@ class WebHookActivityResponse(dict):
                  description: Optional[str] = None,
                  headers: Optional[Any] = None,
                  on_inactive_mark_as: Optional[str] = None,
+                 policy: Optional['outputs.SecureInputOutputPolicyResponse'] = None,
                  report_status_on_call_back: Optional[Any] = None,
                  state: Optional[str] = None,
                  timeout: Optional[str] = None,
@@ -79515,6 +79516,7 @@ class WebHookActivityResponse(dict):
         :param str description: Activity description.
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param 'SecureInputOutputPolicyResponse' policy: Activity policy.
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
         :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param str timeout: The timeout within which the webhook should be called back. If there is no value specified, it defaults to 10 minutes. Type: string. Pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -79536,6 +79538,8 @@ class WebHookActivityResponse(dict):
             pulumi.set(__self__, "headers", headers)
         if on_inactive_mark_as is not None:
             pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if report_status_on_call_back is not None:
             pulumi.set(__self__, "report_status_on_call_back", report_status_on_call_back)
         if state is not None:
@@ -79625,6 +79629,14 @@ class WebHookActivityResponse(dict):
         Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         """
         return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.SecureInputOutputPolicyResponse']:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="reportStatusOnCallBack")

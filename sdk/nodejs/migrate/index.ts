@@ -70,6 +70,11 @@ export const getPrivateEndpointConnectionControllerPrivateEndpointConnection: ty
 export const getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnectionControllerPrivateEndpointConnection").getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnectionControllerPrivateEndpointConnection","getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnectionControllerPrivateEndpointConnection"));
 
+export { GetPrivateEndpointConnectionProxyControllerArgs, GetPrivateEndpointConnectionProxyControllerResult, GetPrivateEndpointConnectionProxyControllerOutputArgs } from "./getPrivateEndpointConnectionProxyController";
+export const getPrivateEndpointConnectionProxyController: typeof import("./getPrivateEndpointConnectionProxyController").getPrivateEndpointConnectionProxyController = null as any;
+export const getPrivateEndpointConnectionProxyControllerOutput: typeof import("./getPrivateEndpointConnectionProxyController").getPrivateEndpointConnectionProxyControllerOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionProxyController","getPrivateEndpointConnectionProxyControllerOutput"], () => require("./getPrivateEndpointConnectionProxyController"));
+
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
@@ -94,6 +99,16 @@ export { GetSolutionConfigArgs, GetSolutionConfigResult, GetSolutionConfigOutput
 export const getSolutionConfig: typeof import("./getSolutionConfig").getSolutionConfig = null as any;
 export const getSolutionConfigOutput: typeof import("./getSolutionConfig").getSolutionConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getSolutionConfig","getSolutionConfigOutput"], () => require("./getSolutionConfig"));
+
+export { GetSolutionsControllerConfigArgs, GetSolutionsControllerConfigResult, GetSolutionsControllerConfigOutputArgs } from "./getSolutionsControllerConfig";
+export const getSolutionsControllerConfig: typeof import("./getSolutionsControllerConfig").getSolutionsControllerConfig = null as any;
+export const getSolutionsControllerConfigOutput: typeof import("./getSolutionsControllerConfig").getSolutionsControllerConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getSolutionsControllerConfig","getSolutionsControllerConfigOutput"], () => require("./getSolutionsControllerConfig"));
+
+export { GetSolutionsControllerSolutionArgs, GetSolutionsControllerSolutionResult, GetSolutionsControllerSolutionOutputArgs } from "./getSolutionsControllerSolution";
+export const getSolutionsControllerSolution: typeof import("./getSolutionsControllerSolution").getSolutionsControllerSolution = null as any;
+export const getSolutionsControllerSolutionOutput: typeof import("./getSolutionsControllerSolution").getSolutionsControllerSolutionOutput = null as any;
+utilities.lazyLoad(exports, ["getSolutionsControllerSolution","getSolutionsControllerSolutionOutput"], () => require("./getSolutionsControllerSolution"));
 
 export { GetVMwareCollectorArgs, GetVMwareCollectorResult, GetVMwareCollectorOutputArgs } from "./getVMwareCollector";
 export const getVMwareCollector: typeof import("./getVMwareCollector").getVMwareCollector = null as any;
@@ -170,6 +185,11 @@ export type PrivateEndpointConnectionControllerPrivateEndpointConnection = impor
 export const PrivateEndpointConnectionControllerPrivateEndpointConnection: typeof import("./privateEndpointConnectionControllerPrivateEndpointConnection").PrivateEndpointConnectionControllerPrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnectionControllerPrivateEndpointConnection"], () => require("./privateEndpointConnectionControllerPrivateEndpointConnection"));
 
+export { PrivateEndpointConnectionProxyControllerArgs } from "./privateEndpointConnectionProxyController";
+export type PrivateEndpointConnectionProxyController = import("./privateEndpointConnectionProxyController").PrivateEndpointConnectionProxyController;
+export const PrivateEndpointConnectionProxyController: typeof import("./privateEndpointConnectionProxyController").PrivateEndpointConnectionProxyController = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionProxyController"], () => require("./privateEndpointConnectionProxyController"));
+
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -184,6 +204,11 @@ export { SolutionArgs } from "./solution";
 export type Solution = import("./solution").Solution;
 export const Solution: typeof import("./solution").Solution = null as any;
 utilities.lazyLoad(exports, ["Solution"], () => require("./solution"));
+
+export { SolutionsControllerSolutionArgs } from "./solutionsControllerSolution";
+export type SolutionsControllerSolution = import("./solutionsControllerSolution").SolutionsControllerSolution;
+export const SolutionsControllerSolution: typeof import("./solutionsControllerSolution").SolutionsControllerSolution = null as any;
+utilities.lazyLoad(exports, ["SolutionsControllerSolution"], () => require("./solutionsControllerSolution"));
 
 export { VMwareCollectorArgs } from "./vmwareCollector";
 export type VMwareCollector = import("./vmwareCollector").VMwareCollector;
@@ -211,6 +236,7 @@ import * as v20191001 from "./v20191001";
 import * as v20200501 from "./v20200501";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220801 from "./v20220801";
+import * as v20230101 from "./v20230101";
 import * as v20230801 from "./v20230801";
 
 export {
@@ -220,6 +246,7 @@ export {
     v20200501,
     v20220501preview,
     v20220801,
+    v20230101,
     v20230801,
 };
 
@@ -251,12 +278,16 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection":
                 return new PrivateEndpointConnectionControllerPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:migrate:PrivateEndpointConnectionProxyController":
+                return new PrivateEndpointConnectionProxyController(name, <any>undefined, { urn })
             case "azure-native:migrate:Project":
                 return new Project(name, <any>undefined, { urn })
             case "azure-native:migrate:ServerCollector":
                 return new ServerCollector(name, <any>undefined, { urn })
             case "azure-native:migrate:Solution":
                 return new Solution(name, <any>undefined, { urn })
+            case "azure-native:migrate:SolutionsControllerSolution":
+                return new SolutionsControllerSolution(name, <any>undefined, { urn })
             case "azure-native:migrate:VMwareCollector":
                 return new VMwareCollector(name, <any>undefined, { urn })
             case "azure-native:migrate:WorkloadDeployment":

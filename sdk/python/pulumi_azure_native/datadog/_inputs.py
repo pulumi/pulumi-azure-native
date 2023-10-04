@@ -12,9 +12,15 @@ from ._enums import *
 
 __all__ = [
     'DatadogOrganizationPropertiesArgs',
+    'FilteringTagArgs',
     'IdentityPropertiesArgs',
+    'LogRulesArgs',
+    'MetricRulesArgs',
     'MonitorPropertiesArgs',
+    'MonitoredSubscriptionArgs',
+    'MonitoringTagRulesPropertiesArgs',
     'ResourceSkuArgs',
+    'SubscriptionListArgs',
     'UserInfoArgs',
 ]
 
@@ -155,6 +161,62 @@ class DatadogOrganizationPropertiesArgs:
 
 
 @pulumi.input_type
+class FilteringTagArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[Union[str, 'TagAction']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+        :param pulumi.Input[Union[str, 'TagAction']] action: Valid actions for a filtering tag. Exclusion takes priority over inclusion.
+        :param pulumi.Input[str] name: The name (also known as the key) of the tag.
+        :param pulumi.Input[str] value: The value of the tag.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[str, 'TagAction']]]:
+        """
+        Valid actions for a filtering tag. Exclusion takes priority over inclusion.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[str, 'TagAction']]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name (also known as the key) of the tag.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None):
@@ -175,6 +237,102 @@ class IdentityPropertiesArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class LogRulesArgs:
+    def __init__(__self__, *,
+                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
+                 send_aad_logs: Optional[pulumi.Input[bool]] = None,
+                 send_resource_logs: Optional[pulumi.Input[bool]] = None,
+                 send_subscription_logs: Optional[pulumi.Input[bool]] = None):
+        """
+        Set of rules for sending logs for the Monitor resource.
+        :param pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]] filtering_tags: List of filtering tags to be used for capturing logs. This only takes effect if SendResourceLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        :param pulumi.Input[bool] send_aad_logs: Flag specifying if AAD logs should be sent for the Monitor resource.
+        :param pulumi.Input[bool] send_resource_logs: Flag specifying if Azure resource logs should be sent for the Monitor resource.
+        :param pulumi.Input[bool] send_subscription_logs: Flag specifying if Azure subscription logs should be sent for the Monitor resource.
+        """
+        if filtering_tags is not None:
+            pulumi.set(__self__, "filtering_tags", filtering_tags)
+        if send_aad_logs is not None:
+            pulumi.set(__self__, "send_aad_logs", send_aad_logs)
+        if send_resource_logs is not None:
+            pulumi.set(__self__, "send_resource_logs", send_resource_logs)
+        if send_subscription_logs is not None:
+            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+
+    @property
+    @pulumi.getter(name="filteringTags")
+    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]:
+        """
+        List of filtering tags to be used for capturing logs. This only takes effect if SendResourceLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        return pulumi.get(self, "filtering_tags")
+
+    @filtering_tags.setter
+    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]):
+        pulumi.set(self, "filtering_tags", value)
+
+    @property
+    @pulumi.getter(name="sendAadLogs")
+    def send_aad_logs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag specifying if AAD logs should be sent for the Monitor resource.
+        """
+        return pulumi.get(self, "send_aad_logs")
+
+    @send_aad_logs.setter
+    def send_aad_logs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "send_aad_logs", value)
+
+    @property
+    @pulumi.getter(name="sendResourceLogs")
+    def send_resource_logs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag specifying if Azure resource logs should be sent for the Monitor resource.
+        """
+        return pulumi.get(self, "send_resource_logs")
+
+    @send_resource_logs.setter
+    def send_resource_logs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "send_resource_logs", value)
+
+    @property
+    @pulumi.getter(name="sendSubscriptionLogs")
+    def send_subscription_logs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag specifying if Azure subscription logs should be sent for the Monitor resource.
+        """
+        return pulumi.get(self, "send_subscription_logs")
+
+    @send_subscription_logs.setter
+    def send_subscription_logs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "send_subscription_logs", value)
+
+
+@pulumi.input_type
+class MetricRulesArgs:
+    def __init__(__self__, *,
+                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None):
+        """
+        Set of rules for sending metrics for the Monitor resource.
+        :param pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]] filtering_tags: List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        if filtering_tags is not None:
+            pulumi.set(__self__, "filtering_tags", filtering_tags)
+
+    @property
+    @pulumi.getter(name="filteringTags")
+    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]:
+        """
+        List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        return pulumi.get(self, "filtering_tags")
+
+    @filtering_tags.setter
+    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]):
+        pulumi.set(self, "filtering_tags", value)
 
 
 @pulumi.input_type
@@ -234,6 +392,134 @@ class MonitorPropertiesArgs:
 
 
 @pulumi.input_type
+class MonitoredSubscriptionArgs:
+    def __init__(__self__, *,
+                 error: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
+                 tag_rules: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']] = None):
+        """
+        The list of subscriptions and it's monitoring status by current Datadog monitor.
+        :param pulumi.Input[str] error: The reason of not monitoring the subscription.
+        :param pulumi.Input[Union[str, 'Status']] status: The state of monitoring.
+        :param pulumi.Input[str] subscription_id: The subscriptionId to be monitored.
+        :param pulumi.Input['MonitoringTagRulesPropertiesArgs'] tag_rules: Definition of the properties for a TagRules resource.
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tag_rules is not None:
+            pulumi.set(__self__, "tag_rules", tag_rules)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason of not monitoring the subscription.
+        """
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'Status']]]:
+        """
+        The state of monitoring.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'Status']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscriptionId to be monitored.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
+    @property
+    @pulumi.getter(name="tagRules")
+    def tag_rules(self) -> Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]:
+        """
+        Definition of the properties for a TagRules resource.
+        """
+        return pulumi.get(self, "tag_rules")
+
+    @tag_rules.setter
+    def tag_rules(self, value: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]):
+        pulumi.set(self, "tag_rules", value)
+
+
+@pulumi.input_type
+class MonitoringTagRulesPropertiesArgs:
+    def __init__(__self__, *,
+                 automuting: Optional[pulumi.Input[bool]] = None,
+                 log_rules: Optional[pulumi.Input['LogRulesArgs']] = None,
+                 metric_rules: Optional[pulumi.Input['MetricRulesArgs']] = None):
+        """
+        Definition of the properties for a TagRules resource.
+        :param pulumi.Input[bool] automuting: Configuration to enable/disable auto-muting flag
+        :param pulumi.Input['LogRulesArgs'] log_rules: Set of rules for sending logs for the Monitor resource.
+        :param pulumi.Input['MetricRulesArgs'] metric_rules: Set of rules for sending metrics for the Monitor resource.
+        """
+        if automuting is not None:
+            pulumi.set(__self__, "automuting", automuting)
+        if log_rules is not None:
+            pulumi.set(__self__, "log_rules", log_rules)
+        if metric_rules is not None:
+            pulumi.set(__self__, "metric_rules", metric_rules)
+
+    @property
+    @pulumi.getter
+    def automuting(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Configuration to enable/disable auto-muting flag
+        """
+        return pulumi.get(self, "automuting")
+
+    @automuting.setter
+    def automuting(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automuting", value)
+
+    @property
+    @pulumi.getter(name="logRules")
+    def log_rules(self) -> Optional[pulumi.Input['LogRulesArgs']]:
+        """
+        Set of rules for sending logs for the Monitor resource.
+        """
+        return pulumi.get(self, "log_rules")
+
+    @log_rules.setter
+    def log_rules(self, value: Optional[pulumi.Input['LogRulesArgs']]):
+        pulumi.set(self, "log_rules", value)
+
+    @property
+    @pulumi.getter(name="metricRules")
+    def metric_rules(self) -> Optional[pulumi.Input['MetricRulesArgs']]:
+        """
+        Set of rules for sending metrics for the Monitor resource.
+        """
+        return pulumi.get(self, "metric_rules")
+
+    @metric_rules.setter
+    def metric_rules(self, value: Optional[pulumi.Input['MetricRulesArgs']]):
+        pulumi.set(self, "metric_rules", value)
+
+
+@pulumi.input_type
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
@@ -253,6 +539,46 @@ class ResourceSkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SubscriptionListArgs:
+    def __init__(__self__, *,
+                 monitored_subscription_list: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]] = None,
+                 operation: Optional[pulumi.Input[Union[str, 'Operation']]] = None):
+        """
+        The request to update subscriptions needed to be monitored by the Datadog monitor resource.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]] monitored_subscription_list: List of subscriptions and the state of the monitoring.
+        :param pulumi.Input[Union[str, 'Operation']] operation: The operation for the patch on the resource.
+        """
+        if monitored_subscription_list is not None:
+            pulumi.set(__self__, "monitored_subscription_list", monitored_subscription_list)
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+
+    @property
+    @pulumi.getter(name="monitoredSubscriptionList")
+    def monitored_subscription_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]:
+        """
+        List of subscriptions and the state of the monitoring.
+        """
+        return pulumi.get(self, "monitored_subscription_list")
+
+    @monitored_subscription_list.setter
+    def monitored_subscription_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]):
+        pulumi.set(self, "monitored_subscription_list", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[pulumi.Input[Union[str, 'Operation']]]:
+        """
+        The operation for the patch on the resource.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: Optional[pulumi.Input[Union[str, 'Operation']]]):
+        pulumi.set(self, "operation", value)
 
 
 @pulumi.input_type

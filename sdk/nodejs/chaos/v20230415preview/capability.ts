@@ -97,7 +97,7 @@ export class Capability extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:chaos:Capability" }, { type: "azure-native:chaos/v20210915preview:Capability" }, { type: "azure-native:chaos/v20220701preview:Capability" }, { type: "azure-native:chaos/v20221001preview:Capability" }, { type: "azure-native:chaos/v20230401preview:Capability" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:chaos:Capability" }, { type: "azure-native:chaos/v20210915preview:Capability" }, { type: "azure-native:chaos/v20220701preview:Capability" }, { type: "azure-native:chaos/v20221001preview:Capability" }, { type: "azure-native:chaos/v20230401preview:Capability" }, { type: "azure-native:chaos/v20230901preview:Capability" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Capability.__pulumiType, name, resourceInputs, opts);
     }

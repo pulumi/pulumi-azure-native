@@ -5,11 +5,13 @@
 import * as v20220904 from "./v20220904";
 import * as v20230401 from "./v20230401";
 import * as v20230701preview from "./v20230701preview";
+import * as v20230904 from "./v20230904";
 
 export {
     v20220904,
     v20230401,
     v20230701preview,
+    v20230904,
 };
 
 export const EncryptionAtHost = {

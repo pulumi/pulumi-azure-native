@@ -15,13 +15,16 @@ __all__ = [
     'AzurePricingTier',
     'AzureStorageRedundancy',
     'AzureVmFamily',
+    'CleanupState',
     'ConfigurationType',
     'Currency',
+    'Goal',
     'LoadBalancerType',
     'OperatingSystemType',
     'Percentile',
     'ProjectStatus',
     'ProvisioningState',
+    'Purpose',
     'ReservedInstance',
     'ResourceIdentityType',
     'ResourceIdentityTypes',
@@ -32,6 +35,7 @@ __all__ = [
     'TargetStorageAccessType',
     'TargetStorageProjectionType',
     'TimeRange',
+    'Tool',
     'WorkloadDeploymentTarget',
     'WorkloadDeploymentType',
     'WorkloadType',
@@ -220,6 +224,17 @@ class AzureVmFamily(str, Enum):
     D_C_SERIES = "DC_Series"
 
 
+class CleanupState(str, Enum):
+    """
+    Gets or sets the cleanup state of the solution.
+    """
+    NONE = "None"
+    STARTED = "Started"
+    IN_PROGRESS = "InProgress"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+
+
 class ConfigurationType(str, Enum):
     """
     Gets or sets the configuration type.
@@ -259,6 +274,17 @@ class Currency(str, Enum):
     ARS = "ARS"
     AUD = "AUD"
     CNY = "CNY"
+
+
+class Goal(str, Enum):
+    """
+    Gets or sets the goal of the solution.
+    """
+    SERVERS = "Servers"
+    DATABASES = "Databases"
+    DESKTOP_VIRTUALIZATION = "DesktopVirtualization"
+    WEB_APPLICATIONS = "WebApplications"
+    DATA_CENTER = "DataCenter"
 
 
 class LoadBalancerType(str, Enum):
@@ -304,6 +330,15 @@ class ProvisioningState(str, Enum):
     SUCCEEDED = "Succeeded"
 
 
+class Purpose(str, Enum):
+    """
+    Gets or sets the purpose of the solution.
+    """
+    DISCOVERY = "Discovery"
+    ASSESSMENT = "Assessment"
+    MIGRATION = "Migration"
+
+
 class ReservedInstance(str, Enum):
     """
     Azure reserved instance.
@@ -337,12 +372,10 @@ class SecretStoreType(str, Enum):
 
 class Status(str, Enum):
     """
-    Private link connection state.
+    Gets or sets the current status of the solution.
     """
-    APPROVED = "Approved"
-    PENDING = "Pending"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
+    INACTIVE = "Inactive"
+    ACTIVE = "Active"
 
 
 class TargetAvailabilityZone(str, Enum):
@@ -387,6 +420,37 @@ class TimeRange(str, Enum):
     WEEK = "Week"
     MONTH = "Month"
     CUSTOM = "Custom"
+
+
+class Tool(str, Enum):
+    """
+    Gets or sets the tool being used in the solution.
+    """
+    SERVER_DISCOVERY = "ServerDiscovery"
+    SERVER_ASSESSMENT = "ServerAssessment"
+    SERVER_MIGRATION = "ServerMigration"
+    CLOUDAMIZE = "Cloudamize"
+    TURBONOMIC = "Turbonomic"
+    ZERTO = "Zerto"
+    CORENT_TECH = "CorentTech"
+    SERVER_ASSESSMENT_V1 = "ServerAssessmentV1"
+    SERVER_MIGRATION_REPLICATION = "ServerMigration_Replication"
+    CARBONITE = "Carbonite"
+    DATA_MIGRATION_ASSISTANT = "DataMigrationAssistant"
+    DATABASE_MIGRATION_SERVICE = "DatabaseMigrationService"
+    DEVICE42 = "Device42"
+    JET_STREAM = "JetStream"
+    RACK_WARE = "RackWare"
+    UNIFY_CLOUD = "UnifyCloud"
+    FLEXERA = "Flexera"
+    SERVER_DISCOVERY_IMPORT = "ServerDiscovery_Import"
+    LAKESIDE = "Lakeside"
+    APP_SERVICE_MIGRATION_ASSISTANT = "AppServiceMigrationAssistant"
+    MOVERE = "Movere"
+    CLOUD_SPHERE = "CloudSphere"
+    MODERNIZATION = "Modernization"
+    SERVER_MIGRATION_DATA_REPLICATION = "ServerMigration_DataReplication"
+    UNKNOWN = "Unknown"
 
 
 class WorkloadDeploymentTarget(str, Enum):

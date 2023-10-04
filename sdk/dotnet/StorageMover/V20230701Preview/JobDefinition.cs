@@ -145,6 +145,7 @@ namespace Pulumi.AzureNative.StorageMover.V20230701Preview
                     new global::Pulumi.Alias { Type = "azure-native:storagemover:JobDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20220701preview:JobDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20230301:JobDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagemover/v20231001:JobDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

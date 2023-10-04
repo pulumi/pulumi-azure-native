@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.StorageMover.V20230701Preview
                     new global::Pulumi.Alias { Type = "azure-native:storagemover:Agent"},
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20220701preview:Agent"},
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20230301:Agent"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagemover/v20231001:Agent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -8,6 +8,7 @@ import * as v20191001 from "./v20191001";
 import * as v20200501 from "./v20200501";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220801 from "./v20220801";
+import * as v20230101 from "./v20230101";
 import * as v20230801 from "./v20230801";
 
 export {
@@ -17,6 +18,7 @@ export {
     v20200501,
     v20220501preview,
     v20220801,
+    v20230101,
     v20230801,
 };
 
@@ -221,6 +223,19 @@ export const AzureVmFamily = {
  */
 export type AzureVmFamily = (typeof AzureVmFamily)[keyof typeof AzureVmFamily];
 
+export const CleanupState = {
+    None: "None",
+    Started: "Started",
+    InProgress: "InProgress",
+    Completed: "Completed",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Gets or sets the cleanup state of the solution.
+ */
+export type CleanupState = (typeof CleanupState)[keyof typeof CleanupState];
+
 export const ConfigurationType = {
     IISConnectionString: "IISConnectionString",
     IISAuthentication: "IISAuthentication",
@@ -265,6 +280,19 @@ export const Currency = {
  * Currency to report prices in.
  */
 export type Currency = (typeof Currency)[keyof typeof Currency];
+
+export const Goal = {
+    Servers: "Servers",
+    Databases: "Databases",
+    DesktopVirtualization: "DesktopVirtualization",
+    WebApplications: "WebApplications",
+    DataCenter: "DataCenter",
+} as const;
+
+/**
+ * Gets or sets the goal of the solution.
+ */
+export type Goal = (typeof Goal)[keyof typeof Goal];
 
 export const LoadBalancerType = {
     Private: "Private",
@@ -319,6 +347,17 @@ export const ProvisioningState = {
  */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
+export const Purpose = {
+    Discovery: "Discovery",
+    Assessment: "Assessment",
+    Migration: "Migration",
+} as const;
+
+/**
+ * Gets or sets the purpose of the solution.
+ */
+export type Purpose = (typeof Purpose)[keyof typeof Purpose];
+
 export const ReservedInstance = {
     None: "None",
     RI1Year: "RI1Year",
@@ -359,14 +398,12 @@ export const SecretStoreType = {
 export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreType];
 
 export const Status = {
-    Approved: "Approved",
-    Pending: "Pending",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
+    Inactive: "Inactive",
+    Active: "Active",
 } as const;
 
 /**
- * Private link connection state.
+ * Gets or sets the current status of the solution.
  */
 export type Status = (typeof Status)[keyof typeof Status];
 
@@ -423,6 +460,39 @@ export const TimeRange = {
  * Time range of performance data used to recommend a size.
  */
 export type TimeRange = (typeof TimeRange)[keyof typeof TimeRange];
+
+export const Tool = {
+    ServerDiscovery: "ServerDiscovery",
+    ServerAssessment: "ServerAssessment",
+    ServerMigration: "ServerMigration",
+    Cloudamize: "Cloudamize",
+    Turbonomic: "Turbonomic",
+    Zerto: "Zerto",
+    CorentTech: "CorentTech",
+    ServerAssessmentV1: "ServerAssessmentV1",
+    ServerMigration_Replication: "ServerMigration_Replication",
+    Carbonite: "Carbonite",
+    DataMigrationAssistant: "DataMigrationAssistant",
+    DatabaseMigrationService: "DatabaseMigrationService",
+    Device42: "Device42",
+    JetStream: "JetStream",
+    RackWare: "RackWare",
+    UnifyCloud: "UnifyCloud",
+    Flexera: "Flexera",
+    ServerDiscovery_Import: "ServerDiscovery_Import",
+    Lakeside: "Lakeside",
+    AppServiceMigrationAssistant: "AppServiceMigrationAssistant",
+    Movere: "Movere",
+    CloudSphere: "CloudSphere",
+    Modernization: "Modernization",
+    ServerMigration_DataReplication: "ServerMigration_DataReplication",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * Gets or sets the tool being used in the solution.
+ */
+export type Tool = (typeof Tool)[keyof typeof Tool];
 
 export const WorkloadDeploymentTarget = {
     AzureKubernetesService: "AzureKubernetesService",

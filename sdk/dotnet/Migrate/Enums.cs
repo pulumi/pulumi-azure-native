@@ -419,6 +419,40 @@ namespace Pulumi.AzureNative.Migrate
     }
 
     /// <summary>
+    /// Gets or sets the cleanup state of the solution.
+    /// </summary>
+    [EnumType]
+    public readonly struct CleanupState : IEquatable<CleanupState>
+    {
+        private readonly string _value;
+
+        private CleanupState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CleanupState None { get; } = new CleanupState("None");
+        public static CleanupState Started { get; } = new CleanupState("Started");
+        public static CleanupState InProgress { get; } = new CleanupState("InProgress");
+        public static CleanupState Completed { get; } = new CleanupState("Completed");
+        public static CleanupState Failed { get; } = new CleanupState("Failed");
+
+        public static bool operator ==(CleanupState left, CleanupState right) => left.Equals(right);
+        public static bool operator !=(CleanupState left, CleanupState right) => !left.Equals(right);
+
+        public static explicit operator string(CleanupState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CleanupState other && Equals(other);
+        public bool Equals(CleanupState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gets or sets the configuration type.
     /// </summary>
     [EnumType]
@@ -498,6 +532,40 @@ namespace Pulumi.AzureNative.Migrate
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Currency other && Equals(other);
         public bool Equals(Currency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the goal of the solution.
+    /// </summary>
+    [EnumType]
+    public readonly struct Goal : IEquatable<Goal>
+    {
+        private readonly string _value;
+
+        private Goal(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Goal Servers { get; } = new Goal("Servers");
+        public static Goal Databases { get; } = new Goal("Databases");
+        public static Goal DesktopVirtualization { get; } = new Goal("DesktopVirtualization");
+        public static Goal WebApplications { get; } = new Goal("WebApplications");
+        public static Goal DataCenter { get; } = new Goal("DataCenter");
+
+        public static bool operator ==(Goal left, Goal right) => left.Equals(right);
+        public static bool operator !=(Goal left, Goal right) => !left.Equals(right);
+
+        public static explicit operator string(Goal value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Goal other && Equals(other);
+        public bool Equals(Goal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -664,6 +732,38 @@ namespace Pulumi.AzureNative.Migrate
     }
 
     /// <summary>
+    /// Gets or sets the purpose of the solution.
+    /// </summary>
+    [EnumType]
+    public readonly struct Purpose : IEquatable<Purpose>
+    {
+        private readonly string _value;
+
+        private Purpose(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Purpose Discovery { get; } = new Purpose("Discovery");
+        public static Purpose Assessment { get; } = new Purpose("Assessment");
+        public static Purpose Migration { get; } = new Purpose("Migration");
+
+        public static bool operator ==(Purpose left, Purpose right) => left.Equals(right);
+        public static bool operator !=(Purpose left, Purpose right) => !left.Equals(right);
+
+        public static explicit operator string(Purpose value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Purpose other && Equals(other);
+        public bool Equals(Purpose other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Azure reserved instance.
     /// </summary>
     [EnumType]
@@ -787,7 +887,7 @@ namespace Pulumi.AzureNative.Migrate
     }
 
     /// <summary>
-    /// Private link connection state.
+    /// Gets or sets the current status of the solution.
     /// </summary>
     [EnumType]
     public readonly struct Status : IEquatable<Status>
@@ -799,10 +899,8 @@ namespace Pulumi.AzureNative.Migrate
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Status Approved { get; } = new Status("Approved");
-        public static Status Pending { get; } = new Status("Pending");
-        public static Status Rejected { get; } = new Status("Rejected");
-        public static Status Disconnected { get; } = new Status("Disconnected");
+        public static Status Inactive { get; } = new Status("Inactive");
+        public static Status Active { get; } = new Status("Active");
 
         public static bool operator ==(Status left, Status right) => left.Equals(right);
         public static bool operator !=(Status left, Status right) => !left.Equals(right);
@@ -971,6 +1069,60 @@ namespace Pulumi.AzureNative.Migrate
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TimeRange other && Equals(other);
         public bool Equals(TimeRange other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the tool being used in the solution.
+    /// </summary>
+    [EnumType]
+    public readonly struct Tool : IEquatable<Tool>
+    {
+        private readonly string _value;
+
+        private Tool(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Tool ServerDiscovery { get; } = new Tool("ServerDiscovery");
+        public static Tool ServerAssessment { get; } = new Tool("ServerAssessment");
+        public static Tool ServerMigration { get; } = new Tool("ServerMigration");
+        public static Tool Cloudamize { get; } = new Tool("Cloudamize");
+        public static Tool Turbonomic { get; } = new Tool("Turbonomic");
+        public static Tool Zerto { get; } = new Tool("Zerto");
+        public static Tool CorentTech { get; } = new Tool("CorentTech");
+        public static Tool ServerAssessmentV1 { get; } = new Tool("ServerAssessmentV1");
+        public static Tool ServerMigration_Replication { get; } = new Tool("ServerMigration_Replication");
+        public static Tool Carbonite { get; } = new Tool("Carbonite");
+        public static Tool DataMigrationAssistant { get; } = new Tool("DataMigrationAssistant");
+        public static Tool DatabaseMigrationService { get; } = new Tool("DatabaseMigrationService");
+        public static Tool Device42 { get; } = new Tool("Device42");
+        public static Tool JetStream { get; } = new Tool("JetStream");
+        public static Tool RackWare { get; } = new Tool("RackWare");
+        public static Tool UnifyCloud { get; } = new Tool("UnifyCloud");
+        public static Tool Flexera { get; } = new Tool("Flexera");
+        public static Tool ServerDiscovery_Import { get; } = new Tool("ServerDiscovery_Import");
+        public static Tool Lakeside { get; } = new Tool("Lakeside");
+        public static Tool AppServiceMigrationAssistant { get; } = new Tool("AppServiceMigrationAssistant");
+        public static Tool Movere { get; } = new Tool("Movere");
+        public static Tool CloudSphere { get; } = new Tool("CloudSphere");
+        public static Tool Modernization { get; } = new Tool("Modernization");
+        public static Tool ServerMigration_DataReplication { get; } = new Tool("ServerMigration_DataReplication");
+        public static Tool Unknown { get; } = new Tool("Unknown");
+
+        public static bool operator ==(Tool left, Tool right) => left.Equals(right);
+        public static bool operator !=(Tool left, Tool right) => !left.Equals(right);
+
+        public static explicit operator string(Tool value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Tool other && Equals(other);
+        public bool Equals(Tool other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

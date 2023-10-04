@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:baremetalinfrastructure/v20230406:AzureBareMetalStorageInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:baremetalinfrastructure/v20230804preview:AzureBareMetalStorageInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
