@@ -73,7 +73,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			return discriminatedType, nil
 		}
 
-		tok = m.caseSensitiveTypes.NormalizeTokenCase(tok)
+		tok = m.caseSensitiveTypes.normalizeTokenCase(tok)
 		if _, ok := m.visitedTypes[tok]; !ok {
 			m.visitedTypes[tok] = true
 

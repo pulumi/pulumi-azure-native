@@ -213,7 +213,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	}
 	sort.Strings(providers)
 
-	caseSensitiveTypes := NewCaseSensitiveTokens()
+	caseSensitiveTypes := newCaseSensitiveTokens()
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
@@ -334,7 +334,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		Schema:            &pkg,
 		Metadata:          &metadata,
 		Examples:          exampleMap,
-		TypeCaseConflicts: caseSensitiveTypes.FindCaseConflicts(),
+		TypeCaseConflicts: caseSensitiveTypes.findCaseConflicts(),
 	}, nil
 }
 
@@ -1045,14 +1045,14 @@ type caseSensitiveTokens struct {
 	typesLowered map[string][]string
 }
 
-func NewCaseSensitiveTokens() caseSensitiveTokens {
+func newCaseSensitiveTokens() caseSensitiveTokens {
 	return caseSensitiveTokens{typesLowered: make(map[string][]string)}
 }
 
-// NormalizeTokenCase returns the normalized token.
+// normalizeTokenCase returns the normalized token.
 // This normalizes all casing to the first seen casing. For this to be consistent,
 // we rely on iterating all specs in the same order each time.
-func (v *caseSensitiveTokens) NormalizeTokenCase(token string) string {
+func (v *caseSensitiveTokens) normalizeTokenCase(token string) string {
 	tokenLowered := strings.ToLower(token)
 	caseVariants, alreadySeen := v.typesLowered[tokenLowered]
 	if !alreadySeen {
@@ -1076,7 +1076,7 @@ func (v *caseSensitiveTokens) NormalizeTokenCase(token string) string {
 // Map of the resolved type and a list of all its case variants.
 type CaseConflicts map[string][]string
 
-func (v *caseSensitiveTokens) FindCaseConflicts() CaseConflicts {
+func (v *caseSensitiveTokens) findCaseConflicts() CaseConflicts {
 	conflicts := make(map[string][]string)
 	for _, caseVariants := range v.typesLowered {
 		if len(caseVariants) > 1 {
@@ -1084,15 +1084,6 @@ func (v *caseSensitiveTokens) FindCaseConflicts() CaseConflicts {
 		}
 	}
 	return conflicts
-}
-
-func (c CaseConflicts) ToWarnings() []string {
-	warnings := make([]string, 0, len(c))
-	for _, tok := range codegen.SortedKeys(c) {
-		variants := c[tok]
-		warnings = append(warnings, fmt.Sprintf("Type case variants %s: %s", tok, strings.Join(variants, ", ")))
-	}
-	return warnings
 }
 
 type moduleGenerator struct {
