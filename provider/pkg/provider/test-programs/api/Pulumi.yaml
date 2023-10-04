@@ -1,0 +1,69 @@
+name: api
+runtime: yaml
+description: API-related resources
+variables:
+ sharedKey:
+   Fn::Invoke:
+     Function: azure-native:apimanagement:listSubscriptionSecrets
+     Arguments:
+       resourceGroupName: ${rg.name}
+       serviceName: ${apim.name}
+       sid: "master"
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+  webConnection:
+    type: azure-native:web:Connection
+    properties:
+      resourceGroupName: ${rg.name}
+      connectionName: "office365"
+      location: ${rg.location}
+      properties:
+        displayName: "office365"
+        api:
+          id: "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Web/locations/westus2/managedApis/office365"
+  apim:
+    type: azure-native:apimanagement:ApiManagementService
+    properties:
+      resourceGroupName: ${rg.name}
+      sku:
+        name: Consumption
+        capacity: 0
+      publisherEmail: drones@contoso.com
+      publisherName: contoso
+  versionSet:
+    type: azure-native:apimanagement:ApiVersionSet
+    properties:
+      resourceGroupName: ${rg.name}
+      serviceName: ${apim.name}
+      displayName: "Drone Delivery API"
+      versioningScheme: "Segment"
+  api:
+    type: azure-native:apimanagement:Api
+    properties:
+      resourceGroupName: ${rg.name}
+      serviceName: ${apim.name}
+      displayName: "Drone Delivery API"
+      description: "Drone Delivery API"
+      path: "api"
+      apiVersion: "v1"
+      apiRevision: "1"
+      apiVersionSetId: ${versionSet.id}
+      protocols: ["https"]
+  product:
+    type: azure-native:apimanagement:Product
+    properties:
+      resourceGroupName: ${rg.name}
+      serviceName: ${apim.name}
+      displayName: "drone delivery product api"
+      description: "drone delivery product api"
+      terms: "terms for example product"
+      subscriptionRequired: false
+      state: "published"
+  productApi:
+    type: azure-native:apimanagement:ProductApi
+    properties:
+      resourceGroupName: ${rg.name}
+      serviceName: ${apim.name}
+      apiId: ${api.name}
+      productId: ${product.name}

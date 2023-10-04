@@ -1,0 +1,30 @@
+name: storage-blob
+runtime: yaml
+description: Blob test
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+  store:
+    type: azure-native:storage:StorageAccount
+    properties:
+      resourceGroupName: ${rg.name}
+      kind: StorageV2
+      sku:
+        name: Standard_LRS
+  blobContainer:
+    type: azure-native:storage:BlobContainer
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+      containerName: "assets"
+      publicAccess: Blob
+  myBlobFile:
+    type: azure-native:storage:Blob
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+      containerName: ${blobContainer.name}
+      type: Block
+      blobName: "mon-fichier.txt"
+      source:
+        fn::stringAsset: lab azure

@@ -216,7 +216,7 @@ jobs:
         run: make --touch codegen schema provider
 
       - name: Test Provider Library
-        run: make test_provider
+        run: PROVIDER_TEST_TAGS=all make test_provider
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
