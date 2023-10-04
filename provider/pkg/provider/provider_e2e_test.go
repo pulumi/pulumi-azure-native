@@ -22,16 +22,16 @@ import (
 )
 
 func TestStorageBlob(t *testing.T) {
-	runExample(t, "storage-blob")
+	runTestProgram(t, "storage-blob")
 }
 
 func TestApi(t *testing.T) {
-	runExample(t, "api")
+	runTestProgram(t, "api")
 }
 
-// runExample runs an example from ./examples/<initialDir>
+// runTestProgram runs an example from ./examples/<initialDir>
 // Any editDirs are applied in order, and the program is run after each edit. e.g. ./examples/<editDir>
-func runExample(t *testing.T, initialDir string, editDirs ...string) {
+func runTestProgram(t *testing.T, initialDir string, editDirs ...string) {
 	if t.Skipped() {
 		return
 	}
@@ -58,7 +58,7 @@ func getTestOptions(initialDir string, editDirs []string, port int) (*integratio
 	}
 	azureLocation := getLocation()
 	test := integration.ProgramTestOptions{
-		Dir:                  filepath.Join(cwd, "examples", initialDir),
+		Dir:                  filepath.Join(cwd, "test-programs", initialDir),
 		ExpectRefreshChanges: true,
 		Config: map[string]string{
 			"azure-native:location": azureLocation,
@@ -69,7 +69,7 @@ func getTestOptions(initialDir string, editDirs []string, port int) (*integratio
 	}
 	for _, editDir := range editDirs {
 		test.EditDirs = append(test.EditDirs, integration.EditDir{
-			Dir: filepath.Join(cwd, "examples", editDir),
+			Dir: filepath.Join(cwd, "test-programs", editDir),
 		})
 	}
 	return &test, nil
