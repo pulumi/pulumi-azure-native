@@ -32,33 +32,33 @@ func TestApi(t *testing.T) {
 // runExample runs an example from ./examples/<initialDir>
 // Any editDirs are applied in order, and the program is run after each edit. e.g. ./examples/<editDir>
 func runExample(t *testing.T, initialDir string, editDirs ...string) {
-	if testing.Short() {
-		t.Skip("skipping long-running test in short mode")
+	if t.Skipped() {
 		return
 	}
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	cwd := getCwd(t)
-	options := integration.ProgramTestOptions{
-		Dir: filepath.Join(cwd, "examples", initialDir),
-	}
-	for _, editDir := range editDirs {
-		options.EditDirs = append(options.EditDirs, integration.EditDir{
-			Dir: filepath.Join(cwd, "examples", editDir),
-		})
-	}
-	test := getBaseOptions(t, ctx).With(options)
-
-	integration.ProgramTest(t, &test)
-}
-
-func getBaseOptions(t *testing.T, ctx context.Context) integration.ProgramTestOptions {
-	azureLocation := getLocation(t)
 	port, err := startProvider(ctx)
 	if err != nil {
 		t.Fatal(err)
 	}
-	return integration.ProgramTestOptions{
+
+	opts, err := getTestOptions(initialDir, editDirs, port)
+	if err != nil {
+		t.Fatal(err)
+		return
+	}
+
+	integration.ProgramTest(t, opts)
+}
+
+func getTestOptions(initialDir string, editDirs []string, port int) (*integration.ProgramTestOptions, error) {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return nil, err
+	}
+	azureLocation := getLocation()
+	test := integration.ProgramTestOptions{
+		Dir:                  filepath.Join(cwd, "examples", initialDir),
 		ExpectRefreshChanges: true,
 		Config: map[string]string{
 			"azure-native:location": azureLocation,
@@ -67,6 +67,12 @@ func getBaseOptions(t *testing.T, ctx context.Context) integration.ProgramTestOp
 			fmt.Sprintf("PULUMI_DEBUG_PROVIDERS=azure-native:%d", port),
 		},
 	}
+	for _, editDir := range editDirs {
+		test.EditDirs = append(test.EditDirs, integration.EditDir{
+			Dir: filepath.Join(cwd, "examples", editDir),
+		})
+	}
+	return &test, nil
 }
 
 // startProvider starts the provider in a goProc and returns the port it's listening on.
@@ -107,7 +113,7 @@ func startProvider(ctx context.Context) (int, error) {
 	return handle.Port, nil
 }
 
-func getLocation(t *testing.T) string {
+func getLocation() string {
 	azureLocation := os.Getenv("ARM_LOCATION")
 	if azureLocation == "" {
 		azureLocation = "westus2"
@@ -115,15 +121,6 @@ func getLocation(t *testing.T) string {
 	}
 
 	return azureLocation
-}
-
-func getCwd(t *testing.T) string {
-	cwd, err := os.Getwd()
-	if err != nil {
-		t.FailNow()
-	}
-
-	return cwd
 }
 
 func skipIfShort(t *testing.T) {
