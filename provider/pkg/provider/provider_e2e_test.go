@@ -33,6 +33,10 @@ func TestServiceBusRecreate(t *testing.T) {
 	runTestProgram(t, "servicebus-recreate-1", "service-bus-recreate-2")
 }
 
+func TestFunctionScmFtpDeletion(t *testing.T) {
+	runTestProgram(t, "function-scm-ftp-deletion")
+}
+
 // runTestProgram runs an example from ./examples/<initialDir>
 // Any editDirs are applied in order, and the program is run after each edit. e.g. ./examples/<editDir>
 func runTestProgram(t *testing.T, initialDir string, editDirs ...string) {
