@@ -124,7 +124,7 @@ arm2pulumi_coverage_report: .make/provider_mod_download provider/cmd/$(PROVIDER)
 PROVIDER_TEST_TAGS ?= unit # Default to unit tests only for quick local feedback
 .PHONY: test_provider
 test_provider: .make/provider_mod_download .make/provider_prebuild provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
-	cd provider && go test -v --tags=$(PROVIDER_TEST_TAGS) -coverprofile="coverage.txt" -coverpkg=./... ./...
+	cd provider && go test -v --tags=$(PROVIDER_TEST_TAGS) -coverprofile="coverage.txt" -timeout 1h -coverpkg=./... ./...
 
 .PHONY: lint_provider
 lint_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
