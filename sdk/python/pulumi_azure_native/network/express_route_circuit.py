@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -60,43 +60,88 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: The SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExpressRouteCircuitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            allow_classic_operations=allow_classic_operations,
+            authorization_key=authorization_key,
+            authorizations=authorizations,
+            bandwidth_in_gbps=bandwidth_in_gbps,
+            circuit_name=circuit_name,
+            circuit_provisioning_state=circuit_provisioning_state,
+            express_route_port=express_route_port,
+            gateway_manager_etag=gateway_manager_etag,
+            global_reach_enabled=global_reach_enabled,
+            id=id,
+            location=location,
+            peerings=peerings,
+            service_key=service_key,
+            service_provider_notes=service_provider_notes,
+            service_provider_properties=service_provider_properties,
+            service_provider_provisioning_state=service_provider_provisioning_state,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+             authorization_key: Optional[pulumi.Input[str]] = None,
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]] = None,
+             bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
+             circuit_name: Optional[pulumi.Input[str]] = None,
+             circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
+             express_route_port: Optional[pulumi.Input['SubResourceArgs']] = None,
+             gateway_manager_etag: Optional[pulumi.Input[str]] = None,
+             global_reach_enabled: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             peerings: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]] = None,
+             service_key: Optional[pulumi.Input[str]] = None,
+             service_provider_notes: Optional[pulumi.Input[str]] = None,
+             service_provider_properties: Optional[pulumi.Input['ExpressRouteCircuitServiceProviderPropertiesArgs']] = None,
+             service_provider_provisioning_state: Optional[pulumi.Input[Union[str, 'ServiceProviderProvisioningState']]] = None,
+             sku: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if allow_classic_operations is not None:
-            pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
+            _setter("allow_classic_operations", allow_classic_operations)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if authorizations is not None:
-            pulumi.set(__self__, "authorizations", authorizations)
+            _setter("authorizations", authorizations)
         if bandwidth_in_gbps is not None:
-            pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+            _setter("bandwidth_in_gbps", bandwidth_in_gbps)
         if circuit_name is not None:
-            pulumi.set(__self__, "circuit_name", circuit_name)
+            _setter("circuit_name", circuit_name)
         if circuit_provisioning_state is not None:
-            pulumi.set(__self__, "circuit_provisioning_state", circuit_provisioning_state)
+            _setter("circuit_provisioning_state", circuit_provisioning_state)
         if express_route_port is not None:
-            pulumi.set(__self__, "express_route_port", express_route_port)
+            _setter("express_route_port", express_route_port)
         if gateway_manager_etag is not None:
-            pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
+            _setter("gateway_manager_etag", gateway_manager_etag)
         if global_reach_enabled is not None:
-            pulumi.set(__self__, "global_reach_enabled", global_reach_enabled)
+            _setter("global_reach_enabled", global_reach_enabled)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if peerings is not None:
-            pulumi.set(__self__, "peerings", peerings)
+            _setter("peerings", peerings)
         if service_key is not None:
-            pulumi.set(__self__, "service_key", service_key)
+            _setter("service_key", service_key)
         if service_provider_notes is not None:
-            pulumi.set(__self__, "service_provider_notes", service_provider_notes)
+            _setter("service_provider_notes", service_provider_notes)
         if service_provider_properties is not None:
-            pulumi.set(__self__, "service_provider_properties", service_provider_properties)
+            _setter("service_provider_properties", service_provider_properties)
         if service_provider_provisioning_state is not None:
-            pulumi.set(__self__, "service_provider_provisioning_state", service_provider_provisioning_state)
+            _setter("service_provider_provisioning_state", service_provider_provisioning_state)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -402,6 +447,10 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRouteCircuitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -441,6 +490,11 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
             __props__.__dict__["circuit_name"] = circuit_name
             __props__.__dict__["circuit_provisioning_state"] = circuit_provisioning_state
+            if express_route_port is not None and not isinstance(express_route_port, SubResourceArgs):
+                express_route_port = express_route_port or {}
+                def _setter(key, value):
+                    express_route_port[key] = value
+                SubResourceArgs._configure(_setter, **express_route_port)
             __props__.__dict__["express_route_port"] = express_route_port
             __props__.__dict__["gateway_manager_etag"] = gateway_manager_etag
             __props__.__dict__["global_reach_enabled"] = global_reach_enabled
@@ -452,8 +506,18 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_key"] = service_key
             __props__.__dict__["service_provider_notes"] = service_provider_notes
+            if service_provider_properties is not None and not isinstance(service_provider_properties, ExpressRouteCircuitServiceProviderPropertiesArgs):
+                service_provider_properties = service_provider_properties or {}
+                def _setter(key, value):
+                    service_provider_properties[key] = value
+                ExpressRouteCircuitServiceProviderPropertiesArgs._configure(_setter, **service_provider_properties)
             __props__.__dict__["service_provider_properties"] = service_provider_properties
             __props__.__dict__["service_provider_provisioning_state"] = service_provider_provisioning_state
+            if sku is not None and not isinstance(sku, ExpressRouteCircuitSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ExpressRouteCircuitSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["authorization_status"] = None

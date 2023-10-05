@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,26 @@ class JobArgs:
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] id: The name and identifier for the Job. This is case-sensitive.
         """
-        pulumi.set(__self__, "job_base_properties", job_base_properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        JobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_base_properties=job_base_properties,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_base_properties: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'LabelingJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("job_base_properties", job_base_properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter(name="jobBaseProperties")
@@ -122,6 +137,10 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

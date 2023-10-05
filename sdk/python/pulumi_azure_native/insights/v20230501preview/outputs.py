@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -47,8 +47,19 @@ class AzureAppPushReceiverResponse(dict):
         :param str email_address: The email address registered for the Azure mobile app.
         :param str name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
         """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "name", name)
+        AzureAppPushReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -103,13 +114,28 @@ class EmailReceiverResponse(dict):
         :param str status: The receiver status of the e-mail.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        EmailReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            name=name,
+            status=status,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: str,
+             name: str,
+             status: str,
+             use_common_alert_schema: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
+        _setter("name", name)
+        _setter("status", status)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -180,10 +206,25 @@ class SmsReceiverResponse(dict):
         :param str phone_number: The phone number of the SMS receiver.
         :param str status: The status of the receiver.
         """
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "phone_number", phone_number)
-        pulumi.set(__self__, "status", status)
+        SmsReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_code=country_code,
+            name=name,
+            phone_number=phone_number,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_code: str,
+             name: str,
+             phone_number: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country_code", country_code)
+        _setter("name", name)
+        _setter("phone_number", phone_number)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="countryCode")
@@ -252,9 +293,22 @@ class VoiceReceiverResponse(dict):
         :param str name: The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
         :param str phone_number: The phone number of the voice receiver.
         """
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "phone_number", phone_number)
+        VoiceReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_code=country_code,
+            name=name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_code: str,
+             name: str,
+             phone_number: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country_code", country_code)
+        _setter("name", name)
+        _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="countryCode")
@@ -331,22 +385,43 @@ class WebhookReceiverResponse(dict):
         :param bool use_aad_auth: Indicates whether or not use AAD authentication.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "service_uri", service_uri)
+        WebhookReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            service_uri=service_uri,
+            identifier_uri=identifier_uri,
+            object_id=object_id,
+            tenant_id=tenant_id,
+            use_aad_auth=use_aad_auth,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             service_uri: str,
+             identifier_uri: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             use_aad_auth: Optional[bool] = None,
+             use_common_alert_schema: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("service_uri", service_uri)
         if identifier_uri is not None:
-            pulumi.set(__self__, "identifier_uri", identifier_uri)
+            _setter("identifier_uri", identifier_uri)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if use_aad_auth is None:
             use_aad_auth = False
         if use_aad_auth is not None:
-            pulumi.set(__self__, "use_aad_auth", use_aad_auth)
+            _setter("use_aad_auth", use_aad_auth)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,26 +48,61 @@ class IotHubDataConnectionArgs:
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
-        pulumi.set(__self__, "consumer_group", consumer_group)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "iot_hub_resource_id", iot_hub_resource_id)
-        pulumi.set(__self__, "kind", 'IotHub')
-        pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        IotHubDataConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_group=consumer_group,
+            database_name=database_name,
+            iot_hub_resource_id=iot_hub_resource_id,
+            kind=kind,
+            kusto_pool_name=kusto_pool_name,
+            resource_group_name=resource_group_name,
+            shared_access_policy_name=shared_access_policy_name,
+            workspace_name=workspace_name,
+            data_connection_name=data_connection_name,
+            data_format=data_format,
+            event_system_properties=event_system_properties,
+            location=location,
+            mapping_rule_name=mapping_rule_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_group: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             iot_hub_resource_id: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             kusto_pool_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             shared_access_policy_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             data_connection_name: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[Union[str, 'IotHubDataFormat']]] = None,
+             event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("consumer_group", consumer_group)
+        _setter("database_name", database_name)
+        _setter("iot_hub_resource_id", iot_hub_resource_id)
+        _setter("kind", 'IotHub')
+        _setter("kusto_pool_name", kusto_pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("shared_access_policy_name", shared_access_policy_name)
+        _setter("workspace_name", workspace_name)
         if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
+            _setter("data_connection_name", data_connection_name)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if event_system_properties is not None:
-            pulumi.set(__self__, "event_system_properties", event_system_properties)
+            _setter("event_system_properties", event_system_properties)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="consumerGroup")
@@ -299,6 +334,10 @@ class IotHubDataConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IotHubDataConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

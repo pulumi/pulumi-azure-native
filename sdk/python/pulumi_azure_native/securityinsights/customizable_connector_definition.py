@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,18 +37,41 @@ class CustomizableConnectorDefinitionArgs:
         :param pulumi.Input[str] data_connector_definition_name: The data connector definition name.
         :param pulumi.Input[str] last_modified_utc: Gets or sets the connector definition last modified date in UTC format.
         """
-        pulumi.set(__self__, "connector_ui_config", connector_ui_config)
-        pulumi.set(__self__, "kind", 'Customizable')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        CustomizableConnectorDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_ui_config=connector_ui_config,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            connections_config=connections_config,
+            created_time_utc=created_time_utc,
+            data_connector_definition_name=data_connector_definition_name,
+            last_modified_utc=last_modified_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_ui_config: pulumi.Input['CustomizableConnectorUiConfigArgs'],
+             kind: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             connections_config: Optional[pulumi.Input['CustomizableConnectionsConfigArgs']] = None,
+             created_time_utc: Optional[pulumi.Input[str]] = None,
+             data_connector_definition_name: Optional[pulumi.Input[str]] = None,
+             last_modified_utc: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_ui_config", connector_ui_config)
+        _setter("kind", 'Customizable')
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if connections_config is not None:
-            pulumi.set(__self__, "connections_config", connections_config)
+            _setter("connections_config", connections_config)
         if created_time_utc is not None:
-            pulumi.set(__self__, "created_time_utc", created_time_utc)
+            _setter("created_time_utc", created_time_utc)
         if data_connector_definition_name is not None:
-            pulumi.set(__self__, "data_connector_definition_name", data_connector_definition_name)
+            _setter("data_connector_definition_name", data_connector_definition_name)
         if last_modified_utc is not None:
-            pulumi.set(__self__, "last_modified_utc", last_modified_utc)
+            _setter("last_modified_utc", last_modified_utc)
 
     @property
     @pulumi.getter(name="connectorUiConfig")
@@ -198,6 +221,10 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomizableConnectorDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -220,7 +247,17 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomizableConnectorDefinitionArgs.__new__(CustomizableConnectorDefinitionArgs)
 
+            if connections_config is not None and not isinstance(connections_config, CustomizableConnectionsConfigArgs):
+                connections_config = connections_config or {}
+                def _setter(key, value):
+                    connections_config[key] = value
+                CustomizableConnectionsConfigArgs._configure(_setter, **connections_config)
             __props__.__dict__["connections_config"] = connections_config
+            if connector_ui_config is not None and not isinstance(connector_ui_config, CustomizableConnectorUiConfigArgs):
+                connector_ui_config = connector_ui_config or {}
+                def _setter(key, value):
+                    connector_ui_config[key] = value
+                CustomizableConnectorUiConfigArgs._configure(_setter, **connector_ui_config)
             if connector_ui_config is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_ui_config'")
             __props__.__dict__["connector_ui_config"] = connector_ui_config

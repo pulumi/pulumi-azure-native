@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -67,10 +67,21 @@ class ApplicationDeltaHealthPolicyResponse(dict):
         :param 'ServiceTypeDeltaHealthPolicyResponse' default_service_type_delta_health_policy: The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
         :param Mapping[str, 'ServiceTypeDeltaHealthPolicyResponse'] service_type_delta_health_policies: The map with service type delta health policy per service type name. The map is empty by default.
         """
+        ApplicationDeltaHealthPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_service_type_delta_health_policy=default_service_type_delta_health_policy,
+            service_type_delta_health_policies=service_type_delta_health_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_service_type_delta_health_policy: Optional['outputs.ServiceTypeDeltaHealthPolicyResponse'] = None,
+             service_type_delta_health_policies: Optional[Mapping[str, 'outputs.ServiceTypeDeltaHealthPolicyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_service_type_delta_health_policy is not None:
-            pulumi.set(__self__, "default_service_type_delta_health_policy", default_service_type_delta_health_policy)
+            _setter("default_service_type_delta_health_policy", default_service_type_delta_health_policy)
         if service_type_delta_health_policies is not None:
-            pulumi.set(__self__, "service_type_delta_health_policies", service_type_delta_health_policies)
+            _setter("service_type_delta_health_policies", service_type_delta_health_policies)
 
     @property
     @pulumi.getter(name="defaultServiceTypeDeltaHealthPolicy")
@@ -122,10 +133,21 @@ class ApplicationHealthPolicyResponse(dict):
         :param 'ServiceTypeHealthPolicyResponse' default_service_type_health_policy: The health policy used by default to evaluate the health of a service type.
         :param Mapping[str, 'ServiceTypeHealthPolicyResponse'] service_type_health_policies: The map with service type health policy per service type name. The map is empty by default.
         """
+        ApplicationHealthPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_service_type_health_policy=default_service_type_health_policy,
+            service_type_health_policies=service_type_health_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_service_type_health_policy: Optional['outputs.ServiceTypeHealthPolicyResponse'] = None,
+             service_type_health_policies: Optional[Mapping[str, 'outputs.ServiceTypeHealthPolicyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_service_type_health_policy is not None:
-            pulumi.set(__self__, "default_service_type_health_policy", default_service_type_health_policy)
+            _setter("default_service_type_health_policy", default_service_type_health_policy)
         if service_type_health_policies is not None:
-            pulumi.set(__self__, "service_type_health_policies", service_type_health_policies)
+            _setter("service_type_health_policies", service_type_health_policies)
 
     @property
     @pulumi.getter(name="defaultServiceTypeHealthPolicy")
@@ -168,7 +190,16 @@ class ApplicationTypeVersionsCleanupPolicyResponse(dict):
         """
         :param float max_unused_versions_to_keep: Number of unused versions per application type to keep.
         """
-        pulumi.set(__self__, "max_unused_versions_to_keep", max_unused_versions_to_keep)
+        ApplicationTypeVersionsCleanupPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_unused_versions_to_keep=max_unused_versions_to_keep,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_unused_versions_to_keep: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_unused_versions_to_keep", max_unused_versions_to_keep)
 
     @property
     @pulumi.getter(name="maxUnusedVersionsToKeep")
@@ -215,12 +246,25 @@ class AzureActiveDirectoryResponse(dict):
         :param str cluster_application: Azure active directory cluster application id.
         :param str tenant_id: Azure active directory tenant id.
         """
+        AzureActiveDirectoryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_application=client_application,
+            cluster_application=cluster_application,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_application: Optional[str] = None,
+             cluster_application: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_application is not None:
-            pulumi.set(__self__, "client_application", client_application)
+            _setter("client_application", client_application)
         if cluster_application is not None:
-            pulumi.set(__self__, "cluster_application", cluster_application)
+            _setter("cluster_application", cluster_application)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientApplication")
@@ -281,11 +325,24 @@ class CertificateDescriptionResponse(dict):
         :param str thumbprint_secondary: Thumbprint of the secondary certificate.
         :param str x509_store_name: The local certificate store location.
         """
-        pulumi.set(__self__, "thumbprint", thumbprint)
+        CertificateDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thumbprint=thumbprint,
+            thumbprint_secondary=thumbprint_secondary,
+            x509_store_name=x509_store_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thumbprint: str,
+             thumbprint_secondary: Optional[str] = None,
+             x509_store_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("thumbprint", thumbprint)
         if thumbprint_secondary is not None:
-            pulumi.set(__self__, "thumbprint_secondary", thumbprint_secondary)
+            _setter("thumbprint_secondary", thumbprint_secondary)
         if x509_store_name is not None:
-            pulumi.set(__self__, "x509_store_name", x509_store_name)
+            _setter("x509_store_name", x509_store_name)
 
     @property
     @pulumi.getter
@@ -348,9 +405,22 @@ class ClientCertificateCommonNameResponse(dict):
         :param str certificate_issuer_thumbprint: The issuer thumbprint of the client certificate.
         :param bool is_admin: Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
         """
-        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
-        pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
-        pulumi.set(__self__, "is_admin", is_admin)
+        ClientCertificateCommonNameResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_common_name=certificate_common_name,
+            certificate_issuer_thumbprint=certificate_issuer_thumbprint,
+            is_admin=is_admin,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_common_name: str,
+             certificate_issuer_thumbprint: str,
+             is_admin: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_common_name", certificate_common_name)
+        _setter("certificate_issuer_thumbprint", certificate_issuer_thumbprint)
+        _setter("is_admin", is_admin)
 
     @property
     @pulumi.getter(name="certificateCommonName")
@@ -409,8 +479,19 @@ class ClientCertificateThumbprintResponse(dict):
         :param str certificate_thumbprint: The thumbprint of the client certificate.
         :param bool is_admin: Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
         """
-        pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
-        pulumi.set(__self__, "is_admin", is_admin)
+        ClientCertificateThumbprintResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_thumbprint=certificate_thumbprint,
+            is_admin=is_admin,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_thumbprint: str,
+             is_admin: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_thumbprint", certificate_thumbprint)
+        _setter("is_admin", is_admin)
 
     @property
     @pulumi.getter(name="certificateThumbprint")
@@ -478,16 +559,29 @@ class ClusterHealthPolicyResponse(dict):
                
                In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
         """
+        ClusterHealthPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_health_policies=application_health_policies,
+            max_percent_unhealthy_applications=max_percent_unhealthy_applications,
+            max_percent_unhealthy_nodes=max_percent_unhealthy_nodes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_health_policies: Optional[Mapping[str, 'outputs.ApplicationHealthPolicyResponse']] = None,
+             max_percent_unhealthy_applications: Optional[int] = None,
+             max_percent_unhealthy_nodes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_health_policies is not None:
-            pulumi.set(__self__, "application_health_policies", application_health_policies)
+            _setter("application_health_policies", application_health_policies)
         if max_percent_unhealthy_applications is None:
             max_percent_unhealthy_applications = 0
         if max_percent_unhealthy_applications is not None:
-            pulumi.set(__self__, "max_percent_unhealthy_applications", max_percent_unhealthy_applications)
+            _setter("max_percent_unhealthy_applications", max_percent_unhealthy_applications)
         if max_percent_unhealthy_nodes is None:
             max_percent_unhealthy_nodes = 0
         if max_percent_unhealthy_nodes is not None:
-            pulumi.set(__self__, "max_percent_unhealthy_nodes", max_percent_unhealthy_nodes)
+            _setter("max_percent_unhealthy_nodes", max_percent_unhealthy_nodes)
 
     @property
     @pulumi.getter(name="applicationHealthPolicies")
@@ -572,11 +666,26 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
                The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
         :param Mapping[str, 'ApplicationDeltaHealthPolicyResponse'] application_delta_health_policies: Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
         """
-        pulumi.set(__self__, "max_percent_delta_unhealthy_applications", max_percent_delta_unhealthy_applications)
-        pulumi.set(__self__, "max_percent_delta_unhealthy_nodes", max_percent_delta_unhealthy_nodes)
-        pulumi.set(__self__, "max_percent_upgrade_domain_delta_unhealthy_nodes", max_percent_upgrade_domain_delta_unhealthy_nodes)
+        ClusterUpgradeDeltaHealthPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_percent_delta_unhealthy_applications=max_percent_delta_unhealthy_applications,
+            max_percent_delta_unhealthy_nodes=max_percent_delta_unhealthy_nodes,
+            max_percent_upgrade_domain_delta_unhealthy_nodes=max_percent_upgrade_domain_delta_unhealthy_nodes,
+            application_delta_health_policies=application_delta_health_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_percent_delta_unhealthy_applications: int,
+             max_percent_delta_unhealthy_nodes: int,
+             max_percent_upgrade_domain_delta_unhealthy_nodes: int,
+             application_delta_health_policies: Optional[Mapping[str, 'outputs.ApplicationDeltaHealthPolicyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_percent_delta_unhealthy_applications", max_percent_delta_unhealthy_applications)
+        _setter("max_percent_delta_unhealthy_nodes", max_percent_delta_unhealthy_nodes)
+        _setter("max_percent_upgrade_domain_delta_unhealthy_nodes", max_percent_upgrade_domain_delta_unhealthy_nodes)
         if application_delta_health_policies is not None:
-            pulumi.set(__self__, "application_delta_health_policies", application_delta_health_policies)
+            _setter("application_delta_health_policies", application_delta_health_policies)
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyApplications")
@@ -677,17 +786,42 @@ class ClusterUpgradePolicyResponse(dict):
         :param 'ClusterUpgradeDeltaHealthPolicyResponse' delta_health_policy: The cluster delta health policy used when upgrading the cluster.
         :param bool force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         """
-        pulumi.set(__self__, "health_check_retry_timeout", health_check_retry_timeout)
-        pulumi.set(__self__, "health_check_stable_duration", health_check_stable_duration)
-        pulumi.set(__self__, "health_check_wait_duration", health_check_wait_duration)
-        pulumi.set(__self__, "health_policy", health_policy)
-        pulumi.set(__self__, "upgrade_domain_timeout", upgrade_domain_timeout)
-        pulumi.set(__self__, "upgrade_replica_set_check_timeout", upgrade_replica_set_check_timeout)
-        pulumi.set(__self__, "upgrade_timeout", upgrade_timeout)
+        ClusterUpgradePolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_check_retry_timeout=health_check_retry_timeout,
+            health_check_stable_duration=health_check_stable_duration,
+            health_check_wait_duration=health_check_wait_duration,
+            health_policy=health_policy,
+            upgrade_domain_timeout=upgrade_domain_timeout,
+            upgrade_replica_set_check_timeout=upgrade_replica_set_check_timeout,
+            upgrade_timeout=upgrade_timeout,
+            delta_health_policy=delta_health_policy,
+            force_restart=force_restart,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_check_retry_timeout: str,
+             health_check_stable_duration: str,
+             health_check_wait_duration: str,
+             health_policy: 'outputs.ClusterHealthPolicyResponse',
+             upgrade_domain_timeout: str,
+             upgrade_replica_set_check_timeout: str,
+             upgrade_timeout: str,
+             delta_health_policy: Optional['outputs.ClusterUpgradeDeltaHealthPolicyResponse'] = None,
+             force_restart: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("health_check_retry_timeout", health_check_retry_timeout)
+        _setter("health_check_stable_duration", health_check_stable_duration)
+        _setter("health_check_wait_duration", health_check_wait_duration)
+        _setter("health_policy", health_policy)
+        _setter("upgrade_domain_timeout", upgrade_domain_timeout)
+        _setter("upgrade_replica_set_check_timeout", upgrade_replica_set_check_timeout)
+        _setter("upgrade_timeout", upgrade_timeout)
         if delta_health_policy is not None:
-            pulumi.set(__self__, "delta_health_policy", delta_health_policy)
+            _setter("delta_health_policy", delta_health_policy)
         if force_restart is not None:
-            pulumi.set(__self__, "force_restart", force_restart)
+            _setter("force_restart", force_restart)
 
     @property
     @pulumi.getter(name="healthCheckRetryTimeout")
@@ -796,12 +930,25 @@ class ClusterVersionDetailsResponse(dict):
         :param str environment: Indicates if this version is for Windows or Linux operating system.
         :param str support_expiry_utc: The date of expiry of support of the version.
         """
+        ClusterVersionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code_version=code_version,
+            environment=environment,
+            support_expiry_utc=support_expiry_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code_version: Optional[str] = None,
+             environment: Optional[str] = None,
+             support_expiry_utc: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code_version is not None:
-            pulumi.set(__self__, "code_version", code_version)
+            _setter("code_version", code_version)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if support_expiry_utc is not None:
-            pulumi.set(__self__, "support_expiry_utc", support_expiry_utc)
+            _setter("support_expiry_utc", support_expiry_utc)
 
     @property
     @pulumi.getter(name="codeVersion")
@@ -876,13 +1023,32 @@ class DiagnosticsStorageAccountConfigResponse(dict):
         :param str table_endpoint: The table endpoint of the azure storage account.
         :param str protected_account_key_name2: The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
         """
-        pulumi.set(__self__, "blob_endpoint", blob_endpoint)
-        pulumi.set(__self__, "protected_account_key_name", protected_account_key_name)
-        pulumi.set(__self__, "queue_endpoint", queue_endpoint)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "table_endpoint", table_endpoint)
+        DiagnosticsStorageAccountConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_endpoint=blob_endpoint,
+            protected_account_key_name=protected_account_key_name,
+            queue_endpoint=queue_endpoint,
+            storage_account_name=storage_account_name,
+            table_endpoint=table_endpoint,
+            protected_account_key_name2=protected_account_key_name2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_endpoint: str,
+             protected_account_key_name: str,
+             queue_endpoint: str,
+             storage_account_name: str,
+             table_endpoint: str,
+             protected_account_key_name2: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("blob_endpoint", blob_endpoint)
+        _setter("protected_account_key_name", protected_account_key_name)
+        _setter("queue_endpoint", queue_endpoint)
+        _setter("storage_account_name", storage_account_name)
+        _setter("table_endpoint", table_endpoint)
         if protected_account_key_name2 is not None:
-            pulumi.set(__self__, "protected_account_key_name2", protected_account_key_name2)
+            _setter("protected_account_key_name2", protected_account_key_name2)
 
     @property
     @pulumi.getter(name="blobEndpoint")
@@ -965,8 +1131,19 @@ class EndpointRangeDescriptionResponse(dict):
         :param int end_port: End port of a range of ports
         :param int start_port: Starting port of a range of ports
         """
-        pulumi.set(__self__, "end_port", end_port)
-        pulumi.set(__self__, "start_port", start_port)
+        EndpointRangeDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_port=end_port,
+            start_port=start_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_port: int,
+             start_port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_port", end_port)
+        _setter("start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
@@ -1053,23 +1230,52 @@ class NodeTypeDescriptionResponse(dict):
         :param Mapping[str, str] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param int reverse_proxy_endpoint_port: The endpoint used by reverse proxy.
         """
-        pulumi.set(__self__, "client_connection_endpoint_port", client_connection_endpoint_port)
-        pulumi.set(__self__, "http_gateway_endpoint_port", http_gateway_endpoint_port)
-        pulumi.set(__self__, "is_primary", is_primary)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vm_instance_count", vm_instance_count)
+        NodeTypeDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_connection_endpoint_port=client_connection_endpoint_port,
+            http_gateway_endpoint_port=http_gateway_endpoint_port,
+            is_primary=is_primary,
+            name=name,
+            vm_instance_count=vm_instance_count,
+            application_ports=application_ports,
+            capacities=capacities,
+            durability_level=durability_level,
+            ephemeral_ports=ephemeral_ports,
+            placement_properties=placement_properties,
+            reverse_proxy_endpoint_port=reverse_proxy_endpoint_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_connection_endpoint_port: int,
+             http_gateway_endpoint_port: int,
+             is_primary: bool,
+             name: str,
+             vm_instance_count: int,
+             application_ports: Optional['outputs.EndpointRangeDescriptionResponse'] = None,
+             capacities: Optional[Mapping[str, str]] = None,
+             durability_level: Optional[str] = None,
+             ephemeral_ports: Optional['outputs.EndpointRangeDescriptionResponse'] = None,
+             placement_properties: Optional[Mapping[str, str]] = None,
+             reverse_proxy_endpoint_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_connection_endpoint_port", client_connection_endpoint_port)
+        _setter("http_gateway_endpoint_port", http_gateway_endpoint_port)
+        _setter("is_primary", is_primary)
+        _setter("name", name)
+        _setter("vm_instance_count", vm_instance_count)
         if application_ports is not None:
-            pulumi.set(__self__, "application_ports", application_ports)
+            _setter("application_ports", application_ports)
         if capacities is not None:
-            pulumi.set(__self__, "capacities", capacities)
+            _setter("capacities", capacities)
         if durability_level is not None:
-            pulumi.set(__self__, "durability_level", durability_level)
+            _setter("durability_level", durability_level)
         if ephemeral_ports is not None:
-            pulumi.set(__self__, "ephemeral_ports", ephemeral_ports)
+            _setter("ephemeral_ports", ephemeral_ports)
         if placement_properties is not None:
-            pulumi.set(__self__, "placement_properties", placement_properties)
+            _setter("placement_properties", placement_properties)
         if reverse_proxy_endpoint_port is not None:
-            pulumi.set(__self__, "reverse_proxy_endpoint_port", reverse_proxy_endpoint_port)
+            _setter("reverse_proxy_endpoint_port", reverse_proxy_endpoint_port)
 
     @property
     @pulumi.getter(name="clientConnectionEndpointPort")
@@ -1196,8 +1402,19 @@ class ServerCertificateCommonNameResponse(dict):
         :param str certificate_common_name: The common name of the server certificate.
         :param str certificate_issuer_thumbprint: The issuer thumbprint of the server certificate.
         """
-        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
-        pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
+        ServerCertificateCommonNameResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_common_name=certificate_common_name,
+            certificate_issuer_thumbprint=certificate_issuer_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_common_name: str,
+             certificate_issuer_thumbprint: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_common_name", certificate_common_name)
+        _setter("certificate_issuer_thumbprint", certificate_issuer_thumbprint)
 
     @property
     @pulumi.getter(name="certificateCommonName")
@@ -1248,10 +1465,21 @@ class ServerCertificateCommonNamesResponse(dict):
         :param Sequence['ServerCertificateCommonNameResponse'] common_names: The list of server certificates referenced by common name that are used to secure the cluster.
         :param str x509_store_name: The local certificate store location.
         """
+        ServerCertificateCommonNamesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            common_names=common_names,
+            x509_store_name=x509_store_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             common_names: Optional[Sequence['outputs.ServerCertificateCommonNameResponse']] = None,
+             x509_store_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if common_names is not None:
-            pulumi.set(__self__, "common_names", common_names)
+            _setter("common_names", common_names)
         if x509_store_name is not None:
-            pulumi.set(__self__, "x509_store_name", x509_store_name)
+            _setter("x509_store_name", x509_store_name)
 
     @property
     @pulumi.getter(name="commonNames")
@@ -1301,10 +1529,19 @@ class ServiceTypeDeltaHealthPolicyResponse(dict):
                The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
         """
+        ServiceTypeDeltaHealthPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_percent_delta_unhealthy_services=max_percent_delta_unhealthy_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_percent_delta_unhealthy_services: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_percent_delta_unhealthy_services is None:
             max_percent_delta_unhealthy_services = 0
         if max_percent_delta_unhealthy_services is not None:
-            pulumi.set(__self__, "max_percent_delta_unhealthy_services", max_percent_delta_unhealthy_services)
+            _setter("max_percent_delta_unhealthy_services", max_percent_delta_unhealthy_services)
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyServices")
@@ -1346,10 +1583,19 @@ class ServiceTypeHealthPolicyResponse(dict):
 
         :param int max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
         """
+        ServiceTypeHealthPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_percent_unhealthy_services=max_percent_unhealthy_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_percent_unhealthy_services: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_percent_unhealthy_services is None:
             max_percent_unhealthy_services = 0
         if max_percent_unhealthy_services is not None:
-            pulumi.set(__self__, "max_percent_unhealthy_services", max_percent_unhealthy_services)
+            _setter("max_percent_unhealthy_services", max_percent_unhealthy_services)
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyServices")
@@ -1373,8 +1619,19 @@ class SettingsParameterDescriptionResponse(dict):
         :param str name: The parameter name of fabric setting.
         :param str value: The parameter value of fabric setting.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        SettingsParameterDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1406,8 +1663,19 @@ class SettingsSectionDescriptionResponse(dict):
         :param str name: The section name of the fabric settings.
         :param Sequence['SettingsParameterDescriptionResponse'] parameters: The collection of parameters in the section.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
+        SettingsSectionDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             parameters: Sequence['outputs.SettingsParameterDescriptionResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1474,18 +1742,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

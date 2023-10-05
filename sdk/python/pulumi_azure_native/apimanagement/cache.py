@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CacheArgs', 'Cache']
@@ -31,16 +31,37 @@ class CacheArgs:
         :param pulumi.Input[str] description: Cache description
         :param pulumi.Input[str] resource_id: Original uri of entity in external system cache points to
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "use_from_location", use_from_location)
+        CacheArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            use_from_location=use_from_location,
+            cache_id=cache_id,
+            description=description,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             use_from_location: pulumi.Input[str],
+             cache_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("use_from_location", use_from_location)
         if cache_id is not None:
-            pulumi.set(__self__, "cache_id", cache_id)
+            _setter("cache_id", cache_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -174,6 +195,10 @@ class Cache(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CacheArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

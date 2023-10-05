@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -37,10 +37,23 @@ class AdditionalLocationArgs:
         :param pulumi.Input['ApiManagementServiceSkuPropertiesArgs'] sku: SKU properties of the API Management service.
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network configuration for the location.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "sku", sku)
+        AdditionalLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            sku=sku,
+            virtual_network_configuration=virtual_network_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: pulumi.Input[str],
+             sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgs'],
+             virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
+        _setter("sku", sku)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
 
     @property
     @pulumi.getter
@@ -89,10 +102,21 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
         :param pulumi.Input[str] wsdl_endpoint_name: Name of endpoint(port) to import from WSDL
         :param pulumi.Input[str] wsdl_service_name: Name of service to import from WSDL
         """
+        ApiCreateOrUpdatePropertiesWsdlSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            wsdl_endpoint_name=wsdl_endpoint_name,
+            wsdl_service_name=wsdl_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             wsdl_endpoint_name: Optional[pulumi.Input[str]] = None,
+             wsdl_service_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if wsdl_endpoint_name is not None:
-            pulumi.set(__self__, "wsdl_endpoint_name", wsdl_endpoint_name)
+            _setter("wsdl_endpoint_name", wsdl_endpoint_name)
         if wsdl_service_name is not None:
-            pulumi.set(__self__, "wsdl_service_name", wsdl_service_name)
+            _setter("wsdl_service_name", wsdl_service_name)
 
     @property
     @pulumi.getter(name="wsdlEndpointName")
@@ -127,7 +151,16 @@ class ApiManagementServiceIdentityArgs:
         Identity properties of the Api Management service resource.
         :param pulumi.Input[Union[str, 'ApimIdentityType']] type: The identity type. Currently the only supported type is 'SystemAssigned'.
         """
-        pulumi.set(__self__, "type", type)
+        ApiManagementServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ApimIdentityType']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -152,11 +185,22 @@ class ApiManagementServiceSkuPropertiesArgs:
         :param pulumi.Input[Union[str, 'SkuType']] name: Name of the Sku.
         :param pulumi.Input[int] capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
-        pulumi.set(__self__, "name", name)
+        ApiManagementServiceSkuPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuType']],
+             capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is None:
             capacity = 1
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -199,14 +243,31 @@ class ApiVersionSetContractArgs:
         :param pulumi.Input[str] version_header_name: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         :param pulumi.Input[str] version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "versioning_scheme", versioning_scheme)
+        ApiVersionSetContractArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            versioning_scheme=versioning_scheme,
+            description=description,
+            version_header_name=version_header_name,
+            version_query_name=version_query_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             versioning_scheme: pulumi.Input[Union[str, 'VersioningScheme']],
+             description: Optional[pulumi.Input[str]] = None,
+             version_header_name: Optional[pulumi.Input[str]] = None,
+             version_query_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("versioning_scheme", versioning_scheme)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if version_header_name is not None:
-            pulumi.set(__self__, "version_header_name", version_header_name)
+            _setter("version_header_name", version_header_name)
         if version_query_name is not None:
-            pulumi.set(__self__, "version_query_name", version_query_name)
+            _setter("version_query_name", version_query_name)
 
     @property
     @pulumi.getter(name="displayName")
@@ -277,8 +338,17 @@ class AuthenticationSettingsContractArgs:
         API Authentication Settings.
         :param pulumi.Input['OAuth2AuthenticationSettingsContractArgs'] o_auth2: OAuth2 Authentication settings
         """
+        AuthenticationSettingsContractArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            o_auth2=o_auth2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             o_auth2: Optional[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if o_auth2 is not None:
-            pulumi.set(__self__, "o_auth2", o_auth2)
+            _setter("o_auth2", o_auth2)
 
     @property
     @pulumi.getter(name="oAuth2")
@@ -305,11 +375,24 @@ class CertificateConfigurationArgs:
         :param pulumi.Input[str] certificate_password: Certificate Password.
         :param pulumi.Input[str] encoded_certificate: Base64 Encoded certificate.
         """
-        pulumi.set(__self__, "store_name", store_name)
+        CertificateConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            store_name=store_name,
+            certificate_password=certificate_password,
+            encoded_certificate=encoded_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             store_name: pulumi.Input[str],
+             certificate_password: Optional[pulumi.Input[str]] = None,
+             encoded_certificate: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("store_name", store_name)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if encoded_certificate is not None:
-            pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+            _setter("encoded_certificate", encoded_certificate)
 
     @property
     @pulumi.getter(name="storeName")
@@ -368,22 +451,43 @@ class HostnameConfigurationArgs:
         :param pulumi.Input[str] key_vault_id: Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
         :param pulumi.Input[bool] negotiate_client_certificate: Specify true to always negotiate client certificate on the hostname. Default Value is false.
         """
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "type", type)
+        HostnameConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            type=type,
+            certificate_password=certificate_password,
+            default_ssl_binding=default_ssl_binding,
+            encoded_certificate=encoded_certificate,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: pulumi.Input[str],
+             type: pulumi.Input['HostnameType'],
+             certificate_password: Optional[pulumi.Input[str]] = None,
+             default_ssl_binding: Optional[pulumi.Input[bool]] = None,
+             encoded_certificate: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             negotiate_client_certificate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
+        _setter("type", type)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if default_ssl_binding is None:
             default_ssl_binding = False
         if default_ssl_binding is not None:
-            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+            _setter("default_ssl_binding", default_ssl_binding)
         if encoded_certificate is not None:
-            pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+            _setter("encoded_certificate", encoded_certificate)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is None:
             negotiate_client_certificate = False
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="hostName")
@@ -496,26 +600,53 @@ class LoggerSamplingContractArgs:
         :param pulumi.Input[str] percentage_increase_timeout: Duration in ISO8601 format after which it's allowed to increase the sampling rate.
         :param pulumi.Input[Union[str, 'SamplingType']] sampling_type: Sampling type.
         """
+        LoggerSamplingContractArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            evaluation_interval=evaluation_interval,
+            initial_percentage=initial_percentage,
+            max_percentage=max_percentage,
+            max_telemetry_items_per_second=max_telemetry_items_per_second,
+            min_percentage=min_percentage,
+            moving_average_ratio=moving_average_ratio,
+            percentage=percentage,
+            percentage_decrease_timeout=percentage_decrease_timeout,
+            percentage_increase_timeout=percentage_increase_timeout,
+            sampling_type=sampling_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             evaluation_interval: Optional[pulumi.Input[str]] = None,
+             initial_percentage: Optional[pulumi.Input[float]] = None,
+             max_percentage: Optional[pulumi.Input[float]] = None,
+             max_telemetry_items_per_second: Optional[pulumi.Input[int]] = None,
+             min_percentage: Optional[pulumi.Input[float]] = None,
+             moving_average_ratio: Optional[pulumi.Input[float]] = None,
+             percentage: Optional[pulumi.Input[float]] = None,
+             percentage_decrease_timeout: Optional[pulumi.Input[str]] = None,
+             percentage_increase_timeout: Optional[pulumi.Input[str]] = None,
+             sampling_type: Optional[pulumi.Input[Union[str, 'SamplingType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if evaluation_interval is not None:
-            pulumi.set(__self__, "evaluation_interval", evaluation_interval)
+            _setter("evaluation_interval", evaluation_interval)
         if initial_percentage is not None:
-            pulumi.set(__self__, "initial_percentage", initial_percentage)
+            _setter("initial_percentage", initial_percentage)
         if max_percentage is not None:
-            pulumi.set(__self__, "max_percentage", max_percentage)
+            _setter("max_percentage", max_percentage)
         if max_telemetry_items_per_second is not None:
-            pulumi.set(__self__, "max_telemetry_items_per_second", max_telemetry_items_per_second)
+            _setter("max_telemetry_items_per_second", max_telemetry_items_per_second)
         if min_percentage is not None:
-            pulumi.set(__self__, "min_percentage", min_percentage)
+            _setter("min_percentage", min_percentage)
         if moving_average_ratio is not None:
-            pulumi.set(__self__, "moving_average_ratio", moving_average_ratio)
+            _setter("moving_average_ratio", moving_average_ratio)
         if percentage is not None:
-            pulumi.set(__self__, "percentage", percentage)
+            _setter("percentage", percentage)
         if percentage_decrease_timeout is not None:
-            pulumi.set(__self__, "percentage_decrease_timeout", percentage_decrease_timeout)
+            _setter("percentage_decrease_timeout", percentage_decrease_timeout)
         if percentage_increase_timeout is not None:
-            pulumi.set(__self__, "percentage_increase_timeout", percentage_increase_timeout)
+            _setter("percentage_increase_timeout", percentage_increase_timeout)
         if sampling_type is not None:
-            pulumi.set(__self__, "sampling_type", sampling_type)
+            _setter("sampling_type", sampling_type)
 
     @property
     @pulumi.getter(name="evaluationInterval")
@@ -648,10 +779,21 @@ class OAuth2AuthenticationSettingsContractArgs:
         :param pulumi.Input[str] authorization_server_id: OAuth authorization server identifier.
         :param pulumi.Input[str] scope: operations scope.
         """
+        OAuth2AuthenticationSettingsContractArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_server_id=authorization_server_id,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_server_id: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorization_server_id is not None:
-            pulumi.set(__self__, "authorization_server_id", authorization_server_id)
+            _setter("authorization_server_id", authorization_server_id)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="authorizationServerId")
@@ -688,10 +830,21 @@ class SubscriptionKeyParameterNamesContractArgs:
         :param pulumi.Input[str] header: Subscription key header name.
         :param pulumi.Input[str] query: Subscription key query string parameter name.
         """
+        SubscriptionKeyParameterNamesContractArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
 
     @property
     @pulumi.getter
@@ -726,8 +879,17 @@ class VirtualNetworkConfigurationArgs:
         Configuration of a virtual network to which API Management service is deployed.
         :param pulumi.Input[str] subnet_resource_id: The full resource ID of a subnet in a virtual network to deploy the API Management service in.
         """
+        VirtualNetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_resource_id=subnet_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if subnet_resource_id is not None:
-            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+            _setter("subnet_resource_id", subnet_resource_id)
 
     @property
     @pulumi.getter(name="subnetResourceId")

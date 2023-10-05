@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,14 +28,31 @@ class ManagedInstancePrivateEndpointConnectionArgs:
         :param pulumi.Input['ManagedInstancePrivateEndpointPropertyArgs'] private_endpoint: Private endpoint which the connection belongs to.
         :param pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs'] private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         """
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedInstancePrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            private_endpoint=private_endpoint,
+            private_endpoint_connection_name=private_endpoint_connection_name,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             private_endpoint: Optional[pulumi.Input['ManagedInstancePrivateEndpointPropertyArgs']] = None,
+             private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("managed_instance_name", managed_instance_name)
+        _setter("resource_group_name", resource_group_name)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_endpoint_connection_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+            _setter("private_endpoint_connection_name", private_endpoint_connection_name)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="managedInstanceName")
@@ -137,6 +154,10 @@ class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedInstancePrivateEndpointConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -159,8 +180,18 @@ class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
             if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")
             __props__.__dict__["managed_instance_name"] = managed_instance_name
+            if private_endpoint is not None and not isinstance(private_endpoint, ManagedInstancePrivateEndpointPropertyArgs):
+                private_endpoint = private_endpoint or {}
+                def _setter(key, value):
+                    private_endpoint[key] = value
+                ManagedInstancePrivateEndpointPropertyArgs._configure(_setter, **private_endpoint)
             __props__.__dict__["private_endpoint"] = private_endpoint
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
+            if private_link_service_connection_state is not None and not isinstance(private_link_service_connection_state, ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs):
+                private_link_service_connection_state = private_link_service_connection_state or {}
+                def _setter(key, value):
+                    private_link_service_connection_state[key] = value
+                ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs._configure(_setter, **private_link_service_connection_state)
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

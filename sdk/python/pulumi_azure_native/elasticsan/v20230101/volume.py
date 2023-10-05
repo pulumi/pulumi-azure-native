@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,16 +34,37 @@ class VolumeArgs:
         :param pulumi.Input['ManagedByInfoArgs'] managed_by: Parent resource information.
         :param pulumi.Input[str] volume_name: The name of the Volume.
         """
-        pulumi.set(__self__, "elastic_san_name", elastic_san_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "size_gi_b", size_gi_b)
-        pulumi.set(__self__, "volume_group_name", volume_group_name)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elastic_san_name=elastic_san_name,
+            resource_group_name=resource_group_name,
+            size_gi_b=size_gi_b,
+            volume_group_name=volume_group_name,
+            creation_data=creation_data,
+            managed_by=managed_by,
+            volume_name=volume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elastic_san_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             size_gi_b: pulumi.Input[float],
+             volume_group_name: pulumi.Input[str],
+             creation_data: Optional[pulumi.Input['SourceCreationDataArgs']] = None,
+             managed_by: Optional[pulumi.Input['ManagedByInfoArgs']] = None,
+             volume_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("elastic_san_name", elastic_san_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("size_gi_b", size_gi_b)
+        _setter("volume_group_name", volume_group_name)
         if creation_data is not None:
-            pulumi.set(__self__, "creation_data", creation_data)
+            _setter("creation_data", creation_data)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+            _setter("volume_name", volume_name)
 
     @property
     @pulumi.getter(name="elasticSanName")
@@ -175,6 +196,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -196,10 +221,20 @@ class Volume(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VolumeArgs.__new__(VolumeArgs)
 
+            if creation_data is not None and not isinstance(creation_data, SourceCreationDataArgs):
+                creation_data = creation_data or {}
+                def _setter(key, value):
+                    creation_data[key] = value
+                SourceCreationDataArgs._configure(_setter, **creation_data)
             __props__.__dict__["creation_data"] = creation_data
             if elastic_san_name is None and not opts.urn:
                 raise TypeError("Missing required property 'elastic_san_name'")
             __props__.__dict__["elastic_san_name"] = elastic_san_name
+            if managed_by is not None and not isinstance(managed_by, ManagedByInfoArgs):
+                managed_by = managed_by or {}
+                def _setter(key, value):
+                    managed_by[key] = value
+                ManagedByInfoArgs._configure(_setter, **managed_by)
             __props__.__dict__["managed_by"] = managed_by
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

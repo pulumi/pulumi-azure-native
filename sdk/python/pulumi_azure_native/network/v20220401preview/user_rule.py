@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -47,25 +47,58 @@ class UserRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
         :param pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]] sources: The CIDR or source IP ranges.
         """
-        pulumi.set(__self__, "configuration_name", configuration_name)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "kind", 'Custom')
-        pulumi.set(__self__, "network_manager_name", network_manager_name)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_collection_name", rule_collection_name)
+        UserRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_name=configuration_name,
+            direction=direction,
+            kind=kind,
+            network_manager_name=network_manager_name,
+            protocol=protocol,
+            resource_group_name=resource_group_name,
+            rule_collection_name=rule_collection_name,
+            description=description,
+            destination_port_ranges=destination_port_ranges,
+            destinations=destinations,
+            rule_name=rule_name,
+            source_port_ranges=source_port_ranges,
+            sources=sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_name: pulumi.Input[str],
+             direction: pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']],
+             kind: pulumi.Input[str],
+             network_manager_name: pulumi.Input[str],
+             protocol: pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']],
+             resource_group_name: pulumi.Input[str],
+             rule_collection_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("configuration_name", configuration_name)
+        _setter("direction", direction)
+        _setter("kind", 'Custom')
+        _setter("network_manager_name", network_manager_name)
+        _setter("protocol", protocol)
+        _setter("resource_group_name", resource_group_name)
+        _setter("rule_collection_name", rule_collection_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -283,6 +316,10 @@ class UserRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

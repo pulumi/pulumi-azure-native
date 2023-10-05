@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,52 @@ class JobArgs:
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "transfer_type", transfer_type)
+        JobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            transfer_type=transfer_type,
+            delivery_info=delivery_info,
+            delivery_type=delivery_type,
+            details=details,
+            identity=identity,
+            job_name=job_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['SkuArgs'],
+             transfer_type: pulumi.Input[Union[str, 'TransferType']],
+             delivery_info: Optional[pulumi.Input['JobDeliveryInfoArgs']] = None,
+             delivery_type: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]] = None,
+             details: Optional[pulumi.Input[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]] = None,
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             job_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
+        _setter("transfer_type", transfer_type)
         if delivery_info is not None:
-            pulumi.set(__self__, "delivery_info", delivery_info)
+            _setter("delivery_info", delivery_info)
         if delivery_type is None:
             delivery_type = 'NonScheduled'
         if delivery_type is not None:
-            pulumi.set(__self__, "delivery_type", delivery_type)
+            _setter("delivery_type", delivery_type)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -234,6 +261,10 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,17 +289,32 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobArgs.__new__(JobArgs)
 
+            if delivery_info is not None and not isinstance(delivery_info, JobDeliveryInfoArgs):
+                delivery_info = delivery_info or {}
+                def _setter(key, value):
+                    delivery_info[key] = value
+                JobDeliveryInfoArgs._configure(_setter, **delivery_info)
             __props__.__dict__["delivery_info"] = delivery_info
             if delivery_type is None:
                 delivery_type = 'NonScheduled'
             __props__.__dict__["delivery_type"] = delivery_type
             __props__.__dict__["details"] = details
+            if identity is not None and not isinstance(identity, ResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,40 @@ class IntegrationServiceEnvironmentArgs:
         :param pulumi.Input['IntegrationServiceEnvironmentSkuArgs'] sku: The sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "resource_group", resource_group)
+        IntegrationServiceEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group=resource_group,
+            identity=identity,
+            integration_service_environment_name=integration_service_environment_name,
+            location=location,
+            properties=properties,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group: pulumi.Input[str],
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             integration_service_environment_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']] = None,
+             sku: Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group", resource_group)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if integration_service_environment_name is not None:
-            pulumi.set(__self__, "integration_service_environment_name", integration_service_environment_name)
+            _setter("integration_service_environment_name", integration_service_environment_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -180,6 +201,10 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationServiceEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -201,13 +226,28 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationServiceEnvironmentArgs.__new__(IntegrationServiceEnvironmentArgs)
 
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["integration_service_environment_name"] = integration_service_environment_name
             __props__.__dict__["location"] = location
+            if properties is not None and not isinstance(properties, IntegrationServiceEnvironmentPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                IntegrationServiceEnvironmentPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group'")
             __props__.__dict__["resource_group"] = resource_group
+            if sku is not None and not isinstance(sku, IntegrationServiceEnvironmentSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                IntegrationServiceEnvironmentSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

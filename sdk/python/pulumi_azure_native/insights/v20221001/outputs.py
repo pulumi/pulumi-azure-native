@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,11 +43,24 @@ class AutoscaleNotificationResponse(dict):
         :param 'EmailNotificationResponse' email: the email notification.
         :param Sequence['WebhookNotificationResponse'] webhooks: the collection of webhook notifications.
         """
-        pulumi.set(__self__, "operation", operation)
+        AutoscaleNotificationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            email=email,
+            webhooks=webhooks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: str,
+             email: Optional['outputs.EmailNotificationResponse'] = None,
+             webhooks: Optional[Sequence['outputs.WebhookNotificationResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operation", operation)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if webhooks is not None:
-            pulumi.set(__self__, "webhooks", webhooks)
+            _setter("webhooks", webhooks)
 
     @property
     @pulumi.getter
@@ -110,13 +123,30 @@ class AutoscaleProfileResponse(dict):
         :param 'TimeWindowResponse' fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
         :param 'RecurrenceResponse' recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "rules", rules)
+        AutoscaleProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+            rules=rules,
+            fixed_date=fixed_date,
+            recurrence=recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: 'outputs.ScaleCapacityResponse',
+             name: str,
+             rules: Sequence['outputs.ScaleRuleResponse'],
+             fixed_date: Optional['outputs.TimeWindowResponse'] = None,
+             recurrence: Optional['outputs.RecurrenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("name", name)
+        _setter("rules", rules)
         if fixed_date is not None:
-            pulumi.set(__self__, "fixed_date", fixed_date)
+            _setter("fixed_date", fixed_date)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
 
     @property
     @pulumi.getter
@@ -195,16 +225,29 @@ class EmailNotificationResponse(dict):
         :param bool send_to_subscription_administrator: a value indicating whether to send email to subscription administrator.
         :param bool send_to_subscription_co_administrators: a value indicating whether to send email to subscription co-administrators.
         """
+        EmailNotificationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_emails=custom_emails,
+            send_to_subscription_administrator=send_to_subscription_administrator,
+            send_to_subscription_co_administrators=send_to_subscription_co_administrators,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_emails: Optional[Sequence[str]] = None,
+             send_to_subscription_administrator: Optional[bool] = None,
+             send_to_subscription_co_administrators: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_emails is not None:
-            pulumi.set(__self__, "custom_emails", custom_emails)
+            _setter("custom_emails", custom_emails)
         if send_to_subscription_administrator is None:
             send_to_subscription_administrator = False
         if send_to_subscription_administrator is not None:
-            pulumi.set(__self__, "send_to_subscription_administrator", send_to_subscription_administrator)
+            _setter("send_to_subscription_administrator", send_to_subscription_administrator)
         if send_to_subscription_co_administrators is None:
             send_to_subscription_co_administrators = False
         if send_to_subscription_co_administrators is not None:
-            pulumi.set(__self__, "send_to_subscription_co_administrators", send_to_subscription_co_administrators)
+            _setter("send_to_subscription_co_administrators", send_to_subscription_co_administrators)
 
     @property
     @pulumi.getter(name="customEmails")
@@ -295,22 +338,53 @@ class MetricTriggerResponse(dict):
         :param str metric_namespace: the namespace of the metric that defines what the rule monitors.
         :param str metric_resource_location: the location of the resource the rule monitors.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_resource_uri", metric_resource_uri)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "statistic", statistic)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "time_aggregation", time_aggregation)
-        pulumi.set(__self__, "time_grain", time_grain)
-        pulumi.set(__self__, "time_window", time_window)
+        MetricTriggerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            metric_resource_uri=metric_resource_uri,
+            operator=operator,
+            statistic=statistic,
+            threshold=threshold,
+            time_aggregation=time_aggregation,
+            time_grain=time_grain,
+            time_window=time_window,
+            dimensions=dimensions,
+            divide_per_instance=divide_per_instance,
+            metric_namespace=metric_namespace,
+            metric_resource_location=metric_resource_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: str,
+             metric_resource_uri: str,
+             operator: str,
+             statistic: str,
+             threshold: float,
+             time_aggregation: str,
+             time_grain: str,
+             time_window: str,
+             dimensions: Optional[Sequence['outputs.ScaleRuleMetricDimensionResponse']] = None,
+             divide_per_instance: Optional[bool] = None,
+             metric_namespace: Optional[str] = None,
+             metric_resource_location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_name", metric_name)
+        _setter("metric_resource_uri", metric_resource_uri)
+        _setter("operator", operator)
+        _setter("statistic", statistic)
+        _setter("threshold", threshold)
+        _setter("time_aggregation", time_aggregation)
+        _setter("time_grain", time_grain)
+        _setter("time_window", time_window)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if divide_per_instance is not None:
-            pulumi.set(__self__, "divide_per_instance", divide_per_instance)
+            _setter("divide_per_instance", divide_per_instance)
         if metric_namespace is not None:
-            pulumi.set(__self__, "metric_namespace", metric_namespace)
+            _setter("metric_namespace", metric_namespace)
         if metric_resource_location is not None:
-            pulumi.set(__self__, "metric_resource_location", metric_resource_location)
+            _setter("metric_resource_location", metric_resource_location)
 
     @property
     @pulumi.getter(name="metricName")
@@ -441,9 +515,20 @@ class PredictiveAutoscalePolicyResponse(dict):
         :param str scale_mode: the predictive autoscale mode
         :param str scale_look_ahead_time: the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.
         """
-        pulumi.set(__self__, "scale_mode", scale_mode)
+        PredictiveAutoscalePolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scale_mode=scale_mode,
+            scale_look_ahead_time=scale_look_ahead_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scale_mode: str,
+             scale_look_ahead_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scale_mode", scale_mode)
         if scale_look_ahead_time is not None:
-            pulumi.set(__self__, "scale_look_ahead_time", scale_look_ahead_time)
+            _setter("scale_look_ahead_time", scale_look_ahead_time)
 
     @property
     @pulumi.getter(name="scaleMode")
@@ -475,8 +560,19 @@ class RecurrenceResponse(dict):
         :param str frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
         :param 'RecurrentScheduleResponse' schedule: the scheduling constraints for when the profile begins.
         """
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "schedule", schedule)
+        RecurrenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency=frequency,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency: str,
+             schedule: 'outputs.RecurrentScheduleResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("frequency", frequency)
+        _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -529,10 +625,25 @@ class RecurrentScheduleResponse(dict):
         :param Sequence[int] minutes: A collection of minutes at which the profile takes effect at.
         :param str time_zone: the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "hours", hours)
-        pulumi.set(__self__, "minutes", minutes)
-        pulumi.set(__self__, "time_zone", time_zone)
+        RecurrentScheduleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            hours=hours,
+            minutes=minutes,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Sequence[str],
+             hours: Sequence[int],
+             minutes: Sequence[int],
+             time_zone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
+        _setter("hours", hours)
+        _setter("minutes", minutes)
+        _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -584,13 +695,28 @@ class ScaleActionResponse(dict):
         :param str type: the type of action that should occur when the scale rule fires.
         :param str value: the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
         """
-        pulumi.set(__self__, "cooldown", cooldown)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "type", type)
+        ScaleActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cooldown=cooldown,
+            direction=direction,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cooldown: str,
+             direction: str,
+             type: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cooldown", cooldown)
+        _setter("direction", direction)
+        _setter("type", type)
         if value is None:
             value = '1'
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -640,9 +766,22 @@ class ScaleCapacityResponse(dict):
         :param str maximum: the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
         :param str minimum: the minimum number of instances for the resource.
         """
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "maximum", maximum)
-        pulumi.set(__self__, "minimum", minimum)
+        ScaleCapacityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default=default,
+            maximum=maximum,
+            minimum=minimum,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default: str,
+             maximum: str,
+             minimum: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default", default)
+        _setter("maximum", maximum)
+        _setter("minimum", minimum)
 
     @property
     @pulumi.getter
@@ -701,9 +840,22 @@ class ScaleRuleMetricDimensionResponse(dict):
         :param str operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         :param Sequence[str] values: list of dimension values. For example: ["App1","App2"].
         """
-        pulumi.set(__self__, "dimension_name", dimension_name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ScaleRuleMetricDimensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimension_name=dimension_name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimension_name: str,
+             operator: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dimension_name", dimension_name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter(name="dimensionName")
@@ -762,8 +914,19 @@ class ScaleRuleResponse(dict):
         :param 'MetricTriggerResponse' metric_trigger: the trigger that results in a scaling action.
         :param 'ScaleActionResponse' scale_action: the parameters for the scaling action.
         """
-        pulumi.set(__self__, "metric_trigger", metric_trigger)
-        pulumi.set(__self__, "scale_action", scale_action)
+        ScaleRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_trigger=metric_trigger,
+            scale_action=scale_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_trigger: 'outputs.MetricTriggerResponse',
+             scale_action: 'outputs.ScaleActionResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_trigger", metric_trigger)
+        _setter("scale_action", scale_action)
 
     @property
     @pulumi.getter(name="metricTrigger")
@@ -830,18 +993,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -924,10 +1106,23 @@ class TimeWindowResponse(dict):
         :param str start: the start time for the profile in ISO 8601 format.
         :param str time_zone: the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        TimeWindowResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: str,
+             start: str,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -984,10 +1179,21 @@ class WebhookNotificationResponse(dict):
         :param Mapping[str, str] properties: a property bag of settings. This value can be empty.
         :param str service_uri: the service address to receive the notification.
         """
+        WebhookNotificationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            service_uri=service_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[Mapping[str, str]] = None,
+             service_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if service_uri is not None:
-            pulumi.set(__self__, "service_uri", service_uri)
+            _setter("service_uri", service_uri)
 
     @property
     @pulumi.getter

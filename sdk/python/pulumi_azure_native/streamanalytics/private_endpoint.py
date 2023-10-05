@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,27 @@ class PrivateEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            manual_private_link_service_connections=manual_private_link_service_connections,
+            private_endpoint_name=private_endpoint_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+             private_endpoint_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if manual_private_link_service_connections is not None:
-            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+            _setter("manual_private_link_service_connections", manual_private_link_service_connections)
         if private_endpoint_name is not None:
-            pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
+            _setter("private_endpoint_name", private_endpoint_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -124,6 +139,10 @@ class PrivateEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

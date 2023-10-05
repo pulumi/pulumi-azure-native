@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -26,9 +26,20 @@ class SubscriptionLogSettingsResponse(dict):
         :param bool enabled: a value indicating whether this log is enabled.
         :param str category: Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        SubscriptionLogSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            category=category,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             category: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
 
     @property
     @pulumi.getter

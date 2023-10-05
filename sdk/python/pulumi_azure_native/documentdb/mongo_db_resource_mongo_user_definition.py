@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,47 @@ class MongoDBResourceMongoUserDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RoleArgs']]] roles: The set of roles inherited by the User Definition.
         :param pulumi.Input[str] user_name: The user name for User Definition.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MongoDBResourceMongoUserDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            custom_data=custom_data,
+            database_name=database_name,
+            mechanisms=mechanisms,
+            mongo_user_definition_id=mongo_user_definition_id,
+            password=password,
+            roles=roles,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             custom_data: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             mechanisms: Optional[pulumi.Input[str]] = None,
+             mongo_user_definition_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
+            _setter("custom_data", custom_data)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if mechanisms is not None:
-            pulumi.set(__self__, "mechanisms", mechanisms)
+            _setter("mechanisms", mechanisms)
         if mongo_user_definition_id is not None:
-            pulumi.set(__self__, "mongo_user_definition_id", mongo_user_definition_id)
+            _setter("mongo_user_definition_id", mongo_user_definition_id)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -214,6 +239,10 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MongoDBResourceMongoUserDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

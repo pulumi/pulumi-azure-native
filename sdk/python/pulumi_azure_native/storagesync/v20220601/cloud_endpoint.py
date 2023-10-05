@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -34,19 +34,42 @@ class CloudEndpointArgs:
         :param pulumi.Input[str] storage_account_resource_id: Storage Account Resource Id
         :param pulumi.Input[str] storage_account_tenant_id: Storage Account Tenant Id
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
-        pulumi.set(__self__, "sync_group_name", sync_group_name)
+        CloudEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_sync_service_name=storage_sync_service_name,
+            sync_group_name=sync_group_name,
+            azure_file_share_name=azure_file_share_name,
+            cloud_endpoint_name=cloud_endpoint_name,
+            friendly_name=friendly_name,
+            storage_account_resource_id=storage_account_resource_id,
+            storage_account_tenant_id=storage_account_tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             storage_sync_service_name: pulumi.Input[str],
+             sync_group_name: pulumi.Input[str],
+             azure_file_share_name: Optional[pulumi.Input[str]] = None,
+             cloud_endpoint_name: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             storage_account_resource_id: Optional[pulumi.Input[str]] = None,
+             storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_sync_service_name", storage_sync_service_name)
+        _setter("sync_group_name", sync_group_name)
         if azure_file_share_name is not None:
-            pulumi.set(__self__, "azure_file_share_name", azure_file_share_name)
+            _setter("azure_file_share_name", azure_file_share_name)
         if cloud_endpoint_name is not None:
-            pulumi.set(__self__, "cloud_endpoint_name", cloud_endpoint_name)
+            _setter("cloud_endpoint_name", cloud_endpoint_name)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if storage_account_resource_id is not None:
-            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+            _setter("storage_account_resource_id", storage_account_resource_id)
         if storage_account_tenant_id is not None:
-            pulumi.set(__self__, "storage_account_tenant_id", storage_account_tenant_id)
+            _setter("storage_account_tenant_id", storage_account_tenant_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -192,6 +215,10 @@ class CloudEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

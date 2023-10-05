@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -51,35 +51,72 @@ class ProfileArgs:
         :param pulumi.Input[Union[str, 'TrafficViewEnrollmentStatus']] traffic_view_enrollment_status: Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
         :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            allowed_endpoint_record_types=allowed_endpoint_record_types,
+            dns_config=dns_config,
+            endpoints=endpoints,
+            id=id,
+            location=location,
+            max_return=max_return,
+            monitor_config=monitor_config,
+            name=name,
+            profile_name=profile_name,
+            profile_status=profile_status,
+            tags=tags,
+            traffic_routing_method=traffic_routing_method,
+            traffic_view_enrollment_status=traffic_view_enrollment_status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             allowed_endpoint_record_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]]] = None,
+             dns_config: Optional[pulumi.Input['DnsConfigArgs']] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_return: Optional[pulumi.Input[float]] = None,
+             monitor_config: Optional[pulumi.Input['MonitorConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             profile_name: Optional[pulumi.Input[str]] = None,
+             profile_status: Optional[pulumi.Input[Union[str, 'ProfileStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_routing_method: Optional[pulumi.Input[Union[str, 'TrafficRoutingMethod']]] = None,
+             traffic_view_enrollment_status: Optional[pulumi.Input[Union[str, 'TrafficViewEnrollmentStatus']]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if allowed_endpoint_record_types is not None:
-            pulumi.set(__self__, "allowed_endpoint_record_types", allowed_endpoint_record_types)
+            _setter("allowed_endpoint_record_types", allowed_endpoint_record_types)
         if dns_config is not None:
-            pulumi.set(__self__, "dns_config", dns_config)
+            _setter("dns_config", dns_config)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_return is not None:
-            pulumi.set(__self__, "max_return", max_return)
+            _setter("max_return", max_return)
         if monitor_config is not None:
-            pulumi.set(__self__, "monitor_config", monitor_config)
+            _setter("monitor_config", monitor_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if profile_name is not None:
-            pulumi.set(__self__, "profile_name", profile_name)
+            _setter("profile_name", profile_name)
         if profile_status is not None:
-            pulumi.set(__self__, "profile_status", profile_status)
+            _setter("profile_status", profile_status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_routing_method is not None:
-            pulumi.set(__self__, "traffic_routing_method", traffic_routing_method)
+            _setter("traffic_routing_method", traffic_routing_method)
         if traffic_view_enrollment_status is not None:
-            pulumi.set(__self__, "traffic_view_enrollment_status", traffic_view_enrollment_status)
+            _setter("traffic_view_enrollment_status", traffic_view_enrollment_status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -325,6 +362,10 @@ class Profile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -355,11 +396,21 @@ class Profile(pulumi.CustomResource):
             __props__ = ProfileArgs.__new__(ProfileArgs)
 
             __props__.__dict__["allowed_endpoint_record_types"] = allowed_endpoint_record_types
+            if dns_config is not None and not isinstance(dns_config, DnsConfigArgs):
+                dns_config = dns_config or {}
+                def _setter(key, value):
+                    dns_config[key] = value
+                DnsConfigArgs._configure(_setter, **dns_config)
             __props__.__dict__["dns_config"] = dns_config
             __props__.__dict__["endpoints"] = endpoints
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["max_return"] = max_return
+            if monitor_config is not None and not isinstance(monitor_config, MonitorConfigArgs):
+                monitor_config = monitor_config or {}
+                def _setter(key, value):
+                    monitor_config[key] = value
+                MonitorConfigArgs._configure(_setter, **monitor_config)
             __props__.__dict__["monitor_config"] = monitor_config
             __props__.__dict__["name"] = name
             __props__.__dict__["profile_name"] = profile_name

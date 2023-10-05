@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,44 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]] services: Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            application_resource_name=application_resource_name,
+            debug_params=debug_params,
+            description=description,
+            diagnostics=diagnostics,
+            location=location,
+            services=services,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             application_resource_name: Optional[pulumi.Input[str]] = None,
+             debug_params: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             diagnostics: Optional[pulumi.Input['DiagnosticsDescriptionArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if application_resource_name is not None:
-            pulumi.set(__self__, "application_resource_name", application_resource_name)
+            _setter("application_resource_name", application_resource_name)
         if debug_params is not None:
-            pulumi.set(__self__, "debug_params", debug_params)
+            _setter("debug_params", debug_params)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if diagnostics is not None:
-            pulumi.set(__self__, "diagnostics", diagnostics)
+            _setter("diagnostics", diagnostics)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +219,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -221,6 +248,11 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["application_resource_name"] = application_resource_name
             __props__.__dict__["debug_params"] = debug_params
             __props__.__dict__["description"] = description
+            if diagnostics is not None and not isinstance(diagnostics, DiagnosticsDescriptionArgs):
+                diagnostics = diagnostics or {}
+                def _setter(key, value):
+                    diagnostics[key] = value
+                DiagnosticsDescriptionArgs._configure(_setter, **diagnostics)
             __props__.__dict__["diagnostics"] = diagnostics
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

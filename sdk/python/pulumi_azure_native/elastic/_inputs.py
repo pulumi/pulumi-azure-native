@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -37,16 +37,33 @@ class CompanyInfoArgs:
         :param pulumi.Input[str] employees_number: Number of employees in the company
         :param pulumi.Input[str] state: State of the company location.
         """
+        CompanyInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            business=business,
+            country=country,
+            domain=domain,
+            employees_number=employees_number,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             business: Optional[pulumi.Input[str]] = None,
+             country: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             employees_number: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if business is not None:
-            pulumi.set(__self__, "business", business)
+            _setter("business", business)
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if employees_number is not None:
-            pulumi.set(__self__, "employees_number", employees_number)
+            _setter("employees_number", employees_number)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -121,12 +138,25 @@ class FilteringTagArgs:
         :param pulumi.Input[str] name: The name (also known as the key) of the tag.
         :param pulumi.Input[str] value: The value of the tag.
         """
+        FilteringTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'TagAction']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -173,8 +203,17 @@ class IdentityPropertiesArgs:
         Identity properties.
         :param pulumi.Input[Union[str, 'ManagedIdentityTypes']] type: Managed identity type.
         """
+        IdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -203,14 +242,29 @@ class LogRulesArgs:
         :param pulumi.Input[bool] send_activity_logs: Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
         :param pulumi.Input[bool] send_subscription_logs: Flag specifying if subscription logs should be sent for the Monitor resource.
         """
+        LogRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+            send_aad_logs=send_aad_logs,
+            send_activity_logs=send_activity_logs,
+            send_subscription_logs=send_subscription_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
+             send_aad_logs: Optional[pulumi.Input[bool]] = None,
+             send_activity_logs: Optional[pulumi.Input[bool]] = None,
+             send_subscription_logs: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filtering_tags is not None:
-            pulumi.set(__self__, "filtering_tags", filtering_tags)
+            _setter("filtering_tags", filtering_tags)
         if send_aad_logs is not None:
-            pulumi.set(__self__, "send_aad_logs", send_aad_logs)
+            _setter("send_aad_logs", send_aad_logs)
         if send_activity_logs is not None:
-            pulumi.set(__self__, "send_activity_logs", send_activity_logs)
+            _setter("send_activity_logs", send_activity_logs)
         if send_subscription_logs is not None:
-            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+            _setter("send_subscription_logs", send_subscription_logs)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -277,16 +331,33 @@ class MonitorPropertiesArgs:
         :param pulumi.Input['UserInfoArgs'] user_info: User information.
         :param pulumi.Input[str] version: Version of elastic of the monitor resource
         """
+        MonitorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            generate_api_key=generate_api_key,
+            monitoring_status=monitoring_status,
+            provisioning_state=provisioning_state,
+            user_info=user_info,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             generate_api_key: Optional[pulumi.Input[bool]] = None,
+             monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             user_info: Optional[pulumi.Input['UserInfoArgs']] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if generate_api_key is not None:
-            pulumi.set(__self__, "generate_api_key", generate_api_key)
+            _setter("generate_api_key", generate_api_key)
         if monitoring_status is not None:
-            pulumi.set(__self__, "monitoring_status", monitoring_status)
+            _setter("monitoring_status", monitoring_status)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if user_info is not None:
-            pulumi.set(__self__, "user_info", user_info)
+            _setter("user_info", user_info)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="generateApiKey")
@@ -359,10 +430,21 @@ class MonitoringTagRulesPropertiesArgs:
         :param pulumi.Input['LogRulesArgs'] log_rules: Rules for sending logs.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the monitoring tag rules.
         """
+        MonitoringTagRulesPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_rules=log_rules,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_rules: Optional[pulumi.Input['LogRulesArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if log_rules is not None:
-            pulumi.set(__self__, "log_rules", log_rules)
+            _setter("log_rules", log_rules)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="logRules")
@@ -397,7 +479,16 @@ class ResourceSkuArgs:
         Microsoft.Elastic SKU.
         :param pulumi.Input[str] name: Name of the SKU.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -428,16 +519,33 @@ class UserInfoArgs:
         :param pulumi.Input[str] first_name: First name of the user
         :param pulumi.Input[str] last_name: Last name of the user
         """
+        UserInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            company_info=company_info,
+            company_name=company_name,
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             company_info: Optional[pulumi.Input['CompanyInfoArgs']] = None,
+             company_name: Optional[pulumi.Input[str]] = None,
+             email_address: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if company_info is not None:
-            pulumi.set(__self__, "company_info", company_info)
+            _setter("company_info", company_info)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
 
     @property
     @pulumi.getter(name="companyInfo")

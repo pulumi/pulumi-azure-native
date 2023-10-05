@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,30 @@ class BuildServiceBuildArgs:
         :param pulumi.Input[str] build_name: The name of the build resource.
         :param pulumi.Input['BuildPropertiesArgs'] properties: Properties of the build resource
         """
-        pulumi.set(__self__, "build_service_name", build_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        BuildServiceBuildArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_service_name=build_service_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            build_name=build_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_service_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             build_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['BuildPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("build_service_name", build_service_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if build_name is not None:
-            pulumi.set(__self__, "build_name", build_name)
+            _setter("build_name", build_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="buildServiceName")
@@ -139,6 +156,10 @@ class BuildServiceBuild(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BuildServiceBuildArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,6 +183,11 @@ class BuildServiceBuild(pulumi.CustomResource):
             if build_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'build_service_name'")
             __props__.__dict__["build_service_name"] = build_service_name
+            if properties is not None and not isinstance(properties, BuildPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                BuildPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

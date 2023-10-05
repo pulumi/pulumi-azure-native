@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,20 +38,45 @@ class WebAppBackupConfigurationSlotArgs:
         :param pulumi.Input[bool] enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
         :param pulumi.Input[str] kind: Kind of resource.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "slot", slot)
-        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        WebAppBackupConfigurationSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            slot=slot,
+            storage_account_url=storage_account_url,
+            backup_name=backup_name,
+            backup_schedule=backup_schedule,
+            databases=databases,
+            enabled=enabled,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             slot: pulumi.Input[str],
+             storage_account_url: pulumi.Input[str],
+             backup_name: Optional[pulumi.Input[str]] = None,
+             backup_schedule: Optional[pulumi.Input['BackupScheduleArgs']] = None,
+             databases: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("slot", slot)
+        _setter("storage_account_url", storage_account_url)
         if backup_name is not None:
-            pulumi.set(__self__, "backup_name", backup_name)
+            _setter("backup_name", backup_name)
         if backup_schedule is not None:
-            pulumi.set(__self__, "backup_schedule", backup_schedule)
+            _setter("backup_schedule", backup_schedule)
         if databases is not None:
-            pulumi.set(__self__, "databases", databases)
+            _setter("databases", databases)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter
@@ -213,6 +238,10 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppBackupConfigurationSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -237,6 +266,11 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
             __props__ = WebAppBackupConfigurationSlotArgs.__new__(WebAppBackupConfigurationSlotArgs)
 
             __props__.__dict__["backup_name"] = backup_name
+            if backup_schedule is not None and not isinstance(backup_schedule, BackupScheduleArgs):
+                backup_schedule = backup_schedule or {}
+                def _setter(key, value):
+                    backup_schedule[key] = value
+                BackupScheduleArgs._configure(_setter, **backup_schedule)
             __props__.__dict__["backup_schedule"] = backup_schedule
             __props__.__dict__["databases"] = databases
             __props__.__dict__["enabled"] = enabled

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectionMonitorTestArgs', 'ConnectionMonitorTest']
@@ -31,18 +31,39 @@ class ConnectionMonitorTestArgs:
         :param pulumi.Input[str] source_agent: The Connection Monitor test source agent
         :param pulumi.Input[int] test_frequency_in_sec: The Connection Monitor test frequency in seconds
         """
-        pulumi.set(__self__, "peering_service_name", peering_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectionMonitorTestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peering_service_name=peering_service_name,
+            resource_group_name=resource_group_name,
+            connection_monitor_test_name=connection_monitor_test_name,
+            destination=destination,
+            destination_port=destination_port,
+            source_agent=source_agent,
+            test_frequency_in_sec=test_frequency_in_sec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peering_service_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             connection_monitor_test_name: Optional[pulumi.Input[str]] = None,
+             destination: Optional[pulumi.Input[str]] = None,
+             destination_port: Optional[pulumi.Input[int]] = None,
+             source_agent: Optional[pulumi.Input[str]] = None,
+             test_frequency_in_sec: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("peering_service_name", peering_service_name)
+        _setter("resource_group_name", resource_group_name)
         if connection_monitor_test_name is not None:
-            pulumi.set(__self__, "connection_monitor_test_name", connection_monitor_test_name)
+            _setter("connection_monitor_test_name", connection_monitor_test_name)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if destination_port is not None:
-            pulumi.set(__self__, "destination_port", destination_port)
+            _setter("destination_port", destination_port)
         if source_agent is not None:
-            pulumi.set(__self__, "source_agent", source_agent)
+            _setter("source_agent", source_agent)
         if test_frequency_in_sec is not None:
-            pulumi.set(__self__, "test_frequency_in_sec", test_frequency_in_sec)
+            _setter("test_frequency_in_sec", test_frequency_in_sec)
 
     @property
     @pulumi.getter(name="peeringServiceName")
@@ -176,6 +197,10 @@ class ConnectionMonitorTest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionMonitorTestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

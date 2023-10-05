@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -31,15 +31,34 @@ class B2CTenantArgs:
         :param pulumi.Input[str] resource_name: The initial domain name of the B2C tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource Tags
         """
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        B2CTenantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            location=location,
+            resource_name=resource_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['CreateTenantRequestBodyPropertiesArgs'],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['B2CResourceSKUArgs'],
+             location: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -151,6 +170,10 @@ class B2CTenant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            B2CTenantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -172,6 +195,11 @@ class B2CTenant(pulumi.CustomResource):
             __props__ = B2CTenantArgs.__new__(B2CTenantArgs)
 
             __props__.__dict__["location"] = location
+            if properties is not None and not isinstance(properties, CreateTenantRequestBodyPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                CreateTenantRequestBodyPropertiesArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
@@ -179,6 +207,11 @@ class B2CTenant(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
+            if sku is not None and not isinstance(sku, B2CResourceSKUArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                B2CResourceSKUArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

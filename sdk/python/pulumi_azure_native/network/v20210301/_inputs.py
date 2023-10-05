@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -44,26 +44,53 @@ class CustomIpPrefixArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
+        CustomIpPrefixArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_message=authorization_message,
+            cidr=cidr,
+            commissioned_state=commissioned_state,
+            custom_ip_prefix_parent=custom_ip_prefix_parent,
+            extended_location=extended_location,
+            id=id,
+            location=location,
+            signed_message=signed_message,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_message: Optional[pulumi.Input[str]] = None,
+             cidr: Optional[pulumi.Input[str]] = None,
+             commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
+             custom_ip_prefix_parent: Optional[pulumi.Input['CustomIpPrefixArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             signed_message: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorization_message is not None:
-            pulumi.set(__self__, "authorization_message", authorization_message)
+            _setter("authorization_message", authorization_message)
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if commissioned_state is not None:
-            pulumi.set(__self__, "commissioned_state", commissioned_state)
+            _setter("commissioned_state", commissioned_state)
         if custom_ip_prefix_parent is not None:
-            pulumi.set(__self__, "custom_ip_prefix_parent", custom_ip_prefix_parent)
+            _setter("custom_ip_prefix_parent", custom_ip_prefix_parent)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if signed_message is not None:
-            pulumi.set(__self__, "signed_message", signed_message)
+            _setter("signed_message", signed_message)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="authorizationMessage")
@@ -194,8 +221,17 @@ class ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs:
         Configuration for auto scaling.
         :param pulumi.Input['ExpressRouteGatewayPropertiesBoundsArgs'] bounds: Minimum and maximum number of scale units to deploy.
         """
+        ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bounds=bounds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bounds: Optional[pulumi.Input['ExpressRouteGatewayPropertiesBoundsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bounds is not None:
-            pulumi.set(__self__, "bounds", bounds)
+            _setter("bounds", bounds)
 
     @property
     @pulumi.getter
@@ -220,10 +256,21 @@ class ExpressRouteGatewayPropertiesBoundsArgs:
         :param pulumi.Input[int] max: Maximum number of scale units deployed for ExpressRoute gateway.
         :param pulumi.Input[int] min: Minimum number of scale units deployed for ExpressRoute gateway.
         """
+        ExpressRouteGatewayPropertiesBoundsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max=max,
+            min=min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max: Optional[pulumi.Input[int]] = None,
+             min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max is not None:
-            pulumi.set(__self__, "max", max)
+            _setter("max", max)
         if min is not None:
-            pulumi.set(__self__, "min", min)
+            _setter("min", min)
 
     @property
     @pulumi.getter
@@ -260,10 +307,21 @@ class ExtendedLocationArgs:
         :param pulumi.Input[str] name: The name of the extended location.
         :param pulumi.Input[Union[str, 'ExtendedLocationTypes']] type: The type of the extended location.
         """
+        ExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -298,8 +356,17 @@ class VirtualHubIdArgs:
         Virtual Hub identifier.
         :param pulumi.Input[str] id: The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
         """
+        VirtualHubIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter

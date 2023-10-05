@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -56,12 +56,31 @@ class MachineReferenceWithHintsResponse(dict):
         :param str os_family_hint: Last known operating system family.
         :param str type: Resource type qualifier.
         """
-        pulumi.set(__self__, "display_name_hint", display_name_hint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "kind", 'ref:machinewithhints')
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "os_family_hint", os_family_hint)
-        pulumi.set(__self__, "type", type)
+        MachineReferenceWithHintsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name_hint=display_name_hint,
+            id=id,
+            kind=kind,
+            name=name,
+            os_family_hint=os_family_hint,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name_hint: str,
+             id: str,
+             kind: str,
+             name: str,
+             os_family_hint: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name_hint", display_name_hint)
+        _setter("id", id)
+        _setter("kind", 'ref:machinewithhints')
+        _setter("name", name)
+        _setter("os_family_hint", os_family_hint)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="displayNameHint")
@@ -124,7 +143,16 @@ class SkuResponse(dict):
         The SKU (tier) of a workspace.
         :param str name: The name of the SKU.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter

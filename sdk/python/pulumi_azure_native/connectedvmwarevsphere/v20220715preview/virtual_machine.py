@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -63,47 +63,96 @@ class VirtualMachineArgs:
         :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
         :param pulumi.Input[str] virtual_machine_name: Name of the virtual machine resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            extended_location=extended_location,
+            firmware_type=firmware_type,
+            guest_agent_profile=guest_agent_profile,
+            hardware_profile=hardware_profile,
+            identity=identity,
+            inventory_item_id=inventory_item_id,
+            kind=kind,
+            location=location,
+            mo_ref_id=mo_ref_id,
+            network_profile=network_profile,
+            os_profile=os_profile,
+            placement_profile=placement_profile,
+            resource_pool_id=resource_pool_id,
+            security_profile=security_profile,
+            smbios_uuid=smbios_uuid,
+            storage_profile=storage_profile,
+            tags=tags,
+            template_id=template_id,
+            v_center_id=v_center_id,
+            virtual_machine_name=virtual_machine_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             firmware_type: Optional[pulumi.Input[Union[str, 'FirmwareType']]] = None,
+             guest_agent_profile: Optional[pulumi.Input['GuestAgentProfileArgs']] = None,
+             hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             inventory_item_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mo_ref_id: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
+             placement_profile: Optional[pulumi.Input['PlacementProfileArgs']] = None,
+             resource_pool_id: Optional[pulumi.Input[str]] = None,
+             security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
+             smbios_uuid: Optional[pulumi.Input[str]] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             v_center_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if firmware_type is not None:
-            pulumi.set(__self__, "firmware_type", firmware_type)
+            _setter("firmware_type", firmware_type)
         if guest_agent_profile is not None:
-            pulumi.set(__self__, "guest_agent_profile", guest_agent_profile)
+            _setter("guest_agent_profile", guest_agent_profile)
         if hardware_profile is not None:
-            pulumi.set(__self__, "hardware_profile", hardware_profile)
+            _setter("hardware_profile", hardware_profile)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+            _setter("inventory_item_id", inventory_item_id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mo_ref_id is not None:
-            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+            _setter("mo_ref_id", mo_ref_id)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if placement_profile is not None:
-            pulumi.set(__self__, "placement_profile", placement_profile)
+            _setter("placement_profile", placement_profile)
         if resource_pool_id is not None:
-            pulumi.set(__self__, "resource_pool_id", resource_pool_id)
+            _setter("resource_pool_id", resource_pool_id)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if smbios_uuid is not None:
-            pulumi.set(__self__, "smbios_uuid", smbios_uuid)
+            _setter("smbios_uuid", smbios_uuid)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
         if v_center_id is not None:
-            pulumi.set(__self__, "v_center_id", v_center_id)
+            _setter("v_center_id", v_center_id)
         if virtual_machine_name is not None:
-            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+            _setter("virtual_machine_name", virtual_machine_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -433,6 +482,10 @@ class VirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -468,24 +521,69 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineArgs.__new__(VirtualMachineArgs)
 
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["firmware_type"] = firmware_type
+            if guest_agent_profile is not None and not isinstance(guest_agent_profile, GuestAgentProfileArgs):
+                guest_agent_profile = guest_agent_profile or {}
+                def _setter(key, value):
+                    guest_agent_profile[key] = value
+                GuestAgentProfileArgs._configure(_setter, **guest_agent_profile)
             __props__.__dict__["guest_agent_profile"] = guest_agent_profile
+            if hardware_profile is not None and not isinstance(hardware_profile, HardwareProfileArgs):
+                hardware_profile = hardware_profile or {}
+                def _setter(key, value):
+                    hardware_profile[key] = value
+                HardwareProfileArgs._configure(_setter, **hardware_profile)
             __props__.__dict__["hardware_profile"] = hardware_profile
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inventory_item_id"] = inventory_item_id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["mo_ref_id"] = mo_ref_id
+            if network_profile is not None and not isinstance(network_profile, NetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                NetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
+            if os_profile is not None and not isinstance(os_profile, OsProfileArgs):
+                os_profile = os_profile or {}
+                def _setter(key, value):
+                    os_profile[key] = value
+                OsProfileArgs._configure(_setter, **os_profile)
             __props__.__dict__["os_profile"] = os_profile
+            if placement_profile is not None and not isinstance(placement_profile, PlacementProfileArgs):
+                placement_profile = placement_profile or {}
+                def _setter(key, value):
+                    placement_profile[key] = value
+                PlacementProfileArgs._configure(_setter, **placement_profile)
             __props__.__dict__["placement_profile"] = placement_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_pool_id"] = resource_pool_id
+            if security_profile is not None and not isinstance(security_profile, SecurityProfileArgs):
+                security_profile = security_profile or {}
+                def _setter(key, value):
+                    security_profile[key] = value
+                SecurityProfileArgs._configure(_setter, **security_profile)
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["smbios_uuid"] = smbios_uuid
+            if storage_profile is not None and not isinstance(storage_profile, StorageProfileArgs):
+                storage_profile = storage_profile or {}
+                def _setter(key, value):
+                    storage_profile[key] = value
+                StorageProfileArgs._configure(_setter, **storage_profile)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_id"] = template_id

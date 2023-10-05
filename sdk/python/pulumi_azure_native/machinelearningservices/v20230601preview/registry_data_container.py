@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,26 @@ class RegistryDataContainerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] name: Container name.
         """
-        pulumi.set(__self__, "data_container_properties", data_container_properties)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RegistryDataContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_container_properties=data_container_properties,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_container_properties: pulumi.Input['DataContainerArgs'],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_container_properties", data_container_properties)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataContainerProperties")
@@ -122,6 +137,10 @@ class RegistryDataContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryDataContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -140,6 +159,11 @@ class RegistryDataContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegistryDataContainerArgs.__new__(RegistryDataContainerArgs)
 
+            if data_container_properties is not None and not isinstance(data_container_properties, DataContainerArgs):
+                data_container_properties = data_container_properties or {}
+                def _setter(key, value):
+                    data_container_properties[key] = value
+                DataContainerArgs._configure(_setter, **data_container_properties)
             if data_container_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'data_container_properties'")
             __props__.__dict__["data_container_properties"] = data_container_properties

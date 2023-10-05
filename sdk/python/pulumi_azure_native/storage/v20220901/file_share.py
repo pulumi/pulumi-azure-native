@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,51 @@ class FileShareArgs:
         :param pulumi.Input[int] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
         :param pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]] signed_identifiers: List of stored access policies specified on the share.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FileShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            access_tier=access_tier,
+            enabled_protocols=enabled_protocols,
+            expand=expand,
+            metadata=metadata,
+            root_squash=root_squash,
+            share_name=share_name,
+            share_quota=share_quota,
+            signed_identifiers=signed_identifiers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             access_tier: Optional[pulumi.Input[Union[str, 'ShareAccessTier']]] = None,
+             enabled_protocols: Optional[pulumi.Input[Union[str, 'EnabledProtocols']]] = None,
+             expand: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             share_quota: Optional[pulumi.Input[int]] = None,
+             signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if access_tier is not None:
-            pulumi.set(__self__, "access_tier", access_tier)
+            _setter("access_tier", access_tier)
         if enabled_protocols is not None:
-            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+            _setter("enabled_protocols", enabled_protocols)
         if expand is not None:
-            pulumi.set(__self__, "expand", expand)
+            _setter("expand", expand)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if root_squash is not None:
-            pulumi.set(__self__, "root_squash", root_squash)
+            _setter("root_squash", root_squash)
         if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
+            _setter("share_name", share_name)
         if share_quota is not None:
-            pulumi.set(__self__, "share_quota", share_quota)
+            _setter("share_quota", share_quota)
         if signed_identifiers is not None:
-            pulumi.set(__self__, "signed_identifiers", signed_identifiers)
+            _setter("signed_identifiers", signed_identifiers)
 
     @property
     @pulumi.getter(name="accountName")
@@ -231,6 +258,10 @@ class FileShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

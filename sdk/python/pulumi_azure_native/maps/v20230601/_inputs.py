@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -31,8 +31,17 @@ class CorsRulesArgs:
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
         :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The list of CORS rules. You can include up to five CorsRule elements in the request. 
         """
+        CorsRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cors_rules=cors_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
 
     @property
     @pulumi.getter(name="corsRules")
@@ -55,7 +64,16 @@ class CorsRuleArgs:
         Specifies a CORS rule for the Map Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        CorsRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_origins", allowed_origins)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -78,7 +96,16 @@ class CreatorPropertiesArgs:
         Creator resource properties
         :param pulumi.Input[int] storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
         """
-        pulumi.set(__self__, "storage_units", storage_units)
+        CreatorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_units=storage_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_units: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_units", storage_units)
 
     @property
     @pulumi.getter(name="storageUnits")
@@ -105,12 +132,25 @@ class CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] identity_type: Values can be systemAssignedIdentity or userAssignedIdentity
         :param pulumi.Input[str] user_assigned_identity_resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
         """
+        CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delegated_identity_client_id=delegated_identity_client_id,
+            identity_type=identity_type,
+            user_assigned_identity_resource_id=user_assigned_identity_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delegated_identity_client_id: Optional[pulumi.Input[str]] = None,
+             identity_type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+             user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delegated_identity_client_id is not None:
-            pulumi.set(__self__, "delegated_identity_client_id", delegated_identity_client_id)
+            _setter("delegated_identity_client_id", delegated_identity_client_id)
         if identity_type is not None:
-            pulumi.set(__self__, "identity_type", identity_type)
+            _setter("identity_type", identity_type)
         if user_assigned_identity_resource_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+            _setter("user_assigned_identity_resource_id", user_assigned_identity_resource_id)
 
     @property
     @pulumi.getter(name="delegatedIdentityClientId")
@@ -159,10 +199,21 @@ class CustomerManagedKeyEncryptionArgs:
         :param pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param pulumi.Input[str] key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
+        CustomerManagedKeyEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_encryption_key_identity=key_encryption_key_identity,
+            key_encryption_key_url=key_encryption_key_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_encryption_key_identity: Optional[pulumi.Input['CustomerManagedKeyEncryptionKeyEncryptionKeyIdentityArgs']] = None,
+             key_encryption_key_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_encryption_key_identity is not None:
-            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+            _setter("key_encryption_key_identity", key_encryption_key_identity)
         if key_encryption_key_url is not None:
-            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+            _setter("key_encryption_key_url", key_encryption_key_url)
 
     @property
     @pulumi.getter(name="keyEncryptionKeyIdentity")
@@ -199,10 +250,21 @@ class EncryptionArgs:
         :param pulumi.Input['CustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         :param pulumi.Input[Union[str, 'InfrastructureEncryption']] infrastructure_encryption: Values are enabled and disabled.
         """
+        EncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_key_encryption=customer_managed_key_encryption,
+            infrastructure_encryption=infrastructure_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_key_encryption: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']] = None,
+             infrastructure_encryption: Optional[pulumi.Input[Union[str, 'InfrastructureEncryption']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if customer_managed_key_encryption is not None:
-            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+            _setter("customer_managed_key_encryption", customer_managed_key_encryption)
         if infrastructure_encryption is not None:
-            pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
+            _setter("infrastructure_encryption", infrastructure_encryption)
 
     @property
     @pulumi.getter(name="customerManagedKeyEncryption")
@@ -239,8 +301,19 @@ class LinkedResourceArgs:
         :param pulumi.Input[str] id: ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
         :param pulumi.Input[str] unique_name: A provided name which uniquely identifies the linked resource.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "unique_name", unique_name)
+        LinkedResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            unique_name=unique_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             unique_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("unique_name", unique_name)
 
     @property
     @pulumi.getter
@@ -277,9 +350,20 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -320,16 +404,31 @@ class MapsAccountPropertiesArgs:
         :param pulumi.Input['EncryptionArgs'] encryption: (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
         :param pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]] linked_resources: The array of associated resources to the Map account. Linked resource in the array cannot individually update, you must update all linked resources in the array together. These resources may be used on operations on the Azure Maps REST API. Access is controlled by the Map Account Managed Identity(s) permissions to those resource(s).
         """
+        MapsAccountPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cors=cors,
+            disable_local_auth=disable_local_auth,
+            encryption=encryption,
+            linked_resources=linked_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+             linked_resources: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if linked_resources is not None:
-            pulumi.set(__self__, "linked_resources", linked_resources)
+            _setter("linked_resources", linked_resources)
 
     @property
     @pulumi.getter
@@ -388,7 +487,16 @@ class SkuArgs:
         The SKU of the Maps Account.
         :param pulumi.Input[Union[str, 'Name']] name: The name of the SKU, in standard format (such as S0).
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'Name']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter

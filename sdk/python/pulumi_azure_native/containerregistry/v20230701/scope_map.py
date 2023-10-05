@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,13 +30,30 @@ class ScopeMapArgs:
         :param pulumi.Input[str] description: The user friendly description of the scope map.
         :param pulumi.Input[str] scope_map_name: The name of the scope map.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ScopeMapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            scope_map_name=scope_map_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             scope_map_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if scope_map_name is not None:
-            pulumi.set(__self__, "scope_map_name", scope_map_name)
+            _setter("scope_map_name", scope_map_name)
 
     @property
     @pulumi.getter
@@ -144,6 +161,10 @@ class ScopeMap(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScopeMapArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

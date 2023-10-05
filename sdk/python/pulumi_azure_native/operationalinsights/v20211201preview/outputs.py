@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -50,10 +50,21 @@ class PrivateLinkScopedResourceResponse(dict):
         :param str resource_id: The full resource Id of the private link scope resource.
         :param str scope_id: The private link scope unique Identifier.
         """
+        PrivateLinkScopedResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            scope_id=scope_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             scope_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if scope_id is not None:
-            pulumi.set(__self__, "scope_id", scope_id)
+            _setter("scope_id", scope_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -120,18 +131,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -218,10 +248,23 @@ class WorkspaceCappingResponse(dict):
         :param str quota_next_reset_time: The time when the quota will be rest.
         :param float daily_quota_gb: The workspace daily quota for ingestion.
         """
-        pulumi.set(__self__, "data_ingestion_status", data_ingestion_status)
-        pulumi.set(__self__, "quota_next_reset_time", quota_next_reset_time)
+        WorkspaceCappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_ingestion_status=data_ingestion_status,
+            quota_next_reset_time=quota_next_reset_time,
+            daily_quota_gb=daily_quota_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_ingestion_status: str,
+             quota_next_reset_time: str,
+             daily_quota_gb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_ingestion_status", data_ingestion_status)
+        _setter("quota_next_reset_time", quota_next_reset_time)
         if daily_quota_gb is not None:
-            pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
+            _setter("daily_quota_gb", daily_quota_gb)
 
     @property
     @pulumi.getter(name="dataIngestionStatus")
@@ -292,16 +335,33 @@ class WorkspaceFeaturesResponse(dict):
         :param bool enable_log_access_using_only_resource_permissions: Flag that indicate which permission to use - resource or workspace or both.
         :param bool immediate_purge_data_on30_days: Flag that describes if we want to remove the data after 30 days.
         """
+        WorkspaceFeaturesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_resource_id=cluster_resource_id,
+            disable_local_auth=disable_local_auth,
+            enable_data_export=enable_data_export,
+            enable_log_access_using_only_resource_permissions=enable_log_access_using_only_resource_permissions,
+            immediate_purge_data_on30_days=immediate_purge_data_on30_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_resource_id: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             enable_data_export: Optional[bool] = None,
+             enable_log_access_using_only_resource_permissions: Optional[bool] = None,
+             immediate_purge_data_on30_days: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_resource_id is not None:
-            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+            _setter("cluster_resource_id", cluster_resource_id)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if enable_data_export is not None:
-            pulumi.set(__self__, "enable_data_export", enable_data_export)
+            _setter("enable_data_export", enable_data_export)
         if enable_log_access_using_only_resource_permissions is not None:
-            pulumi.set(__self__, "enable_log_access_using_only_resource_permissions", enable_log_access_using_only_resource_permissions)
+            _setter("enable_log_access_using_only_resource_permissions", enable_log_access_using_only_resource_permissions)
         if immediate_purge_data_on30_days is not None:
-            pulumi.set(__self__, "immediate_purge_data_on30_days", immediate_purge_data_on30_days)
+            _setter("immediate_purge_data_on30_days", immediate_purge_data_on30_days)
 
     @property
     @pulumi.getter(name="clusterResourceId")
@@ -378,10 +438,23 @@ class WorkspaceSkuResponse(dict):
         :param str name: The name of the SKU.
         :param int capacity_reservation_level: The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
-        pulumi.set(__self__, "last_sku_update", last_sku_update)
-        pulumi.set(__self__, "name", name)
+        WorkspaceSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_sku_update=last_sku_update,
+            name=name,
+            capacity_reservation_level=capacity_reservation_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_sku_update: str,
+             name: str,
+             capacity_reservation_level: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last_sku_update", last_sku_update)
+        _setter("name", name)
         if capacity_reservation_level is not None:
-            pulumi.set(__self__, "capacity_reservation_level", capacity_reservation_level)
+            _setter("capacity_reservation_level", capacity_reservation_level)
 
     @property
     @pulumi.getter(name="lastSkuUpdate")

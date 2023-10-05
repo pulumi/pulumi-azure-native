@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -103,52 +103,89 @@ class ExportPolicyRuleResponse(dict):
         :param bool unix_read_only: Read only access
         :param bool unix_read_write: Read and write access
         """
+        ExportPolicyRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_clients=allowed_clients,
+            chown_mode=chown_mode,
+            cifs=cifs,
+            has_root_access=has_root_access,
+            kerberos5_read_only=kerberos5_read_only,
+            kerberos5_read_write=kerberos5_read_write,
+            kerberos5i_read_only=kerberos5i_read_only,
+            kerberos5i_read_write=kerberos5i_read_write,
+            kerberos5p_read_only=kerberos5p_read_only,
+            kerberos5p_read_write=kerberos5p_read_write,
+            nfsv3=nfsv3,
+            nfsv41=nfsv41,
+            rule_index=rule_index,
+            unix_read_only=unix_read_only,
+            unix_read_write=unix_read_write,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_clients: Optional[str] = None,
+             chown_mode: Optional[str] = None,
+             cifs: Optional[bool] = None,
+             has_root_access: Optional[bool] = None,
+             kerberos5_read_only: Optional[bool] = None,
+             kerberos5_read_write: Optional[bool] = None,
+             kerberos5i_read_only: Optional[bool] = None,
+             kerberos5i_read_write: Optional[bool] = None,
+             kerberos5p_read_only: Optional[bool] = None,
+             kerberos5p_read_write: Optional[bool] = None,
+             nfsv3: Optional[bool] = None,
+             nfsv41: Optional[bool] = None,
+             rule_index: Optional[int] = None,
+             unix_read_only: Optional[bool] = None,
+             unix_read_write: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_clients is not None:
-            pulumi.set(__self__, "allowed_clients", allowed_clients)
+            _setter("allowed_clients", allowed_clients)
         if chown_mode is None:
             chown_mode = 'Restricted'
         if chown_mode is not None:
-            pulumi.set(__self__, "chown_mode", chown_mode)
+            _setter("chown_mode", chown_mode)
         if cifs is not None:
-            pulumi.set(__self__, "cifs", cifs)
+            _setter("cifs", cifs)
         if has_root_access is None:
             has_root_access = True
         if has_root_access is not None:
-            pulumi.set(__self__, "has_root_access", has_root_access)
+            _setter("has_root_access", has_root_access)
         if kerberos5_read_only is None:
             kerberos5_read_only = False
         if kerberos5_read_only is not None:
-            pulumi.set(__self__, "kerberos5_read_only", kerberos5_read_only)
+            _setter("kerberos5_read_only", kerberos5_read_only)
         if kerberos5_read_write is None:
             kerberos5_read_write = False
         if kerberos5_read_write is not None:
-            pulumi.set(__self__, "kerberos5_read_write", kerberos5_read_write)
+            _setter("kerberos5_read_write", kerberos5_read_write)
         if kerberos5i_read_only is None:
             kerberos5i_read_only = False
         if kerberos5i_read_only is not None:
-            pulumi.set(__self__, "kerberos5i_read_only", kerberos5i_read_only)
+            _setter("kerberos5i_read_only", kerberos5i_read_only)
         if kerberos5i_read_write is None:
             kerberos5i_read_write = False
         if kerberos5i_read_write is not None:
-            pulumi.set(__self__, "kerberos5i_read_write", kerberos5i_read_write)
+            _setter("kerberos5i_read_write", kerberos5i_read_write)
         if kerberos5p_read_only is None:
             kerberos5p_read_only = False
         if kerberos5p_read_only is not None:
-            pulumi.set(__self__, "kerberos5p_read_only", kerberos5p_read_only)
+            _setter("kerberos5p_read_only", kerberos5p_read_only)
         if kerberos5p_read_write is None:
             kerberos5p_read_write = False
         if kerberos5p_read_write is not None:
-            pulumi.set(__self__, "kerberos5p_read_write", kerberos5p_read_write)
+            _setter("kerberos5p_read_write", kerberos5p_read_write)
         if nfsv3 is not None:
-            pulumi.set(__self__, "nfsv3", nfsv3)
+            _setter("nfsv3", nfsv3)
         if nfsv41 is not None:
-            pulumi.set(__self__, "nfsv41", nfsv41)
+            _setter("nfsv41", nfsv41)
         if rule_index is not None:
-            pulumi.set(__self__, "rule_index", rule_index)
+            _setter("rule_index", rule_index)
         if unix_read_only is not None:
-            pulumi.set(__self__, "unix_read_only", unix_read_only)
+            _setter("unix_read_only", unix_read_only)
         if unix_read_write is not None:
-            pulumi.set(__self__, "unix_read_write", unix_read_write)
+            _setter("unix_read_write", unix_read_write)
 
     @property
     @pulumi.getter(name="allowedClients")
@@ -311,11 +348,26 @@ class MountTargetPropertiesResponse(dict):
         :param str mount_target_id: UUID v4 used to identify the MountTarget
         :param str smb_server_fqdn: The SMB server's Fully Qualified Domain Name, FQDN
         """
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "mount_target_id", mount_target_id)
+        MountTargetPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_system_id=file_system_id,
+            ip_address=ip_address,
+            mount_target_id=mount_target_id,
+            smb_server_fqdn=smb_server_fqdn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_system_id: str,
+             ip_address: str,
+             mount_target_id: str,
+             smb_server_fqdn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("file_system_id", file_system_id)
+        _setter("ip_address", ip_address)
+        _setter("mount_target_id", mount_target_id)
         if smb_server_fqdn is not None:
-            pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
+            _setter("smb_server_fqdn", smb_server_fqdn)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -363,8 +415,19 @@ class PlacementKeyValuePairsResponse(dict):
         :param str key: Key for an application specific parameter for the placement of volumes in the volume group
         :param str value: Value for an application specific parameter for the placement of volumes in the volume group
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        PlacementKeyValuePairsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -427,15 +490,32 @@ class ReplicationObjectResponse(dict):
         :param str replication_id: Id
         :param str replication_schedule: Schedule
         """
-        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
+        ReplicationObjectResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            remote_volume_resource_id=remote_volume_resource_id,
+            endpoint_type=endpoint_type,
+            remote_volume_region=remote_volume_region,
+            replication_id=replication_id,
+            replication_schedule=replication_schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             remote_volume_resource_id: str,
+             endpoint_type: Optional[str] = None,
+             remote_volume_region: Optional[str] = None,
+             replication_id: Optional[str] = None,
+             replication_schedule: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("remote_volume_resource_id", remote_volume_resource_id)
         if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
+            _setter("endpoint_type", endpoint_type)
         if remote_volume_region is not None:
-            pulumi.set(__self__, "remote_volume_region", remote_volume_region)
+            _setter("remote_volume_region", remote_volume_region)
         if replication_id is not None:
-            pulumi.set(__self__, "replication_id", replication_id)
+            _setter("replication_id", replication_id)
         if replication_schedule is not None:
-            pulumi.set(__self__, "replication_schedule", replication_schedule)
+            _setter("replication_schedule", replication_schedule)
 
     @property
     @pulumi.getter(name="remoteVolumeResourceId")
@@ -526,18 +606,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -628,14 +727,29 @@ class VolumeBackupPropertiesResponse(dict):
         :param bool policy_enforced: Policy Enforced
         :param str vault_id: Vault Resource ID
         """
+        VolumeBackupPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_enabled=backup_enabled,
+            backup_policy_id=backup_policy_id,
+            policy_enforced=policy_enforced,
+            vault_id=vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_enabled: Optional[bool] = None,
+             backup_policy_id: Optional[str] = None,
+             policy_enforced: Optional[bool] = None,
+             vault_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup_enabled is not None:
-            pulumi.set(__self__, "backup_enabled", backup_enabled)
+            _setter("backup_enabled", backup_enabled)
         if backup_policy_id is not None:
-            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+            _setter("backup_policy_id", backup_policy_id)
         if policy_enforced is not None:
-            pulumi.set(__self__, "policy_enforced", policy_enforced)
+            _setter("policy_enforced", policy_enforced)
         if vault_id is not None:
-            pulumi.set(__self__, "vault_id", vault_id)
+            _setter("vault_id", vault_id)
 
     @property
     @pulumi.getter(name="backupEnabled")
@@ -718,17 +832,36 @@ class VolumeGroupMetaDataResponse(dict):
         :param Sequence['PlacementKeyValuePairsResponse'] global_placement_rules: Application specific placement rules for the volume group
         :param str group_description: Group Description
         """
-        pulumi.set(__self__, "volumes_count", volumes_count)
+        VolumeGroupMetaDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            volumes_count=volumes_count,
+            application_identifier=application_identifier,
+            application_type=application_type,
+            deployment_spec_id=deployment_spec_id,
+            global_placement_rules=global_placement_rules,
+            group_description=group_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             volumes_count: float,
+             application_identifier: Optional[str] = None,
+             application_type: Optional[str] = None,
+             deployment_spec_id: Optional[str] = None,
+             global_placement_rules: Optional[Sequence['outputs.PlacementKeyValuePairsResponse']] = None,
+             group_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("volumes_count", volumes_count)
         if application_identifier is not None:
-            pulumi.set(__self__, "application_identifier", application_identifier)
+            _setter("application_identifier", application_identifier)
         if application_type is not None:
-            pulumi.set(__self__, "application_type", application_type)
+            _setter("application_type", application_type)
         if deployment_spec_id is not None:
-            pulumi.set(__self__, "deployment_spec_id", deployment_spec_id)
+            _setter("deployment_spec_id", deployment_spec_id)
         if global_placement_rules is not None:
-            pulumi.set(__self__, "global_placement_rules", global_placement_rules)
+            _setter("global_placement_rules", global_placement_rules)
         if group_description is not None:
-            pulumi.set(__self__, "group_description", group_description)
+            _setter("group_description", group_description)
 
     @property
     @pulumi.getter(name="volumesCount")
@@ -978,113 +1111,212 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param str volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         :param str volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         """
-        pulumi.set(__self__, "baremetal_tenant_id", baremetal_tenant_id)
-        pulumi.set(__self__, "clone_progress", clone_progress)
-        pulumi.set(__self__, "creation_token", creation_token)
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "maximum_number_of_files", maximum_number_of_files)
-        pulumi.set(__self__, "mount_targets", mount_targets)
-        pulumi.set(__self__, "network_sibling_set_id", network_sibling_set_id)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "storage_to_network_proximity", storage_to_network_proximity)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "t2_network", t2_network)
-        pulumi.set(__self__, "type", type)
+        VolumeGroupVolumePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            baremetal_tenant_id=baremetal_tenant_id,
+            clone_progress=clone_progress,
+            creation_token=creation_token,
+            file_system_id=file_system_id,
+            id=id,
+            maximum_number_of_files=maximum_number_of_files,
+            mount_targets=mount_targets,
+            network_sibling_set_id=network_sibling_set_id,
+            provisioning_state=provisioning_state,
+            storage_to_network_proximity=storage_to_network_proximity,
+            subnet_id=subnet_id,
+            t2_network=t2_network,
+            type=type,
+            usage_threshold=usage_threshold,
+            volume_group_name=volume_group_name,
+            avs_data_store=avs_data_store,
+            backup_id=backup_id,
+            capacity_pool_resource_id=capacity_pool_resource_id,
+            cool_access=cool_access,
+            coolness_period=coolness_period,
+            data_protection=data_protection,
+            default_group_quota_in_ki_bs=default_group_quota_in_ki_bs,
+            default_user_quota_in_ki_bs=default_user_quota_in_ki_bs,
+            enable_subvolumes=enable_subvolumes,
+            encryption_key_source=encryption_key_source,
+            export_policy=export_policy,
+            is_default_quota_enabled=is_default_quota_enabled,
+            is_restoring=is_restoring,
+            kerberos_enabled=kerberos_enabled,
+            ldap_enabled=ldap_enabled,
+            name=name,
+            network_features=network_features,
+            placement_rules=placement_rules,
+            protocol_types=protocol_types,
+            proximity_placement_group=proximity_placement_group,
+            security_style=security_style,
+            service_level=service_level,
+            smb_continuously_available=smb_continuously_available,
+            smb_encryption=smb_encryption,
+            snapshot_directory_visible=snapshot_directory_visible,
+            snapshot_id=snapshot_id,
+            tags=tags,
+            throughput_mibps=throughput_mibps,
+            unix_permissions=unix_permissions,
+            volume_spec_name=volume_spec_name,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             baremetal_tenant_id: str,
+             clone_progress: int,
+             creation_token: str,
+             file_system_id: str,
+             id: str,
+             maximum_number_of_files: float,
+             mount_targets: Sequence['outputs.MountTargetPropertiesResponse'],
+             network_sibling_set_id: str,
+             provisioning_state: str,
+             storage_to_network_proximity: str,
+             subnet_id: str,
+             t2_network: str,
+             type: str,
+             usage_threshold: Optional[float] = None,
+             volume_group_name: str,
+             avs_data_store: Optional[str] = None,
+             backup_id: Optional[str] = None,
+             capacity_pool_resource_id: Optional[str] = None,
+             cool_access: Optional[bool] = None,
+             coolness_period: Optional[int] = None,
+             data_protection: Optional['outputs.VolumePropertiesResponseDataProtection'] = None,
+             default_group_quota_in_ki_bs: Optional[float] = None,
+             default_user_quota_in_ki_bs: Optional[float] = None,
+             enable_subvolumes: Optional[str] = None,
+             encryption_key_source: Optional[str] = None,
+             export_policy: Optional['outputs.VolumePropertiesResponseExportPolicy'] = None,
+             is_default_quota_enabled: Optional[bool] = None,
+             is_restoring: Optional[bool] = None,
+             kerberos_enabled: Optional[bool] = None,
+             ldap_enabled: Optional[bool] = None,
+             name: Optional[str] = None,
+             network_features: Optional[str] = None,
+             placement_rules: Optional[Sequence['outputs.PlacementKeyValuePairsResponse']] = None,
+             protocol_types: Optional[Sequence[str]] = None,
+             proximity_placement_group: Optional[str] = None,
+             security_style: Optional[str] = None,
+             service_level: Optional[str] = None,
+             smb_continuously_available: Optional[bool] = None,
+             smb_encryption: Optional[bool] = None,
+             snapshot_directory_visible: Optional[bool] = None,
+             snapshot_id: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             throughput_mibps: Optional[float] = None,
+             unix_permissions: Optional[str] = None,
+             volume_spec_name: Optional[str] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("baremetal_tenant_id", baremetal_tenant_id)
+        _setter("clone_progress", clone_progress)
+        _setter("creation_token", creation_token)
+        _setter("file_system_id", file_system_id)
+        _setter("id", id)
+        _setter("maximum_number_of_files", maximum_number_of_files)
+        _setter("mount_targets", mount_targets)
+        _setter("network_sibling_set_id", network_sibling_set_id)
+        _setter("provisioning_state", provisioning_state)
+        _setter("storage_to_network_proximity", storage_to_network_proximity)
+        _setter("subnet_id", subnet_id)
+        _setter("t2_network", t2_network)
+        _setter("type", type)
         if usage_threshold is None:
             usage_threshold = 107374182400
-        pulumi.set(__self__, "usage_threshold", usage_threshold)
-        pulumi.set(__self__, "volume_group_name", volume_group_name)
+        _setter("usage_threshold", usage_threshold)
+        _setter("volume_group_name", volume_group_name)
         if avs_data_store is None:
             avs_data_store = 'Disabled'
         if avs_data_store is not None:
-            pulumi.set(__self__, "avs_data_store", avs_data_store)
+            _setter("avs_data_store", avs_data_store)
         if backup_id is not None:
-            pulumi.set(__self__, "backup_id", backup_id)
+            _setter("backup_id", backup_id)
         if capacity_pool_resource_id is not None:
-            pulumi.set(__self__, "capacity_pool_resource_id", capacity_pool_resource_id)
+            _setter("capacity_pool_resource_id", capacity_pool_resource_id)
         if cool_access is None:
             cool_access = False
         if cool_access is not None:
-            pulumi.set(__self__, "cool_access", cool_access)
+            _setter("cool_access", cool_access)
         if coolness_period is not None:
-            pulumi.set(__self__, "coolness_period", coolness_period)
+            _setter("coolness_period", coolness_period)
         if data_protection is not None:
-            pulumi.set(__self__, "data_protection", data_protection)
+            _setter("data_protection", data_protection)
         if default_group_quota_in_ki_bs is None:
             default_group_quota_in_ki_bs = 0
         if default_group_quota_in_ki_bs is not None:
-            pulumi.set(__self__, "default_group_quota_in_ki_bs", default_group_quota_in_ki_bs)
+            _setter("default_group_quota_in_ki_bs", default_group_quota_in_ki_bs)
         if default_user_quota_in_ki_bs is None:
             default_user_quota_in_ki_bs = 0
         if default_user_quota_in_ki_bs is not None:
-            pulumi.set(__self__, "default_user_quota_in_ki_bs", default_user_quota_in_ki_bs)
+            _setter("default_user_quota_in_ki_bs", default_user_quota_in_ki_bs)
         if enable_subvolumes is None:
             enable_subvolumes = 'Disabled'
         if enable_subvolumes is not None:
-            pulumi.set(__self__, "enable_subvolumes", enable_subvolumes)
+            _setter("enable_subvolumes", enable_subvolumes)
         if encryption_key_source is not None:
-            pulumi.set(__self__, "encryption_key_source", encryption_key_source)
+            _setter("encryption_key_source", encryption_key_source)
         if export_policy is not None:
-            pulumi.set(__self__, "export_policy", export_policy)
+            _setter("export_policy", export_policy)
         if is_default_quota_enabled is None:
             is_default_quota_enabled = False
         if is_default_quota_enabled is not None:
-            pulumi.set(__self__, "is_default_quota_enabled", is_default_quota_enabled)
+            _setter("is_default_quota_enabled", is_default_quota_enabled)
         if is_restoring is not None:
-            pulumi.set(__self__, "is_restoring", is_restoring)
+            _setter("is_restoring", is_restoring)
         if kerberos_enabled is None:
             kerberos_enabled = False
         if kerberos_enabled is not None:
-            pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
+            _setter("kerberos_enabled", kerberos_enabled)
         if ldap_enabled is None:
             ldap_enabled = False
         if ldap_enabled is not None:
-            pulumi.set(__self__, "ldap_enabled", ldap_enabled)
+            _setter("ldap_enabled", ldap_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_features is None:
             network_features = 'Basic'
         if network_features is not None:
-            pulumi.set(__self__, "network_features", network_features)
+            _setter("network_features", network_features)
         if placement_rules is not None:
-            pulumi.set(__self__, "placement_rules", placement_rules)
+            _setter("placement_rules", placement_rules)
         if protocol_types is not None:
-            pulumi.set(__self__, "protocol_types", protocol_types)
+            _setter("protocol_types", protocol_types)
         if proximity_placement_group is not None:
-            pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+            _setter("proximity_placement_group", proximity_placement_group)
         if security_style is None:
             security_style = 'unix'
         if security_style is not None:
-            pulumi.set(__self__, "security_style", security_style)
+            _setter("security_style", security_style)
         if service_level is not None:
-            pulumi.set(__self__, "service_level", service_level)
+            _setter("service_level", service_level)
         if smb_continuously_available is None:
             smb_continuously_available = False
         if smb_continuously_available is not None:
-            pulumi.set(__self__, "smb_continuously_available", smb_continuously_available)
+            _setter("smb_continuously_available", smb_continuously_available)
         if smb_encryption is None:
             smb_encryption = False
         if smb_encryption is not None:
-            pulumi.set(__self__, "smb_encryption", smb_encryption)
+            _setter("smb_encryption", smb_encryption)
         if snapshot_directory_visible is None:
             snapshot_directory_visible = True
         if snapshot_directory_visible is not None:
-            pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
+            _setter("snapshot_directory_visible", snapshot_directory_visible)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if throughput_mibps is not None:
-            pulumi.set(__self__, "throughput_mibps", throughput_mibps)
+            _setter("throughput_mibps", throughput_mibps)
         if unix_permissions is None:
             unix_permissions = '0770'
         if unix_permissions is not None:
-            pulumi.set(__self__, "unix_permissions", unix_permissions)
+            _setter("unix_permissions", unix_permissions)
         if volume_spec_name is not None:
-            pulumi.set(__self__, "volume_spec_name", volume_spec_name)
+            _setter("volume_spec_name", volume_spec_name)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="baremetalTenantId")
@@ -1467,12 +1699,25 @@ class VolumePropertiesResponseDataProtection(dict):
         :param 'ReplicationObjectResponse' replication: Replication properties
         :param 'VolumeSnapshotPropertiesResponse' snapshot: Snapshot properties.
         """
+        VolumePropertiesResponseDataProtection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup=backup,
+            replication=replication,
+            snapshot=snapshot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup: Optional['outputs.VolumeBackupPropertiesResponse'] = None,
+             replication: Optional['outputs.ReplicationObjectResponse'] = None,
+             snapshot: Optional['outputs.VolumeSnapshotPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup is not None:
-            pulumi.set(__self__, "backup", backup)
+            _setter("backup", backup)
         if replication is not None:
-            pulumi.set(__self__, "replication", replication)
+            _setter("replication", replication)
         if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
+            _setter("snapshot", snapshot)
 
     @property
     @pulumi.getter
@@ -1510,8 +1755,17 @@ class VolumePropertiesResponseExportPolicy(dict):
         Set of export policy rules
         :param Sequence['ExportPolicyRuleResponse'] rules: Export policy rule
         """
+        VolumePropertiesResponseExportPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -1550,8 +1804,17 @@ class VolumeSnapshotPropertiesResponse(dict):
         Volume Snapshot Properties
         :param str snapshot_policy_id: Snapshot Policy ResourceId
         """
+        VolumeSnapshotPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            snapshot_policy_id=snapshot_policy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             snapshot_policy_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if snapshot_policy_id is not None:
-            pulumi.set(__self__, "snapshot_policy_id", snapshot_policy_id)
+            _setter("snapshot_policy_id", snapshot_policy_id)
 
     @property
     @pulumi.getter(name="snapshotPolicyId")

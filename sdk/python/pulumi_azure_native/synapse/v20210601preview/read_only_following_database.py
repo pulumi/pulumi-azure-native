@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -33,16 +33,37 @@ class ReadOnlyFollowingDatabaseArgs:
         :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
         :param pulumi.Input[str] location: Resource location.
         """
-        pulumi.set(__self__, "kind", 'ReadOnlyFollowing')
-        pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ReadOnlyFollowingDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            kusto_pool_name=kusto_pool_name,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            database_name=database_name,
+            hot_cache_period=hot_cache_period,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             kusto_pool_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             database_name: Optional[pulumi.Input[str]] = None,
+             hot_cache_period: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", 'ReadOnlyFollowing')
+        _setter("kusto_pool_name", kusto_pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if hot_cache_period is not None:
-            pulumi.set(__self__, "hot_cache_period", hot_cache_period)
+            _setter("hot_cache_period", hot_cache_period)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter
@@ -176,6 +197,10 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReadOnlyFollowingDatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

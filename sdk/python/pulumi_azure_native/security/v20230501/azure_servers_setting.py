@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -26,10 +26,23 @@ class AzureServersSettingArgs:
         :param pulumi.Input[Union[str, 'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider']] selected_provider: The selected vulnerability assessments provider on Azure servers in the defined scope.
         :param pulumi.Input[str] setting_kind: The kind of the server vulnerability assessments setting
         """
-        pulumi.set(__self__, "kind", 'AzureServersSetting')
-        pulumi.set(__self__, "selected_provider", selected_provider)
+        AzureServersSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            selected_provider=selected_provider,
+            setting_kind=setting_kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             selected_provider: pulumi.Input[Union[str, 'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider']],
+             setting_kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", 'AzureServersSetting')
+        _setter("selected_provider", selected_provider)
         if setting_kind is not None:
-            pulumi.set(__self__, "setting_kind", setting_kind)
+            _setter("setting_kind", setting_kind)
 
     @property
     @pulumi.getter
@@ -107,6 +120,10 @@ class AzureServersSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AzureServersSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

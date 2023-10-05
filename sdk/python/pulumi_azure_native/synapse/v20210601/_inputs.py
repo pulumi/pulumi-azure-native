@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -62,10 +62,21 @@ class AutoPausePropertiesArgs:
         :param pulumi.Input[int] delay_in_minutes: Number of minutes of idle time before the Big Data pool is automatically paused.
         :param pulumi.Input[bool] enabled: Whether auto-pausing is enabled for the Big Data pool.
         """
+        AutoPausePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delay_in_minutes=delay_in_minutes,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delay_in_minutes: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delay_in_minutes is not None:
-            pulumi.set(__self__, "delay_in_minutes", delay_in_minutes)
+            _setter("delay_in_minutes", delay_in_minutes)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="delayInMinutes")
@@ -104,12 +115,25 @@ class AutoScalePropertiesArgs:
         :param pulumi.Input[int] max_node_count: The maximum number of nodes the Big Data pool can support.
         :param pulumi.Input[int] min_node_count: The minimum number of nodes the Big Data pool can support.
         """
+        AutoScalePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            max_node_count=max_node_count,
+            min_node_count=min_node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             max_node_count: Optional[pulumi.Input[int]] = None,
+             min_node_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if max_node_count is not None:
-            pulumi.set(__self__, "max_node_count", max_node_count)
+            _setter("max_node_count", max_node_count)
         if min_node_count is not None:
-            pulumi.set(__self__, "min_node_count", min_node_count)
+            _setter("min_node_count", min_node_count)
 
     @property
     @pulumi.getter
@@ -163,10 +187,25 @@ class CmdkeySetupArgs:
                Expected value is 'CmdkeySetup'.
         :param Any user_name: The user name of data source access.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "target_name", target_name)
-        pulumi.set(__self__, "type", 'CmdkeySetup')
-        pulumi.set(__self__, "user_name", user_name)
+        CmdkeySetupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            target_name=target_name,
+            type=type,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input['SecureStringArgs'],
+             target_name: Any,
+             type: pulumi.Input[str],
+             user_name: Any,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("target_name", target_name)
+        _setter("type", 'CmdkeySetup')
+        _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -231,10 +270,23 @@ class ComponentSetupArgs:
                Expected value is 'ComponentSetup'.
         :param pulumi.Input['SecureStringArgs'] license_key: The license key to activate the component.
         """
-        pulumi.set(__self__, "component_name", component_name)
-        pulumi.set(__self__, "type", 'ComponentSetup')
+        ComponentSetupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_name=component_name,
+            type=type,
+            license_key=license_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             license_key: Optional[pulumi.Input['SecureStringArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component_name", component_name)
+        _setter("type", 'ComponentSetup')
         if license_key is not None:
-            pulumi.set(__self__, "license_key", license_key)
+            _setter("license_key", license_key)
 
     @property
     @pulumi.getter(name="componentName")
@@ -282,8 +334,17 @@ class CspWorkspaceAdminPropertiesArgs:
         Initial workspace AAD admin properties for a CSP subscription
         :param pulumi.Input[str] initial_workspace_admin_object_id: AAD object ID of initial workspace admin
         """
+        CspWorkspaceAdminPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initial_workspace_admin_object_id=initial_workspace_admin_object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initial_workspace_admin_object_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if initial_workspace_admin_object_id is not None:
-            pulumi.set(__self__, "initial_workspace_admin_object_id", initial_workspace_admin_object_id)
+            _setter("initial_workspace_admin_object_id", initial_workspace_admin_object_id)
 
     @property
     @pulumi.getter(name="initialWorkspaceAdminObjectId")
@@ -308,10 +369,21 @@ class CustomerManagedKeyDetailsArgs:
         :param pulumi.Input['KekIdentityPropertiesArgs'] kek_identity: Key encryption key
         :param pulumi.Input['WorkspaceKeyDetailsArgs'] key: The key object of the workspace
         """
+        CustomerManagedKeyDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kek_identity=kek_identity,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kek_identity: Optional[pulumi.Input['KekIdentityPropertiesArgs']] = None,
+             key: Optional[pulumi.Input['WorkspaceKeyDetailsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kek_identity is not None:
-            pulumi.set(__self__, "kek_identity", kek_identity)
+            _setter("kek_identity", kek_identity)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter(name="kekIdentity")
@@ -352,14 +424,29 @@ class DataLakeStorageAccountDetailsArgs:
         :param pulumi.Input[str] filesystem: Filesystem name
         :param pulumi.Input[str] resource_id: ARM resource Id of this storage account
         """
+        DataLakeStorageAccountDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_url=account_url,
+            create_managed_private_endpoint=create_managed_private_endpoint,
+            filesystem=filesystem,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_url: Optional[pulumi.Input[str]] = None,
+             create_managed_private_endpoint: Optional[pulumi.Input[bool]] = None,
+             filesystem: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_url is not None:
-            pulumi.set(__self__, "account_url", account_url)
+            _setter("account_url", account_url)
         if create_managed_private_endpoint is not None:
-            pulumi.set(__self__, "create_managed_private_endpoint", create_managed_private_endpoint)
+            _setter("create_managed_private_endpoint", create_managed_private_endpoint)
         if filesystem is not None:
-            pulumi.set(__self__, "filesystem", filesystem)
+            _setter("filesystem", filesystem)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="accountUrl")
@@ -422,12 +509,25 @@ class DynamicExecutorAllocationArgs:
         :param pulumi.Input[int] max_executors: The maximum number of executors alloted
         :param pulumi.Input[int] min_executors: The minimum number of executors alloted
         """
+        DynamicExecutorAllocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            max_executors=max_executors,
+            min_executors=min_executors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             max_executors: Optional[pulumi.Input[int]] = None,
+             min_executors: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if max_executors is not None:
-            pulumi.set(__self__, "max_executors", max_executors)
+            _setter("max_executors", max_executors)
         if min_executors is not None:
-            pulumi.set(__self__, "min_executors", min_executors)
+            _setter("min_executors", min_executors)
 
     @property
     @pulumi.getter
@@ -474,8 +574,17 @@ class EncryptionDetailsArgs:
         Details of the encryption associated with the workspace
         :param pulumi.Input['CustomerManagedKeyDetailsArgs'] cmk: Customer Managed Key Details
         """
+        EncryptionDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cmk=cmk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cmk: Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cmk is not None:
-            pulumi.set(__self__, "cmk", cmk)
+            _setter("cmk", cmk)
 
     @property
     @pulumi.getter
@@ -500,10 +609,21 @@ class EntityReferenceArgs:
         :param pulumi.Input[str] reference_name: The name of this referenced entity.
         :param pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']] type: The type of this referenced entity.
         """
+        EntityReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reference_name=reference_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reference_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if reference_name is not None:
-            pulumi.set(__self__, "reference_name", reference_name)
+            _setter("reference_name", reference_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="referenceName")
@@ -543,9 +663,22 @@ class EnvironmentVariableSetupArgs:
         :param pulumi.Input[str] variable_name: The name of the environment variable.
         :param pulumi.Input[str] variable_value: The value of the environment variable.
         """
-        pulumi.set(__self__, "type", 'EnvironmentVariableSetup')
-        pulumi.set(__self__, "variable_name", variable_name)
-        pulumi.set(__self__, "variable_value", variable_value)
+        EnvironmentVariableSetupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            variable_name=variable_name,
+            variable_value=variable_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             variable_name: pulumi.Input[str],
+             variable_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'EnvironmentVariableSetup')
+        _setter("variable_name", variable_name)
+        _setter("variable_value", variable_value)
 
     @property
     @pulumi.getter
@@ -603,18 +736,37 @@ class IntegrationRuntimeComputePropertiesArgs:
         :param pulumi.Input[int] number_of_nodes: The required number of nodes for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeVNetPropertiesArgs'] v_net_properties: VNet properties for managed integration runtime.
         """
+        IntegrationRuntimeComputePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_flow_properties=data_flow_properties,
+            location=location,
+            max_parallel_executions_per_node=max_parallel_executions_per_node,
+            node_size=node_size,
+            number_of_nodes=number_of_nodes,
+            v_net_properties=v_net_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_flow_properties: Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
+             node_size: Optional[pulumi.Input[str]] = None,
+             number_of_nodes: Optional[pulumi.Input[int]] = None,
+             v_net_properties: Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_flow_properties is not None:
-            pulumi.set(__self__, "data_flow_properties", data_flow_properties)
+            _setter("data_flow_properties", data_flow_properties)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_parallel_executions_per_node is not None:
-            pulumi.set(__self__, "max_parallel_executions_per_node", max_parallel_executions_per_node)
+            _setter("max_parallel_executions_per_node", max_parallel_executions_per_node)
         if node_size is not None:
-            pulumi.set(__self__, "node_size", node_size)
+            _setter("node_size", node_size)
         if number_of_nodes is not None:
-            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+            _setter("number_of_nodes", number_of_nodes)
         if v_net_properties is not None:
-            pulumi.set(__self__, "v_net_properties", v_net_properties)
+            _setter("v_net_properties", v_net_properties)
 
     @property
     @pulumi.getter(name="dataFlowProperties")
@@ -699,10 +851,21 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
         :param pulumi.Input[str] blob_container_uri: The URI of the Azure blob container that contains the custom setup script.
         :param pulumi.Input['SecureStringArgs'] sas_token: The SAS token of the Azure blob container.
         """
+        IntegrationRuntimeCustomSetupScriptPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_container_uri=blob_container_uri,
+            sas_token=sas_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_container_uri: Optional[pulumi.Input[str]] = None,
+             sas_token: Optional[pulumi.Input['SecureStringArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if blob_container_uri is not None:
-            pulumi.set(__self__, "blob_container_uri", blob_container_uri)
+            _setter("blob_container_uri", blob_container_uri)
         if sas_token is not None:
-            pulumi.set(__self__, "sas_token", sas_token)
+            _setter("sas_token", sas_token)
 
     @property
     @pulumi.getter(name="blobContainerUri")
@@ -737,8 +900,17 @@ class IntegrationRuntimeCustomerVirtualNetworkArgs:
         The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
         :param pulumi.Input[str] subnet_id: The ID of subnet to which Azure-SSIS integration runtime will join.
         """
+        IntegrationRuntimeCustomerVirtualNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -765,12 +937,25 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
         :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
+        IntegrationRuntimeDataFlowPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            core_count=core_count,
+            time_to_live=time_to_live,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]] = None,
+             core_count: Optional[pulumi.Input[int]] = None,
+             time_to_live: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_type is not None:
-            pulumi.set(__self__, "compute_type", compute_type)
+            _setter("compute_type", compute_type)
         if core_count is not None:
-            pulumi.set(__self__, "core_count", core_count)
+            _setter("core_count", core_count)
         if time_to_live is not None:
-            pulumi.set(__self__, "time_to_live", time_to_live)
+            _setter("time_to_live", time_to_live)
 
     @property
     @pulumi.getter(name="computeType")
@@ -821,12 +1006,25 @@ class IntegrationRuntimeDataProxyPropertiesArgs:
         :param pulumi.Input[str] path: The path to contain the staged data in the Blob storage.
         :param pulumi.Input['EntityReferenceArgs'] staging_linked_service: The staging linked service reference.
         """
+        IntegrationRuntimeDataProxyPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connect_via=connect_via,
+            path=path,
+            staging_linked_service=staging_linked_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connect_via: Optional[pulumi.Input['EntityReferenceArgs']] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             staging_linked_service: Optional[pulumi.Input['EntityReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connect_via is not None:
-            pulumi.set(__self__, "connect_via", connect_via)
+            _setter("connect_via", connect_via)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if staging_linked_service is not None:
-            pulumi.set(__self__, "staging_linked_service", staging_linked_service)
+            _setter("staging_linked_service", staging_linked_service)
 
     @property
     @pulumi.getter(name="connectVia")
@@ -879,14 +1077,29 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
         :param pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']] catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         :param pulumi.Input[str] catalog_server_endpoint: The catalog database server URL.
         """
+        IntegrationRuntimeSsisCatalogInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_admin_password=catalog_admin_password,
+            catalog_admin_user_name=catalog_admin_user_name,
+            catalog_pricing_tier=catalog_pricing_tier,
+            catalog_server_endpoint=catalog_server_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_admin_password: Optional[pulumi.Input['SecureStringArgs']] = None,
+             catalog_admin_user_name: Optional[pulumi.Input[str]] = None,
+             catalog_pricing_tier: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']]] = None,
+             catalog_server_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_admin_password is not None:
-            pulumi.set(__self__, "catalog_admin_password", catalog_admin_password)
+            _setter("catalog_admin_password", catalog_admin_password)
         if catalog_admin_user_name is not None:
-            pulumi.set(__self__, "catalog_admin_user_name", catalog_admin_user_name)
+            _setter("catalog_admin_user_name", catalog_admin_user_name)
         if catalog_pricing_tier is not None:
-            pulumi.set(__self__, "catalog_pricing_tier", catalog_pricing_tier)
+            _setter("catalog_pricing_tier", catalog_pricing_tier)
         if catalog_server_endpoint is not None:
-            pulumi.set(__self__, "catalog_server_endpoint", catalog_server_endpoint)
+            _setter("catalog_server_endpoint", catalog_server_endpoint)
 
     @property
     @pulumi.getter(name="catalogAdminPassword")
@@ -955,18 +1168,37 @@ class IntegrationRuntimeSsisPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']] license_type: License type for bringing your own license scenario.
         """
+        IntegrationRuntimeSsisPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_info=catalog_info,
+            custom_setup_script_properties=custom_setup_script_properties,
+            data_proxy_properties=data_proxy_properties,
+            edition=edition,
+            express_custom_setup_properties=express_custom_setup_properties,
+            license_type=license_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
+             custom_setup_script_properties: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']] = None,
+             data_proxy_properties: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']] = None,
+             edition: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]] = None,
+             express_custom_setup_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_info is not None:
-            pulumi.set(__self__, "catalog_info", catalog_info)
+            _setter("catalog_info", catalog_info)
         if custom_setup_script_properties is not None:
-            pulumi.set(__self__, "custom_setup_script_properties", custom_setup_script_properties)
+            _setter("custom_setup_script_properties", custom_setup_script_properties)
         if data_proxy_properties is not None:
-            pulumi.set(__self__, "data_proxy_properties", data_proxy_properties)
+            _setter("data_proxy_properties", data_proxy_properties)
         if edition is not None:
-            pulumi.set(__self__, "edition", edition)
+            _setter("edition", edition)
         if express_custom_setup_properties is not None:
-            pulumi.set(__self__, "express_custom_setup_properties", express_custom_setup_properties)
+            _setter("express_custom_setup_properties", express_custom_setup_properties)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
 
     @property
     @pulumi.getter(name="catalogInfo")
@@ -1055,14 +1287,29 @@ class IntegrationRuntimeVNetPropertiesArgs:
         :param pulumi.Input[str] subnet_id: The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
         :param pulumi.Input[str] v_net_id: The ID of the VNet that this integration runtime will join.
         """
+        IntegrationRuntimeVNetPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_ips=public_ips,
+            subnet=subnet,
+            subnet_id=subnet_id,
+            v_net_id=v_net_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             v_net_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if public_ips is not None:
-            pulumi.set(__self__, "public_ips", public_ips)
+            _setter("public_ips", public_ips)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if v_net_id is not None:
-            pulumi.set(__self__, "v_net_id", v_net_id)
+            _setter("v_net_id", v_net_id)
 
     @property
     @pulumi.getter(name="publicIPs")
@@ -1123,10 +1370,21 @@ class KekIdentityPropertiesArgs:
         :param Any use_system_assigned_identity: Boolean specifying whether to use system assigned identity or not
         :param pulumi.Input[str] user_assigned_identity: User assigned identity resource Id
         """
+        KekIdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            use_system_assigned_identity=use_system_assigned_identity,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             use_system_assigned_identity: Optional[Any] = None,
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if use_system_assigned_identity is not None:
-            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+            _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="useSystemAssignedIdentity")
@@ -1167,14 +1425,29 @@ class LibraryInfoArgs:
         :param pulumi.Input[str] path: Storage blob path of library.
         :param pulumi.Input[str] type: Type of the library.
         """
+        LibraryInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            name=name,
+            path=path,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="containerName")
@@ -1235,10 +1508,21 @@ class LibraryRequirementsArgs:
         :param pulumi.Input[str] content: The library requirements.
         :param pulumi.Input[str] filename: The filename of the library requirements file.
         """
+        LibraryRequirementsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            filename=filename,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
 
     @property
     @pulumi.getter
@@ -1276,8 +1560,19 @@ class LinkedIntegrationRuntimeKeyAuthorizationArgs:
                Expected value is 'Key'.
         :param pulumi.Input['SecureStringArgs'] key: The key used for authorization.
         """
-        pulumi.set(__self__, "authorization_type", 'Key')
-        pulumi.set(__self__, "key", key)
+        LinkedIntegrationRuntimeKeyAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_type=authorization_type,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_type: pulumi.Input[str],
+             key: pulumi.Input['SecureStringArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_type", 'Key')
+        _setter("key", key)
 
     @property
     @pulumi.getter(name="authorizationType")
@@ -1316,8 +1611,19 @@ class LinkedIntegrationRuntimeRbacAuthorizationArgs:
                Expected value is 'RBAC'.
         :param pulumi.Input[str] resource_id: The resource identifier of the integration runtime to be shared.
         """
-        pulumi.set(__self__, "authorization_type", 'RBAC')
-        pulumi.set(__self__, "resource_id", resource_id)
+        LinkedIntegrationRuntimeRbacAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_type=authorization_type,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_type: pulumi.Input[str],
+             resource_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_type", 'RBAC')
+        _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="authorizationType")
@@ -1355,10 +1661,21 @@ class ManagedIdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The type of managed identity for the workspace
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user assigned managed identities.
         """
+        ManagedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -1406,19 +1723,40 @@ class ManagedIntegrationRuntimeArgs:
         :param pulumi.Input[str] reference_name: The reference name of the managed virtual network
         :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
         """
-        pulumi.set(__self__, "type", 'Managed')
+        ManagedIntegrationRuntimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            compute_properties=compute_properties,
+            customer_virtual_network=customer_virtual_network,
+            description=description,
+            id=id,
+            reference_name=reference_name,
+            ssis_properties=ssis_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
+             customer_virtual_network: Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             reference_name: Optional[pulumi.Input[str]] = None,
+             ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Managed')
         if compute_properties is not None:
-            pulumi.set(__self__, "compute_properties", compute_properties)
+            _setter("compute_properties", compute_properties)
         if customer_virtual_network is not None:
-            pulumi.set(__self__, "customer_virtual_network", customer_virtual_network)
+            _setter("customer_virtual_network", customer_virtual_network)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if reference_name is not None:
-            pulumi.set(__self__, "reference_name", reference_name)
+            _setter("reference_name", reference_name)
         if ssis_properties is not None:
-            pulumi.set(__self__, "ssis_properties", ssis_properties)
+            _setter("ssis_properties", ssis_properties)
 
     @property
     @pulumi.getter
@@ -1518,12 +1856,25 @@ class ManagedVirtualNetworkSettingsArgs:
         :param pulumi.Input[bool] linked_access_check_on_target_resource: Linked Access Check On Target Resource
         :param pulumi.Input[bool] prevent_data_exfiltration: Prevent Data Exfiltration
         """
+        ManagedVirtualNetworkSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_aad_tenant_ids_for_linking=allowed_aad_tenant_ids_for_linking,
+            linked_access_check_on_target_resource=linked_access_check_on_target_resource,
+            prevent_data_exfiltration=prevent_data_exfiltration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_aad_tenant_ids_for_linking: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             linked_access_check_on_target_resource: Optional[pulumi.Input[bool]] = None,
+             prevent_data_exfiltration: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_aad_tenant_ids_for_linking is not None:
-            pulumi.set(__self__, "allowed_aad_tenant_ids_for_linking", allowed_aad_tenant_ids_for_linking)
+            _setter("allowed_aad_tenant_ids_for_linking", allowed_aad_tenant_ids_for_linking)
         if linked_access_check_on_target_resource is not None:
-            pulumi.set(__self__, "linked_access_check_on_target_resource", linked_access_check_on_target_resource)
+            _setter("linked_access_check_on_target_resource", linked_access_check_on_target_resource)
         if prevent_data_exfiltration is not None:
-            pulumi.set(__self__, "prevent_data_exfiltration", prevent_data_exfiltration)
+            _setter("prevent_data_exfiltration", prevent_data_exfiltration)
 
     @property
     @pulumi.getter(name="allowedAadTenantIdsForLinking")
@@ -1570,8 +1921,17 @@ class PrivateEndpointConnectionArgs:
         A private endpoint connection
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state of the private endpoint connection.
         """
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -1596,10 +1956,21 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The private link service connection description.
         :param pulumi.Input[str] status: The private link service connection status.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -1634,8 +2005,17 @@ class PurviewConfigurationArgs:
         Purview Configuration
         :param pulumi.Input[str] purview_resource_id: Purview Resource ID
         """
+        PurviewConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            purview_resource_id=purview_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             purview_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if purview_resource_id is not None:
-            pulumi.set(__self__, "purview_resource_id", purview_resource_id)
+            _setter("purview_resource_id", purview_resource_id)
 
     @property
     @pulumi.getter(name="purviewResourceId")
@@ -1661,8 +2041,19 @@ class SecureStringArgs:
                Expected value is 'SecureString'.
         :param pulumi.Input[str] value: Value of secure string.
         """
-        pulumi.set(__self__, "type", 'SecureString')
-        pulumi.set(__self__, "value", value)
+        SecureStringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'SecureString')
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1703,11 +2094,24 @@ class SelfHostedIntegrationRuntimeArgs:
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: Linked integration runtime type from data factory
         """
-        pulumi.set(__self__, "type", 'SelfHosted')
+        SelfHostedIntegrationRuntimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            description=description,
+            linked_info=linked_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             linked_info: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'SelfHosted')
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if linked_info is not None:
-            pulumi.set(__self__, "linked_info", linked_info)
+            _setter("linked_info", linked_info)
 
     @property
     @pulumi.getter
@@ -1759,12 +2163,25 @@ class SkuArgs:
         :param pulumi.Input[str] name: The SKU name
         :param pulumi.Input[str] tier: The service tier
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1815,12 +2232,25 @@ class SparkConfigPropertiesArgs:
         :param pulumi.Input[str] content: The spark config properties.
         :param pulumi.Input[str] filename: The filename of the spark config properties file.
         """
+        SparkConfigPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_type=configuration_type,
+            content=content,
+            filename=filename,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if configuration_type is not None:
-            pulumi.set(__self__, "configuration_type", configuration_type)
+            _setter("configuration_type", configuration_type)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -1867,7 +2297,16 @@ class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs:
         Properties for an Sql pool vulnerability assessment rule baseline's result.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] result: The rule baseline result
         """
-        pulumi.set(__self__, "result", result)
+        SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            result=result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             result: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("result", result)
 
     @property
     @pulumi.getter
@@ -1890,8 +2329,17 @@ class VirtualNetworkProfileArgs:
         Virtual Network Profile
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace
         """
+        VirtualNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_subnet_id=compute_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_subnet_id is not None:
-            pulumi.set(__self__, "compute_subnet_id", compute_subnet_id)
+            _setter("compute_subnet_id", compute_subnet_id)
 
     @property
     @pulumi.getter(name="computeSubnetId")
@@ -1918,14 +2366,27 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param pulumi.Input[bool] is_enabled: Recurring scans state.
         """
+        VulnerabilityAssessmentRecurringScansPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_subscription_admins=email_subscription_admins,
+            emails=emails,
+            is_enabled=is_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_subscription_admins: Optional[pulumi.Input[bool]] = None,
+             emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_subscription_admins is None:
             email_subscription_admins = True
         if email_subscription_admins is not None:
-            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+            _setter("email_subscription_admins", email_subscription_admins)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="emailSubscriptionAdmins")
@@ -1974,10 +2435,21 @@ class WorkspaceKeyDetailsArgs:
         :param pulumi.Input[str] key_vault_url: Workspace Key sub-resource key vault url
         :param pulumi.Input[str] name: Workspace Key sub-resource name
         """
+        WorkspaceKeyDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_url=key_vault_url,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_vault_url is not None:
-            pulumi.set(__self__, "key_vault_url", key_vault_url)
+            _setter("key_vault_url", key_vault_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="keyVaultUrl")
@@ -2028,24 +2500,49 @@ class WorkspaceRepositoryConfigurationArgs:
         :param pulumi.Input[str] tenant_id: The VSTS tenant ID
         :param pulumi.Input[str] type: Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
         """
+        WorkspaceRepositoryConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            collaboration_branch=collaboration_branch,
+            host_name=host_name,
+            last_commit_id=last_commit_id,
+            project_name=project_name,
+            repository_name=repository_name,
+            root_folder=root_folder,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             collaboration_branch: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             last_commit_id: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             root_folder: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if collaboration_branch is not None:
-            pulumi.set(__self__, "collaboration_branch", collaboration_branch)
+            _setter("collaboration_branch", collaboration_branch)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if last_commit_id is not None:
-            pulumi.set(__self__, "last_commit_id", last_commit_id)
+            _setter("last_commit_id", last_commit_id)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
         if root_folder is not None:
-            pulumi.set(__self__, "root_folder", root_folder)
+            _setter("root_folder", root_folder)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="accountName")

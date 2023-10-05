@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -97,28 +97,53 @@ class AzureBlobDefinitionResponse(dict):
         :param float timeout_in_seconds: The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
         :param str url: The URL to sync for the flux configuration Azure Blob storage account.
         """
+        AzureBlobDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_key=account_key,
+            container_name=container_name,
+            local_auth_ref=local_auth_ref,
+            managed_identity=managed_identity,
+            sas_token=sas_token,
+            service_principal=service_principal,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_key: Optional[str] = None,
+             container_name: Optional[str] = None,
+             local_auth_ref: Optional[str] = None,
+             managed_identity: Optional['outputs.ManagedIdentityDefinitionResponse'] = None,
+             sas_token: Optional[str] = None,
+             service_principal: Optional['outputs.ServicePrincipalDefinitionResponse'] = None,
+             sync_interval_in_seconds: Optional[float] = None,
+             timeout_in_seconds: Optional[float] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if local_auth_ref is not None:
-            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+            _setter("local_auth_ref", local_auth_ref)
         if managed_identity is not None:
-            pulumi.set(__self__, "managed_identity", managed_identity)
+            _setter("managed_identity", managed_identity)
         if sas_token is not None:
-            pulumi.set(__self__, "sas_token", sas_token)
+            _setter("sas_token", sas_token)
         if service_principal is not None:
-            pulumi.set(__self__, "service_principal", service_principal)
+            _setter("service_principal", service_principal)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -241,26 +266,47 @@ class BucketDefinitionResponse(dict):
         :param float timeout_in_seconds: The maximum time to attempt to reconcile the cluster bucket source with the remote.
         :param str url: The URL to sync for the flux configuration S3 bucket.
         """
+        BucketDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            bucket_name=bucket_name,
+            insecure=insecure,
+            local_auth_ref=local_auth_ref,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[str] = None,
+             bucket_name: Optional[str] = None,
+             insecure: Optional[bool] = None,
+             local_auth_ref: Optional[str] = None,
+             sync_interval_in_seconds: Optional[float] = None,
+             timeout_in_seconds: Optional[float] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if insecure is None:
             insecure = True
         if insecure is not None:
-            pulumi.set(__self__, "insecure", insecure)
+            _setter("insecure", insecure)
         if local_auth_ref is not None:
-            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+            _setter("local_auth_ref", local_auth_ref)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -357,13 +403,28 @@ class ComplianceStatusResponse(dict):
         :param str message: Message from when the configuration was applied.
         :param str message_level: Level of the message.
         """
-        pulumi.set(__self__, "compliance_state", compliance_state)
+        ComplianceStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_state=compliance_state,
+            last_config_applied=last_config_applied,
+            message=message,
+            message_level=message_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_state: str,
+             last_config_applied: Optional[str] = None,
+             message: Optional[str] = None,
+             message_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compliance_state", compliance_state)
         if last_config_applied is not None:
-            pulumi.set(__self__, "last_config_applied", last_config_applied)
+            _setter("last_config_applied", last_config_applied)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if message_level is not None:
-            pulumi.set(__self__, "message_level", message_level)
+            _setter("message_level", message_level)
 
     @property
     @pulumi.getter(name="complianceState")
@@ -411,8 +472,19 @@ class ErrorAdditionalInfoResponse(dict):
         :param Any info: The additional info.
         :param str type: The additional info type.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        ErrorAdditionalInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Any,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -467,11 +539,28 @@ class ErrorDetailResponse(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+             code: str,
+             details: Sequence['outputs.ErrorDetailResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("additional_info", additional_info)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -548,10 +637,23 @@ class ExtensionResponseAksAssignedIdentity(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ExtensionResponseAksAssignedIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -614,18 +716,35 @@ class ExtensionStatusResponse(dict):
         :param str message: Detailed message of the status from the Extension.
         :param str time: DateLiteral (per ISO8601) noting the time of installation status.
         """
+        ExtensionStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            display_status=display_status,
+            level=level,
+            message=message,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             display_status: Optional[str] = None,
+             level: Optional[str] = None,
+             message: Optional[str] = None,
+             time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
+            _setter("display_status", display_status)
         if level is None:
             level = 'Information'
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -722,26 +841,49 @@ class GitRepositoryDefinitionResponse(dict):
         :param float timeout_in_seconds: The maximum time to attempt to reconcile the cluster git repository source with the remote.
         :param str url: The URL to sync for the flux configuration git repository.
         """
+        GitRepositoryDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            https_ca_cert=https_ca_cert,
+            https_user=https_user,
+            local_auth_ref=local_auth_ref,
+            repository_ref=repository_ref,
+            ssh_known_hosts=ssh_known_hosts,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             https_ca_cert: Optional[str] = None,
+             https_user: Optional[str] = None,
+             local_auth_ref: Optional[str] = None,
+             repository_ref: Optional['outputs.RepositoryRefDefinitionResponse'] = None,
+             ssh_known_hosts: Optional[str] = None,
+             sync_interval_in_seconds: Optional[float] = None,
+             timeout_in_seconds: Optional[float] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if https_ca_cert is not None:
-            pulumi.set(__self__, "https_ca_cert", https_ca_cert)
+            _setter("https_ca_cert", https_ca_cert)
         if https_user is not None:
-            pulumi.set(__self__, "https_user", https_user)
+            _setter("https_user", https_user)
         if local_auth_ref is not None:
-            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+            _setter("local_auth_ref", local_auth_ref)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
         if ssh_known_hosts is not None:
-            pulumi.set(__self__, "ssh_known_hosts", ssh_known_hosts)
+            _setter("ssh_known_hosts", ssh_known_hosts)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="httpsCACert")
@@ -840,10 +982,21 @@ class HelmOperatorPropertiesResponse(dict):
         :param str chart_values: Values override for the operator Helm chart.
         :param str chart_version: Version of the operator Helm chart.
         """
+        HelmOperatorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            chart_values=chart_values,
+            chart_version=chart_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             chart_values: Optional[str] = None,
+             chart_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if chart_values is not None:
-            pulumi.set(__self__, "chart_values", chart_values)
+            _setter("chart_values", chart_values)
         if chart_version is not None:
-            pulumi.set(__self__, "chart_version", chart_version)
+            _setter("chart_version", chart_version)
 
     @property
     @pulumi.getter(name="chartValues")
@@ -906,16 +1059,33 @@ class HelmReleasePropertiesDefinitionResponse(dict):
         :param float last_revision_applied: The revision number of the last released object change
         :param float upgrade_failure_count: Number of times that the HelmRelease failed to upgrade
         """
+        HelmReleasePropertiesDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_count=failure_count,
+            helm_chart_ref=helm_chart_ref,
+            install_failure_count=install_failure_count,
+            last_revision_applied=last_revision_applied,
+            upgrade_failure_count=upgrade_failure_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_count: Optional[float] = None,
+             helm_chart_ref: Optional['outputs.ObjectReferenceDefinitionResponse'] = None,
+             install_failure_count: Optional[float] = None,
+             last_revision_applied: Optional[float] = None,
+             upgrade_failure_count: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if failure_count is not None:
-            pulumi.set(__self__, "failure_count", failure_count)
+            _setter("failure_count", failure_count)
         if helm_chart_ref is not None:
-            pulumi.set(__self__, "helm_chart_ref", helm_chart_ref)
+            _setter("helm_chart_ref", helm_chart_ref)
         if install_failure_count is not None:
-            pulumi.set(__self__, "install_failure_count", install_failure_count)
+            _setter("install_failure_count", install_failure_count)
         if last_revision_applied is not None:
-            pulumi.set(__self__, "last_revision_applied", last_revision_applied)
+            _setter("last_revision_applied", last_revision_applied)
         if upgrade_failure_count is not None:
-            pulumi.set(__self__, "upgrade_failure_count", upgrade_failure_count)
+            _setter("upgrade_failure_count", upgrade_failure_count)
 
     @property
     @pulumi.getter(name="failureCount")
@@ -992,10 +1162,23 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1076,37 +1259,64 @@ class KustomizationDefinitionResponse(dict):
         :param float timeout_in_seconds: The maximum time to attempt to reconcile the Kustomization on the cluster.
         :param bool wait: Enable/disable health check for all Kubernetes objects created by this Kustomization.
         """
-        pulumi.set(__self__, "name", name)
+        KustomizationDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            depends_on=depends_on,
+            force=force,
+            path=path,
+            post_build=post_build,
+            prune=prune,
+            retry_interval_in_seconds=retry_interval_in_seconds,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            wait=wait,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             depends_on: Optional[Sequence[str]] = None,
+             force: Optional[bool] = None,
+             path: Optional[str] = None,
+             post_build: Optional['outputs.PostBuildDefinitionResponse'] = None,
+             prune: Optional[bool] = None,
+             retry_interval_in_seconds: Optional[float] = None,
+             sync_interval_in_seconds: Optional[float] = None,
+             timeout_in_seconds: Optional[float] = None,
+             wait: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if depends_on is not None:
-            pulumi.set(__self__, "depends_on", depends_on)
+            _setter("depends_on", depends_on)
         if force is None:
             force = False
         if force is not None:
-            pulumi.set(__self__, "force", force)
+            _setter("force", force)
         if path is None:
             path = ''
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if post_build is not None:
-            pulumi.set(__self__, "post_build", post_build)
+            _setter("post_build", post_build)
         if prune is None:
             prune = False
         if prune is not None:
-            pulumi.set(__self__, "prune", prune)
+            _setter("prune", prune)
         if retry_interval_in_seconds is not None:
-            pulumi.set(__self__, "retry_interval_in_seconds", retry_interval_in_seconds)
+            _setter("retry_interval_in_seconds", retry_interval_in_seconds)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if wait is None:
             wait = True
         if wait is not None:
-            pulumi.set(__self__, "wait", wait)
+            _setter("wait", wait)
 
     @property
     @pulumi.getter
@@ -1217,8 +1427,17 @@ class ManagedIdentityDefinitionResponse(dict):
         Parameters to authenticate using a Managed Identity.
         :param str client_id: The client Id for authenticating a Managed Identity.
         """
+        ManagedIdentityDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1242,10 +1461,21 @@ class ObjectReferenceDefinitionResponse(dict):
         :param str name: Name of the object
         :param str namespace: Namespace of the object
         """
+        ObjectReferenceDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -1300,16 +1530,33 @@ class ObjectStatusConditionDefinitionResponse(dict):
         :param str status: Status of the Kubernetes object condition type
         :param str type: Object status condition type for this object
         """
+        ObjectStatusConditionDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_transition_time=last_transition_time,
+            message=message,
+            reason=reason,
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_transition_time: Optional[str] = None,
+             message: Optional[str] = None,
+             reason: Optional[str] = None,
+             status: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if last_transition_time is not None:
-            pulumi.set(__self__, "last_transition_time", last_transition_time)
+            _setter("last_transition_time", last_transition_time)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if reason is not None:
-            pulumi.set(__self__, "reason", reason)
+            _setter("reason", reason)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="lastTransitionTime")
@@ -1398,20 +1645,41 @@ class ObjectStatusDefinitionResponse(dict):
         :param str namespace: Namespace of the applied object
         :param Sequence['ObjectStatusConditionDefinitionResponse'] status_conditions: List of Kubernetes object status conditions present on the cluster
         """
+        ObjectStatusDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_by=applied_by,
+            compliance_state=compliance_state,
+            helm_release_properties=helm_release_properties,
+            kind=kind,
+            name=name,
+            namespace=namespace,
+            status_conditions=status_conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_by: Optional['outputs.ObjectReferenceDefinitionResponse'] = None,
+             compliance_state: Optional[str] = None,
+             helm_release_properties: Optional['outputs.HelmReleasePropertiesDefinitionResponse'] = None,
+             kind: Optional[str] = None,
+             name: Optional[str] = None,
+             namespace: Optional[str] = None,
+             status_conditions: Optional[Sequence['outputs.ObjectStatusConditionDefinitionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if applied_by is not None:
-            pulumi.set(__self__, "applied_by", applied_by)
+            _setter("applied_by", applied_by)
         if compliance_state is not None:
-            pulumi.set(__self__, "compliance_state", compliance_state)
+            _setter("compliance_state", compliance_state)
         if helm_release_properties is not None:
-            pulumi.set(__self__, "helm_release_properties", helm_release_properties)
+            _setter("helm_release_properties", helm_release_properties)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if status_conditions is not None:
-            pulumi.set(__self__, "status_conditions", status_conditions)
+            _setter("status_conditions", status_conditions)
 
     @property
     @pulumi.getter(name="appliedBy")
@@ -1506,13 +1774,30 @@ class PlanResponse(dict):
         :param str promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param str version: The version of the desired product/artifact.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
+        PlanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            promotion_code=promotion_code,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             product: str,
+             publisher: str,
+             promotion_code: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -1585,10 +1870,21 @@ class PostBuildDefinitionResponse(dict):
         :param Mapping[str, str] substitute: Key/value pairs holding the variables to be substituted in this Kustomization.
         :param Sequence['SubstituteFromDefinitionResponse'] substitute_from: Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
         """
+        PostBuildDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            substitute=substitute,
+            substitute_from=substitute_from,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             substitute: Optional[Mapping[str, str]] = None,
+             substitute_from: Optional[Sequence['outputs.SubstituteFromDefinitionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if substitute is not None:
-            pulumi.set(__self__, "substitute", substitute)
+            _setter("substitute", substitute)
         if substitute_from is not None:
-            pulumi.set(__self__, "substitute_from", substitute_from)
+            _setter("substitute_from", substitute_from)
 
     @property
     @pulumi.getter
@@ -1624,14 +1920,29 @@ class RepositoryRefDefinitionResponse(dict):
         :param str semver: The semver range used to match against git repository tags. This takes precedence over tag.
         :param str tag: The git repository tag name to checkout. This takes precedence over branch.
         """
+        RepositoryRefDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            commit=commit,
+            semver=semver,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[str] = None,
+             commit: Optional[str] = None,
+             semver: Optional[str] = None,
+             tag: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if commit is not None:
-            pulumi.set(__self__, "commit", commit)
+            _setter("commit", commit)
         if semver is not None:
-            pulumi.set(__self__, "semver", semver)
+            _setter("semver", semver)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
 
     @property
     @pulumi.getter
@@ -1694,8 +2005,17 @@ class ScopeClusterResponse(dict):
         Specifies that the scope of the extension is Cluster
         :param str release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
         """
+        ScopeClusterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            release_namespace=release_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             release_namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if release_namespace is not None:
-            pulumi.set(__self__, "release_namespace", release_namespace)
+            _setter("release_namespace", release_namespace)
 
     @property
     @pulumi.getter(name="releaseNamespace")
@@ -1734,8 +2054,17 @@ class ScopeNamespaceResponse(dict):
         Specifies that the scope of the extension is Namespace
         :param str target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         """
+        ScopeNamespaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="targetNamespace")
@@ -1759,10 +2088,21 @@ class ScopeResponse(dict):
         :param 'ScopeClusterResponse' cluster: Specifies that the scope of the extension is Cluster
         :param 'ScopeNamespaceResponse' namespace: Specifies that the scope of the extension is Namespace
         """
+        ScopeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster=cluster,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster: Optional['outputs.ScopeClusterResponse'] = None,
+             namespace: Optional['outputs.ScopeNamespaceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster is not None:
-            pulumi.set(__self__, "cluster", cluster)
+            _setter("cluster", cluster)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -1829,20 +2169,39 @@ class ServicePrincipalDefinitionResponse(dict):
         :param str client_secret: The client secret for authenticating a Service Principal
         :param str tenant_id: The tenant Id for authenticating a Service Principal
         """
+        ServicePrincipalDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_certificate=client_certificate,
+            client_certificate_password=client_certificate_password,
+            client_certificate_send_chain=client_certificate_send_chain,
+            client_id=client_id,
+            client_secret=client_secret,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_certificate: Optional[str] = None,
+             client_certificate_password: Optional[str] = None,
+             client_certificate_send_chain: Optional[bool] = None,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_certificate is not None:
-            pulumi.set(__self__, "client_certificate", client_certificate)
+            _setter("client_certificate", client_certificate)
         if client_certificate_password is not None:
-            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
+            _setter("client_certificate_password", client_certificate_password)
         if client_certificate_send_chain is None:
             client_certificate_send_chain = False
         if client_certificate_send_chain is not None:
-            pulumi.set(__self__, "client_certificate_send_chain", client_certificate_send_chain)
+            _setter("client_certificate_send_chain", client_certificate_send_chain)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientCertificate")
@@ -1908,14 +2267,27 @@ class SubstituteFromDefinitionResponse(dict):
         :param str name: Name of the ConfigMap/Secret that holds the variables to be used in substitution.
         :param bool optional: Set to True to proceed without ConfigMap/Secret, if it is not present.
         """
+        SubstituteFromDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            name=name,
+            optional=optional,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[str] = None,
+             name: Optional[str] = None,
+             optional: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if optional is None:
             optional = False
         if optional is not None:
-            pulumi.set(__self__, "optional", optional)
+            _setter("optional", optional)
 
     @property
     @pulumi.getter
@@ -1990,18 +2362,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

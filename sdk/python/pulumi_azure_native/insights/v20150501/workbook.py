@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -44,27 +44,60 @@ class WorkbookArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked workbook.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serialized_data", serialized_data)
+        WorkbookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            name=name,
+            resource_group_name=resource_group_name,
+            serialized_data=serialized_data,
+            shared_type_kind=shared_type_kind,
+            user_id=user_id,
+            workbook_id=workbook_id,
+            kind=kind,
+            location=location,
+            resource_name=resource_name,
+            source_resource_id=source_resource_id,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             serialized_data: pulumi.Input[str],
+             shared_type_kind: Optional[pulumi.Input[Union[str, 'SharedTypeKind']]] = None,
+             user_id: pulumi.Input[str],
+             workbook_id: pulumi.Input[str],
+             kind: Optional[pulumi.Input[Union[str, 'SharedTypeKind']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             source_resource_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("serialized_data", serialized_data)
         if shared_type_kind is None:
             shared_type_kind = 'shared'
-        pulumi.set(__self__, "shared_type_kind", shared_type_kind)
-        pulumi.set(__self__, "user_id", user_id)
-        pulumi.set(__self__, "workbook_id", workbook_id)
+        _setter("shared_type_kind", shared_type_kind)
+        _setter("user_id", user_id)
+        _setter("workbook_id", workbook_id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if source_resource_id is not None:
-            pulumi.set(__self__, "source_resource_id", source_resource_id)
+            _setter("source_resource_id", source_resource_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -280,6 +313,10 @@ class Workbook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkbookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

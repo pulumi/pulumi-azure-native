@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceTagArgs', 'WorkspaceTag']
@@ -27,12 +27,29 @@ class WorkspaceTagArgs:
         :param pulumi.Input[str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            workspace_id=workspace_id,
+            tag_id=tag_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             tag_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("workspace_id", workspace_id)
         if tag_id is not None:
-            pulumi.set(__self__, "tag_id", tag_id)
+            _setter("tag_id", tag_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -138,6 +155,10 @@ class WorkspaceTag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceTagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,40 +58,85 @@ class PacketCoreControlPlaneArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] version: The version of the packet core software that is deployed.
         """
-        pulumi.set(__self__, "control_plane_access_interface", control_plane_access_interface)
-        pulumi.set(__self__, "mobile_network", mobile_network)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        PacketCoreControlPlaneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_plane_access_interface=control_plane_access_interface,
+            mobile_network=mobile_network,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            core_network_technology=core_network_technology,
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            identity=identity,
+            interop_settings=interop_settings,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+            local_diagnostics_access=local_diagnostics_access,
+            location=location,
+            packet_core_control_plane_name=packet_core_control_plane_name,
+            platform=platform,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_plane_access_interface: pulumi.Input['InterfacePropertiesArgs'],
+             mobile_network: pulumi.Input['MobileNetworkResourceIdArgs'],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input[Union[str, 'BillingSku']],
+             core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             interop_settings: Optional[Any] = None,
+             last_modified_at: Optional[pulumi.Input[str]] = None,
+             last_modified_by: Optional[pulumi.Input[str]] = None,
+             last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             local_diagnostics_access: Optional[pulumi.Input['LocalDiagnosticsAccessConfigurationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input['PlatformConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("control_plane_access_interface", control_plane_access_interface)
+        _setter("mobile_network", mobile_network)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if core_network_technology is not None:
-            pulumi.set(__self__, "core_network_technology", core_network_technology)
+            _setter("core_network_technology", core_network_technology)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if interop_settings is not None:
-            pulumi.set(__self__, "interop_settings", interop_settings)
+            _setter("interop_settings", interop_settings)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
         if local_diagnostics_access is not None:
-            pulumi.set(__self__, "local_diagnostics_access", local_diagnostics_access)
+            _setter("local_diagnostics_access", local_diagnostics_access)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if packet_core_control_plane_name is not None:
-            pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
+            _setter("packet_core_control_plane_name", packet_core_control_plane_name)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="controlPlaneAccessInterface")
@@ -391,6 +436,10 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PacketCoreControlPlaneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -424,6 +473,11 @@ class PacketCoreControlPlane(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PacketCoreControlPlaneArgs.__new__(PacketCoreControlPlaneArgs)
 
+            if control_plane_access_interface is not None and not isinstance(control_plane_access_interface, InterfacePropertiesArgs):
+                control_plane_access_interface = control_plane_access_interface or {}
+                def _setter(key, value):
+                    control_plane_access_interface[key] = value
+                InterfacePropertiesArgs._configure(_setter, **control_plane_access_interface)
             if control_plane_access_interface is None and not opts.urn:
                 raise TypeError("Missing required property 'control_plane_access_interface'")
             __props__.__dict__["control_plane_access_interface"] = control_plane_access_interface
@@ -431,17 +485,37 @@ class PacketCoreControlPlane(pulumi.CustomResource):
             __props__.__dict__["created_at"] = created_at
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["created_by_type"] = created_by_type
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["interop_settings"] = interop_settings
             __props__.__dict__["last_modified_at"] = last_modified_at
             __props__.__dict__["last_modified_by"] = last_modified_by
             __props__.__dict__["last_modified_by_type"] = last_modified_by_type
+            if local_diagnostics_access is not None and not isinstance(local_diagnostics_access, LocalDiagnosticsAccessConfigurationArgs):
+                local_diagnostics_access = local_diagnostics_access or {}
+                def _setter(key, value):
+                    local_diagnostics_access[key] = value
+                LocalDiagnosticsAccessConfigurationArgs._configure(_setter, **local_diagnostics_access)
             __props__.__dict__["local_diagnostics_access"] = local_diagnostics_access
             __props__.__dict__["location"] = location
+            if mobile_network is not None and not isinstance(mobile_network, MobileNetworkResourceIdArgs):
+                mobile_network = mobile_network or {}
+                def _setter(key, value):
+                    mobile_network[key] = value
+                MobileNetworkResourceIdArgs._configure(_setter, **mobile_network)
             if mobile_network is None and not opts.urn:
                 raise TypeError("Missing required property 'mobile_network'")
             __props__.__dict__["mobile_network"] = mobile_network
             __props__.__dict__["packet_core_control_plane_name"] = packet_core_control_plane_name
+            if platform is not None and not isinstance(platform, PlatformConfigurationArgs):
+                platform = platform or {}
+                def _setter(key, value):
+                    platform[key] = value
+                PlatformConfigurationArgs._configure(_setter, **platform)
             __props__.__dict__["platform"] = platform
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

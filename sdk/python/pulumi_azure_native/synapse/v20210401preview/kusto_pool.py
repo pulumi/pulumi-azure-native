@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,19 +36,42 @@ class KustoPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_uid: The workspace unique identifier.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        KustoPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            workspace_name=workspace_name,
+            engine_type=engine_type,
+            kusto_pool_name=kusto_pool_name,
+            location=location,
+            tags=tags,
+            workspace_uid=workspace_uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['AzureSkuArgs'],
+             workspace_name: pulumi.Input[str],
+             engine_type: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
+             kusto_pool_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_uid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
+        _setter("workspace_name", workspace_name)
         if engine_type is not None:
-            pulumi.set(__self__, "engine_type", engine_type)
+            _setter("engine_type", engine_type)
         if kusto_pool_name is not None:
-            pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
+            _setter("kusto_pool_name", kusto_pool_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_uid is not None:
-            pulumi.set(__self__, "workspace_uid", workspace_uid)
+            _setter("workspace_uid", workspace_uid)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -194,6 +217,10 @@ class KustoPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KustoPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,6 +249,11 @@ class KustoPool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, AzureSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                AzureSkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

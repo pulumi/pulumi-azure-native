@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -34,18 +34,41 @@ class SubvolumeArgs:
         :param pulumi.Input[float] size: Truncate subvolume to the provided size in bytes
         :param pulumi.Input[str] subvolume_name: The name of the subvolume.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_name", volume_name)
+        SubvolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            pool_name=pool_name,
+            resource_group_name=resource_group_name,
+            volume_name=volume_name,
+            parent_path=parent_path,
+            path=path,
+            size=size,
+            subvolume_name=subvolume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             pool_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             volume_name: pulumi.Input[str],
+             parent_path: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[float]] = None,
+             subvolume_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("pool_name", pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("volume_name", volume_name)
         if parent_path is not None:
-            pulumi.set(__self__, "parent_path", parent_path)
+            _setter("parent_path", parent_path)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if subvolume_name is not None:
-            pulumi.set(__self__, "subvolume_name", subvolume_name)
+            _setter("subvolume_name", subvolume_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -193,6 +216,10 @@ class Subvolume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubvolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

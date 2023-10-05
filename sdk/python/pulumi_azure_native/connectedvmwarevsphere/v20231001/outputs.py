@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,10 +46,21 @@ class ExtendedLocationResponse(dict):
         :param str name: The extended location name.
         :param str type: The extended location type.
         """
+        ExtendedLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -79,8 +90,17 @@ class GuestCredentialResponse(dict):
         Username / Password Credentials to connect to guest.
         :param str username: Gets or sets username to connect with the guest.
         """
+        GuestCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -139,15 +159,34 @@ class HardwareProfileResponse(dict):
         :param int num_cpus: Gets or sets the number of vCPUs for the vm.
         :param int num_cores_per_socket: Gets or sets the number of cores per socket for the vm. Defaults to 1 if unspecified.
         """
-        pulumi.set(__self__, "cpu_hot_add_enabled", cpu_hot_add_enabled)
-        pulumi.set(__self__, "cpu_hot_remove_enabled", cpu_hot_remove_enabled)
-        pulumi.set(__self__, "memory_hot_add_enabled", memory_hot_add_enabled)
+        HardwareProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_hot_add_enabled=cpu_hot_add_enabled,
+            cpu_hot_remove_enabled=cpu_hot_remove_enabled,
+            memory_hot_add_enabled=memory_hot_add_enabled,
+            memory_size_mb=memory_size_mb,
+            num_cpus=num_cpus,
+            num_cores_per_socket=num_cores_per_socket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_hot_add_enabled: bool,
+             cpu_hot_remove_enabled: bool,
+             memory_hot_add_enabled: bool,
+             memory_size_mb: Optional[int] = None,
+             num_cpus: Optional[int] = None,
+             num_cores_per_socket: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cpu_hot_add_enabled", cpu_hot_add_enabled)
+        _setter("cpu_hot_remove_enabled", cpu_hot_remove_enabled)
+        _setter("memory_hot_add_enabled", memory_hot_add_enabled)
         if memory_size_mb is not None:
-            pulumi.set(__self__, "memory_size_mb", memory_size_mb)
+            _setter("memory_size_mb", memory_size_mb)
         if num_cpus is not None:
-            pulumi.set(__self__, "num_cpus", num_cpus)
+            _setter("num_cpus", num_cpus)
         if num_cores_per_socket is not None:
-            pulumi.set(__self__, "num_cores_per_socket", num_cores_per_socket)
+            _setter("num_cores_per_socket", num_cores_per_socket)
 
     @property
     @pulumi.getter(name="cpuHotAddEnabled")
@@ -226,8 +265,17 @@ class HttpProxyConfigurationResponse(dict):
         HTTP Proxy configuration for the VM.
         :param str https_proxy: Gets or sets httpsProxy url.
         """
+        HttpProxyConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            https_proxy=https_proxy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             https_proxy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if https_proxy is not None:
-            pulumi.set(__self__, "https_proxy", https_proxy)
+            _setter("https_proxy", https_proxy)
 
     @property
     @pulumi.getter(name="httpsProxy")
@@ -302,21 +350,48 @@ class InfrastructureProfileResponse(dict):
         :param str template_id: Gets or sets the ARM Id of the template resource to deploy the virtual machine.
         :param str v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
         """
-        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
-        pulumi.set(__self__, "folder_path", folder_path)
-        pulumi.set(__self__, "instance_uuid", instance_uuid)
-        pulumi.set(__self__, "mo_name", mo_name)
-        pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        InfrastructureProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_resource_name=custom_resource_name,
+            folder_path=folder_path,
+            instance_uuid=instance_uuid,
+            mo_name=mo_name,
+            mo_ref_id=mo_ref_id,
+            firmware_type=firmware_type,
+            inventory_item_id=inventory_item_id,
+            smbios_uuid=smbios_uuid,
+            template_id=template_id,
+            v_center_id=v_center_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_resource_name: str,
+             folder_path: str,
+             instance_uuid: str,
+             mo_name: str,
+             mo_ref_id: str,
+             firmware_type: Optional[str] = None,
+             inventory_item_id: Optional[str] = None,
+             smbios_uuid: Optional[str] = None,
+             template_id: Optional[str] = None,
+             v_center_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_resource_name", custom_resource_name)
+        _setter("folder_path", folder_path)
+        _setter("instance_uuid", instance_uuid)
+        _setter("mo_name", mo_name)
+        _setter("mo_ref_id", mo_ref_id)
         if firmware_type is not None:
-            pulumi.set(__self__, "firmware_type", firmware_type)
+            _setter("firmware_type", firmware_type)
         if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+            _setter("inventory_item_id", inventory_item_id)
         if smbios_uuid is not None:
-            pulumi.set(__self__, "smbios_uuid", smbios_uuid)
+            _setter("smbios_uuid", smbios_uuid)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
         if v_center_id is not None:
-            pulumi.set(__self__, "v_center_id", v_center_id)
+            _setter("v_center_id", v_center_id)
 
     @property
     @pulumi.getter(name="customResourceName")
@@ -464,23 +539,52 @@ class NetworkInterfaceResponse(dict):
         :param str nic_type: NIC type
         :param str power_on_boot: Gets or sets the power on boot.
         """
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "mac_address", mac_address)
-        pulumi.set(__self__, "network_mo_name", network_mo_name)
-        pulumi.set(__self__, "network_mo_ref_id", network_mo_ref_id)
+        NetworkInterfaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_addresses=ip_addresses,
+            label=label,
+            mac_address=mac_address,
+            network_mo_name=network_mo_name,
+            network_mo_ref_id=network_mo_ref_id,
+            device_key=device_key,
+            ip_settings=ip_settings,
+            name=name,
+            network_id=network_id,
+            nic_type=nic_type,
+            power_on_boot=power_on_boot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_addresses: Sequence[str],
+             label: str,
+             mac_address: str,
+             network_mo_name: str,
+             network_mo_ref_id: str,
+             device_key: Optional[int] = None,
+             ip_settings: Optional['outputs.NicIPSettingsResponse'] = None,
+             name: Optional[str] = None,
+             network_id: Optional[str] = None,
+             nic_type: Optional[str] = None,
+             power_on_boot: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_addresses", ip_addresses)
+        _setter("label", label)
+        _setter("mac_address", mac_address)
+        _setter("network_mo_name", network_mo_name)
+        _setter("network_mo_ref_id", network_mo_ref_id)
         if device_key is not None:
-            pulumi.set(__self__, "device_key", device_key)
+            _setter("device_key", device_key)
         if ip_settings is not None:
-            pulumi.set(__self__, "ip_settings", ip_settings)
+            _setter("ip_settings", ip_settings)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_id is not None:
-            pulumi.set(__self__, "network_id", network_id)
+            _setter("network_id", network_id)
         if nic_type is not None:
-            pulumi.set(__self__, "nic_type", nic_type)
+            _setter("nic_type", nic_type)
         if power_on_boot is not None:
-            pulumi.set(__self__, "power_on_boot", power_on_boot)
+            _setter("power_on_boot", power_on_boot)
 
     @property
     @pulumi.getter(name="ipAddresses")
@@ -600,8 +704,17 @@ class NetworkProfileResponse(dict):
         Specifies the network interfaces of the virtual machine.
         :param Sequence['NetworkInterfaceResponse'] network_interfaces: Gets or sets the list of network interfaces associated with the virtual machine.
         """
+        NetworkProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interfaces=network_interfaces,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -648,9 +761,22 @@ class NicIPAddressSettingsResponse(dict):
         :param str ip_address: Gets the ip address for the nic.
         :param str subnet_mask: Gets the mask.
         """
-        pulumi.set(__self__, "allocation_method", allocation_method)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "subnet_mask", subnet_mask)
+        NicIPAddressSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_method=allocation_method,
+            ip_address=ip_address,
+            subnet_mask=subnet_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_method: str,
+             ip_address: str,
+             subnet_mask: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allocation_method", allocation_method)
+        _setter("ip_address", ip_address)
+        _setter("subnet_mask", subnet_mask)
 
     @property
     @pulumi.getter(name="allocationMethod")
@@ -731,19 +857,42 @@ class NicIPSettingsResponse(dict):
         :param str ip_address: Gets or sets the ip address for the nic.
         :param str subnet_mask: Gets or sets the mask.
         """
-        pulumi.set(__self__, "ip_address_info", ip_address_info)
-        pulumi.set(__self__, "primary_wins_server", primary_wins_server)
-        pulumi.set(__self__, "secondary_wins_server", secondary_wins_server)
+        NicIPSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address_info=ip_address_info,
+            primary_wins_server=primary_wins_server,
+            secondary_wins_server=secondary_wins_server,
+            allocation_method=allocation_method,
+            dns_servers=dns_servers,
+            gateway=gateway,
+            ip_address=ip_address,
+            subnet_mask=subnet_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address_info: Sequence['outputs.NicIPAddressSettingsResponse'],
+             primary_wins_server: str,
+             secondary_wins_server: str,
+             allocation_method: Optional[str] = None,
+             dns_servers: Optional[Sequence[str]] = None,
+             gateway: Optional[Sequence[str]] = None,
+             ip_address: Optional[str] = None,
+             subnet_mask: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_address_info", ip_address_info)
+        _setter("primary_wins_server", primary_wins_server)
+        _setter("secondary_wins_server", secondary_wins_server)
         if allocation_method is not None:
-            pulumi.set(__self__, "allocation_method", allocation_method)
+            _setter("allocation_method", allocation_method)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if gateway is not None:
-            pulumi.set(__self__, "gateway", gateway)
+            _setter("gateway", gateway)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if subnet_mask is not None:
-            pulumi.set(__self__, "subnet_mask", subnet_mask)
+            _setter("subnet_mask", subnet_mask)
 
     @property
     @pulumi.getter(name="ipAddressInfo")
@@ -866,18 +1015,41 @@ class OsProfileForVMInstanceResponse(dict):
         :param str guest_id: Gets or sets the guestId.
         :param str os_type: Gets or sets the type of the os.
         """
-        pulumi.set(__self__, "os_sku", os_sku)
-        pulumi.set(__self__, "tools_running_status", tools_running_status)
-        pulumi.set(__self__, "tools_version", tools_version)
-        pulumi.set(__self__, "tools_version_status", tools_version_status)
+        OsProfileForVMInstanceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_sku=os_sku,
+            tools_running_status=tools_running_status,
+            tools_version=tools_version,
+            tools_version_status=tools_version_status,
+            admin_username=admin_username,
+            computer_name=computer_name,
+            guest_id=guest_id,
+            os_type=os_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_sku: str,
+             tools_running_status: str,
+             tools_version: str,
+             tools_version_status: str,
+             admin_username: Optional[str] = None,
+             computer_name: Optional[str] = None,
+             guest_id: Optional[str] = None,
+             os_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os_sku", os_sku)
+        _setter("tools_running_status", tools_running_status)
+        _setter("tools_version", tools_version)
+        _setter("tools_version_status", tools_version_status)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if guest_id is not None:
-            pulumi.set(__self__, "guest_id", guest_id)
+            _setter("guest_id", guest_id)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
 
     @property
     @pulumi.getter(name="osSku")
@@ -984,14 +1156,29 @@ class PlacementProfileResponse(dict):
         :param str host_id: Gets or sets the ARM Id of the host resource on which this virtual machine will deploy.
         :param str resource_pool_id: Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will deploy.
         """
+        PlacementProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            datastore_id=datastore_id,
+            host_id=host_id,
+            resource_pool_id=resource_pool_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: Optional[str] = None,
+             datastore_id: Optional[str] = None,
+             host_id: Optional[str] = None,
+             resource_pool_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if datastore_id is not None:
-            pulumi.set(__self__, "datastore_id", datastore_id)
+            _setter("datastore_id", datastore_id)
         if host_id is not None:
-            pulumi.set(__self__, "host_id", host_id)
+            _setter("host_id", host_id)
         if resource_pool_id is not None:
-            pulumi.set(__self__, "resource_pool_id", resource_pool_id)
+            _setter("resource_pool_id", resource_pool_id)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -1064,12 +1251,31 @@ class ResourceStatusResponse(dict):
         :param str status: Status of the condition.
         :param str type: The type of the condition.
         """
-        pulumi.set(__self__, "last_updated_at", last_updated_at)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "reason", reason)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        ResourceStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_updated_at=last_updated_at,
+            message=message,
+            reason=reason,
+            severity=severity,
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_updated_at: str,
+             message: str,
+             reason: str,
+             severity: str,
+             status: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last_updated_at", last_updated_at)
+        _setter("message", message)
+        _setter("reason", reason)
+        _setter("severity", severity)
+        _setter("status", status)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
@@ -1148,8 +1354,17 @@ class SecurityProfileResponse(dict):
         Specifies the Security profile settings for the virtual machine.
         :param 'UefiSettingsResponse' uefi_settings: Specifies the security settings like secure boot used while creating the virtual machine.
         """
+        SecurityProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uefi_settings=uefi_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uefi_settings: Optional['outputs.UefiSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if uefi_settings is not None:
-            pulumi.set(__self__, "uefi_settings", uefi_settings)
+            _setter("uefi_settings", uefi_settings)
 
     @property
     @pulumi.getter(name="uefiSettings")
@@ -1190,9 +1405,20 @@ class StorageProfileResponse(dict):
         :param Sequence['VirtualSCSIControllerResponse'] scsi_controllers: Gets or sets the list of virtual SCSI controllers associated with the virtual machine.
         :param Sequence['VirtualDiskResponse'] disks: Gets or sets the list of virtual disks associated with the virtual machine.
         """
-        pulumi.set(__self__, "scsi_controllers", scsi_controllers)
+        StorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scsi_controllers=scsi_controllers,
+            disks=disks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scsi_controllers: Sequence['outputs.VirtualSCSIControllerResponse'],
+             disks: Optional[Sequence['outputs.VirtualDiskResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scsi_controllers", scsi_controllers)
         if disks is not None:
-            pulumi.set(__self__, "disks", disks)
+            _setter("disks", disks)
 
     @property
     @pulumi.getter(name="scsiControllers")
@@ -1259,18 +1485,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1349,8 +1594,17 @@ class UefiSettingsResponse(dict):
         Specifies the security settings like secure boot used while creating the virtual machine.
         :param bool secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine.
         """
+        UefiSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secure_boot_enabled=secure_boot_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secure_boot_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if secure_boot_enabled is not None:
-            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+            _setter("secure_boot_enabled", secure_boot_enabled)
 
     @property
     @pulumi.getter(name="secureBootEnabled")
@@ -1372,8 +1626,17 @@ class VICredentialResponse(dict):
         Username / Password Credentials to connect to vcenter.
         :param str username: Gets or sets username to connect with the vCenter.
         """
+        VICredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1444,24 +1707,51 @@ class VirtualDiskResponse(dict):
         :param str name: Gets or sets the name of the virtual disk.
         :param int unit_number: Gets or sets the unit number of the disk on the controller.
         """
-        pulumi.set(__self__, "disk_object_id", disk_object_id)
-        pulumi.set(__self__, "label", label)
+        VirtualDiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_object_id=disk_object_id,
+            label=label,
+            controller_key=controller_key,
+            device_key=device_key,
+            device_name=device_name,
+            disk_mode=disk_mode,
+            disk_size_gb=disk_size_gb,
+            disk_type=disk_type,
+            name=name,
+            unit_number=unit_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_object_id: str,
+             label: str,
+             controller_key: Optional[int] = None,
+             device_key: Optional[int] = None,
+             device_name: Optional[str] = None,
+             disk_mode: Optional[str] = None,
+             disk_size_gb: Optional[int] = None,
+             disk_type: Optional[str] = None,
+             name: Optional[str] = None,
+             unit_number: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_object_id", disk_object_id)
+        _setter("label", label)
         if controller_key is not None:
-            pulumi.set(__self__, "controller_key", controller_key)
+            _setter("controller_key", controller_key)
         if device_key is not None:
-            pulumi.set(__self__, "device_key", device_key)
+            _setter("device_key", device_key)
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if disk_mode is not None:
-            pulumi.set(__self__, "disk_mode", disk_mode)
+            _setter("disk_mode", disk_mode)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if unit_number is not None:
-            pulumi.set(__self__, "unit_number", unit_number)
+            _setter("unit_number", unit_number)
 
     @property
     @pulumi.getter(name="diskObjectId")
@@ -1584,16 +1874,33 @@ class VirtualSCSIControllerResponse(dict):
         :param str sharing: Gets or sets the sharing mode.
         :param str type: Gets or sets the controller type.
         """
+        VirtualSCSIControllerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bus_number=bus_number,
+            controller_key=controller_key,
+            scsi_ctlr_unit_number=scsi_ctlr_unit_number,
+            sharing=sharing,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bus_number: Optional[int] = None,
+             controller_key: Optional[int] = None,
+             scsi_ctlr_unit_number: Optional[int] = None,
+             sharing: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bus_number is not None:
-            pulumi.set(__self__, "bus_number", bus_number)
+            _setter("bus_number", bus_number)
         if controller_key is not None:
-            pulumi.set(__self__, "controller_key", controller_key)
+            _setter("controller_key", controller_key)
         if scsi_ctlr_unit_number is not None:
-            pulumi.set(__self__, "scsi_ctlr_unit_number", scsi_ctlr_unit_number)
+            _setter("scsi_ctlr_unit_number", scsi_ctlr_unit_number)
         if sharing is not None:
-            pulumi.set(__self__, "sharing", sharing)
+            _setter("sharing", sharing)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="busNumber")

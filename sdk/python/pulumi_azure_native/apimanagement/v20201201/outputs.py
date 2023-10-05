@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -61,18 +61,37 @@ class ApiVersionSetContractDetailsResponse(dict):
         :param str version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
         :param str versioning_scheme: An value that determines where the API Version identifier will be located in a HTTP request.
         """
+        ApiVersionSetContractDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            id=id,
+            name=name,
+            version_header_name=version_header_name,
+            version_query_name=version_query_name,
+            versioning_scheme=versioning_scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             version_header_name: Optional[str] = None,
+             version_query_name: Optional[str] = None,
+             versioning_scheme: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version_header_name is not None:
-            pulumi.set(__self__, "version_header_name", version_header_name)
+            _setter("version_header_name", version_header_name)
         if version_query_name is not None:
-            pulumi.set(__self__, "version_query_name", version_query_name)
+            _setter("version_query_name", version_query_name)
         if versioning_scheme is not None:
-            pulumi.set(__self__, "versioning_scheme", versioning_scheme)
+            _setter("versioning_scheme", versioning_scheme)
 
     @property
     @pulumi.getter
@@ -153,10 +172,21 @@ class AuthenticationSettingsContractResponse(dict):
         :param 'OAuth2AuthenticationSettingsContractResponse' o_auth2: OAuth2 Authentication settings
         :param 'OpenIdAuthenticationSettingsContractResponse' openid: OpenID Connect Authentication Settings
         """
+        AuthenticationSettingsContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            o_auth2=o_auth2,
+            openid=openid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             o_auth2: Optional['outputs.OAuth2AuthenticationSettingsContractResponse'] = None,
+             openid: Optional['outputs.OpenIdAuthenticationSettingsContractResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if o_auth2 is not None:
-            pulumi.set(__self__, "o_auth2", o_auth2)
+            _setter("o_auth2", o_auth2)
         if openid is not None:
-            pulumi.set(__self__, "openid", openid)
+            _setter("openid", openid)
 
     @property
     @pulumi.getter(name="oAuth2")
@@ -205,10 +235,21 @@ class OAuth2AuthenticationSettingsContractResponse(dict):
         :param str authorization_server_id: OAuth authorization server identifier.
         :param str scope: operations scope.
         """
+        OAuth2AuthenticationSettingsContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_server_id=authorization_server_id,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_server_id: Optional[str] = None,
+             scope: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorization_server_id is not None:
-            pulumi.set(__self__, "authorization_server_id", authorization_server_id)
+            _setter("authorization_server_id", authorization_server_id)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="authorizationServerId")
@@ -259,10 +300,21 @@ class OpenIdAuthenticationSettingsContractResponse(dict):
         :param Sequence[str] bearer_token_sending_methods: How to send token to the server.
         :param str openid_provider_id: OAuth authorization server identifier.
         """
+        OpenIdAuthenticationSettingsContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bearer_token_sending_methods=bearer_token_sending_methods,
+            openid_provider_id=openid_provider_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bearer_token_sending_methods: Optional[Sequence[str]] = None,
+             openid_provider_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bearer_token_sending_methods is not None:
-            pulumi.set(__self__, "bearer_token_sending_methods", bearer_token_sending_methods)
+            _setter("bearer_token_sending_methods", bearer_token_sending_methods)
         if openid_provider_id is not None:
-            pulumi.set(__self__, "openid_provider_id", openid_provider_id)
+            _setter("openid_provider_id", openid_provider_id)
 
     @property
     @pulumi.getter(name="bearerTokenSendingMethods")
@@ -294,10 +346,21 @@ class SubscriptionKeyParameterNamesContractResponse(dict):
         :param str header: Subscription key header name.
         :param str query: Subscription key query string parameter name.
         """
+        SubscriptionKeyParameterNamesContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: Optional[str] = None,
+             query: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
 
     @property
     @pulumi.getter

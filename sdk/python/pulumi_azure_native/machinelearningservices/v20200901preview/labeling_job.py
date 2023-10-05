@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,27 @@ class LabelingJobArgs:
         :param pulumi.Input[str] labeling_job_id: Name and identifier for LabelingJob.
         :param pulumi.Input['LabelingJobPropertiesArgs'] properties: Definition of a labeling job.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        LabelingJobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            labeling_job_id=labeling_job_id,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             labeling_job_id: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['LabelingJobPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if labeling_job_id is not None:
-            pulumi.set(__self__, "labeling_job_id", labeling_job_id)
+            _setter("labeling_job_id", labeling_job_id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -123,6 +138,10 @@ class LabelingJob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LabelingJobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -142,6 +161,11 @@ class LabelingJob(pulumi.CustomResource):
             __props__ = LabelingJobArgs.__new__(LabelingJobArgs)
 
             __props__.__dict__["labeling_job_id"] = labeling_job_id
+            if properties is not None and not isinstance(properties, LabelingJobPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                LabelingJobPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

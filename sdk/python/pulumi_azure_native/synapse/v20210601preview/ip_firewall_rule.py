@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['IpFirewallRuleArgs', 'IpFirewallRule']
@@ -27,14 +27,31 @@ class IpFirewallRuleArgs:
         :param pulumi.Input[str] rule_name: The IP firewall rule name
         :param pulumi.Input[str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        IpFirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            end_ip_address=end_ip_address,
+            rule_name=rule_name,
+            start_ip_address=start_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if end_ip_address is not None:
-            pulumi.set(__self__, "end_ip_address", end_ip_address)
+            _setter("end_ip_address", end_ip_address)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if start_ip_address is not None:
-            pulumi.set(__self__, "start_ip_address", start_ip_address)
+            _setter("start_ip_address", start_ip_address)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -138,6 +155,10 @@ class IpFirewallRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IpFirewallRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

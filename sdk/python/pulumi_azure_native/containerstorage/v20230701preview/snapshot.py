@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -26,11 +26,26 @@ class SnapshotArgs:
         :param pulumi.Input[str] source: Reference to the source volume
         :param pulumi.Input[str] snapshot_name: Volume Snapshot Resource
         """
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
+        SnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pool_name=pool_name,
+            resource_group_name=resource_group_name,
+            source=source,
+            snapshot_name=snapshot_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pool_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             source: pulumi.Input[str],
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("pool_name", pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source", source)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
 
     @property
     @pulumi.getter(name="poolName")
@@ -120,6 +135,10 @@ class Snapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

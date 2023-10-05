@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -25,10 +25,23 @@ class CertificatePropertiesArgs:
         :param pulumi.Input[str] vault_uri: The vault uri of user key vault.
         :param pulumi.Input[str] cert_version: The certificate version of key vault.
         """
-        pulumi.set(__self__, "key_vault_cert_name", key_vault_cert_name)
-        pulumi.set(__self__, "vault_uri", vault_uri)
+        CertificatePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_cert_name=key_vault_cert_name,
+            vault_uri=vault_uri,
+            cert_version=cert_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_cert_name: pulumi.Input[str],
+             vault_uri: pulumi.Input[str],
+             cert_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_cert_name", key_vault_cert_name)
+        _setter("vault_uri", vault_uri)
         if cert_version is not None:
-            pulumi.set(__self__, "cert_version", cert_version)
+            _setter("cert_version", cert_version)
 
     @property
     @pulumi.getter(name="keyVaultCertName")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -25,7 +25,16 @@ class LogAnalyticsOutputResponse(dict):
         LogAnalytics output properties
         :param str output: Output file Uri path to blob container.
         """
-        pulumi.set(__self__, "output", output)
+        LogAnalyticsOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            output=output,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             output: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("output", output)
 
     @property
     @pulumi.getter

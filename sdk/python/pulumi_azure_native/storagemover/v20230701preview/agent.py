@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,14 +30,33 @@ class AgentArgs:
         :param pulumi.Input[str] agent_name: The name of the Agent resource.
         :param pulumi.Input[str] description: A description for the Agent.
         """
-        pulumi.set(__self__, "arc_resource_id", arc_resource_id)
-        pulumi.set(__self__, "arc_vm_uuid", arc_vm_uuid)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_mover_name", storage_mover_name)
+        AgentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arc_resource_id=arc_resource_id,
+            arc_vm_uuid=arc_vm_uuid,
+            resource_group_name=resource_group_name,
+            storage_mover_name=storage_mover_name,
+            agent_name=agent_name,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arc_resource_id: pulumi.Input[str],
+             arc_vm_uuid: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_mover_name: pulumi.Input[str],
+             agent_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arc_resource_id", arc_resource_id)
+        _setter("arc_vm_uuid", arc_vm_uuid)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_mover_name", storage_mover_name)
         if agent_name is not None:
-            pulumi.set(__self__, "agent_name", agent_name)
+            _setter("agent_name", agent_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="arcResourceId")
@@ -155,6 +174,10 @@ class Agent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

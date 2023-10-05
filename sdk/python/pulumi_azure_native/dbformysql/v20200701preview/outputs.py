@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -47,8 +47,17 @@ class DelegatedSubnetArgumentsResponse(dict):
         Delegated subnet arguments of a server
         :param str subnet_arm_resource_id: delegated subnet arm resource id.
         """
+        DelegatedSubnetArgumentsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_arm_resource_id=subnet_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_arm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if subnet_arm_resource_id is not None:
-            pulumi.set(__self__, "subnet_arm_resource_id", subnet_arm_resource_id)
+            _setter("subnet_arm_resource_id", subnet_arm_resource_id)
 
     @property
     @pulumi.getter(name="subnetArmResourceId")
@@ -93,10 +102,23 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -163,14 +185,29 @@ class MaintenanceWindowResponse(dict):
         :param int start_hour: start hour for maintenance window
         :param int start_minute: start minute for maintenance window
         """
+        MaintenanceWindowResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_window=custom_window,
+            day_of_week=day_of_week,
+            start_hour=start_hour,
+            start_minute=start_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_window: Optional[str] = None,
+             day_of_week: Optional[int] = None,
+             start_hour: Optional[int] = None,
+             start_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_window is not None:
-            pulumi.set(__self__, "custom_window", custom_window)
+            _setter("custom_window", custom_window)
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if start_hour is not None:
-            pulumi.set(__self__, "start_hour", start_hour)
+            _setter("start_hour", start_hour)
         if start_minute is not None:
-            pulumi.set(__self__, "start_minute", start_minute)
+            _setter("start_minute", start_minute)
 
     @property
     @pulumi.getter(name="customWindow")
@@ -233,8 +270,17 @@ class PrivateDnsZoneArgumentsResponse(dict):
         Private DNS zone arguments of a server
         :param str private_dns_zone_arm_resource_id: private dns zone arm resource id.
         """
+        PrivateDnsZoneArgumentsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_dns_zone_arm_resource_id=private_dns_zone_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_dns_zone_arm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_dns_zone_arm_resource_id is not None:
-            pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
+            _setter("private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
 
     @property
     @pulumi.getter(name="privateDnsZoneArmResourceId")
@@ -258,8 +304,19 @@ class SkuResponse(dict):
         :param str name: The name of the sku, e.g. Standard_D32s_v3.
         :param str tier: The tier of the particular SKU, e.g. GeneralPurpose.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -322,15 +379,32 @@ class StorageProfileResponse(dict):
         :param int storage_iops: Storage IOPS for a server.
         :param int storage_mb: Max storage allowed for a server.
         """
-        pulumi.set(__self__, "file_storage_sku_name", file_storage_sku_name)
+        StorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_storage_sku_name=file_storage_sku_name,
+            backup_retention_days=backup_retention_days,
+            storage_autogrow=storage_autogrow,
+            storage_iops=storage_iops,
+            storage_mb=storage_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_storage_sku_name: str,
+             backup_retention_days: Optional[int] = None,
+             storage_autogrow: Optional[str] = None,
+             storage_iops: Optional[int] = None,
+             storage_mb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("file_storage_sku_name", file_storage_sku_name)
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if storage_autogrow is not None:
-            pulumi.set(__self__, "storage_autogrow", storage_autogrow)
+            _setter("storage_autogrow", storage_autogrow)
         if storage_iops is not None:
-            pulumi.set(__self__, "storage_iops", storage_iops)
+            _setter("storage_iops", storage_iops)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
 
     @property
     @pulumi.getter(name="fileStorageSkuName")

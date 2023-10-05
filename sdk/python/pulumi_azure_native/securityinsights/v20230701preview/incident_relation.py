@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,12 +28,29 @@ class IncidentRelationArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] relation_name: Relation Name
         """
-        pulumi.set(__self__, "incident_id", incident_id)
-        pulumi.set(__self__, "related_resource_id", related_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        IncidentRelationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_id=incident_id,
+            related_resource_id=related_resource_id,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            relation_name=relation_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_id: pulumi.Input[str],
+             related_resource_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             relation_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("incident_id", incident_id)
+        _setter("related_resource_id", related_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if relation_name is not None:
-            pulumi.set(__self__, "relation_name", relation_name)
+            _setter("relation_name", relation_name)
 
     @property
     @pulumi.getter(name="incidentId")
@@ -137,6 +154,10 @@ class IncidentRelation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IncidentRelationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

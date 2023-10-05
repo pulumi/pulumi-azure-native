@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceNotificationRecipientEmailArgs', 'WorkspaceNotificationRecipientEmail']
@@ -27,12 +27,29 @@ class WorkspaceNotificationRecipientEmailArgs:
         :param pulumi.Input[str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] email: Email identifier.
         """
-        pulumi.set(__self__, "notification_name", notification_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceNotificationRecipientEmailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notification_name=notification_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            workspace_id=workspace_id,
+            email=email,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notification_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("notification_name", notification_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("workspace_id", workspace_id)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
 
     @property
     @pulumi.getter(name="notificationName")
@@ -138,6 +155,10 @@ class WorkspaceNotificationRecipientEmail(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceNotificationRecipientEmailArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

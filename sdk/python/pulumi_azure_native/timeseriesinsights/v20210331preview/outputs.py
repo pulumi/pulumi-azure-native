@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,10 +38,21 @@ class EnvironmentStateDetailsResponse(dict):
         :param str code: Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
         :param str message: A message that describes the state in detail.
         """
+        EnvironmentStateDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -90,8 +101,19 @@ class EnvironmentStatusResponse(dict):
         :param 'IngressEnvironmentStatusResponse' ingress: An object that represents the status of ingress on an environment.
         :param 'WarmStorageEnvironmentStatusResponse' warm_storage: An object that represents the status of warm storage on an environment.
         """
-        pulumi.set(__self__, "ingress", ingress)
-        pulumi.set(__self__, "warm_storage", warm_storage)
+        EnvironmentStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ingress=ingress,
+            warm_storage=warm_storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ingress: 'outputs.IngressEnvironmentStatusResponse',
+             warm_storage: 'outputs.WarmStorageEnvironmentStatusResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ingress", ingress)
+        _setter("warm_storage", warm_storage)
 
     @property
     @pulumi.getter
@@ -138,7 +160,16 @@ class Gen2StorageConfigurationOutputResponse(dict):
         The storage configuration provides the non-secret connection details about the customer storage account that is used to store the environment's data.
         :param str account_name: The name of the storage account that will hold the environment's Gen2 data.
         """
-        pulumi.set(__self__, "account_name", account_name)
+        Gen2StorageConfigurationOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -179,9 +210,20 @@ class IngressEnvironmentStatusResponse(dict):
         :param 'EnvironmentStateDetailsResponse' state_details: An object that contains the details about an environment's state.
         :param str state: This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         """
-        pulumi.set(__self__, "state_details", state_details)
+        IngressEnvironmentStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state_details=state_details,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state_details: 'outputs.EnvironmentStateDetailsResponse',
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("state_details", state_details)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="stateDetails")
@@ -246,15 +288,36 @@ class PrivateEndpointConnectionResponse(dict):
         :param Sequence[str] group_ids: The provisioning state of the private endpoint connection resource.
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            type=type,
+            group_ids=group_ids,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             provisioning_state: str,
+             type: str,
+             group_ids: Optional[Sequence[str]] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -324,7 +387,16 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -367,12 +439,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -412,8 +497,19 @@ class SkuResponse(dict):
         :param int capacity: The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
         :param str name: The name of this SKU.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: int,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -445,10 +541,21 @@ class TimeSeriesIdPropertyResponse(dict):
         :param str name: The name of the property.
         :param str type: The type of the property.
         """
+        TimeSeriesIdPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -501,12 +608,25 @@ class WarmStorageEnvironmentStatusResponse(dict):
         :param int max_count: A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
         :param str state: This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
         """
+        WarmStorageEnvironmentStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_count=current_count,
+            max_count=max_count,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_count: Optional[int] = None,
+             max_count: Optional[int] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if current_count is not None:
-            pulumi.set(__self__, "current_count", current_count)
+            _setter("current_count", current_count)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="currentCount")
@@ -561,7 +681,16 @@ class WarmStoreConfigurationPropertiesResponse(dict):
         The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
         :param str data_retention: ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
         """
-        pulumi.set(__self__, "data_retention", data_retention)
+        WarmStoreConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_retention=data_retention,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_retention: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_retention", data_retention)
 
     @property
     @pulumi.getter(name="dataRetention")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,13 +28,30 @@ class ServerKeyArgs:
         :param pulumi.Input[str] key_name: The name of the PostgreSQL Server key to be operated on (updated or created).
         :param pulumi.Input[str] uri: The URI of the key.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_key_type", server_key_type)
-        pulumi.set(__self__, "server_name", server_name)
+        ServerKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_key_type=server_key_type,
+            server_name=server_name,
+            key_name=key_name,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             server_key_type: pulumi.Input[Union[str, 'ServerKeyType']],
+             server_name: pulumi.Input[str],
+             key_name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_key_type", server_key_type)
+        _setter("server_name", server_name)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -138,6 +155,10 @@ class ServerKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

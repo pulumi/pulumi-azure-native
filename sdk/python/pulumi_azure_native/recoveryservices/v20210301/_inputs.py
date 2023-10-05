@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -33,16 +33,33 @@ class AddVCenterRequestPropertiesArgs:
         :param pulumi.Input[str] process_server_id: The process server Id from where the discovery is orchestrated.
         :param pulumi.Input[str] run_as_account_id: The account Id which has privileges to discover the vCenter.
         """
+        AddVCenterRequestPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            friendly_name=friendly_name,
+            ip_address=ip_address,
+            port=port,
+            process_server_id=process_server_id,
+            run_as_account_id=run_as_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             process_server_id: Optional[pulumi.Input[str]] = None,
+             run_as_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -116,10 +133,21 @@ class AzureToAzureCreateNetworkMappingInputArgs:
                Expected value is 'AzureToAzure'.
         :param pulumi.Input[str] primary_network_id: The primary azure vnet Id.
         """
+        AzureToAzureCreateNetworkMappingInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            primary_network_id=primary_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             primary_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", 'AzureToAzure')
+            _setter("instance_type", 'AzureToAzure')
         if primary_network_id is not None:
-            pulumi.set(__self__, "primary_network_id", primary_network_id)
+            _setter("primary_network_id", primary_network_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -159,12 +187,25 @@ class CreateNetworkMappingInputPropertiesArgs:
         :param pulumi.Input[str] recovery_fabric_name: Recovery fabric Name.
         :param pulumi.Input[str] recovery_network_id: Recovery network Id.
         """
+        CreateNetworkMappingInputPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_specific_details=fabric_specific_details,
+            recovery_fabric_name=recovery_fabric_name,
+            recovery_network_id=recovery_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_specific_details: Optional[pulumi.Input[Union['AzureToAzureCreateNetworkMappingInputArgs', 'VmmToAzureCreateNetworkMappingInputArgs', 'VmmToVmmCreateNetworkMappingInputArgs']]] = None,
+             recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             recovery_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fabric_specific_details is not None:
-            pulumi.set(__self__, "fabric_specific_details", fabric_specific_details)
+            _setter("fabric_specific_details", fabric_specific_details)
         if recovery_fabric_name is not None:
-            pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
+            _setter("recovery_fabric_name", recovery_fabric_name)
         if recovery_network_id is not None:
-            pulumi.set(__self__, "recovery_network_id", recovery_network_id)
+            _setter("recovery_network_id", recovery_network_id)
 
     @property
     @pulumi.getter(name="fabricSpecificDetails")
@@ -212,8 +253,17 @@ class VmmToAzureCreateNetworkMappingInputArgs:
         :param pulumi.Input[str] instance_type: The instance type.
                Expected value is 'VmmToAzure'.
         """
+        VmmToAzureCreateNetworkMappingInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", 'VmmToAzure')
+            _setter("instance_type", 'VmmToAzure')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -238,8 +288,17 @@ class VmmToVmmCreateNetworkMappingInputArgs:
         :param pulumi.Input[str] instance_type: The instance type.
                Expected value is 'VmmToVmm'.
         """
+        VmmToVmmCreateNetworkMappingInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", 'VmmToVmm')
+            _setter("instance_type", 'VmmToVmm')
 
     @property
     @pulumi.getter(name="instanceType")

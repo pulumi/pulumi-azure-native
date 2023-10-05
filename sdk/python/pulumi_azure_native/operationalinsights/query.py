@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,20 +37,45 @@ class QueryArgs:
         :param pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs'] related: The related metadata items for the function.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: Tags associated with the query.
         """
-        pulumi.set(__self__, "body", body)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "query_pack_name", query_pack_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        QueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            display_name=display_name,
+            query_pack_name=query_pack_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            id=id,
+            properties=properties,
+            related=related,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             query_pack_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             properties: Optional[Any] = None,
+             related: Optional[pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("body", body)
+        _setter("display_name", display_name)
+        _setter("query_pack_name", query_pack_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if related is not None:
-            pulumi.set(__self__, "related", related)
+            _setter("related", related)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -212,6 +237,10 @@ class Query(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -247,6 +276,11 @@ class Query(pulumi.CustomResource):
             if query_pack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'query_pack_name'")
             __props__.__dict__["query_pack_name"] = query_pack_name
+            if related is not None and not isinstance(related, LogAnalyticsQueryPackQueryPropertiesRelatedArgs):
+                related = related or {}
+                def _setter(key, value):
+                    related[key] = value
+                LogAnalyticsQueryPackQueryPropertiesRelatedArgs._configure(_setter, **related)
             __props__.__dict__["related"] = related
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

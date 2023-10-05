@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,8 +54,19 @@ class EncryptionPropertyResponse(dict):
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Customer Key vault properties.
         :param str status: Indicates whether or not the encryption is enabled for the workspace.
         """
-        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-        pulumi.set(__self__, "status", status)
+        EncryptionPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_properties=key_vault_properties,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_properties: 'outputs.KeyVaultPropertiesResponse',
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_properties", key_vault_properties)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -112,11 +123,26 @@ class IdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -179,8 +205,19 @@ class IdentityResponseUserAssignedIdentities(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        IdentityResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -231,10 +268,23 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_vault_arm_id: The ArmId of the keyVault where the customer owned encryption key is present.
         :param str identity_client_id: For future use - The client id of the identity which will be used to access key vault.
         """
-        pulumi.set(__self__, "key_identifier", key_identifier)
-        pulumi.set(__self__, "key_vault_arm_id", key_vault_arm_id)
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+            key_vault_arm_id=key_vault_arm_id,
+            identity_client_id=identity_client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: str,
+             key_vault_arm_id: str,
+             identity_client_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_identifier", key_identifier)
+        _setter("key_vault_arm_id", key_vault_arm_id)
         if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
+            _setter("identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -266,10 +316,21 @@ class NotebookListCredentialsResultResponse(dict):
     def __init__(__self__, *,
                  primary_access_key: Optional[str] = None,
                  secondary_access_key: Optional[str] = None):
+        NotebookListCredentialsResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_access_key=primary_access_key,
+            secondary_access_key=secondary_access_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_access_key: Optional[str] = None,
+             secondary_access_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if primary_access_key is not None:
-            pulumi.set(__self__, "primary_access_key", primary_access_key)
+            _setter("primary_access_key", primary_access_key)
         if secondary_access_key is not None:
-            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+            _setter("secondary_access_key", secondary_access_key)
 
     @property
     @pulumi.getter(name="primaryAccessKey")
@@ -306,10 +367,21 @@ class NotebookPreparationErrorResponse(dict):
     def __init__(__self__, *,
                  error_message: Optional[str] = None,
                  status_code: Optional[int] = None):
+        NotebookPreparationErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_message=error_message,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_message: Optional[str] = None,
+             status_code: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -351,12 +423,25 @@ class NotebookResourceInfoResponse(dict):
         :param 'NotebookPreparationErrorResponse' notebook_preparation_error: The error that occurs when preparing notebook.
         :param str resource_id: the data plane resourceId that used to initialize notebook component
         """
+        NotebookResourceInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            notebook_preparation_error=notebook_preparation_error,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[str] = None,
+             notebook_preparation_error: Optional['outputs.NotebookPreparationErrorResponse'] = None,
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if notebook_preparation_error is not None:
-            pulumi.set(__self__, "notebook_preparation_error", notebook_preparation_error)
+            _setter("notebook_preparation_error", notebook_preparation_error)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter
@@ -385,8 +470,19 @@ class PasswordResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        PasswordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -441,13 +537,32 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: Resource type of private endpoint connection.
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             provisioning_state: str,
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -509,7 +624,16 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -552,12 +676,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -590,10 +727,23 @@ class RegistryListCredentialsResultResponse(dict):
                  location: str,
                  username: str,
                  passwords: Optional[Sequence['outputs.PasswordResponse']] = None):
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "username", username)
+        RegistryListCredentialsResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            username=username,
+            passwords=passwords,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: str,
+             username: str,
+             passwords: Optional[Sequence['outputs.PasswordResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
+        _setter("username", username)
         if passwords is not None:
-            pulumi.set(__self__, "passwords", passwords)
+            _setter("passwords", passwords)
 
     @property
     @pulumi.getter
@@ -647,16 +797,33 @@ class SharedPrivateLinkResourceResponse(dict):
         :param str request_message: Request message.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        SharedPrivateLinkResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            name=name,
+            private_link_resource_id=private_link_resource_id,
+            request_message=request_message,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_link_resource_id: Optional[str] = None,
+             request_message: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+            _setter("private_link_resource_id", private_link_resource_id)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="groupId")
@@ -712,10 +879,21 @@ class SkuResponse(dict):
         :param str name: Name of the sku
         :param str tier: Tier of the sku like Basic or Enterprise
         """
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

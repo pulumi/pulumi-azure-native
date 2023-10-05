@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,8 +46,19 @@ class CatalogConflictErrorResponse(dict):
         :param str name: Name of the conflicting catalog item.
         :param str path: The path of the file that has a conflicting name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
+        CatalogConflictErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -79,10 +90,21 @@ class CatalogErrorDetailsResponse(dict):
         :param str code: An identifier for the error.
         :param str message: A message describing the error.
         """
+        CatalogErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -114,8 +136,19 @@ class CatalogSyncErrorResponse(dict):
         :param Sequence['CatalogErrorDetailsResponse'] error_details: Errors associated with the file.
         :param str path: The path of the file the error is associated with.
         """
-        pulumi.set(__self__, "error_details", error_details)
-        pulumi.set(__self__, "path", path)
+        CatalogSyncErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_details=error_details,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_details: Sequence['outputs.CatalogErrorDetailsResponse'],
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_details", error_details)
+        _setter("path", path)
 
     @property
     @pulumi.getter(name="errorDetails")
@@ -166,10 +199,21 @@ class CustomerManagedKeyEncryptionResponse(dict):
         :param 'CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param str key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
+        CustomerManagedKeyEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_encryption_key_identity=key_encryption_key_identity,
+            key_encryption_key_url=key_encryption_key_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_encryption_key_identity: Optional['outputs.CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity'] = None,
+             key_encryption_key_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_encryption_key_identity is not None:
-            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+            _setter("key_encryption_key_identity", key_encryption_key_identity)
         if key_encryption_key_url is not None:
-            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+            _setter("key_encryption_key_url", key_encryption_key_url)
 
     @property
     @pulumi.getter(name="keyEncryptionKeyIdentity")
@@ -224,12 +268,25 @@ class CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity(dict):
         :param str identity_type: Values can be systemAssignedIdentity or userAssignedIdentity
         :param str user_assigned_identity_resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity and delegatedResourceIdentity.
         """
+        CustomerManagedKeyEncryptionResponseKeyEncryptionKeyIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delegated_identity_client_id=delegated_identity_client_id,
+            identity_type=identity_type,
+            user_assigned_identity_resource_id=user_assigned_identity_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delegated_identity_client_id: Optional[str] = None,
+             identity_type: Optional[str] = None,
+             user_assigned_identity_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delegated_identity_client_id is not None:
-            pulumi.set(__self__, "delegated_identity_client_id", delegated_identity_client_id)
+            _setter("delegated_identity_client_id", delegated_identity_client_id)
         if identity_type is not None:
-            pulumi.set(__self__, "identity_type", identity_type)
+            _setter("identity_type", identity_type)
         if user_assigned_identity_resource_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+            _setter("user_assigned_identity_resource_id", user_assigned_identity_resource_id)
 
     @property
     @pulumi.getter(name="delegatedIdentityClientId")
@@ -280,8 +337,17 @@ class EncryptionResponse(dict):
         """
         :param 'CustomerManagedKeyEncryptionResponse' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
+        EncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_key_encryption=customer_managed_key_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_key_encryption: Optional['outputs.CustomerManagedKeyEncryptionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if customer_managed_key_encryption is not None:
-            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+            _setter("customer_managed_key_encryption", customer_managed_key_encryption)
 
     @property
     @pulumi.getter(name="customerManagedKeyEncryption")
@@ -322,8 +388,19 @@ class EnvironmentRoleResponse(dict):
         :param str description: This is a description of the Role Assignment.
         :param str role_name: The common name of the Role Assignment. This is a descriptive name such as 'AcrPush'.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "role_name", role_name)
+        EnvironmentRoleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            role_name=role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             role_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("role_name", role_name)
 
     @property
     @pulumi.getter
@@ -376,14 +453,29 @@ class GitCatalogResponse(dict):
         :param str secret_identifier: A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
         :param str uri: Git URI.
         """
+        GitCatalogResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            path=path,
+            secret_identifier=secret_identifier,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[str] = None,
+             path: Optional[str] = None,
+             secret_identifier: Optional[str] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if secret_identifier is not None:
-            pulumi.set(__self__, "secret_identifier", secret_identifier)
+            _setter("secret_identifier", secret_identifier)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -431,8 +523,19 @@ class HealthStatusDetailResponse(dict):
         :param str code: An identifier for the issue.
         :param str message: A message describing the issue, intended to be suitable for display in a user interface
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        HealthStatusDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             message: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -481,9 +584,20 @@ class ImageReferenceResponse(dict):
         :param str exact_version: The actual version of the image after use. When id references a gallery image latest version, this will indicate the actual version in use.
         :param str id: Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
         """
-        pulumi.set(__self__, "exact_version", exact_version)
+        ImageReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact_version=exact_version,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact_version: str,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact_version", exact_version)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter(name="exactVersion")
@@ -515,10 +629,21 @@ class ImageValidationErrorDetailsResponse(dict):
         :param str code: An identifier for the error.
         :param str message: A message describing the error.
         """
+        ImageValidationErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -575,11 +700,26 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -625,8 +765,17 @@ class ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment(dict):
         The role definition assigned to the environment creator on backing resources.
         :param Mapping[str, 'EnvironmentRoleResponse'] roles: A map of roles to assign to the environment creator.
         """
+        ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             roles: Optional[Mapping[str, 'outputs.EnvironmentRoleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter
@@ -656,15 +805,32 @@ class SkuResponse(dict):
         :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         :param str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             size: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -737,10 +903,21 @@ class StopOnDisconnectConfigurationResponse(dict):
         :param int grace_period_minutes: The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
         :param str status: Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
         """
+        StopOnDisconnectConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grace_period_minutes=grace_period_minutes,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grace_period_minutes: Optional[int] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if grace_period_minutes is not None:
-            pulumi.set(__self__, "grace_period_minutes", grace_period_minutes)
+            _setter("grace_period_minutes", grace_period_minutes)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="gracePeriodMinutes")
@@ -799,12 +976,31 @@ class SyncStatsResponse(dict):
         :param int updated: Count of catalog items updated during synchronization.
         :param int validation_errors: Count of catalog items that had validation errors during synchronization.
         """
-        pulumi.set(__self__, "added", added)
-        pulumi.set(__self__, "removed", removed)
-        pulumi.set(__self__, "synchronization_errors", synchronization_errors)
-        pulumi.set(__self__, "unchanged", unchanged)
-        pulumi.set(__self__, "updated", updated)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        SyncStatsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            added=added,
+            removed=removed,
+            synchronization_errors=synchronization_errors,
+            unchanged=unchanged,
+            updated=updated,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             added: int,
+             removed: int,
+             synchronization_errors: int,
+             unchanged: int,
+             updated: int,
+             validation_errors: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("added", added)
+        _setter("removed", removed)
+        _setter("synchronization_errors", synchronization_errors)
+        _setter("unchanged", unchanged)
+        _setter("updated", updated)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -903,18 +1099,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -997,8 +1212,19 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1028,8 +1254,17 @@ class UserRoleAssignmentResponse(dict):
         Mapping of user object ID to role assignments.
         :param Mapping[str, 'EnvironmentRoleResponse'] roles: A map of roles to assign to the parent user.
         """
+        UserRoleAssignmentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             roles: Optional[Mapping[str, 'outputs.EnvironmentRoleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter

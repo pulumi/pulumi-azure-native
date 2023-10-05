@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -24,8 +24,17 @@ class ControllerConnectionDetailsResponse(dict):
         """
         :param 'KubernetesConnectionDetailsResponse' orchestrator_specific_connection_details: Base class for types that supply values used to connect to container orchestrators
         """
+        ControllerConnectionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            orchestrator_specific_connection_details=orchestrator_specific_connection_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             orchestrator_specific_connection_details: Optional['outputs.KubernetesConnectionDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if orchestrator_specific_connection_details is not None:
-            pulumi.set(__self__, "orchestrator_specific_connection_details", orchestrator_specific_connection_details)
+            _setter("orchestrator_specific_connection_details", orchestrator_specific_connection_details)
 
     @property
     @pulumi.getter(name="orchestratorSpecificConnectionDetails")
@@ -50,9 +59,20 @@ class KubernetesConnectionDetailsResponse(dict):
                Expected value is 'Kubernetes'.
         :param str kube_config: Gets the kubeconfig for the cluster.
         """
-        pulumi.set(__self__, "instance_type", 'Kubernetes')
+        KubernetesConnectionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            kube_config=kube_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: str,
+             kube_config: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", 'Kubernetes')
         if kube_config is not None:
-            pulumi.set(__self__, "kube_config", kube_config)
+            _setter("kube_config", kube_config)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -85,9 +105,20 @@ class SkuResponse(dict):
         :param str name: The name of the SKU for Azure Dev Spaces Controller.
         :param str tier: The tier of the SKU for Azure Dev Spaces Controller.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

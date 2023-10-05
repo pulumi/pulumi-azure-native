@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,28 +45,61 @@ class WatchlistItemArgs:
         :param pulumi.Input[str] watchlist_item_id: The id (a Guid) of the watchlist item
         :param pulumi.Input[str] watchlist_item_type: The type of the watchlist item
         """
-        pulumi.set(__self__, "items_key_value", items_key_value)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "watchlist_alias", watchlist_alias)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        WatchlistItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items_key_value=items_key_value,
+            resource_group_name=resource_group_name,
+            watchlist_alias=watchlist_alias,
+            workspace_name=workspace_name,
+            created=created,
+            created_by=created_by,
+            entity_mapping=entity_mapping,
+            is_deleted=is_deleted,
+            tenant_id=tenant_id,
+            updated=updated,
+            updated_by=updated_by,
+            watchlist_item_id=watchlist_item_id,
+            watchlist_item_type=watchlist_item_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items_key_value: Any,
+             resource_group_name: pulumi.Input[str],
+             watchlist_alias: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             created: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input['WatchlistUserInfoArgs']] = None,
+             entity_mapping: Optional[Any] = None,
+             is_deleted: Optional[pulumi.Input[bool]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             updated: Optional[pulumi.Input[str]] = None,
+             updated_by: Optional[pulumi.Input['WatchlistUserInfoArgs']] = None,
+             watchlist_item_id: Optional[pulumi.Input[str]] = None,
+             watchlist_item_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("items_key_value", items_key_value)
+        _setter("resource_group_name", resource_group_name)
+        _setter("watchlist_alias", watchlist_alias)
+        _setter("workspace_name", workspace_name)
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if entity_mapping is not None:
-            pulumi.set(__self__, "entity_mapping", entity_mapping)
+            _setter("entity_mapping", entity_mapping)
         if is_deleted is not None:
-            pulumi.set(__self__, "is_deleted", is_deleted)
+            _setter("is_deleted", is_deleted)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if updated is not None:
-            pulumi.set(__self__, "updated", updated)
+            _setter("updated", updated)
         if updated_by is not None:
-            pulumi.set(__self__, "updated_by", updated_by)
+            _setter("updated_by", updated_by)
         if watchlist_item_id is not None:
-            pulumi.set(__self__, "watchlist_item_id", watchlist_item_id)
+            _setter("watchlist_item_id", watchlist_item_id)
         if watchlist_item_type is not None:
-            pulumi.set(__self__, "watchlist_item_type", watchlist_item_type)
+            _setter("watchlist_item_type", watchlist_item_type)
 
     @property
     @pulumi.getter(name="itemsKeyValue")
@@ -284,6 +317,10 @@ class WatchlistItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WatchlistItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -312,6 +349,11 @@ class WatchlistItem(pulumi.CustomResource):
             __props__ = WatchlistItemArgs.__new__(WatchlistItemArgs)
 
             __props__.__dict__["created"] = created
+            if created_by is not None and not isinstance(created_by, WatchlistUserInfoArgs):
+                created_by = created_by or {}
+                def _setter(key, value):
+                    created_by[key] = value
+                WatchlistUserInfoArgs._configure(_setter, **created_by)
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["entity_mapping"] = entity_mapping
             __props__.__dict__["is_deleted"] = is_deleted
@@ -323,6 +365,11 @@ class WatchlistItem(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["updated"] = updated
+            if updated_by is not None and not isinstance(updated_by, WatchlistUserInfoArgs):
+                updated_by = updated_by or {}
+                def _setter(key, value):
+                    updated_by[key] = value
+                WatchlistUserInfoArgs._configure(_setter, **updated_by)
             __props__.__dict__["updated_by"] = updated_by
             if watchlist_alias is None and not opts.urn:
                 raise TypeError("Missing required property 'watchlist_alias'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,17 +29,36 @@ class AdaptiveApplicationControlArgs:
         :param pulumi.Input[str] group_name: Name of an application control machine group
         :param pulumi.Input['ProtectionModeArgs'] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         """
-        pulumi.set(__self__, "asc_location", asc_location)
+        AdaptiveApplicationControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asc_location=asc_location,
+            enforcement_mode=enforcement_mode,
+            group_name=group_name,
+            path_recommendations=path_recommendations,
+            protection_mode=protection_mode,
+            vm_recommendations=vm_recommendations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asc_location: pulumi.Input[str],
+             enforcement_mode: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input['PathRecommendationArgs']]]] = None,
+             protection_mode: Optional[pulumi.Input['ProtectionModeArgs']] = None,
+             vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input['VmRecommendationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("asc_location", asc_location)
         if enforcement_mode is not None:
-            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+            _setter("enforcement_mode", enforcement_mode)
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if path_recommendations is not None:
-            pulumi.set(__self__, "path_recommendations", path_recommendations)
+            _setter("path_recommendations", path_recommendations)
         if protection_mode is not None:
-            pulumi.set(__self__, "protection_mode", protection_mode)
+            _setter("protection_mode", protection_mode)
         if vm_recommendations is not None:
-            pulumi.set(__self__, "vm_recommendations", vm_recommendations)
+            _setter("vm_recommendations", vm_recommendations)
 
     @property
     @pulumi.getter(name="ascLocation")
@@ -149,6 +168,10 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AdaptiveApplicationControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -175,6 +198,11 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
             __props__.__dict__["enforcement_mode"] = enforcement_mode
             __props__.__dict__["group_name"] = group_name
             __props__.__dict__["path_recommendations"] = path_recommendations
+            if protection_mode is not None and not isinstance(protection_mode, ProtectionModeArgs):
+                protection_mode = protection_mode or {}
+                def _setter(key, value):
+                    protection_mode[key] = value
+                ProtectionModeArgs._configure(_setter, **protection_mode)
             __props__.__dict__["protection_mode"] = protection_mode
             __props__.__dict__["vm_recommendations"] = vm_recommendations
             __props__.__dict__["configuration_status"] = None

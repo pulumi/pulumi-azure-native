@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,16 +32,37 @@ class DataSourceArgs:
         :param pulumi.Input[str] e_tag: The ETag of the data source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        DataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            properties=properties,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            data_source_name=data_source_name,
+            e_tag=e_tag,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[Union[str, 'DataSourceKind']],
+             properties: Any,
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             data_source_name: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", kind)
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if data_source_name is not None:
-            pulumi.set(__self__, "data_source_name", data_source_name)
+            _setter("data_source_name", data_source_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -173,6 +194,10 @@ class DataSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

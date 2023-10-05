@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,43 @@ class BlueprintArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]] resource_groups: Resource group placeholders defined by this blueprint definition.
         :param Any versions: Published versions of this blueprint definition.
         """
-        pulumi.set(__self__, "resource_scope", resource_scope)
-        pulumi.set(__self__, "target_scope", target_scope)
+        BlueprintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_scope=resource_scope,
+            target_scope=target_scope,
+            blueprint_name=blueprint_name,
+            description=description,
+            display_name=display_name,
+            parameters=parameters,
+            resource_groups=resource_groups,
+            versions=versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_scope: pulumi.Input[str],
+             target_scope: pulumi.Input[Union[str, 'BlueprintTargetScope']],
+             blueprint_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]] = None,
+             resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]] = None,
+             versions: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_scope", resource_scope)
+        _setter("target_scope", target_scope)
         if blueprint_name is not None:
-            pulumi.set(__self__, "blueprint_name", blueprint_name)
+            _setter("blueprint_name", blueprint_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
         if versions is not None:
-            pulumi.set(__self__, "versions", versions)
+            _setter("versions", versions)
 
     @property
     @pulumi.getter(name="resourceScope")
@@ -195,6 +218,10 @@ class Blueprint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BlueprintArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

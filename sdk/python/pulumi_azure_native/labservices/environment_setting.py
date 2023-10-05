@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,26 +44,57 @@ class EnvironmentSettingArgs:
         :param pulumi.Input[str] title: Brief title describing the environment and its resource settings
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
-        pulumi.set(__self__, "lab_account_name", lab_account_name)
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_settings", resource_settings)
+        EnvironmentSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_account_name=lab_account_name,
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            resource_settings=resource_settings,
+            configuration_state=configuration_state,
+            description=description,
+            environment_setting_name=environment_setting_name,
+            location=location,
+            provisioning_state=provisioning_state,
+            tags=tags,
+            title=title,
+            unique_identifier=unique_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_account_name: pulumi.Input[str],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             resource_settings: pulumi.Input['ResourceSettingsArgs'],
+             configuration_state: Optional[pulumi.Input[Union[str, 'ConfigurationState']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_setting_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             unique_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_account_name", lab_account_name)
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_settings", resource_settings)
         if configuration_state is not None:
-            pulumi.set(__self__, "configuration_state", configuration_state)
+            _setter("configuration_state", configuration_state)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_setting_name is not None:
-            pulumi.set(__self__, "environment_setting_name", environment_setting_name)
+            _setter("environment_setting_name", environment_setting_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
+            _setter("unique_identifier", unique_identifier)
 
     @property
     @pulumi.getter(name="labAccountName")
@@ -267,6 +298,10 @@ class EnvironmentSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -307,6 +342,11 @@ class EnvironmentSetting(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_settings is not None and not isinstance(resource_settings, ResourceSettingsArgs):
+                resource_settings = resource_settings or {}
+                def _setter(key, value):
+                    resource_settings[key] = value
+                ResourceSettingsArgs._configure(_setter, **resource_settings)
             if resource_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_settings'")
             __props__.__dict__["resource_settings"] = resource_settings

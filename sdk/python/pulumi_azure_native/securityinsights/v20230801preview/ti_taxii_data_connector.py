@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -49,28 +49,63 @@ class TiTaxiiDataConnectorArgs:
         :param pulumi.Input[str] user_name: The userName for the TAXII server.
         :param pulumi.Input[str] workspace_id: The workspace id.
         """
-        pulumi.set(__self__, "data_types", data_types)
-        pulumi.set(__self__, "kind", 'ThreatIntelligenceTaxii')
-        pulumi.set(__self__, "polling_frequency", polling_frequency)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        TiTaxiiDataConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_types=data_types,
+            kind=kind,
+            polling_frequency=polling_frequency,
+            resource_group_name=resource_group_name,
+            tenant_id=tenant_id,
+            workspace_name=workspace_name,
+            collection_id=collection_id,
+            data_connector_id=data_connector_id,
+            friendly_name=friendly_name,
+            password=password,
+            taxii_lookback_period=taxii_lookback_period,
+            taxii_server=taxii_server,
+            user_name=user_name,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_types: pulumi.Input['TiTaxiiDataConnectorDataTypesArgs'],
+             kind: pulumi.Input[str],
+             polling_frequency: pulumi.Input[Union[str, 'PollingFrequency']],
+             resource_group_name: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             collection_id: Optional[pulumi.Input[str]] = None,
+             data_connector_id: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             taxii_lookback_period: Optional[pulumi.Input[str]] = None,
+             taxii_server: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_types", data_types)
+        _setter("kind", 'ThreatIntelligenceTaxii')
+        _setter("polling_frequency", polling_frequency)
+        _setter("resource_group_name", resource_group_name)
+        _setter("tenant_id", tenant_id)
+        _setter("workspace_name", workspace_name)
         if collection_id is not None:
-            pulumi.set(__self__, "collection_id", collection_id)
+            _setter("collection_id", collection_id)
         if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
+            _setter("data_connector_id", data_connector_id)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if taxii_lookback_period is not None:
-            pulumi.set(__self__, "taxii_lookback_period", taxii_lookback_period)
+            _setter("taxii_lookback_period", taxii_lookback_period)
         if taxii_server is not None:
-            pulumi.set(__self__, "taxii_server", taxii_server)
+            _setter("taxii_server", taxii_server)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -302,6 +337,10 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TiTaxiiDataConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -332,6 +371,11 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
 
             __props__.__dict__["collection_id"] = collection_id
             __props__.__dict__["data_connector_id"] = data_connector_id
+            if data_types is not None and not isinstance(data_types, TiTaxiiDataConnectorDataTypesArgs):
+                data_types = data_types or {}
+                def _setter(key, value):
+                    data_types[key] = value
+                TiTaxiiDataConnectorDataTypesArgs._configure(_setter, **data_types)
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types

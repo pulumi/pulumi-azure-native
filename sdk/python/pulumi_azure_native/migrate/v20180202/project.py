@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,21 +34,44 @@ class ProjectArgs:
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the project.
         :param Any tags: Tags provided by Azure Tagging service.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            customer_workspace_id=customer_workspace_id,
+            customer_workspace_location=customer_workspace_location,
+            e_tag=e_tag,
+            location=location,
+            project_name=project_name,
+            provisioning_state=provisioning_state,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             customer_workspace_id: Optional[pulumi.Input[str]] = None,
+             customer_workspace_location: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             tags: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if customer_workspace_id is not None:
-            pulumi.set(__self__, "customer_workspace_id", customer_workspace_id)
+            _setter("customer_workspace_id", customer_workspace_id)
         if customer_workspace_location is not None:
-            pulumi.set(__self__, "customer_workspace_location", customer_workspace_location)
+            _setter("customer_workspace_location", customer_workspace_location)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -194,6 +217,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

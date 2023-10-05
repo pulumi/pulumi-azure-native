@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,8 +33,17 @@ class AddressSpaceArgs:
         AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         """
+        AddressSpaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefixes=address_prefixes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
+            _setter("address_prefixes", address_prefixes)
 
     @property
     @pulumi.getter(name="addressPrefixes")
@@ -71,14 +80,37 @@ class IpsecPolicyArgs:
         :param pulumi.Input[int] sa_data_size_kilobytes: The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
         :param pulumi.Input[int] sa_life_time_seconds: The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
         """
-        pulumi.set(__self__, "dh_group", dh_group)
-        pulumi.set(__self__, "ike_encryption", ike_encryption)
-        pulumi.set(__self__, "ike_integrity", ike_integrity)
-        pulumi.set(__self__, "ipsec_encryption", ipsec_encryption)
-        pulumi.set(__self__, "ipsec_integrity", ipsec_integrity)
-        pulumi.set(__self__, "pfs_group", pfs_group)
-        pulumi.set(__self__, "sa_data_size_kilobytes", sa_data_size_kilobytes)
-        pulumi.set(__self__, "sa_life_time_seconds", sa_life_time_seconds)
+        IpsecPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dh_group=dh_group,
+            ike_encryption=ike_encryption,
+            ike_integrity=ike_integrity,
+            ipsec_encryption=ipsec_encryption,
+            ipsec_integrity=ipsec_integrity,
+            pfs_group=pfs_group,
+            sa_data_size_kilobytes=sa_data_size_kilobytes,
+            sa_life_time_seconds=sa_life_time_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dh_group: pulumi.Input[Union[str, 'DhGroup']],
+             ike_encryption: pulumi.Input[Union[str, 'IkeEncryption']],
+             ike_integrity: pulumi.Input[Union[str, 'IkeIntegrity']],
+             ipsec_encryption: pulumi.Input[Union[str, 'IpsecEncryption']],
+             ipsec_integrity: pulumi.Input[Union[str, 'IpsecIntegrity']],
+             pfs_group: pulumi.Input[Union[str, 'PfsGroup']],
+             sa_data_size_kilobytes: pulumi.Input[int],
+             sa_life_time_seconds: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dh_group", dh_group)
+        _setter("ike_encryption", ike_encryption)
+        _setter("ike_integrity", ike_integrity)
+        _setter("ipsec_encryption", ipsec_encryption)
+        _setter("ipsec_integrity", ipsec_integrity)
+        _setter("pfs_group", pfs_group)
+        _setter("sa_data_size_kilobytes", sa_data_size_kilobytes)
+        _setter("sa_life_time_seconds", sa_life_time_seconds)
 
     @property
     @pulumi.getter(name="dhGroup")
@@ -193,13 +225,30 @@ class MatchConditionArgs:
         :param pulumi.Input[bool] negation_conditon: Describes if this is negate condition or not.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebApplicationFirewallTransform']]]] transforms: List of transforms.
         """
-        pulumi.set(__self__, "match_values", match_values)
-        pulumi.set(__self__, "match_variables", match_variables)
-        pulumi.set(__self__, "operator", operator)
+        MatchConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_values=match_values,
+            match_variables=match_variables,
+            operator=operator,
+            negation_conditon=negation_conditon,
+            transforms=transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_variables: pulumi.Input[Sequence[pulumi.Input['MatchVariableArgs']]],
+             operator: pulumi.Input[Union[str, 'WebApplicationFirewallOperator']],
+             negation_conditon: Optional[pulumi.Input[bool]] = None,
+             transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebApplicationFirewallTransform']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_values", match_values)
+        _setter("match_variables", match_variables)
+        _setter("operator", operator)
         if negation_conditon is not None:
-            pulumi.set(__self__, "negation_conditon", negation_conditon)
+            _setter("negation_conditon", negation_conditon)
         if transforms is not None:
-            pulumi.set(__self__, "transforms", transforms)
+            _setter("transforms", transforms)
 
     @property
     @pulumi.getter(name="matchValues")
@@ -272,9 +321,20 @@ class MatchVariableArgs:
         :param pulumi.Input[Union[str, 'WebApplicationFirewallMatchVariable']] variable_name: Match Variable.
         :param pulumi.Input[str] selector: Describes field of the matchVariable collection.
         """
-        pulumi.set(__self__, "variable_name", variable_name)
+        MatchVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            variable_name=variable_name,
+            selector=selector,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             variable_name: pulumi.Input[Union[str, 'WebApplicationFirewallMatchVariable']],
+             selector: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("variable_name", variable_name)
         if selector is not None:
-            pulumi.set(__self__, "selector", selector)
+            _setter("selector", selector)
 
     @property
     @pulumi.getter(name="variableName")
@@ -315,14 +375,29 @@ class P2SVpnServerConfigRadiusClientRootCertificateArgs:
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] thumbprint: The Radius client root certificate thumbprint.
         """
+        P2SVpnServerConfigRadiusClientRootCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            name=name,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter
@@ -387,13 +462,28 @@ class P2SVpnServerConfigRadiusServerRootCertificateArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        pulumi.set(__self__, "public_cert_data", public_cert_data)
+        P2SVpnServerConfigRadiusServerRootCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_cert_data=public_cert_data,
+            etag=etag,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_cert_data: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("public_cert_data", public_cert_data)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="publicCertData")
@@ -458,14 +548,29 @@ class P2SVpnServerConfigVpnClientRevokedCertificateArgs:
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] thumbprint: The revoked VPN client certificate thumbprint.
         """
+        P2SVpnServerConfigVpnClientRevokedCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            name=name,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter
@@ -530,13 +635,28 @@ class P2SVpnServerConfigVpnClientRootCertificateArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        pulumi.set(__self__, "public_cert_data", public_cert_data)
+        P2SVpnServerConfigVpnClientRootCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_cert_data=public_cert_data,
+            etag=etag,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_cert_data: pulumi.Input[str],
+             etag: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("public_cert_data", public_cert_data)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="publicCertData")
@@ -615,28 +735,57 @@ class P2SVpnServerConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
         """
+        P2SVpnServerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            name=name,
+            p2_s_vpn_server_config_radius_client_root_certificates=p2_s_vpn_server_config_radius_client_root_certificates,
+            p2_s_vpn_server_config_radius_server_root_certificates=p2_s_vpn_server_config_radius_server_root_certificates,
+            p2_s_vpn_server_config_vpn_client_revoked_certificates=p2_s_vpn_server_config_vpn_client_revoked_certificates,
+            p2_s_vpn_server_config_vpn_client_root_certificates=p2_s_vpn_server_config_vpn_client_root_certificates,
+            radius_server_address=radius_server_address,
+            radius_server_secret=radius_server_secret,
+            vpn_client_ipsec_policies=vpn_client_ipsec_policies,
+            vpn_protocols=vpn_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             p2_s_vpn_server_config_radius_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]] = None,
+             p2_s_vpn_server_config_radius_server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusServerRootCertificateArgs']]]] = None,
+             p2_s_vpn_server_config_vpn_client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigVpnClientRevokedCertificateArgs']]]] = None,
+             p2_s_vpn_server_config_vpn_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigVpnClientRootCertificateArgs']]]] = None,
+             radius_server_address: Optional[pulumi.Input[str]] = None,
+             radius_server_secret: Optional[pulumi.Input[str]] = None,
+             vpn_client_ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
+             vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if p2_s_vpn_server_config_radius_client_root_certificates is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_config_radius_client_root_certificates", p2_s_vpn_server_config_radius_client_root_certificates)
+            _setter("p2_s_vpn_server_config_radius_client_root_certificates", p2_s_vpn_server_config_radius_client_root_certificates)
         if p2_s_vpn_server_config_radius_server_root_certificates is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_config_radius_server_root_certificates", p2_s_vpn_server_config_radius_server_root_certificates)
+            _setter("p2_s_vpn_server_config_radius_server_root_certificates", p2_s_vpn_server_config_radius_server_root_certificates)
         if p2_s_vpn_server_config_vpn_client_revoked_certificates is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_config_vpn_client_revoked_certificates", p2_s_vpn_server_config_vpn_client_revoked_certificates)
+            _setter("p2_s_vpn_server_config_vpn_client_revoked_certificates", p2_s_vpn_server_config_vpn_client_revoked_certificates)
         if p2_s_vpn_server_config_vpn_client_root_certificates is not None:
-            pulumi.set(__self__, "p2_s_vpn_server_config_vpn_client_root_certificates", p2_s_vpn_server_config_vpn_client_root_certificates)
+            _setter("p2_s_vpn_server_config_vpn_client_root_certificates", p2_s_vpn_server_config_vpn_client_root_certificates)
         if radius_server_address is not None:
-            pulumi.set(__self__, "radius_server_address", radius_server_address)
+            _setter("radius_server_address", radius_server_address)
         if radius_server_secret is not None:
-            pulumi.set(__self__, "radius_server_secret", radius_server_secret)
+            _setter("radius_server_secret", radius_server_secret)
         if vpn_client_ipsec_policies is not None:
-            pulumi.set(__self__, "vpn_client_ipsec_policies", vpn_client_ipsec_policies)
+            _setter("vpn_client_ipsec_policies", vpn_client_ipsec_policies)
         if vpn_protocols is not None:
-            pulumi.set(__self__, "vpn_protocols", vpn_protocols)
+            _setter("vpn_protocols", vpn_protocols)
 
     @property
     @pulumi.getter
@@ -781,10 +930,21 @@ class PolicySettingsArgs:
         :param pulumi.Input[Union[str, 'WebApplicationFirewallEnabledState']] enabled_state: Describes if the policy is in enabled state or disabled state.
         :param pulumi.Input[Union[str, 'WebApplicationFirewallMode']] mode: Describes if it is in detection mode or prevention mode at policy level.
         """
+        PolicySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled_state=enabled_state,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled_state: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallEnabledState']]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter(name="enabledState")
@@ -822,8 +982,17 @@ class SubResourceArgs:
                A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
                Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
+        SubResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -857,12 +1026,29 @@ class WebApplicationFirewallCustomRuleArgs:
         :param pulumi.Input[Union[str, 'WebApplicationFirewallRuleType']] rule_type: Describes type of rule.
         :param pulumi.Input[str] name: The name of the resource that is unique within a policy. This name can be used to access the resource.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match_conditions", match_conditions)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "rule_type", rule_type)
+        WebApplicationFirewallCustomRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match_conditions=match_conditions,
+            priority=priority,
+            rule_type=rule_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[Union[str, 'WebApplicationFirewallAction']],
+             match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]],
+             priority: pulumi.Input[int],
+             rule_type: pulumi.Input[Union[str, 'WebApplicationFirewallRuleType']],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("match_conditions", match_conditions)
+        _setter("priority", priority)
+        _setter("rule_type", rule_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter

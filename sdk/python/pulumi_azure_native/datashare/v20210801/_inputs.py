@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -23,8 +23,17 @@ class IdentityArgs:
         Identity of resource
         :param pulumi.Input[Union[str, 'Type']] type: Identity Type
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'Type']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -57,18 +66,37 @@ class TableLevelSharingPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_exclude: Tables to be excluded in the data set
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_include: Tables to be included in the data set
         """
+        TableLevelSharingPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_tables_to_exclude=external_tables_to_exclude,
+            external_tables_to_include=external_tables_to_include,
+            materialized_views_to_exclude=materialized_views_to_exclude,
+            materialized_views_to_include=materialized_views_to_include,
+            tables_to_exclude=tables_to_exclude,
+            tables_to_include=tables_to_include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             external_tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             materialized_views_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             materialized_views_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if external_tables_to_exclude is not None:
-            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
+            _setter("external_tables_to_exclude", external_tables_to_exclude)
         if external_tables_to_include is not None:
-            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+            _setter("external_tables_to_include", external_tables_to_include)
         if materialized_views_to_exclude is not None:
-            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
+            _setter("materialized_views_to_exclude", materialized_views_to_exclude)
         if materialized_views_to_include is not None:
-            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
+            _setter("materialized_views_to_include", materialized_views_to_include)
         if tables_to_exclude is not None:
-            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
+            _setter("tables_to_exclude", tables_to_exclude)
         if tables_to_include is not None:
-            pulumi.set(__self__, "tables_to_include", tables_to_include)
+            _setter("tables_to_include", tables_to_include)
 
     @property
     @pulumi.getter(name="externalTablesToExclude")

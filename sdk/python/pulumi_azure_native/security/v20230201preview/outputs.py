@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -24,8 +24,17 @@ class RuleResultsPropertiesResponse(dict):
         Rule results properties.
         :param Sequence[Sequence[str]] results: Expected results in the baseline.
         """
+        RuleResultsPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            results=results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             results: Optional[Sequence[Sequence[str]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if results is not None:
-            pulumi.set(__self__, "results", results)
+            _setter("results", results)
 
     @property
     @pulumi.getter

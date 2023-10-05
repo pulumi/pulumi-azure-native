@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,25 +42,54 @@ class DscConfigurationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]] parameters: Gets or sets the configuration parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
+        DscConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            resource_group_name=resource_group_name,
+            source=source,
+            configuration_name=configuration_name,
+            description=description,
+            location=location,
+            log_progress=log_progress,
+            log_verbose=log_verbose,
+            name=name,
+            parameters=parameters,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             source: pulumi.Input['ContentSourceArgs'],
+             configuration_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_progress: Optional[pulumi.Input[bool]] = None,
+             log_verbose: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source", source)
         if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+            _setter("configuration_name", configuration_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_progress is not None:
-            pulumi.set(__self__, "log_progress", log_progress)
+            _setter("log_progress", log_progress)
         if log_verbose is not None:
-            pulumi.set(__self__, "log_verbose", log_verbose)
+            _setter("log_verbose", log_verbose)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -250,6 +279,10 @@ class DscConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DscConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -288,6 +321,11 @@ class DscConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if source is not None and not isinstance(source, ContentSourceArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                ContentSourceArgs._configure(_setter, **source)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

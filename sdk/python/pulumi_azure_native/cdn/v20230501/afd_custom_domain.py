@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,19 +36,42 @@ class AFDCustomDomainArgs:
         :param pulumi.Input['ResourceReferenceArgs'] pre_validated_custom_domain_resource_id: Resource reference to the Azure resource where custom domain ownership was prevalidated
         :param pulumi.Input['AFDDomainHttpsParametersArgs'] tls_settings: The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
         """
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AFDCustomDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            azure_dns_zone=azure_dns_zone,
+            custom_domain_name=custom_domain_name,
+            extended_properties=extended_properties,
+            pre_validated_custom_domain_resource_id=pre_validated_custom_domain_resource_id,
+            tls_settings=tls_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: pulumi.Input[str],
+             profile_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             azure_dns_zone: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             custom_domain_name: Optional[pulumi.Input[str]] = None,
+             extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             pre_validated_custom_domain_resource_id: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             tls_settings: Optional[pulumi.Input['AFDDomainHttpsParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if azure_dns_zone is not None:
-            pulumi.set(__self__, "azure_dns_zone", azure_dns_zone)
+            _setter("azure_dns_zone", azure_dns_zone)
         if custom_domain_name is not None:
-            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+            _setter("custom_domain_name", custom_domain_name)
         if extended_properties is not None:
-            pulumi.set(__self__, "extended_properties", extended_properties)
+            _setter("extended_properties", extended_properties)
         if pre_validated_custom_domain_resource_id is not None:
-            pulumi.set(__self__, "pre_validated_custom_domain_resource_id", pre_validated_custom_domain_resource_id)
+            _setter("pre_validated_custom_domain_resource_id", pre_validated_custom_domain_resource_id)
         if tls_settings is not None:
-            pulumi.set(__self__, "tls_settings", tls_settings)
+            _setter("tls_settings", tls_settings)
 
     @property
     @pulumi.getter(name="hostName")
@@ -194,6 +217,10 @@ class AFDCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AFDCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -216,12 +243,22 @@ class AFDCustomDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AFDCustomDomainArgs.__new__(AFDCustomDomainArgs)
 
+            if azure_dns_zone is not None and not isinstance(azure_dns_zone, ResourceReferenceArgs):
+                azure_dns_zone = azure_dns_zone or {}
+                def _setter(key, value):
+                    azure_dns_zone[key] = value
+                ResourceReferenceArgs._configure(_setter, **azure_dns_zone)
             __props__.__dict__["azure_dns_zone"] = azure_dns_zone
             __props__.__dict__["custom_domain_name"] = custom_domain_name
             __props__.__dict__["extended_properties"] = extended_properties
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
+            if pre_validated_custom_domain_resource_id is not None and not isinstance(pre_validated_custom_domain_resource_id, ResourceReferenceArgs):
+                pre_validated_custom_domain_resource_id = pre_validated_custom_domain_resource_id or {}
+                def _setter(key, value):
+                    pre_validated_custom_domain_resource_id[key] = value
+                ResourceReferenceArgs._configure(_setter, **pre_validated_custom_domain_resource_id)
             __props__.__dict__["pre_validated_custom_domain_resource_id"] = pre_validated_custom_domain_resource_id
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
@@ -229,6 +266,11 @@ class AFDCustomDomain(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if tls_settings is not None and not isinstance(tls_settings, AFDDomainHttpsParametersArgs):
+                tls_settings = tls_settings or {}
+                def _setter(key, value):
+                    tls_settings[key] = value
+                AFDDomainHttpsParametersArgs._configure(_setter, **tls_settings)
             __props__.__dict__["tls_settings"] = tls_settings
             __props__.__dict__["deployment_status"] = None
             __props__.__dict__["domain_validation_state"] = None

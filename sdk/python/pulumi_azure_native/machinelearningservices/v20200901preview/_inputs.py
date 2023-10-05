@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -37,10 +37,21 @@ class ComputeBindingArgs:
         :param pulumi.Input[str] compute_id: ID of the compute resource.
         :param pulumi.Input[int] node_count: Number of nodes.
         """
+        ComputeBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_id=compute_id,
+            node_count=node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_id: Optional[pulumi.Input[str]] = None,
+             node_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_id is not None:
-            pulumi.set(__self__, "compute_id", compute_id)
+            _setter("compute_id", compute_id)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
 
     @property
     @pulumi.getter(name="computeId")
@@ -76,8 +87,19 @@ class EncryptionPropertyArgs:
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Customer Key vault properties.
         :param pulumi.Input[Union[str, 'EncryptionStatus']] status: Indicates whether or not the encryption is enabled for the workspace.
         """
-        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-        pulumi.set(__self__, "status", status)
+        EncryptionPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_properties=key_vault_properties,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_properties: pulumi.Input['KeyVaultPropertiesArgs'],
+             status: pulumi.Input[Union[str, 'EncryptionStatus']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_properties", key_vault_properties)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -114,10 +136,21 @@ class IdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user assigned identities associated with the resource.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -155,10 +188,23 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_arm_id: The ArmId of the keyVault where the customer owned encryption key is present.
         :param pulumi.Input[str] identity_client_id: For future use - The client id of the identity which will be used to access key vault.
         """
-        pulumi.set(__self__, "key_identifier", key_identifier)
-        pulumi.set(__self__, "key_vault_arm_id", key_vault_arm_id)
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+            key_vault_arm_id=key_vault_arm_id,
+            identity_client_id=identity_client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: pulumi.Input[str],
+             key_vault_arm_id: pulumi.Input[str],
+             identity_client_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_identifier", key_identifier)
+        _setter("key_vault_arm_id", key_vault_arm_id)
         if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
+            _setter("identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -209,11 +255,24 @@ class LabelCategoryArgs:
         :param pulumi.Input[bool] allow_multi_select: Indicates whether it is allowed to select multiple classes in this category.
         :param pulumi.Input[str] display_name: Display name of the label category.
         """
-        pulumi.set(__self__, "classes", classes)
+        LabelCategoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classes=classes,
+            allow_multi_select=allow_multi_select,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classes: pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]],
+             allow_multi_select: Optional[pulumi.Input[bool]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("classes", classes)
         if allow_multi_select is not None:
-            pulumi.set(__self__, "allow_multi_select", allow_multi_select)
+            _setter("allow_multi_select", allow_multi_select)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -262,10 +321,21 @@ class LabelClassArgs:
         :param pulumi.Input[str] display_name: Display name of the label class.
         :param pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]] subclasses: Dictionary of subclasses of the label class.
         """
+        LabelClassArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            subclasses=subclasses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             subclasses: Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if subclasses is not None:
-            pulumi.set(__self__, "subclasses", subclasses)
+            _setter("subclasses", subclasses)
 
     @property
     @pulumi.getter(name="displayName")
@@ -304,10 +374,23 @@ class LabelingDatasetConfigurationArgs:
         :param pulumi.Input[str] dataset_version: AML dataset version.
         :param pulumi.Input[bool] enable_incremental_dataset_refresh: Indicates whether to enable incremental dataset refresh.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "dataset_version", dataset_version)
+        LabelingDatasetConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            dataset_version=dataset_version,
+            enable_incremental_dataset_refresh=enable_incremental_dataset_refresh,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: pulumi.Input[str],
+             dataset_version: pulumi.Input[str],
+             enable_incremental_dataset_refresh: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("asset_name", asset_name)
+        _setter("dataset_version", dataset_version)
         if enable_incremental_dataset_refresh is not None:
-            pulumi.set(__self__, "enable_incremental_dataset_refresh", enable_incremental_dataset_refresh)
+            _setter("enable_incremental_dataset_refresh", enable_incremental_dataset_refresh)
 
     @property
     @pulumi.getter(name="assetName")
@@ -355,9 +438,20 @@ class LabelingJobImagePropertiesArgs:
         :param pulumi.Input[Union[str, 'MediaType']] media_type: Media type of data asset.
         :param pulumi.Input[Union[str, 'ImageAnnotationType']] annotation_type: Annotation type of image labeling tasks.
         """
-        pulumi.set(__self__, "media_type", media_type)
+        LabelingJobImagePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            media_type=media_type,
+            annotation_type=annotation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             media_type: pulumi.Input[Union[str, 'MediaType']],
+             annotation_type: Optional[pulumi.Input[Union[str, 'ImageAnnotationType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("media_type", media_type)
         if annotation_type is not None:
-            pulumi.set(__self__, "annotation_type", annotation_type)
+            _setter("annotation_type", annotation_type)
 
     @property
     @pulumi.getter(name="mediaType")
@@ -392,8 +486,17 @@ class LabelingJobInstructionsArgs:
         Instructions for a labeling job.
         :param pulumi.Input[str] uri: The link to a page with detailed labeling instructions for labelers.
         """
+        LabelingJobInstructionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -428,16 +531,37 @@ class LabelingJobPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The job property dictionary. Properties can be added, but not removed or altered.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The job tag dictionary. Tags can be added, removed, and updated.
         """
-        pulumi.set(__self__, "dataset_configuration", dataset_configuration)
-        pulumi.set(__self__, "job_instructions", job_instructions)
-        pulumi.set(__self__, "label_categories", label_categories)
-        pulumi.set(__self__, "labeling_job_media_properties", labeling_job_media_properties)
+        LabelingJobPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dataset_configuration=dataset_configuration,
+            job_instructions=job_instructions,
+            label_categories=label_categories,
+            labeling_job_media_properties=labeling_job_media_properties,
+            ml_assist_configuration=ml_assist_configuration,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dataset_configuration: pulumi.Input['LabelingDatasetConfigurationArgs'],
+             job_instructions: pulumi.Input['LabelingJobInstructionsArgs'],
+             label_categories: pulumi.Input[Mapping[str, pulumi.Input['LabelCategoryArgs']]],
+             labeling_job_media_properties: pulumi.Input['LabelingJobImagePropertiesArgs'],
+             ml_assist_configuration: Optional[pulumi.Input['MLAssistConfigurationArgs']] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dataset_configuration", dataset_configuration)
+        _setter("job_instructions", job_instructions)
+        _setter("label_categories", label_categories)
+        _setter("labeling_job_media_properties", labeling_job_media_properties)
         if ml_assist_configuration is not None:
-            pulumi.set(__self__, "ml_assist_configuration", ml_assist_configuration)
+            _setter("ml_assist_configuration", ml_assist_configuration)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="datasetConfiguration")
@@ -538,13 +662,28 @@ class LinkedServicePropsArgs:
         :param pulumi.Input['LinkedServiceLinkType'] link_type: Type of the link target.
         :param pulumi.Input[str] modified_time: The last modified time of the linked service.
         """
-        pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        LinkedServicePropsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_resource_id=linked_service_resource_id,
+            created_time=created_time,
+            link_type=link_type,
+            modified_time=modified_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_resource_id: pulumi.Input[str],
+             created_time: Optional[pulumi.Input[str]] = None,
+             link_type: Optional[pulumi.Input['LinkedServiceLinkType']] = None,
+             modified_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_resource_id", linked_service_resource_id)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if link_type is not None:
-            pulumi.set(__self__, "link_type", link_type)
+            _setter("link_type", link_type)
         if modified_time is not None:
-            pulumi.set(__self__, "modified_time", modified_time)
+            _setter("modified_time", modified_time)
 
     @property
     @pulumi.getter(name="linkedServiceResourceId")
@@ -611,13 +750,30 @@ class MLAssistConfigurationArgs:
         :param pulumi.Input[bool] ml_assist_enabled: Indicates whether MLAssist feature is enabled.
         :param pulumi.Input[float] prelabel_accuracy_threshold: Prelabel accuracy threshold used in MLAssist feature.
         """
-        pulumi.set(__self__, "inferencing_compute_binding", inferencing_compute_binding)
-        pulumi.set(__self__, "model_name_prefix", model_name_prefix)
-        pulumi.set(__self__, "training_compute_binding", training_compute_binding)
+        MLAssistConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inferencing_compute_binding=inferencing_compute_binding,
+            model_name_prefix=model_name_prefix,
+            training_compute_binding=training_compute_binding,
+            ml_assist_enabled=ml_assist_enabled,
+            prelabel_accuracy_threshold=prelabel_accuracy_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inferencing_compute_binding: pulumi.Input['ComputeBindingArgs'],
+             model_name_prefix: pulumi.Input[str],
+             training_compute_binding: pulumi.Input['ComputeBindingArgs'],
+             ml_assist_enabled: Optional[pulumi.Input[bool]] = None,
+             prelabel_accuracy_threshold: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("inferencing_compute_binding", inferencing_compute_binding)
+        _setter("model_name_prefix", model_name_prefix)
+        _setter("training_compute_binding", training_compute_binding)
         if ml_assist_enabled is not None:
-            pulumi.set(__self__, "ml_assist_enabled", ml_assist_enabled)
+            _setter("ml_assist_enabled", ml_assist_enabled)
         if prelabel_accuracy_threshold is not None:
-            pulumi.set(__self__, "prelabel_accuracy_threshold", prelabel_accuracy_threshold)
+            _setter("prelabel_accuracy_threshold", prelabel_accuracy_threshold)
 
     @property
     @pulumi.getter(name="inferencingComputeBinding")
@@ -695,16 +851,33 @@ class SharedPrivateLinkResourceArgs:
         :param pulumi.Input[str] request_message: Request message.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        SharedPrivateLinkResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            name=name,
+            private_link_resource_id=private_link_resource_id,
+            request_message=request_message,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_link_resource_id: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+            _setter("private_link_resource_id", private_link_resource_id)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="groupId")
@@ -777,10 +950,21 @@ class SkuArgs:
         :param pulumi.Input[str] name: Name of the sku
         :param pulumi.Input[str] tier: Tier of the sku like Basic or Enterprise
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

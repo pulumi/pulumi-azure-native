@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -64,10 +64,25 @@ class AssociatedWorkspaceResponse(dict):
         :param str workspace_id: The id of the assigned workspace.
         :param str workspace_name: The name id the assigned workspace.
         """
-        pulumi.set(__self__, "associate_date", associate_date)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "workspace_id", workspace_id)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        AssociatedWorkspaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            associate_date=associate_date,
+            resource_id=resource_id,
+            workspace_id=workspace_id,
+            workspace_name=workspace_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             associate_date: str,
+             resource_id: str,
+             workspace_id: str,
+             workspace_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("associate_date", associate_date)
+        _setter("resource_id", resource_id)
+        _setter("workspace_id", workspace_id)
+        _setter("workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="associateDate")
@@ -134,8 +149,19 @@ class CapacityReservationPropertiesResponse(dict):
         :param str last_sku_update: The last time Sku was updated.
         :param float min_capacity: Minimum CapacityReservation value in GB.
         """
-        pulumi.set(__self__, "last_sku_update", last_sku_update)
-        pulumi.set(__self__, "min_capacity", min_capacity)
+        CapacityReservationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_sku_update=last_sku_update,
+            min_capacity=min_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_sku_update: str,
+             min_capacity: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last_sku_update", last_sku_update)
+        _setter("min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="lastSkuUpdate")
@@ -167,10 +193,21 @@ class ClusterSkuResponse(dict):
         :param float capacity: The capacity value
         :param str name: The name of the SKU.
         """
+        ClusterSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[float] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -227,11 +264,26 @@ class IdentityResponse(dict):
         :param str type: Type of managed service identity.
         :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -306,14 +358,29 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
         :param str key_version: The version of the key associated with the Log Analytics cluster.
         """
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_rsa_size=key_rsa_size,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[str] = None,
+             key_rsa_size: Optional[int] = None,
+             key_vault_uri: Optional[str] = None,
+             key_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_rsa_size is not None:
-            pulumi.set(__self__, "key_rsa_size", key_rsa_size)
+            _setter("key_rsa_size", key_rsa_size)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -380,10 +447,21 @@ class PrivateLinkScopedResourceResponse(dict):
         :param str resource_id: The full resource Id of the private link scope resource.
         :param str scope_id: The private link scope unique Identifier.
         """
+        PrivateLinkScopedResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            scope_id=scope_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             scope_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if scope_id is not None:
-            pulumi.set(__self__, "scope_id", scope_id)
+            _setter("scope_id", scope_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -434,8 +512,19 @@ class UserIdentityPropertiesResponse(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserIdentityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -490,10 +579,23 @@ class WorkspaceCappingResponse(dict):
         :param str quota_next_reset_time: The time when the quota will be rest.
         :param float daily_quota_gb: The workspace daily quota for ingestion.
         """
-        pulumi.set(__self__, "data_ingestion_status", data_ingestion_status)
-        pulumi.set(__self__, "quota_next_reset_time", quota_next_reset_time)
+        WorkspaceCappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_ingestion_status=data_ingestion_status,
+            quota_next_reset_time=quota_next_reset_time,
+            daily_quota_gb=daily_quota_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_ingestion_status: str,
+             quota_next_reset_time: str,
+             daily_quota_gb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_ingestion_status", data_ingestion_status)
+        _setter("quota_next_reset_time", quota_next_reset_time)
         if daily_quota_gb is not None:
-            pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
+            _setter("daily_quota_gb", daily_quota_gb)
 
     @property
     @pulumi.getter(name="dataIngestionStatus")
@@ -564,16 +666,33 @@ class WorkspaceFeaturesResponse(dict):
         :param bool enable_log_access_using_only_resource_permissions: Flag that indicate which permission to use - resource or workspace or both.
         :param bool immediate_purge_data_on30_days: Flag that describes if we want to remove the data after 30 days.
         """
+        WorkspaceFeaturesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_resource_id=cluster_resource_id,
+            disable_local_auth=disable_local_auth,
+            enable_data_export=enable_data_export,
+            enable_log_access_using_only_resource_permissions=enable_log_access_using_only_resource_permissions,
+            immediate_purge_data_on30_days=immediate_purge_data_on30_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_resource_id: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             enable_data_export: Optional[bool] = None,
+             enable_log_access_using_only_resource_permissions: Optional[bool] = None,
+             immediate_purge_data_on30_days: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_resource_id is not None:
-            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+            _setter("cluster_resource_id", cluster_resource_id)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if enable_data_export is not None:
-            pulumi.set(__self__, "enable_data_export", enable_data_export)
+            _setter("enable_data_export", enable_data_export)
         if enable_log_access_using_only_resource_permissions is not None:
-            pulumi.set(__self__, "enable_log_access_using_only_resource_permissions", enable_log_access_using_only_resource_permissions)
+            _setter("enable_log_access_using_only_resource_permissions", enable_log_access_using_only_resource_permissions)
         if immediate_purge_data_on30_days is not None:
-            pulumi.set(__self__, "immediate_purge_data_on30_days", immediate_purge_data_on30_days)
+            _setter("immediate_purge_data_on30_days", immediate_purge_data_on30_days)
 
     @property
     @pulumi.getter(name="clusterResourceId")
@@ -650,10 +769,23 @@ class WorkspaceSkuResponse(dict):
         :param str name: The name of the SKU.
         :param int capacity_reservation_level: The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
-        pulumi.set(__self__, "last_sku_update", last_sku_update)
-        pulumi.set(__self__, "name", name)
+        WorkspaceSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_sku_update=last_sku_update,
+            name=name,
+            capacity_reservation_level=capacity_reservation_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_sku_update: str,
+             name: str,
+             capacity_reservation_level: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last_sku_update", last_sku_update)
+        _setter("name", name)
         if capacity_reservation_level is not None:
-            pulumi.set(__self__, "capacity_reservation_level", capacity_reservation_level)
+            _setter("capacity_reservation_level", capacity_reservation_level)
 
     @property
     @pulumi.getter(name="lastSkuUpdate")

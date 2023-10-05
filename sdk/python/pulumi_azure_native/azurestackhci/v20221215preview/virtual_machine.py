@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,27 +42,56 @@ class VirtualMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_machine_name: Name of the virtual machine
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            extended_location=extended_location,
+            hardware_profile=hardware_profile,
+            identity=identity,
+            location=location,
+            network_profile=network_profile,
+            os_profile=os_profile,
+            security_profile=security_profile,
+            storage_profile=storage_profile,
+            tags=tags,
+            virtual_machine_name=virtual_machine_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             hardware_profile: Optional[pulumi.Input['VirtualMachinePropertiesHardwareProfileArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['VirtualMachinePropertiesNetworkProfileArgs']] = None,
+             os_profile: Optional[pulumi.Input['VirtualMachinePropertiesOsProfileArgs']] = None,
+             security_profile: Optional[pulumi.Input['VirtualMachinePropertiesSecurityProfileArgs']] = None,
+             storage_profile: Optional[pulumi.Input['VirtualMachinePropertiesStorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_machine_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if hardware_profile is not None:
-            pulumi.set(__self__, "hardware_profile", hardware_profile)
+            _setter("hardware_profile", hardware_profile)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_machine_name is not None:
-            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+            _setter("virtual_machine_name", virtual_machine_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -250,6 +279,10 @@ class VirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -275,16 +308,51 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineArgs.__new__(VirtualMachineArgs)
 
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
+            if hardware_profile is not None and not isinstance(hardware_profile, VirtualMachinePropertiesHardwareProfileArgs):
+                hardware_profile = hardware_profile or {}
+                def _setter(key, value):
+                    hardware_profile[key] = value
+                VirtualMachinePropertiesHardwareProfileArgs._configure(_setter, **hardware_profile)
             __props__.__dict__["hardware_profile"] = hardware_profile
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if network_profile is not None and not isinstance(network_profile, VirtualMachinePropertiesNetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                VirtualMachinePropertiesNetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
+            if os_profile is not None and not isinstance(os_profile, VirtualMachinePropertiesOsProfileArgs):
+                os_profile = os_profile or {}
+                def _setter(key, value):
+                    os_profile[key] = value
+                VirtualMachinePropertiesOsProfileArgs._configure(_setter, **os_profile)
             __props__.__dict__["os_profile"] = os_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if security_profile is not None and not isinstance(security_profile, VirtualMachinePropertiesSecurityProfileArgs):
+                security_profile = security_profile or {}
+                def _setter(key, value):
+                    security_profile[key] = value
+                VirtualMachinePropertiesSecurityProfileArgs._configure(_setter, **security_profile)
             __props__.__dict__["security_profile"] = security_profile
+            if storage_profile is not None and not isinstance(storage_profile, VirtualMachinePropertiesStorageProfileArgs):
+                storage_profile = storage_profile or {}
+                def _setter(key, value):
+                    storage_profile[key] = value
+                VirtualMachinePropertiesStorageProfileArgs._configure(_setter, **storage_profile)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -41,34 +41,65 @@ class ProviderArgs:
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
         :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auxiliary_tenant_ids=auxiliary_tenant_ids,
+            client_certificate_password=client_certificate_password,
+            client_certificate_path=client_certificate_path,
+            client_id=client_id,
+            client_secret=client_secret,
+            disable_pulumi_partner_id=disable_pulumi_partner_id,
+            environment=environment,
+            msi_endpoint=msi_endpoint,
+            partner_id=partner_id,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            use_msi=use_msi,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             client_certificate_password: Optional[pulumi.Input[str]] = None,
+             client_certificate_path: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             disable_pulumi_partner_id: Optional[pulumi.Input[bool]] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             msi_endpoint: Optional[pulumi.Input[str]] = None,
+             partner_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             use_msi: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auxiliary_tenant_ids is not None:
-            pulumi.set(__self__, "auxiliary_tenant_ids", auxiliary_tenant_ids)
+            _setter("auxiliary_tenant_ids", auxiliary_tenant_ids)
         if client_certificate_password is not None:
-            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
+            _setter("client_certificate_password", client_certificate_password)
         if client_certificate_path is not None:
-            pulumi.set(__self__, "client_certificate_path", client_certificate_path)
+            _setter("client_certificate_path", client_certificate_path)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if disable_pulumi_partner_id is not None:
-            pulumi.set(__self__, "disable_pulumi_partner_id", disable_pulumi_partner_id)
+            _setter("disable_pulumi_partner_id", disable_pulumi_partner_id)
         if environment is None:
             environment = 'public'
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if msi_endpoint is not None:
-            pulumi.set(__self__, "msi_endpoint", msi_endpoint)
+            _setter("msi_endpoint", msi_endpoint)
         if partner_id is not None:
-            pulumi.set(__self__, "partner_id", partner_id)
+            _setter("partner_id", partner_id)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if use_msi is None:
             use_msi = False
         if use_msi is not None:
-            pulumi.set(__self__, "use_msi", use_msi)
+            _setter("use_msi", use_msi)
 
     @property
     @pulumi.getter(name="auxiliaryTenantIds")
@@ -270,6 +301,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

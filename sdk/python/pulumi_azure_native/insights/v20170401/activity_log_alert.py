@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,47 @@ class ActivityLogAlertArgs:
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "condition", condition)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scopes", scopes)
+        ActivityLogAlertArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            condition=condition,
+            resource_group_name=resource_group_name,
+            scopes=scopes,
+            activity_log_alert_name=activity_log_alert_name,
+            description=description,
+            enabled=enabled,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input['ActivityLogAlertActionListArgs'],
+             condition: pulumi.Input['ActivityLogAlertAllOfConditionArgs'],
+             resource_group_name: pulumi.Input[str],
+             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             activity_log_alert_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("condition", condition)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scopes", scopes)
         if activity_log_alert_name is not None:
-            pulumi.set(__self__, "activity_log_alert_name", activity_log_alert_name)
+            _setter("activity_log_alert_name", activity_log_alert_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is None:
             enabled = True
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -212,6 +237,10 @@ class ActivityLogAlert(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActivityLogAlertArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -235,10 +264,20 @@ class ActivityLogAlert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActivityLogAlertArgs.__new__(ActivityLogAlertArgs)
 
+            if actions is not None and not isinstance(actions, ActivityLogAlertActionListArgs):
+                actions = actions or {}
+                def _setter(key, value):
+                    actions[key] = value
+                ActivityLogAlertActionListArgs._configure(_setter, **actions)
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
             __props__.__dict__["activity_log_alert_name"] = activity_log_alert_name
+            if condition is not None and not isinstance(condition, ActivityLogAlertAllOfConditionArgs):
+                condition = condition or {}
+                def _setter(key, value):
+                    condition[key] = value
+                ActivityLogAlertAllOfConditionArgs._configure(_setter, **condition)
             if condition is None and not opts.urn:
                 raise TypeError("Missing required property 'condition'")
             __props__.__dict__["condition"] = condition

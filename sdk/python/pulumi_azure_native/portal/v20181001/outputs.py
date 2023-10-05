@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,9 +52,22 @@ class ConsolePropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the console.
         :param str uri: Uri of the console.
         """
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "uri", uri)
+        ConsolePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            provisioning_state=provisioning_state,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: str,
+             provisioning_state: str,
+             uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os_type", os_type)
+        _setter("provisioning_state", provisioning_state)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter(name="osType")
@@ -117,12 +130,25 @@ class StorageProfileResponse(dict):
         :param str file_share_name: Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
         :param str storage_account_resource_id: Full resource ID of storage account.
         """
+        StorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_size_in_gb=disk_size_in_gb,
+            file_share_name=file_share_name,
+            storage_account_resource_id=storage_account_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_size_in_gb: Optional[int] = None,
+             file_share_name: Optional[str] = None,
+             storage_account_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_size_in_gb is not None:
-            pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
+            _setter("disk_size_in_gb", disk_size_in_gb)
         if file_share_name is not None:
-            pulumi.set(__self__, "file_share_name", file_share_name)
+            _setter("file_share_name", file_share_name)
         if storage_account_resource_id is not None:
-            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+            _setter("storage_account_resource_id", storage_account_resource_id)
 
     @property
     @pulumi.getter(name="diskSizeInGB")
@@ -181,10 +207,21 @@ class TerminalSettingsResponse(dict):
         :param str font_size: Size of terminal font.
         :param str font_style: Style of terminal font.
         """
+        TerminalSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            font_size=font_size,
+            font_style=font_style,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             font_size: Optional[str] = None,
+             font_style: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if font_size is not None:
-            pulumi.set(__self__, "font_size", font_size)
+            _setter("font_size", font_size)
         if font_style is not None:
-            pulumi.set(__self__, "font_style", font_style)
+            _setter("font_style", font_style)
 
     @property
     @pulumi.getter(name="fontSize")
@@ -247,11 +284,28 @@ class UserPropertiesResponse(dict):
         :param 'StorageProfileResponse' storage_profile: The storage profile of the user settings.
         :param 'TerminalSettingsResponse' terminal_settings: Settings for terminal appearance.
         """
-        pulumi.set(__self__, "preferred_location", preferred_location)
-        pulumi.set(__self__, "preferred_os_type", preferred_os_type)
-        pulumi.set(__self__, "preferred_shell_type", preferred_shell_type)
-        pulumi.set(__self__, "storage_profile", storage_profile)
-        pulumi.set(__self__, "terminal_settings", terminal_settings)
+        UserPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_location=preferred_location,
+            preferred_os_type=preferred_os_type,
+            preferred_shell_type=preferred_shell_type,
+            storage_profile=storage_profile,
+            terminal_settings=terminal_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_location: str,
+             preferred_os_type: str,
+             preferred_shell_type: str,
+             storage_profile: 'outputs.StorageProfileResponse',
+             terminal_settings: 'outputs.TerminalSettingsResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("preferred_location", preferred_location)
+        _setter("preferred_os_type", preferred_os_type)
+        _setter("preferred_shell_type", preferred_shell_type)
+        _setter("storage_profile", storage_profile)
+        _setter("terminal_settings", terminal_settings)
 
     @property
     @pulumi.getter(name="preferredLocation")

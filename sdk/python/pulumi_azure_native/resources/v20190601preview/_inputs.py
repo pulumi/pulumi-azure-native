@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,9 +27,22 @@ class TemplateSpecTemplateArtifactArgs:
         :param pulumi.Input[str] path: A filesystem safe relative path of the artifact.
         :param Any template: The Azure Resource Manager template.
         """
-        pulumi.set(__self__, "kind", 'template')
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "template", template)
+        TemplateSpecTemplateArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            path=path,
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             path: pulumi.Input[str],
+             template: Any,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", 'template')
+        _setter("path", path)
+        _setter("template", template)
 
     @property
     @pulumi.getter

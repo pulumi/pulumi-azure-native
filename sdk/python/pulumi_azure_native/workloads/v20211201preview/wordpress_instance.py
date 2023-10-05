@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -29,13 +29,30 @@ class WordpressInstanceArgs:
         :param pulumi.Input[str] database_name: Database name used by the application
         :param pulumi.Input[str] database_user: User name used by the application to connect to database
         """
-        pulumi.set(__self__, "php_workload_name", php_workload_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "version", version)
+        WordpressInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            php_workload_name=php_workload_name,
+            resource_group_name=resource_group_name,
+            version=version,
+            database_name=database_name,
+            database_user=database_user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             php_workload_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             version: pulumi.Input[Union[str, 'WordpressVersions']],
+             database_name: Optional[pulumi.Input[str]] = None,
+             database_user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("php_workload_name", php_workload_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("version", version)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if database_user is not None:
-            pulumi.set(__self__, "database_user", database_user)
+            _setter("database_user", database_user)
 
     @property
     @pulumi.getter(name="phpWorkloadName")
@@ -139,6 +156,10 @@ class WordpressInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WordpressInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

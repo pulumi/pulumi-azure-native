@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,16 +33,35 @@ class CredentialSetArgs:
         :param pulumi.Input['IdentityPropertiesArgs'] identity: Identities associated with the resource. This is used to access the KeyVault secrets.
         :param pulumi.Input[str] login_server: The credentials are stored for this upstream or login server.
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CredentialSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            auth_credentials=auth_credentials,
+            credential_set_name=credential_set_name,
+            identity=identity,
+            login_server=login_server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             auth_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['AuthCredentialArgs']]]] = None,
+             credential_set_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+             login_server: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if auth_credentials is not None:
-            pulumi.set(__self__, "auth_credentials", auth_credentials)
+            _setter("auth_credentials", auth_credentials)
         if credential_set_name is not None:
-            pulumi.set(__self__, "credential_set_name", credential_set_name)
+            _setter("credential_set_name", credential_set_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if login_server is not None:
-            pulumi.set(__self__, "login_server", login_server)
+            _setter("login_server", login_server)
 
     @property
     @pulumi.getter(name="registryName")
@@ -164,6 +183,10 @@ class CredentialSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CredentialSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -186,6 +209,11 @@ class CredentialSet(pulumi.CustomResource):
 
             __props__.__dict__["auth_credentials"] = auth_credentials
             __props__.__dict__["credential_set_name"] = credential_set_name
+            if identity is not None and not isinstance(identity, IdentityPropertiesArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityPropertiesArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["login_server"] = login_server
             if registry_name is None and not opts.urn:

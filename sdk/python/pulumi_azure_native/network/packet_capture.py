@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,30 +42,59 @@ class PacketCaptureArgs:
         :param pulumi.Input[int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
         :param pulumi.Input[float] total_bytes_per_session: Maximum size of the capture output.
         """
-        pulumi.set(__self__, "network_watcher_name", network_watcher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_location", storage_location)
-        pulumi.set(__self__, "target", target)
+        PacketCaptureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_watcher_name=network_watcher_name,
+            resource_group_name=resource_group_name,
+            storage_location=storage_location,
+            target=target,
+            bytes_to_capture_per_packet=bytes_to_capture_per_packet,
+            filters=filters,
+            packet_capture_name=packet_capture_name,
+            scope=scope,
+            target_type=target_type,
+            time_limit_in_seconds=time_limit_in_seconds,
+            total_bytes_per_session=total_bytes_per_session,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_watcher_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_location: pulumi.Input['PacketCaptureStorageLocationArgs'],
+             target: pulumi.Input[str],
+             bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]] = None,
+             packet_capture_name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['PacketCaptureMachineScopeArgs']] = None,
+             target_type: Optional[pulumi.Input['PacketCaptureTargetType']] = None,
+             time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
+             total_bytes_per_session: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_watcher_name", network_watcher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_location", storage_location)
+        _setter("target", target)
         if bytes_to_capture_per_packet is None:
             bytes_to_capture_per_packet = 0
         if bytes_to_capture_per_packet is not None:
-            pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
+            _setter("bytes_to_capture_per_packet", bytes_to_capture_per_packet)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if packet_capture_name is not None:
-            pulumi.set(__self__, "packet_capture_name", packet_capture_name)
+            _setter("packet_capture_name", packet_capture_name)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
         if time_limit_in_seconds is None:
             time_limit_in_seconds = 18000
         if time_limit_in_seconds is not None:
-            pulumi.set(__self__, "time_limit_in_seconds", time_limit_in_seconds)
+            _setter("time_limit_in_seconds", time_limit_in_seconds)
         if total_bytes_per_session is None:
             total_bytes_per_session = 1073741824
         if total_bytes_per_session is not None:
-            pulumi.set(__self__, "total_bytes_per_session", total_bytes_per_session)
+            _setter("total_bytes_per_session", total_bytes_per_session)
 
     @property
     @pulumi.getter(name="networkWatcherName")
@@ -255,6 +284,10 @@ class PacketCapture(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PacketCaptureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -291,7 +324,17 @@ class PacketCapture(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if scope is not None and not isinstance(scope, PacketCaptureMachineScopeArgs):
+                scope = scope or {}
+                def _setter(key, value):
+                    scope[key] = value
+                PacketCaptureMachineScopeArgs._configure(_setter, **scope)
             __props__.__dict__["scope"] = scope
+            if storage_location is not None and not isinstance(storage_location, PacketCaptureStorageLocationArgs):
+                storage_location = storage_location or {}
+                def _setter(key, value):
+                    storage_location[key] = value
+                PacketCaptureStorageLocationArgs._configure(_setter, **storage_location)
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -42,8 +42,17 @@ class AgentPoolUpgradeSettingsResponse(dict):
         Settings for upgrading an agentpool
         :param str max_surge: Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
         """
+        AgentPoolUpgradeSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_surge=max_surge,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_surge: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_surge is not None:
-            pulumi.set(__self__, "max_surge", max_surge)
+            _setter("max_surge", max_surge)
 
     @property
     @pulumi.getter(name="maxSurge")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -31,16 +31,35 @@ class CacheRuleArgs:
         :param pulumi.Input[str] target_repository: Target repository specified in docker pull command.
                Eg: docker pull myregistry.azurecr.io/{targetRepository}:{tag}
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CacheRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            cache_rule_name=cache_rule_name,
+            credential_set_resource_id=credential_set_resource_id,
+            source_repository=source_repository,
+            target_repository=target_repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             cache_rule_name: Optional[pulumi.Input[str]] = None,
+             credential_set_resource_id: Optional[pulumi.Input[str]] = None,
+             source_repository: Optional[pulumi.Input[str]] = None,
+             target_repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if cache_rule_name is not None:
-            pulumi.set(__self__, "cache_rule_name", cache_rule_name)
+            _setter("cache_rule_name", cache_rule_name)
         if credential_set_resource_id is not None:
-            pulumi.set(__self__, "credential_set_resource_id", credential_set_resource_id)
+            _setter("credential_set_resource_id", credential_set_resource_id)
         if source_repository is not None:
-            pulumi.set(__self__, "source_repository", source_repository)
+            _setter("source_repository", source_repository)
         if target_repository is not None:
-            pulumi.set(__self__, "target_repository", target_repository)
+            _setter("target_repository", target_repository)
 
     @property
     @pulumi.getter(name="registryName")
@@ -160,6 +179,10 @@ class CacheRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CacheRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -55,10 +55,25 @@ class OperationImpactResponse(dict):
         :param str name: The name of the impact dimension.
         :param str unit: The unit in which estimated impact to dimension is measured.
         """
-        pulumi.set(__self__, "change_value_absolute", change_value_absolute)
-        pulumi.set(__self__, "change_value_relative", change_value_relative)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "unit", unit)
+        OperationImpactResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            change_value_absolute=change_value_absolute,
+            change_value_relative=change_value_relative,
+            name=name,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             change_value_absolute: float,
+             change_value_relative: float,
+             name: str,
+             unit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("change_value_absolute", change_value_absolute)
+        _setter("change_value_relative", change_value_relative)
+        _setter("name", name)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter(name="changeValueAbsolute")
@@ -159,21 +174,58 @@ class RecommendedIndexResponse(dict):
         :param str table: The table on which to build index.
         :param str type: Resource type.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "created", created)
-        pulumi.set(__self__, "estimated_impact", estimated_impact)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "included_columns", included_columns)
-        pulumi.set(__self__, "index_script", index_script)
-        pulumi.set(__self__, "index_type", index_type)
-        pulumi.set(__self__, "last_modified", last_modified)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "reported_impact", reported_impact)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table", table)
-        pulumi.set(__self__, "type", type)
+        RecommendedIndexResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            columns=columns,
+            created=created,
+            estimated_impact=estimated_impact,
+            id=id,
+            included_columns=included_columns,
+            index_script=index_script,
+            index_type=index_type,
+            last_modified=last_modified,
+            name=name,
+            reported_impact=reported_impact,
+            schema=schema,
+            state=state,
+            table=table,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             columns: Sequence[str],
+             created: str,
+             estimated_impact: Sequence['outputs.OperationImpactResponse'],
+             id: str,
+             included_columns: Sequence[str],
+             index_script: str,
+             index_type: str,
+             last_modified: str,
+             name: str,
+             reported_impact: Sequence['outputs.OperationImpactResponse'],
+             schema: str,
+             state: str,
+             table: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("columns", columns)
+        _setter("created", created)
+        _setter("estimated_impact", estimated_impact)
+        _setter("id", id)
+        _setter("included_columns", included_columns)
+        _setter("index_script", index_script)
+        _setter("index_type", index_type)
+        _setter("last_modified", last_modified)
+        _setter("name", name)
+        _setter("reported_impact", reported_impact)
+        _setter("schema", schema)
+        _setter("state", state)
+        _setter("table", table)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -400,28 +452,79 @@ class ServiceTierAdvisorResponse(dict):
         :param str usage_based_recommendation_service_level_objective: Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
         :param str usage_based_recommendation_service_level_objective_id: Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
         """
-        pulumi.set(__self__, "active_time_ratio", active_time_ratio)
-        pulumi.set(__self__, "avg_dtu", avg_dtu)
-        pulumi.set(__self__, "confidence", confidence)
-        pulumi.set(__self__, "current_service_level_objective", current_service_level_objective)
-        pulumi.set(__self__, "current_service_level_objective_id", current_service_level_objective_id)
-        pulumi.set(__self__, "database_size_based_recommendation_service_level_objective", database_size_based_recommendation_service_level_objective)
-        pulumi.set(__self__, "database_size_based_recommendation_service_level_objective_id", database_size_based_recommendation_service_level_objective_id)
-        pulumi.set(__self__, "disaster_plan_based_recommendation_service_level_objective", disaster_plan_based_recommendation_service_level_objective)
-        pulumi.set(__self__, "disaster_plan_based_recommendation_service_level_objective_id", disaster_plan_based_recommendation_service_level_objective_id)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "max_dtu", max_dtu)
-        pulumi.set(__self__, "max_size_in_gb", max_size_in_gb)
-        pulumi.set(__self__, "min_dtu", min_dtu)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "observation_period_end", observation_period_end)
-        pulumi.set(__self__, "observation_period_start", observation_period_start)
-        pulumi.set(__self__, "overall_recommendation_service_level_objective", overall_recommendation_service_level_objective)
-        pulumi.set(__self__, "overall_recommendation_service_level_objective_id", overall_recommendation_service_level_objective_id)
-        pulumi.set(__self__, "service_level_objective_usage_metrics", service_level_objective_usage_metrics)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "usage_based_recommendation_service_level_objective", usage_based_recommendation_service_level_objective)
-        pulumi.set(__self__, "usage_based_recommendation_service_level_objective_id", usage_based_recommendation_service_level_objective_id)
+        ServiceTierAdvisorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_time_ratio=active_time_ratio,
+            avg_dtu=avg_dtu,
+            confidence=confidence,
+            current_service_level_objective=current_service_level_objective,
+            current_service_level_objective_id=current_service_level_objective_id,
+            database_size_based_recommendation_service_level_objective=database_size_based_recommendation_service_level_objective,
+            database_size_based_recommendation_service_level_objective_id=database_size_based_recommendation_service_level_objective_id,
+            disaster_plan_based_recommendation_service_level_objective=disaster_plan_based_recommendation_service_level_objective,
+            disaster_plan_based_recommendation_service_level_objective_id=disaster_plan_based_recommendation_service_level_objective_id,
+            id=id,
+            max_dtu=max_dtu,
+            max_size_in_gb=max_size_in_gb,
+            min_dtu=min_dtu,
+            name=name,
+            observation_period_end=observation_period_end,
+            observation_period_start=observation_period_start,
+            overall_recommendation_service_level_objective=overall_recommendation_service_level_objective,
+            overall_recommendation_service_level_objective_id=overall_recommendation_service_level_objective_id,
+            service_level_objective_usage_metrics=service_level_objective_usage_metrics,
+            type=type,
+            usage_based_recommendation_service_level_objective=usage_based_recommendation_service_level_objective,
+            usage_based_recommendation_service_level_objective_id=usage_based_recommendation_service_level_objective_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_time_ratio: float,
+             avg_dtu: float,
+             confidence: float,
+             current_service_level_objective: str,
+             current_service_level_objective_id: str,
+             database_size_based_recommendation_service_level_objective: str,
+             database_size_based_recommendation_service_level_objective_id: str,
+             disaster_plan_based_recommendation_service_level_objective: str,
+             disaster_plan_based_recommendation_service_level_objective_id: str,
+             id: str,
+             max_dtu: float,
+             max_size_in_gb: float,
+             min_dtu: float,
+             name: str,
+             observation_period_end: str,
+             observation_period_start: str,
+             overall_recommendation_service_level_objective: str,
+             overall_recommendation_service_level_objective_id: str,
+             service_level_objective_usage_metrics: Sequence['outputs.SloUsageMetricResponse'],
+             type: str,
+             usage_based_recommendation_service_level_objective: str,
+             usage_based_recommendation_service_level_objective_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("active_time_ratio", active_time_ratio)
+        _setter("avg_dtu", avg_dtu)
+        _setter("confidence", confidence)
+        _setter("current_service_level_objective", current_service_level_objective)
+        _setter("current_service_level_objective_id", current_service_level_objective_id)
+        _setter("database_size_based_recommendation_service_level_objective", database_size_based_recommendation_service_level_objective)
+        _setter("database_size_based_recommendation_service_level_objective_id", database_size_based_recommendation_service_level_objective_id)
+        _setter("disaster_plan_based_recommendation_service_level_objective", disaster_plan_based_recommendation_service_level_objective)
+        _setter("disaster_plan_based_recommendation_service_level_objective_id", disaster_plan_based_recommendation_service_level_objective_id)
+        _setter("id", id)
+        _setter("max_dtu", max_dtu)
+        _setter("max_size_in_gb", max_size_in_gb)
+        _setter("min_dtu", min_dtu)
+        _setter("name", name)
+        _setter("observation_period_end", observation_period_end)
+        _setter("observation_period_start", observation_period_start)
+        _setter("overall_recommendation_service_level_objective", overall_recommendation_service_level_objective)
+        _setter("overall_recommendation_service_level_objective_id", overall_recommendation_service_level_objective_id)
+        _setter("service_level_objective_usage_metrics", service_level_objective_usage_metrics)
+        _setter("type", type)
+        _setter("usage_based_recommendation_service_level_objective", usage_based_recommendation_service_level_objective)
+        _setter("usage_based_recommendation_service_level_objective_id", usage_based_recommendation_service_level_objective_id)
 
     @property
     @pulumi.getter(name="activeTimeRatio")
@@ -636,9 +739,22 @@ class SloUsageMetricResponse(dict):
         :param str service_level_objective: The serviceLevelObjective for SLO usage metric.
         :param str service_level_objective_id: The serviceLevelObjectiveId for SLO usage metric.
         """
-        pulumi.set(__self__, "in_range_time_ratio", in_range_time_ratio)
-        pulumi.set(__self__, "service_level_objective", service_level_objective)
-        pulumi.set(__self__, "service_level_objective_id", service_level_objective_id)
+        SloUsageMetricResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_range_time_ratio=in_range_time_ratio,
+            service_level_objective=service_level_objective,
+            service_level_objective_id=service_level_objective_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_range_time_ratio: float,
+             service_level_objective: str,
+             service_level_objective_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("in_range_time_ratio", in_range_time_ratio)
+        _setter("service_level_objective", service_level_objective)
+        _setter("service_level_objective_id", service_level_objective_id)
 
     @property
     @pulumi.getter(name="inRangeTimeRatio")
@@ -684,12 +800,29 @@ class TransparentDataEncryptionResponse(dict):
         :param str type: Resource type.
         :param str status: The status of the database transparent data encryption.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        TransparentDataEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            name=name,
+            type=type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             location: str,
+             name: str,
+             type: str,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("location", location)
+        _setter("name", name)
+        _setter("type", type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter

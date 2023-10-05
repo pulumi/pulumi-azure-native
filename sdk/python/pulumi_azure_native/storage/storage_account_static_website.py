@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StorageAccountStaticWebsiteArgs', 'StorageAccountStaticWebsite']
@@ -25,12 +25,27 @@ class StorageAccountStaticWebsiteArgs:
         :param pulumi.Input[str] error404_document: The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         :param pulumi.Input[str] index_document: The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StorageAccountStaticWebsiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            error404_document=error404_document,
+            index_document=index_document,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             error404_document: Optional[pulumi.Input[str]] = None,
+             index_document: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if error404_document is not None:
-            pulumi.set(__self__, "error404_document", error404_document)
+            _setter("error404_document", error404_document)
         if index_document is not None:
-            pulumi.set(__self__, "index_document", index_document)
+            _setter("index_document", index_document)
 
     @property
     @pulumi.getter(name="accountName")
@@ -120,6 +135,10 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageAccountStaticWebsiteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

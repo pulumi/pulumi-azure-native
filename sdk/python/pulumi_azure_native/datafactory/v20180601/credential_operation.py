@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,26 @@ class CredentialOperationArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] credential_name: Credential name
         """
-        pulumi.set(__self__, "factory_name", factory_name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CredentialOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            factory_name=factory_name,
+            properties=properties,
+            resource_group_name=resource_group_name,
+            credential_name=credential_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             factory_name: pulumi.Input[str],
+             properties: pulumi.Input['ManagedIdentityCredentialArgs'],
+             resource_group_name: pulumi.Input[str],
+             credential_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("factory_name", factory_name)
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
         if credential_name is not None:
-            pulumi.set(__self__, "credential_name", credential_name)
+            _setter("credential_name", credential_name)
 
     @property
     @pulumi.getter(name="factoryName")
@@ -121,6 +136,10 @@ class CredentialOperation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CredentialOperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -143,6 +162,11 @@ class CredentialOperation(pulumi.CustomResource):
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__.__dict__["factory_name"] = factory_name
+            if properties is not None and not isinstance(properties, ManagedIdentityCredentialArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ManagedIdentityCredentialArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

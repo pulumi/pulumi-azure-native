@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,19 +37,44 @@ class RolloutArgs:
         :param pulumi.Input[str] rollout_name: The rollout name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "build_version", build_version)
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "step_groups", step_groups)
-        pulumi.set(__self__, "target_service_topology_id", target_service_topology_id)
+        RolloutArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_version=build_version,
+            identity=identity,
+            resource_group_name=resource_group_name,
+            step_groups=step_groups,
+            target_service_topology_id=target_service_topology_id,
+            artifact_source_id=artifact_source_id,
+            location=location,
+            rollout_name=rollout_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_version: pulumi.Input[str],
+             identity: pulumi.Input['IdentityArgs'],
+             resource_group_name: pulumi.Input[str],
+             step_groups: pulumi.Input[Sequence[pulumi.Input['StepGroupArgs']]],
+             target_service_topology_id: pulumi.Input[str],
+             artifact_source_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             rollout_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("build_version", build_version)
+        _setter("identity", identity)
+        _setter("resource_group_name", resource_group_name)
+        _setter("step_groups", step_groups)
+        _setter("target_service_topology_id", target_service_topology_id)
         if artifact_source_id is not None:
-            pulumi.set(__self__, "artifact_source_id", artifact_source_id)
+            _setter("artifact_source_id", artifact_source_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if rollout_name is not None:
-            pulumi.set(__self__, "rollout_name", rollout_name)
+            _setter("rollout_name", rollout_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="buildVersion")
@@ -211,6 +236,10 @@ class Rollout(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RolloutArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -238,6 +267,11 @@ class Rollout(pulumi.CustomResource):
             if build_version is None and not opts.urn:
                 raise TypeError("Missing required property 'build_version'")
             __props__.__dict__["build_version"] = build_version
+            if identity is not None and not isinstance(identity, IdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IdentityArgs._configure(_setter, **identity)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

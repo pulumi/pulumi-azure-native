@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -56,49 +56,92 @@ class AppServicePlanArgs:
         :param pulumi.Input[int] target_worker_size_id: Scaling worker size ID.
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service plan.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AppServicePlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            free_offer_expiration_time=free_offer_expiration_time,
+            hosting_environment_profile=hosting_environment_profile,
+            hyper_v=hyper_v,
+            is_spot=is_spot,
+            is_xenon=is_xenon,
+            kind=kind,
+            location=location,
+            maximum_elastic_worker_count=maximum_elastic_worker_count,
+            name=name,
+            per_site_scaling=per_site_scaling,
+            reserved=reserved,
+            sku=sku,
+            spot_expiration_time=spot_expiration_time,
+            tags=tags,
+            target_worker_count=target_worker_count,
+            target_worker_size_id=target_worker_size_id,
+            worker_tier_name=worker_tier_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
+             hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
+             hyper_v: Optional[pulumi.Input[bool]] = None,
+             is_spot: Optional[pulumi.Input[bool]] = None,
+             is_xenon: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             per_site_scaling: Optional[pulumi.Input[bool]] = None,
+             reserved: Optional[pulumi.Input[bool]] = None,
+             sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
+             spot_expiration_time: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_worker_count: Optional[pulumi.Input[int]] = None,
+             target_worker_size_id: Optional[pulumi.Input[int]] = None,
+             worker_tier_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if free_offer_expiration_time is not None:
-            pulumi.set(__self__, "free_offer_expiration_time", free_offer_expiration_time)
+            _setter("free_offer_expiration_time", free_offer_expiration_time)
         if hosting_environment_profile is not None:
-            pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
+            _setter("hosting_environment_profile", hosting_environment_profile)
         if hyper_v is None:
             hyper_v = False
         if hyper_v is not None:
-            pulumi.set(__self__, "hyper_v", hyper_v)
+            _setter("hyper_v", hyper_v)
         if is_spot is not None:
-            pulumi.set(__self__, "is_spot", is_spot)
+            _setter("is_spot", is_spot)
         if is_xenon is None:
             is_xenon = False
         if is_xenon is not None:
-            pulumi.set(__self__, "is_xenon", is_xenon)
+            _setter("is_xenon", is_xenon)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maximum_elastic_worker_count is not None:
-            pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
+            _setter("maximum_elastic_worker_count", maximum_elastic_worker_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if per_site_scaling is None:
             per_site_scaling = False
         if per_site_scaling is not None:
-            pulumi.set(__self__, "per_site_scaling", per_site_scaling)
+            _setter("per_site_scaling", per_site_scaling)
         if reserved is None:
             reserved = False
         if reserved is not None:
-            pulumi.set(__self__, "reserved", reserved)
+            _setter("reserved", reserved)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if spot_expiration_time is not None:
-            pulumi.set(__self__, "spot_expiration_time", spot_expiration_time)
+            _setter("spot_expiration_time", spot_expiration_time)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_worker_count is not None:
-            pulumi.set(__self__, "target_worker_count", target_worker_count)
+            _setter("target_worker_count", target_worker_count)
         if target_worker_size_id is not None:
-            pulumi.set(__self__, "target_worker_size_id", target_worker_size_id)
+            _setter("target_worker_size_id", target_worker_size_id)
         if worker_tier_name is not None:
-            pulumi.set(__self__, "worker_tier_name", worker_tier_name)
+            _setter("worker_tier_name", worker_tier_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -386,6 +429,10 @@ class AppServicePlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppServicePlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -419,6 +466,11 @@ class AppServicePlan(pulumi.CustomResource):
             __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
             __props__.__dict__["free_offer_expiration_time"] = free_offer_expiration_time
+            if hosting_environment_profile is not None and not isinstance(hosting_environment_profile, HostingEnvironmentProfileArgs):
+                hosting_environment_profile = hosting_environment_profile or {}
+                def _setter(key, value):
+                    hosting_environment_profile[key] = value
+                HostingEnvironmentProfileArgs._configure(_setter, **hosting_environment_profile)
             __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
             if hyper_v is None:
                 hyper_v = False
@@ -440,6 +492,11 @@ class AppServicePlan(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuDescriptionArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuDescriptionArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["spot_expiration_time"] = spot_expiration_time
             __props__.__dict__["tags"] = tags

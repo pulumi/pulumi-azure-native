@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,7 +28,16 @@ class IncidentLabelArgs:
         Represents an incident label
         :param pulumi.Input[str] label_name: The name of the label
         """
-        pulumi.set(__self__, "label_name", label_name)
+        IncidentLabelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_name=label_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label_name", label_name)
 
     @property
     @pulumi.getter(name="labelName")
@@ -59,16 +68,33 @@ class IncidentOwnerInfoArgs:
         :param pulumi.Input[Union[str, 'OwnerType']] owner_type: The type of the owner the incident is assigned to.
         :param pulumi.Input[str] user_principal_name: The user principal name of the user the incident is assigned to.
         """
+        IncidentOwnerInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assigned_to=assigned_to,
+            email=email,
+            object_id=object_id,
+            owner_type=owner_type,
+            user_principal_name=user_principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assigned_to: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             owner_type: Optional[pulumi.Input[Union[str, 'OwnerType']]] = None,
+             user_principal_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assigned_to is not None:
-            pulumi.set(__self__, "assigned_to", assigned_to)
+            _setter("assigned_to", assigned_to)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if owner_type is not None:
-            pulumi.set(__self__, "owner_type", owner_type)
+            _setter("owner_type", owner_type)
         if user_principal_name is not None:
-            pulumi.set(__self__, "user_principal_name", user_principal_name)
+            _setter("user_principal_name", user_principal_name)
 
     @property
     @pulumi.getter(name="assignedTo")
@@ -143,12 +169,25 @@ class MetadataAuthorArgs:
         :param pulumi.Input[str] link: Link for author/vendor page
         :param pulumi.Input[str] name: Name of the author. Company or person.
         """
+        MetadataAuthorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            link=link,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -197,10 +236,21 @@ class MetadataCategoriesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: domain for the solution content item
         :param pulumi.Input[Sequence[pulumi.Input[str]]] verticals: Industry verticals for the solution content item
         """
+        MetadataCategoriesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domains=domains,
+            verticals=verticals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             verticals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if domains is not None:
-            pulumi.set(__self__, "domains", domains)
+            _setter("domains", domains)
         if verticals is not None:
-            pulumi.set(__self__, "verticals", verticals)
+            _setter("verticals", verticals)
 
     @property
     @pulumi.getter
@@ -245,18 +295,37 @@ class MetadataDependenciesArgs:
         :param pulumi.Input[Union[str, 'Operator']] operator: Operator used for list of dependencies in criteria array.
         :param pulumi.Input[str] version: Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
         """
+        MetadataDependenciesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_id=content_id,
+            criteria=criteria,
+            kind=kind,
+            name=name,
+            operator=operator,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_id: Optional[pulumi.Input[str]] = None,
+             criteria: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgs']]]] = None,
+             kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_id is not None:
-            pulumi.set(__self__, "content_id", content_id)
+            _setter("content_id", content_id)
         if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
+            _setter("criteria", criteria)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="contentId")
@@ -343,11 +412,24 @@ class MetadataSourceArgs:
         :param pulumi.Input[str] name: Name of the content source.  The repo name, solution name, LA workspace name etc.
         :param pulumi.Input[str] source_id: ID of the content source.  The solution ID, workspace ID, etc
         """
-        pulumi.set(__self__, "kind", kind)
+        MetadataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            name=name,
+            source_id=source_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[Union[str, 'SourceKind']],
+             name: Optional[pulumi.Input[str]] = None,
+             source_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_id is not None:
-            pulumi.set(__self__, "source_id", source_id)
+            _setter("source_id", source_id)
 
     @property
     @pulumi.getter
@@ -400,13 +482,28 @@ class MetadataSupportArgs:
         :param pulumi.Input[str] link: Link for support help, like to support page to open a ticket etc.
         :param pulumi.Input[str] name: Name of the support contact. Company or person.
         """
-        pulumi.set(__self__, "tier", tier)
+        MetadataSupportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tier=tier,
+            email=email,
+            link=link,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tier: pulumi.Input[Union[str, 'SupportTier']],
+             email: Optional[pulumi.Input[str]] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tier", tier)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter

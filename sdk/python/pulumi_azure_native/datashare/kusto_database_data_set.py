@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -31,13 +31,32 @@ class KustoDatabaseDataSetArgs:
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "kind", 'KustoDatabase')
-        pulumi.set(__self__, "kusto_database_resource_id", kusto_database_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_name", share_name)
+        KustoDatabaseDataSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            kind=kind,
+            kusto_database_resource_id=kusto_database_resource_id,
+            resource_group_name=resource_group_name,
+            share_name=share_name,
+            data_set_name=data_set_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             kusto_database_resource_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             share_name: pulumi.Input[str],
+             data_set_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("kind", 'KustoDatabase')
+        _setter("kusto_database_resource_id", kusto_database_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_name", share_name)
         if data_set_name is not None:
-            pulumi.set(__self__, "data_set_name", data_set_name)
+            _setter("data_set_name", data_set_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -159,6 +178,10 @@ class KustoDatabaseDataSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KustoDatabaseDataSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

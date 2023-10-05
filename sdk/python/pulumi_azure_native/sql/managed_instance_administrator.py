@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -31,15 +31,36 @@ class ManagedInstanceAdministratorArgs:
         :param pulumi.Input[str] sid: SID (object ID) of the managed instance administrator.
         :param pulumi.Input[str] tenant_id: Tenant ID of the managed instance administrator.
         """
-        pulumi.set(__self__, "administrator_type", administrator_type)
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sid", sid)
+        ManagedInstanceAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_type=administrator_type,
+            login=login,
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            sid=sid,
+            administrator_name=administrator_name,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_type: pulumi.Input[Union[str, 'ManagedInstanceAdministratorType']],
+             login: pulumi.Input[str],
+             managed_instance_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sid: pulumi.Input[str],
+             administrator_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("administrator_type", administrator_type)
+        _setter("login", login)
+        _setter("managed_instance_name", managed_instance_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sid", sid)
         if administrator_name is not None:
-            pulumi.set(__self__, "administrator_name", administrator_name)
+            _setter("administrator_name", administrator_name)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="administratorType")
@@ -169,6 +190,10 @@ class ManagedInstanceAdministrator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedInstanceAdministratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

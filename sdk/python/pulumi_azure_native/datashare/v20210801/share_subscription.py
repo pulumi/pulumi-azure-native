@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,14 +30,33 @@ class ShareSubscriptionArgs:
         :param pulumi.Input[str] expiration_date: The expiration date of the share subscription.
         :param pulumi.Input[str] share_subscription_name: The name of the shareSubscription.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "invitation_id", invitation_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_share_location", source_share_location)
+        ShareSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            invitation_id=invitation_id,
+            resource_group_name=resource_group_name,
+            source_share_location=source_share_location,
+            expiration_date=expiration_date,
+            share_subscription_name=share_subscription_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             invitation_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             source_share_location: pulumi.Input[str],
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             share_subscription_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("invitation_id", invitation_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_share_location", source_share_location)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if share_subscription_name is not None:
-            pulumi.set(__self__, "share_subscription_name", share_subscription_name)
+            _setter("share_subscription_name", share_subscription_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -155,6 +174,10 @@ class ShareSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ShareSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

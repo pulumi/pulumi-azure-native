@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,43 @@ class IntegrationAccountCertificateArgs:
         :param pulumi.Input[str] public_certificate: The public certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IntegrationAccountCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            integration_account_name=integration_account_name,
+            resource_group_name=resource_group_name,
+            certificate_name=certificate_name,
+            key=key,
+            location=location,
+            metadata=metadata,
+            public_certificate=public_certificate,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             integration_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             public_certificate: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("integration_account_name", integration_account_name)
+        _setter("resource_group_name", resource_group_name)
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if public_certificate is not None:
-            pulumi.set(__self__, "public_certificate", public_certificate)
+            _setter("public_certificate", public_certificate)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="integrationAccountName")
@@ -196,6 +219,10 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,6 +249,11 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__.__dict__["integration_account_name"] = integration_account_name
+            if key is not None and not isinstance(key, KeyVaultKeyReferenceArgs):
+                key = key or {}
+                def _setter(key, value):
+                    key[key] = value
+                KeyVaultKeyReferenceArgs._configure(_setter, **key)
             __props__.__dict__["key"] = key
             __props__.__dict__["location"] = location
             __props__.__dict__["metadata"] = metadata

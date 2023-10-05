@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,8 +58,17 @@ class ApiPropertiesResponse(dict):
         """
         :param str server_version: Describes the ServerVersion of an a MongoDB account.
         """
+        ApiPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_version=server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
 
     @property
     @pulumi.getter(name="serverVersion")
@@ -81,8 +90,17 @@ class CapabilityResponse(dict):
         Cosmos DB capability object
         :param str name: Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
         """
+        CapabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -129,11 +147,24 @@ class ConsistencyPolicyResponse(dict):
         :param int max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         :param float max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
-        pulumi.set(__self__, "default_consistency_level", default_consistency_level)
+        ConsistencyPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_consistency_level=default_consistency_level,
+            max_interval_in_seconds=max_interval_in_seconds,
+            max_staleness_prefix=max_staleness_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_consistency_level: str,
+             max_interval_in_seconds: Optional[int] = None,
+             max_staleness_prefix: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_consistency_level", default_consistency_level)
         if max_interval_in_seconds is not None:
-            pulumi.set(__self__, "max_interval_in_seconds", max_interval_in_seconds)
+            _setter("max_interval_in_seconds", max_interval_in_seconds)
         if max_staleness_prefix is not None:
-            pulumi.set(__self__, "max_staleness_prefix", max_staleness_prefix)
+            _setter("max_staleness_prefix", max_staleness_prefix)
 
     @property
     @pulumi.getter(name="defaultConsistencyLevel")
@@ -172,7 +203,16 @@ class ContinuousModeBackupPolicyResponse(dict):
         :param str type: Describes the mode of backups.
                Expected value is 'Continuous'.
         """
-        pulumi.set(__self__, "type", 'Continuous')
+        ContinuousModeBackupPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Continuous')
 
     @property
     @pulumi.getter
@@ -228,15 +268,32 @@ class CorsPolicyResponse(dict):
         :param str exposed_headers: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
         :param float max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        CorsPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            exposed_headers=exposed_headers,
+            max_age_in_seconds=max_age_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: str,
+             allowed_headers: Optional[str] = None,
+             allowed_methods: Optional[str] = None,
+             exposed_headers: Optional[str] = None,
+             max_age_in_seconds: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_origins", allowed_origins)
         if allowed_headers is not None:
-            pulumi.set(__self__, "allowed_headers", allowed_headers)
+            _setter("allowed_headers", allowed_headers)
         if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
+            _setter("allowed_methods", allowed_methods)
         if exposed_headers is not None:
-            pulumi.set(__self__, "exposed_headers", exposed_headers)
+            _setter("exposed_headers", exposed_headers)
         if max_age_in_seconds is not None:
-            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+            _setter("max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -292,8 +349,19 @@ class DatabaseAccountConnectionStringResponse(dict):
         :param str connection_string: Value of the connection string
         :param str description: Description of the connection string
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "description", description)
+        DatabaseAccountConnectionStringResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: str,
+             description: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("description", description)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -344,10 +412,21 @@ class DatabaseRestoreResourceResponse(dict):
         :param Sequence[str] collection_names: The names of the collections available for restore.
         :param str database_name: The name of the database available for restore.
         """
+        DatabaseRestoreResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection_names=collection_names,
+            database_name=database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection_names: Optional[Sequence[str]] = None,
+             database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if collection_names is not None:
-            pulumi.set(__self__, "collection_names", collection_names)
+            _setter("collection_names", collection_names)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
 
     @property
     @pulumi.getter(name="collectionNames")
@@ -400,11 +479,24 @@ class FailoverPolicyResponse(dict):
         :param int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         :param str location_name: The name of the region in which the database account exists.
         """
-        pulumi.set(__self__, "id", id)
+        FailoverPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            failover_priority=failover_priority,
+            location_name=location_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             failover_priority: Optional[int] = None,
+             location_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if failover_priority is not None:
-            pulumi.set(__self__, "failover_priority", failover_priority)
+            _setter("failover_priority", failover_priority)
         if location_name is not None:
-            pulumi.set(__self__, "location_name", location_name)
+            _setter("location_name", location_name)
 
     @property
     @pulumi.getter
@@ -459,8 +551,17 @@ class IpAddressOrRangeResponse(dict):
         IpAddressOrRange object
         :param str ip_address_or_range: A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
         """
+        IpAddressOrRangeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address_or_range=ip_address_or_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address_or_range: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_address_or_range is not None:
-            pulumi.set(__self__, "ip_address_or_range", ip_address_or_range)
+            _setter("ip_address_or_range", ip_address_or_range)
 
     @property
     @pulumi.getter(name="ipAddressOrRange")
@@ -517,15 +618,34 @@ class LocationResponse(dict):
         :param bool is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
         :param str location_name: The name of the region.
         """
-        pulumi.set(__self__, "document_endpoint", document_endpoint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        LocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            document_endpoint=document_endpoint,
+            id=id,
+            provisioning_state=provisioning_state,
+            failover_priority=failover_priority,
+            is_zone_redundant=is_zone_redundant,
+            location_name=location_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             document_endpoint: str,
+             id: str,
+             provisioning_state: str,
+             failover_priority: Optional[int] = None,
+             is_zone_redundant: Optional[bool] = None,
+             location_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("document_endpoint", document_endpoint)
+        _setter("id", id)
+        _setter("provisioning_state", provisioning_state)
         if failover_priority is not None:
-            pulumi.set(__self__, "failover_priority", failover_priority)
+            _setter("failover_priority", failover_priority)
         if is_zone_redundant is not None:
-            pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
+            _setter("is_zone_redundant", is_zone_redundant)
         if location_name is not None:
-            pulumi.set(__self__, "location_name", location_name)
+            _setter("location_name", location_name)
 
     @property
     @pulumi.getter(name="documentEndpoint")
@@ -614,12 +734,27 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -682,8 +817,19 @@ class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        ManagedServiceIdentityResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -733,9 +879,20 @@ class PeriodicModeBackupPolicyResponse(dict):
                Expected value is 'Periodic'.
         :param 'PeriodicModePropertiesResponse' periodic_mode_properties: Configuration values for periodic mode backup
         """
-        pulumi.set(__self__, "type", 'Periodic')
+        PeriodicModeBackupPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            periodic_mode_properties=periodic_mode_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             periodic_mode_properties: Optional['outputs.PeriodicModePropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Periodic')
         if periodic_mode_properties is not None:
-            pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
+            _setter("periodic_mode_properties", periodic_mode_properties)
 
     @property
     @pulumi.getter
@@ -791,12 +948,25 @@ class PeriodicModePropertiesResponse(dict):
         :param int backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
         :param str backup_storage_redundancy: Enum to indicate type of backup residency
         """
+        PeriodicModePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_interval_in_minutes=backup_interval_in_minutes,
+            backup_retention_interval_in_hours=backup_retention_interval_in_hours,
+            backup_storage_redundancy=backup_storage_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_interval_in_minutes: Optional[int] = None,
+             backup_retention_interval_in_hours: Optional[int] = None,
+             backup_storage_redundancy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup_interval_in_minutes is not None:
-            pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
+            _setter("backup_interval_in_minutes", backup_interval_in_minutes)
         if backup_retention_interval_in_hours is not None:
-            pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+            _setter("backup_retention_interval_in_hours", backup_retention_interval_in_hours)
         if backup_storage_redundancy is not None:
-            pulumi.set(__self__, "backup_storage_redundancy", backup_storage_redundancy)
+            _setter("backup_storage_redundancy", backup_storage_redundancy)
 
     @property
     @pulumi.getter(name="backupIntervalInMinutes")
@@ -869,17 +1039,38 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         :param str provisioning_state: Provisioning state of the private endpoint.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            type=type,
+            group_id=group_id,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             type: str,
+             group_id: Optional[str] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -949,8 +1140,17 @@ class PrivateEndpointPropertyResponse(dict):
         Private endpoint which the connection belongs to.
         :param str id: Resource id of the private endpoint.
         """
+        PrivateEndpointPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -993,11 +1193,24 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         :param str description: The private link service connection description.
         :param str status: The private link service connection status.
         """
-        pulumi.set(__self__, "actions_required", actions_required)
+        PrivateLinkServiceConnectionStatePropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: str,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1064,14 +1277,29 @@ class RestoreParametersResponse(dict):
         :param str restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
         """
+        RestoreParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases_to_restore=databases_to_restore,
+            restore_mode=restore_mode,
+            restore_source=restore_source,
+            restore_timestamp_in_utc=restore_timestamp_in_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases_to_restore: Optional[Sequence['outputs.DatabaseRestoreResourceResponse']] = None,
+             restore_mode: Optional[str] = None,
+             restore_source: Optional[str] = None,
+             restore_timestamp_in_utc: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if databases_to_restore is not None:
-            pulumi.set(__self__, "databases_to_restore", databases_to_restore)
+            _setter("databases_to_restore", databases_to_restore)
         if restore_mode is not None:
-            pulumi.set(__self__, "restore_mode", restore_mode)
+            _setter("restore_mode", restore_mode)
         if restore_source is not None:
-            pulumi.set(__self__, "restore_source", restore_source)
+            _setter("restore_source", restore_source)
         if restore_timestamp_in_utc is not None:
-            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+            _setter("restore_timestamp_in_utc", restore_timestamp_in_utc)
 
     @property
     @pulumi.getter(name="databasesToRestore")
@@ -1154,18 +1382,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1246,10 +1493,21 @@ class VirtualNetworkRuleResponse(dict):
         :param str id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
         :param bool ignore_missing_v_net_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
         """
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            ignore_missing_v_net_service_endpoint=ignore_missing_v_net_service_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             ignore_missing_v_net_service_endpoint: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ignore_missing_v_net_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
+            _setter("ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
 
     @property
     @pulumi.getter

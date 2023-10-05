@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -60,9 +60,22 @@ class ConsolePropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the console.
         :param str uri: Uri of the console.
         """
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "uri", uri)
+        ConsolePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            provisioning_state=provisioning_state,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: str,
+             provisioning_state: str,
+             uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os_type", os_type)
+        _setter("provisioning_state", provisioning_state)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter(name="osType")
@@ -104,10 +117,23 @@ class DashboardLensResponse(dict):
         :param Sequence['DashboardPartsResponse'] parts: The dashboard parts.
         :param Mapping[str, Any] metadata: The dashboard len's metadata.
         """
-        pulumi.set(__self__, "order", order)
-        pulumi.set(__self__, "parts", parts)
+        DashboardLensResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            order=order,
+            parts=parts,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             order: int,
+             parts: Sequence['outputs.DashboardPartsResponse'],
+             metadata: Optional[Mapping[str, Any]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("order", order)
+        _setter("parts", parts)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter
@@ -147,9 +173,20 @@ class DashboardPartsResponse(dict):
         :param 'DashboardPartsResponsePosition' position: The dashboard's part position.
         :param 'MarkdownPartMetadataResponse' metadata: The dashboard part's metadata.
         """
-        pulumi.set(__self__, "position", position)
+        DashboardPartsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            position=position,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             position: 'outputs.DashboardPartsResponsePosition',
+             metadata: Optional['outputs.MarkdownPartMetadataResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("position", position)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter
@@ -206,12 +243,29 @@ class DashboardPartsResponsePosition(dict):
         :param int y: The dashboard's part y coordinate.
         :param Mapping[str, Any] metadata: The dashboard part's metadata.
         """
-        pulumi.set(__self__, "col_span", col_span)
-        pulumi.set(__self__, "row_span", row_span)
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
+        DashboardPartsResponsePosition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            col_span=col_span,
+            row_span=row_span,
+            x=x,
+            y=y,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             col_span: int,
+             row_span: int,
+             x: int,
+             y: int,
+             metadata: Optional[Mapping[str, Any]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("col_span", col_span)
+        _setter("row_span", row_span)
+        _setter("x", x)
+        _setter("y", y)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="colSpan")
@@ -270,11 +324,24 @@ class MarkdownPartMetadataResponse(dict):
         :param Sequence[Any] inputs: Input to dashboard part.
         :param 'MarkdownPartMetadataResponseSettings' settings: Markdown part settings.
         """
-        pulumi.set(__self__, "type", 'Extension/HubsExtension/PartType/MarkdownPart')
+        MarkdownPartMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            inputs=inputs,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             inputs: Optional[Sequence[Any]] = None,
+             settings: Optional['outputs.MarkdownPartMetadataResponseSettings'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Extension/HubsExtension/PartType/MarkdownPart')
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter
@@ -313,8 +380,17 @@ class MarkdownPartMetadataResponseContent(dict):
         The content of markdown part.
         :param 'MarkdownPartMetadataResponseSettingsSettings' settings: The setting of the content of markdown part.
         """
+        MarkdownPartMetadataResponseContent._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             settings: Optional['outputs.MarkdownPartMetadataResponseSettingsSettings'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter
@@ -336,8 +412,17 @@ class MarkdownPartMetadataResponseSettings(dict):
         Markdown part settings.
         :param 'MarkdownPartMetadataResponseContent' content: The content of markdown part.
         """
+        MarkdownPartMetadataResponseSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional['outputs.MarkdownPartMetadataResponseContent'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
 
     @property
     @pulumi.getter
@@ -386,16 +471,33 @@ class MarkdownPartMetadataResponseSettingsSettings(dict):
         :param str subtitle: The subtitle of the markdown part.
         :param str title: The title of the markdown part.
         """
+        MarkdownPartMetadataResponseSettingsSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            markdown_source=markdown_source,
+            markdown_uri=markdown_uri,
+            subtitle=subtitle,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[str] = None,
+             markdown_source: Optional[int] = None,
+             markdown_uri: Optional[str] = None,
+             subtitle: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if markdown_source is not None:
-            pulumi.set(__self__, "markdown_source", markdown_source)
+            _setter("markdown_source", markdown_source)
         if markdown_uri is not None:
-            pulumi.set(__self__, "markdown_uri", markdown_uri)
+            _setter("markdown_uri", markdown_uri)
         if subtitle is not None:
-            pulumi.set(__self__, "subtitle", subtitle)
+            _setter("subtitle", subtitle)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -474,12 +576,25 @@ class StorageProfileResponse(dict):
         :param str file_share_name: Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
         :param str storage_account_resource_id: Full resource ID of storage account.
         """
+        StorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_size_in_gb=disk_size_in_gb,
+            file_share_name=file_share_name,
+            storage_account_resource_id=storage_account_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_size_in_gb: Optional[int] = None,
+             file_share_name: Optional[str] = None,
+             storage_account_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_size_in_gb is not None:
-            pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
+            _setter("disk_size_in_gb", disk_size_in_gb)
         if file_share_name is not None:
-            pulumi.set(__self__, "file_share_name", file_share_name)
+            _setter("file_share_name", file_share_name)
         if storage_account_resource_id is not None:
-            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+            _setter("storage_account_resource_id", storage_account_resource_id)
 
     @property
     @pulumi.getter(name="diskSizeInGB")
@@ -538,10 +653,21 @@ class TerminalSettingsResponse(dict):
         :param str font_size: Size of terminal font.
         :param str font_style: Style of terminal font.
         """
+        TerminalSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            font_size=font_size,
+            font_style=font_style,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             font_size: Optional[str] = None,
+             font_style: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if font_size is not None:
-            pulumi.set(__self__, "font_size", font_size)
+            _setter("font_size", font_size)
         if font_style is not None:
-            pulumi.set(__self__, "font_style", font_style)
+            _setter("font_style", font_style)
 
     @property
     @pulumi.getter(name="fontSize")
@@ -604,11 +730,28 @@ class UserPropertiesResponse(dict):
         :param 'StorageProfileResponse' storage_profile: The storage profile of the user settings.
         :param 'TerminalSettingsResponse' terminal_settings: Settings for terminal appearance.
         """
-        pulumi.set(__self__, "preferred_location", preferred_location)
-        pulumi.set(__self__, "preferred_os_type", preferred_os_type)
-        pulumi.set(__self__, "preferred_shell_type", preferred_shell_type)
-        pulumi.set(__self__, "storage_profile", storage_profile)
-        pulumi.set(__self__, "terminal_settings", terminal_settings)
+        UserPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_location=preferred_location,
+            preferred_os_type=preferred_os_type,
+            preferred_shell_type=preferred_shell_type,
+            storage_profile=storage_profile,
+            terminal_settings=terminal_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_location: str,
+             preferred_os_type: str,
+             preferred_shell_type: str,
+             storage_profile: 'outputs.StorageProfileResponse',
+             terminal_settings: 'outputs.TerminalSettingsResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("preferred_location", preferred_location)
+        _setter("preferred_os_type", preferred_os_type)
+        _setter("preferred_shell_type", preferred_shell_type)
+        _setter("storage_profile", storage_profile)
+        _setter("terminal_settings", terminal_settings)
 
     @property
     @pulumi.getter(name="preferredLocation")
@@ -666,9 +809,22 @@ class ViolationResponse(dict):
         :param str id: Id of the item that violates tenant configuration.
         :param str user_id: Id of the user who owns violated item.
         """
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "user_id", user_id)
+        ViolationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_message=error_message,
+            id=id,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_message: str,
+             id: str,
+             user_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_message", error_message)
+        _setter("id", id)
+        _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="errorMessage")

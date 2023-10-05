@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,35 @@ class RestorePointArgs:
         :param pulumi.Input['ApiEntityReferenceArgs'] source_restore_point: Resource Id of the source restore point from which a copy needs to be created.
         :param pulumi.Input[str] time_created: Gets the creation time of the restore point.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "restore_point_collection_name", restore_point_collection_name)
+        RestorePointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            restore_point_collection_name=restore_point_collection_name,
+            exclude_disks=exclude_disks,
+            restore_point_name=restore_point_name,
+            source_restore_point=source_restore_point,
+            time_created=time_created,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             restore_point_collection_name: pulumi.Input[str],
+             exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ApiEntityReferenceArgs']]]] = None,
+             restore_point_name: Optional[pulumi.Input[str]] = None,
+             source_restore_point: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None,
+             time_created: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("restore_point_collection_name", restore_point_collection_name)
         if exclude_disks is not None:
-            pulumi.set(__self__, "exclude_disks", exclude_disks)
+            _setter("exclude_disks", exclude_disks)
         if restore_point_name is not None:
-            pulumi.set(__self__, "restore_point_name", restore_point_name)
+            _setter("restore_point_name", restore_point_name)
         if source_restore_point is not None:
-            pulumi.set(__self__, "source_restore_point", source_restore_point)
+            _setter("source_restore_point", source_restore_point)
         if time_created is not None:
-            pulumi.set(__self__, "time_created", time_created)
+            _setter("time_created", time_created)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -158,6 +177,10 @@ class RestorePoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RestorePointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -186,6 +209,11 @@ class RestorePoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'restore_point_collection_name'")
             __props__.__dict__["restore_point_collection_name"] = restore_point_collection_name
             __props__.__dict__["restore_point_name"] = restore_point_name
+            if source_restore_point is not None and not isinstance(source_restore_point, ApiEntityReferenceArgs):
+                source_restore_point = source_restore_point or {}
+                def _setter(key, value):
+                    source_restore_point[key] = value
+                ApiEntityReferenceArgs._configure(_setter, **source_restore_point)
             __props__.__dict__["source_restore_point"] = source_restore_point
             __props__.__dict__["time_created"] = time_created
             __props__.__dict__["consistency_mode"] = None

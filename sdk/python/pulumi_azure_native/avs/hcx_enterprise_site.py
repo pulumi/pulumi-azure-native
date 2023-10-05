@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HcxEnterpriseSiteArgs', 'HcxEnterpriseSite']
@@ -23,10 +23,23 @@ class HcxEnterpriseSiteArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HcxEnterpriseSiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            hcx_enterprise_site_name=hcx_enterprise_site_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             hcx_enterprise_site_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if hcx_enterprise_site_name is not None:
-            pulumi.set(__self__, "hcx_enterprise_site_name", hcx_enterprise_site_name)
+            _setter("hcx_enterprise_site_name", hcx_enterprise_site_name)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -104,6 +117,10 @@ class HcxEnterpriseSite(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HcxEnterpriseSiteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

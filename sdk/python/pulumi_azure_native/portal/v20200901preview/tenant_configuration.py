@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['TenantConfigurationArgs', 'TenantConfiguration']
@@ -21,10 +21,21 @@ class TenantConfigurationArgs:
         :param pulumi.Input[str] configuration_name: The configuration name. Value must be 'default'
         :param pulumi.Input[bool] enforce_private_markdown_storage: When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
         """
+        TenantConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_name=configuration_name,
+            enforce_private_markdown_storage=enforce_private_markdown_storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_name: Optional[pulumi.Input[str]] = None,
+             enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+            _setter("configuration_name", configuration_name)
         if enforce_private_markdown_storage is not None:
-            pulumi.set(__self__, "enforce_private_markdown_storage", enforce_private_markdown_storage)
+            _setter("enforce_private_markdown_storage", enforce_private_markdown_storage)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -86,6 +97,10 @@ class TenantConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TenantConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,12 +54,25 @@ class AADBasedSecurityPrincipalResponse(dict):
         :param str principal_id: UUID/GUID based Principal Id of the Security Principal
         :param str tenant_id: UUID/GUID based Tenant Id of the Security Principal
         """
+        AADBasedSecurityPrincipalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ledger_role_name=ledger_role_name,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ledger_role_name: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ledger_role_name is not None:
-            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+            _setter("ledger_role_name", ledger_role_name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="ledgerRoleName")
@@ -116,10 +129,21 @@ class CertBasedSecurityPrincipalResponse(dict):
         :param str cert: Public key of the user cert (.pem or .cer)
         :param str ledger_role_name: LedgerRole associated with the Security Principal of Ledger
         """
+        CertBasedSecurityPrincipalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            ledger_role_name=ledger_role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[str] = None,
+             ledger_role_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if ledger_role_name is not None:
-            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+            _setter("ledger_role_name", ledger_role_name)
 
     @property
     @pulumi.getter
@@ -194,17 +218,40 @@ class LedgerPropertiesResponse(dict):
         :param Sequence['CertBasedSecurityPrincipalResponse'] cert_based_security_principals: Array of all cert based Security Principals.
         :param str ledger_type: Type of Confidential Ledger
         """
-        pulumi.set(__self__, "identity_service_uri", identity_service_uri)
-        pulumi.set(__self__, "ledger_internal_namespace", ledger_internal_namespace)
-        pulumi.set(__self__, "ledger_name", ledger_name)
-        pulumi.set(__self__, "ledger_uri", ledger_uri)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        LedgerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_service_uri=identity_service_uri,
+            ledger_internal_namespace=ledger_internal_namespace,
+            ledger_name=ledger_name,
+            ledger_uri=ledger_uri,
+            provisioning_state=provisioning_state,
+            aad_based_security_principals=aad_based_security_principals,
+            cert_based_security_principals=cert_based_security_principals,
+            ledger_type=ledger_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_service_uri: str,
+             ledger_internal_namespace: str,
+             ledger_name: str,
+             ledger_uri: str,
+             provisioning_state: str,
+             aad_based_security_principals: Optional[Sequence['outputs.AADBasedSecurityPrincipalResponse']] = None,
+             cert_based_security_principals: Optional[Sequence['outputs.CertBasedSecurityPrincipalResponse']] = None,
+             ledger_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_service_uri", identity_service_uri)
+        _setter("ledger_internal_namespace", ledger_internal_namespace)
+        _setter("ledger_name", ledger_name)
+        _setter("ledger_uri", ledger_uri)
+        _setter("provisioning_state", provisioning_state)
         if aad_based_security_principals is not None:
-            pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
+            _setter("aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
-            pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
+            _setter("cert_based_security_principals", cert_based_security_principals)
         if ledger_type is not None:
-            pulumi.set(__self__, "ledger_type", ledger_type)
+            _setter("ledger_type", ledger_type)
 
     @property
     @pulumi.getter(name="identityServiceUri")
@@ -319,18 +366,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

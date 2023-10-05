@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,10 +28,21 @@ class ContentHashResponse(dict):
         :param str algorithm: Gets or sets the algorithm.
         :param str value: Gets or sets the value.
         """
+        ContentHashResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
+            _setter("algorithm", algorithm)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -86,16 +97,33 @@ class ContentLinkResponse(dict):
         :param Any metadata: Gets or sets the metadata.
         :param str uri: Gets or sets the content link URI.
         """
+        ContentLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_hash=content_hash,
+            content_size=content_size,
+            content_version=content_version,
+            metadata=metadata,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_hash: Optional['outputs.ContentHashResponse'] = None,
+             content_size: Optional[float] = None,
+             content_version: Optional[str] = None,
+             metadata: Optional[Any] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
+            _setter("content_hash", content_hash)
         if content_size is not None:
-            pulumi.set(__self__, "content_size", content_size)
+            _setter("content_size", content_size)
         if content_version is not None:
-            pulumi.set(__self__, "content_version", content_version)
+            _setter("content_version", content_version)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="contentHash")
@@ -149,10 +177,23 @@ class ResourceReferenceResponse(dict):
         :param str type: Gets the resource type.
         :param str id: Gets or sets the resource id.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ResourceReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -188,10 +229,21 @@ class SkuResponse(dict):
         :param str name: Gets or sets the name.
         :param 'ResourceReferenceResponse' plan: Gets or sets the reference to plan.
         """
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            plan=plan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             plan: Optional['outputs.ResourceReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
 
     @property
     @pulumi.getter
@@ -221,12 +273,25 @@ class WorkflowParameterResponse(dict):
         :param str type: Gets or sets the type.
         :param Any value: Gets or sets the value.
         """
+        WorkflowParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metadata=metadata,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metadata: Optional[Any] = None,
+             type: Optional[str] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

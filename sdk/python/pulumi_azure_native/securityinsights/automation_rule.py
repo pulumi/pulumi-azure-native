@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,14 +34,35 @@ class AutomationRuleArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] automation_rule_id: Automation rule ID
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "order", order)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "triggering_logic", triggering_logic)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        AutomationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            display_name=display_name,
+            order=order,
+            resource_group_name=resource_group_name,
+            triggering_logic=triggering_logic,
+            workspace_name=workspace_name,
+            automation_rule_id=automation_rule_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]],
+             display_name: pulumi.Input[str],
+             order: pulumi.Input[int],
+             resource_group_name: pulumi.Input[str],
+             triggering_logic: pulumi.Input['AutomationRuleTriggeringLogicArgs'],
+             workspace_name: pulumi.Input[str],
+             automation_rule_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("display_name", display_name)
+        _setter("order", order)
+        _setter("resource_group_name", resource_group_name)
+        _setter("triggering_logic", triggering_logic)
+        _setter("workspace_name", workspace_name)
         if automation_rule_id is not None:
-            pulumi.set(__self__, "automation_rule_id", automation_rule_id)
+            _setter("automation_rule_id", automation_rule_id)
 
     @property
     @pulumi.getter
@@ -173,6 +194,10 @@ class AutomationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutomationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -207,6 +232,11 @@ class AutomationRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if triggering_logic is not None and not isinstance(triggering_logic, AutomationRuleTriggeringLogicArgs):
+                triggering_logic = triggering_logic or {}
+                def _setter(key, value):
+                    triggering_logic[key] = value
+                AutomationRuleTriggeringLogicArgs._configure(_setter, **triggering_logic)
             if triggering_logic is None and not opts.urn:
                 raise TypeError("Missing required property 'triggering_logic'")
             __props__.__dict__["triggering_logic"] = triggering_logic

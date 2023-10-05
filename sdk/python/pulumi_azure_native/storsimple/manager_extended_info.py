@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,20 +36,45 @@ class ManagerExtendedInfoArgs:
         :param pulumi.Input[str] portal_certificate_thumbprint: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
         :param pulumi.Input[str] version: The version of the extended info being persisted.
         """
-        pulumi.set(__self__, "algorithm", algorithm)
-        pulumi.set(__self__, "integrity_key", integrity_key)
-        pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagerExtendedInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            integrity_key=integrity_key,
+            manager_name=manager_name,
+            resource_group_name=resource_group_name,
+            encryption_key=encryption_key,
+            encryption_key_thumbprint=encryption_key_thumbprint,
+            kind=kind,
+            portal_certificate_thumbprint=portal_certificate_thumbprint,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: pulumi.Input[str],
+             integrity_key: pulumi.Input[str],
+             manager_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             encryption_key: Optional[pulumi.Input[str]] = None,
+             encryption_key_thumbprint: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input['Kind']] = None,
+             portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("algorithm", algorithm)
+        _setter("integrity_key", integrity_key)
+        _setter("manager_name", manager_name)
+        _setter("resource_group_name", resource_group_name)
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if encryption_key_thumbprint is not None:
-            pulumi.set(__self__, "encryption_key_thumbprint", encryption_key_thumbprint)
+            _setter("encryption_key_thumbprint", encryption_key_thumbprint)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if portal_certificate_thumbprint is not None:
-            pulumi.set(__self__, "portal_certificate_thumbprint", portal_certificate_thumbprint)
+            _setter("portal_certificate_thumbprint", portal_certificate_thumbprint)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -211,6 +236,10 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagerExtendedInfoArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

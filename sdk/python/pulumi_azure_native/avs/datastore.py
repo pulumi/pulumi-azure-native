@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,15 +32,34 @@ class DatastoreArgs:
         :param pulumi.Input['DiskPoolVolumeArgs'] disk_pool_volume: An iSCSI volume
         :param pulumi.Input['NetAppVolumeArgs'] net_app_volume: An Azure NetApp Files volume
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DatastoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            datastore_name=datastore_name,
+            disk_pool_volume=disk_pool_volume,
+            net_app_volume=net_app_volume,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             datastore_name: Optional[pulumi.Input[str]] = None,
+             disk_pool_volume: Optional[pulumi.Input['DiskPoolVolumeArgs']] = None,
+             net_app_volume: Optional[pulumi.Input['NetAppVolumeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if datastore_name is not None:
-            pulumi.set(__self__, "datastore_name", datastore_name)
+            _setter("datastore_name", datastore_name)
         if disk_pool_volume is not None:
-            pulumi.set(__self__, "disk_pool_volume", disk_pool_volume)
+            _setter("disk_pool_volume", disk_pool_volume)
         if net_app_volume is not None:
-            pulumi.set(__self__, "net_app_volume", net_app_volume)
+            _setter("net_app_volume", net_app_volume)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -160,6 +179,10 @@ class Datastore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatastoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -184,7 +207,17 @@ class Datastore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["datastore_name"] = datastore_name
+            if disk_pool_volume is not None and not isinstance(disk_pool_volume, DiskPoolVolumeArgs):
+                disk_pool_volume = disk_pool_volume or {}
+                def _setter(key, value):
+                    disk_pool_volume[key] = value
+                DiskPoolVolumeArgs._configure(_setter, **disk_pool_volume)
             __props__.__dict__["disk_pool_volume"] = disk_pool_volume
+            if net_app_volume is not None and not isinstance(net_app_volume, NetAppVolumeArgs):
+                net_app_volume = net_app_volume or {}
+                def _setter(key, value):
+                    net_app_volume[key] = value
+                NetAppVolumeArgs._configure(_setter, **net_app_volume)
             __props__.__dict__["net_app_volume"] = net_app_volume
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

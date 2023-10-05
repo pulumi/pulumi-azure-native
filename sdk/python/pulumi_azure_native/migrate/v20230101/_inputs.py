@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,12 +30,25 @@ class MigrateProjectPropertiesArgs:
         :param pulumi.Input[str] service_endpoint: Service endpoint.
         :param pulumi.Input[str] utility_storage_account_id: Utility storage account id.
         """
+        MigrateProjectPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_network_access=public_network_access,
+            service_endpoint=service_endpoint,
+            utility_storage_account_id=utility_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             service_endpoint: Optional[pulumi.Input[str]] = None,
+             utility_storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if service_endpoint is not None:
-            pulumi.set(__self__, "service_endpoint", service_endpoint)
+            _setter("service_endpoint", service_endpoint)
         if utility_storage_account_id is not None:
-            pulumi.set(__self__, "utility_storage_account_id", utility_storage_account_id)
+            _setter("utility_storage_account_id", utility_storage_account_id)
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
@@ -82,8 +95,17 @@ class PrivateEndpointConnectionPropertiesArgs:
         Properties of a private endpoint connection.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Gets the properties of the object.
         """
+        PrivateEndpointConnectionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -110,12 +132,25 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: Description of the object.
         :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']] status: Private link connection state.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -166,12 +201,25 @@ class SolutionDetailsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_details: Gets or sets the extended details reported by the solution.
         :param pulumi.Input[int] group_count: Gets or sets the count of groups reported by the solution.
         """
+        SolutionDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_count=assessment_count,
+            extended_details=extended_details,
+            group_count=group_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_count: Optional[pulumi.Input[int]] = None,
+             extended_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             group_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assessment_count is not None:
-            pulumi.set(__self__, "assessment_count", assessment_count)
+            _setter("assessment_count", assessment_count)
         if extended_details is not None:
-            pulumi.set(__self__, "extended_details", extended_details)
+            _setter("extended_details", extended_details)
         if group_count is not None:
-            pulumi.set(__self__, "group_count", group_count)
+            _setter("group_count", group_count)
 
     @property
     @pulumi.getter(name="assessmentCount")
@@ -228,18 +276,37 @@ class SolutionPropertiesArgs:
         :param pulumi.Input[Union[str, 'Status']] status: Gets or sets the current status of the solution.
         :param pulumi.Input[Union[str, 'Tool']] tool: Gets or sets the tool being used in the solution.
         """
+        SolutionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cleanup_state=cleanup_state,
+            details=details,
+            goal=goal,
+            purpose=purpose,
+            status=status,
+            tool=tool,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cleanup_state: Optional[pulumi.Input[Union[str, 'CleanupState']]] = None,
+             details: Optional[pulumi.Input['SolutionDetailsArgs']] = None,
+             goal: Optional[pulumi.Input[Union[str, 'Goal']]] = None,
+             purpose: Optional[pulumi.Input[Union[str, 'Purpose']]] = None,
+             status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+             tool: Optional[pulumi.Input[Union[str, 'Tool']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cleanup_state is not None:
-            pulumi.set(__self__, "cleanup_state", cleanup_state)
+            _setter("cleanup_state", cleanup_state)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if goal is not None:
-            pulumi.set(__self__, "goal", goal)
+            _setter("goal", goal)
         if purpose is not None:
-            pulumi.set(__self__, "purpose", purpose)
+            _setter("purpose", purpose)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tool is not None:
-            pulumi.set(__self__, "tool", tool)
+            _setter("tool", tool)
 
     @property
     @pulumi.getter(name="cleanupState")

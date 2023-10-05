@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -33,14 +33,35 @@ class KustoTableDataSetMappingArgs:
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "kind", 'KustoTable')
-        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_subscription_name", share_subscription_name)
+        KustoTableDataSetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            data_set_id=data_set_id,
+            kind=kind,
+            kusto_cluster_resource_id=kusto_cluster_resource_id,
+            resource_group_name=resource_group_name,
+            share_subscription_name=share_subscription_name,
+            data_set_mapping_name=data_set_mapping_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             data_set_id: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             kusto_cluster_resource_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             share_subscription_name: pulumi.Input[str],
+             data_set_mapping_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("data_set_id", data_set_id)
+        _setter("kind", 'KustoTable')
+        _setter("kusto_cluster_resource_id", kusto_cluster_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_subscription_name", share_subscription_name)
         if data_set_mapping_name is not None:
-            pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
+            _setter("data_set_mapping_name", data_set_mapping_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -174,6 +195,10 @@ class KustoTableDataSetMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KustoTableDataSetMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

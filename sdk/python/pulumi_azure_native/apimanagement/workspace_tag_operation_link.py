@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceTagOperationLinkArgs', 'WorkspaceTagOperationLink']
@@ -29,13 +29,32 @@ class WorkspaceTagOperationLinkArgs:
         :param pulumi.Input[str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "operation_id", operation_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "tag_id", tag_id)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceTagOperationLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation_id=operation_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            tag_id=tag_id,
+            workspace_id=workspace_id,
+            operation_link_id=operation_link_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             tag_id: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             operation_link_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operation_id", operation_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("tag_id", tag_id)
+        _setter("workspace_id", workspace_id)
         if operation_link_id is not None:
-            pulumi.set(__self__, "operation_link_id", operation_link_id)
+            _setter("operation_link_id", operation_link_id)
 
     @property
     @pulumi.getter(name="operationId")
@@ -155,6 +174,10 @@ class WorkspaceTagOperationLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceTagOperationLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

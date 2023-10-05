@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -55,11 +55,24 @@ class SecretAuthInfoResponse(dict):
         :param str name: Username or account name for secret auth.
         :param str secret: Password or account key for secret auth.
         """
-        pulumi.set(__self__, "auth_type", 'secret')
+        SecretAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            name=name,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             name: Optional[str] = None,
+             secret: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'secret')
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="authType")
@@ -115,8 +128,17 @@ class SecretStoreResponse(dict):
         An option to store secret value in secure place
         :param str key_vault_id: The key vault id to store secret
         """
+        SecretStoreResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -166,10 +188,25 @@ class ServicePrincipalCertificateAuthInfoResponse(dict):
         :param str client_id: Application clientId for servicePrincipal auth.
         :param str principal_id: Principal Id for servicePrincipal auth.
         """
-        pulumi.set(__self__, "auth_type", 'servicePrincipalCertificate')
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        ServicePrincipalCertificateAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            certificate=certificate,
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             certificate: str,
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'servicePrincipalCertificate')
+        _setter("certificate", certificate)
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="authType")
@@ -244,10 +281,25 @@ class ServicePrincipalSecretAuthInfoResponse(dict):
         :param str principal_id: Principal Id for servicePrincipal auth.
         :param str secret: Secret for servicePrincipal auth.
         """
-        pulumi.set(__self__, "auth_type", 'servicePrincipalSecret')
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "secret", secret)
+        ServicePrincipalSecretAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            client_id=client_id,
+            principal_id=principal_id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             client_id: str,
+             principal_id: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'servicePrincipalSecret')
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter(name="authType")
@@ -296,10 +348,21 @@ class SourceConfigurationResponse(dict):
         :param str name: The name of setting.
         :param str value: The value of setting
         """
+        SourceConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -347,7 +410,16 @@ class SystemAssignedIdentityAuthInfoResponse(dict):
         :param str auth_type: The authentication type.
                Expected value is 'systemAssignedIdentity'.
         """
-        pulumi.set(__self__, "auth_type", 'systemAssignedIdentity')
+        SystemAssignedIdentityAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'systemAssignedIdentity')
 
     @property
     @pulumi.getter(name="authType")
@@ -407,18 +479,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -506,9 +597,22 @@ class UserAssignedIdentityAuthInfoResponse(dict):
         :param str client_id: Client Id for userAssignedIdentity.
         :param str subscription_id: Subscription id for userAssignedIdentity.
         """
-        pulumi.set(__self__, "auth_type", 'userAssignedIdentity')
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        UserAssignedIdentityAuthInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            client_id=client_id,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             client_id: str,
+             subscription_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", 'userAssignedIdentity')
+        _setter("client_id", client_id)
+        _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="authType")
@@ -547,8 +651,17 @@ class VNetSolutionResponse(dict):
         The VNet solution for linker
         :param str type: Type of VNet solution.
         """
+        VNetSolutionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

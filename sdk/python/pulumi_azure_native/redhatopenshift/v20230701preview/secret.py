@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -26,12 +26,27 @@ class SecretArgs:
         :param pulumi.Input[str] child_resource_name: The name of the Secret resource.
         :param pulumi.Input[str] secret_resources: The Secrets Resources.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        SecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            child_resource_name=child_resource_name,
+            secret_resources=secret_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             child_resource_name: Optional[pulumi.Input[str]] = None,
+             secret_resources: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if child_resource_name is not None:
-            pulumi.set(__self__, "child_resource_name", child_resource_name)
+            _setter("child_resource_name", child_resource_name)
         if secret_resources is not None:
-            pulumi.set(__self__, "secret_resources", secret_resources)
+            _setter("secret_resources", secret_resources)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -121,6 +136,10 @@ class Secret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

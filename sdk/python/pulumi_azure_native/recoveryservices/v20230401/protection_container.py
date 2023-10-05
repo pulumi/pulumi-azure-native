@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,19 +36,42 @@ class ProtectionContainerArgs:
         :param pulumi.Input[Union['AzureBackupServerContainerArgs', 'AzureIaaSClassicComputeVMContainerArgs', 'AzureIaaSComputeVMContainerArgs', 'AzureSQLAGWorkloadContainerProtectionContainerArgs', 'AzureSqlContainerArgs', 'AzureStorageContainerArgs', 'AzureVMAppContainerProtectionContainerArgs', 'AzureWorkloadContainerArgs', 'DpmContainerArgs', 'GenericContainerArgs', 'IaaSVMContainerArgs', 'MabContainerArgs']] properties: ProtectionContainerResource properties
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vault_name", vault_name)
+        ProtectionContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_name=fabric_name,
+            resource_group_name=resource_group_name,
+            vault_name=vault_name,
+            container_name=container_name,
+            e_tag=e_tag,
+            location=location,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             vault_name: pulumi.Input[str],
+             container_name: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Union['AzureBackupServerContainerArgs', 'AzureIaaSClassicComputeVMContainerArgs', 'AzureIaaSComputeVMContainerArgs', 'AzureSQLAGWorkloadContainerProtectionContainerArgs', 'AzureSqlContainerArgs', 'AzureStorageContainerArgs', 'AzureVMAppContainerProtectionContainerArgs', 'AzureWorkloadContainerArgs', 'DpmContainerArgs', 'GenericContainerArgs', 'IaaSVMContainerArgs', 'MabContainerArgs']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fabric_name", fabric_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vault_name", vault_name)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="fabricName")
@@ -194,6 +217,10 @@ class ProtectionContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProtectionContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
