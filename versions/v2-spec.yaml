@@ -831,20 +831,30 @@ MachineLearningExperimentation:
 MachineLearningServices:
     tracking: "2023-04-01"
     additions:
+        CapacityReservationGroup: 2023-08-01-preview
         EnvironmentSpecificationVersion: 2021-03-01-preview
         FeaturesetContainerEntity: 2023-04-01-preview
         FeaturesetVersion: 2023-04-01-preview
         FeaturestoreEntityContainerEntity: 2023-04-01-preview
         FeaturestoreEntityVersion: 2023-04-01-preview
+        InferenceEndpoint: 2023-08-01-preview
+        InferenceGroup: 2023-08-01-preview
+        InferencePool: 2023-08-01-preview
         LabelingJob: 2023-04-01-preview
         LinkedService: 2020-09-01-preview
         LinkedWorkspace: 2020-05-15-preview
         MachineLearningDataset: 2020-05-01-preview
         MachineLearningDatastore: 2020-05-01-preview
         ManagedNetworkSettingsRule: 2023-04-01-preview
+        ServerlessEndpoint: 2023-08-01-preview
+        getComputeAllowedResizeSizes: 2023-08-01-preview
         getFeaturesetVersionFeature: 2023-02-01-preview
+        getInferenceGroupStatus: 2023-08-01-preview
+        getInferencePoolStatus: 2023-08-01-preview
+        getServerlessEndpointStatus: 2023-08-01-preview
         listFeaturesetVersionFeatures: 2023-02-01-preview
         listFeaturesetVersionMaterializationJobs: 2023-04-01-preview
+        listServerlessEndpointKeys: 2023-08-01-preview
         listWorkspaceConnectionSecrets: 2023-06-01-preview
     exclusionErrors:
         - provider: MachineLearningServices
