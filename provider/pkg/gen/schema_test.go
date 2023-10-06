@@ -16,13 +16,14 @@ func TestTypeAliasFormatting(t *testing.T) {
 	generator := packageGenerator{
 		pkg:        &pschema.PackageSpec{Name: "azure-native"},
 		apiVersion: "v20220222",
+		provider:   "Compute",
 	}
 
-	actual := generator.makeTypeAlias("Compute", "VirtualMachine", "v18851225")
+	actual := generator.makeTypeAlias("VirtualMachine", "v18851225")
 	assert.NotNil(t, actual)
 	assert.Equal(t, "azure-native:compute/v18851225:VirtualMachine", *actual.Type)
 
-	actual = generator.makeTypeAlias("Compute", "VirtualMachine", "")
+	actual = generator.makeTypeAlias("VirtualMachine", "")
 	assert.NotNil(t, actual)
 	assert.Equal(t, "azure-native:compute:VirtualMachine", *actual.Type)
 }
@@ -42,11 +43,16 @@ func (v versioningStub) GetDeprecation(token string) (ResourceDeprecation, bool)
 	return ResourceDeprecation{}, false
 }
 
+func (v versioningStub) GetAllVersions(provider, resource string) []string {
+	return []string{}
+}
+
 func TestAliases(t *testing.T) {
 	generator := packageGenerator{
 		pkg:        &pschema.PackageSpec{Name: "azure-native"},
 		apiVersion: "v20220222",
 		versioning: versioningStub{},
+		provider:   "Insights",
 	}
 
 	resource := &resourceVariant{
@@ -56,7 +62,7 @@ func TestAliases(t *testing.T) {
 		typeName: "PrivateLinkForAzureAd",
 	}
 
-	aliases := generator.generateAliases("Insights", resource, "privateLinkForAzureAd")
+	aliases := generator.generateAliases(resource, "privateLinkForAzureAd")
 	actual := codegen.NewStringSet()
 	for _, alias := range aliases {
 		actual.Add(*alias.Type)

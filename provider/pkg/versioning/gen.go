@@ -70,6 +70,10 @@ func (v VersionMetadata) GetDeprecation(token string) (gen.ResourceDeprecation, 
 	return gen.ResourceDeprecation{}, false
 }
 
+func (v VersionMetadata) GetAllVersions(provider openapi.ProviderName, resource openapi.ResourceName) []openapi.ApiVersion {
+	return v.AllResourceVersionsByResource[provider][resource]
+}
+
 func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
 	versionSources, err := ReadVersionSources(rootDir, majorVersion)
 	if err != nil {

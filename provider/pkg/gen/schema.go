@@ -47,6 +47,7 @@ type ResourceDeprecation struct {
 type Versioning interface {
 	ShouldInclude(provider string, version string, typeName, token string) bool
 	GetDeprecation(token string) (ResourceDeprecation, bool)
+	GetAllVersions(openapi.ProviderName, openapi.ResourceName) []openapi.ApiVersion
 }
 
 type GenerationResult struct {
@@ -631,7 +632,7 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 }
 
 func (g *packageGenerator) makeTypeAlias(alias, apiVersion string) pschema.AliasSpec {
-	fqAlias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, providerApiToModule(g.provider, apiVersion), alias)
+	fqAlias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, g.providerApiToModule(apiVersion), alias)
 	return pschema.AliasSpec{Type: &fqAlias}
 }
 
@@ -706,7 +707,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: g.formatDescription(resourceResponse.description, swagger.Info, apiSpec, additionalDocs),
+			Description: g.formatDescription(resourceResponse.description, resource.typeName, swagger.Info.Version, apiSpec.PreviousVersion, additionalDocs),
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
@@ -747,7 +748,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 		if path.Get != nil && responseFunction != nil {
 			functionSpec := pschema.FunctionSpec{
-				Description:        g.formatFunctionDescription(readOp, resourceResponse, swagger.Info),
+				Description:        g.formatFunctionDescription(readOp, resource.typeName, resourceResponse, swagger.Info),
 				DeprecationMessage: resource.deprecationMessage,
 				Inputs: &pschema.ObjectTypeSpec{
 					Description: requestFunction.description,
@@ -896,8 +897,8 @@ func (g *packageGenerator) genPostFunctions(typeName, path string, pathItem *spe
 	}
 
 	// Generate the function to get this resource.
-	functionTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
-	if !g.versioning.ShouldInclude(g.provider, g.apiVersion, typeName, functionTok) {
+	functionTok := g.generateTok(typeName, g.apiVersion)
+	if !g.shouldInclude(typeName, functionTok, g.apiVersion) {
 		return
 	}
 
@@ -919,7 +920,7 @@ func (g *packageGenerator) genPostFunctions(typeName, path string, pathItem *spe
 	}
 
 	functionSpec := pschema.FunctionSpec{
-		Description: g.formatFunctionDescription(pathItem.Post, response, swagger.Info),
+		Description: g.formatFunctionDescription(pathItem.Post, typeName, response, swagger.Info),
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: request.description,
 			Type:        "object",
@@ -946,49 +947,59 @@ func (g *packageGenerator) genPostFunctions(typeName, path string, pathItem *spe
 
 // moduleName produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
 func (g *packageGenerator) moduleName() string {
-	return providerApiToModule(g.provider, g.apiVersion)
-}
-func providerApiToModule(prov, apiVersion string) string {
-	if apiVersion == "" {
-		return strings.ToLower(prov)
-	}
-	return fmt.Sprintf("%s/%s", strings.ToLower(prov), apiVersion)
+	return g.providerApiToModule(g.apiVersion)
 }
 
-func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, response *propertyBag, info *spec.Info) string {
+func (g *packageGenerator) providerApiToModule(apiVersion string) string {
+	if apiVersion == "" {
+		return strings.ToLower(g.provider)
+	}
+	return fmt.Sprintf("%s/%s", strings.ToLower(g.provider), apiVersion)
+}
+
+func (g *packageGenerator) generateTok(typeName string, apiVersion string) string {
+	return fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, g.providerApiToModule(apiVersion), typeName)
+}
+
+func (g *packageGenerator) shouldInclude(typeName, tok, version string) bool {
+	return g.versioning.ShouldInclude(g.provider, version, typeName, tok)
+}
+
+func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, typeName string, response *propertyBag, info *spec.Info) string {
 	desc := response.description
 	if op.Description != "" {
 		desc = op.Description
 	}
-	return g.formatDescription(desc, info, nil, nil)
+	return g.formatDescription(desc, typeName, info.Version, "", nil)
 }
 
-func (g *packageGenerator) formatDescription(desc string, info *spec.Info, resourceSpec *openapi.ResourceSpec, additionalDocs *string) string {
+func (g *packageGenerator) formatDescription(desc string, typeName string, defaultVersion, previousDefaultVersion string, additionalDocs *string) string {
 	var b strings.Builder
 	b.WriteString(desc)
 
-	b.WriteString("\n<p>")
 	if g.apiVersion == "" {
-		fmt.Fprintf(&b, "Azure REST API version: <b>%s</b>.", info.Version)
-	}
-	if resourceSpec != nil && resourceSpec.PreviousVersion != "" {
-		fmt.Fprintf(&b, "\n<br/>Prior API version in Azure Native 1.x: %s.", resourceSpec.PreviousVersion)
-	}
-
-	b.WriteString("</p>")
-
-	if resourceSpec != nil && len(g.allApiVersions) > 1 {
-		sdkVersions := make([]string, len(g.allApiVersions))
-		for i, v := range resourceSpec.CompatibleVersions {
-			sdkVersion, err := openapi.SdkToApiVersion(v)
-			if err != nil {
-				log.Printf("failed to convert SDK version %q to API version: %v", v, err)
-				sdkVersions = resourceSpec.CompatibleVersions
-				break
-			}
-			sdkVersions[i] = sdkVersion
+		fmt.Fprintf(&b, "\nAzure REST API version: %s.", defaultVersion)
+		if previousDefaultVersion != "" {
+			fmt.Fprintf(&b, " Prior API version in Azure Native 1.x: %s", previousDefaultVersion)
 		}
-		fmt.Fprintf(&b, "\n<p>Available API versions: %s.</p>", strings.Join(sdkVersions, ", "))
+
+		// List other available API versions, if any.
+		allVersions := g.versioning.GetAllVersions(g.provider, typeName)
+		includedVersions := []openapi.ApiVersion{}
+		for _, v := range allVersions {
+			// Don't list the default version twice.
+			if v == defaultVersion {
+				continue
+			}
+			tok := g.generateTok(typeName, openapi.ApiToSdkVersion(v))
+			if g.shouldInclude(typeName, tok, v) {
+				includedVersions = append(includedVersions, v)
+			}
+		}
+
+		if len(includedVersions) > 0 {
+			fmt.Fprintf(&b, "\n<br/>Other available API versions: %s.", strings.Join(includedVersions, ", "))
+		}
 	}
 
 	if additionalDocs != nil {
