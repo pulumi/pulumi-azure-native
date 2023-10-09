@@ -129,7 +129,8 @@
   "CognitiveServices": [],
   "Commerce": [],
   "Communication": [
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-06-01-preview"
   ],
   "Compute": [
     "2022-04-04",
@@ -346,7 +347,8 @@
   "Education": [],
   "Elastic": [
     "2023-06-15-preview",
-    "2023-07-01-preview"
+    "2023-07-01-preview",
+    "2023-10-01-preview"
   ],
   "ElasticSan": [
     "2022-12-01-preview",
@@ -533,7 +535,8 @@
     "2023-02-01-preview",
     "2023-04-01",
     "2023-04-01-preview",
-    "2023-06-01-preview"
+    "2023-06-01-preview",
+    "2023-08-01-preview"
   ],
   "Maintenance": [
     "2023-04-01"
@@ -726,7 +729,8 @@
     "2022-02-01",
     "2022-08-01-preview",
     "2022-09-01",
-    "2023-07-01"
+    "2023-07-01",
+    "2023-08-01"
   ],
   "SaaS": [],
   "ScVmm": [
@@ -734,7 +738,9 @@
   ],
   "Scheduler": [],
   "Scom": [],
-  "Search": [],
+  "Search": [
+    "2023-11-01"
+  ],
   "Security": [
     "2019-01-01",
     "2019-01-01-preview",

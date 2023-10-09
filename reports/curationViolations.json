@@ -36,6 +36,10 @@
     "Detail": "expected tracking preview but found stable"
   },
   {
+    "Provider": "Communication",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "ConnectedVMwarevSphere",
     "Detail": "expected no additions but found some"
   },
