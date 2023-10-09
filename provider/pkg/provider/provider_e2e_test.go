@@ -15,6 +15,7 @@ import (
 
 	"google.golang.org/grpc"
 
+	"github.com/pulumi/providertest"
 	rp "github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil"
@@ -22,71 +23,59 @@ import (
 )
 
 func TestStorageBlob(t *testing.T) {
-	runTestProgram(t, "storage-blob")
+	newAzureTest("storage-blob").Run(t)
 }
 
 func TestApi(t *testing.T) {
-	runTestProgram(t, "api")
+	newAzureTest("api",
+		providertest.WithSkipSdk("csharp", "fails with: Cannot implicitly convert type 'string[]' to 'Pulumi.InputList<Pulumi.Union<string, Pulumi.AzureNative.ApiManagement.Protocol>>'"),
+	).Run(t)
 }
 
 func TestServiceBusRecreate(t *testing.T) {
-	runTestProgram(t, "servicebus-recreate-1", "service-bus-recreate-2")
+	newAzureTest("servicebus-recreate-1",
+		providertest.WithUpdateStep(providertest.UpdateStepDir("../servicebus-recreate-2")),
+	).Run(t)
 }
 
 func TestFunctionScmFtpDeletion(t *testing.T) {
-	runTestProgram(t, "function-scm-ftp-deletion")
+	newAzureTest("function-scm-ftp-deletion",
+		providertest.WithSkipSdk("csharp", "fails with: 'ListStorageAccountKeysResult' does not contain a definition for 'Apply' and no accessible extension method 'Apply' accepting a first argument of type 'ListStorageAccountKeysResult' could be found"),
+		providertest.WithSkipSdk("python", "fails with: <lambda>() missing 1 required positional argument: 'storage_account_keys'"),
+	).Run(t)
 }
 
-// runTestProgram runs an example from ./examples/<initialDir>
-// Any editDirs are applied in order, and the program is run after each edit. e.g. ./examples/<editDir>
-func runTestProgram(t *testing.T, initialDir string, editDirs ...string) {
-	if t.Skipped() {
-		return
-	}
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	port, err := startProvider(ctx)
-	if err != nil {
-		t.Fatal(err)
+func newAzureTest(dir string, opts ...providertest.Option) *providertest.ProviderTest {
+	azureLocation := os.Getenv("ARM_LOCATION")
+	if azureLocation == "" {
+		azureLocation = "westus2"
+		fmt.Println("Defaulting location to 'westus2'. You can override using the ARM_LOCATION variable.")
 	}
 
-	opts, err := getTestOptions(initialDir, editDirs, port)
-	if err != nil {
-		t.Fatal(err)
-		return
-	}
-
-	integration.ProgramTest(t, opts)
-}
-
-func getTestOptions(initialDir string, editDirs []string, port int) (*integration.ProgramTestOptions, error) {
 	cwd, err := os.Getwd()
 	if err != nil {
-		return nil, err
+		// If we can't get the current working directory, we'll fail hard.
+		panic(err)
 	}
-	azureLocation := getLocation()
-	test := integration.ProgramTestOptions{
-		Dir:                  filepath.Join(cwd, "test-programs", initialDir),
-		ExpectRefreshChanges: true,
-		Config: map[string]string{
-			"azure-native:location": azureLocation,
-		},
-		Env: []string{
-			fmt.Sprintf("PULUMI_DEBUG_PROVIDERS=azure-native:%d", port),
-		},
-	}
-	for _, editDir := range editDirs {
-		test.EditDirs = append(test.EditDirs, integration.EditDir{
-			Dir:      filepath.Join(cwd, "test-programs", editDir),
-			Additive: true,
-		})
-	}
-	return &test, nil
+
+	opts = append(opts,
+		providertest.WithProvider(startProvider),
+		providertest.WithConfig("azure-native:location", azureLocation),
+		providertest.WithSkipSdk("go", "generated SDK imports don't match split SDK layout"),
+		providertest.WithE2eOptions(func(opts *integration.ProgramTestOptions) {
+			opts.ExpectRefreshChanges = true // Azure Native causes diffs after a refresh
+		}),
+	)
+
+	return providertest.NewProviderTest(
+		filepath.Join(cwd, "test-programs", dir),
+		opts...,
+	)
 }
 
 // startProvider starts the provider in a goProc and returns the port it's listening on.
 // To shut down the provider, cancel the context.
-func startProvider(ctx context.Context) (int, error) {
+func startProvider(ctx context.Context) (*providertest.ProviderAttach, error) {
 	providerName := "azure-native"
 	cancelChannel := make(chan bool)
 	go func() {
@@ -97,11 +86,11 @@ func startProvider(ctx context.Context) (int, error) {
 	version := ""
 	schemaBytes, err := os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-full.json"))
 	if err != nil {
-		return 0, err
+		return nil, err
 	}
 	azureAPIResourcesBytes, err := os.ReadFile(filepath.Join("..", "..", "..", "bin", "metadata-compact.json"))
 	if err != nil {
-		return 0, err
+		return nil, err
 	}
 	handle, err := rpcutil.ServeWithOptions(rpcutil.ServeOptions{
 		Cancel: cancelChannel,
@@ -116,20 +105,10 @@ func startProvider(ctx context.Context) (int, error) {
 		Options: rpcutil.OpenTracingServerInterceptorOptions(nil),
 	})
 	if err != nil {
-		return 0, fmt.Errorf("fatal: %v", err)
+		return nil, fmt.Errorf("fatal: %v", err)
 	}
 
-	return handle.Port, nil
-}
-
-func getLocation() string {
-	azureLocation := os.Getenv("ARM_LOCATION")
-	if azureLocation == "" {
-		azureLocation = "westus2"
-		fmt.Println("Defaulting location to 'westus2'. You can override using the ARM_LOCATION variable.")
-	}
-
-	return azureLocation
+	return &providertest.ProviderAttach{Name: providerName, Port: handle.Port}, nil
 }
 
 func skipIfShort(t *testing.T) {
