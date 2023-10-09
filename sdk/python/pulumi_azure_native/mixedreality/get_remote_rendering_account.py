@@ -195,6 +195,7 @@ def get_remote_rendering_account(account_name: Optional[str] = None,
     """
     Retrieve a Remote Rendering Account.
     Azure REST API version: 2021-01-01.
+    <br/>Other available API versions: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -229,6 +230,7 @@ def get_remote_rendering_account_output(account_name: Optional[pulumi.Input[str]
     """
     Retrieve a Remote Rendering Account.
     Azure REST API version: 2021-01-01.
+    <br/>Other available API versions: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.

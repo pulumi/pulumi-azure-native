@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
+ * <br/>Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
  */
 export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
     /**

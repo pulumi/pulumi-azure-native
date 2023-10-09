@@ -51,6 +51,7 @@ def list_linker_configurations(linker_name: Optional[str] = None,
     """
     list source configurations for a Linker.
     Azure REST API version: 2022-11-01-preview.
+    <br/>Other available API versions: 2021-11-01-preview.
 
 
     :param str linker_name: The name Linker resource.
@@ -73,6 +74,7 @@ def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] =
     """
     list source configurations for a Linker.
     Azure REST API version: 2022-11-01-preview.
+    <br/>Other available API versions: 2021-11-01-preview.
 
 
     :param str linker_name: The name Linker resource.

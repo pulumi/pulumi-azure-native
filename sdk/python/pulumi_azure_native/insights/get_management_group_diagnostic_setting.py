@@ -171,6 +171,7 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
     """
     Gets the active management group diagnostic settings for the specified resource.
     Azure REST API version: 2021-05-01-preview.
+    <br/>Other available API versions: 2020-01-01-preview.
 
 
     :param str management_group_id: The management group id.
@@ -203,6 +204,7 @@ def get_management_group_diagnostic_setting_output(management_group_id: Optional
     """
     Gets the active management group diagnostic settings for the specified resource.
     Azure REST API version: 2021-05-01-preview.
+    <br/>Other available API versions: 2020-01-01-preview.
 
 
     :param str management_group_id: The management group id.

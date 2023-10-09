@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get host secrets for a function app.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2020-10-01.
         /// </summary>
         public static Task<ListWebAppHostKeysResult> InvokeAsync(ListWebAppHostKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysResult>("azure-native:web:listWebAppHostKeys", args ?? new ListWebAppHostKeysArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get host secrets for a function app.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2020-10-01.
         /// </summary>
         public static Output<ListWebAppHostKeysResult> Invoke(ListWebAppHostKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHostKeysResult>("azure-native:web:listWebAppHostKeys", args ?? new ListWebAppHostKeysInvokeArgs(), options.WithDefaults());

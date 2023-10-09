@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// <summary>
     /// The NetworkFabricController resource definition.
     /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview
+    /// &lt;br/&gt;Other available API versions: 2023-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkFabricController")]
     public partial class NetworkFabricController : global::Pulumi.CustomResource

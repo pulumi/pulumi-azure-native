@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the named value specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
+ * <br/>Other available API versions: 2023-03-01-preview.
  */
 export function getWorkspaceNamedValue(args: GetWorkspaceNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceNamedValueResult> {
 
@@ -81,6 +82,7 @@ export interface GetWorkspaceNamedValueResult {
 /**
  * Gets the details of the named value specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
+ * <br/>Other available API versions: 2023-03-01-preview.
  */
 export function getWorkspaceNamedValueOutput(args: GetWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceNamedValueResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceNamedValue(a, opts))

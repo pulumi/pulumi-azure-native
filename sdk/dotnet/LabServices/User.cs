@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.LabServices
     /// <summary>
     /// User of a lab that can register for and use virtual machines within the lab.
     /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15
+    /// &lt;br/&gt;Other available API versions: 2018-10-15, 2023-06-07.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:User")]
     public partial class User : global::Pulumi.CustomResource

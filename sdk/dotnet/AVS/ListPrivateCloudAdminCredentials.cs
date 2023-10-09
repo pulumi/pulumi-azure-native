@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Administrative credentials for accessing vCenter and NSX-T
         /// Azure REST API version: 2022-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01.
         /// </summary>
         public static Task<ListPrivateCloudAdminCredentialsResult> InvokeAsync(ListPrivateCloudAdminCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPrivateCloudAdminCredentialsResult>("azure-native:avs:listPrivateCloudAdminCredentials", args ?? new ListPrivateCloudAdminCredentialsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Administrative credentials for accessing vCenter and NSX-T
         /// Azure REST API version: 2022-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01.
         /// </summary>
         public static Output<ListPrivateCloudAdminCredentialsResult> Invoke(ListPrivateCloudAdminCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateCloudAdminCredentialsResult>("azure-native:avs:listPrivateCloudAdminCredentials", args ?? new ListPrivateCloudAdminCredentialsInvokeArgs(), options.WithDefaults());

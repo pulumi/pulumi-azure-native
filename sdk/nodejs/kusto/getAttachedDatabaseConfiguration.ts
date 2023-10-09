@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Returns an attached database configuration.
  * Azure REST API version: 2022-12-29.
+ * <br/>Other available API versions: 2023-05-02, 2023-08-15.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
 
@@ -92,6 +93,7 @@ export interface GetAttachedDatabaseConfigurationResult {
 /**
  * Returns an attached database configuration.
  * Azure REST API version: 2022-12-29.
+ * <br/>Other available API versions: 2023-05-02, 2023-08-15.
  */
 export function getAttachedDatabaseConfigurationOutput(args: GetAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDatabaseConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getAttachedDatabaseConfiguration(a, opts))

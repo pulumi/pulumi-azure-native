@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a file import in Azure Security Insights.
  * Azure REST API version: 2023-06-01-preview.
+ * <br/>Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
  */
 export class FileImport extends pulumi.CustomResource {
     /**

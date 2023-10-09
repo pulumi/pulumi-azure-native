@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get secret.
         /// Azure REST API version: 2018-09-15.
+        /// &lt;br/&gt;Other available API versions: 2016-05-15.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:devtestlab:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get secret.
         /// Azure REST API version: 2018-09-15.
+        /// &lt;br/&gt;Other available API versions: 2016-05-15.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:devtestlab:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());

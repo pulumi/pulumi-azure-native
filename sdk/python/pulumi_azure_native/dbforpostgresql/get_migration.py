@@ -341,6 +341,7 @@ def get_migration(migration_name: Optional[str] = None,
     """
     Gets details of a migration.
     Azure REST API version: 2023-03-01-preview.
+    <br/>Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
 
 
     :param str migration_name: The name of the migration.
@@ -393,6 +394,7 @@ def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
     """
     Gets details of a migration.
     Azure REST API version: 2023-03-01-preview.
+    <br/>Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
 
 
     :param str migration_name: The name of the migration.

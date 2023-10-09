@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// <summary>
     /// A secret.
     /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15
+    /// &lt;br/&gt;Other available API versions: 2016-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Secret")]
     public partial class Secret : global::Pulumi.CustomResource

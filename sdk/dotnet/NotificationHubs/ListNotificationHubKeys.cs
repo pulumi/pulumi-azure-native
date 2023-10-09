@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
         /// Azure REST API version: 2023-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
         /// </summary>
         public static Task<ListNotificationHubKeysResult> InvokeAsync(ListNotificationHubKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNotificationHubKeysResult>("azure-native:notificationhubs:listNotificationHubKeys", args ?? new ListNotificationHubKeysArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
         /// Azure REST API version: 2023-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
         /// </summary>
         public static Output<ListNotificationHubKeysResult> Invoke(ListNotificationHubKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNotificationHubKeysResult>("azure-native:notificationhubs:listNotificationHubKeys", args ?? new ListNotificationHubKeysInvokeArgs(), options.WithDefaults());

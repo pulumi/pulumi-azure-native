@@ -232,6 +232,7 @@ def get_pool(account_name: Optional[str] = None,
     """
     Get details of the specified capacity pool
     Azure REST API version: 2022-11-01.
+    <br/>Other available API versions: 2017-08-15, 2019-07-01, 2022-11-01-preview, 2023-05-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -272,6 +273,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get details of the specified capacity pool
     Azure REST API version: 2022-11-01.
+    <br/>Other available API versions: 2017-08-15, 2019-07-01, 2022-11-01-preview, 2023-05-01.
 
 
     :param str account_name: The name of the NetApp account

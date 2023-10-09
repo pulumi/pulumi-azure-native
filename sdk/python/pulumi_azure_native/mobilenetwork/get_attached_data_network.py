@@ -190,6 +190,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
     """
     Gets information about the specified attached data network.
     Azure REST API version: 2023-06-01.
+    <br/>Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
 
 
     :param str attached_data_network_name: The name of the attached data network.
@@ -229,6 +230,7 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
     """
     Gets information about the specified attached data network.
     Azure REST API version: 2023-06-01.
+    <br/>Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
 
 
     :param str attached_data_network_name: The name of the attached data network.

@@ -95,6 +95,7 @@ class QueryPack(pulumi.CustomResource):
         """
         An Log Analytics QueryPack definition.
         Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01
+        <br/>Other available API versions: 2019-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,6 +113,7 @@ class QueryPack(pulumi.CustomResource):
         """
         An Log Analytics QueryPack definition.
         Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01
+        <br/>Other available API versions: 2019-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param QueryPackArgs args: The arguments to use to populate this resource's properties.

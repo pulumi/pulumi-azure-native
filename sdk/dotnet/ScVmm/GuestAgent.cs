@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// <summary>
     /// Defines the GuestAgent.
     /// Azure REST API version: 2022-05-21-preview.
+    /// &lt;br/&gt;Other available API versions: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:GuestAgent")]
     public partial class GuestAgent : global::Pulumi.CustomResource

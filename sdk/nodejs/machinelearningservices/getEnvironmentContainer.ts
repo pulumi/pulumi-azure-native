@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getEnvironmentContainer(args: GetEnvironmentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentContainerResult> {
 
@@ -64,6 +65,7 @@ export interface GetEnvironmentContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getEnvironmentContainerOutput(args: GetEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentContainerResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentContainer(a, opts))

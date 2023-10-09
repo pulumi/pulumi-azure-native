@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets details of a migration.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
  */
 export function getMigration(args: GetMigrationArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationResult> {
 
@@ -149,6 +150,7 @@ export interface GetMigrationResult {
 /**
  * Gets details of a migration.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
  */
 export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationResult> {
     return pulumi.output(args).apply((a: any) => getMigration(a, opts))

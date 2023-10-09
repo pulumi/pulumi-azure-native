@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  * Azure REST API version: 2021-04-01.
+ * <br/>Other available API versions: 2023-01-18-preview.
  */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
 
@@ -67,6 +68,7 @@ export interface GetGuestUsageResult {
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  * Azure REST API version: 2021-04-01.
+ * <br/>Other available API versions: 2023-01-18-preview.
  */
 export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {
     return pulumi.output(args).apply((a: any) => getGuestUsage(a, opts))

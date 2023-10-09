@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The operation to get the restore point collection.
         /// Azure REST API version: 2023-03-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01.
         /// </summary>
         public static Task<GetRestorePointCollectionResult> InvokeAsync(GetRestorePointCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestorePointCollectionResult>("azure-native:compute:getRestorePointCollection", args ?? new GetRestorePointCollectionArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The operation to get the restore point collection.
         /// Azure REST API version: 2023-03-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01.
         /// </summary>
         public static Output<GetRestorePointCollectionResult> Invoke(GetRestorePointCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestorePointCollectionResult>("azure-native:compute:getRestorePointCollection", args ?? new GetRestorePointCollectionInvokeArgs(), options.WithDefaults());

@@ -207,6 +207,7 @@ def get_order(device_name: Optional[str] = None,
     """
     The order details.
     Azure REST API version: 2022-03-01.
+    <br/>Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -242,6 +243,7 @@ def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
     """
     The order details.
     Azure REST API version: 2022-03-01.
+    <br/>Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
 
 
     :param str device_name: The device name.

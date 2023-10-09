@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets an azure databricks accessConnector.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2022-04-01-preview.
  */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
 
@@ -71,6 +72,7 @@ export interface GetAccessConnectorResult {
 /**
  * Gets an azure databricks accessConnector.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2022-04-01-preview.
  */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAccessConnector(a, opts))

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// <summary>
     /// An object that represents a cache rule for a container registry.
     /// Azure REST API version: 2023-01-01-preview.
+    /// &lt;br/&gt;Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:CacheRule")]
     public partial class CacheRule : global::Pulumi.CustomResource

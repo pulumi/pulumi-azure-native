@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Lists active connectivity configurations in a network manager.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01.
  */
 export function listActiveConnectivityConfigurations(args: ListActiveConnectivityConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveConnectivityConfigurationsResult> {
 
@@ -62,6 +63,7 @@ export interface ListActiveConnectivityConfigurationsResult {
 /**
  * Lists active connectivity configurations in a network manager.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01.
  */
 export function listActiveConnectivityConfigurationsOutput(args: ListActiveConnectivityConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveConnectivityConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => listActiveConnectivityConfigurations(a, opts))

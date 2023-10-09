@@ -173,6 +173,7 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
     """
     Gets an availability group listener.
     Azure REST API version: 2022-02-01.
+    <br/>Other available API versions: 2023-01-01-preview.
 
 
     :param str availability_group_listener_name: Name of the availability group listener.
@@ -211,6 +212,7 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
     """
     Gets an availability group listener.
     Azure REST API version: 2022-02-01.
+    <br/>Other available API versions: 2023-01-01-preview.
 
 
     :param str availability_group_listener_name: Name of the availability group listener.

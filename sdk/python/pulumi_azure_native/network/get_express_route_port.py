@@ -267,6 +267,7 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
     """
     Retrieves the requested ExpressRoutePort resource.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str express_route_port_name: The name of ExpressRoutePort.
@@ -307,6 +308,7 @@ def get_express_route_port_output(express_route_port_name: Optional[pulumi.Input
     """
     Retrieves the requested ExpressRoutePort resource.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str express_route_port_name: The name of ExpressRoutePort.

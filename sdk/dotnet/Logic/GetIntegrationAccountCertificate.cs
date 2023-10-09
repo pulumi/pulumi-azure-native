@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account certificate.
         /// Azure REST API version: 2019-05-01.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Task<GetIntegrationAccountCertificateResult> InvokeAsync(GetIntegrationAccountCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountCertificateResult>("azure-native:logic:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account certificate.
         /// Azure REST API version: 2019-05-01.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountCertificateResult> Invoke(GetIntegrationAccountCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountCertificateResult>("azure-native:logic:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateInvokeArgs(), options.WithDefaults());

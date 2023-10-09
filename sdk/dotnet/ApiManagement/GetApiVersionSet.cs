@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the Api Version Set specified by its identifier.
         /// Azure REST API version: 2022-08-01.
+        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure-native:apimanagement:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the Api Version Set specified by its identifier.
         /// Azure REST API version: 2022-08-01.
+        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Output<GetApiVersionSetResult> Invoke(GetApiVersionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure-native:apimanagement:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithDefaults());

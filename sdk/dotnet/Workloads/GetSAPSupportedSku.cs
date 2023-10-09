@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Get a list of SAP supported SKUs for ASCS, Application and Database tier.
         /// Azure REST API version: 2023-04-01.
+        /// &lt;br/&gt;Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Task<GetSAPSupportedSkuResult> InvokeAsync(GetSAPSupportedSkuArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPSupportedSkuResult>("azure-native:workloads:getSAPSupportedSku", args ?? new GetSAPSupportedSkuArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Get a list of SAP supported SKUs for ASCS, Application and Database tier.
         /// Azure REST API version: 2023-04-01.
+        /// &lt;br/&gt;Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Output<GetSAPSupportedSkuResult> Invoke(GetSAPSupportedSkuInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPSupportedSkuResult>("azure-native:workloads:getSAPSupportedSku", args ?? new GetSAPSupportedSkuInvokeArgs(), options.WithDefaults());

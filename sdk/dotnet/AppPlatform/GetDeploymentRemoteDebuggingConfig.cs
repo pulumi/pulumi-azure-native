@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get remote debugging config.
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetDeploymentRemoteDebuggingConfigResult> InvokeAsync(GetDeploymentRemoteDebuggingConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentRemoteDebuggingConfigResult>("azure-native:appplatform:getDeploymentRemoteDebuggingConfig", args ?? new GetDeploymentRemoteDebuggingConfigArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get remote debugging config.
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetDeploymentRemoteDebuggingConfigResult> Invoke(GetDeploymentRemoteDebuggingConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentRemoteDebuggingConfigResult>("azure-native:appplatform:getDeploymentRemoteDebuggingConfig", args ?? new GetDeploymentRemoteDebuggingConfigInvokeArgs(), options.WithDefaults());

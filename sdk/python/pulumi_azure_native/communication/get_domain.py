@@ -208,6 +208,7 @@ def get_domain(domain_name: Optional[str] = None,
     """
     Get the Domains resource and its properties.
     Azure REST API version: 2023-03-31.
+    <br/>Other available API versions: 2022-07-01-preview, 2023-04-01-preview, 2023-06-01-preview.
 
 
     :param str domain_name: The name of the Domains resource.
@@ -246,6 +247,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     Get the Domains resource and its properties.
     Azure REST API version: 2023-03-31.
+    <br/>Other available API versions: 2022-07-01-preview, 2023-04-01-preview, 2023-06-01-preview.
 
 
     :param str domain_name: The name of the Domains resource.

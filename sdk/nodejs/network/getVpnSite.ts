@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the details of a VPN site.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
  */
 export function getVpnSite(args: GetVpnSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnSiteResult> {
 
@@ -103,6 +104,7 @@ export interface GetVpnSiteResult {
 /**
  * Retrieves the details of a VPN site.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
  */
 export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnSiteResult> {
     return pulumi.output(args).apply((a: any) => getVpnSite(a, opts))

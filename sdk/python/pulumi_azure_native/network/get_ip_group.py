@@ -160,6 +160,7 @@ def get_ip_group(expand: Optional[str] = None,
     """
     Gets the specified ipGroups.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
@@ -194,6 +195,7 @@ def get_ip_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Gets the specified ipGroups.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.

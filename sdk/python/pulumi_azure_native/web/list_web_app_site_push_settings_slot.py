@@ -138,6 +138,7 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
     """
     Description for Gets the Push settings associated with web app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str name: Name of web app.
@@ -170,6 +171,7 @@ def list_web_app_site_push_settings_slot_output(name: Optional[pulumi.Input[str]
     """
     Description for Gets the Push settings associated with web app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str name: Name of web app.

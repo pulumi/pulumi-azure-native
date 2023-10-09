@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * An assessment created for a group in the Migration project.
  * Azure REST API version: 2019-10-01. Prior API version in Azure Native 1.x: 2019-10-01
+ * <br/>Other available API versions: 2017-11-11-preview, 2018-02-02.
  */
 export class Assessment extends pulumi.CustomResource {
     /**

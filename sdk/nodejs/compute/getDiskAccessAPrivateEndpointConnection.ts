@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a private endpoint connection under a disk access resource.
  * Azure REST API version: 2022-07-02.
+ * <br/>Other available API versions: 2023-01-02, 2023-04-02.
  */
 export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessAPrivateEndpointConnectionResult> {
 
@@ -68,6 +69,7 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
 /**
  * Gets information about a private endpoint connection under a disk access resource.
  * Azure REST API version: 2022-07-02.
+ * <br/>Other available API versions: 2023-01-02, 2023-04-02.
  */
 export function getDiskAccessAPrivateEndpointConnectionOutput(args: GetDiskAccessAPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessAPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getDiskAccessAPrivateEndpointConnection(a, opts))

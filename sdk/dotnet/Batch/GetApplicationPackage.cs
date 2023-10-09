@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// Gets information about the specified application package.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2017-09-01.
         /// </summary>
         public static Task<GetApplicationPackageResult> InvokeAsync(GetApplicationPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-native:batch:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// Gets information about the specified application package.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2017-09-01.
         /// </summary>
         public static Output<GetApplicationPackageResult> Invoke(GetApplicationPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationPackageResult>("azure-native:batch:getApplicationPackage", args ?? new GetApplicationPackageInvokeArgs(), options.WithDefaults());

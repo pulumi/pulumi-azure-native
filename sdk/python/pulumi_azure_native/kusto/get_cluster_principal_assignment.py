@@ -171,6 +171,7 @@ def get_cluster_principal_assignment(cluster_name: Optional[str] = None,
     """
     Gets a Kusto cluster principalAssignment.
     Azure REST API version: 2022-12-29.
+    <br/>Other available API versions: 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -206,6 +207,7 @@ def get_cluster_principal_assignment_output(cluster_name: Optional[pulumi.Input[
     """
     Gets a Kusto cluster principalAssignment.
     Azure REST API version: 2022-12-29.
+    <br/>Other available API versions: 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.

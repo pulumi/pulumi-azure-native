@@ -129,6 +129,7 @@ class Creator(pulumi.CustomResource):
         """
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
         Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview
+        <br/>Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,6 +149,7 @@ class Creator(pulumi.CustomResource):
         """
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
         Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview
+        <br/>Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param CreatorArgs args: The arguments to use to populate this resource's properties.

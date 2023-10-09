@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Get secret.
  * Azure REST API version: 2018-09-15.
+ * <br/>Other available API versions: 2016-05-15.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
 
@@ -83,6 +84,7 @@ export interface GetSecretResult {
 /**
  * Get secret.
  * Azure REST API version: 2018-09-15.
+ * <br/>Other available API versions: 2016-05-15.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))

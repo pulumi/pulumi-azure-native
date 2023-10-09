@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get a specific private endpoint connection under a topic, domain, or partner namespace.
         /// Azure REST API version: 2022-06-15.
+        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:eventgrid:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get a specific private endpoint connection under a topic, domain, or partner namespace.
         /// Azure REST API version: 2022-06-15.
+        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:eventgrid:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure REST API version: 2022-06-01.
+ * <br/>Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function getMonitorDefaultKey(args: GetMonitorDefaultKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorDefaultKeyResult> {
 
@@ -47,6 +48,7 @@ export interface GetMonitorDefaultKeyResult {
 }
 /**
  * Azure REST API version: 2022-06-01.
+ * <br/>Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function getMonitorDefaultKeyOutput(args: GetMonitorDefaultKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorDefaultKeyResult> {
     return pulumi.output(args).apply((a: any) => getMonitorDefaultKey(a, opts))

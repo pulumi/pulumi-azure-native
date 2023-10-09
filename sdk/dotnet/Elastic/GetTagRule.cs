@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// Azure REST API version: 2023-06-01.
+        /// &lt;br/&gt;Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Task<GetTagRuleResult> InvokeAsync(GetTagRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:elastic:getTagRule", args ?? new GetTagRuleArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// Azure REST API version: 2023-06-01.
+        /// &lt;br/&gt;Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:elastic:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithDefaults());

@@ -112,6 +112,7 @@ def get_private_endpoint_connection(cache_name: Optional[str] = None,
     """
     Gets the specified private endpoint connection associated with the redis cache.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-05-01-preview, 2023-08-01.
 
 
     :param str cache_name: The name of the Redis cache.
@@ -142,6 +143,7 @@ def get_private_endpoint_connection_output(cache_name: Optional[pulumi.Input[str
     """
     Gets the specified private endpoint connection associated with the redis cache.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-05-01-preview, 2023-08-01.
 
 
     :param str cache_name: The name of the Redis cache.

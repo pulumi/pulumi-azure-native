@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Logic
     /// <summary>
     /// The workflow type.
     /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01
+    /// &lt;br/&gt;Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource

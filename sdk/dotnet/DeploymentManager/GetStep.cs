@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// <summary>
         /// The resource representation of a rollout step.
         /// Azure REST API version: 2019-11-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2018-09-01-preview.
         /// </summary>
         public static Task<GetStepResult> InvokeAsync(GetStepArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("azure-native:deploymentmanager:getStep", args ?? new GetStepArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// <summary>
         /// The resource representation of a rollout step.
         /// Azure REST API version: 2019-11-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2018-09-01-preview.
         /// </summary>
         public static Output<GetStepResult> Invoke(GetStepInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStepResult>("azure-native:deploymentmanager:getStep", args ?? new GetStepInvokeArgs(), options.WithDefaults());

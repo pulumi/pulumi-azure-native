@@ -88,6 +88,7 @@ def get_cassandra_data_center(cluster_name: Optional[str] = None,
     """
     Get the properties of a managed Cassandra data center.
     Azure REST API version: 2023-04-15.
+    <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
 
 
     :param str cluster_name: Managed Cassandra cluster name.
@@ -116,6 +117,7 @@ def get_cassandra_data_center_output(cluster_name: Optional[pulumi.Input[str]] =
     """
     Get the properties of a managed Cassandra data center.
     Azure REST API version: 2023-04-15.
+    <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
 
 
     :param str cluster_name: Managed Cassandra cluster name.

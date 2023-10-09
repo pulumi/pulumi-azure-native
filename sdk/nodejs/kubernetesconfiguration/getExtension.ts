@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets Kubernetes Cluster Extension.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
@@ -138,6 +139,7 @@ export interface GetExtensionResult {
 /**
  * Gets Kubernetes Cluster Extension.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))

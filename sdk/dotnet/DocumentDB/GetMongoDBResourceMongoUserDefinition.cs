@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
         /// Azure REST API version: 2023-04-15.
+        /// &lt;br/&gt;Other available API versions: 2023-09-15, 2023-09-15-preview.
         /// </summary>
         public static Task<GetMongoDBResourceMongoUserDefinitionResult> InvokeAsync(GetMongoDBResourceMongoUserDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoUserDefinitionResult>("azure-native:documentdb:getMongoDBResourceMongoUserDefinition", args ?? new GetMongoDBResourceMongoUserDefinitionArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
         /// Azure REST API version: 2023-04-15.
+        /// &lt;br/&gt;Other available API versions: 2023-09-15, 2023-09-15-preview.
         /// </summary>
         public static Output<GetMongoDBResourceMongoUserDefinitionResult> Invoke(GetMongoDBResourceMongoUserDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoUserDefinitionResult>("azure-native:documentdb:getMongoDBResourceMongoUserDefinition", args ?? new GetMongoDBResourceMongoUserDefinitionInvokeArgs(), options.WithDefaults());

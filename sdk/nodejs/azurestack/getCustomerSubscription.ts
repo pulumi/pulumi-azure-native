@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Returns the specified product.
  * Azure REST API version: 2022-06-01.
+ * <br/>Other available API versions: 2020-06-01-preview.
  */
 export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerSubscriptionResult> {
 
@@ -61,6 +62,7 @@ export interface GetCustomerSubscriptionResult {
 /**
  * Returns the specified product.
  * Azure REST API version: 2022-06-01.
+ * <br/>Other available API versions: 2020-06-01-preview.
  */
 export function getCustomerSubscriptionOutput(args: GetCustomerSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getCustomerSubscription(a, opts))

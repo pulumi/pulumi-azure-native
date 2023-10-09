@@ -243,6 +243,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
     """
     Gets an existing remediation at resource group scope.
     Azure REST API version: 2021-10-01.
+    <br/>Other available API versions: 2018-07-01-preview.
 
 
     :param str remediation_name: The name of the remediation.
@@ -281,6 +282,7 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
     """
     Gets an existing remediation at resource group scope.
     Azure REST API version: 2021-10-01.
+    <br/>Other available API versions: 2018-07-01-preview.
 
 
     :param str remediation_name: The name of the remediation.

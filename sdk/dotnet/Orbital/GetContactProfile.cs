@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified contact Profile in a specified resource group.
         /// Azure REST API version: 2022-11-01.
+        /// &lt;br/&gt;Other available API versions: 2022-03-01.
         /// </summary>
         public static Task<GetContactProfileResult> InvokeAsync(GetContactProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified contact Profile in a specified resource group.
         /// Azure REST API version: 2022-11-01.
+        /// &lt;br/&gt;Other available API versions: 2022-03-01.
         /// </summary>
         public static Output<GetContactProfileResult> Invoke(GetContactProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());

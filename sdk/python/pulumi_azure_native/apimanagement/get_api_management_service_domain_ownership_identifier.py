@@ -47,6 +47,7 @@ def get_api_management_service_domain_ownership_identifier(opts: Optional[pulumi
     """
     Get the custom domain ownership identifier for an API Management service.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-09-01-preview, 2023-03-01-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

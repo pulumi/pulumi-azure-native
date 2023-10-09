@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
  * Azure REST API version: 2020-05-01.
+ * <br/>Other available API versions: 2019-10-01-preview.
  */
 export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs, opts?: pulumi.InvokeOptions): Promise<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
 
@@ -42,6 +43,7 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
 /**
  * Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
  * Azure REST API version: 2020-05-01.
+ * <br/>Other available API versions: 2019-10-01-preview.
  */
 export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
     return pulumi.output(args).apply((a: any) => listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(a, opts))

@@ -171,6 +171,7 @@ def get_blueprint(blueprint_name: Optional[str] = None,
     """
     Get a blueprint definition.
     Azure REST API version: 2018-11-01-preview.
+    <br/>Other available API versions: 2017-11-11-preview.
 
 
     :param str blueprint_name: Name of the blueprint definition.
@@ -203,6 +204,7 @@ def get_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] = None,
     """
     Get a blueprint definition.
     Azure REST API version: 2018-11-01-preview.
+    <br/>Other available API versions: 2017-11-11-preview.
 
 
     :param str blueprint_name: Name of the blueprint definition.

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the specified Subscription keys.
         /// Azure REST API version: 2022-09-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<ListWorkspaceSubscriptionSecretsResult> InvokeAsync(ListWorkspaceSubscriptionSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceSubscriptionSecretsResult>("azure-native:apimanagement:listWorkspaceSubscriptionSecrets", args ?? new ListWorkspaceSubscriptionSecretsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the specified Subscription keys.
         /// Azure REST API version: 2022-09-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<ListWorkspaceSubscriptionSecretsResult> Invoke(ListWorkspaceSubscriptionSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceSubscriptionSecretsResult>("azure-native:apimanagement:listWorkspaceSubscriptionSecrets", args ?? new ListWorkspaceSubscriptionSecretsInvokeArgs(), options.WithDefaults());

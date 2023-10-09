@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the private endpoint connection to the search service in the given resource group.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2019-10-01-preview, 2023-11-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -60,6 +61,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Gets the details of the private endpoint connection to the search service in the given resource group.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2019-10-01-preview, 2023-11-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

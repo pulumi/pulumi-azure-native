@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Portal
     /// <summary>
     /// The shared dashboard resource definition.
     /// Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview
+    /// &lt;br/&gt;Other available API versions: 2019-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource

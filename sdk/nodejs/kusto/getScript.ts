@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a Kusto cluster database script.
  * Azure REST API version: 2022-12-29.
+ * <br/>Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15.
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
 
@@ -81,6 +82,7 @@ export interface GetScriptResult {
 /**
  * Gets a Kusto cluster database script.
  * Azure REST API version: 2022-12-29.
+ * <br/>Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15.
  */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
     return pulumi.output(args).apply((a: any) => getScript(a, opts))

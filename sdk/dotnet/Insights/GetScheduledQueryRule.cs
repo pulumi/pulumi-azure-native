@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Retrieve an scheduled query rule definition.
         /// Azure REST API version: 2023-03-15-preview.
+        /// &lt;br/&gt;Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview.
         /// </summary>
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-native:insights:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Retrieve an scheduled query rule definition.
         /// Azure REST API version: 2023-03-15-preview.
+        /// &lt;br/&gt;Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview.
         /// </summary>
         public static Output<GetScheduledQueryRuleResult> Invoke(GetScheduledQueryRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRuleResult>("azure-native:insights:getScheduledQueryRule", args ?? new GetScheduledQueryRuleInvokeArgs(), options.WithDefaults());

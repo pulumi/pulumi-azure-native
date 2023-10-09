@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the managed application.
         /// Azure REST API version: 2021-07-01.
+        /// &lt;br/&gt;Other available API versions: 2017-12-01, 2018-06-01.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:solutions:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the managed application.
         /// Azure REST API version: 2021-07-01.
+        /// &lt;br/&gt;Other available API versions: 2017-12-01, 2018-06-01.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:solutions:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

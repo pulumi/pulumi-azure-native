@@ -208,6 +208,7 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
     """
     Gets a Dev Box definition
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.
@@ -246,6 +247,7 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
     """
     Gets a Dev Box definition
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.

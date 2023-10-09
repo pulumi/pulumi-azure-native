@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Gets the primary and secondary connection strings for the topic.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Task<ListTopicKeysResult> InvokeAsync(ListTopicKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-native:servicebus:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Gets the primary and secondary connection strings for the topic.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Output<ListTopicKeysResult> Invoke(ListTopicKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopicKeysResult>("azure-native:servicebus:listTopicKeys", args ?? new ListTopicKeysInvokeArgs(), options.WithDefaults());

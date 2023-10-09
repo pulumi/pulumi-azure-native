@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a storage container
         /// Azure REST API version: 2022-12-15-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetStorageContainerResult> InvokeAsync(GetStorageContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure-native:azurestackhci:getStorageContainer", args ?? new GetStorageContainerArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a storage container
         /// Azure REST API version: 2022-12-15-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure-native:azurestackhci:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithDefaults());

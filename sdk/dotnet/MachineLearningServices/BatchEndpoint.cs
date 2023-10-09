@@ -11,6 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
+    /// &lt;br/&gt;Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:BatchEndpoint")]
     public partial class BatchEndpoint : global::Pulumi.CustomResource

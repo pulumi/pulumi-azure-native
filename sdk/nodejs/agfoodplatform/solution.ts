@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Solution resource.
  * Azure REST API version: 2023-06-01-preview.
+ * <br/>Other available API versions: 2021-09-01-preview.
  */
 export class Solution extends pulumi.CustomResource {
     /**

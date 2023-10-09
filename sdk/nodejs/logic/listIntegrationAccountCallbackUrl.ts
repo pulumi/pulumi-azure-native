@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the integration account callback URL.
  * Azure REST API version: 2019-05-01.
+ * <br/>Other available API versions: 2015-08-01-preview.
  */
 export function listIntegrationAccountCallbackUrl(args: ListIntegrationAccountCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountCallbackUrlResult> {
 
@@ -53,6 +54,7 @@ export interface ListIntegrationAccountCallbackUrlResult {
 /**
  * Gets the integration account callback URL.
  * Azure REST API version: 2019-05-01.
+ * <br/>Other available API versions: 2015-08-01-preview.
  */
 export function listIntegrationAccountCallbackUrlOutput(args: ListIntegrationAccountCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountCallbackUrlResult> {
     return pulumi.output(args).apply((a: any) => listIntegrationAccountCallbackUrl(a, opts))

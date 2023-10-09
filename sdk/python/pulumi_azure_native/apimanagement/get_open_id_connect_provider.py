@@ -159,6 +159,7 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
     """
     Gets specific OpenID Connect Provider without secrets.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.
@@ -193,6 +194,7 @@ def get_open_id_connect_provider_output(opid: Optional[pulumi.Input[str]] = None
     """
     Gets specific OpenID Connect Provider without secrets.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.

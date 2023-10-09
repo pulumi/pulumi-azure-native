@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// <summary>
     /// An Log Analytics QueryPack definition.
     /// Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01
+    /// &lt;br/&gt;Other available API versions: 2019-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:QueryPack")]
     public partial class QueryPack : global::Pulumi.CustomResource

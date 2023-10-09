@@ -195,6 +195,7 @@ def get_connected_environment(connected_environment_name: Optional[str] = None,
     """
     Get the properties of an connectedEnvironment.
     Azure REST API version: 2022-10-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str connected_environment_name: Name of the connectedEnvironment.
@@ -229,6 +230,7 @@ def get_connected_environment_output(connected_environment_name: Optional[pulumi
     """
     Get the properties of an connectedEnvironment.
     Azure REST API version: 2022-10-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str connected_environment_name: Name of the connectedEnvironment.

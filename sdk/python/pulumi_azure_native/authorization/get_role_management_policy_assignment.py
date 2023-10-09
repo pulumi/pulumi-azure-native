@@ -135,6 +135,7 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
     """
     Get the specified role management policy assignment for a resource scope
     Azure REST API version: 2020-10-01.
+    <br/>Other available API versions: 2020-10-01-preview.
 
 
     :param str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.
@@ -164,6 +165,7 @@ def get_role_management_policy_assignment_output(role_management_policy_assignme
     """
     Get the specified role management policy assignment for a resource scope
     Azure REST API version: 2020-10-01.
+    <br/>Other available API versions: 2020-10-01-preview.
 
 
     :param str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.

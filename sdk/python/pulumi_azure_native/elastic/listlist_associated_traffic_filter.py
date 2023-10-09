@@ -51,6 +51,7 @@ def listlist_associated_traffic_filter(monitor_name: Optional[str] = None,
     """
     List of elastic traffic filters in the account
     Azure REST API version: 2023-06-01.
+    <br/>Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -73,6 +74,7 @@ def listlist_associated_traffic_filter_output(monitor_name: Optional[pulumi.Inpu
     """
     List of elastic traffic filters in the account
     Azure REST API version: 2023-06-01.
+    <br/>Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

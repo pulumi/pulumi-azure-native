@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Returns a description for the specified queue.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Returns a description for the specified queue.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());

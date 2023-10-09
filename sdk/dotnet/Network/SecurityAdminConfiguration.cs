@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Defines the security admin configuration
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+    /// &lt;br/&gt;Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityAdminConfiguration")]
     public partial class SecurityAdminConfiguration : global::Pulumi.CustomResource

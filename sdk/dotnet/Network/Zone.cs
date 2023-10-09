@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Describes a DNS zone.
     /// Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
+    /// &lt;br/&gt;Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Zone")]
     public partial class Zone : global::Pulumi.CustomResource

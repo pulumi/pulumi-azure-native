@@ -102,6 +102,7 @@ def get_replication_protected_item(fabric_name: Optional[str] = None,
     """
     Gets the details of an ASR replication protected item.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-06-01.
 
 
     :param str fabric_name: Fabric unique name.
@@ -137,6 +138,7 @@ def get_replication_protected_item_output(fabric_name: Optional[pulumi.Input[str
     """
     Gets the details of an ASR replication protected item.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-06-01.
 
 
     :param str fabric_name: Fabric unique name.

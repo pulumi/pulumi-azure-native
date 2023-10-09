@@ -112,6 +112,7 @@ def get_sql_resource_sql_role_definition(account_name: Optional[str] = None,
     """
     Retrieves the properties of an existing Azure Cosmos DB SQL Role Definition with the given Id.
     Azure REST API version: 2023-04-15.
+    <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -142,6 +143,7 @@ def get_sql_resource_sql_role_definition_output(account_name: Optional[pulumi.In
     """
     Retrieves the properties of an existing Azure Cosmos DB SQL Role Definition with the given Id.
     Azure REST API version: 2023-04-15.
+    <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.

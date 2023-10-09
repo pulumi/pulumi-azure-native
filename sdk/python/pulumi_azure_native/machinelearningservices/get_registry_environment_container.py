@@ -100,6 +100,7 @@ def get_registry_environment_container(environment_name: Optional[str] = None,
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str environment_name: Container name. This is case-sensitive.
@@ -129,6 +130,7 @@ def get_registry_environment_container_output(environment_name: Optional[pulumi.
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str environment_name: Container name. This is case-sensitive.

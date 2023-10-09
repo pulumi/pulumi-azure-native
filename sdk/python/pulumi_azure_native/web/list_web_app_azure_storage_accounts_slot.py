@@ -100,6 +100,7 @@ def list_web_app_azure_storage_accounts_slot(name: Optional[str] = None,
     """
     Description for Gets the Azure storage account configurations of an app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str name: Name of the app.
@@ -129,6 +130,7 @@ def list_web_app_azure_storage_accounts_slot_output(name: Optional[pulumi.Input[
     """
     Description for Gets the Azure storage account configurations of an app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str name: Name of the app.

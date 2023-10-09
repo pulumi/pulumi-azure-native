@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a Template Spec version from a specific Template Spec.
  * Azure REST API version: 2022-02-01.
+ * <br/>Other available API versions: 2019-06-01-preview.
  */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
 
@@ -88,6 +89,7 @@ export interface GetTemplateSpecVersionResult {
 /**
  * Gets a Template Spec version from a specific Template Spec.
  * Azure REST API version: 2022-02-01.
+ * <br/>Other available API versions: 2019-06-01-preview.
  */
 export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
     return pulumi.output(args).apply((a: any) => getTemplateSpecVersion(a, opts))

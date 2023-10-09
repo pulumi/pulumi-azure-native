@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NetApp
     /// <summary>
     /// Quota Rule of a Volume
     /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-01-01
+    /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:VolumeQuotaRule")]
     public partial class VolumeQuotaRule : global::Pulumi.CustomResource

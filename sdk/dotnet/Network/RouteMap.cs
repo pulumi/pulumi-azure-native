@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// The RouteMap child resource of a Virtual hub.
     /// Azure REST API version: 2023-02-01.
+    /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RouteMap")]
     public partial class RouteMap : global::Pulumi.CustomResource

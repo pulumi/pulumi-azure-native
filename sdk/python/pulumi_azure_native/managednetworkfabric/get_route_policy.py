@@ -147,6 +147,7 @@ def get_route_policy(resource_group_name: Optional[str] = None,
     """
     Implements Route Policy GET method.
     Azure REST API version: 2023-02-01-preview.
+    <br/>Other available API versions: 2023-06-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -177,6 +178,7 @@ def get_route_policy_output(resource_group_name: Optional[pulumi.Input[str]] = N
     """
     Implements Route Policy GET method.
     Azure REST API version: 2023-02-01-preview.
+    <br/>Other available API versions: 2023-06-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

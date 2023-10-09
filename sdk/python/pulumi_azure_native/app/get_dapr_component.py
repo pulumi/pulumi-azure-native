@@ -184,6 +184,7 @@ def get_dapr_component(component_name: Optional[str] = None,
     """
     Dapr Component.
     Azure REST API version: 2022-10-01.
+    <br/>Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -220,6 +221,7 @@ def get_dapr_component_output(component_name: Optional[pulumi.Input[str]] = None
     """
     Dapr Component.
     Azure REST API version: 2022-10-01.
+    <br/>Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str component_name: Name of the Dapr Component.

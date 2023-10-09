@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the status of service.
  * Azure REST API version: 2023-04-15.
+ * <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -60,6 +61,7 @@ export interface GetServiceResult {
 /**
  * Gets the status of service.
  * Azure REST API version: 2023-04-15.
+ * <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

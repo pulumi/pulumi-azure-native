@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the Push settings associated with web app.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2020-10-01.
         /// </summary>
         public static Task<ListWebAppSitePushSettingsResult> InvokeAsync(ListWebAppSitePushSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsResult>("azure-native:web:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the Push settings associated with web app.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2020-10-01.
         /// </summary>
         public static Output<ListWebAppSitePushSettingsResult> Invoke(ListWebAppSitePushSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSitePushSettingsResult>("azure-native:web:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsInvokeArgs(), options.WithDefaults());

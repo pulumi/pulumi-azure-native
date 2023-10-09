@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Association Subresource of Traffic Controller
  * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview
+ * <br/>Other available API versions: 2022-10-01-preview.
  */
 export class AssociationsInterface extends pulumi.CustomResource {
     /**

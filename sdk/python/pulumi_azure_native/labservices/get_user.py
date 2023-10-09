@@ -184,6 +184,7 @@ def get_user(lab_name: Optional[str] = None,
     """
     Returns the properties of a lab user.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2018-10-15, 2023-06-07.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -220,6 +221,7 @@ def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
     """
     Returns the properties of a lab user.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2018-10-15, 2023-06-07.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.

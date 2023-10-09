@@ -113,6 +113,7 @@ def get_topic_authorization_rule(authorization_rule_name: Optional[str] = None,
     """
     Returns the specified authorization rule.
     Azure REST API version: 2022-01-01-preview.
+    <br/>Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -146,6 +147,7 @@ def get_topic_authorization_rule_output(authorization_rule_name: Optional[pulumi
     """
     Returns the specified authorization rule.
     Azure REST API version: 2022-01-01-preview.
+    <br/>Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.

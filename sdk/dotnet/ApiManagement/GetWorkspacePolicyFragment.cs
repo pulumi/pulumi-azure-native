@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets a policy fragment.
         /// Azure REST API version: 2022-09-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<GetWorkspacePolicyFragmentResult> InvokeAsync(GetWorkspacePolicyFragmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspacePolicyFragmentResult>("azure-native:apimanagement:getWorkspacePolicyFragment", args ?? new GetWorkspacePolicyFragmentArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets a policy fragment.
         /// Azure REST API version: 2022-09-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<GetWorkspacePolicyFragmentResult> Invoke(GetWorkspacePolicyFragmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacePolicyFragmentResult>("azure-native:apimanagement:getWorkspacePolicyFragment", args ?? new GetWorkspacePolicyFragmentInvokeArgs(), options.WithDefaults());

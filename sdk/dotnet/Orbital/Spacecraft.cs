@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Orbital
     /// <summary>
     /// Customer creates a spacecraft resource to schedule a contact.
     /// Azure REST API version: 2022-11-01.
+    /// &lt;br/&gt;Other available API versions: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Spacecraft")]
     public partial class Spacecraft : global::Pulumi.CustomResource

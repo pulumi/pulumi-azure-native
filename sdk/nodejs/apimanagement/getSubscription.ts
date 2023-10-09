@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Subscription entity.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2016-07-07, 2016-10-10, 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
 
@@ -105,6 +106,7 @@ export interface GetSubscriptionResult {
 /**
  * Gets the specified Subscription entity.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2016-07-07, 2016-10-10, 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getSubscription(a, opts))

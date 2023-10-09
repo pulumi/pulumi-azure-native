@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a managed database.
  * Azure REST API version: 2021-11-01.
+ * <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseResult> {
 
@@ -89,6 +90,7 @@ export interface GetManagedDatabaseResult {
 /**
  * Gets a managed database.
  * Azure REST API version: 2021-11-01.
+ * <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getManagedDatabase(a, opts))

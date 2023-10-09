@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The operation to get the run command.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2023-07-01.
  */
 export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRunCommandByVirtualMachineResult> {
 
@@ -125,6 +126,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
 /**
  * The operation to get the run command.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2023-07-01.
  */
 export function getVirtualMachineRunCommandByVirtualMachineOutput(args: GetVirtualMachineRunCommandByVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRunCommandByVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineRunCommandByVirtualMachine(a, opts))

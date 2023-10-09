@@ -160,6 +160,7 @@ def get_integration_account_certificate(certificate_name: Optional[str] = None,
     """
     Gets an integration account certificate.
     Azure REST API version: 2019-05-01.
+    <br/>Other available API versions: 2015-08-01-preview.
 
 
     :param str certificate_name: The integration account certificate name.
@@ -194,6 +195,7 @@ def get_integration_account_certificate_output(certificate_name: Optional[pulumi
     """
     Gets an integration account certificate.
     Azure REST API version: 2019-05-01.
+    <br/>Other available API versions: 2015-08-01-preview.
 
 
     :param str certificate_name: The integration account certificate name.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
+ * <br/>Other available API versions: 2023-07-01-preview.
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
     /**

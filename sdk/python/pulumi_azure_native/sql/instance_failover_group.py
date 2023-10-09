@@ -145,6 +145,7 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         """
         An instance failover group.
         Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+        <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,6 +166,7 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         """
         An instance failover group.
         Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+        <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param InstanceFailoverGroupArgs args: The arguments to use to populate this resource's properties.

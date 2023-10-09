@@ -100,6 +100,7 @@ def get_dpp_resource_guard_proxy(resource_group_name: Optional[str] = None,
     """
     ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
     Azure REST API version: 2023-01-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -129,6 +130,7 @@ def get_dpp_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Inp
     """
     ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
     Azure REST API version: 2023-01-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

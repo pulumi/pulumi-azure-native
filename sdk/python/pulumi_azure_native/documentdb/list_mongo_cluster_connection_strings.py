@@ -51,6 +51,7 @@ def list_mongo_cluster_connection_strings(mongo_cluster_name: Optional[str] = No
     """
     List mongo cluster connection strings. This includes the default connection string using SCRAM-SHA-256, as well as other connection strings supported by the cluster.
     Azure REST API version: 2023-03-15-preview.
+    <br/>Other available API versions: 2023-09-15-preview.
 
 
     :param str mongo_cluster_name: The name of the mongo cluster.
@@ -73,6 +74,7 @@ def list_mongo_cluster_connection_strings_output(mongo_cluster_name: Optional[pu
     """
     List mongo cluster connection strings. This includes the default connection string using SCRAM-SHA-256, as well as other connection strings supported by the cluster.
     Azure REST API version: 2023-03-15-preview.
+    <br/>Other available API versions: 2023-09-15-preview.
 
 
     :param str mongo_cluster_name: The name of the mongo cluster.

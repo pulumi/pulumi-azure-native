@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets the details of a web, mobile, or API app.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
  */
 export function getWebApp(args: GetWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppResult> {
 
@@ -259,6 +260,7 @@ export interface GetWebAppResult {
 /**
  * Description for Gets the details of a web, mobile, or API app.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
  */
 export function getWebAppOutput(args: GetWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppResult> {
     return pulumi.output(args).apply((a: any) => getWebApp(a, opts))

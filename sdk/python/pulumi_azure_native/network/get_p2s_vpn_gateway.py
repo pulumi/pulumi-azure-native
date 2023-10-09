@@ -207,6 +207,7 @@ def get_p2s_vpn_gateway(gateway_name: Optional[str] = None,
     """
     Retrieves the details of a virtual wan p2s vpn gateway.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01.
 
 
     :param str gateway_name: The name of the gateway.
@@ -242,6 +243,7 @@ def get_p2s_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the details of a virtual wan p2s vpn gateway.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01.
 
 
     :param str gateway_name: The name of the gateway.

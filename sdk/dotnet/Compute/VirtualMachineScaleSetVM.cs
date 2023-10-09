@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Describes a virtual machine scale set virtual machine.
     /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
+    /// &lt;br/&gt;Other available API versions: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVM")]
     public partial class VirtualMachineScaleSetVM : global::Pulumi.CustomResource

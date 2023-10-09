@@ -256,6 +256,7 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
     """
     Gets the specified virtual network peering.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -298,6 +299,7 @@ def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Inpu
     """
     Gets the specified virtual network peering.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The name of the resource group.

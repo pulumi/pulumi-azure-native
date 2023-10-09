@@ -181,6 +181,7 @@ class VCenter(pulumi.CustomResource):
         """
         Defines the vCenter.
         Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
+        <br/>Other available API versions: 2023-03-01-preview, 2023-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,6 +204,7 @@ class VCenter(pulumi.CustomResource):
         """
         Defines the vCenter.
         Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
+        <br/>Other available API versions: 2023-03-01-preview, 2023-10-01.
 
         :param str resource_name: The name of the resource.
         :param VCenterArgs args: The arguments to use to populate this resource's properties.

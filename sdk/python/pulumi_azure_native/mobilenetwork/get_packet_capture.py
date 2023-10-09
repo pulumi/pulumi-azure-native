@@ -184,6 +184,7 @@ def get_packet_capture(packet_capture_name: Optional[str] = None,
     """
     Gets information about the specified packet capture session.
     Azure REST API version: 2023-06-01.
+    <br/>Other available API versions: 2023-09-01.
 
 
     :param str packet_capture_name: The name of the packet capture session.
@@ -220,6 +221,7 @@ def get_packet_capture_output(packet_capture_name: Optional[pulumi.Input[str]] =
     """
     Gets information about the specified packet capture session.
     Azure REST API version: 2023-06-01.
+    <br/>Other available API versions: 2023-09-01.
 
 
     :param str packet_capture_name: The name of the packet capture session.

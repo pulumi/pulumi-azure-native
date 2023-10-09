@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getRegistryEnvironmentContainer(args: GetRegistryEnvironmentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryEnvironmentContainerResult> {
 
@@ -64,6 +65,7 @@ export interface GetRegistryEnvironmentContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getRegistryEnvironmentContainerOutput(args: GetRegistryEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryEnvironmentContainerResult> {
     return pulumi.output(args).apply((a: any) => getRegistryEnvironmentContainer(a, opts))

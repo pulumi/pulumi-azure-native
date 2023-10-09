@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets information about a configuration of server.
         /// Azure REST API version: 2018-06-01.
+        /// &lt;br/&gt;Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbformariadb:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets information about a configuration of server.
         /// Azure REST API version: 2018-06-01.
+        /// &lt;br/&gt;Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformariadb:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// <summary>
     /// Packet capture session resource.
     /// Azure REST API version: 2023-06-01.
+    /// &lt;br/&gt;Other available API versions: 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCapture")]
     public partial class PacketCapture : global::Pulumi.CustomResource

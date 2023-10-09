@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Get the policy configuration at the API Operation level.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getApiOperationPolicy(args: GetApiOperationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationPolicyResult> {
 
@@ -76,6 +77,7 @@ export interface GetApiOperationPolicyResult {
 /**
  * Get the policy configuration at the API Operation level.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getApiOperationPolicyOutput(args: GetApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getApiOperationPolicy(a, opts))

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  * Azure REST API version: 2019-10-01.
+ * <br/>Other available API versions: 2017-11-11-preview, 2018-02-02.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
 
@@ -69,6 +70,7 @@ export interface GetAssessmentResult {
 /**
  * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  * Azure REST API version: 2019-10-01.
+ * <br/>Other available API versions: 2017-11-11-preview, 2018-02-02.
  */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
     return pulumi.output(args).apply((a: any) => getAssessment(a, opts))

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// <summary>
     /// Represents a ScalingPlanPersonalSchedule definition.
     /// Azure REST API version: 2023-07-07-preview.
+    /// &lt;br/&gt;Other available API versions: 2023-09-05.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlanPersonalSchedule")]
     public partial class ScalingPlanPersonalSchedule : global::Pulumi.CustomResource

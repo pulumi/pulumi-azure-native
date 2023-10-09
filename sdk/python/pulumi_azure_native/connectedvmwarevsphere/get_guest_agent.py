@@ -184,6 +184,7 @@ def get_guest_agent(name: Optional[str] = None,
     """
     Implements GuestAgent GET method.
     Azure REST API version: 2022-07-15-preview.
+    <br/>Other available API versions: 2023-03-01-preview.
 
 
     :param str name: Name of the GuestAgent.
@@ -220,6 +221,7 @@ def get_guest_agent_output(name: Optional[pulumi.Input[str]] = None,
     """
     Implements GuestAgent GET method.
     Azure REST API version: 2022-07-15-preview.
+    <br/>Other available API versions: 2023-03-01-preview.
 
 
     :param str name: Name of the GuestAgent.

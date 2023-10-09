@@ -159,6 +159,7 @@ def get_access_control_list(access_control_list_name: Optional[str] = None,
     """
     Implements Access Control List GET method.
     Azure REST API version: 2023-02-01-preview.
+    <br/>Other available API versions: 2023-06-15.
 
 
     :param str access_control_list_name: Name of the Access Control List
@@ -190,6 +191,7 @@ def get_access_control_list_output(access_control_list_name: Optional[pulumi.Inp
     """
     Implements Access Control List GET method.
     Azure REST API version: 2023-02-01-preview.
+    <br/>Other available API versions: 2023-06-15.
 
 
     :param str access_control_list_name: Name of the Access Control List

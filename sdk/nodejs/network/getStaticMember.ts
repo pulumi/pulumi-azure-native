@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified static member.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getStaticMember(args: GetStaticMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticMemberResult> {
 
@@ -81,6 +82,7 @@ export interface GetStaticMemberResult {
 /**
  * Gets the specified static member.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getStaticMemberOutput(args: GetStaticMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticMemberResult> {
     return pulumi.output(args).apply((a: any) => getStaticMember(a, opts))

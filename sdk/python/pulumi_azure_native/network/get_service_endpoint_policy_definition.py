@@ -135,6 +135,7 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
     """
     Get the specified service endpoint policy definitions from service endpoint policy.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -167,6 +168,7 @@ def get_service_endpoint_policy_definition_output(resource_group_name: Optional[
     """
     Get the specified service endpoint policy definitions from service endpoint policy.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The name of the resource group.

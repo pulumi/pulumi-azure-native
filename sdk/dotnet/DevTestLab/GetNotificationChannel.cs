@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get notification channel.
         /// Azure REST API version: 2018-09-15.
+        /// &lt;br/&gt;Other available API versions: 2016-05-15.
         /// </summary>
         public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("azure-native:devtestlab:getNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get notification channel.
         /// Azure REST API version: 2018-09-15.
+        /// &lt;br/&gt;Other available API versions: 2016-05-15.
         /// </summary>
         public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationChannelResult>("azure-native:devtestlab:getNotificationChannel", args ?? new GetNotificationChannelInvokeArgs(), options.WithDefaults());

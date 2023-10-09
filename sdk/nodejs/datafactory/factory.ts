@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Factory resource type.
  * Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01
+ * <br/>Other available API versions: 2017-09-01-preview.
  */
 export class Factory extends pulumi.CustomResource {
     /**

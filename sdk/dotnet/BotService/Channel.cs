@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.BotService
     /// <summary>
     /// Bot channel resource definition
     /// Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01
+    /// &lt;br/&gt;Other available API versions: 2023-09-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice:Channel")]
     public partial class Channel : global::Pulumi.CustomResource

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Returns the list of group Ids for a specific LDAP User
         /// Azure REST API version: 2022-11-01.
+        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-05-01.
         /// </summary>
         public static Task<GetVolumeGroupIdForLdapUserResult> InvokeAsync(GetVolumeGroupIdForLdapUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupIdForLdapUserResult>("azure-native:netapp:getVolumeGroupIdForLdapUser", args ?? new GetVolumeGroupIdForLdapUserArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Returns the list of group Ids for a specific LDAP User
         /// Azure REST API version: 2022-11-01.
+        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-05-01.
         /// </summary>
         public static Output<GetVolumeGroupIdForLdapUserResult> Invoke(GetVolumeGroupIdForLdapUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupIdForLdapUserResult>("azure-native:netapp:getVolumeGroupIdForLdapUser", args ?? new GetVolumeGroupIdForLdapUserInvokeArgs(), options.WithDefaults());

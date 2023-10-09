@@ -66,6 +66,7 @@ def list_effective_virtual_network_by_network_manager(conditional_members: Optio
     """
     List effective virtual networks in a network manager.
     Azure REST API version: 2022-04-01-preview.
+    <br/>Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
 
 
     :param str conditional_members: Conditional Members.
@@ -98,6 +99,7 @@ def list_effective_virtual_network_by_network_manager_output(conditional_members
     """
     List effective virtual networks in a network manager.
     Azure REST API version: 2022-04-01-preview.
+    <br/>Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
 
 
     :param str conditional_members: Conditional Members.

@@ -803,6 +803,7 @@ class Volume(pulumi.CustomResource):
         """
         Volume resource
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
+        <br/>Other available API versions: 2017-08-15, 2019-05-01, 2019-07-01, 2019-08-01, 2020-02-01, 2021-10-01, 2022-11-01-preview, 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -859,6 +860,7 @@ class Volume(pulumi.CustomResource):
         """
         Volume resource
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
+        <br/>Other available API versions: 2017-08-15, 2019-05-01, 2019-07-01, 2019-08-01, 2020-02-01, 2021-10-01, 2022-11-01-preview, 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

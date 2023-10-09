@@ -184,6 +184,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
     """
     Retrieves information about a proximity placement group .
     Azure REST API version: 2023-03-01.
+    <br/>Other available API versions: 2019-03-01, 2023-07-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
@@ -220,6 +221,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
     """
     Retrieves information about a proximity placement group .
     Azure REST API version: 2023-03-01.
+    <br/>Other available API versions: 2019-03-01, 2023-07-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.

@@ -234,6 +234,7 @@ class InternalNetwork(pulumi.CustomResource):
         """
         Defines the InternalNetwork item.
         Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview
+        <br/>Other available API versions: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,6 +260,7 @@ class InternalNetwork(pulumi.CustomResource):
         """
         Defines the InternalNetwork item.
         Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview
+        <br/>Other available API versions: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param InternalNetworkArgs args: The arguments to use to populate this resource's properties.

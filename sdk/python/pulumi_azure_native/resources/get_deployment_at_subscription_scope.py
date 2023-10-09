@@ -110,6 +110,7 @@ def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
     """
     Gets a deployment.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str deployment_name: The name of the deployment.
@@ -134,6 +135,7 @@ def get_deployment_at_subscription_scope_output(deployment_name: Optional[pulumi
     """
     Gets a deployment.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str deployment_name: The name of the deployment.

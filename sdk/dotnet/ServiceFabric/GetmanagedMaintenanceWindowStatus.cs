@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
         /// Azure REST API version: 2023-07-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-09-01-preview.
         /// </summary>
         public static Task<GetmanagedMaintenanceWindowStatusResult> InvokeAsync(GetmanagedMaintenanceWindowStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetmanagedMaintenanceWindowStatusResult>("azure-native:servicefabric:getmanagedMaintenanceWindowStatus", args ?? new GetmanagedMaintenanceWindowStatusArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
         /// Azure REST API version: 2023-07-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-09-01-preview.
         /// </summary>
         public static Output<GetmanagedMaintenanceWindowStatusResult> Invoke(GetmanagedMaintenanceWindowStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetmanagedMaintenanceWindowStatusResult>("azure-native:servicefabric:getmanagedMaintenanceWindowStatus", args ?? new GetmanagedMaintenanceWindowStatusInvokeArgs(), options.WithDefaults());

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get Alias Subscription.
  * Azure REST API version: 2021-10-01.
+ * <br/>Other available API versions: 2020-09-01.
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
 
@@ -54,6 +55,7 @@ export interface GetAliasResult {
 /**
  * Get Alias Subscription.
  * Azure REST API version: 2021-10-01.
+ * <br/>Other available API versions: 2020-09-01.
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
     return pulumi.output(args).apply((a: any) => getAlias(a, opts))

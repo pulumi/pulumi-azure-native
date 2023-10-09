@@ -95,6 +95,7 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
         """
         The commitment plan association.
         Azure REST API version: 2023-05-01.
+        <br/>Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,6 +113,7 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
         """
         The commitment plan association.
         Azure REST API version: 2023-05-01.
+        <br/>Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CommitmentPlanAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -162,6 +162,7 @@ def get_gallery_image_version(expand: Optional[str] = None,
     """
     Retrieves information about a gallery image version.
     Azure REST API version: 2022-03-03.
+    <br/>Other available API versions: 2019-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -202,6 +203,7 @@ def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[str]
     """
     Retrieves information about a gallery image version.
     Azure REST API version: 2022-03-03.
+    <br/>Other available API versions: 2019-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

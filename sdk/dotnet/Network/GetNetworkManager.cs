@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified Network Manager.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetNetworkManagerResult> InvokeAsync(GetNetworkManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerResult>("azure-native:network:getNetworkManager", args ?? new GetNetworkManagerArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified Network Manager.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetNetworkManagerResult> Invoke(GetNetworkManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerResult>("azure-native:network:getNetworkManager", args ?? new GetNetworkManagerInvokeArgs(), options.WithDefaults());

@@ -97,6 +97,7 @@ class ReplicationPolicy(pulumi.CustomResource):
         """
         Protection profile details.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
+        <br/>Other available API versions: 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,6 +115,7 @@ class ReplicationPolicy(pulumi.CustomResource):
         """
         Protection profile details.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
+        <br/>Other available API versions: 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationPolicyArgs args: The arguments to use to populate this resource's properties.

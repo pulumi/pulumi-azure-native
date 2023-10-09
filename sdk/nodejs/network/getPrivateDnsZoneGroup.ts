@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the private dns zone group resource by specified private dns zone group name.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01.
  */
 export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsZoneGroupResult> {
 
@@ -64,6 +65,7 @@ export interface GetPrivateDnsZoneGroupResult {
 /**
  * Gets the private dns zone group resource by specified private dns zone group name.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01.
  */
 export function getPrivateDnsZoneGroupOutput(args: GetPrivateDnsZoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateDnsZoneGroupResult> {
     return pulumi.output(args).apply((a: any) => getPrivateDnsZoneGroup(a, opts))

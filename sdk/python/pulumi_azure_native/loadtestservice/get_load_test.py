@@ -171,6 +171,7 @@ def get_load_test(load_test_name: Optional[str] = None,
     """
     Get a LoadTest resource.
     Azure REST API version: 2022-12-01.
+    <br/>Other available API versions: 2021-12-01-preview.
 
 
     :param str load_test_name: Load Test name.
@@ -203,6 +204,7 @@ def get_load_test_output(load_test_name: Optional[pulumi.Input[str]] = None,
     """
     Get a LoadTest resource.
     Azure REST API version: 2022-12-01.
+    <br/>Other available API versions: 2021-12-01-preview.
 
 
     :param str load_test_name: Load Test name.

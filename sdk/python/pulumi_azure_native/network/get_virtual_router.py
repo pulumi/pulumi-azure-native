@@ -184,6 +184,7 @@ def get_virtual_router(expand: Optional[str] = None,
     """
     Gets the specified Virtual Router.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -220,6 +221,7 @@ def get_virtual_router_output(expand: Optional[pulumi.Input[Optional[str]]] = No
     """
     Gets the specified Virtual Router.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced resources.

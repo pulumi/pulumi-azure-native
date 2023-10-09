@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified authorization from the specified express route port.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getExpressRoutePortAuthorization(args: GetExpressRoutePortAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortAuthorizationResult> {
 
@@ -73,6 +74,7 @@ export interface GetExpressRoutePortAuthorizationResult {
 /**
  * Gets the specified authorization from the specified express route port.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getExpressRoutePortAuthorizationOutput(args: GetExpressRoutePortAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortAuthorizationResult> {
     return pulumi.output(args).apply((a: any) => getExpressRoutePortAuthorization(a, opts))

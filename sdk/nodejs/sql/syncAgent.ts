@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * An Azure SQL Database sync agent.
  * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export class SyncAgent extends pulumi.CustomResource {
     /**

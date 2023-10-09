@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a bookmark relation.
  * Azure REST API version: 2023-06-01-preview.
+ * <br/>Other available API versions: 2019-01-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
  */
 export function getBookmarkRelation(args: GetBookmarkRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkRelationResult> {
 
@@ -85,6 +86,7 @@ export interface GetBookmarkRelationResult {
 /**
  * Gets a bookmark relation.
  * Azure REST API version: 2023-06-01-preview.
+ * <br/>Other available API versions: 2019-01-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
  */
 export function getBookmarkRelationOutput(args: GetBookmarkRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkRelationResult> {
     return pulumi.output(args).apply((a: any) => getBookmarkRelation(a, opts))

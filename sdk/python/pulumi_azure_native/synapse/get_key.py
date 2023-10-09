@@ -99,6 +99,7 @@ def get_key(key_name: Optional[str] = None,
     """
     Gets a workspace key
     Azure REST API version: 2021-06-01.
+    <br/>Other available API versions: 2021-06-01-preview.
 
 
     :param str key_name: The name of the workspace key
@@ -128,6 +129,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a workspace key
     Azure REST API version: 2021-06-01.
+    <br/>Other available API versions: 2021-06-01-preview.
 
 
     :param str key_name: The name of the workspace key

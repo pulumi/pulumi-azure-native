@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Datasources under OMS Workspace.
  * Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01
+ * <br/>Other available API versions: 2015-11-01-preview.
  */
 export class DataSource extends pulumi.CustomResource {
     /**

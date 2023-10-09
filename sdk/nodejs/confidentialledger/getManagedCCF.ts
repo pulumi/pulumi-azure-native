@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the properties of a Managed CCF app.
  * Azure REST API version: 2023-01-26-preview.
+ * <br/>Other available API versions: 2023-06-28-preview.
  */
 export function getManagedCCF(args: GetManagedCCFArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedCCFResult> {
 
@@ -67,6 +68,7 @@ export interface GetManagedCCFResult {
 /**
  * Retrieves the properties of a Managed CCF app.
  * Azure REST API version: 2023-01-26-preview.
+ * <br/>Other available API versions: 2023-06-28-preview.
  */
 export function getManagedCCFOutput(args: GetManagedCCFOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedCCFResult> {
     return pulumi.output(args).apply((a: any) => getManagedCCF(a, opts))

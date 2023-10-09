@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Implements IP Prefix GET method.
  * Azure REST API version: 2023-02-01-preview.
+ * <br/>Other available API versions: 2023-06-15.
  */
 export function getIpPrefix(args: GetIpPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetIpPrefixResult> {
 
@@ -75,6 +76,7 @@ export interface GetIpPrefixResult {
 /**
  * Implements IP Prefix GET method.
  * Azure REST API version: 2023-02-01-preview.
+ * <br/>Other available API versions: 2023-06-15.
  */
 export function getIpPrefixOutput(args: GetIpPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpPrefixResult> {
     return pulumi.output(args).apply((a: any) => getIpPrefix(a, opts))

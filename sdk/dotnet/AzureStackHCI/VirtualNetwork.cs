@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// The virtual network resource definition.
     /// Azure REST API version: 2022-12-15-preview.
+    /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource

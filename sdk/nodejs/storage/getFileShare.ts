@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of a specified share.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2023-01-01.
  */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
 
@@ -137,6 +138,7 @@ export interface GetFileShareResult {
 /**
  * Gets properties of a specified share.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2023-01-01.
  */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
     return pulumi.output(args).apply((a: any) => getFileShare(a, opts))

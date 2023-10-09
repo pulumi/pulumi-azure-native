@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the connection info for the notebook workspace
  * Azure REST API version: 2023-04-15.
+ * <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
  */
 export function listNotebookWorkspaceConnectionInfo(args: ListNotebookWorkspaceConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListNotebookWorkspaceConnectionInfoResult> {
 
@@ -49,6 +50,7 @@ export interface ListNotebookWorkspaceConnectionInfoResult {
 /**
  * Retrieves the connection info for the notebook workspace
  * Azure REST API version: 2023-04-15.
+ * <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
  */
 export function listNotebookWorkspaceConnectionInfoOutput(args: ListNotebookWorkspaceConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookWorkspaceConnectionInfoResult> {
     return pulumi.output(args).apply((a: any) => listNotebookWorkspaceConnectionInfo(a, opts))

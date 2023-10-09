@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A workbook definition.
  * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2020-10-20
+ * <br/>Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
  */
 export class Workbook extends pulumi.CustomResource {
     /**

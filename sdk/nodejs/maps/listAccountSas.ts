@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
  * 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
  *    Azure REST API version: 2021-12-01-preview.
+ *    <br/>Other available API versions: 2023-06-01.
  */
 export function listAccountSas(args: ListAccountSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountSasResult> {
 
@@ -81,6 +82,7 @@ export interface ListAccountSasResult {
  * 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
  * 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
  *    Azure REST API version: 2021-12-01-preview.
+ *    <br/>Other available API versions: 2023-06-01.
  */
 export function listAccountSasOutput(args: ListAccountSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountSasResult> {
     return pulumi.output(args).apply((a: any) => listAccountSas(a, opts))

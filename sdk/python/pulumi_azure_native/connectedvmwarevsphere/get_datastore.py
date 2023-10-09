@@ -255,6 +255,7 @@ def get_datastore(datastore_name: Optional[str] = None,
     """
     Implements datastore GET method.
     Azure REST API version: 2022-07-15-preview.
+    <br/>Other available API versions: 2023-03-01-preview, 2023-10-01.
 
 
     :param str datastore_name: Name of the datastore.
@@ -294,6 +295,7 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
     """
     Implements datastore GET method.
     Azure REST API version: 2022-07-15-preview.
+    <br/>Other available API versions: 2023-03-01-preview, 2023-10-01.
 
 
     :param str datastore_name: Name of the datastore.

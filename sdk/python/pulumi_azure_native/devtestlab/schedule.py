@@ -252,6 +252,7 @@ class Schedule(pulumi.CustomResource):
         """
         A schedule.
         Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15
+        <br/>Other available API versions: 2016-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,6 +279,7 @@ class Schedule(pulumi.CustomResource):
         """
         A schedule.
         Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15
+        <br/>Other available API versions: 2016-05-15.
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

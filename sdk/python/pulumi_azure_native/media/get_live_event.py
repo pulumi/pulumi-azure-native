@@ -268,6 +268,7 @@ def get_live_event(account_name: Optional[str] = None,
     """
     Gets properties of a live event.
     Azure REST API version: 2022-11-01.
+    <br/>Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
 
 
     :param str account_name: The Media Services account name.
@@ -311,6 +312,7 @@ def get_live_event_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets properties of a live event.
     Azure REST API version: 2022-11-01.
+    <br/>Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
 
 
     :param str account_name: The Media Services account name.

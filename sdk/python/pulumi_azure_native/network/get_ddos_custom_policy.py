@@ -134,6 +134,7 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
     """
     Gets information about the specified DDoS custom policy.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2022-01-01, 2023-04-01, 2023-05-01.
 
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.
@@ -163,6 +164,7 @@ def get_ddos_custom_policy_output(ddos_custom_policy_name: Optional[pulumi.Input
     """
     Gets information about the specified DDoS custom policy.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2022-01-01, 2023-04-01, 2023-05-01.
 
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.

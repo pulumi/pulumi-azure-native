@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get HCI cluster.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -147,6 +148,7 @@ export interface GetClusterResult {
 /**
  * Get HCI cluster.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

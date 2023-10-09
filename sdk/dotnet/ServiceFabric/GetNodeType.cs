@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// Get a Service Fabric node type of a given managed cluster.
         /// Azure REST API version: 2023-03-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetNodeTypeResult> InvokeAsync(GetNodeTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// Get a Service Fabric node type of a given managed cluster.
         /// Azure REST API version: 2023-03-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());

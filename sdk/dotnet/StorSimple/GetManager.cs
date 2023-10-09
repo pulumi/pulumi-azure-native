@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.StorSimple
         /// <summary>
         /// Returns the properties of the specified manager name.
         /// Azure REST API version: 2017-06-01.
+        /// &lt;br/&gt;Other available API versions: 2016-10-01.
         /// </summary>
         public static Task<GetManagerResult> InvokeAsync(GetManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagerResult>("azure-native:storsimple:getManager", args ?? new GetManagerArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.StorSimple
         /// <summary>
         /// Returns the properties of the specified manager name.
         /// Azure REST API version: 2017-06-01.
+        /// &lt;br/&gt;Other available API versions: 2016-10-01.
         /// </summary>
         public static Output<GetManagerResult> Invoke(GetManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagerResult>("azure-native:storsimple:getManager", args ?? new GetManagerInvokeArgs(), options.WithDefaults());

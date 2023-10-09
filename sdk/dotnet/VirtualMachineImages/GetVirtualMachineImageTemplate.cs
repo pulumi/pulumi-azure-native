@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// <summary>
         /// Get information about a virtual machine image template
         /// Azure REST API version: 2022-07-01.
+        /// &lt;br/&gt;Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
         /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// <summary>
         /// Get information about a virtual machine image template
         /// Azure REST API version: 2022-07-01.
+        /// &lt;br/&gt;Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
         /// </summary>
         public static Output<GetVirtualMachineImageTemplateResult> Invoke(GetVirtualMachineImageTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithDefaults());

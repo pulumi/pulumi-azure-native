@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cache
     /// <summary>
     /// Response to an operation on access policy assignment
     /// Azure REST API version: 2023-05-01-preview.
+    /// &lt;br/&gt;Other available API versions: 2023-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:AccessPolicyAssignment")]
     public partial class AccessPolicyAssignment : global::Pulumi.CustomResource

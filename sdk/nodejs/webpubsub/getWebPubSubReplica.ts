@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get the replica and its properties.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getWebPubSubReplica(args: GetWebPubSubReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubReplicaResult> {
 
@@ -76,6 +77,7 @@ export interface GetWebPubSubReplicaResult {
 /**
  * Get the replica and its properties.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getWebPubSubReplicaOutput(args: GetWebPubSubReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubReplicaResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubReplica(a, opts))

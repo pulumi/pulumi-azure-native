@@ -128,6 +128,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         """
         Workspace active directory administrator
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
+        <br/>Other available API versions: 2021-06-01-preview.
 
         Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 
@@ -149,6 +150,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         """
         Workspace active directory administrator
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
+        <br/>Other available API versions: 2021-06-01-preview.
 
         Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 

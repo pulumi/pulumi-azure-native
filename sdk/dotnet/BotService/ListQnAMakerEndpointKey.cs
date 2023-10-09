@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Lists the QnA Maker endpoint keys
         /// Azure REST API version: 2022-09-15.
+        /// &lt;br/&gt;Other available API versions: 2022-06-15-preview, 2023-09-15-preview.
         /// </summary>
         public static Task<ListQnAMakerEndpointKeyResult> InvokeAsync(ListQnAMakerEndpointKeyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListQnAMakerEndpointKeyResult>("azure-native:botservice:listQnAMakerEndpointKey", args ?? new ListQnAMakerEndpointKeyArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Lists the QnA Maker endpoint keys
         /// Azure REST API version: 2022-09-15.
+        /// &lt;br/&gt;Other available API versions: 2022-06-15-preview, 2023-09-15-preview.
         /// </summary>
         public static Output<ListQnAMakerEndpointKeyResult> Invoke(ListQnAMakerEndpointKeyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListQnAMakerEndpointKeyResult>("azure-native:botservice:listQnAMakerEndpointKey", args ?? new ListQnAMakerEndpointKeyInvokeArgs(), options.WithDefaults());

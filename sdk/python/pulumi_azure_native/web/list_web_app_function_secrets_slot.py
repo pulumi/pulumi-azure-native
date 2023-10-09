@@ -64,6 +64,7 @@ def list_web_app_function_secrets_slot(function_name: Optional[str] = None,
     """
     Description for Get function secrets for a function in a web site, or a deployment slot.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-08-01, 2020-10-01.
 
 
     :param str function_name: Function name.
@@ -93,6 +94,7 @@ def list_web_app_function_secrets_slot_output(function_name: Optional[pulumi.Inp
     """
     Description for Get function secrets for a function in a web site, or a deployment slot.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-08-01, 2020-10-01.
 
 
     :param str function_name: Function name.

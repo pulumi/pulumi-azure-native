@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  * Azure REST API version: 2019-10-27-preview.
+ * <br/>Other available API versions: 2018-09-30-preview.
  */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
 
@@ -111,6 +112,7 @@ export interface GetOpenShiftManagedClusterResult {
 /**
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  * Azure REST API version: 2019-10-27-preview.
+ * <br/>Other available API versions: 2018-09-30-preview.
  */
 export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getOpenShiftManagedCluster(a, opts))

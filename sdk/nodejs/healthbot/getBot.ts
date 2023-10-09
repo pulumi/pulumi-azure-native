@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get a HealthBot.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2020-12-08-preview.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
 
@@ -75,6 +76,7 @@ export interface GetBotResult {
 /**
  * Get a HealthBot.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2020-12-08-preview.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
     return pulumi.output(args).apply((a: any) => getBot(a, opts))

@@ -133,6 +133,7 @@ def get_secret(profile_name: Optional[str] = None,
     """
     Gets an existing Secret within a profile.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2023-07-01-preview.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -165,6 +166,7 @@ def get_secret_output(profile_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an existing Secret within a profile.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2023-07-01-preview.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the ACS and SAS connection strings for the Event Hub.
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2023-01-01-preview.
         /// </summary>
         public static Task<ListEventHubKeysResult> InvokeAsync(ListEventHubKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azure-native:eventhub:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the ACS and SAS connection strings for the Event Hub.
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2023-01-01-preview.
         /// </summary>
         public static Output<ListEventHubKeysResult> Invoke(ListEventHubKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEventHubKeysResult>("azure-native:eventhub:listEventHubKeys", args ?? new ListEventHubKeysInvokeArgs(), options.WithDefaults());

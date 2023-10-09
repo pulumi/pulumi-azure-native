@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided bare metal machine.
  * Azure REST API version: 2023-05-01-preview.
+ * <br/>Other available API versions: 2023-07-01.
  */
 export function getBareMetalMachine(args: GetBareMetalMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineResult> {
 
@@ -176,6 +177,7 @@ export interface GetBareMetalMachineResult {
 /**
  * Get properties of the provided bare metal machine.
  * Azure REST API version: 2023-05-01-preview.
+ * <br/>Other available API versions: 2023-07-01.
  */
 export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineResult> {
     return pulumi.output(args).apply((a: any) => getBareMetalMachine(a, opts))

@@ -148,6 +148,7 @@ class VolumeGroup(pulumi.CustomResource):
         """
         Response for Volume Group request.
         Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview
+        <br/>Other available API versions: 2022-12-01-preview, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,6 +169,7 @@ class VolumeGroup(pulumi.CustomResource):
         """
         Response for Volume Group request.
         Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview
+        <br/>Other available API versions: 2022-12-01-preview, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param VolumeGroupArgs args: The arguments to use to populate this resource's properties.

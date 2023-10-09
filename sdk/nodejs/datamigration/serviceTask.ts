@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A task resource
  * Azure REST API version: 2021-06-30.
+ * <br/>Other available API versions: 2022-03-30-preview.
  */
 export class ServiceTask extends pulumi.CustomResource {
     /**

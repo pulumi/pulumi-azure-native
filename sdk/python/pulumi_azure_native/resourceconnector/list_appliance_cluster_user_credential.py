@@ -63,6 +63,7 @@ def list_appliance_cluster_user_credential(resource_group_name: Optional[str] = 
     """
     Returns the cluster user credentials for the dedicated appliance.
     Azure REST API version: 2022-10-27.
+    <br/>Other available API versions: 2021-10-31-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -86,6 +87,7 @@ def list_appliance_cluster_user_credential_output(resource_group_name: Optional[
     """
     Returns the cluster user credentials for the dedicated appliance.
     Azure REST API version: 2022-10-27.
+    <br/>Other available API versions: 2021-10-31-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -171,6 +171,7 @@ def get_policy_definition_at_management_group(management_group_id: Optional[str]
     """
     This operation retrieves the policy definition in the given management group with the given name.
     Azure REST API version: 2021-06-01.
+    <br/>Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01.
 
 
     :param str management_group_id: The ID of the management group.
@@ -203,6 +204,7 @@ def get_policy_definition_at_management_group_output(management_group_id: Option
     """
     This operation retrieves the policy definition in the given management group with the given name.
     Azure REST API version: 2021-06-01.
+    <br/>Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01.
 
 
     :param str management_group_id: The ID of the management group.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * SSL certificate for an app.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+ * <br/>Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01.
  */
 export class Certificate extends pulumi.CustomResource {
     /**

@@ -456,6 +456,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
     """
     Get properties of the provided bare metal machine.
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str bare_metal_machine_name: The name of the bare metal machine.
@@ -512,6 +513,7 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
     """
     Get properties of the provided bare metal machine.
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str bare_metal_machine_name: The name of the bare metal machine.

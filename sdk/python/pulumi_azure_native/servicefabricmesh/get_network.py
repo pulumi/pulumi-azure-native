@@ -111,6 +111,7 @@ def get_network(network_resource_name: Optional[str] = None,
     """
     Gets the information about the network resource with the given name. The information include the description and other properties of the network.
     Azure REST API version: 2018-09-01-preview.
+    <br/>Other available API versions: 2018-07-01-preview.
 
 
     :param str network_resource_name: The identity of the network.
@@ -138,6 +139,7 @@ def get_network_output(network_resource_name: Optional[pulumi.Input[str]] = None
     """
     Gets the information about the network resource with the given name. The information include the description and other properties of the network.
     Azure REST API version: 2018-09-01-preview.
+    <br/>Other available API versions: 2018-07-01-preview.
 
 
     :param str network_resource_name: The identity of the network.

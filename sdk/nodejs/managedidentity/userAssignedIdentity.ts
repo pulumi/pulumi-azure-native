@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Describes an identity resource.
  * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30
+ * <br/>Other available API versions: 2015-08-31-preview.
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**

@@ -208,6 +208,7 @@ def get_pool(pool_name: Optional[str] = None,
     """
     Gets a machine pool
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
 
 
     :param str pool_name: Name of the pool.
@@ -246,6 +247,7 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a machine pool
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
 
 
     :param str pool_name: Name of the pool.

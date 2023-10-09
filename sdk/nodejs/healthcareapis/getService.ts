@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get the metadata of a service instance.
  * Azure REST API version: 2023-02-28.
+ * <br/>Other available API versions: 2020-03-15.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -79,6 +80,7 @@ export interface GetServiceResult {
 /**
  * Get the metadata of a service instance.
  * Azure REST API version: 2023-02-28.
+ * <br/>Other available API versions: 2020-03-15.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

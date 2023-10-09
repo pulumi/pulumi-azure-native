@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearning
     /// <summary>
     /// Instance of an Azure ML web service resource.
     /// Azure REST API version: 2017-01-01. Prior API version in Azure Native 1.x: 2017-01-01
+    /// &lt;br/&gt;Other available API versions: 2016-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning:WebService")]
     public partial class WebService : global::Pulumi.CustomResource

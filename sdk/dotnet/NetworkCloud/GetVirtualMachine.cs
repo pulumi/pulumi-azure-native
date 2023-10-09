@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided virtual machine.
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:networkcloud:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided virtual machine.
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:networkcloud:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());

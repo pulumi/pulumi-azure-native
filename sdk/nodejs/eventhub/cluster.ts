@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Single Event Hubs Cluster resource in List or Get operations.
  * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
+ * <br/>Other available API versions: 2023-01-01-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

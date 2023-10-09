@@ -181,6 +181,7 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
     """
     Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2020-09-01, 2023-07-01-preview.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -217,6 +218,7 @@ def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2020-09-01, 2023-07-01-preview.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

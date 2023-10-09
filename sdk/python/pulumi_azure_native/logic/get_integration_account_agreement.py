@@ -208,6 +208,7 @@ def get_integration_account_agreement(agreement_name: Optional[str] = None,
     """
     Gets an integration account agreement.
     Azure REST API version: 2019-05-01.
+    <br/>Other available API versions: 2015-08-01-preview.
 
 
     :param str agreement_name: The integration account agreement name.
@@ -246,6 +247,7 @@ def get_integration_account_agreement_output(agreement_name: Optional[pulumi.Inp
     """
     Gets an integration account agreement.
     Azure REST API version: 2019-05-01.
+    <br/>Other available API versions: 2015-08-01-preview.
 
 
     :param str agreement_name: The integration account agreement name.

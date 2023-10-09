@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * This operation retrieves the policy definition in the given subscription with the given name.
  * Azure REST API version: 2021-06-01.
+ * <br/>Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01.
  */
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
 
@@ -78,6 +79,7 @@ export interface GetPolicyDefinitionResult {
 /**
  * This operation retrieves the policy definition in the given subscription with the given name.
  * Azure REST API version: 2021-06-01.
+ * <br/>Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01.
  */
 export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getPolicyDefinition(a, opts))

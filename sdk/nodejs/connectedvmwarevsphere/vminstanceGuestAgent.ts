@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Defines the GuestAgent.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2023-10-01.
  */
 export class VMInstanceGuestAgent extends pulumi.CustomResource {
     /**

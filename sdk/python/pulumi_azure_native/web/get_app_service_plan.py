@@ -413,6 +413,7 @@ def get_app_service_plan(name: Optional[str] = None,
     """
     Description for Get an App Service plan.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-09-01, 2020-10-01.
 
 
     :param str name: Name of the App Service plan.
@@ -465,6 +466,7 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get an App Service plan.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-09-01, 2020-10-01.
 
 
     :param str name: Name of the App Service plan.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The policy set definition.
  * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01
+ * <br/>Other available API versions: 2019-06-01, 2023-04-01.
  */
 export class PolicySetDefinition extends pulumi.CustomResource {
     /**

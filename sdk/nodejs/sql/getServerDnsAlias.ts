@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a server DNS alias.
  * Azure REST API version: 2021-11-01.
+ * <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getServerDnsAlias(args: GetServerDnsAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDnsAliasResult> {
 
@@ -57,6 +58,7 @@ export interface GetServerDnsAliasResult {
 /**
  * Gets a server DNS alias.
  * Azure REST API version: 2021-11-01.
+ * <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getServerDnsAliasOutput(args: GetServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDnsAliasResult> {
     return pulumi.output(args).apply((a: any) => getServerDnsAlias(a, opts))

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified custom IP prefix in a specified resource group.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetCustomIPPrefixResult> InvokeAsync(GetCustomIPPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomIPPrefixResult>("azure-native:network:getCustomIPPrefix", args ?? new GetCustomIPPrefixArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified custom IP prefix in a specified resource group.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetCustomIPPrefixResult> Invoke(GetCustomIPPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomIPPrefixResult>("azure-native:network:getCustomIPPrefix", args ?? new GetCustomIPPrefixInvokeArgs(), options.WithDefaults());

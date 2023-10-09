@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.KeyVault
     /// <summary>
     /// The key resource.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01
+    /// &lt;br/&gt;Other available API versions: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:Key")]
     public partial class Key : global::Pulumi.CustomResource

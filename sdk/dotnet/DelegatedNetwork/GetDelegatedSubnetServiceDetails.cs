@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the specified dnc DelegatedSubnet Link.
         /// Azure REST API version: 2021-03-15.
+        /// &lt;br/&gt;Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
         /// </summary>
         public static Task<GetDelegatedSubnetServiceDetailsResult> InvokeAsync(GetDelegatedSubnetServiceDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the specified dnc DelegatedSubnet Link.
         /// Azure REST API version: 2021-03-15.
+        /// &lt;br/&gt;Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
         /// </summary>
         public static Output<GetDelegatedSubnetServiceDetailsResult> Invoke(GetDelegatedSubnetServiceDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsInvokeArgs(), options.WithDefaults());

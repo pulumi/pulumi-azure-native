@@ -129,6 +129,7 @@ class CustomizedAccelerator(pulumi.CustomResource):
         """
         Customized accelerator resource
         Azure REST API version: 2023-05-01-preview.
+        <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,6 +149,7 @@ class CustomizedAccelerator(pulumi.CustomResource):
         """
         Customized accelerator resource
         Azure REST API version: 2023-05-01-preview.
+        <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CustomizedAcceleratorArgs args: The arguments to use to populate this resource's properties.

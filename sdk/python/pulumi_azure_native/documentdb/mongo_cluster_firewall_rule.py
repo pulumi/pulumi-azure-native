@@ -110,6 +110,7 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
         """
         Represents a mongo cluster firewall rule.
         Azure REST API version: 2023-03-15-preview.
+        <br/>Other available API versions: 2023-09-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,6 +129,7 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
         """
         Represents a mongo cluster firewall rule.
         Azure REST API version: 2023-03-15-preview.
+        <br/>Other available API versions: 2023-09-15-preview.
 
         :param str resource_name: The name of the resource.
         :param MongoClusterFirewallRuleArgs args: The arguments to use to populate this resource's properties.

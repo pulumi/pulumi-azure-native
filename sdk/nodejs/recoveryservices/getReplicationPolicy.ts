@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of a replication policy.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2023-06-01.
  */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
 
@@ -64,6 +65,7 @@ export interface GetReplicationPolicyResult {
 /**
  * Gets the details of a replication policy.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2023-06-01.
  */
 export function getReplicationPolicyOutput(args: GetReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getReplicationPolicy(a, opts))

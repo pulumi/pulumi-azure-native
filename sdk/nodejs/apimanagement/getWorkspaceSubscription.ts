@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Subscription entity.
  * Azure REST API version: 2022-09-01-preview.
+ * <br/>Other available API versions: 2023-03-01-preview.
  */
 export function getWorkspaceSubscription(args: GetWorkspaceSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSubscriptionResult> {
 
@@ -110,6 +111,7 @@ export interface GetWorkspaceSubscriptionResult {
 /**
  * Gets the specified Subscription entity.
  * Azure REST API version: 2022-09-01-preview.
+ * <br/>Other available API versions: 2023-03-01-preview.
  */
 export function getWorkspaceSubscriptionOutput(args: GetWorkspaceSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceSubscription(a, opts))

@@ -195,6 +195,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
     """
     Gets the specified contact Profile in a specified resource group.
     Azure REST API version: 2022-11-01.
+    <br/>Other available API versions: 2022-03-01.
 
 
     :param str contact_profile_name: Contact Profile name.
@@ -229,6 +230,7 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
     """
     Gets the specified contact Profile in a specified resource group.
     Azure REST API version: 2022-11-01.
+    <br/>Other available API versions: 2022-03-01.
 
 
     :param str contact_profile_name: Contact Profile name.

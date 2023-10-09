@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.BotService
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-05-01-preview
+    /// &lt;br/&gt;Other available API versions: 2023-09-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

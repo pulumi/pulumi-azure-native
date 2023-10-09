@@ -137,6 +137,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
     """
     Gets a description for the specified consumer group.
     Azure REST API version: 2022-10-01-preview.
+    <br/>Other available API versions: 2015-08-01, 2023-01-01-preview.
 
 
     :param str consumer_group_name: The consumer group name
@@ -172,6 +173,7 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
     """
     Gets a description for the specified consumer group.
     Azure REST API version: 2022-10-01-preview.
+    <br/>Other available API versions: 2015-08-01, 2023-01-01-preview.
 
 
     :param str consumer_group_name: The consumer group name

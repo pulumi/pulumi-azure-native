@@ -185,6 +185,7 @@ def get_database_security_alert_policy(database_name: Optional[str] = None,
     """
     Gets a database's security alert policy.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str database_name: The name of the  database for which the security alert policy is defined.
@@ -224,6 +225,7 @@ def get_database_security_alert_policy_output(database_name: Optional[pulumi.Inp
     """
     Gets a database's security alert policy.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str database_name: The name of the  database for which the security alert policy is defined.

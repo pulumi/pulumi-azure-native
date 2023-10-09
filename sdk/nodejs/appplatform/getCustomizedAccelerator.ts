@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get the customized accelerator.
  * Azure REST API version: 2023-05-01-preview.
+ * <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
  */
 export function getCustomizedAccelerator(args: GetCustomizedAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizedAcceleratorResult> {
 
@@ -73,6 +74,7 @@ export interface GetCustomizedAcceleratorResult {
 /**
  * Get the customized accelerator.
  * Azure REST API version: 2023-05-01-preview.
+ * <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
  */
 export function getCustomizedAcceleratorOutput(args: GetCustomizedAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizedAcceleratorResult> {
     return pulumi.output(args).apply((a: any) => getCustomizedAccelerator(a, opts))

@@ -160,6 +160,7 @@ def get_workload_network_segment(private_cloud_name: Optional[str] = None,
     """
     NSX Segment
     Azure REST API version: 2022-05-01.
+    <br/>Other available API versions: 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -194,6 +195,7 @@ def get_workload_network_segment_output(private_cloud_name: Optional[pulumi.Inpu
     """
     NSX Segment
     Azure REST API version: 2022-05-01.
+    <br/>Other available API versions: 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud

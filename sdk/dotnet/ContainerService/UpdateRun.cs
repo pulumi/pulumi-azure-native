@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// <summary>
     /// A multi-stage process to perform update operations across members of a Fleet.
     /// Azure REST API version: 2023-03-15-preview.
+    /// &lt;br/&gt;Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:UpdateRun")]
     public partial class UpdateRun : global::Pulumi.CustomResource

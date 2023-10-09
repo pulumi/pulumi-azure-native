@@ -531,6 +531,7 @@ def get_disk(disk_name: Optional[str] = None,
     """
     Gets information about a disk.
     Azure REST API version: 2022-07-02.
+    <br/>Other available API versions: 2016-04-30-preview, 2018-06-01, 2019-07-01, 2023-01-02, 2023-04-02.
 
 
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -593,6 +594,7 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about a disk.
     Azure REST API version: 2022-07-02.
+    <br/>Other available API versions: 2016-04-30-preview, 2018-06-01, 2019-07-01, 2023-01-02, 2023-04-02.
 
 
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.

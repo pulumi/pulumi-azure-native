@@ -230,6 +230,7 @@ class StreamingLocator(pulumi.CustomResource):
         """
         A Streaming Locator resource
         Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01
+        <br/>Other available API versions: 2018-03-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,6 +256,7 @@ class StreamingLocator(pulumi.CustomResource):
         """
         A Streaming Locator resource
         Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01
+        <br/>Other available API versions: 2018-03-30-preview.
 
         :param str resource_name: The name of the resource.
         :param StreamingLocatorArgs args: The arguments to use to populate this resource's properties.

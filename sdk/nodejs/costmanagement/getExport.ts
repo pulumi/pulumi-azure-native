@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The operation to get the export for the defined scope by export name.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
 
@@ -88,6 +89,7 @@ export interface GetExportResult {
 /**
  * The operation to get the export for the defined scope by export name.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Class representing a Traffic Manager profile.
  * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01
+ * <br/>Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
  */
 export class Profile extends pulumi.CustomResource {
     /**

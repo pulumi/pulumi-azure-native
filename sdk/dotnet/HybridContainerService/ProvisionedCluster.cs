@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// <summary>
     /// The provisionedClusters resource definition.
     /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview
+    /// &lt;br/&gt;Other available API versions: 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:ProvisionedCluster")]
     public partial class ProvisionedCluster : global::Pulumi.CustomResource

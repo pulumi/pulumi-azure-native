@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Attestation service response message.
  * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01
+ * <br/>Other available API versions: 2021-06-01-preview.
  */
 export class AttestationProvider extends pulumi.CustomResource {
     /**

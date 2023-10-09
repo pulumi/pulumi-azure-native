@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Get the update summaries for the cluster
     /// Azure REST API version: 2023-03-01.
+    /// &lt;br/&gt;Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:UpdateSummary")]
     public partial class UpdateSummary : global::Pulumi.CustomResource

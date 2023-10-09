@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing delivery rule within a rule set.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:cdn:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing delivery rule within a rule set.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:cdn:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());

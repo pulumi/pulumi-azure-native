@@ -89,6 +89,7 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
     """
     Gets a target group.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str job_agent_name: The name of the job agent.
@@ -120,6 +121,7 @@ def get_job_target_group_output(job_agent_name: Optional[pulumi.Input[str]] = No
     """
     Gets a target group.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str job_agent_name: The name of the job agent.

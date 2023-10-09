@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Storage
     /// <summary>
     /// The storage account.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+    /// &lt;br/&gt;Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:StorageAccount")]
     public partial class StorageAccount : global::Pulumi.CustomResource

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets an AuthorizationRule for an Event Hub by rule name.
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2023-01-01-preview.
         /// </summary>
         public static Task<GetEventHubAuthorizationRuleResult> InvokeAsync(GetEventHubAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubAuthorizationRuleResult>("azure-native:eventhub:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets an AuthorizationRule for an Event Hub by rule name.
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2023-01-01-preview.
         /// </summary>
         public static Output<GetEventHubAuthorizationRuleResult> Invoke(GetEventHubAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubAuthorizationRuleResult>("azure-native:eventhub:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleInvokeArgs(), options.WithDefaults());

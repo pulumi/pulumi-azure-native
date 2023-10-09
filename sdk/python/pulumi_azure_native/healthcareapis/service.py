@@ -148,6 +148,7 @@ class Service(pulumi.CustomResource):
         """
         The description of the service.
         Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
+        <br/>Other available API versions: 2020-03-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,6 +169,7 @@ class Service(pulumi.CustomResource):
         """
         The description of the service.
         Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
+        <br/>Other available API versions: 2020-03-15.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

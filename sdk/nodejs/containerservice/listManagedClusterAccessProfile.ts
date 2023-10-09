@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
  * Azure REST API version: 2020-03-01.
+ * <br/>Other available API versions: 2017-08-31, 2019-02-01, 2019-06-01.
  */
 export function listManagedClusterAccessProfile(args: ListManagedClusterAccessProfileArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAccessProfileResult> {
 
@@ -65,6 +66,7 @@ export interface ListManagedClusterAccessProfileResult {
 /**
  * Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
  * Azure REST API version: 2020-03-01.
+ * <br/>Other available API versions: 2017-08-31, 2019-02-01, 2019-06-01.
  */
 export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {
     return pulumi.output(args).apply((a: any) => listManagedClusterAccessProfile(a, opts))

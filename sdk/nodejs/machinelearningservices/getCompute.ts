@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getCompute(args: GetComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeResult> {
 
@@ -80,6 +81,7 @@ export interface GetComputeResult {
 /**
  * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getComputeOutput(args: GetComputeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeResult> {
     return pulumi.output(args).apply((a: any) => getCompute(a, opts))

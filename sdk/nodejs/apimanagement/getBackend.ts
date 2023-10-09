@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the backend specified by its identifier.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2016-07-07, 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
 
@@ -92,6 +93,7 @@ export interface GetBackendResult {
 /**
  * Gets the details of the backend specified by its identifier.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2016-07-07, 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getBackendOutput(args: GetBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendResult> {
     return pulumi.output(args).apply((a: any) => getBackend(a, opts))

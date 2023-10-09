@@ -96,6 +96,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         Describes an identity resource.
         Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30
+        <br/>Other available API versions: 2015-08-31-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,6 +114,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         Describes an identity resource.
         Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30
+        <br/>Other available API versions: 2015-08-31-preview.
 
         :param str resource_name: The name of the resource.
         :param UserAssignedIdentityArgs args: The arguments to use to populate this resource's properties.

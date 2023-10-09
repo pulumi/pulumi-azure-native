@@ -289,6 +289,7 @@ def get_domain(domain_name: Optional[str] = None,
     """
     Description for Get a domain.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str domain_name: Name of the domain.
@@ -331,6 +332,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get a domain.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str domain_name: Name of the domain.

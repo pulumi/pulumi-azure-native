@@ -88,6 +88,7 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
     """
     Gets a logical database's transparent data encryption.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str database_name: The name of the logical database for which the transparent data encryption is defined.
@@ -119,6 +120,7 @@ def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[
     """
     Gets a logical database's transparent data encryption.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str database_name: The name of the logical database for which the transparent data encryption is defined.

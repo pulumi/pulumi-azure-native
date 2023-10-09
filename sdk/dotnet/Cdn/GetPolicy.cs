@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Retrieve protection policy with specified name within a resource group.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:cdn:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Retrieve protection policy with specified name within a resource group.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:cdn:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());

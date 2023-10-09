@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The lock information.
  * Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * <br/>Other available API versions: 2015-01-01.
  */
 export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
     /**

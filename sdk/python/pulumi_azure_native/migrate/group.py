@@ -112,6 +112,7 @@ class Group(pulumi.CustomResource):
         """
         A group created in a Migration project.
         Azure REST API version: 2019-10-01. Prior API version in Azure Native 1.x: 2019-10-01
+        <br/>Other available API versions: 2018-02-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +131,7 @@ class Group(pulumi.CustomResource):
         """
         A group created in a Migration project.
         Azure REST API version: 2019-10-01. Prior API version in Azure Native 1.x: 2019-10-01
+        <br/>Other available API versions: 2018-02-02.
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

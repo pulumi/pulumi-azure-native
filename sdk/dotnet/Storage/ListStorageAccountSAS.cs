@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// List SAS credentials of a storage account.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2018-11-01, 2023-01-01.
         /// </summary>
         public static Task<ListStorageAccountSASResult> InvokeAsync(ListStorageAccountSASArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-native:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// List SAS credentials of a storage account.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2018-11-01, 2023-01-01.
         /// </summary>
         public static Output<ListStorageAccountSASResult> Invoke(ListStorageAccountSASInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountSASResult>("azure-native:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASInvokeArgs(), options.WithDefaults());

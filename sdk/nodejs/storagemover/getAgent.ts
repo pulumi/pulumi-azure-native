@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets an Agent resource.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2023-07-01-preview, 2023-10-01.
  */
 export function getAgent(args: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
 
@@ -105,6 +106,7 @@ export interface GetAgentResult {
 /**
  * Gets an Agent resource.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2023-07-01-preview, 2023-10-01.
  */
 export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {
     return pulumi.output(args).apply((a: any) => getAgent(a, opts))

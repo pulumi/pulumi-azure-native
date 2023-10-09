@@ -49,6 +49,7 @@ def get_live_token(resource_uri: Optional[str] = None,
     """
     **Gets an access token for live metrics stream data.**
     Azure REST API version: 2021-10-14.
+    <br/>Other available API versions: 2020-06-02-preview.
 
 
     :param str resource_uri: The identifier of the resource.
@@ -68,6 +69,7 @@ def get_live_token_output(resource_uri: Optional[pulumi.Input[str]] = None,
     """
     **Gets an access token for live metrics stream data.**
     Azure REST API version: 2021-10-14.
+    <br/>Other available API versions: 2020-06-02-preview.
 
 
     :param str resource_uri: The identifier of the resource.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Role management policy
  * Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01
+ * <br/>Other available API versions: 2020-10-01-preview.
  */
 export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
     /**

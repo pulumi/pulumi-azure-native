@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure Traffic Collector resource.
  * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-05-01
+ * <br/>Other available API versions: 2022-08-01.
  */
 export class AzureTrafficCollector extends pulumi.CustomResource {
     /**

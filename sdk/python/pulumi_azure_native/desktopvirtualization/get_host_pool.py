@@ -426,6 +426,7 @@ def get_host_pool(host_pool_name: Optional[str] = None,
     """
     Get a host pool.
     Azure REST API version: 2022-09-09.
+    <br/>Other available API versions: 2020-11-02-preview, 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -480,6 +481,7 @@ def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     """
     Get a host pool.
     Azure REST API version: 2022-09-09.
+    <br/>Other available API versions: 2020-11-02-preview, 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

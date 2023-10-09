@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Description for Lists the roles configured for the static site.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2021-02-01.
  */
 export function listStaticSiteConfiguredRoles(args: ListStaticSiteConfiguredRolesArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteConfiguredRolesResult> {
 
@@ -56,6 +57,7 @@ export interface ListStaticSiteConfiguredRolesResult {
 /**
  * Description for Lists the roles configured for the static site.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2021-02-01.
  */
 export function listStaticSiteConfiguredRolesOutput(args: ListStaticSiteConfiguredRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteConfiguredRolesResult> {
     return pulumi.output(args).apply((a: any) => listStaticSiteConfiguredRoles(a, opts))

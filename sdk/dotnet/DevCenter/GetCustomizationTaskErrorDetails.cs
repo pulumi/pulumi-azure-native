@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Customization Task error details
         /// Azure REST API version: 2023-08-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetCustomizationTaskErrorDetailsResult> InvokeAsync(GetCustomizationTaskErrorDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomizationTaskErrorDetailsResult>("azure-native:devcenter:getCustomizationTaskErrorDetails", args ?? new GetCustomizationTaskErrorDetailsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Customization Task error details
         /// Azure REST API version: 2023-08-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetCustomizationTaskErrorDetailsResult> Invoke(GetCustomizationTaskErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizationTaskErrorDetailsResult>("azure-native:devcenter:getCustomizationTaskErrorDetails", args ?? new GetCustomizationTaskErrorDetailsInvokeArgs(), options.WithDefaults());

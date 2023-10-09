@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * List of elastic traffic filters in the account
  * Azure REST API version: 2023-06-01.
+ * <br/>Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
  */
 export function listAllTrafficFilter(args: ListAllTrafficFilterArgs, opts?: pulumi.InvokeOptions): Promise<ListAllTrafficFilterResult> {
 
@@ -43,6 +44,7 @@ export interface ListAllTrafficFilterResult {
 /**
  * List of elastic traffic filters in the account
  * Azure REST API version: 2023-06-01.
+ * <br/>Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
  */
 export function listAllTrafficFilterOutput(args: ListAllTrafficFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAllTrafficFilterResult> {
     return pulumi.output(args).apply((a: any) => listAllTrafficFilter(a, opts))

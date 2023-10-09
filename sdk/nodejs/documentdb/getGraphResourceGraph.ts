@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
  * Azure REST API version: 2023-03-15-preview.
+ * <br/>Other available API versions: 2023-09-15-preview.
  */
 export function getGraphResourceGraph(args: GetGraphResourceGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphResourceGraphResult> {
 
@@ -70,6 +71,7 @@ export interface GetGraphResourceGraphResult {
 /**
  * Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
  * Azure REST API version: 2023-03-15-preview.
+ * <br/>Other available API versions: 2023-09-15-preview.
  */
 export function getGraphResourceGraphOutput(args: GetGraphResourceGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResourceGraphResult> {
     return pulumi.output(args).apply((a: any) => getGraphResourceGraph(a, opts))

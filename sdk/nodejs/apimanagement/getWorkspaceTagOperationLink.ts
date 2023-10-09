@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the operation link for the tag.
  * Azure REST API version: 2022-09-01-preview.
+ * <br/>Other available API versions: 2023-03-01-preview.
  */
 export function getWorkspaceTagOperationLink(args: GetWorkspaceTagOperationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceTagOperationLinkResult> {
 
@@ -67,6 +68,7 @@ export interface GetWorkspaceTagOperationLinkResult {
 /**
  * Gets the operation link for the tag.
  * Azure REST API version: 2022-09-01-preview.
+ * <br/>Other available API versions: 2023-03-01-preview.
  */
 export function getWorkspaceTagOperationLinkOutput(args: GetWorkspaceTagOperationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceTagOperationLinkResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceTagOperationLink(a, opts))

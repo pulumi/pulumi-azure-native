@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing security policy within a profile.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Task<GetSecurityPolicyResult> InvokeAsync(GetSecurityPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("azure-native:cdn:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing security policy within a profile.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Output<GetSecurityPolicyResult> Invoke(GetSecurityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPolicyResult>("azure-native:cdn:getSecurityPolicy", args ?? new GetSecurityPolicyInvokeArgs(), options.WithDefaults());

@@ -231,6 +231,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         """
         The integration account schema.
         Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01
+        <br/>Other available API versions: 2015-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,6 +257,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         """
         The integration account schema.
         Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01
+        <br/>Other available API versions: 2015-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountSchemaArgs args: The arguments to use to populate this resource's properties.

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified route from a route table.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified route from a route table.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());

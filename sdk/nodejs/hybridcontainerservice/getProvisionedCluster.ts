@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the Hybrid AKS provisioned cluster
  * Azure REST API version: 2022-09-01-preview.
+ * <br/>Other available API versions: 2022-05-01-preview.
  */
 export function getProvisionedCluster(args: GetProvisionedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisionedClusterResult> {
 
@@ -69,6 +70,7 @@ export interface GetProvisionedClusterResult {
 /**
  * Gets the Hybrid AKS provisioned cluster
  * Azure REST API version: 2022-09-01-preview.
+ * <br/>Other available API versions: 2022-05-01-preview.
  */
 export function getProvisionedClusterOutput(args: GetProvisionedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisionedClusterResult> {
     return pulumi.output(args).apply((a: any) => getProvisionedCluster(a, opts))

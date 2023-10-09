@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DeploymentManager
     /// <summary>
     /// Defines the PUT rollout request body.
     /// Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2019-11-01-preview
+    /// &lt;br/&gt;Other available API versions: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager:Rollout")]
     public partial class Rollout : global::Pulumi.CustomResource

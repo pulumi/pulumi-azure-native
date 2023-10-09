@@ -172,6 +172,7 @@ def get_dedicated_host_group(expand: Optional[str] = None,
     """
     Retrieves information about a dedicated host group.
     Azure REST API version: 2023-03-01.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
@@ -207,6 +208,7 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]
     """
     Retrieves information about a dedicated host group.
     Azure REST API version: 2023-03-01.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Implements Access Control List GET method.
  * Azure REST API version: 2023-02-01-preview.
+ * <br/>Other available API versions: 2023-06-15.
  */
 export function getAccessControlList(args: GetAccessControlListArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlListResult> {
 
@@ -79,6 +80,7 @@ export interface GetAccessControlListResult {
 /**
  * Implements Access Control List GET method.
  * Azure REST API version: 2023-02-01-preview.
+ * <br/>Other available API versions: 2023-06-15.
  */
 export function getAccessControlListOutput(args: GetAccessControlListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlListResult> {
     return pulumi.output(args).apply((a: any) => getAccessControlList(a, opts))

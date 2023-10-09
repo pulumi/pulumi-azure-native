@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Description for Get the named hostname binding for an app (or deployment slot, if specified).
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function getWebAppHostNameBinding(args: GetWebAppHostNameBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingResult> {
 
@@ -93,6 +94,7 @@ export interface GetWebAppHostNameBindingResult {
 /**
  * Description for Get the named hostname binding for an app (or deployment slot, if specified).
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function getWebAppHostNameBindingOutput(args: GetWebAppHostNameBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingResult> {
     return pulumi.output(args).apply((a: any) => getWebAppHostNameBinding(a, opts))

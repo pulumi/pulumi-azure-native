@@ -124,6 +124,7 @@ def get_mongo_cluster_firewall_rule(firewall_rule_name: Optional[str] = None,
     """
     Gets information about a mongo cluster firewall rule.
     Azure REST API version: 2023-03-15-preview.
+    <br/>Other available API versions: 2023-09-15-preview.
 
 
     :param str firewall_rule_name: The name of the mongo cluster firewall rule.
@@ -155,6 +156,7 @@ def get_mongo_cluster_firewall_rule_output(firewall_rule_name: Optional[pulumi.I
     """
     Gets information about a mongo cluster firewall rule.
     Azure REST API version: 2023-03-15-preview.
+    <br/>Other available API versions: 2023-09-15-preview.
 
 
     :param str firewall_rule_name: The name of the mongo cluster firewall rule.

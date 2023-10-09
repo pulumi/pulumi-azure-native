@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the email template specified by its identifier.
         /// Azure REST API version: 2022-08-01.
+        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Task<GetEmailTemplateResult> InvokeAsync(GetEmailTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-native:apimanagement:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the email template specified by its identifier.
         /// Azure REST API version: 2022-08-01.
+        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Output<GetEmailTemplateResult> Invoke(GetEmailTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("azure-native:apimanagement:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithDefaults());

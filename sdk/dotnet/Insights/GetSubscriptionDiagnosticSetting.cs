@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Gets the active subscription diagnostic settings for the specified resource.
         /// Azure REST API version: 2021-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2017-05-01-preview.
         /// </summary>
         public static Task<GetSubscriptionDiagnosticSettingResult> InvokeAsync(GetSubscriptionDiagnosticSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDiagnosticSettingResult>("azure-native:insights:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Gets the active subscription diagnostic settings for the specified resource.
         /// Azure REST API version: 2021-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2017-05-01-preview.
         /// </summary>
         public static Output<GetSubscriptionDiagnosticSettingResult> Invoke(GetSubscriptionDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionDiagnosticSettingResult>("azure-native:insights:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingInvokeArgs(), options.WithDefaults());

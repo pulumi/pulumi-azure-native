@@ -207,6 +207,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
     """
     Gets information about a disk encryption set.
     Azure REST API version: 2022-07-02.
+    <br/>Other available API versions: 2020-06-30, 2023-01-02, 2023-04-02.
 
 
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -242,6 +243,7 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
     """
     Gets information about a disk encryption set.
     Azure REST API version: 2022-07-02.
+    <br/>Other available API versions: 2020-06-30, 2023-01-02, 2023-04-02.
 
 
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.

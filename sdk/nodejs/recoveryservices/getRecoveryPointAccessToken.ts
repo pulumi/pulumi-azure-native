@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure REST API version: 2023-01-15.
+ * <br/>Other available API versions: 2018-12-20, 2021-11-15.
  */
 export function getRecoveryPointAccessToken(args: GetRecoveryPointAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetRecoveryPointAccessTokenResult> {
 
@@ -102,6 +103,7 @@ export interface GetRecoveryPointAccessTokenResult {
 }
 /**
  * Azure REST API version: 2023-01-15.
+ * <br/>Other available API versions: 2018-12-20, 2021-11-15.
  */
 export function getRecoveryPointAccessTokenOutput(args: GetRecoveryPointAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecoveryPointAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => getRecoveryPointAccessToken(a, opts))

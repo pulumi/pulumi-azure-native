@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppHybridConnectionSlotResult> InvokeAsync(GetWebAppHybridConnectionSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionSlotResult>("azure-native:web:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2020-10-01.
         /// </summary>
         public static Output<GetWebAppHybridConnectionSlotResult> Invoke(GetWebAppHybridConnectionSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionSlotResult>("azure-native:web:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotInvokeArgs(), options.WithDefaults());

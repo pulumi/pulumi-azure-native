@@ -111,6 +111,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
         Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        <br/>Other available API versions: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,6 +130,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
         Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        <br/>Other available API versions: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param HybridConnectionAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

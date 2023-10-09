@@ -148,6 +148,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
         """
         Private endpoint connection resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview
+        <br/>Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,6 +169,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
         """
         Private endpoint connection resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview
+        <br/>Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param MHSMPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

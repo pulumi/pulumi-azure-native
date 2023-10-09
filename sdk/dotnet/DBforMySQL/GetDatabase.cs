@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets information about a database.
         /// Azure REST API version: 2022-01-01.
+        /// &lt;br/&gt;Other available API versions: 2017-12-01, 2023-06-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:dbformysql:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets information about a database.
         /// Azure REST API version: 2022-01-01.
+        /// &lt;br/&gt;Other available API versions: 2017-12-01, 2023-06-01-preview.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:dbformysql:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());

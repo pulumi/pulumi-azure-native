@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Get disk.
  * Azure REST API version: 2018-09-15.
+ * <br/>Other available API versions: 2016-05-15.
  */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
 
@@ -115,6 +116,7 @@ export interface GetDiskResult {
 /**
  * Get disk.
  * Azure REST API version: 2018-09-15.
+ * <br/>Other available API versions: 2016-05-15.
  */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
     return pulumi.output(args).apply((a: any) => getDisk(a, opts))

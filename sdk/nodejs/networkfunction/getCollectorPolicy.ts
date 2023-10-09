@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the collector policy in a specified Traffic Collector
  * Azure REST API version: 2022-11-01.
+ * <br/>Other available API versions: 2022-05-01.
  */
 export function getCollectorPolicy(args: GetCollectorPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectorPolicyResult> {
 
@@ -84,6 +85,7 @@ export interface GetCollectorPolicyResult {
 /**
  * Gets the collector policy in a specified Traffic Collector
  * Azure REST API version: 2022-11-01.
+ * <br/>Other available API versions: 2022-05-01.
  */
 export function getCollectorPolicyOutput(args: GetCollectorPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectorPolicyResult> {
     return pulumi.output(args).apply((a: any) => getCollectorPolicy(a, opts))

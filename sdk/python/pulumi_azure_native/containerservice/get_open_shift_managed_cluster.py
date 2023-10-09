@@ -255,6 +255,7 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
     """
     Gets the details of the managed OpenShift cluster with a specified resource group and name.
     Azure REST API version: 2019-10-27-preview.
+    <br/>Other available API versions: 2018-09-30-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -294,6 +295,7 @@ def get_open_shift_managed_cluster_output(resource_group_name: Optional[pulumi.I
     """
     Gets the details of the managed OpenShift cluster with a specified resource group and name.
     Azure REST API version: 2019-10-27-preview.
+    <br/>Other available API versions: 2018-09-30-preview.
 
 
     :param str resource_group_name: The name of the resource group.

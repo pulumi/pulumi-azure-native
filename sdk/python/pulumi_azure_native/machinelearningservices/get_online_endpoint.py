@@ -156,6 +156,7 @@ def get_online_endpoint(endpoint_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnlineEndpointResult:
     """
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str endpoint_name: Online Endpoint name.
@@ -189,6 +190,7 @@ def get_online_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnlineEndpointResult]:
     """
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str endpoint_name: Online Endpoint name.

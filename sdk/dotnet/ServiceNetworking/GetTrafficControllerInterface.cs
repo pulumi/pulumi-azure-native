@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a TrafficController
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2022-10-01-preview.
         /// </summary>
         public static Task<GetTrafficControllerInterfaceResult> InvokeAsync(GetTrafficControllerInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficControllerInterfaceResult>("azure-native:servicenetworking:getTrafficControllerInterface", args ?? new GetTrafficControllerInterfaceArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a TrafficController
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2022-10-01-preview.
         /// </summary>
         public static Output<GetTrafficControllerInterfaceResult> Invoke(GetTrafficControllerInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficControllerInterfaceResult>("azure-native:servicenetworking:getTrafficControllerInterface", args ?? new GetTrafficControllerInterfaceInvokeArgs(), options.WithDefaults());

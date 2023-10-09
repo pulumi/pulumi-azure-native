@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Retrieves gateway keys.
         /// Azure REST API version: 2022-08-01.
+        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Task<ListGatewayKeysResult> InvokeAsync(ListGatewayKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-native:apimanagement:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Retrieves gateway keys.
         /// Azure REST API version: 2022-08-01.
+        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Output<ListGatewayKeysResult> Invoke(ListGatewayKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGatewayKeysResult>("azure-native:apimanagement:listGatewayKeys", args ?? new ListGatewayKeysInvokeArgs(), options.WithDefaults());

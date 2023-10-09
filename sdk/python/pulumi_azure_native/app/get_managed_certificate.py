@@ -124,6 +124,7 @@ def get_managed_certificate(environment_name: Optional[str] = None,
     """
     Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
     Azure REST API version: 2023-04-01-preview.
+    <br/>Other available API versions: 2023-05-01, 2023-05-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -155,6 +156,7 @@ def get_managed_certificate_output(environment_name: Optional[pulumi.Input[str]]
     """
     Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
     Azure REST API version: 2023-04-01-preview.
+    <br/>Other available API versions: 2023-05-01, 2023-05-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.

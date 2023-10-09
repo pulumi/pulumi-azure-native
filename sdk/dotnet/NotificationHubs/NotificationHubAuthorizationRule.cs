@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     /// <summary>
     /// Response for POST requests that return single SharedAccessAuthorizationRule.
     /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
+    /// &lt;br/&gt;Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NotificationHubAuthorizationRule")]
     public partial class NotificationHubAuthorizationRule : global::Pulumi.CustomResource

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Gets a description for the specified Private Endpoint Connection name.
         /// Azure REST API version: 2021-11-01.
+        /// &lt;br/&gt;Other available API versions: 2018-01-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:relay:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Gets a description for the specified Private Endpoint Connection name.
         /// Azure REST API version: 2021-11-01.
+        /// &lt;br/&gt;Other available API versions: 2018-01-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:relay:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

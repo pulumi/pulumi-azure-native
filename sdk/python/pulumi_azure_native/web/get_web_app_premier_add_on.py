@@ -171,6 +171,7 @@ def get_web_app_premier_add_on(name: Optional[str] = None,
     """
     Description for Gets a named add-on of an app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-08-01, 2020-10-01.
 
 
     :param str name: Name of the app.
@@ -206,6 +207,7 @@ def get_web_app_premier_add_on_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Gets a named add-on of an app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-08-01, 2020-10-01.
 
 
     :param str name: Name of the app.

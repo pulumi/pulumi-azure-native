@@ -63,6 +63,7 @@ def list_subscription_secrets(resource_group_name: Optional[str] = None,
     """
     Gets the specified Subscription keys.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -89,6 +90,7 @@ def list_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[
     """
     Gets the specified Subscription keys.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

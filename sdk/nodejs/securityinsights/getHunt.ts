@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a hunt, without relations and comments.
  * Azure REST API version: 2023-06-01-preview.
+ * <br/>Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
  */
 export function getHunt(args: GetHuntArgs, opts?: pulumi.InvokeOptions): Promise<GetHuntResult> {
 
@@ -96,6 +97,7 @@ export interface GetHuntResult {
 /**
  * Gets a hunt, without relations and comments.
  * Azure REST API version: 2023-06-01-preview.
+ * <br/>Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
  */
 export function getHuntOutput(args: GetHuntOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntResult> {
     return pulumi.output(args).apply((a: any) => getHunt(a, opts))

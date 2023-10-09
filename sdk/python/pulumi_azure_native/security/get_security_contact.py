@@ -122,6 +122,7 @@ def get_security_contact(security_contact_name: Optional[str] = None,
     """
     Get Default Security contact configurations for the subscription
     Azure REST API version: 2020-01-01-preview.
+    <br/>Other available API versions: 2017-08-01-preview.
 
 
     :param str security_contact_name: Name of the security contact object
@@ -147,6 +148,7 @@ def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str
     """
     Get Default Security contact configurations for the subscription
     Azure REST API version: 2020-01-01-preview.
+    <br/>Other available API versions: 2017-08-01-preview.
 
 
     :param str security_contact_name: Name of the security contact object

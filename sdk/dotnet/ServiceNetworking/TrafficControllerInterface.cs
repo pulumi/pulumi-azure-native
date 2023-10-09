@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview
+    /// &lt;br/&gt;Other available API versions: 2022-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:TrafficControllerInterface")]
     public partial class TrafficControllerInterface : global::Pulumi.CustomResource

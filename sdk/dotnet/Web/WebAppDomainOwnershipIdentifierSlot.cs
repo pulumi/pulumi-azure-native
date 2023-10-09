@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// A domain specific resource identifier.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// &lt;br/&gt;Other available API versions: 2018-11-01, 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppDomainOwnershipIdentifierSlot")]
     public partial class WebAppDomainOwnershipIdentifierSlot : global::Pulumi.CustomResource

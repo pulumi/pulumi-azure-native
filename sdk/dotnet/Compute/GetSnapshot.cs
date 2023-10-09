@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a snapshot.
         /// Azure REST API version: 2022-07-02.
+        /// &lt;br/&gt;Other available API versions: 2016-04-30-preview, 2017-03-30, 2018-06-01, 2023-01-02, 2023-04-02.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a snapshot.
         /// Azure REST API version: 2022-07-02.
+        /// &lt;br/&gt;Other available API versions: 2016-04-30-preview, 2017-03-30, 2018-06-01, 2023-01-02, 2023-04-02.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());

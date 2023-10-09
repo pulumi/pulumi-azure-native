@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets the properties of the specified user.
         /// Azure REST API version: 2022-03-01.
+        /// &lt;br/&gt;Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:databoxedge:getUser", args ?? new GetUserArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets the properties of the specified user.
         /// Azure REST API version: 2022-03-01.
+        /// &lt;br/&gt;Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:databoxedge:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());

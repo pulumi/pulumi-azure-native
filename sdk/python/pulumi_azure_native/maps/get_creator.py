@@ -112,6 +112,7 @@ def get_creator(account_name: Optional[str] = None,
     """
     Get a Maps Creator resource.
     Azure REST API version: 2021-02-01.
+    <br/>Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01.
 
 
     :param str account_name: The name of the Maps Account.
@@ -142,6 +143,7 @@ def get_creator_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Maps Creator resource.
     Azure REST API version: 2021-02-01.
+    <br/>Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01.
 
 
     :param str account_name: The name of the Maps Account.

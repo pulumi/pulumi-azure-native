@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventHub
     /// <summary>
     /// Single Namespace item in List or Get Operation
     /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
+    /// &lt;br/&gt;Other available API versions: 2015-08-01, 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

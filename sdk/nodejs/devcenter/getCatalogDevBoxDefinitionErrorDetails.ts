@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets Catalog Devbox Definition error details
  * Azure REST API version: 2023-08-01-preview.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getCatalogDevBoxDefinitionErrorDetails(args: GetCatalogDevBoxDefinitionErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogDevBoxDefinitionErrorDetailsResult> {
 
@@ -53,6 +54,7 @@ export interface GetCatalogDevBoxDefinitionErrorDetailsResult {
 /**
  * Gets Catalog Devbox Definition error details
  * Azure REST API version: 2023-08-01-preview.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getCatalogDevBoxDefinitionErrorDetailsOutput(args: GetCatalogDevBoxDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogDevBoxDefinitionErrorDetailsResult> {
     return pulumi.output(args).apply((a: any) => getCatalogDevBoxDefinitionErrorDetails(a, opts))

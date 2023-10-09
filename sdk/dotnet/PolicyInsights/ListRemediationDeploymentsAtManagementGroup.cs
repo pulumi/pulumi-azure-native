@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets all deployments for a remediation at management group scope.
         /// Azure REST API version: 2021-10-01.
+        /// &lt;br/&gt;Other available API versions: 2018-07-01-preview.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtManagementGroupResult> InvokeAsync(ListRemediationDeploymentsAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtManagementGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup", args ?? new ListRemediationDeploymentsAtManagementGroupArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets all deployments for a remediation at management group scope.
         /// Azure REST API version: 2021-10-01.
+        /// &lt;br/&gt;Other available API versions: 2018-07-01-preview.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtManagementGroupResult> Invoke(ListRemediationDeploymentsAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtManagementGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup", args ?? new ListRemediationDeploymentsAtManagementGroupInvokeArgs(), options.WithDefaults());

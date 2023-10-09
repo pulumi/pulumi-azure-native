@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the connected registry.
  * Azure REST API version: 2023-01-01-preview.
+ * <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getConnectedRegistry(args: GetConnectedRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedRegistryResult> {
 
@@ -108,6 +109,7 @@ export interface GetConnectedRegistryResult {
 /**
  * Gets the properties of the connected registry.
  * Azure REST API version: 2023-01-01-preview.
+ * <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedRegistryResult> {
     return pulumi.output(args).apply((a: any) => getConnectedRegistry(a, opts))

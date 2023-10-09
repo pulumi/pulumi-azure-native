@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StorageSync
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01
+    /// &lt;br/&gt;Other available API versions: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

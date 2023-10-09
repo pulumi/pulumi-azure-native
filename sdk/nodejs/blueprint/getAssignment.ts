@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get a blueprint assignment.
  * Azure REST API version: 2018-11-01-preview.
+ * <br/>Other available API versions: 2017-11-11-preview.
  */
 export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssignmentResult> {
 
@@ -95,6 +96,7 @@ export interface GetAssignmentResult {
 /**
  * Get a blueprint assignment.
  * Azure REST API version: 2018-11-01-preview.
+ * <br/>Other available API versions: 2017-11-11-preview.
  */
 export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getAssignment(a, opts))

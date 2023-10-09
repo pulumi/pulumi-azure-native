@@ -52,6 +52,7 @@ def get_deployment_log_file_url(app_name: Optional[str] = None,
     """
     Get deployment log file URL
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str app_name: The name of the App resource.
@@ -80,6 +81,7 @@ def get_deployment_log_file_url_output(app_name: Optional[pulumi.Input[str]] = N
     """
     Get deployment log file URL
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str app_name: The name of the App resource.

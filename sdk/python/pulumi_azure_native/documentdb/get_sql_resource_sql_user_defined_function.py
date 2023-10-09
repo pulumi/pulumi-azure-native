@@ -111,6 +111,7 @@ def get_sql_resource_sql_user_defined_function(account_name: Optional[str] = Non
     """
     Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
     Azure REST API version: 2023-04-15.
+    <br/>Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -147,6 +148,7 @@ def get_sql_resource_sql_user_defined_function_output(account_name: Optional[pul
     """
     Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
     Azure REST API version: 2023-04-15.
+    <br/>Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -124,6 +124,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     """
     Gets a private endpoint connection.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -155,6 +156,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     """
     Gets a private endpoint connection.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

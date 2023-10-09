@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The management group diagnostic setting resource.
  * Azure REST API version: 2021-05-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
+ * <br/>Other available API versions: 2020-01-01-preview.
  */
 export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
     /**

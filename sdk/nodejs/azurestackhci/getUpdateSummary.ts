@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get all Update summaries under the HCI cluster
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
  */
 export function getUpdateSummary(args: GetUpdateSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateSummaryResult> {
 
@@ -91,6 +92,7 @@ export interface GetUpdateSummaryResult {
 /**
  * Get all Update summaries under the HCI cluster
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
  */
 export function getUpdateSummaryOutput(args: GetUpdateSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateSummaryResult> {
     return pulumi.output(args).apply((a: any) => getUpdateSummary(a, opts))

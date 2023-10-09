@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * List of all zones and associated hosts for a cluster
  * Azure REST API version: 2022-05-01.
+ * <br/>Other available API versions: 2023-03-01.
  */
 export function listClusterZones(args: ListClusterZonesArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterZonesResult> {
 
@@ -48,6 +49,7 @@ export interface ListClusterZonesResult {
 /**
  * List of all zones and associated hosts for a cluster
  * Azure REST API version: 2022-05-01.
+ * <br/>Other available API versions: 2023-03-01.
  */
 export function listClusterZonesOutput(args: ListClusterZonesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterZonesResult> {
     return pulumi.output(args).apply((a: any) => listClusterZones(a, opts))

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
  * Azure REST API version: 2020-05-01.
+ * <br/>Other available API versions: 2023-01-01.
  */
 export function getMigrateProjectsControllerMigrateProject(args: GetMigrateProjectsControllerMigrateProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateProjectsControllerMigrateProjectResult> {
 
@@ -67,6 +68,7 @@ export interface GetMigrateProjectsControllerMigrateProjectResult {
 /**
  * Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
  * Azure REST API version: 2020-05-01.
+ * <br/>Other available API versions: 2023-01-01.
  */
 export function getMigrateProjectsControllerMigrateProjectOutput(args: GetMigrateProjectsControllerMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectsControllerMigrateProjectResult> {
     return pulumi.output(args).apply((a: any) => getMigrateProjectsControllerMigrateProject(a, opts))

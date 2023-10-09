@@ -186,6 +186,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
     """
     Gets a resource.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2015-11-01, 2023-07-01.
 
 
     :param str parent_resource_path: The parent resource identity.
@@ -228,6 +229,7 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
     """
     Gets a resource.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2015-11-01, 2023-07-01.
 
 
     :param str parent_resource_path: The parent resource identity.

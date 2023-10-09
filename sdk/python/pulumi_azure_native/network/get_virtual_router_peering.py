@@ -123,6 +123,7 @@ def get_virtual_router_peering(peering_name: Optional[str] = None,
     """
     Gets the specified Virtual Router Peering.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str peering_name: The name of the Virtual Router Peering.
@@ -154,6 +155,7 @@ def get_virtual_router_peering_output(peering_name: Optional[pulumi.Input[str]] 
     """
     Gets the specified Virtual Router Peering.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str peering_name: The name of the Virtual Router Peering.

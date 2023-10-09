@@ -196,6 +196,7 @@ def get_source_control(resource_group_name: Optional[str] = None,
     """
     Gets a source control byt its identifier.
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2021-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -233,6 +234,7 @@ def get_source_control_output(resource_group_name: Optional[pulumi.Input[str]] =
     """
     Gets a source control byt its identifier.
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2021-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

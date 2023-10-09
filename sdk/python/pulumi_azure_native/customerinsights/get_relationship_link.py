@@ -208,6 +208,7 @@ def get_relationship_link(hub_name: Optional[str] = None,
     """
     Gets information about the specified relationship Link.
     Azure REST API version: 2017-04-26.
+    <br/>Other available API versions: 2017-01-01.
 
 
     :param str hub_name: The name of the hub.
@@ -246,6 +247,7 @@ def get_relationship_link_output(hub_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified relationship Link.
     Azure REST API version: 2017-04-26.
+    <br/>Other available API versions: 2017-01-01.
 
 
     :param str hub_name: The name of the hub.

@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Description for Get a deployment by its ID for an app, or a deployment slot.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function getWebAppDeployment(args: GetWebAppDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentResult> {
 
@@ -93,6 +94,7 @@ export interface GetWebAppDeploymentResult {
 /**
  * Description for Get a deployment by its ID for an app, or a deployment slot.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function getWebAppDeploymentOutput(args: GetWebAppDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDeployment(a, opts))

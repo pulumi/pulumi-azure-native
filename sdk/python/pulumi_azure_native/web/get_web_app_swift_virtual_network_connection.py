@@ -110,6 +110,7 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
     """
     Description for Gets a Swift Virtual Network connection.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str name: Name of the app.
@@ -137,6 +138,7 @@ def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.In
     """
     Description for Gets a Swift Virtual Network connection.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str name: Name of the app.

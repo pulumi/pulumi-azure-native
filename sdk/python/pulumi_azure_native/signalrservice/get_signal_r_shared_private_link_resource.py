@@ -148,6 +148,7 @@ def get_signal_r_shared_private_link_resource(resource_group_name: Optional[str]
     """
     Get the specified shared private link resource
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -181,6 +182,7 @@ def get_signal_r_shared_private_link_resource_output(resource_group_name: Option
     """
     Get the specified shared private link resource
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get object metadata from an integration runtime
  * Azure REST API version: 2021-06-01.
+ * <br/>Other available API versions: 2021-06-01-preview.
  */
 export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntimeObjectMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeObjectMetadatumResult> {
 
@@ -57,6 +58,7 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
 /**
  * Get object metadata from an integration runtime
  * Azure REST API version: 2021-06-01.
+ * <br/>Other available API versions: 2021-06-01-preview.
  */
 export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationRuntimeObjectMetadatum(a, opts))

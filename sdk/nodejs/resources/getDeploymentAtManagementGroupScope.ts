@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a deployment.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2023-07-01.
  */
 export function getDeploymentAtManagementGroupScope(args: GetDeploymentAtManagementGroupScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtManagementGroupScopeResult> {
 
@@ -63,6 +64,7 @@ export interface GetDeploymentAtManagementGroupScopeResult {
 /**
  * Gets a deployment.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2023-07-01.
  */
 export function getDeploymentAtManagementGroupScopeOutput(args: GetDeploymentAtManagementGroupScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtManagementGroupScopeResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentAtManagementGroupScope(a, opts))

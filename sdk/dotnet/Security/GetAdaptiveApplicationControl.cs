@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Gets an application control VM/server group.
         /// Azure REST API version: 2020-01-01.
+        /// &lt;br/&gt;Other available API versions: 2015-06-01-preview.
         /// </summary>
         public static Task<GetAdaptiveApplicationControlResult> InvokeAsync(GetAdaptiveApplicationControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdaptiveApplicationControlResult>("azure-native:security:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Gets an application control VM/server group.
         /// Azure REST API version: 2020-01-01.
+        /// &lt;br/&gt;Other available API versions: 2015-06-01-preview.
         /// </summary>
         public static Output<GetAdaptiveApplicationControlResult> Invoke(GetAdaptiveApplicationControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdaptiveApplicationControlResult>("azure-native:security:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlInvokeArgs(), options.WithDefaults());

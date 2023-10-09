@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Model that represents a Experiment resource.
  * Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview
+ * <br/>Other available API versions: 2023-09-01-preview.
  */
 export class Experiment extends pulumi.CustomResource {
     /**

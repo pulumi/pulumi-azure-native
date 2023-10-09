@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing custom domain within an endpoint.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2016-10-02, 2023-07-01-preview.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:cdn:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing custom domain within an endpoint.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2016-10-02, 2023-07-01-preview.
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * ExpressRouteCircuit resource.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
+ * <br/>Other available API versions: 2015-05-01-preview, 2018-12-01, 2019-06-01, 2023-04-01, 2023-05-01.
  */
 export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**

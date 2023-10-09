@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Container App Job
     /// Azure REST API version: 2023-04-01-preview.
+    /// &lt;br/&gt;Other available API versions: 2023-05-01, 2023-05-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:Job")]
     public partial class Job : global::Pulumi.CustomResource

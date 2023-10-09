@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningCompute
     /// <summary>
     /// Instance of an Azure ML Operationalization Cluster resource.
     /// Azure REST API version: 2017-08-01-preview. Prior API version in Azure Native 1.x: 2017-08-01-preview
+    /// &lt;br/&gt;Other available API versions: 2017-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningcompute:OperationalizationCluster")]
     public partial class OperationalizationCluster : global::Pulumi.CustomResource

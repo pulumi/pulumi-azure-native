@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Get the upload location for the user to be able to upload the source.
         /// Azure REST API version: 2019-06-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Task<ListRegistryBuildSourceUploadUrlResult> InvokeAsync(ListRegistryBuildSourceUploadUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Get the upload location for the user to be able to upload the source.
         /// Azure REST API version: 2019-06-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Output<ListRegistryBuildSourceUploadUrlResult> Invoke(ListRegistryBuildSourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlInvokeArgs(), options.WithDefaults());

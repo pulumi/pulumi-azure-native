@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the detailed information about an access policy of a redis cache
  * Azure REST API version: 2023-05-01-preview.
+ * <br/>Other available API versions: 2023-08-01.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
 
@@ -61,6 +62,7 @@ export interface GetAccessPolicyResult {
 /**
  * Gets the detailed information about an access policy of a redis cache
  * Azure REST API version: 2023-05-01-preview.
+ * <br/>Other available API versions: 2023-08-01.
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))

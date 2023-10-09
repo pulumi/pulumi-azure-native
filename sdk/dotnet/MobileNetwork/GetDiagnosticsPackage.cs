@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified diagnostics package.
         /// Azure REST API version: 2023-06-01.
+        /// &lt;br/&gt;Other available API versions: 2023-09-01.
         /// </summary>
         public static Task<GetDiagnosticsPackageResult> InvokeAsync(GetDiagnosticsPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticsPackageResult>("azure-native:mobilenetwork:getDiagnosticsPackage", args ?? new GetDiagnosticsPackageArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified diagnostics package.
         /// Azure REST API version: 2023-06-01.
+        /// &lt;br/&gt;Other available API versions: 2023-09-01.
         /// </summary>
         public static Output<GetDiagnosticsPackageResult> Invoke(GetDiagnosticsPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticsPackageResult>("azure-native:mobilenetwork:getDiagnosticsPackage", args ?? new GetDiagnosticsPackageInvokeArgs(), options.WithDefaults());

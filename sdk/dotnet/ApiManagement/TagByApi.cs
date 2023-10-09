@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Tag Contract details.
     /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:TagByApi")]
     public partial class TagByApi : global::Pulumi.CustomResource

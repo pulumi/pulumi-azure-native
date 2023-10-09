@@ -113,6 +113,7 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
     """
     Gets an AuthorizationRule for an Event Hub by rule name.
     Azure REST API version: 2022-10-01-preview.
+    <br/>Other available API versions: 2015-08-01, 2023-01-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -146,6 +147,7 @@ def get_event_hub_authorization_rule_output(authorization_rule_name: Optional[pu
     """
     Gets an AuthorizationRule for an Event Hub by rule name.
     Azure REST API version: 2022-10-01-preview.
+    <br/>Other available API versions: 2015-08-01, 2023-01-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.

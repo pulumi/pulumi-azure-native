@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Get a specified connection created by this management group.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetManagementGroupNetworkManagerConnectionResult> InvokeAsync(GetManagementGroupNetworkManagerConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupNetworkManagerConnectionResult>("azure-native:network:getManagementGroupNetworkManagerConnection", args ?? new GetManagementGroupNetworkManagerConnectionArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Get a specified connection created by this management group.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetManagementGroupNetworkManagerConnectionResult> Invoke(GetManagementGroupNetworkManagerConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupNetworkManagerConnectionResult>("azure-native:network:getManagementGroupNetworkManagerConnection", args ?? new GetManagementGroupNetworkManagerConnectionInvokeArgs(), options.WithDefaults());

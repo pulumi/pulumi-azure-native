@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+ * <br/>Other available API versions: 2019-04-01, 2023-01-01.
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**

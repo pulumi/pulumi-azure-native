@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the API link for the product.
         /// Azure REST API version: 2022-09-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<GetProductApiLinkResult> InvokeAsync(GetProductApiLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductApiLinkResult>("azure-native:apimanagement:getProductApiLink", args ?? new GetProductApiLinkArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the API link for the product.
         /// Azure REST API version: 2022-09-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<GetProductApiLinkResult> Invoke(GetProductApiLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductApiLinkResult>("azure-native:apimanagement:getProductApiLink", args ?? new GetProductApiLinkInvokeArgs(), options.WithDefaults());

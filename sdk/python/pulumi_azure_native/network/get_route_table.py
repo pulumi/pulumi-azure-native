@@ -172,6 +172,7 @@ def get_route_table(expand: Optional[str] = None,
     """
     Gets the specified route table.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2015-05-01-preview, 2016-03-30, 2019-06-01, 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -207,6 +208,7 @@ def get_route_table_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Gets the specified route table.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2015-05-01-preview, 2016-03-30, 2019-06-01, 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced resources.

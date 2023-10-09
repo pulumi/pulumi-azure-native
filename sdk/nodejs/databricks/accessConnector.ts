@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Information about azure databricks accessConnector.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
+ * <br/>Other available API versions: 2022-04-01-preview.
  */
 export class AccessConnector extends pulumi.CustomResource {
     /**

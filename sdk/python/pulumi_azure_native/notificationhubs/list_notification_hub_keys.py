@@ -101,6 +101,7 @@ def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
     """
     Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
     Azure REST API version: 2023-01-01-preview.
+    <br/>Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
 
 
     :param str authorization_rule_name: Authorization Rule Name
@@ -133,6 +134,7 @@ def list_notification_hub_keys_output(authorization_rule_name: Optional[pulumi.I
     """
     Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
     Azure REST API version: 2023-01-01-preview.
+    <br/>Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
 
 
     :param str authorization_rule_name: Authorization Rule Name

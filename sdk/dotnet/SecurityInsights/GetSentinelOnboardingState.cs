@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Get Sentinel onboarding state
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetSentinelOnboardingStateResult> InvokeAsync(GetSentinelOnboardingStateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSentinelOnboardingStateResult>("azure-native:securityinsights:getSentinelOnboardingState", args ?? new GetSentinelOnboardingStateArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Get Sentinel onboarding state
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetSentinelOnboardingStateResult> Invoke(GetSentinelOnboardingStateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSentinelOnboardingStateResult>("azure-native:securityinsights:getSentinelOnboardingState", args ?? new GetSentinelOnboardingStateInvokeArgs(), options.WithDefaults());

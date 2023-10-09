@@ -150,6 +150,7 @@ def get_web_app_relay_service_connection(entity_name: Optional[str] = None,
     """
     Description for Gets a hybrid connection configuration by its name.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str entity_name: Name of the hybrid connection.
@@ -185,6 +186,7 @@ def get_web_app_relay_service_connection_output(entity_name: Optional[pulumi.Inp
     """
     Description for Gets a hybrid connection configuration by its name.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str entity_name: Name of the hybrid connection.

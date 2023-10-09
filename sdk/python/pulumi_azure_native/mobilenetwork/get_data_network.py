@@ -136,6 +136,7 @@ def get_data_network(data_network_name: Optional[str] = None,
     """
     Gets information about the specified data network.
     Azure REST API version: 2023-06-01.
+    <br/>Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
 
 
     :param str data_network_name: The name of the data network.
@@ -168,6 +169,7 @@ def get_data_network_output(data_network_name: Optional[pulumi.Input[str]] = Non
     """
     Gets information about the specified data network.
     Azure REST API version: 2023-06-01.
+    <br/>Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
 
 
     :param str data_network_name: The name of the data network.

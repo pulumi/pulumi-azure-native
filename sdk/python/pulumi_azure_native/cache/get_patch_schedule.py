@@ -100,6 +100,7 @@ def get_patch_schedule(default: Optional[str] = None,
     """
     Gets the patching schedule of a redis cache.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-05-01-preview, 2023-08-01.
 
 
     :param str default: Default string modeled as parameter for auto generation to work correctly.
@@ -129,6 +130,7 @@ def get_patch_schedule_output(default: Optional[pulumi.Input[str]] = None,
     """
     Gets the patching schedule of a redis cache.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-05-01-preview, 2023-08-01.
 
 
     :param str default: Default string modeled as parameter for auto generation to work correctly.

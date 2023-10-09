@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a deployment.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01.
         /// </summary>
         public static Task<GetDeploymentAtScopeResult> InvokeAsync(GetDeploymentAtScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtScopeResult>("azure-native:resources:getDeploymentAtScope", args ?? new GetDeploymentAtScopeArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a deployment.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01.
         /// </summary>
         public static Output<GetDeploymentAtScopeResult> Invoke(GetDeploymentAtScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtScopeResult>("azure-native:resources:getDeploymentAtScope", args ?? new GetDeploymentAtScopeInvokeArgs(), options.WithDefaults());

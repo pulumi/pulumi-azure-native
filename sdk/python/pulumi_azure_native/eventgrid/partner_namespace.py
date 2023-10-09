@@ -195,6 +195,7 @@ class PartnerNamespace(pulumi.CustomResource):
         """
         EventGrid Partner Namespace.
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview
+        <br/>Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,6 +221,7 @@ class PartnerNamespace(pulumi.CustomResource):
         """
         EventGrid Partner Namespace.
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview
+        <br/>Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PartnerNamespaceArgs args: The arguments to use to populate this resource's properties.

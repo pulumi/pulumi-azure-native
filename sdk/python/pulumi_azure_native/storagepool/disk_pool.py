@@ -214,6 +214,7 @@ class DiskPool(pulumi.CustomResource):
         """
         Response for Disk Pool request.
         Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-03-15-preview
+        <br/>Other available API versions: 2020-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,6 +239,7 @@ class DiskPool(pulumi.CustomResource):
         """
         Response for Disk Pool request.
         Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-03-15-preview
+        <br/>Other available API versions: 2020-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param DiskPoolArgs args: The arguments to use to populate this resource's properties.

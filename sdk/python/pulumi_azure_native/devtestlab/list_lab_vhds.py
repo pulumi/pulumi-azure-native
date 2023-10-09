@@ -63,6 +63,7 @@ def list_lab_vhds(name: Optional[str] = None,
     """
     List disk images available for custom image creation.
     Azure REST API version: 2018-09-15.
+    <br/>Other available API versions: 2015-05-21-preview, 2016-05-15.
 
 
     :param str name: The name of the lab.
@@ -86,6 +87,7 @@ def list_lab_vhds_output(name: Optional[pulumi.Input[str]] = None,
     """
     List disk images available for custom image creation.
     Azure REST API version: 2018-09-15.
+    <br/>Other available API versions: 2015-05-21-preview, 2016-05-15.
 
 
     :param str name: The name of the lab.

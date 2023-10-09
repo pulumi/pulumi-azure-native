@@ -88,6 +88,7 @@ def get_content_item(content_item_id: Optional[str] = None,
     """
     Returns the developer portal's content item specified by its identifier.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str content_item_id: Content item identifier.
@@ -119,6 +120,7 @@ def get_content_item_output(content_item_id: Optional[pulumi.Input[str]] = None,
     """
     Returns the developer portal's content item specified by its identifier.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str content_item_id: Content item identifier.

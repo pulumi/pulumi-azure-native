@@ -124,6 +124,7 @@ def get_web_app_public_certificate_slot(name: Optional[str] = None,
     """
     Description for Get the named public certificate for an app (or deployment slot, if specified).
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str name: Name of the app.
@@ -158,6 +159,7 @@ def get_web_app_public_certificate_slot_output(name: Optional[pulumi.Input[str]]
     """
     Description for Get the named public certificate for an app (or deployment slot, if specified).
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str name: Name of the app.

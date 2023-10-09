@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// <summary>
     /// Defines the GuestAgent.
     /// Azure REST API version: 2023-03-01-preview.
+    /// &lt;br/&gt;Other available API versions: 2023-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:VMInstanceGuestAgent")]
     public partial class VMInstanceGuestAgent : global::Pulumi.CustomResource

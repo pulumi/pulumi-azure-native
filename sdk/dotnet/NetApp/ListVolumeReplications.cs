@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// List all replications for a specified volume
         /// Azure REST API version: 2022-11-01.
+        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-05-01.
         /// </summary>
         public static Task<ListVolumeReplicationsResult> InvokeAsync(ListVolumeReplicationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVolumeReplicationsResult>("azure-native:netapp:listVolumeReplications", args ?? new ListVolumeReplicationsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// List all replications for a specified volume
         /// Azure REST API version: 2022-11-01.
+        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-05-01.
         /// </summary>
         public static Output<ListVolumeReplicationsResult> Invoke(ListVolumeReplicationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVolumeReplicationsResult>("azure-native:netapp:listVolumeReplications", args ?? new ListVolumeReplicationsInvokeArgs(), options.WithDefaults());

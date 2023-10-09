@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Returns the list of query API keys for the given Azure Cognitive Search service.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2021-04-01-preview, 2023-11-01.
  */
 export function listQueryKeyBySearchService(args: ListQueryKeyBySearchServiceArgs, opts?: pulumi.InvokeOptions): Promise<ListQueryKeyBySearchServiceResult> {
 
@@ -47,6 +48,7 @@ export interface ListQueryKeyBySearchServiceResult {
 /**
  * Returns the list of query API keys for the given Azure Cognitive Search service.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2021-04-01-preview, 2023-11-01.
  */
 export function listQueryKeyBySearchServiceOutput(args: ListQueryKeyBySearchServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueryKeyBySearchServiceResult> {
     return pulumi.output(args).apply((a: any) => listQueryKeyBySearchService(a, opts))

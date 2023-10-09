@@ -100,6 +100,7 @@ def get_registry_component_container(component_name: Optional[str] = None,
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str component_name: Container name.
@@ -129,6 +130,7 @@ def get_registry_component_container_output(component_name: Optional[pulumi.Inpu
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str component_name: Container name.

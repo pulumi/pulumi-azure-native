@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Lists the login credentials for the specified container registry.
         /// Azure REST API version: 2022-12-01.
+        /// &lt;br/&gt;Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
         /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Lists the login credentials for the specified container registry.
         /// Azure REST API version: 2022-12-01.
+        /// &lt;br/&gt;Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
         /// </summary>
         public static Output<ListRegistryCredentialsResult> Invoke(ListRegistryCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRegistryCredentialsResult>("azure-native:containerregistry:listRegistryCredentials", args ?? new ListRegistryCredentialsInvokeArgs(), options.WithDefaults());

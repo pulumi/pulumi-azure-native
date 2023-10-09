@@ -223,6 +223,7 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
     """
     Get properties of an event subscription.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription.
@@ -259,6 +260,7 @@ def get_event_subscription_output(event_subscription_name: Optional[pulumi.Input
     """
     Get properties of an event subscription.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription.

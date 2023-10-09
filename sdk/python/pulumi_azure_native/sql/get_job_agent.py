@@ -136,6 +136,7 @@ def get_job_agent(job_agent_name: Optional[str] = None,
     """
     Gets a job agent.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str job_agent_name: The name of the job agent to be retrieved.
@@ -168,6 +169,7 @@ def get_job_agent_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a job agent.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str job_agent_name: The name of the job agent to be retrieved.

@@ -159,6 +159,7 @@ def get_security_partner_provider(resource_group_name: Optional[str] = None,
     """
     Gets the specified Security Partner Provider.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -190,6 +191,7 @@ def get_security_partner_provider_output(resource_group_name: Optional[pulumi.In
     """
     Gets the specified Security Partner Provider.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The name of the resource group.

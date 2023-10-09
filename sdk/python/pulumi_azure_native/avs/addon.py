@@ -96,6 +96,7 @@ class Addon(pulumi.CustomResource):
         """
         An addon resource
         Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
+        <br/>Other available API versions: 2021-01-01-preview, 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,6 +114,7 @@ class Addon(pulumi.CustomResource):
         """
         An addon resource
         Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
+        <br/>Other available API versions: 2021-01-01-preview, 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.

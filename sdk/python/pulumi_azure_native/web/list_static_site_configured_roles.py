@@ -98,6 +98,7 @@ def list_static_site_configured_roles(name: Optional[str] = None,
     """
     Description for Lists the roles configured for the static site.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2021-02-01.
 
 
     :param str name: Name of the static site.
@@ -124,6 +125,7 @@ def list_static_site_configured_roles_output(name: Optional[pulumi.Input[str]] =
     """
     Description for Lists the roles configured for the static site.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2021-02-01.
 
 
     :param str name: Name of the static site.

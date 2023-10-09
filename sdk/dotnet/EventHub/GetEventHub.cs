@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets an Event Hubs description for the specified Event Hub.
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2023-01-01-preview.
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-native:eventhub:getEventHub", args ?? new GetEventHubArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets an Event Hubs description for the specified Event Hub.
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2023-01-01-preview.
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());

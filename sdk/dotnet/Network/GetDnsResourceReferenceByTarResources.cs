@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Returns the DNS records specified by the referencing targetResourceIds.
         /// Azure REST API version: 2018-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Task<GetDnsResourceReferenceByTarResourcesResult> InvokeAsync(GetDnsResourceReferenceByTarResourcesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Returns the DNS records specified by the referencing targetResourceIds.
         /// Azure REST API version: 2018-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Output<GetDnsResourceReferenceByTarResourcesResult> Invoke(GetDnsResourceReferenceByTarResourcesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesInvokeArgs(), options.WithDefaults());

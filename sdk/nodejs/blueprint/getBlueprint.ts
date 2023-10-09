@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get a blueprint definition.
  * Azure REST API version: 2018-11-01-preview.
+ * <br/>Other available API versions: 2017-11-11-preview.
  */
 export function getBlueprint(args: GetBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetBlueprintResult> {
 
@@ -83,6 +84,7 @@ export interface GetBlueprintResult {
 /**
  * Get a blueprint definition.
  * Azure REST API version: 2018-11-01-preview.
+ * <br/>Other available API versions: 2017-11-11-preview.
  */
 export function getBlueprintOutput(args: GetBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlueprintResult> {
     return pulumi.output(args).apply((a: any) => getBlueprint(a, opts))

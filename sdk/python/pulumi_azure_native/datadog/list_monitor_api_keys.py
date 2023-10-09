@@ -63,6 +63,7 @@ def list_monitor_api_keys(monitor_name: Optional[str] = None,
     """
     Response of a list operation.
     Azure REST API version: 2022-06-01.
+    <br/>Other available API versions: 2022-08-01, 2023-01-01.
 
 
     :param str monitor_name: Monitor resource name
@@ -86,6 +87,7 @@ def list_monitor_api_keys_output(monitor_name: Optional[pulumi.Input[str]] = Non
     """
     Response of a list operation.
     Azure REST API version: 2022-06-01.
+    <br/>Other available API versions: 2022-08-01, 2023-01-01.
 
 
     :param str monitor_name: Monitor resource name

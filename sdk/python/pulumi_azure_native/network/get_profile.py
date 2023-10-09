@@ -195,6 +195,7 @@ def get_profile(profile_name: Optional[str] = None,
     """
     Gets a Traffic Manager profile.
     Azure REST API version: 2022-04-01.
+    <br/>Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
 
 
     :param str profile_name: The name of the Traffic Manager profile.
@@ -229,6 +230,7 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a Traffic Manager profile.
     Azure REST API version: 2022-04-01.
+    <br/>Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
 
 
     :param str profile_name: The name of the Traffic Manager profile.

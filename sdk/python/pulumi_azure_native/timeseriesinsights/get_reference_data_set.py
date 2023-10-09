@@ -148,6 +148,7 @@ def get_reference_data_set(environment_name: Optional[str] = None,
     """
     Gets the reference data set with the specified name in the specified environment.
     Azure REST API version: 2020-05-15.
+    <br/>Other available API versions: 2017-11-15, 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -181,6 +182,7 @@ def get_reference_data_set_output(environment_name: Optional[pulumi.Input[str]] 
     """
     Gets the reference data set with the specified name in the specified environment.
     Azure REST API version: 2020-05-15.
+    <br/>Other available API versions: 2017-11-15, 2021-06-30-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.

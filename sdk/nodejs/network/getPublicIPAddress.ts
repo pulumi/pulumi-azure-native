@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified public IP address in a specified resource group.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2016-03-30, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
 
@@ -144,6 +145,7 @@ export interface GetPublicIPAddressResult {
 /**
  * Gets the specified public IP address in a specified resource group.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2016-03-30, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {
     return pulumi.output(args).apply((a: any) => getPublicIPAddress(a, opts))

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the specified cache rule resource.
  * Azure REST API version: 2023-01-01-preview.
+ * <br/>Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
  */
 export function getCacheRule(args: GetCacheRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheRuleResult> {
 
@@ -81,6 +82,7 @@ export interface GetCacheRuleResult {
 /**
  * Gets the properties of the specified cache rule resource.
  * Azure REST API version: 2023-01-01-preview.
+ * <br/>Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
  */
 export function getCacheRuleOutput(args: GetCacheRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheRuleResult> {
     return pulumi.output(args).apply((a: any) => getCacheRule(a, opts))

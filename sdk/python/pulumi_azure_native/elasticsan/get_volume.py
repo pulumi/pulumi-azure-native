@@ -149,6 +149,7 @@ def get_volume(elastic_san_name: Optional[str] = None,
     """
     Get an Volume.
     Azure REST API version: 2021-11-20-preview.
+    <br/>Other available API versions: 2022-12-01-preview, 2023-01-01.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -185,6 +186,7 @@ def get_volume_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
     """
     Get an Volume.
     Azure REST API version: 2021-11-20-preview.
+    <br/>Other available API versions: 2022-12-01-preview, 2023-01-01.
 
 
     :param str elastic_san_name: The name of the ElasticSan.

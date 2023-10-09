@@ -86,6 +86,7 @@ def list_private_cloud_admin_credentials(private_cloud_name: Optional[str] = Non
     """
     Administrative credentials for accessing vCenter and NSX-T
     Azure REST API version: 2022-05-01.
+    <br/>Other available API versions: 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -111,6 +112,7 @@ def list_private_cloud_admin_credentials_output(private_cloud_name: Optional[pul
     """
     Administrative credentials for accessing vCenter and NSX-T
     Azure REST API version: 2022-05-01.
+    <br/>Other available API versions: 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud

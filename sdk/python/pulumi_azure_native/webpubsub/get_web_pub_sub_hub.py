@@ -100,6 +100,7 @@ def get_web_pub_sub_hub(hub_name: Optional[str] = None,
     """
     Get a hub setting.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str hub_name: The hub name.
@@ -129,6 +130,7 @@ def get_web_pub_sub_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
     """
     Get a hub setting.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str hub_name: The hub name.

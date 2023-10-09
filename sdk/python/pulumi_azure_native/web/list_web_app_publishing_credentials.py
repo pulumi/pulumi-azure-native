@@ -146,6 +146,7 @@ def list_web_app_publishing_credentials(name: Optional[str] = None,
     """
     Description for Gets the Git/FTP publishing credentials of an app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
 
 
     :param str name: Name of the app.
@@ -176,6 +177,7 @@ def list_web_app_publishing_credentials_output(name: Optional[pulumi.Input[str]]
     """
     Description for Gets the Git/FTP publishing credentials of an app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
 
 
     :param str name: Name of the app.

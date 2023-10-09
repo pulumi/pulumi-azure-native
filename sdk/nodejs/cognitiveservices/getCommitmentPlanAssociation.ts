@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the association of the Cognitive Services commitment plan.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getCommitmentPlanAssociation(args: GetCommitmentPlanAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanAssociationResult> {
 
@@ -68,6 +69,7 @@ export interface GetCommitmentPlanAssociationResult {
 /**
  * Gets the association of the Cognitive Services commitment plan.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getCommitmentPlanAssociationOutput(args: GetCommitmentPlanAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanAssociationResult> {
     return pulumi.output(args).apply((a: any) => getCommitmentPlanAssociation(a, opts))

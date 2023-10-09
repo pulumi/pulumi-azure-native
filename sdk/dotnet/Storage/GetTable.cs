@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets the table with the specified table name, under the specified account if it exists.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:storage:getTable", args ?? new GetTableArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets the table with the specified table name, under the specified account if it exists.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());

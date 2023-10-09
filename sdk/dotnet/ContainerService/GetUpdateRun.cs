@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Get a UpdateRun
         /// Azure REST API version: 2023-03-15-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
         /// </summary>
         public static Task<GetUpdateRunResult> InvokeAsync(GetUpdateRunArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUpdateRunResult>("azure-native:containerservice:getUpdateRun", args ?? new GetUpdateRunArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Get a UpdateRun
         /// Azure REST API version: 2023-03-15-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
         /// </summary>
         public static Output<GetUpdateRunResult> Invoke(GetUpdateRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateRunResult>("azure-native:containerservice:getUpdateRun", args ?? new GetUpdateRunInvokeArgs(), options.WithDefaults());

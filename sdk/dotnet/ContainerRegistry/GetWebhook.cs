@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the specified webhook.
         /// Azure REST API version: 2022-12-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:containerregistry:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the specified webhook.
         /// Azure REST API version: 2022-12-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:containerregistry:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());

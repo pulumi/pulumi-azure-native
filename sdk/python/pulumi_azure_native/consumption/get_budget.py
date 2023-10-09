@@ -183,6 +183,7 @@ def get_budget(budget_name: Optional[str] = None,
     """
     Gets the budget for the scope by budget name.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01.
 
 
     :param str budget_name: Budget Name.
@@ -216,6 +217,7 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the budget for the scope by budget name.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01.
 
 
     :param str budget_name: Budget Name.

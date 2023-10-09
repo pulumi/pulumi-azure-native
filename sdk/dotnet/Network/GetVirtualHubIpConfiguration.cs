@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of a Virtual Hub Ip configuration.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetVirtualHubIpConfigurationResult> InvokeAsync(GetVirtualHubIpConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubIpConfigurationResult>("azure-native:network:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of a Virtual Hub Ip configuration.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetVirtualHubIpConfigurationResult> Invoke(GetVirtualHubIpConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubIpConfigurationResult>("azure-native:network:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationInvokeArgs(), options.WithDefaults());

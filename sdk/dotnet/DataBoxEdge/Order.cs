@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// <summary>
     /// The order details.
     /// Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// &lt;br/&gt;Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Order")]
     public partial class Order : global::Pulumi.CustomResource

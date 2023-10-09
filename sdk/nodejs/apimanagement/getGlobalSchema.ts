@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the Schema specified by its identifier.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getGlobalSchema(args: GetGlobalSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalSchemaResult> {
 
@@ -65,6 +66,7 @@ export interface GetGlobalSchemaResult {
 /**
  * Gets the details of the Schema specified by its identifier.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getGlobalSchemaOutput(args: GetGlobalSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalSchemaResult> {
     return pulumi.output(args).apply((a: any) => getGlobalSchema(a, opts))

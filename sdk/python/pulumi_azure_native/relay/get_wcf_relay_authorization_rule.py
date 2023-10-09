@@ -113,6 +113,7 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[str] = No
     """
     Get authorizationRule for a WCF relay by name.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2017-04-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -146,6 +147,7 @@ def get_wcf_relay_authorization_rule_output(authorization_rule_name: Optional[pu
     """
     Get authorizationRule for a WCF relay by name.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2017-04-01.
 
 
     :param str authorization_rule_name: The authorization rule name.

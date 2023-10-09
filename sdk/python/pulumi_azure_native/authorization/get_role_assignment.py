@@ -219,6 +219,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     """
     Get a role assignment by scope and name.
     Azure REST API version: 2022-04-01.
+    <br/>Other available API versions: 2015-07-01, 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
 
 
     :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.
@@ -258,6 +259,7 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
     """
     Get a role assignment by scope and name.
     Azure REST API version: 2022-04-01.
+    <br/>Other available API versions: 2015-07-01, 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
 
 
     :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a partner topic.
         /// Azure REST API version: 2022-06-15.
+        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Task<GetPartnerTopicResult> InvokeAsync(GetPartnerTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicResult>("azure-native:eventgrid:getPartnerTopic", args ?? new GetPartnerTopicArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a partner topic.
         /// Azure REST API version: 2022-06-15.
+        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Output<GetPartnerTopicResult> Invoke(GetPartnerTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerTopicResult>("azure-native:eventgrid:getPartnerTopic", args ?? new GetPartnerTopicInvokeArgs(), options.WithDefaults());

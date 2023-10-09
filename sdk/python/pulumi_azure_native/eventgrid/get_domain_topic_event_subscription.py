@@ -225,6 +225,7 @@ def get_domain_topic_event_subscription(domain_name: Optional[str] = None,
     """
     Get properties of a nested event subscription for a domain topic.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2023-06-01-preview.
 
 
     :param str domain_name: Name of the top level domain.
@@ -267,6 +268,7 @@ def get_domain_topic_event_subscription_output(domain_name: Optional[pulumi.Inpu
     """
     Get properties of a nested event subscription for a domain topic.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2023-06-01-preview.
 
 
     :param str domain_name: Name of the top level domain.

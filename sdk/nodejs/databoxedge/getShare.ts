@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01.
+ * <br/>Other available API versions: 2023-01-01-preview, 2023-07-01.
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
 
@@ -100,6 +101,7 @@ export interface GetShareResult {
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01.
+ * <br/>Other available API versions: 2023-01-01-preview, 2023-07-01.
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
     return pulumi.output(args).apply((a: any) => getShare(a, opts))

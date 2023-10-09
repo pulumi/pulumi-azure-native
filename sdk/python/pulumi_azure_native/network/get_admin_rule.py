@@ -247,6 +247,7 @@ def get_admin_rule(configuration_name: Optional[str] = None,
     """
     Gets a network manager security configuration admin rule.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -294,6 +295,7 @@ def get_admin_rule_output(configuration_name: Optional[pulumi.Input[str]] = None
     """
     Gets a network manager security configuration admin rule.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A sensitivity label.
  * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
+ * <br/>Other available API versions: 2021-06-01-preview.
  */
 export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
     /**

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Get the specified network security rule.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2017-03-01, 2019-06-01, 2022-07-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Get the specified network security rule.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2017-03-01, 2019-06-01, 2022-07-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithDefaults());

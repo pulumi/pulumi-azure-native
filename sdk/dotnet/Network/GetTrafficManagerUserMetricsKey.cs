@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Get the subscription-level key used for Real User Metrics collection.
         /// Azure REST API version: 2022-04-01.
+        /// &lt;br/&gt;Other available API versions: 2017-09-01-preview, 2022-04-01-preview.
         /// </summary>
         public static Task<GetTrafficManagerUserMetricsKeyResult> InvokeAsync(GetTrafficManagerUserMetricsKeyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerUserMetricsKeyResult>("azure-native:network:getTrafficManagerUserMetricsKey", args ?? new GetTrafficManagerUserMetricsKeyArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Get the subscription-level key used for Real User Metrics collection.
         /// Azure REST API version: 2022-04-01.
+        /// &lt;br/&gt;Other available API versions: 2017-09-01-preview, 2022-04-01-preview.
         /// </summary>
         public static Output<GetTrafficManagerUserMetricsKeyResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficManagerUserMetricsKeyResult>("azure-native:network:getTrafficManagerUserMetricsKey", InvokeArgs.Empty, options.WithDefaults());

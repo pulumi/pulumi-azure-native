@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Returns the properties of a lab Schedule.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2023-06-07.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
 
@@ -84,6 +85,7 @@ export interface GetScheduleResult {
 /**
  * Returns the properties of a lab Schedule.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2023-06-07.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))

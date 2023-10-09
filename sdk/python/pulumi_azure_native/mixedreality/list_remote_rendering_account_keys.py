@@ -62,6 +62,7 @@ def list_remote_rendering_account_keys(account_name: Optional[str] = None,
     """
     List Both of the 2 Keys of a Remote Rendering Account
     Azure REST API version: 2021-01-01.
+    <br/>Other available API versions: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -85,6 +86,7 @@ def list_remote_rendering_account_keys_output(account_name: Optional[pulumi.Inpu
     """
     List Both of the 2 Keys of a Remote Rendering Account
     Azure REST API version: 2021-01-01.
+    <br/>Other available API versions: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.

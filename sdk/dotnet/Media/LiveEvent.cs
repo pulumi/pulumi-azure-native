@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media
     /// <summary>
     /// The live event.
     /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01
+    /// &lt;br/&gt;Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:LiveEvent")]
     public partial class LiveEvent : global::Pulumi.CustomResource

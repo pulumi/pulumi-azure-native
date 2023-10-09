@@ -52,6 +52,7 @@ def list_connected_environments_dapr_component_secrets(component_name: Optional[
     """
     Dapr component Secrets Collection for ListSecrets Action.
     Azure REST API version: 2022-10-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -77,6 +78,7 @@ def list_connected_environments_dapr_component_secrets_output(component_name: Op
     """
     Dapr component Secrets Collection for ListSecrets Action.
     Azure REST API version: 2022-10-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str component_name: Name of the Dapr Component.

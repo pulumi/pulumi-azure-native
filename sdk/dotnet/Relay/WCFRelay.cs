@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Relay
     /// <summary>
     /// Description of the WCF relay resource.
     /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// &lt;br/&gt;Other available API versions: 2016-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:WCFRelay")]
     public partial class WCFRelay : global::Pulumi.CustomResource

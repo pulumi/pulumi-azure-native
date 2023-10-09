@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse
     /// <summary>
     /// A SQL Analytics pool
     /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
+    /// &lt;br/&gt;Other available API versions: 2021-05-01, 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:SqlPool")]
     public partial class SqlPool : global::Pulumi.CustomResource

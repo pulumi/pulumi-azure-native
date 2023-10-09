@@ -99,6 +99,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     """
     Gets the detailed information about an access policy of a redis cache
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2023-08-01.
 
 
     :param str access_policy_name: The name of the access policy that is being added to the Redis cache.
@@ -128,6 +129,7 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     """
     Gets the detailed information about an access policy of a redis cache
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2023-08-01.
 
 
     :param str access_policy_name: The name of the access policy that is being added to the Redis cache.

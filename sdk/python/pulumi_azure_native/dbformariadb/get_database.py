@@ -99,6 +99,7 @@ def get_database(database_name: Optional[str] = None,
     """
     Gets information about a database.
     Azure REST API version: 2018-06-01.
+    <br/>Other available API versions: 2018-06-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -128,6 +129,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about a database.
     Azure REST API version: 2018-06-01.
+    <br/>Other available API versions: 2018-06-01-preview.
 
 
     :param str database_name: The name of the database.

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NetApp
     /// <summary>
     /// Volume resource
     /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// &lt;br/&gt;Other available API versions: 2017-08-15, 2019-05-01, 2019-07-01, 2019-08-01, 2020-02-01, 2021-10-01, 2022-11-01-preview, 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

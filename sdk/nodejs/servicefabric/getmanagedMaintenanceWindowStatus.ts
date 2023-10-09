@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
  * Azure REST API version: 2023-07-01-preview.
+ * <br/>Other available API versions: 2023-09-01-preview.
  */
 export function getmanagedMaintenanceWindowStatus(args: GetmanagedMaintenanceWindowStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedMaintenanceWindowStatusResult> {
 
@@ -64,6 +65,7 @@ export interface GetmanagedMaintenanceWindowStatusResult {
 /**
  * Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
  * Azure REST API version: 2023-07-01-preview.
+ * <br/>Other available API versions: 2023-09-01-preview.
  */
 export function getmanagedMaintenanceWindowStatusOutput(args: GetmanagedMaintenanceWindowStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagedMaintenanceWindowStatusResult> {
     return pulumi.output(args).apply((a: any) => getmanagedMaintenanceWindowStatus(a, opts))

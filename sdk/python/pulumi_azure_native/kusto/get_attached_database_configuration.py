@@ -184,6 +184,7 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
     """
     Returns an attached database configuration.
     Azure REST API version: 2022-12-29.
+    <br/>Other available API versions: 2023-05-02, 2023-08-15.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
@@ -220,6 +221,7 @@ def get_attached_database_configuration_output(attached_database_configuration_n
     """
     Returns an attached database configuration.
     Azure REST API version: 2022-12-29.
+    <br/>Other available API versions: 2023-05-02, 2023-08-15.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.

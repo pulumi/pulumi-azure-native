@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.WebPubSub
     /// <summary>
     /// A custom certificate.
     /// Azure REST API version: 2023-02-01.
+    /// &lt;br/&gt;Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubCustomCertificate")]
     public partial class WebPubSubCustomCertificate : global::Pulumi.CustomResource

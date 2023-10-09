@@ -171,6 +171,7 @@ def get_volume(resource_group_name: Optional[str] = None,
     """
     Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
     Azure REST API version: 2018-09-01-preview.
+    <br/>Other available API versions: 2018-07-01-preview.
 
 
     :param str resource_group_name: Azure resource group name
@@ -203,6 +204,7 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
     Azure REST API version: 2018-09-01-preview.
+    <br/>Other available API versions: 2018-07-01-preview.
 
 
     :param str resource_group_name: Azure resource group name

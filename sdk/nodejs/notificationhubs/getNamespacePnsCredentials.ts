@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
  * PNS credentials.
  * Azure REST API version: 2023-01-01-preview.
+ * <br/>Other available API versions: 2023-09-01.
  */
 export function getNamespacePnsCredentials(args: GetNamespacePnsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespacePnsCredentialsResult> {
 
@@ -70,6 +71,7 @@ export interface GetNamespacePnsCredentialsResult {
  * Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
  * PNS credentials.
  * Azure REST API version: 2023-01-01-preview.
+ * <br/>Other available API versions: 2023-09-01.
  */
 export function getNamespacePnsCredentialsOutput(args: GetNamespacePnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespacePnsCredentialsResult> {
     return pulumi.output(args).apply((a: any) => getNamespacePnsCredentials(a, opts))

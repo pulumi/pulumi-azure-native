@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * List effective virtual networks in a network manager.
  * Azure REST API version: 2022-04-01-preview.
+ * <br/>Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
  */
 export function listEffectiveVirtualNetworkByNetworkManager(args: ListEffectiveVirtualNetworkByNetworkManagerArgs, opts?: pulumi.InvokeOptions): Promise<ListEffectiveVirtualNetworkByNetworkManagerResult> {
 
@@ -62,6 +63,7 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerResult {
 /**
  * List effective virtual networks in a network manager.
  * Azure REST API version: 2022-04-01-preview.
+ * <br/>Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
  */
 export function listEffectiveVirtualNetworkByNetworkManagerOutput(args: ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkManagerResult> {
     return pulumi.output(args).apply((a: any) => listEffectiveVirtualNetworkByNetworkManager(a, opts))

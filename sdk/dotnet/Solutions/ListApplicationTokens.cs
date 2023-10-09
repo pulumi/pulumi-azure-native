@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// List tokens for application.
         /// Azure REST API version: 2021-07-01.
+        /// &lt;br/&gt;Other available API versions: 2018-06-01.
         /// </summary>
         public static Task<ListApplicationTokensResult> InvokeAsync(ListApplicationTokensArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplicationTokensResult>("azure-native:solutions:listApplicationTokens", args ?? new ListApplicationTokensArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// List tokens for application.
         /// Azure REST API version: 2021-07-01.
+        /// &lt;br/&gt;Other available API versions: 2018-06-01.
         /// </summary>
         public static Output<ListApplicationTokensResult> Invoke(ListApplicationTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationTokensResult>("azure-native:solutions:listApplicationTokens", args ?? new ListApplicationTokensInvokeArgs(), options.WithDefaults());

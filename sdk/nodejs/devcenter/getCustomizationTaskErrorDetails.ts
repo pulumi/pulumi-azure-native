@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets Customization Task error details
  * Azure REST API version: 2023-08-01-preview.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getCustomizationTaskErrorDetails(args: GetCustomizationTaskErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizationTaskErrorDetailsResult> {
 
@@ -53,6 +54,7 @@ export interface GetCustomizationTaskErrorDetailsResult {
 /**
  * Gets Customization Task error details
  * Azure REST API version: 2023-08-01-preview.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getCustomizationTaskErrorDetailsOutput(args: GetCustomizationTaskErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizationTaskErrorDetailsResult> {
     return pulumi.output(args).apply((a: any) => getCustomizationTaskErrorDetails(a, opts))

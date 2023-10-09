@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the move collection.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2023-08-01.
  */
 export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveCollectionResult> {
 
@@ -75,6 +76,7 @@ export interface GetMoveCollectionResult {
 /**
  * Gets the move collection.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2023-08-01.
  */
 export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveCollectionResult> {
     return pulumi.output(args).apply((a: any) => getMoveCollection(a, opts))

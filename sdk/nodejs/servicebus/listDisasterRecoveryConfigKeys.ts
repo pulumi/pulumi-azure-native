@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the primary and secondary connection strings for the namespace.
  * Azure REST API version: 2022-01-01-preview.
+ * <br/>Other available API versions: 2022-10-01-preview.
  */
 export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDisasterRecoveryConfigKeysResult> {
 
@@ -74,6 +75,7 @@ export interface ListDisasterRecoveryConfigKeysResult {
 /**
  * Gets the primary and secondary connection strings for the namespace.
  * Azure REST API version: 2022-01-01-preview.
+ * <br/>Other available API versions: 2022-10-01-preview.
  */
 export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
     return pulumi.output(args).apply((a: any) => listDisasterRecoveryConfigKeys(a, opts))

@@ -63,6 +63,7 @@ def list_run_log_sas_url(registry_name: Optional[str] = None,
     """
     Gets a link to download the run logs.
     Azure REST API version: 2019-06-01-preview.
+    <br/>Other available API versions: 2018-09-01, 2019-04-01.
 
 
     :param str registry_name: The name of the container registry.
@@ -89,6 +90,7 @@ def list_run_log_sas_url_output(registry_name: Optional[pulumi.Input[str]] = Non
     """
     Gets a link to download the run logs.
     Azure REST API version: 2019-06-01-preview.
+    <br/>Other available API versions: 2018-09-01, 2019-04-01.
 
 
     :param str registry_name: The name of the container registry.

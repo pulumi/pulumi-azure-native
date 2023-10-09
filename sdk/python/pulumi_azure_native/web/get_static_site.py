@@ -351,6 +351,7 @@ def get_static_site(name: Optional[str] = None,
     """
     Description for Gets the details of a static site.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01, 2021-02-01.
 
 
     :param str name: Name of the static site.
@@ -398,6 +399,7 @@ def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Gets the details of a static site.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01, 2021-02-01.
 
 
     :param str name: Name of the static site.

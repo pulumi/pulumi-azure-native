@@ -148,6 +148,7 @@ class EncryptionScope(pulumi.CustomResource):
         """
         The Encryption Scope resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+        <br/>Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,6 +169,7 @@ class EncryptionScope(pulumi.CustomResource):
         """
         The Encryption Scope resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+        <br/>Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param EncryptionScopeArgs args: The arguments to use to populate this resource's properties.

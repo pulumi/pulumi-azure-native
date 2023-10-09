@@ -124,6 +124,7 @@ def get_application(application_name: Optional[str] = None,
     """
     Gets properties of the specified application.
     Azure REST API version: 2021-06-01.
+    <br/>Other available API versions: 2023-04-15-preview, 2023-08-15-preview.
 
 
     :param str application_name: The constant value for the application name.
@@ -155,6 +156,7 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     """
     Gets properties of the specified application.
     Azure REST API version: 2021-06-01.
+    <br/>Other available API versions: 2023-04-15-preview, 2023-08-15-preview.
 
 
     :param str application_name: The constant value for the application name.

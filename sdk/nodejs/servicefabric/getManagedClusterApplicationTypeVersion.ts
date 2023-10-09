@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
  */
 export function getManagedClusterApplicationTypeVersion(args: GetManagedClusterApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterApplicationTypeVersionResult> {
 
@@ -81,6 +82,7 @@ export interface GetManagedClusterApplicationTypeVersionResult {
 /**
  * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
  */
 export function getManagedClusterApplicationTypeVersionOutput(args: GetManagedClusterApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterApplicationTypeVersionResult> {
     return pulumi.output(args).apply((a: any) => getManagedClusterApplicationTypeVersion(a, opts))

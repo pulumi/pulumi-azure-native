@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Lists the roles configured for the static site.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2021-02-01.
         /// </summary>
         public static Task<ListStaticSiteConfiguredRolesResult> InvokeAsync(ListStaticSiteConfiguredRolesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteConfiguredRolesResult>("azure-native:web:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Lists the roles configured for the static site.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2021-02-01.
         /// </summary>
         public static Output<ListStaticSiteConfiguredRolesResult> Invoke(ListStaticSiteConfiguredRolesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteConfiguredRolesResult>("azure-native:web:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesInvokeArgs(), options.WithDefaults());

@@ -270,6 +270,7 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
     """
     The operation to get the VMSS VM run command.
     Azure REST API version: 2023-03-01.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -319,6 +320,7 @@ def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.
     """
     The operation to get the VMSS VM run command.
     Azure REST API version: 2023-03-01.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation.

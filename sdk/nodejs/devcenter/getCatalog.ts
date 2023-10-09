@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a catalog
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
  */
 export function getCatalog(args: GetCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogResult> {
 
@@ -80,6 +81,7 @@ export interface GetCatalogResult {
 /**
  * Gets a catalog
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
  */
 export function getCatalogOutput(args: GetCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogResult> {
     return pulumi.output(args).apply((a: any) => getCatalog(a, opts))

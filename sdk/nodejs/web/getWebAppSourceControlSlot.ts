@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets the source control configuration of an app.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlSlotResult> {
 
@@ -88,6 +89,7 @@ export interface GetWebAppSourceControlSlotResult {
 /**
  * Description for Gets the source control configuration of an app.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function getWebAppSourceControlSlotOutput(args: GetWebAppSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSourceControlSlot(a, opts))

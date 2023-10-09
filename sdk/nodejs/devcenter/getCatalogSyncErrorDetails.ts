@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets catalog synchronization error details
  * Azure REST API version: 2023-08-01-preview.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getCatalogSyncErrorDetails(args: GetCatalogSyncErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogSyncErrorDetailsResult> {
 
@@ -56,6 +57,7 @@ export interface GetCatalogSyncErrorDetailsResult {
 /**
  * Gets catalog synchronization error details
  * Azure REST API version: 2023-08-01-preview.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getCatalogSyncErrorDetailsOutput(args: GetCatalogSyncErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogSyncErrorDetailsResult> {
     return pulumi.output(args).apply((a: any) => getCatalogSyncErrorDetails(a, opts))

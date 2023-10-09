@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// Represents a Database.
     /// Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01
+    /// &lt;br/&gt;Other available API versions: 2017-12-01, 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Database")]
     public partial class Database : global::Pulumi.CustomResource

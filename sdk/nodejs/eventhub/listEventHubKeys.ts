@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the ACS and SAS connection strings for the Event Hub.
  * Azure REST API version: 2022-10-01-preview.
+ * <br/>Other available API versions: 2015-08-01, 2023-01-01-preview.
  */
 export function listEventHubKeys(args: ListEventHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListEventHubKeysResult> {
 
@@ -74,6 +75,7 @@ export interface ListEventHubKeysResult {
 /**
  * Gets the ACS and SAS connection strings for the Event Hub.
  * Azure REST API version: 2022-10-01-preview.
+ * <br/>Other available API versions: 2015-08-01, 2023-01-01-preview.
  */
 export function listEventHubKeysOutput(args: ListEventHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEventHubKeysResult> {
     return pulumi.output(args).apply((a: any) => listEventHubKeys(a, opts))

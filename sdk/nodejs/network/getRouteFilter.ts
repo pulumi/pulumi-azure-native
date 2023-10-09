@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified route filter.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getRouteFilter(args: GetRouteFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterResult> {
 
@@ -84,6 +85,7 @@ export interface GetRouteFilterResult {
 /**
  * Gets the specified route filter.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
     return pulumi.output(args).apply((a: any) => getRouteFilter(a, opts))

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Get the hybrid identity metadata proxy resource.
         /// Azure REST API version: 2022-09-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2022-05-01-preview.
         /// </summary>
         public static Task<GetHybridIdentityMetadatumResult> InvokeAsync(GetHybridIdentityMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridIdentityMetadatumResult>("azure-native:hybridcontainerservice:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Get the hybrid identity metadata proxy resource.
         /// Azure REST API version: 2022-09-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2022-05-01-preview.
         /// </summary>
         public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadatumResult>("azure-native:hybridcontainerservice:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumInvokeArgs(), options.WithDefaults());

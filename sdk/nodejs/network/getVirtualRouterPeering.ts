@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Virtual Router Peering.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getVirtualRouterPeering(args: GetVirtualRouterPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterPeeringResult> {
 
@@ -69,6 +70,7 @@ export interface GetVirtualRouterPeeringResult {
 /**
  * Gets the specified Virtual Router Peering.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getVirtualRouterPeeringOutput(args: GetVirtualRouterPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterPeeringResult> {
     return pulumi.output(args).apply((a: any) => getVirtualRouterPeering(a, opts))

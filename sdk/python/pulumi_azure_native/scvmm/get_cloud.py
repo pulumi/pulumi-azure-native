@@ -207,6 +207,7 @@ def get_cloud(cloud_name: Optional[str] = None,
     """
     Implements Cloud GET method.
     Azure REST API version: 2022-05-21-preview.
+    <br/>Other available API versions: 2023-04-01-preview.
 
 
     :param str cloud_name: Name of the Cloud.
@@ -242,6 +243,7 @@ def get_cloud_output(cloud_name: Optional[pulumi.Input[str]] = None,
     """
     Implements Cloud GET method.
     Azure REST API version: 2022-05-21-preview.
+    <br/>Other available API versions: 2023-04-01-preview.
 
 
     :param str cloud_name: Name of the Cloud.

@@ -51,6 +51,7 @@ def get_topic_event_subscription_full_url(event_subscription_name: Optional[str]
     """
     Get the full endpoint URL for an event subscription for topic.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription.
@@ -76,6 +77,7 @@ def get_topic_event_subscription_full_url_output(event_subscription_name: Option
     """
     Get the full endpoint URL for an event subscription for topic.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription.

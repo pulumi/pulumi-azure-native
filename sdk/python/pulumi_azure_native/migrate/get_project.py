@@ -123,6 +123,7 @@ def get_project(project_name: Optional[str] = None,
     """
     Get the project with the specified name.
     Azure REST API version: 2019-10-01.
+    <br/>Other available API versions: 2018-02-02.
 
 
     :param str project_name: Name of the Azure Migrate project.
@@ -151,6 +152,7 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
     """
     Get the project with the specified name.
     Azure REST API version: 2019-10-01.
+    <br/>Other available API versions: 2018-02-02.
 
 
     :param str project_name: Name of the Azure Migrate project.

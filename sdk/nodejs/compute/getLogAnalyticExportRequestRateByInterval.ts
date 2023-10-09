@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2017-12-01, 2018-04-01, 2018-06-01, 2018-10-01, 2019-03-01, 2019-07-01, 2019-12-01, 2020-06-01, 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01.
  */
 export function getLogAnalyticExportRequestRateByInterval(args: GetLogAnalyticExportRequestRateByIntervalArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportRequestRateByIntervalResult> {
 
@@ -83,6 +84,7 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
 /**
  * Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2017-12-01, 2018-04-01, 2018-06-01, 2018-10-01, 2019-03-01, 2019-07-01, 2019-12-01, 2020-06-01, 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01.
  */
 export function getLogAnalyticExportRequestRateByIntervalOutput(args: GetLogAnalyticExportRequestRateByIntervalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportRequestRateByIntervalResult> {
     return pulumi.output(args).apply((a: any) => getLogAnalyticExportRequestRateByInterval(a, opts))

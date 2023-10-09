@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Gets a partner registration with the specified parameters.
         /// Azure REST API version: 2022-06-15.
+        /// &lt;br/&gt;Other available API versions: 2021-10-15-preview, 2023-06-01-preview.
         /// </summary>
         public static Task<GetPartnerRegistrationResult> InvokeAsync(GetPartnerRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure-native:eventgrid:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Gets a partner registration with the specified parameters.
         /// Azure REST API version: 2022-06-15.
+        /// &lt;br/&gt;Other available API versions: 2021-10-15-preview, 2023-06-01-preview.
         /// </summary>
         public static Output<GetPartnerRegistrationResult> Invoke(GetPartnerRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerRegistrationResult>("azure-native:eventgrid:getPartnerRegistration", args ?? new GetPartnerRegistrationInvokeArgs(), options.WithDefaults());

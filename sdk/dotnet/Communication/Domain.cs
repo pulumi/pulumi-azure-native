@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Communication
     /// <summary>
     /// A class representing a Domains resource.
     /// Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview
+    /// &lt;br/&gt;Other available API versions: 2022-07-01-preview, 2023-04-01-preview, 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Gets the details of an ASR replication protected item.
         /// Azure REST API version: 2023-04-01.
+        /// &lt;br/&gt;Other available API versions: 2023-06-01.
         /// </summary>
         public static Task<GetReplicationProtectedItemResult> InvokeAsync(GetReplicationProtectedItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectedItemResult>("azure-native:recoveryservices:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Gets the details of an ASR replication protected item.
         /// Azure REST API version: 2023-04-01.
+        /// &lt;br/&gt;Other available API versions: 2023-06-01.
         /// </summary>
         public static Output<GetReplicationProtectedItemResult> Invoke(GetReplicationProtectedItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationProtectedItemResult>("azure-native:recoveryservices:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemInvokeArgs(), options.WithDefaults());

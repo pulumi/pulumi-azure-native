@@ -137,6 +137,7 @@ def get_managed_cluster_application_type_version(application_type_name: Optional
     """
     Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
     Azure REST API version: 2023-03-01-preview.
+    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str application_type_name: The name of the application type name resource.
@@ -172,6 +173,7 @@ def get_managed_cluster_application_type_version_output(application_type_name: O
     """
     Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
     Azure REST API version: 2023-03-01-preview.
+    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str application_type_name: The name of the application type name resource.

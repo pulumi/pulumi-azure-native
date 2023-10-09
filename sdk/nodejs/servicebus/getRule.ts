@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the description for the specified rule.
  * Azure REST API version: 2022-01-01-preview.
+ * <br/>Other available API versions: 2022-10-01-preview.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
 
@@ -90,6 +91,7 @@ export interface GetRuleResult {
 /**
  * Retrieves the description for the specified rule.
  * Azure REST API version: 2022-01-01-preview.
+ * <br/>Other available API versions: 2022-10-01-preview.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
     return pulumi.output(args).apply((a: any) => getRule(a, opts))

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Gets the details of an Appliance with a specified resource group and name.
         /// Azure REST API version: 2022-10-27.
+        /// &lt;br/&gt;Other available API versions: 2021-10-31-preview.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Gets the details of an Appliance with a specified resource group and name.
         /// Azure REST API version: 2022-10-27.
+        /// &lt;br/&gt;Other available API versions: 2021-10-31-preview.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());

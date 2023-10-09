@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Lists DNS resolver resource IDs linked to a virtual network.
  * Azure REST API version: 2022-07-01.
+ * <br/>Other available API versions: 2020-04-01-preview.
  */
 export function listDnsResolverByVirtualNetwork(args: ListDnsResolverByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsResolverByVirtualNetworkResult> {
 
@@ -52,6 +53,7 @@ export interface ListDnsResolverByVirtualNetworkResult {
 /**
  * Lists DNS resolver resource IDs linked to a virtual network.
  * Azure REST API version: 2022-07-01.
+ * <br/>Other available API versions: 2020-04-01-preview.
  */
 export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => listDnsResolverByVirtualNetwork(a, opts))

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2017-01-01, 2022-01-01.
         /// </summary>
         public static Task<ListBatchAccountKeysResult> InvokeAsync(ListBatchAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBatchAccountKeysResult>("azure-native:batch:listBatchAccountKeys", args ?? new ListBatchAccountKeysArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.
         /// Azure REST API version: 2023-05-01.
+        /// &lt;br/&gt;Other available API versions: 2017-01-01, 2022-01-01.
         /// </summary>
         public static Output<ListBatchAccountKeysResult> Invoke(ListBatchAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBatchAccountKeysResult>("azure-native:batch:listBatchAccountKeys", args ?? new ListBatchAccountKeysInvokeArgs(), options.WithDefaults());

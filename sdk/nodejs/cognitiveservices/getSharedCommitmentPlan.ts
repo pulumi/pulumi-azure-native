@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Returns a Cognitive Services commitment plan specified by the parameters.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getSharedCommitmentPlan(args: GetSharedCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedCommitmentPlanResult> {
 
@@ -79,6 +80,7 @@ export interface GetSharedCommitmentPlanResult {
 /**
  * Returns a Cognitive Services commitment plan specified by the parameters.
  * Azure REST API version: 2023-05-01.
+ * <br/>Other available API versions: 2023-10-01-preview.
  */
 export function getSharedCommitmentPlanOutput(args: GetSharedCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedCommitmentPlanResult> {
     return pulumi.output(args).apply((a: any) => getSharedCommitmentPlan(a, opts))

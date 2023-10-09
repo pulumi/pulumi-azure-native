@@ -269,6 +269,7 @@ def list_task_details(registry_name: Optional[str] = None,
     """
     Returns a task with extended information that includes all secrets.
     Azure REST API version: 2019-06-01-preview.
+    <br/>Other available API versions: 2018-09-01, 2019-04-01.
 
 
     :param str registry_name: The name of the container registry.
@@ -312,6 +313,7 @@ def list_task_details_output(registry_name: Optional[pulumi.Input[str]] = None,
     """
     Returns a task with extended information that includes all secrets.
     Azure REST API version: 2019-06-01-preview.
+    <br/>Other available API versions: 2018-09-01, 2019-04-01.
 
 
     :param str registry_name: The name of the container registry.

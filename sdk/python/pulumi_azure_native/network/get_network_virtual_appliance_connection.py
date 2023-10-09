@@ -136,6 +136,7 @@ def get_network_virtual_appliance_connection(connection_name: Optional[str] = No
     """
     Retrieves the details of specified NVA connection.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str connection_name: The name of the NVA connection.
@@ -168,6 +169,7 @@ def get_network_virtual_appliance_connection_output(connection_name: Optional[pu
     """
     Retrieves the details of specified NVA connection.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str connection_name: The name of the NVA connection.

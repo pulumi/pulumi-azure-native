@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Return the logs for a script execution resource
         /// Azure REST API version: 2022-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01.
         /// </summary>
         public static Task<GetScriptExecutionLogsResult> InvokeAsync(GetScriptExecutionLogsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionLogsResult>("azure-native:avs:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Return the logs for a script execution resource
         /// Azure REST API version: 2022-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01.
         /// </summary>
         public static Output<GetScriptExecutionLogsResult> Invoke(GetScriptExecutionLogsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScriptExecutionLogsResult>("azure-native:avs:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsInvokeArgs(), options.WithDefaults());

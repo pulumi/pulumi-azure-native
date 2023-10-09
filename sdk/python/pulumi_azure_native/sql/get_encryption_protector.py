@@ -171,6 +171,7 @@ def get_encryption_protector(encryption_protector_name: Optional[str] = None,
     """
     Gets a server encryption protector.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str encryption_protector_name: The name of the encryption protector to be retrieved.
@@ -206,6 +207,7 @@ def get_encryption_protector_output(encryption_protector_name: Optional[pulumi.I
     """
     Gets a server encryption protector.
     Azure REST API version: 2021-11-01.
+    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str encryption_protector_name: The name of the encryption protector to be retrieved.

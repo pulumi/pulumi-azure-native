@@ -11,6 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
+    /// &lt;br/&gt;Other available API versions: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

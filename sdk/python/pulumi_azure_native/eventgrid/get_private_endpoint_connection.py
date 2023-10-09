@@ -122,6 +122,7 @@ def get_private_endpoint_connection(parent_name: Optional[str] = None,
     """
     Get a specific private endpoint connection under a topic, domain, or partner namespace.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2023-06-01-preview.
 
 
     :param str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
@@ -156,6 +157,7 @@ def get_private_endpoint_connection_output(parent_name: Optional[pulumi.Input[st
     """
     Get a specific private endpoint connection under a topic, domain, or partner namespace.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2023-06-01-preview.
 
 
     :param str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).

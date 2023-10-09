@@ -255,6 +255,7 @@ def get_network_fabric_controller(network_fabric_controller_name: Optional[str] 
     """
     Shows the provisioning status of Network Fabric Controller.
     Azure REST API version: 2023-02-01-preview.
+    <br/>Other available API versions: 2023-06-15.
 
 
     :param str network_fabric_controller_name: Name of the Network Fabric Controller
@@ -294,6 +295,7 @@ def get_network_fabric_controller_output(network_fabric_controller_name: Optiona
     """
     Shows the provisioning status of Network Fabric Controller.
     Azure REST API version: 2023-02-01-preview.
+    <br/>Other available API versions: 2023-06-15.
 
 
     :param str network_fabric_controller_name: Name of the Network Fabric Controller

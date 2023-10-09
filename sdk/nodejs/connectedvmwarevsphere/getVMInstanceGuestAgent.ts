@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Implements GuestAgent GET method.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2023-10-01.
  */
 export function getVMInstanceGuestAgent(args: GetVMInstanceGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetVMInstanceGuestAgentResult> {
 
@@ -86,6 +87,7 @@ export interface GetVMInstanceGuestAgentResult {
 /**
  * Implements GuestAgent GET method.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2023-10-01.
  */
 export function getVMInstanceGuestAgentOutput(args: GetVMInstanceGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMInstanceGuestAgentResult> {
     return pulumi.output(args).apply((a: any) => getVMInstanceGuestAgent(a, opts))

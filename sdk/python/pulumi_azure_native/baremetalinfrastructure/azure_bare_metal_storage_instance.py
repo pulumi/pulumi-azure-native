@@ -132,6 +132,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         """
         AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
         Azure REST API version: 2023-04-06.
+        <br/>Other available API versions: 2023-08-04-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,6 +152,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         """
         AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
         Azure REST API version: 2023-04-06.
+        <br/>Other available API versions: 2023-08-04-preview.
 
         :param str resource_name: The name of the resource.
         :param AzureBareMetalStorageInstanceArgs args: The arguments to use to populate this resource's properties.

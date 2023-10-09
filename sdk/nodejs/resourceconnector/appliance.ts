@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Appliances definition.
  * Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview
+ * <br/>Other available API versions: 2021-10-31-preview.
  */
 export class Appliance extends pulumi.CustomResource {
     /**

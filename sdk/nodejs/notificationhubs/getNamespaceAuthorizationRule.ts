@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  * Azure REST API version: 2023-01-01-preview.
+ * <br/>Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
 
@@ -72,6 +73,7 @@ export interface GetNamespaceAuthorizationRuleResult {
 /**
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  * Azure REST API version: 2023-01-01-preview.
+ * <br/>Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))

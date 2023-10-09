@@ -113,6 +113,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         """
         Definition of hybrid runbook worker group.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
+        <br/>Other available API versions: 2021-06-22.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,6 +132,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         """
         Definition of hybrid runbook worker group.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
+        <br/>Other available API versions: 2021-06-22.
 
         :param str resource_name: The name of the resource.
         :param HybridRunbookWorkerGroupArgs args: The arguments to use to populate this resource's properties.

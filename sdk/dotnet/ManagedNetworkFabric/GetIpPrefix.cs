@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements IP Prefix GET method.
         /// Azure REST API version: 2023-02-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-06-15.
         /// </summary>
         public static Task<GetIpPrefixResult> InvokeAsync(GetIpPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpPrefixResult>("azure-native:managednetworkfabric:getIpPrefix", args ?? new GetIpPrefixArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements IP Prefix GET method.
         /// Azure REST API version: 2023-02-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-06-15.
         /// </summary>
         public static Output<GetIpPrefixResult> Invoke(GetIpPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpPrefixResult>("azure-native:managednetworkfabric:getIpPrefix", args ?? new GetIpPrefixInvokeArgs(), options.WithDefaults());

@@ -54,6 +54,7 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
     """
     Lists the consent links of a connection
     Azure REST API version: 2016-06-01.
+    <br/>Other available API versions: 2015-08-01-preview.
 
 
     :param str connection_name: Connection name
@@ -82,6 +83,7 @@ def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[
     """
     Lists the consent links of a connection
     Azure REST API version: 2016-06-01.
+    <br/>Other available API versions: 2015-08-01-preview.
 
 
     :param str connection_name: Connection name

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * User this method to get details of a specific IoT Security solution based on solution name
  * Azure REST API version: 2019-08-01.
+ * <br/>Other available API versions: 2017-08-01-preview.
  */
 export function getIotSecuritySolution(args: GetIotSecuritySolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotSecuritySolutionResult> {
 
@@ -107,6 +108,7 @@ export interface GetIotSecuritySolutionResult {
 /**
  * User this method to get details of a specific IoT Security solution based on solution name
  * Azure REST API version: 2019-08-01.
+ * <br/>Other available API versions: 2017-08-01-preview.
  */
 export function getIotSecuritySolutionOutput(args: GetIotSecuritySolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotSecuritySolutionResult> {
     return pulumi.output(args).apply((a: any) => getIotSecuritySolution(a, opts))

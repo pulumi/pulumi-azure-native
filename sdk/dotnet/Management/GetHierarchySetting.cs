@@ -15,6 +15,7 @@ namespace Pulumi.AzureNative.Management
         /// Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
         /// 
         /// Azure REST API version: 2021-04-01.
+        /// &lt;br/&gt;Other available API versions: 2023-04-01.
         /// </summary>
         public static Task<GetHierarchySettingResult> InvokeAsync(GetHierarchySettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithDefaults());
@@ -23,6 +24,7 @@ namespace Pulumi.AzureNative.Management
         /// Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
         /// 
         /// Azure REST API version: 2021-04-01.
+        /// &lt;br/&gt;Other available API versions: 2023-04-01.
         /// </summary>
         public static Output<GetHierarchySettingResult> Invoke(GetHierarchySettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingInvokeArgs(), options.WithDefaults());

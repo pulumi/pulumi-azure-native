@@ -183,6 +183,7 @@ def get_fluid_relay_server(fluid_relay_server_name: Optional[str] = None,
     """
     A FluidRelay Server.
     Azure REST API version: 2022-06-01.
+    <br/>Other available API versions: 2021-06-15-preview.
 
 
     :param str fluid_relay_server_name: The Fluid Relay server resource name.
@@ -216,6 +217,7 @@ def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input
     """
     A FluidRelay Server.
     Azure REST API version: 2022-06-01.
+    <br/>Other available API versions: 2021-06-15-preview.
 
 
     :param str fluid_relay_server_name: The Fluid Relay server resource name.

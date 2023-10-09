@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the Move Resource.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2023-08-01.
  */
 export function getMoveResource(args: GetMoveResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveResourceResult> {
 
@@ -64,6 +65,7 @@ export interface GetMoveResourceResult {
 /**
  * Gets the Move Resource.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2023-08-01.
  */
 export function getMoveResourceOutput(args: GetMoveResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveResourceResult> {
     return pulumi.output(args).apply((a: any) => getMoveResource(a, opts))

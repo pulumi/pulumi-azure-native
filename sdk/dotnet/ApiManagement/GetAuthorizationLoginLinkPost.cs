@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets authorization login links.
         /// Azure REST API version: 2022-08-01.
+        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Task<GetAuthorizationLoginLinkPostResult> InvokeAsync(GetAuthorizationLoginLinkPostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationLoginLinkPostResult>("azure-native:apimanagement:getAuthorizationLoginLinkPost", args ?? new GetAuthorizationLoginLinkPostArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets authorization login links.
         /// Azure REST API version: 2022-08-01.
+        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Output<GetAuthorizationLoginLinkPostResult> Invoke(GetAuthorizationLoginLinkPostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationLoginLinkPostResult>("azure-native:apimanagement:getAuthorizationLoginLinkPost", args ?? new GetAuthorizationLoginLinkPostInvokeArgs(), options.WithDefaults());

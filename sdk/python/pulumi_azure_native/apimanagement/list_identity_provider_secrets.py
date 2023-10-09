@@ -51,6 +51,7 @@ def list_identity_provider_secrets(identity_provider_name: Optional[str] = None,
     """
     Gets the client secret details of the Identity Provider.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
@@ -76,6 +77,7 @@ def list_identity_provider_secrets_output(identity_provider_name: Optional[pulum
     """
     Gets the client secret details of the Identity Provider.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.

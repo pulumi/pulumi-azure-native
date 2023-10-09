@@ -63,6 +63,7 @@ def get_active_sessions(bastion_host_name: Optional[str] = None,
     """
     Returns the list of currently active sessions on the Bastion.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -86,6 +87,7 @@ def get_active_sessions_output(bastion_host_name: Optional[pulumi.Input[str]] = 
     """
     Returns the list of currently active sessions on the Bastion.
     Azure REST API version: 2023-02-01.
+    <br/>Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights
     /// <summary>
     /// The subscription diagnostic setting resource.
     /// Azure REST API version: 2021-05-01-preview. Prior API version in Azure Native 1.x: 2017-05-01-preview
+    /// &lt;br/&gt;Other available API versions: 2017-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:SubscriptionDiagnosticSetting")]
     public partial class SubscriptionDiagnosticSetting : global::Pulumi.CustomResource

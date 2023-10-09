@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
  * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
+ * <br/>Other available API versions: 2022-10-01-preview.
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**

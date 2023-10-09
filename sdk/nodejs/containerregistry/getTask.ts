@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get the properties of a specified task.
  * Azure REST API version: 2019-06-01-preview.
+ * <br/>Other available API versions: 2018-09-01, 2019-04-01.
  */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
 
@@ -121,6 +122,7 @@ export interface GetTaskResult {
 /**
  * Get the properties of a specified task.
  * Azure REST API version: 2019-06-01-preview.
+ * <br/>Other available API versions: 2018-09-01, 2019-04-01.
  */
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
     return pulumi.output(args).apply((a: any) => getTask(a, opts))

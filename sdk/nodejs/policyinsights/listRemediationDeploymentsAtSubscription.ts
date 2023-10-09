@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets all deployments for a remediation at subscription scope.
  * Azure REST API version: 2021-10-01.
+ * <br/>Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtSubscription(args: ListRemediationDeploymentsAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtSubscriptionResult> {
 
@@ -47,6 +48,7 @@ export interface ListRemediationDeploymentsAtSubscriptionResult {
 /**
  * Gets all deployments for a remediation at subscription scope.
  * Azure REST API version: 2021-10-01.
+ * <br/>Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtSubscriptionOutput(args: ListRemediationDeploymentsAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => listRemediationDeploymentsAtSubscription(a, opts))

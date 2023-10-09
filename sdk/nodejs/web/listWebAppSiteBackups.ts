@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets existing backups of an app.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function listWebAppSiteBackups(args: ListWebAppSiteBackupsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSiteBackupsResult> {
 
@@ -47,6 +48,7 @@ export interface ListWebAppSiteBackupsResult {
 /**
  * Description for Gets existing backups of an app.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function listWebAppSiteBackupsOutput(args: ListWebAppSiteBackupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSiteBackupsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppSiteBackups(a, opts))

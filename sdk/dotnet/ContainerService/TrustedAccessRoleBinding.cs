@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// <summary>
     /// Defines binding between a resource and role
     /// Azure REST API version: 2023-05-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview
+    /// &lt;br/&gt;Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:TrustedAccessRoleBinding")]
     public partial class TrustedAccessRoleBinding : global::Pulumi.CustomResource

@@ -185,6 +185,7 @@ class Appliance(pulumi.CustomResource):
         """
         Appliances definition.
         Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview
+        <br/>Other available API versions: 2021-10-31-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,6 +208,7 @@ class Appliance(pulumi.CustomResource):
         """
         Appliances definition.
         Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview
+        <br/>Other available API versions: 2021-10-31-preview.
 
         :param str resource_name: The name of the resource.
         :param ApplianceArgs args: The arguments to use to populate this resource's properties.

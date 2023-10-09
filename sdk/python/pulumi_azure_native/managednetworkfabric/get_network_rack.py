@@ -171,6 +171,7 @@ def get_network_rack(network_rack_name: Optional[str] = None,
     """
     Get Network Rack resource details.
     Azure REST API version: 2023-02-01-preview.
+    <br/>Other available API versions: 2023-06-15.
 
 
     :param str network_rack_name: Name of the Network Rack
@@ -203,6 +204,7 @@ def get_network_rack_output(network_rack_name: Optional[pulumi.Input[str]] = Non
     """
     Get Network Rack resource details.
     Azure REST API version: 2023-02-01-preview.
+    <br/>Other available API versions: 2023-06-15.
 
 
     :param str network_rack_name: Name of the Network Rack

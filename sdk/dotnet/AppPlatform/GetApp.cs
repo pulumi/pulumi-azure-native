@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get an App and its properties.
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:appplatform:getApp", args ?? new GetAppArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get an App and its properties.
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:appplatform:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());

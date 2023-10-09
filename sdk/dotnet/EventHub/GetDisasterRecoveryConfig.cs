@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview.
         /// </summary>
         public static Task<GetDisasterRecoveryConfigResult> InvokeAsync(GetDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:eventhub:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
         /// Azure REST API version: 2022-10-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview.
         /// </summary>
         public static Output<GetDisasterRecoveryConfigResult> Invoke(GetDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigResult>("azure-native:eventhub:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());

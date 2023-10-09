@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Packet capture session resource.
  * Azure REST API version: 2023-06-01.
+ * <br/>Other available API versions: 2023-09-01.
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**

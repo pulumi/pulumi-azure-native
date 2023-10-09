@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a workspace SQL active directory admin
  * Azure REST API version: 2021-06-01.
+ * <br/>Other available API versions: 2021-06-01-preview.
  */
 export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSqlAadAdminResult> {
 
@@ -64,6 +65,7 @@ export interface GetWorkspaceSqlAadAdminResult {
 /**
  * Gets a workspace SQL active directory admin
  * Azure REST API version: 2021-06-01.
+ * <br/>Other available API versions: 2021-06-01-preview.
  */
 export function getWorkspaceSqlAadAdminOutput(args: GetWorkspaceSqlAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSqlAadAdminResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceSqlAadAdmin(a, opts))

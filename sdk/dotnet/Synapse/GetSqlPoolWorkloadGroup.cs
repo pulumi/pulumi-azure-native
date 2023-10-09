@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a Sql pool's workload group.
         /// Azure REST API version: 2021-06-01.
+        /// &lt;br/&gt;Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Task<GetSqlPoolWorkloadGroupResult> InvokeAsync(GetSqlPoolWorkloadGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadGroupResult>("azure-native:synapse:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a Sql pool's workload group.
         /// Azure REST API version: 2021-06-01.
+        /// &lt;br/&gt;Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetSqlPoolWorkloadGroupResult> Invoke(GetSqlPoolWorkloadGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadGroupResult>("azure-native:synapse:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupInvokeArgs(), options.WithDefaults());

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DataBox
         /// <summary>
         /// This method gets the unencrypted secrets related to the job.
         /// Azure REST API version: 2022-12-01.
+        /// &lt;br/&gt;Other available API versions: 2019-09-01, 2023-03-01.
         /// </summary>
         public static Task<ListJobCredentialsResult> InvokeAsync(ListJobCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-native:databox:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DataBox
         /// <summary>
         /// This method gets the unencrypted secrets related to the job.
         /// Azure REST API version: 2022-12-01.
+        /// &lt;br/&gt;Other available API versions: 2019-09-01, 2023-03-01.
         /// </summary>
         public static Output<ListJobCredentialsResult> Invoke(ListJobCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobCredentialsResult>("azure-native:databox:listJobCredentials", args ?? new ListJobCredentialsInvokeArgs(), options.WithDefaults());

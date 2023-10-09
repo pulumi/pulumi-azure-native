@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Subscription Information with the alias.
  * Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2020-09-01
+ * <br/>Other available API versions: 2020-09-01.
  */
 export class Alias extends pulumi.CustomResource {
     /**

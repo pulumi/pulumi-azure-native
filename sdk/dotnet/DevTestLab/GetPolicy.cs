@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get policy.
         /// Azure REST API version: 2018-09-15.
+        /// &lt;br/&gt;Other available API versions: 2016-05-15.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:devtestlab:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get policy.
         /// Azure REST API version: 2018-09-15.
+        /// &lt;br/&gt;Other available API versions: 2016-05-15.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:devtestlab:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());

@@ -100,6 +100,7 @@ def get_private_endpoint_connection(namespace_name: Optional[str] = None,
     """
     Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
     Azure REST API version: 2023-01-01-preview.
+    <br/>Other available API versions: 2023-09-01.
 
 
     :param str namespace_name: Namespace name
@@ -129,6 +130,7 @@ def get_private_endpoint_connection_output(namespace_name: Optional[pulumi.Input
     """
     Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
     Azure REST API version: 2023-01-01-preview.
+    <br/>Other available API versions: 2023-09-01.
 
 
     :param str namespace_name: Namespace name

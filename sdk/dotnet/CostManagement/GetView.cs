@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Gets the view by view name.
         /// Azure REST API version: 2023-03-01.
+        /// &lt;br/&gt;Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-08-01.
         /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-native:costmanagement:getView", args ?? new GetViewArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Gets the view by view name.
         /// Azure REST API version: 2023-03-01.
+        /// &lt;br/&gt;Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-08-01.
         /// </summary>
         public static Output<GetViewResult> Invoke(GetViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewResult>("azure-native:costmanagement:getView", args ?? new GetViewInvokeArgs(), options.WithDefaults());

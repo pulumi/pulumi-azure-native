@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStack
     /// <summary>
     /// Customer subscription.
     /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2017-06-01
+    /// &lt;br/&gt;Other available API versions: 2020-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack:CustomerSubscription")]
     public partial class CustomerSubscription : global::Pulumi.CustomResource

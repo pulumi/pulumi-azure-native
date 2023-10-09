@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the primary and secondary connection strings for the topic.
  * Azure REST API version: 2022-01-01-preview.
+ * <br/>Other available API versions: 2015-08-01, 2022-10-01-preview.
  */
 export function listTopicKeys(args: ListTopicKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicKeysResult> {
 
@@ -74,6 +75,7 @@ export interface ListTopicKeysResult {
 /**
  * Gets the primary and secondary connection strings for the topic.
  * Azure REST API version: 2022-01-01-preview.
+ * <br/>Other available API versions: 2015-08-01, 2022-10-01-preview.
  */
 export function listTopicKeysOutput(args: ListTopicKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicKeysResult> {
     return pulumi.output(args).apply((a: any) => listTopicKeys(a, opts))

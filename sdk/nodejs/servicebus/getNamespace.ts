@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a description for the specified namespace.
  * Azure REST API version: 2022-01-01-preview.
+ * <br/>Other available API versions: 2015-08-01, 2022-10-01-preview.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
 
@@ -123,6 +124,7 @@ export interface GetNamespaceResult {
 /**
  * Gets a description for the specified namespace.
  * Azure REST API version: 2022-01-01-preview.
+ * <br/>Other available API versions: 2015-08-01, 2022-10-01-preview.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))

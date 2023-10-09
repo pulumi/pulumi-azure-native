@@ -146,6 +146,7 @@ def get_query_pack(query_pack_name: Optional[str] = None,
     """
     Returns a Log Analytics QueryPack.
     Azure REST API version: 2019-09-01.
+    <br/>Other available API versions: 2019-09-01-preview.
 
 
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.
@@ -176,6 +177,7 @@ def get_query_pack_output(query_pack_name: Optional[pulumi.Input[str]] = None,
     """
     Returns a Log Analytics QueryPack.
     Azure REST API version: 2019-09-01.
+    <br/>Other available API versions: 2019-09-01-preview.
 
 
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.

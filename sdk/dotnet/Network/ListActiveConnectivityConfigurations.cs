@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Lists active connectivity configurations in a network manager.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<ListActiveConnectivityConfigurationsResult> InvokeAsync(ListActiveConnectivityConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListActiveConnectivityConfigurationsResult>("azure-native:network:listActiveConnectivityConfigurations", args ?? new ListActiveConnectivityConfigurationsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Lists active connectivity configurations in a network manager.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<ListActiveConnectivityConfigurationsResult> Invoke(ListActiveConnectivityConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListActiveConnectivityConfigurationsResult>("azure-native:network:listActiveConnectivityConfigurations", args ?? new ListActiveConnectivityConfigurationsInvokeArgs(), options.WithDefaults());

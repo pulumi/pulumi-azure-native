@@ -289,6 +289,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
     """
     Get properties of the provided Kubernetes cluster agent pool.
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str agent_pool_name: The name of the Kubernetes cluster agent pool.
@@ -334,6 +335,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     """
     Get properties of the provided Kubernetes cluster agent pool.
     Azure REST API version: 2023-05-01-preview.
+    <br/>Other available API versions: 2023-07-01.
 
 
     :param str agent_pool_name: The name of the Kubernetes cluster agent pool.

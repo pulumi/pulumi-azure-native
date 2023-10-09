@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets properties of a specified container. 
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01.
         /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets properties of a specified container. 
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01.
         /// </summary>
         public static Output<GetBlobContainerResult> Invoke(GetBlobContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithDefaults());

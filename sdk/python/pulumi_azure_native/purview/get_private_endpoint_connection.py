@@ -124,6 +124,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
     """
     Get a private endpoint connection
     Azure REST API version: 2021-12-01.
+    <br/>Other available API versions: 2021-07-01.
 
 
     :param str account_name: The name of the account.
@@ -155,6 +156,7 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
     """
     Get a private endpoint connection
     Azure REST API version: 2021-12-01.
+    <br/>Other available API versions: 2021-07-01.
 
 
     :param str account_name: The name of the account.

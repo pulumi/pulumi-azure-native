@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Subnet in a virtual network resource.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
+    /// &lt;br/&gt;Other available API versions: 2015-05-01-preview, 2016-03-30, 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Subnet")]
     public partial class Subnet : global::Pulumi.CustomResource

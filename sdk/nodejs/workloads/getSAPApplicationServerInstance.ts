@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
  */
 export function getSAPApplicationServerInstance(args: GetSAPApplicationServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPApplicationServerInstanceResult> {
 
@@ -128,6 +129,7 @@ export interface GetSAPApplicationServerInstanceResult {
 /**
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
  */
 export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPApplicationServerInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPApplicationServerInstance(a, opts))

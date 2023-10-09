@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     /// Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01
+    /// &lt;br/&gt;Other available API versions: 2021-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Output")]
     public partial class Output : global::Pulumi.CustomResource

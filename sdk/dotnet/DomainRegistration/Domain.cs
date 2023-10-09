@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DomainRegistration
     /// <summary>
     /// Information about a domain.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01
+    /// &lt;br/&gt;Other available API versions: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

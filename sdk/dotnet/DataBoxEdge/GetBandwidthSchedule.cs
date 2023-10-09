@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets the properties of the specified bandwidth schedule.
         /// Azure REST API version: 2022-03-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview, 2023-07-01.
         /// </summary>
         public static Task<GetBandwidthScheduleResult> InvokeAsync(GetBandwidthScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthScheduleResult>("azure-native:databoxedge:getBandwidthSchedule", args ?? new GetBandwidthScheduleArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets the properties of the specified bandwidth schedule.
         /// Azure REST API version: 2022-03-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview, 2023-07-01.
         /// </summary>
         public static Output<GetBandwidthScheduleResult> Invoke(GetBandwidthScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBandwidthScheduleResult>("azure-native:databoxedge:getBandwidthSchedule", args ?? new GetBandwidthScheduleInvokeArgs(), options.WithDefaults());

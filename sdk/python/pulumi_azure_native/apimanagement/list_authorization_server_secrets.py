@@ -75,6 +75,7 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
     """
     Gets the client secret details of the authorization server.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str authsid: Identifier of the authorization server.
@@ -102,6 +103,7 @@ def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[str]
     """
     Gets the client secret details of the authorization server.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str authsid: Identifier of the authorization server.

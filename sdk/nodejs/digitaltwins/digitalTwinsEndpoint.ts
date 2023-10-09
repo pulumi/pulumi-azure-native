@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * DigitalTwinsInstance endpoint resource.
  * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01
+ * <br/>Other available API versions: 2020-03-01-preview.
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     /**

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Specifies information about the Dedicated host.
     /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// &lt;br/&gt;Other available API versions: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DedicatedHost")]
     public partial class DedicatedHost : global::Pulumi.CustomResource

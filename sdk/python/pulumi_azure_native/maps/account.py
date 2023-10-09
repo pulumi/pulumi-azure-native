@@ -148,6 +148,7 @@ class Account(pulumi.CustomResource):
         """
         An Azure resource which represents access to a suite of Maps REST APIs.
         Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2018-05-01
+        <br/>Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,6 +169,7 @@ class Account(pulumi.CustomResource):
         """
         An Azure resource which represents access to a suite of Maps REST APIs.
         Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2018-05-01
+        <br/>Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

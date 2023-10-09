@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Lists Active Security User Rules in a network manager.
  * Azure REST API version: 2022-04-01-preview.
+ * <br/>Other available API versions: 2021-05-01-preview.
  */
 export function listActiveSecurityUserRules(args: ListActiveSecurityUserRulesArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveSecurityUserRulesResult> {
 
@@ -57,6 +58,7 @@ export interface ListActiveSecurityUserRulesResult {
 /**
  * Lists Active Security User Rules in a network manager.
  * Azure REST API version: 2022-04-01-preview.
+ * <br/>Other available API versions: 2021-05-01-preview.
  */
 export function listActiveSecurityUserRulesOutput(args: ListActiveSecurityUserRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityUserRulesResult> {
     return pulumi.output(args).apply((a: any) => listActiveSecurityUserRules(a, opts))

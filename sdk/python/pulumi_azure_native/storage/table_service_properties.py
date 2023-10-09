@@ -97,6 +97,7 @@ class TableServiceProperties(pulumi.CustomResource):
         """
         The properties of a storage account’s Table service.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+        <br/>Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,6 +115,7 @@ class TableServiceProperties(pulumi.CustomResource):
         """
         The properties of a storage account’s Table service.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+        <br/>Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param TableServicePropertiesArgs args: The arguments to use to populate this resource's properties.

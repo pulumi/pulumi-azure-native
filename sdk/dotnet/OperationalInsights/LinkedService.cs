@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// <summary>
     /// The top level Linked service resource container.
     /// Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01
+    /// &lt;br/&gt;Other available API versions: 2015-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:LinkedService")]
     public partial class LinkedService : global::Pulumi.CustomResource

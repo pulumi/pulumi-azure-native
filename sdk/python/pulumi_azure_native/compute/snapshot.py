@@ -420,6 +420,7 @@ class Snapshot(pulumi.CustomResource):
         """
         Snapshot resource.
         Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
+        <br/>Other available API versions: 2016-04-30-preview, 2017-03-30, 2018-06-01, 2023-01-02, 2023-04-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -456,6 +457,7 @@ class Snapshot(pulumi.CustomResource):
         """
         Snapshot resource.
         Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
+        <br/>Other available API versions: 2016-04-30-preview, 2017-03-30, 2018-06-01, 2023-01-02, 2023-04-02.
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

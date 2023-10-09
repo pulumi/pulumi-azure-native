@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
  * Azure REST API version: 2022-09-04.
+ * <br/>Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
  */
 export class SyncSet extends pulumi.CustomResource {
     /**

@@ -143,6 +143,7 @@ class Contact(pulumi.CustomResource):
         """
         Customer creates a contact resource for a spacecraft resource.
         Azure REST API version: 2022-11-01.
+        <br/>Other available API versions: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,6 +164,7 @@ class Contact(pulumi.CustomResource):
         """
         Customer creates a contact resource for a spacecraft resource.
         Azure REST API version: 2022-11-01.
+        <br/>Other available API versions: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// <summary>
     /// The Clouds resource definition.
     /// Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+    /// &lt;br/&gt;Other available API versions: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:Cloud")]
     public partial class Cloud : global::Pulumi.CustomResource

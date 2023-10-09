@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Notification Hubs Namespace Resource.
         /// Azure REST API version: 2023-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Notification Hubs Namespace Resource.
         /// Azure REST API version: 2023-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());

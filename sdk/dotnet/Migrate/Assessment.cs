@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// An assessment created for a group in the Migration project.
     /// Azure REST API version: 2019-10-01. Prior API version in Azure Native 1.x: 2019-10-01
+    /// &lt;br/&gt;Other available API versions: 2017-11-11-preview, 2018-02-02.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource

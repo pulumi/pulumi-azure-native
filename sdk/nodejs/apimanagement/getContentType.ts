@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTypeResult> {
 
@@ -65,6 +66,7 @@ export interface GetContentTypeResult {
 /**
  * Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
     return pulumi.output(args).apply((a: any) => getContentType(a, opts))

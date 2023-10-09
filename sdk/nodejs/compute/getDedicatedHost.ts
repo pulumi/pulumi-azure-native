@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Retrieves information about a dedicated host.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2023-07-01.
  */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
 
@@ -109,6 +110,7 @@ export interface GetDedicatedHostResult {
 /**
  * Retrieves information about a dedicated host.
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2023-07-01.
  */
 export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHost(a, opts))

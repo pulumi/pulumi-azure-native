@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Environment Definition error details
         /// Azure REST API version: 2023-08-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetEnvironmentDefinitionErrorDetailsResult> InvokeAsync(GetEnvironmentDefinitionErrorDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentDefinitionErrorDetailsResult>("azure-native:devcenter:getEnvironmentDefinitionErrorDetails", args ?? new GetEnvironmentDefinitionErrorDetailsArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Environment Definition error details
         /// Azure REST API version: 2023-08-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetEnvironmentDefinitionErrorDetailsResult> Invoke(GetEnvironmentDefinitionErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentDefinitionErrorDetailsResult>("azure-native:devcenter:getEnvironmentDefinitionErrorDetails", args ?? new GetEnvironmentDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());

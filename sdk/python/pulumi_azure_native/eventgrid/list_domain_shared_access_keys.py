@@ -62,6 +62,7 @@ def list_domain_shared_access_keys(domain_name: Optional[str] = None,
     """
     List the two keys used to publish to a domain.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
 
 
     :param str domain_name: Name of the domain.
@@ -85,6 +86,7 @@ def list_domain_shared_access_keys_output(domain_name: Optional[pulumi.Input[str
     """
     List the two keys used to publish to a domain.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
 
 
     :param str domain_name: Name of the domain.

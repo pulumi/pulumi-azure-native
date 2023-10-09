@@ -161,6 +161,7 @@ def get_user(expand: Optional[str] = None,
     """
     Get user profile.
     Azure REST API version: 2018-09-15.
+    <br/>Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=identity)'
@@ -198,6 +199,7 @@ def get_user_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Get user profile.
     Azure REST API version: 2018-09-15.
+    <br/>Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=identity)'

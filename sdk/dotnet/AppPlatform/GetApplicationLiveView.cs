@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get the Application Live  and its properties.
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetApplicationLiveViewResult> InvokeAsync(GetApplicationLiveViewArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationLiveViewResult>("azure-native:appplatform:getApplicationLiveView", args ?? new GetApplicationLiveViewArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get the Application Live  and its properties.
         /// Azure REST API version: 2023-05-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetApplicationLiveViewResult> Invoke(GetApplicationLiveViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationLiveViewResult>("azure-native:appplatform:getApplicationLiveView", args ?? new GetApplicationLiveViewInvokeArgs(), options.WithDefaults());

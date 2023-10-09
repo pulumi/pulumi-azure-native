@@ -207,6 +207,7 @@ def get_scheduled_action_by_scope(name: Optional[str] = None,
     """
     Get the shared scheduled action from the given scope by name.
     Azure REST API version: 2023-03-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-08-01.
 
 
     :param str name: Scheduled action name.
@@ -242,6 +243,7 @@ def get_scheduled_action_by_scope_output(name: Optional[pulumi.Input[str]] = Non
     """
     Get the shared scheduled action from the given scope by name.
     Azure REST API version: 2023-03-01.
+    <br/>Other available API versions: 2023-04-01-preview, 2023-08-01.
 
 
     :param str name: Scheduled action name.

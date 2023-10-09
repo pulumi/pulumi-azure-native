@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Retrieves the description for the specified rule.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2022-10-01-preview.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Retrieves the description for the specified rule.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2022-10-01-preview.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());

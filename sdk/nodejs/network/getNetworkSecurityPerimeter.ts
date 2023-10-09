@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified network security perimeter by the name.
  * Azure REST API version: 2021-03-01-preview.
+ * <br/>Other available API versions: 2021-02-01-preview.
  */
 export function getNetworkSecurityPerimeter(args: GetNetworkSecurityPerimeterArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityPerimeterResult> {
 
@@ -72,6 +73,7 @@ export interface GetNetworkSecurityPerimeterResult {
 /**
  * Gets the specified network security perimeter by the name.
  * Azure REST API version: 2021-03-01-preview.
+ * <br/>Other available API versions: 2021-02-01-preview.
  */
 export function getNetworkSecurityPerimeterOutput(args: GetNetworkSecurityPerimeterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityPerimeterResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSecurityPerimeter(a, opts))

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Intune
     /// <summary>
     /// iOS Policy entity for Intune MAM.
     /// Azure REST API version: 2015-01-14-preview. Prior API version in Azure Native 1.x: 2015-01-14-preview
+    /// &lt;br/&gt;Other available API versions: 2015-01-14-privatepreview.
     /// </summary>
     [AzureNativeResourceType("azure-native:intune:IoMAMPolicyByName")]
     public partial class IoMAMPolicyByName : global::Pulumi.CustomResource

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01.
+ * <br/>Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01.
  */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
 
@@ -84,6 +85,7 @@ export interface GetStorageAccountResult {
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01.
+ * <br/>Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01.
  */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
     return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))

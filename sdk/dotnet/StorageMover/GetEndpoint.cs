@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// Gets an Endpoint resource.
         /// Azure REST API version: 2023-03-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-10-01.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:storagemover:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// Gets an Endpoint resource.
         /// Azure REST API version: 2023-03-01.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-10-01.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:storagemover:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());

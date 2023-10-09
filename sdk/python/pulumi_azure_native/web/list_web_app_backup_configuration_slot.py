@@ -148,6 +148,7 @@ def list_web_app_backup_configuration_slot(name: Optional[str] = None,
     """
     Description for Gets the backup configuration of an app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-08-01, 2020-10-01.
 
 
     :param str name: Name of the app.
@@ -181,6 +182,7 @@ def list_web_app_backup_configuration_slot_output(name: Optional[pulumi.Input[st
     """
     Description for Gets the backup configuration of an app.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2016-08-01, 2020-10-01.
 
 
     :param str name: Name of the app.

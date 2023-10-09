@@ -269,6 +269,7 @@ def get_record_set(record_type: Optional[str] = None,
     """
     Gets a record set.
     Azure REST API version: 2018-05-01.
+    <br/>Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
 
 
     :param str record_type: The type of DNS record in this record set.
@@ -315,6 +316,7 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
     """
     Gets a record set.
     Azure REST API version: 2018-05-01.
+    <br/>Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
 
 
     :param str record_type: The type of DNS record in this record set.

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified virtual network gateway connection by resource group.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2016-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayConnectionResult> InvokeAsync(GetVirtualNetworkGatewayConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayConnectionResult>("azure-native:network:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified virtual network gateway connection by resource group.
         /// Azure REST API version: 2023-02-01.
+        /// &lt;br/&gt;Other available API versions: 2016-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayConnectionResult> Invoke(GetVirtualNetworkGatewayConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayConnectionResult>("azure-native:network:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionInvokeArgs(), options.WithDefaults());

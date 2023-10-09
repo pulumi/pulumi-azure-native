@@ -304,6 +304,7 @@ def get_topic(namespace_name: Optional[str] = None,
     """
     Returns a description for the specified topic.
     Azure REST API version: 2022-01-01-preview.
+    <br/>Other available API versions: 2015-08-01, 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name
@@ -350,6 +351,7 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
     """
     Returns a description for the specified topic.
     Azure REST API version: 2022-01-01-preview.
+    <br/>Other available API versions: 2015-08-01, 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name

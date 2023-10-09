@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * List the two keys used to publish to a topic.
  * Azure REST API version: 2022-06-15.
+ * <br/>Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
  */
 export function listTopicSharedAccessKeys(args: ListTopicSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicSharedAccessKeysResult> {
 
@@ -44,6 +45,7 @@ export interface ListTopicSharedAccessKeysResult {
 /**
  * List the two keys used to publish to a topic.
  * Azure REST API version: 2022-06-15.
+ * <br/>Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
  */
 export function listTopicSharedAccessKeysOutput(args: ListTopicSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicSharedAccessKeysResult> {
     return pulumi.output(args).apply((a: any) => listTopicSharedAccessKeys(a, opts))

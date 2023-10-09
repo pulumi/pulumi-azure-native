@@ -555,6 +555,7 @@ class StorageAccount(pulumi.CustomResource):
         """
         The storage account.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+        <br/>Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -599,6 +600,7 @@ class StorageAccount(pulumi.CustomResource):
         """
         The storage account.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+        <br/>Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param StorageAccountArgs args: The arguments to use to populate this resource's properties.

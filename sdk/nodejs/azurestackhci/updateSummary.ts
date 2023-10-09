@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get the update summaries for the cluster
  * Azure REST API version: 2023-03-01.
+ * <br/>Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
  */
 export class UpdateSummary extends pulumi.CustomResource {
     /**

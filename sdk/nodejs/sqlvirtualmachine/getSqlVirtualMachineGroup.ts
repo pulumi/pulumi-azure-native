@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a SQL virtual machine group.
  * Azure REST API version: 2022-02-01.
+ * <br/>Other available API versions: 2023-01-01-preview.
  */
 export function getSqlVirtualMachineGroup(args: GetSqlVirtualMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineGroupResult> {
 
@@ -91,6 +92,7 @@ export interface GetSqlVirtualMachineGroupResult {
 /**
  * Gets a SQL virtual machine group.
  * Azure REST API version: 2022-02-01.
+ * <br/>Other available API versions: 2023-01-01-preview.
  */
 export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
     return pulumi.output(args).apply((a: any) => getSqlVirtualMachineGroup(a, opts))

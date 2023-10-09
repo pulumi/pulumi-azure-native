@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a proximity placement group .
         /// Azure REST API version: 2023-03-01.
+        /// &lt;br/&gt;Other available API versions: 2019-03-01, 2023-07-01.
         /// </summary>
         public static Task<GetProximityPlacementGroupResult> InvokeAsync(GetProximityPlacementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-native:compute:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a proximity placement group .
         /// Azure REST API version: 2023-03-01.
+        /// &lt;br/&gt;Other available API versions: 2019-03-01, 2023-07-01.
         /// </summary>
         public static Output<GetProximityPlacementGroupResult> Invoke(GetProximityPlacementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProximityPlacementGroupResult>("azure-native:compute:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupInvokeArgs(), options.WithDefaults());

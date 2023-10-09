@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified virtual network tap.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkTapResult> {
 
@@ -87,6 +88,7 @@ export interface GetVirtualNetworkTapResult {
 /**
  * Gets information about the specified virtual network tap.
  * Azure REST API version: 2023-02-01.
+ * <br/>Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getVirtualNetworkTapOutput(args: GetVirtualNetworkTapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkTapResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkTap(a, opts))

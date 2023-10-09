@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get a host pool.
  * Azure REST API version: 2022-09-09.
+ * <br/>Other available API versions: 2020-11-02-preview, 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
  */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
 
@@ -162,6 +163,7 @@ export interface GetHostPoolResult {
 /**
  * Get a host pool.
  * Azure REST API version: 2022-09-09.
+ * <br/>Other available API versions: 2020-11-02-preview, 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
  */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
     return pulumi.output(args).apply((a: any) => getHostPool(a, opts))

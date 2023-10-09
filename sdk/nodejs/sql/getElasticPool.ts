@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets an elastic pool.
  * Azure REST API version: 2021-11-01.
+ * <br/>Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
 
@@ -114,6 +115,7 @@ export interface GetElasticPoolResult {
 /**
  * Gets an elastic pool.
  * Azure REST API version: 2021-11-01.
+ * <br/>Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
     return pulumi.output(args).apply((a: any) => getElasticPool(a, opts))

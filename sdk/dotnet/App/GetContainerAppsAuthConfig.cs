@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// Azure REST API version: 2022-10-01.
+        /// &lt;br/&gt;Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
         /// </summary>
         public static Task<GetContainerAppsAuthConfigResult> InvokeAsync(GetContainerAppsAuthConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppsAuthConfigResult>("azure-native:app:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// Azure REST API version: 2022-10-01.
+        /// &lt;br/&gt;Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
         /// </summary>
         public static Output<GetContainerAppsAuthConfigResult> Invoke(GetContainerAppsAuthConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsAuthConfigResult>("azure-native:app:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigInvokeArgs(), options.WithDefaults());

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Description for Get a domain.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
 
@@ -121,6 +122,7 @@ export interface GetDomainResult {
 /**
  * Description for Get a domain.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))

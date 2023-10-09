@@ -131,6 +131,7 @@ class AvailabilitySet(pulumi.CustomResource):
         """
         The AvailabilitySets resource definition.
         Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+        <br/>Other available API versions: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,6 +151,7 @@ class AvailabilitySet(pulumi.CustomResource):
         """
         The AvailabilitySets resource definition.
         Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+        <br/>Other available API versions: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AvailabilitySetArgs args: The arguments to use to populate this resource's properties.

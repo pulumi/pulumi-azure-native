@@ -280,6 +280,7 @@ def get_sap_central_instance(central_instance_name: Optional[str] = None,
     """
     Gets the SAP Central Services Instance resource.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-10-01-preview.
 
 
     :param str central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
@@ -324,6 +325,7 @@ def get_sap_central_instance_output(central_instance_name: Optional[pulumi.Input
     """
     Gets the SAP Central Services Instance resource.
     Azure REST API version: 2023-04-01.
+    <br/>Other available API versions: 2023-10-01-preview.
 
 
     :param str central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.

@@ -171,6 +171,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
     """
     Get an Activity Log Alert rule.
     Azure REST API version: 2023-01-01-preview.
+    <br/>Other available API versions: 2017-04-01, 2020-10-01.
 
 
     :param str activity_log_alert_name: The name of the Activity Log Alert rule.
@@ -203,6 +204,7 @@ def get_activity_log_alert_output(activity_log_alert_name: Optional[pulumi.Input
     """
     Get an Activity Log Alert rule.
     Azure REST API version: 2023-01-01-preview.
+    <br/>Other available API versions: 2017-04-01, 2020-10-01.
 
 
     :param str activity_log_alert_name: The name of the Activity Log Alert rule.

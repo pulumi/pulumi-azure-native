@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getCodeVersion(args: GetCodeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeVersionResult> {
 
@@ -69,6 +70,7 @@ export interface GetCodeVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
+ * <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getCodeVersionOutput(args: GetCodeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeVersionResult> {
     return pulumi.output(args).apply((a: any) => getCodeVersion(a, opts))

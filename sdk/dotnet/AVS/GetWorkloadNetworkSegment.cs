@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// NSX Segment
         /// Azure REST API version: 2022-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01.
         /// </summary>
         public static Task<GetWorkloadNetworkSegmentResult> InvokeAsync(GetWorkloadNetworkSegmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkSegmentResult>("azure-native:avs:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// NSX Segment
         /// Azure REST API version: 2022-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01.
         /// </summary>
         public static Output<GetWorkloadNetworkSegmentResult> Invoke(GetWorkloadNetworkSegmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkSegmentResult>("azure-native:avs:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentInvokeArgs(), options.WithDefaults());

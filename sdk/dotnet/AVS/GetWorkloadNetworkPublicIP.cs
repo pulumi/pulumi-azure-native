@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// NSX Public IP Block
         /// Azure REST API version: 2022-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01.
         /// </summary>
         public static Task<GetWorkloadNetworkPublicIPResult> InvokeAsync(GetWorkloadNetworkPublicIPArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// NSX Public IP Block
         /// Azure REST API version: 2022-05-01.
+        /// &lt;br/&gt;Other available API versions: 2023-03-01.
         /// </summary>
         public static Output<GetWorkloadNetworkPublicIPResult> Invoke(GetWorkloadNetworkPublicIPInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPInvokeArgs(), options.WithDefaults());

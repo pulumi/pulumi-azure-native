@@ -207,6 +207,7 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
     """
     Get properties of a partner namespace.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2023-06-01-preview.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -242,6 +243,7 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
     """
     Get properties of a partner namespace.
     Azure REST API version: 2022-06-15.
+    <br/>Other available API versions: 2023-06-01-preview.
 
 
     :param str partner_namespace_name: Name of the partner namespace.

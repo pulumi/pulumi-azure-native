@@ -123,6 +123,7 @@ def get_management_lock_at_resource_group_level(lock_name: Optional[str] = None,
     """
     Gets a management lock at the resource group level.
     Azure REST API version: 2020-05-01.
+    <br/>Other available API versions: 2015-01-01.
 
 
     :param str lock_name: The name of the lock to get.
@@ -151,6 +152,7 @@ def get_management_lock_at_resource_group_level_output(lock_name: Optional[pulum
     """
     Gets a management lock at the resource group level.
     Azure REST API version: 2020-05-01.
+    <br/>Other available API versions: 2015-01-01.
 
 
     :param str lock_name: The name of the lock to get.

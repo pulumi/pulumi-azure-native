@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Gets a description for the specified namespace.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Gets a description for the specified namespace.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.MixedReality
         /// <summary>
         /// Retrieve a Remote Rendering Account.
         /// Azure REST API version: 2021-01-01.
+        /// &lt;br/&gt;Other available API versions: 2021-03-01-preview.
         /// </summary>
         public static Task<GetRemoteRenderingAccountResult> InvokeAsync(GetRemoteRenderingAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-native:mixedreality:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.MixedReality
         /// <summary>
         /// Retrieve a Remote Rendering Account.
         /// Azure REST API version: 2021-01-01.
+        /// &lt;br/&gt;Other available API versions: 2021-03-01-preview.
         /// </summary>
         public static Output<GetRemoteRenderingAccountResult> Invoke(GetRemoteRenderingAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteRenderingAccountResult>("azure-native:mixedreality:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountInvokeArgs(), options.WithDefaults());

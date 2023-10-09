@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements VirtualMachine GET method.
         /// Azure REST API version: 2022-05-21-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:scvmm:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Implements VirtualMachine GET method.
         /// Azure REST API version: 2022-05-21-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:scvmm:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());

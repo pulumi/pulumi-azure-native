@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Implements GuestAgent GET method.
         /// Azure REST API version: 2022-12-15-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetGuestAgentResult> InvokeAsync(GetGuestAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestAgentResult>("azure-native:azurestackhci:getGuestAgent", args ?? new GetGuestAgentArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Implements GuestAgent GET method.
         /// Azure REST API version: 2022-12-15-preview.
+        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:azurestackhci:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());

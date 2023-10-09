@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of a specified container.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2023-01-01.
  */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
 
@@ -136,6 +137,7 @@ export interface GetBlobContainerResult {
 /**
  * Gets properties of a specified container.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2023-01-01.
  */
 export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainer(a, opts))

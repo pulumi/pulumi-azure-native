@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ResourceGraph
     /// <summary>
     /// Graph Query entity definition.
     /// Azure REST API version: 2020-04-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview
+    /// &lt;br/&gt;Other available API versions: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:resourcegraph:GraphQuery")]
     public partial class GraphQuery : global::Pulumi.CustomResource

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets the queue with the specified queue name, under the specified account if it exists.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets the queue with the specified queue name, under the specified account if it exists.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2023-01-01.
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());

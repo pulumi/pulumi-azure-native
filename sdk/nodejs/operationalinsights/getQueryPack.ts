@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Returns a Log Analytics QueryPack.
  * Azure REST API version: 2019-09-01.
+ * <br/>Other available API versions: 2019-09-01-preview.
  */
 export function getQueryPack(args: GetQueryPackArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryPackResult> {
 
@@ -72,6 +73,7 @@ export interface GetQueryPackResult {
 /**
  * Returns a Log Analytics QueryPack.
  * Azure REST API version: 2019-09-01.
+ * <br/>Other available API versions: 2019-09-01-preview.
  */
 export function getQueryPackOutput(args: GetQueryPackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryPackResult> {
     return pulumi.output(args).apply((a: any) => getQueryPack(a, opts))

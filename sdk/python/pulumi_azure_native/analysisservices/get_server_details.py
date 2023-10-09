@@ -231,6 +231,7 @@ def get_server_details(resource_group_name: Optional[str] = None,
     """
     Gets details about the specified Analysis Services server.
     Azure REST API version: 2017-08-01.
+    <br/>Other available API versions: 2017-08-01-beta.
 
 
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -268,6 +269,7 @@ def get_server_details_output(resource_group_name: Optional[pulumi.Input[str]] =
     """
     Gets details about the specified Analysis Services server.
     Azure REST API version: 2017-08-01.
+    <br/>Other available API versions: 2017-08-01-beta.
 
 
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.

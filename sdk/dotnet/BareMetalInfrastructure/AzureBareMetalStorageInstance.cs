@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     /// <summary>
     /// AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
     /// Azure REST API version: 2023-04-06.
+    /// &lt;br/&gt;Other available API versions: 2023-08-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance")]
     public partial class AzureBareMetalStorageInstance : global::Pulumi.CustomResource

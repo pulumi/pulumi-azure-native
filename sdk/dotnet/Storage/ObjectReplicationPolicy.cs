@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Storage
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
+    /// &lt;br/&gt;Other available API versions: 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : global::Pulumi.CustomResource

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get the send key name and value of a Hybrid Connection.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2016-09-01, 2020-10-01.
         /// </summary>
         public static Task<ListAppServicePlanHybridConnectionKeysResult> InvokeAsync(ListAppServicePlanHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get the send key name and value of a Hybrid Connection.
         /// Azure REST API version: 2022-09-01.
+        /// &lt;br/&gt;Other available API versions: 2016-09-01, 2020-10-01.
         /// </summary>
         public static Output<ListAppServicePlanHybridConnectionKeysResult> Invoke(ListAppServicePlanHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysInvokeArgs(), options.WithDefaults());

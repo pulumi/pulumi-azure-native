@@ -304,6 +304,7 @@ def get_product(product_name: Optional[str] = None,
     """
     Returns the specified product.
     Azure REST API version: 2022-06-01.
+    <br/>Other available API versions: 2020-06-01-preview.
 
 
     :param str product_name: Name of the product.
@@ -350,6 +351,7 @@ def get_product_output(product_name: Optional[pulumi.Input[str]] = None,
     """
     Returns the specified product.
     Azure REST API version: 2022-06-01.
+    <br/>Other available API versions: 2020-06-01-preview.
 
 
     :param str product_name: Name of the product.

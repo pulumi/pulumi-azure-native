@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets the Authentication/Authorization settings of an app.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function listWebAppAuthSettingsSlot(args: ListWebAppAuthSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsSlotResult> {
 
@@ -261,6 +262,7 @@ export interface ListWebAppAuthSettingsSlotResult {
 /**
  * Description for Gets the Authentication/Authorization settings of an app.
  * Azure REST API version: 2022-09-01.
+ * <br/>Other available API versions: 2020-10-01.
  */
 export function listWebAppAuthSettingsSlotOutput(args: ListWebAppAuthSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppAuthSettingsSlot(a, opts))

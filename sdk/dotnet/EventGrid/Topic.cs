@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// <summary>
     /// EventGrid Topic
     /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
+    /// &lt;br/&gt;Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Topic")]
     public partial class Topic : global::Pulumi.CustomResource

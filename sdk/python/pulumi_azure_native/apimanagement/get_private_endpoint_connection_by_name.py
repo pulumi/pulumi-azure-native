@@ -112,6 +112,7 @@ def get_private_endpoint_connection_by_name(private_endpoint_connection_name: Op
     """
     Gets the details of the Private Endpoint Connection specified by its identifier.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection.
@@ -142,6 +143,7 @@ def get_private_endpoint_connection_by_name_output(private_endpoint_connection_n
     """
     Gets the details of the Private Endpoint Connection specified by its identifier.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection.

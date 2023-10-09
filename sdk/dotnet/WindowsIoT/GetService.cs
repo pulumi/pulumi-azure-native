@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.WindowsIoT
         /// <summary>
         /// Get the non-security related metadata of a Windows IoT Device Service.
         /// Azure REST API version: 2019-06-01.
+        /// &lt;br/&gt;Other available API versions: 2018-02-16-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:windowsiot:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.WindowsIoT
         /// <summary>
         /// Get the non-security related metadata of a Windows IoT Device Service.
         /// Azure REST API version: 2019-06-01.
+        /// &lt;br/&gt;Other available API versions: 2018-02-16-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:windowsiot:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

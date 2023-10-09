@@ -114,6 +114,7 @@ class RestorePointCollection(pulumi.CustomResource):
         """
         Create or update Restore Point collection parameters.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
+        <br/>Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,6 +133,7 @@ class RestorePointCollection(pulumi.CustomResource):
         """
         Create or update Restore Point collection parameters.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
+        <br/>Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param RestorePointCollectionArgs args: The arguments to use to populate this resource's properties.

@@ -134,6 +134,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
     """
     Gets the peer ASN with the specified name under the given subscription.
     Azure REST API version: 2022-10-01.
+    <br/>Other available API versions: 2019-09-01-preview, 2021-01-01.
 
 
     :param str peer_asn_name: The peer ASN name.
@@ -160,6 +161,7 @@ def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the peer ASN with the specified name under the given subscription.
     Azure REST API version: 2022-10-01.
+    <br/>Other available API versions: 2019-09-01-preview, 2021-01-01.
 
 
     :param str peer_asn_name: The peer ASN name.

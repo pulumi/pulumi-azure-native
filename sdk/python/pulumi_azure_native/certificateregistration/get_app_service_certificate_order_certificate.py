@@ -147,6 +147,7 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
     """
     Description for Get the certificate associated with a certificate order.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str certificate_order_name: Name of the certificate order.
@@ -180,6 +181,7 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
     """
     Description for Get the certificate associated with a certificate order.
     Azure REST API version: 2022-09-01.
+    <br/>Other available API versions: 2020-10-01.
 
 
     :param str certificate_order_name: Name of the certificate order.

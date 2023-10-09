@@ -50,6 +50,7 @@ def get_registration_activation_key(registration_name: Optional[str] = None,
     """
     Returns Azure Stack Activation Key.
     Azure REST API version: 2022-06-01.
+    <br/>Other available API versions: 2020-06-01-preview.
 
 
     :param str registration_name: Name of the Azure Stack registration.
@@ -72,6 +73,7 @@ def get_registration_activation_key_output(registration_name: Optional[pulumi.In
     """
     Returns Azure Stack Activation Key.
     Azure REST API version: 2022-06-01.
+    <br/>Other available API versions: 2020-06-01-preview.
 
 
     :param str registration_name: Name of the Azure Stack registration.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A class representing a CommunicationService resource.
  * Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2020-08-20
+ * <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
  */
 export class CommunicationService extends pulumi.CustomResource {
     /**

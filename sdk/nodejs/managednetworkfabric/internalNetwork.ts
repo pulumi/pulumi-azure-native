@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Defines the InternalNetwork item.
  * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview
+ * <br/>Other available API versions: 2023-06-15.
  */
 export class InternalNetwork extends pulumi.CustomResource {
     /**

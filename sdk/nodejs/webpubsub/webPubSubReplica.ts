@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A class represent a replica resource.
  * Azure REST API version: 2023-03-01-preview.
+ * <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
  */
 export class WebPubSubReplica extends pulumi.CustomResource {
     /**

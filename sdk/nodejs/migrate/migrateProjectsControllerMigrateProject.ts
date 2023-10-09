@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Migrate project.
  * Azure REST API version: 2020-05-01.
+ * <br/>Other available API versions: 2023-01-01.
  */
 export class MigrateProjectsControllerMigrateProject extends pulumi.CustomResource {
     /**

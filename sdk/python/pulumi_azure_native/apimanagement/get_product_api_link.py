@@ -88,6 +88,7 @@ def get_product_api_link(api_link_id: Optional[str] = None,
     """
     Gets the API link for the product.
     Azure REST API version: 2022-09-01-preview.
+    <br/>Other available API versions: 2023-03-01-preview.
 
 
     :param str api_link_id: Product-API link identifier. Must be unique in the current API Management service instance.
@@ -119,6 +120,7 @@ def get_product_api_link_output(api_link_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the API link for the product.
     Azure REST API version: 2022-09-01-preview.
+    <br/>Other available API versions: 2023-03-01-preview.
 
 
     :param str api_link_id: Product-API link identifier. Must be unique in the current API Management service instance.

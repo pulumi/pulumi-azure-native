@@ -101,6 +101,7 @@ def get_product_policy(format: Optional[str] = None,
     """
     Get the policy configuration at the Product level.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2016-10-10, 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str format: Policy Export Format.
@@ -136,6 +137,7 @@ def get_product_policy_output(format: Optional[pulumi.Input[Optional[str]]] = No
     """
     Get the policy configuration at the Product level.
     Azure REST API version: 2022-08-01.
+    <br/>Other available API versions: 2016-10-10, 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str format: Policy Export Format.

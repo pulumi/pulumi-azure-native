@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// App Service Environment ARM resource.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// &lt;br/&gt;Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServiceEnvironment")]
     public partial class AppServiceEnvironment : global::Pulumi.CustomResource

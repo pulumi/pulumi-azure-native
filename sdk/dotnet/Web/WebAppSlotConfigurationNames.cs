@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Slot Config names azure resource.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// &lt;br/&gt;Other available API versions: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSlotConfigurationNames")]
     public partial class WebAppSlotConfigurationNames : global::Pulumi.CustomResource

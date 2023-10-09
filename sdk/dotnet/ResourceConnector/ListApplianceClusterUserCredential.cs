@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Returns the cluster user credentials for the dedicated appliance.
         /// Azure REST API version: 2022-10-27.
+        /// &lt;br/&gt;Other available API versions: 2021-10-31-preview.
         /// </summary>
         public static Task<ListApplianceClusterUserCredentialResult> InvokeAsync(ListApplianceClusterUserCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplianceClusterUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterUserCredential", args ?? new ListApplianceClusterUserCredentialArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Returns the cluster user credentials for the dedicated appliance.
         /// Azure REST API version: 2022-10-27.
+        /// &lt;br/&gt;Other available API versions: 2021-10-31-preview.
         /// </summary>
         public static Output<ListApplianceClusterUserCredentialResult> Invoke(ListApplianceClusterUserCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplianceClusterUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterUserCredential", args ?? new ListApplianceClusterUserCredentialInvokeArgs(), options.WithDefaults());

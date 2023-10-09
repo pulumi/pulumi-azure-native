@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified network slice.
         /// Azure REST API version: 2023-06-01.
+        /// &lt;br/&gt;Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
         /// </summary>
         public static Task<GetSliceResult> InvokeAsync(GetSliceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSliceResult>("azure-native:mobilenetwork:getSlice", args ?? new GetSliceArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified network slice.
         /// Azure REST API version: 2023-06-01.
+        /// &lt;br/&gt;Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
         /// </summary>
         public static Output<GetSliceResult> Invoke(GetSliceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSliceResult>("azure-native:mobilenetwork:getSlice", args ?? new GetSliceInvokeArgs(), options.WithDefaults());

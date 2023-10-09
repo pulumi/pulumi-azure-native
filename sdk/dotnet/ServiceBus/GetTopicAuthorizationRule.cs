@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Returns the specified authorization rule.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Task<GetTopicAuthorizationRuleResult> InvokeAsync(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure-native:servicebus:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleArgs(), options.WithDefaults());
@@ -21,6 +22,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Returns the specified authorization rule.
         /// Azure REST API version: 2022-01-01-preview.
+        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Output<GetTopicAuthorizationRuleResult> Invoke(GetTopicAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicAuthorizationRuleResult>("azure-native:servicebus:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleInvokeArgs(), options.WithDefaults());

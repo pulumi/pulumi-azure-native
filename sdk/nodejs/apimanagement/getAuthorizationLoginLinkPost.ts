@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Gets authorization login links.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getAuthorizationLoginLinkPost(args: GetAuthorizationLoginLinkPostArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationLoginLinkPostResult> {
 
@@ -55,6 +56,7 @@ export interface GetAuthorizationLoginLinkPostResult {
 /**
  * Gets authorization login links.
  * Azure REST API version: 2022-08-01.
+ * <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getAuthorizationLoginLinkPostOutput(args: GetAuthorizationLoginLinkPostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationLoginLinkPostResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationLoginLinkPost(a, opts))

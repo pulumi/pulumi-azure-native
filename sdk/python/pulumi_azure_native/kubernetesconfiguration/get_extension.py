@@ -294,6 +294,7 @@ def get_extension(cluster_name: Optional[str] = None,
     """
     Gets Kubernetes Cluster Extension.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -345,6 +346,7 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Gets Kubernetes Cluster Extension.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

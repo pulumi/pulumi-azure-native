@@ -399,6 +399,7 @@ def get_pool(account_name: Optional[str] = None,
     """
     Gets information about the specified pool.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2020-05-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -455,6 +456,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified pool.
     Azure REST API version: 2023-05-01.
+    <br/>Other available API versions: 2020-05-01.
 
 
     :param str account_name: The name of the Batch account.
