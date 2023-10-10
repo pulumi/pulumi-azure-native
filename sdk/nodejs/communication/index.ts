@@ -40,6 +40,16 @@ export const getSenderUsername: typeof import("./getSenderUsername").getSenderUs
 export const getSenderUsernameOutput: typeof import("./getSenderUsername").getSenderUsernameOutput = null as any;
 utilities.lazyLoad(exports, ["getSenderUsername","getSenderUsernameOutput"], () => require("./getSenderUsername"));
 
+export { GetSuppressionListArgs, GetSuppressionListResult, GetSuppressionListOutputArgs } from "./getSuppressionList";
+export const getSuppressionList: typeof import("./getSuppressionList").getSuppressionList = null as any;
+export const getSuppressionListOutput: typeof import("./getSuppressionList").getSuppressionListOutput = null as any;
+utilities.lazyLoad(exports, ["getSuppressionList","getSuppressionListOutput"], () => require("./getSuppressionList"));
+
+export { GetSuppressionListAddressArgs, GetSuppressionListAddressResult, GetSuppressionListAddressOutputArgs } from "./getSuppressionListAddress";
+export const getSuppressionListAddress: typeof import("./getSuppressionListAddress").getSuppressionListAddress = null as any;
+export const getSuppressionListAddressOutput: typeof import("./getSuppressionListAddress").getSuppressionListAddressOutput = null as any;
+utilities.lazyLoad(exports, ["getSuppressionListAddress","getSuppressionListAddressOutput"], () => require("./getSuppressionListAddress"));
+
 export { ListCommunicationServiceKeysArgs, ListCommunicationServiceKeysResult, ListCommunicationServiceKeysOutputArgs } from "./listCommunicationServiceKeys";
 export const listCommunicationServiceKeys: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeys = null as any;
 export const listCommunicationServiceKeysOutput: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeysOutput = null as any;
@@ -50,6 +60,16 @@ export type SenderUsername = import("./senderUsername").SenderUsername;
 export const SenderUsername: typeof import("./senderUsername").SenderUsername = null as any;
 utilities.lazyLoad(exports, ["SenderUsername"], () => require("./senderUsername"));
 
+export { SuppressionListArgs } from "./suppressionList";
+export type SuppressionList = import("./suppressionList").SuppressionList;
+export const SuppressionList: typeof import("./suppressionList").SuppressionList = null as any;
+utilities.lazyLoad(exports, ["SuppressionList"], () => require("./suppressionList"));
+
+export { SuppressionListAddressArgs } from "./suppressionListAddress";
+export type SuppressionListAddress = import("./suppressionListAddress").SuppressionListAddress;
+export const SuppressionListAddress: typeof import("./suppressionListAddress").SuppressionListAddress = null as any;
+utilities.lazyLoad(exports, ["SuppressionListAddress"], () => require("./suppressionListAddress"));
+
 
 // Export enums:
 export * from "../types/enums/communication";
@@ -58,11 +78,13 @@ export * from "../types/enums/communication";
 import * as v20220701preview from "./v20220701preview";
 import * as v20230331 from "./v20230331";
 import * as v20230401preview from "./v20230401preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
     v20220701preview,
     v20230331,
     v20230401preview,
+    v20230601preview,
 };
 
 const _module = {
@@ -77,6 +99,10 @@ const _module = {
                 return new EmailService(name, <any>undefined, { urn })
             case "azure-native:communication:SenderUsername":
                 return new SenderUsername(name, <any>undefined, { urn })
+            case "azure-native:communication:SuppressionList":
+                return new SuppressionList(name, <any>undefined, { urn })
+            case "azure-native:communication:SuppressionListAddress":
+                return new SuppressionListAddress(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

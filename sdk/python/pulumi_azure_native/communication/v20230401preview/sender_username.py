@@ -194,7 +194,7 @@ class SenderUsername(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230301preview:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230331:SenderUsername")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230301preview:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230331:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230601preview:SenderUsername")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SenderUsername, __self__).__init__(
             'azure-native:communication/v20230401preview:SenderUsername',

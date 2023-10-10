@@ -93,7 +93,7 @@ export class RegistryComponentVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230401:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:RegistryComponentVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230401:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:RegistryComponentVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryComponentVersion.__pulumiType, name, resourceInputs, opts);
     }

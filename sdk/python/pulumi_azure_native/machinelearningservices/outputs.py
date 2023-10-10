@@ -17,6 +17,7 @@ __all__ = [
     'AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse',
     'AccountKeyDatastoreCredentialsResponse',
     'AcrDetailsResponse',
+    'ActualCapacityInfoResponse',
     'AksNetworkingConfigurationResponse',
     'AllNodesResponse',
     'AmlComputeNodeInformationResponse',
@@ -53,6 +54,7 @@ __all__ = [
     'BayesianSamplingAlgorithmResponse',
     'BindOptionsResponse',
     'BuildContextResponse',
+    'CapacityReservationGroupResponse',
     'CertificateDatastoreCredentialsResponse',
     'ClassificationResponse',
     'ClassificationTrainingSettingsResponse',
@@ -125,6 +127,8 @@ __all__ = [
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
+    'EstimatedVMPriceResponse',
+    'EstimatedVMPricesResponse',
     'FeatureResponse',
     'FeatureWindowResponse',
     'FeaturesetContainerResponse',
@@ -159,6 +163,9 @@ __all__ = [
     'ImageSweepSettingsResponse',
     'IndexColumnResponse',
     'InferenceContainerPropertiesResponse',
+    'InferenceEndpointResponse',
+    'InferenceGroupResponse',
+    'InferencePoolResponse',
     'InstanceTypeSchemaResponse',
     'InstanceTypeSchemaResponseResources',
     'JobResourceConfigurationResponse',
@@ -212,6 +219,8 @@ __all__ = [
     'PasswordResponse',
     'PersonalComputeInstanceSettingsResponse',
     'PipelineJobResponse',
+    'PoolEnvironmentConfigurationResponse',
+    'PoolModelConfigurationResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointDestinationResponse',
     'PrivateEndpointOutboundRuleResponse',
@@ -233,6 +242,7 @@ __all__ = [
     'RegistryResponse',
     'RegressionResponse',
     'RegressionTrainingSettingsResponse',
+    'RequestConfigurationResponse',
     'ResourceIdResponse',
     'RouteResponse',
     'SASAuthTypeWorkspaceConnectionPropertiesResponse',
@@ -243,6 +253,10 @@ __all__ = [
     'ScriptReferenceResponse',
     'ScriptsToExecuteResponse',
     'SecretConfigurationResponse',
+    'ServerlessEndpointCapacityReservationResponse',
+    'ServerlessEndpointResponse',
+    'ServerlessInferenceEndpointResponse',
+    'ServerlessOfferResponse',
     'ServiceManagedResourcesSettingsResponse',
     'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse',
     'ServicePrincipalDatastoreCredentialsResponse',
@@ -291,6 +305,7 @@ __all__ = [
     'VirtualMachineImageResponse',
     'VirtualMachineResponse',
     'VirtualMachineSchemaResponseProperties',
+    'VirtualMachineSizeResponse',
     'VirtualMachineSshCredentialsResponse',
     'VolumeDefinitionResponse',
     'VolumeOptionsResponse',
@@ -787,6 +802,55 @@ class AcrDetailsResponse(dict):
         Details of user created ACR account to be used for the Registry
         """
         return pulumi.get(self, "user_created_acr_account")
+
+
+@pulumi.output_type
+class ActualCapacityInfoResponse(dict):
+    def __init__(__self__, *,
+                 allocated: Optional[int] = None,
+                 assignment_failed: Optional[int] = None,
+                 assignment_success: Optional[int] = None):
+        """
+        :param int allocated: Gets or sets the total number of instances for the group.
+        :param int assignment_failed: Gets or sets the number of instances which failed to successfully complete assignment.
+        :param int assignment_success: Gets or sets the number of instances which successfully completed assignment.
+        """
+        if allocated is None:
+            allocated = 0
+        if allocated is not None:
+            pulumi.set(__self__, "allocated", allocated)
+        if assignment_failed is None:
+            assignment_failed = 0
+        if assignment_failed is not None:
+            pulumi.set(__self__, "assignment_failed", assignment_failed)
+        if assignment_success is None:
+            assignment_success = 0
+        if assignment_success is not None:
+            pulumi.set(__self__, "assignment_success", assignment_success)
+
+    @property
+    @pulumi.getter
+    def allocated(self) -> Optional[int]:
+        """
+        Gets or sets the total number of instances for the group.
+        """
+        return pulumi.get(self, "allocated")
+
+    @property
+    @pulumi.getter(name="assignmentFailed")
+    def assignment_failed(self) -> Optional[int]:
+        """
+        Gets or sets the number of instances which failed to successfully complete assignment.
+        """
+        return pulumi.get(self, "assignment_failed")
+
+    @property
+    @pulumi.getter(name="assignmentSuccess")
+    def assignment_success(self) -> Optional[int]:
+        """
+        Gets or sets the number of instances which successfully completed assignment.
+        """
+        return pulumi.get(self, "assignment_success")
 
 
 @pulumi.output_type
@@ -4842,6 +4906,53 @@ class BuildContextResponse(dict):
         <seealso href="https://docs.docker.com/engine/reference/builder/" />
         """
         return pulumi.get(self, "dockerfile_path")
+
+
+@pulumi.output_type
+class CapacityReservationGroupResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reservedCapacity":
+            suggest = "reserved_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reserved_capacity: int,
+                 offer: Optional['outputs.ServerlessOfferResponse'] = None):
+        """
+        :param int reserved_capacity: [Required] Specifies the amount of capacity to reserve.
+        :param 'ServerlessOfferResponse' offer: Offer used by this capacity reservation group.
+        """
+        pulumi.set(__self__, "reserved_capacity", reserved_capacity)
+        if offer is not None:
+            pulumi.set(__self__, "offer", offer)
+
+    @property
+    @pulumi.getter(name="reservedCapacity")
+    def reserved_capacity(self) -> int:
+        """
+        [Required] Specifies the amount of capacity to reserve.
+        """
+        return pulumi.get(self, "reserved_capacity")
+
+    @property
+    @pulumi.getter
+    def offer(self) -> Optional['outputs.ServerlessOfferResponse']:
+        """
+        Offer used by this capacity reservation group.
+        """
+        return pulumi.get(self, "offer")
 
 
 @pulumi.output_type
@@ -11631,6 +11742,94 @@ class ErrorResponseResponse(dict):
 
 
 @pulumi.output_type
+class EstimatedVMPriceResponse(dict):
+    """
+    The estimated price info for using a VM of a particular OS type, tier, etc.
+    """
+    def __init__(__self__, *,
+                 os_type: str,
+                 retail_price: float,
+                 vm_tier: str):
+        """
+        The estimated price info for using a VM of a particular OS type, tier, etc.
+        :param str os_type: Operating system type used by the VM.
+        :param float retail_price: The price charged for using the VM.
+        :param str vm_tier: The type of the VM.
+        """
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "retail_price", retail_price)
+        pulumi.set(__self__, "vm_tier", vm_tier)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        Operating system type used by the VM.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="retailPrice")
+    def retail_price(self) -> float:
+        """
+        The price charged for using the VM.
+        """
+        return pulumi.get(self, "retail_price")
+
+    @property
+    @pulumi.getter(name="vmTier")
+    def vm_tier(self) -> str:
+        """
+        The type of the VM.
+        """
+        return pulumi.get(self, "vm_tier")
+
+
+@pulumi.output_type
+class EstimatedVMPricesResponse(dict):
+    """
+    The estimated price info for using a VM.
+    """
+    def __init__(__self__, *,
+                 billing_currency: str,
+                 unit_of_measure: str,
+                 values: Sequence['outputs.EstimatedVMPriceResponse']):
+        """
+        The estimated price info for using a VM.
+        :param str billing_currency: Three lettered code specifying the currency of the VM price. Example: USD
+        :param str unit_of_measure: The unit of time measurement for the specified VM price. Example: OneHour
+        :param Sequence['EstimatedVMPriceResponse'] values: The list of estimated prices for using a VM of a particular OS type, tier, etc.
+        """
+        pulumi.set(__self__, "billing_currency", billing_currency)
+        pulumi.set(__self__, "unit_of_measure", unit_of_measure)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="billingCurrency")
+    def billing_currency(self) -> str:
+        """
+        Three lettered code specifying the currency of the VM price. Example: USD
+        """
+        return pulumi.get(self, "billing_currency")
+
+    @property
+    @pulumi.getter(name="unitOfMeasure")
+    def unit_of_measure(self) -> str:
+        """
+        The unit of time measurement for the specified VM price. Example: OneHour
+        """
+        return pulumi.get(self, "unit_of_measure")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence['outputs.EstimatedVMPriceResponse']:
+        """
+        The list of estimated prices for using a VM of a particular OS type, tier, etc.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class FeatureResponse(dict):
     """
     Dto object representing feature
@@ -17187,6 +17386,347 @@ class InferenceContainerPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class InferenceEndpointResponse(dict):
+    """
+    InferenceEndpoint configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authMode":
+            suggest = "auth_mode"
+        elif key == "endpointUri":
+            suggest = "endpoint_uri"
+        elif key == "groupId":
+            suggest = "group_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_mode: str,
+                 endpoint_uri: str,
+                 group_id: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        InferenceEndpoint configuration
+        :param str auth_mode: [Required] Authentication mode for the endpoint.
+        :param str endpoint_uri: Endpoint URI for the inference endpoint.
+        :param str group_id: [Required] Group within the same pool with which this endpoint needs to be associated with.
+        :param str provisioning_state: Provisioning state for the endpoint.
+        :param str description: Description of the resource.
+        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        pulumi.set(__self__, "auth_mode", auth_mode)
+        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> str:
+        """
+        [Required] Authentication mode for the endpoint.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> str:
+        """
+        Endpoint URI for the inference endpoint.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        [Required] Group within the same pool with which this endpoint needs to be associated with.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the endpoint.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the resource.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class InferenceGroupResponse(dict):
+    """
+    Inference group configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "bonusExtraCapacity":
+            suggest = "bonus_extra_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 bonus_extra_capacity: Optional[int] = None,
+                 description: Optional[str] = None,
+                 metadata: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        Inference group configuration
+        :param str provisioning_state: Provisioning state for the inference group.
+        :param int bonus_extra_capacity: Capacity to be used from the pool's reserved capacity.
+               optional
+        :param str description: Description of the resource.
+        :param str metadata: Metadata for the inference group.
+        :param int priority: Priority of the group within the N:Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20230801Preview.Pools.InferencePools.
+        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if bonus_extra_capacity is None:
+            bonus_extra_capacity = 0
+        if bonus_extra_capacity is not None:
+            pulumi.set(__self__, "bonus_extra_capacity", bonus_extra_capacity)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if priority is None:
+            priority = 0
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the inference group.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="bonusExtraCapacity")
+    def bonus_extra_capacity(self) -> Optional[int]:
+        """
+        Capacity to be used from the pool's reserved capacity.
+        optional
+        """
+        return pulumi.get(self, "bonus_extra_capacity")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the resource.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[str]:
+        """
+        Metadata for the inference group.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Priority of the group within the N:Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20230801Preview.Pools.InferencePools.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class InferencePoolResponse(dict):
+    """
+    Inference pool configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeSkuType":
+            suggest = "node_sku_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "codeConfiguration":
+            suggest = "code_configuration"
+        elif key == "environmentConfiguration":
+            suggest = "environment_configuration"
+        elif key == "modelConfiguration":
+            suggest = "model_configuration"
+        elif key == "requestConfiguration":
+            suggest = "request_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferencePoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferencePoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferencePoolResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_sku_type: str,
+                 provisioning_state: str,
+                 code_configuration: Optional['outputs.CodeConfigurationResponse'] = None,
+                 description: Optional[str] = None,
+                 environment_configuration: Optional['outputs.PoolEnvironmentConfigurationResponse'] = None,
+                 model_configuration: Optional['outputs.PoolModelConfigurationResponse'] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 request_configuration: Optional['outputs.RequestConfigurationResponse'] = None):
+        """
+        Inference pool configuration
+        :param str node_sku_type: [Required] Compute instance type.
+        :param str provisioning_state: Provisioning state for the pool.
+        :param 'CodeConfigurationResponse' code_configuration: Code configuration for the inference pool.
+        :param str description: Description of the resource.
+        :param 'PoolEnvironmentConfigurationResponse' environment_configuration: EnvironmentConfiguration for the inference pool.
+        :param 'PoolModelConfigurationResponse' model_configuration: ModelConfiguration for the inference pool.
+        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param 'RequestConfigurationResponse' request_configuration: Request configuration for the inference pool.
+        """
+        pulumi.set(__self__, "node_sku_type", node_sku_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if environment_configuration is not None:
+            pulumi.set(__self__, "environment_configuration", environment_configuration)
+        if model_configuration is not None:
+            pulumi.set(__self__, "model_configuration", model_configuration)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if request_configuration is not None:
+            pulumi.set(__self__, "request_configuration", request_configuration)
+
+    @property
+    @pulumi.getter(name="nodeSkuType")
+    def node_sku_type(self) -> str:
+        """
+        [Required] Compute instance type.
+        """
+        return pulumi.get(self, "node_sku_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the pool.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional['outputs.CodeConfigurationResponse']:
+        """
+        Code configuration for the inference pool.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the resource.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="environmentConfiguration")
+    def environment_configuration(self) -> Optional['outputs.PoolEnvironmentConfigurationResponse']:
+        """
+        EnvironmentConfiguration for the inference pool.
+        """
+        return pulumi.get(self, "environment_configuration")
+
+    @property
+    @pulumi.getter(name="modelConfiguration")
+    def model_configuration(self) -> Optional['outputs.PoolModelConfigurationResponse']:
+        """
+        ModelConfiguration for the inference pool.
+        """
+        return pulumi.get(self, "model_configuration")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="requestConfiguration")
+    def request_configuration(self) -> Optional['outputs.RequestConfigurationResponse']:
+        """
+        Request configuration for the inference pool.
+        """
+        return pulumi.get(self, "request_configuration")
+
+
+@pulumi.output_type
 class InstanceTypeSchemaResponse(dict):
     """
     Instance type schema.
@@ -21956,6 +22496,142 @@ class PipelineJobResponse(dict):
 
 
 @pulumi.output_type
+class PoolEnvironmentConfigurationResponse(dict):
+    """
+    Environment configuration options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentId":
+            suggest = "environment_id"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "livenessProbe":
+            suggest = "liveness_probe"
+        elif key == "readinessProbe":
+            suggest = "readiness_probe"
+        elif key == "startupProbe":
+            suggest = "startup_probe"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolEnvironmentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolEnvironmentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolEnvironmentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_id: Optional[str] = None,
+                 environment_variables: Optional[Mapping[str, str]] = None,
+                 liveness_probe: Optional['outputs.ProbeSettingsResponse'] = None,
+                 readiness_probe: Optional['outputs.ProbeSettingsResponse'] = None,
+                 startup_probe: Optional['outputs.ProbeSettingsResponse'] = None):
+        """
+        Environment configuration options.
+        :param str environment_id: ARM resource ID of the environment specification for the inference pool.
+        :param Mapping[str, str] environment_variables: Environment variables configuration for the inference pool.
+        :param 'ProbeSettingsResponse' liveness_probe: Liveness probe monitors the health of the container regularly.
+        :param 'ProbeSettingsResponse' readiness_probe: Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+        :param 'ProbeSettingsResponse' startup_probe: This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if startup_probe is not None:
+            pulumi.set(__self__, "startup_probe", startup_probe)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[str]:
+        """
+        ARM resource ID of the environment specification for the inference pool.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Mapping[str, str]]:
+        """
+        Environment variables configuration for the inference pool.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        Liveness probe monitors the health of the container regularly.
+        """
+        return pulumi.get(self, "liveness_probe")
+
+    @property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+        """
+        return pulumi.get(self, "readiness_probe")
+
+    @property
+    @pulumi.getter(name="startupProbe")
+    def startup_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
+        return pulumi.get(self, "startup_probe")
+
+
+@pulumi.output_type
+class PoolModelConfigurationResponse(dict):
+    """
+    Model configuration options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelId":
+            suggest = "model_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolModelConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolModelConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolModelConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_id: Optional[str] = None):
+        """
+        Model configuration options.
+        :param str model_id: The URI path to the model.
+        """
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[str]:
+        """
+        The URI path to the model.
+        """
+        return pulumi.get(self, "model_id")
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The Private Endpoint Connection resource.
@@ -23802,6 +24478,66 @@ class RegressionTrainingSettingsResponse(dict):
 
 
 @pulumi.output_type
+class RequestConfigurationResponse(dict):
+    """
+    Scoring requests configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrentRequestsPerInstance":
+            suggest = "max_concurrent_requests_per_instance"
+        elif key == "requestTimeout":
+            suggest = "request_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RequestConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RequestConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RequestConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrent_requests_per_instance: Optional[int] = None,
+                 request_timeout: Optional[str] = None):
+        """
+        Scoring requests configuration.
+        :param int max_concurrent_requests_per_instance: The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
+        :param str request_timeout: The scoring timeout in ISO 8601 format.
+               Defaults to 5000ms.
+        """
+        if max_concurrent_requests_per_instance is None:
+            max_concurrent_requests_per_instance = 1
+        if max_concurrent_requests_per_instance is not None:
+            pulumi.set(__self__, "max_concurrent_requests_per_instance", max_concurrent_requests_per_instance)
+        if request_timeout is None:
+            request_timeout = 'PT5S'
+        if request_timeout is not None:
+            pulumi.set(__self__, "request_timeout", request_timeout)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRequestsPerInstance")
+    def max_concurrent_requests_per_instance(self) -> Optional[int]:
+        """
+        The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
+        """
+        return pulumi.get(self, "max_concurrent_requests_per_instance")
+
+    @property
+    @pulumi.getter(name="requestTimeout")
+    def request_timeout(self) -> Optional[str]:
+        """
+        The scoring timeout in ISO 8601 format.
+        Defaults to 5000ms.
+        """
+        return pulumi.get(self, "request_timeout")
+
+
+@pulumi.output_type
 class ResourceIdResponse(dict):
     """
     Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
@@ -24444,6 +25180,219 @@ class SecretConfigurationResponse(dict):
         Name of secret in workspace key vault.
         """
         return pulumi.get(self, "workspace_secret_name")
+
+
+@pulumi.output_type
+class ServerlessEndpointCapacityReservationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationGroupId":
+            suggest = "capacity_reservation_group_id"
+        elif key == "endpointReservedCapacity":
+            suggest = "endpoint_reserved_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessEndpointCapacityReservationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessEndpointCapacityReservationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessEndpointCapacityReservationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_group_id: str,
+                 endpoint_reserved_capacity: Optional[int] = None):
+        """
+        :param str capacity_reservation_group_id: [Required] Specifies a capacity reservation group ID to allocate capacity from.
+        :param int endpoint_reserved_capacity: Specifies a capacity amount to reserve for this endpoint within the parent capacity reservation group.
+        """
+        pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+        if endpoint_reserved_capacity is not None:
+            pulumi.set(__self__, "endpoint_reserved_capacity", endpoint_reserved_capacity)
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupId")
+    def capacity_reservation_group_id(self) -> str:
+        """
+        [Required] Specifies a capacity reservation group ID to allocate capacity from.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
+
+    @property
+    @pulumi.getter(name="endpointReservedCapacity")
+    def endpoint_reserved_capacity(self) -> Optional[int]:
+        """
+        Specifies a capacity amount to reserve for this endpoint within the parent capacity reservation group.
+        """
+        return pulumi.get(self, "endpoint_reserved_capacity")
+
+
+@pulumi.output_type
+class ServerlessEndpointResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inferenceEndpoint":
+            suggest = "inference_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "authMode":
+            suggest = "auth_mode"
+        elif key == "capacityReservation":
+            suggest = "capacity_reservation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inference_endpoint: 'outputs.ServerlessInferenceEndpointResponse',
+                 offer: 'outputs.ServerlessOfferResponse',
+                 provisioning_state: str,
+                 auth_mode: Optional[str] = None,
+                 capacity_reservation: Optional['outputs.ServerlessEndpointCapacityReservationResponse'] = None):
+        """
+        :param 'ServerlessInferenceEndpointResponse' inference_endpoint: The inference uri to target when making requests against the serverless endpoint
+        :param 'ServerlessOfferResponse' offer: [Required] The publisher-defined Serverless Offer to provision the endpoint with.
+        :param str provisioning_state: Provisioning state for the endpoint.
+        :param str auth_mode: Specifies the authentication mode for the Serverless endpoint.
+        :param 'ServerlessEndpointCapacityReservationResponse' capacity_reservation: Optional capacity reservation information for the endpoint. When specified, the Serverless Endpoint
+               will be allocated capacity from the specified capacity reservation group.
+        """
+        pulumi.set(__self__, "inference_endpoint", inference_endpoint)
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
+        if capacity_reservation is not None:
+            pulumi.set(__self__, "capacity_reservation", capacity_reservation)
+
+    @property
+    @pulumi.getter(name="inferenceEndpoint")
+    def inference_endpoint(self) -> 'outputs.ServerlessInferenceEndpointResponse':
+        """
+        The inference uri to target when making requests against the serverless endpoint
+        """
+        return pulumi.get(self, "inference_endpoint")
+
+    @property
+    @pulumi.getter
+    def offer(self) -> 'outputs.ServerlessOfferResponse':
+        """
+        [Required] The publisher-defined Serverless Offer to provision the endpoint with.
+        """
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the endpoint.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[str]:
+        """
+        Specifies the authentication mode for the Serverless endpoint.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @property
+    @pulumi.getter(name="capacityReservation")
+    def capacity_reservation(self) -> Optional['outputs.ServerlessEndpointCapacityReservationResponse']:
+        """
+        Optional capacity reservation information for the endpoint. When specified, the Serverless Endpoint
+        will be allocated capacity from the specified capacity reservation group.
+        """
+        return pulumi.get(self, "capacity_reservation")
+
+
+@pulumi.output_type
+class ServerlessInferenceEndpointResponse(dict):
+    def __init__(__self__, *,
+                 headers: Mapping[str, str],
+                 uri: str):
+        """
+        :param Mapping[str, str] headers: Specifies any required headers to target this serverless endpoint.
+        :param str uri: [Required] The inference uri to target when making requests against the Serverless Endpoint.
+        """
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Mapping[str, str]:
+        """
+        Specifies any required headers to target this serverless endpoint.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        [Required] The inference uri to target when making requests against the Serverless Endpoint.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class ServerlessOfferResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offerName":
+            suggest = "offer_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessOfferResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessOfferResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessOfferResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 offer_name: str,
+                 publisher: str):
+        """
+        :param str offer_name: [Required] The name of the Serverless Offer
+        :param str publisher: [Required] Publisher name of the Serverless Offer
+        """
+        pulumi.set(__self__, "offer_name", offer_name)
+        pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter(name="offerName")
+    def offer_name(self) -> str:
+        """
+        [Required] The name of the Serverless Offer
+        """
+        return pulumi.get(self, "offer_name")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        [Required] Publisher name of the Serverless Offer
+        """
+        return pulumi.get(self, "publisher")
 
 
 @pulumi.output_type
@@ -28830,6 +29779,140 @@ class VirtualMachineSchemaResponseProperties(dict):
         Virtual Machine size
         """
         return pulumi.get(self, "virtual_machine_size")
+
+
+@pulumi.output_type
+class VirtualMachineSizeResponse(dict):
+    """
+    Describes the properties of a VM size.
+    """
+    def __init__(__self__, *,
+                 family: str,
+                 gpus: int,
+                 low_priority_capable: bool,
+                 max_resource_volume_mb: int,
+                 memory_gb: float,
+                 name: str,
+                 os_vhd_size_mb: int,
+                 premium_io: bool,
+                 v_cpus: int,
+                 estimated_vm_prices: Optional['outputs.EstimatedVMPricesResponse'] = None,
+                 supported_compute_types: Optional[Sequence[str]] = None):
+        """
+        Describes the properties of a VM size.
+        :param str family: The family name of the virtual machine size.
+        :param int gpus: The number of gPUs supported by the virtual machine size.
+        :param bool low_priority_capable: Specifies if the virtual machine size supports low priority VMs.
+        :param int max_resource_volume_mb: The resource volume size, in MB, allowed by the virtual machine size.
+        :param float memory_gb: The amount of memory, in GB, supported by the virtual machine size.
+        :param str name: The name of the virtual machine size.
+        :param int os_vhd_size_mb: The OS VHD disk size, in MB, allowed by the virtual machine size.
+        :param bool premium_io: Specifies if the virtual machine size supports premium IO.
+        :param int v_cpus: The number of vCPUs supported by the virtual machine size.
+        :param 'EstimatedVMPricesResponse' estimated_vm_prices: The estimated price information for using a VM.
+        :param Sequence[str] supported_compute_types: Specifies the compute types supported by the virtual machine size.
+        """
+        pulumi.set(__self__, "family", family)
+        pulumi.set(__self__, "gpus", gpus)
+        pulumi.set(__self__, "low_priority_capable", low_priority_capable)
+        pulumi.set(__self__, "max_resource_volume_mb", max_resource_volume_mb)
+        pulumi.set(__self__, "memory_gb", memory_gb)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "os_vhd_size_mb", os_vhd_size_mb)
+        pulumi.set(__self__, "premium_io", premium_io)
+        pulumi.set(__self__, "v_cpus", v_cpus)
+        if estimated_vm_prices is not None:
+            pulumi.set(__self__, "estimated_vm_prices", estimated_vm_prices)
+        if supported_compute_types is not None:
+            pulumi.set(__self__, "supported_compute_types", supported_compute_types)
+
+    @property
+    @pulumi.getter
+    def family(self) -> str:
+        """
+        The family name of the virtual machine size.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def gpus(self) -> int:
+        """
+        The number of gPUs supported by the virtual machine size.
+        """
+        return pulumi.get(self, "gpus")
+
+    @property
+    @pulumi.getter(name="lowPriorityCapable")
+    def low_priority_capable(self) -> bool:
+        """
+        Specifies if the virtual machine size supports low priority VMs.
+        """
+        return pulumi.get(self, "low_priority_capable")
+
+    @property
+    @pulumi.getter(name="maxResourceVolumeMB")
+    def max_resource_volume_mb(self) -> int:
+        """
+        The resource volume size, in MB, allowed by the virtual machine size.
+        """
+        return pulumi.get(self, "max_resource_volume_mb")
+
+    @property
+    @pulumi.getter(name="memoryGB")
+    def memory_gb(self) -> float:
+        """
+        The amount of memory, in GB, supported by the virtual machine size.
+        """
+        return pulumi.get(self, "memory_gb")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the virtual machine size.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osVhdSizeMB")
+    def os_vhd_size_mb(self) -> int:
+        """
+        The OS VHD disk size, in MB, allowed by the virtual machine size.
+        """
+        return pulumi.get(self, "os_vhd_size_mb")
+
+    @property
+    @pulumi.getter(name="premiumIO")
+    def premium_io(self) -> bool:
+        """
+        Specifies if the virtual machine size supports premium IO.
+        """
+        return pulumi.get(self, "premium_io")
+
+    @property
+    @pulumi.getter(name="vCPUs")
+    def v_cpus(self) -> int:
+        """
+        The number of vCPUs supported by the virtual machine size.
+        """
+        return pulumi.get(self, "v_cpus")
+
+    @property
+    @pulumi.getter(name="estimatedVMPrices")
+    def estimated_vm_prices(self) -> Optional['outputs.EstimatedVMPricesResponse']:
+        """
+        The estimated price information for using a VM.
+        """
+        return pulumi.get(self, "estimated_vm_prices")
+
+    @property
+    @pulumi.getter(name="supportedComputeTypes")
+    def supported_compute_types(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the compute types supported by the virtual machine size.
+        """
+        return pulumi.get(self, "supported_compute_types")
 
 
 @pulumi.output_type

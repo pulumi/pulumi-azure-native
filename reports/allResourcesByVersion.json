@@ -2524,6 +2524,14 @@
       "VirtualHardDisk",
       "VirtualMachineInstance",
       "VirtualNetwork"
+    ],
+    "2023-08-01": [
+      "ArcSetting",
+      "Cluster",
+      "Extension",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary"
     ]
   },
   "BareMetalInfrastructure": {
@@ -2757,6 +2765,16 @@
       "listBotConnectionWithSecrets",
       "listChannelWithKeys",
       "listQnAMakerEndpointKey"
+    ],
+    "2023-09-15-preview": [
+      "Bot",
+      "BotConnection",
+      "Channel",
+      "PrivateEndpointConnection",
+      "listBotConnectionServiceProviders",
+      "listBotConnectionWithSecrets",
+      "listChannelWithKeys",
+      "listQnAMakerEndpointKey"
     ]
   },
   "Cache": {
@@ -2915,6 +2933,12 @@
       "listRedisKeys"
     ],
     "2023-08-01-preview": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
+    ],
+    "2023-10-01-preview": [
       "Database",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
@@ -3305,6 +3329,16 @@
       "Domain",
       "EmailService",
       "SenderUsername",
+      "listCommunicationServiceKeys",
+      "listEmailServiceVerifiedExchangeOnlineDomains"
+    ],
+    "2023-06-01-preview": [
+      "CommunicationService",
+      "Domain",
+      "EmailService",
+      "SenderUsername",
+      "SuppressionList",
+      "SuppressionListAddress",
       "listCommunicationServiceKeys",
       "listEmailServiceVerifiedExchangeOnlineDomains"
     ]
@@ -7877,6 +7911,20 @@
       "listUpgradableVersionDetails",
       "listVMHost",
       "listlistAssociatedTrafficFilter"
+    ],
+    "2023-10-01-preview": [
+      "Monitor",
+      "TagRule",
+      "getBillingInfo",
+      "getOrganizationApiKey",
+      "getOrganizationElasticToAzureSubscriptionMapping",
+      "listAllTrafficFilter",
+      "listConnectedPartnerResource",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
     ]
   },
   "ElasticSan": {
@@ -10266,6 +10314,68 @@
       "listDatastoreSecrets",
       "listFeaturesetVersionMaterializationJobs",
       "listOnlineEndpointKeys",
+      "listWorkspaceConnectionSecrets",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
+    ],
+    "2023-08-01-preview": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CapacityReservationGroup",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "FeaturesetContainerEntity",
+      "FeaturesetVersion",
+      "FeaturestoreEntityContainerEntity",
+      "FeaturestoreEntityVersion",
+      "InferenceEndpoint",
+      "InferenceGroup",
+      "InferencePool",
+      "Job",
+      "LabelingJob",
+      "ManagedNetworkSettingsRule",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "Registry",
+      "RegistryCodeContainer",
+      "RegistryCodeVersion",
+      "RegistryComponentContainer",
+      "RegistryComponentVersion",
+      "RegistryDataContainer",
+      "RegistryDataVersion",
+      "RegistryEnvironmentContainer",
+      "RegistryEnvironmentVersion",
+      "RegistryModelContainer",
+      "RegistryModelVersion",
+      "Schedule",
+      "ServerlessEndpoint",
+      "Workspace",
+      "WorkspaceConnection",
+      "getComputeAllowedResizeSizes",
+      "getInferenceGroupStatus",
+      "getInferencePoolStatus",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "getServerlessEndpointStatus",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listDatastoreSecrets",
+      "listOnlineEndpointKeys",
+      "listServerlessEndpointKeys",
       "listWorkspaceConnectionSecrets",
       "listWorkspaceKeys",
       "listWorkspaceNotebookAccessToken",
@@ -14927,6 +15037,7 @@
     ]
   },
   "Purview": {
+    "": [],
     "2020-12-01-preview": [
       "Account",
       "PrivateEndpointConnection",
@@ -15599,6 +15710,10 @@
     "2023-07-01-preview": [
       "listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId",
       "listSecurityAdvisoryImpactedResourceByTenantIdAndEventId"
+    ],
+    "2023-10-01-preview": [
+      "listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId",
+      "listSecurityAdvisoryImpactedResourceByTenantIdAndEventId"
     ]
   },
   "Resources": {
@@ -15781,6 +15896,9 @@
       "Resource",
       "ResourceGroup",
       "TagAtScope"
+    ],
+    "2023-08-01": [
+      "DeploymentScript"
     ]
   },
   "SaaS": {
@@ -15891,6 +16009,13 @@
       "listQueryKeyBySearchService"
     ],
     "2022-09-01": [
+      "PrivateEndpointConnection",
+      "Service",
+      "SharedPrivateLinkResource",
+      "listAdminKey",
+      "listQueryKeyBySearchService"
+    ],
+    "2023-11-01": [
       "PrivateEndpointConnection",
       "Service",
       "SharedPrivateLinkResource",

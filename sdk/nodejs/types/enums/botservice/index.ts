@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20180712 from "./v20180712";
 import * as v20220915 from "./v20220915";
+import * as v20230915preview from "./v20230915preview";
 
 export {
     v20180712,
     v20220915,
+    v20230915preview,
 };
 
 export const Kind = {

@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Elastic
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230601:TagRule"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230615preview:TagRule"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230701preview:TagRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20231001preview:TagRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

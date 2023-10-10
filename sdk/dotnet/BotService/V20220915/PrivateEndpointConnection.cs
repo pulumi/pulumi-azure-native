@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.BotService.V20220915
                     new global::Pulumi.Alias { Type = "azure-native:botservice:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20230915preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

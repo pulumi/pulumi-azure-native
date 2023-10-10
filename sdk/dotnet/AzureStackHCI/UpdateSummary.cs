@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230201:UpdateSummary"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230301:UpdateSummary"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230601:UpdateSummary"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801:UpdateSummary"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

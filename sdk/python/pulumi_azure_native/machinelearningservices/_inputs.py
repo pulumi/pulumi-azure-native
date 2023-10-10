@@ -45,6 +45,7 @@ __all__ = [
     'BayesianSamplingAlgorithmArgs',
     'BindOptionsArgs',
     'BuildContextArgs',
+    'CapacityReservationGroupArgs',
     'CertificateDatastoreCredentialsArgs',
     'CertificateDatastoreSecretsArgs',
     'ClassificationTrainingSettingsArgs',
@@ -132,6 +133,9 @@ __all__ = [
     'ImageArgs',
     'IndexColumnArgs',
     'InferenceContainerPropertiesArgs',
+    'InferenceEndpointArgs',
+    'InferenceGroupArgs',
+    'InferencePoolArgs',
     'InstanceTypeSchemaResourcesArgs',
     'InstanceTypeSchemaArgs',
     'JobResourceConfigurationArgs',
@@ -179,6 +183,8 @@ __all__ = [
     'PATAuthTypeWorkspaceConnectionPropertiesArgs',
     'PersonalComputeInstanceSettingsArgs',
     'PipelineJobArgs',
+    'PoolEnvironmentConfigurationArgs',
+    'PoolModelConfigurationArgs',
     'PrivateEndpointDestinationArgs',
     'PrivateEndpointOutboundRuleArgs',
     'PrivateEndpointResourceArgs',
@@ -196,6 +202,7 @@ __all__ = [
     'RegistryArgs',
     'RegressionTrainingSettingsArgs',
     'RegressionArgs',
+    'RequestConfigurationArgs',
     'ResourceIdArgs',
     'RouteArgs',
     'SASAuthTypeWorkspaceConnectionPropertiesArgs',
@@ -207,6 +214,9 @@ __all__ = [
     'ScriptReferenceArgs',
     'ScriptsToExecuteArgs',
     'SecretConfigurationArgs',
+    'ServerlessEndpointCapacityReservationArgs',
+    'ServerlessEndpointArgs',
+    'ServerlessOfferArgs',
     'ServiceManagedResourcesSettingsArgs',
     'ServicePrincipalDatastoreCredentialsArgs',
     'ServicePrincipalDatastoreSecretsArgs',
@@ -2946,6 +2956,44 @@ class BuildContextArgs:
     @dockerfile_path.setter
     def dockerfile_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dockerfile_path", value)
+
+
+@pulumi.input_type
+class CapacityReservationGroupArgs:
+    def __init__(__self__, *,
+                 reserved_capacity: pulumi.Input[int],
+                 offer: Optional[pulumi.Input['ServerlessOfferArgs']] = None):
+        """
+        :param pulumi.Input[int] reserved_capacity: [Required] Specifies the amount of capacity to reserve.
+        :param pulumi.Input['ServerlessOfferArgs'] offer: Offer used by this capacity reservation group.
+        """
+        pulumi.set(__self__, "reserved_capacity", reserved_capacity)
+        if offer is not None:
+            pulumi.set(__self__, "offer", offer)
+
+    @property
+    @pulumi.getter(name="reservedCapacity")
+    def reserved_capacity(self) -> pulumi.Input[int]:
+        """
+        [Required] Specifies the amount of capacity to reserve.
+        """
+        return pulumi.get(self, "reserved_capacity")
+
+    @reserved_capacity.setter
+    def reserved_capacity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "reserved_capacity", value)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> Optional[pulumi.Input['ServerlessOfferArgs']]:
+        """
+        Offer used by this capacity reservation group.
+        """
+        return pulumi.get(self, "offer")
+
+    @offer.setter
+    def offer(self, value: Optional[pulumi.Input['ServerlessOfferArgs']]):
+        pulumi.set(self, "offer", value)
 
 
 @pulumi.input_type
@@ -12615,6 +12663,289 @@ class InferenceContainerPropertiesArgs:
 
 
 @pulumi.input_type
+class InferenceEndpointArgs:
+    def __init__(__self__, *,
+                 auth_mode: pulumi.Input[Union[str, 'AuthMode']],
+                 group_id: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        InferenceEndpoint configuration
+        :param pulumi.Input[Union[str, 'AuthMode']] auth_mode: [Required] Authentication mode for the endpoint.
+        :param pulumi.Input[str] group_id: [Required] Group within the same pool with which this endpoint needs to be associated with.
+        :param pulumi.Input[str] description: Description of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        pulumi.set(__self__, "auth_mode", auth_mode)
+        pulumi.set(__self__, "group_id", group_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> pulumi.Input[Union[str, 'AuthMode']]:
+        """
+        [Required] Authentication mode for the endpoint.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: pulumi.Input[Union[str, 'AuthMode']]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[str]:
+        """
+        [Required] Group within the same pool with which this endpoint needs to be associated with.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the resource.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class InferenceGroupArgs:
+    def __init__(__self__, *,
+                 bonus_extra_capacity: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Inference group configuration
+        :param pulumi.Input[int] bonus_extra_capacity: Capacity to be used from the pool's reserved capacity.
+               optional
+        :param pulumi.Input[str] description: Description of the resource.
+        :param pulumi.Input[str] metadata: Metadata for the inference group.
+        :param pulumi.Input[int] priority: Priority of the group within the N:Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20230801Preview.Pools.InferencePools.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        if bonus_extra_capacity is None:
+            bonus_extra_capacity = 0
+        if bonus_extra_capacity is not None:
+            pulumi.set(__self__, "bonus_extra_capacity", bonus_extra_capacity)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if priority is None:
+            priority = 0
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="bonusExtraCapacity")
+    def bonus_extra_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Capacity to be used from the pool's reserved capacity.
+        optional
+        """
+        return pulumi.get(self, "bonus_extra_capacity")
+
+    @bonus_extra_capacity.setter
+    def bonus_extra_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bonus_extra_capacity", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the resource.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata for the inference group.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Priority of the group within the N:Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20230801Preview.Pools.InferencePools.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class InferencePoolArgs:
+    def __init__(__self__, *,
+                 node_sku_type: pulumi.Input[str],
+                 code_configuration: Optional[pulumi.Input['CodeConfigurationArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 environment_configuration: Optional[pulumi.Input['PoolEnvironmentConfigurationArgs']] = None,
+                 model_configuration: Optional[pulumi.Input['PoolModelConfigurationArgs']] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 request_configuration: Optional[pulumi.Input['RequestConfigurationArgs']] = None):
+        """
+        Inference pool configuration
+        :param pulumi.Input[str] node_sku_type: [Required] Compute instance type.
+        :param pulumi.Input['CodeConfigurationArgs'] code_configuration: Code configuration for the inference pool.
+        :param pulumi.Input[str] description: Description of the resource.
+        :param pulumi.Input['PoolEnvironmentConfigurationArgs'] environment_configuration: EnvironmentConfiguration for the inference pool.
+        :param pulumi.Input['PoolModelConfigurationArgs'] model_configuration: ModelConfiguration for the inference pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param pulumi.Input['RequestConfigurationArgs'] request_configuration: Request configuration for the inference pool.
+        """
+        pulumi.set(__self__, "node_sku_type", node_sku_type)
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if environment_configuration is not None:
+            pulumi.set(__self__, "environment_configuration", environment_configuration)
+        if model_configuration is not None:
+            pulumi.set(__self__, "model_configuration", model_configuration)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if request_configuration is not None:
+            pulumi.set(__self__, "request_configuration", request_configuration)
+
+    @property
+    @pulumi.getter(name="nodeSkuType")
+    def node_sku_type(self) -> pulumi.Input[str]:
+        """
+        [Required] Compute instance type.
+        """
+        return pulumi.get(self, "node_sku_type")
+
+    @node_sku_type.setter
+    def node_sku_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node_sku_type", value)
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional[pulumi.Input['CodeConfigurationArgs']]:
+        """
+        Code configuration for the inference pool.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @code_configuration.setter
+    def code_configuration(self, value: Optional[pulumi.Input['CodeConfigurationArgs']]):
+        pulumi.set(self, "code_configuration", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the resource.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="environmentConfiguration")
+    def environment_configuration(self) -> Optional[pulumi.Input['PoolEnvironmentConfigurationArgs']]:
+        """
+        EnvironmentConfiguration for the inference pool.
+        """
+        return pulumi.get(self, "environment_configuration")
+
+    @environment_configuration.setter
+    def environment_configuration(self, value: Optional[pulumi.Input['PoolEnvironmentConfigurationArgs']]):
+        pulumi.set(self, "environment_configuration", value)
+
+    @property
+    @pulumi.getter(name="modelConfiguration")
+    def model_configuration(self) -> Optional[pulumi.Input['PoolModelConfigurationArgs']]:
+        """
+        ModelConfiguration for the inference pool.
+        """
+        return pulumi.get(self, "model_configuration")
+
+    @model_configuration.setter
+    def model_configuration(self, value: Optional[pulumi.Input['PoolModelConfigurationArgs']]):
+        pulumi.set(self, "model_configuration", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="requestConfiguration")
+    def request_configuration(self) -> Optional[pulumi.Input['RequestConfigurationArgs']]:
+        """
+        Request configuration for the inference pool.
+        """
+        return pulumi.get(self, "request_configuration")
+
+    @request_configuration.setter
+    def request_configuration(self, value: Optional[pulumi.Input['RequestConfigurationArgs']]):
+        pulumi.set(self, "request_configuration", value)
+
+
+@pulumi.input_type
 class InstanceTypeSchemaResourcesArgs:
     def __init__(__self__, *,
                  limits: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -16541,6 +16872,118 @@ class PipelineJobArgs:
 
 
 @pulumi.input_type
+class PoolEnvironmentConfigurationArgs:
+    def __init__(__self__, *,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 liveness_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None,
+                 readiness_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None,
+                 startup_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None):
+        """
+        Environment configuration options.
+        :param pulumi.Input[str] environment_id: ARM resource ID of the environment specification for the inference pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables configuration for the inference pool.
+        :param pulumi.Input['ProbeSettingsArgs'] liveness_probe: Liveness probe monitors the health of the container regularly.
+        :param pulumi.Input['ProbeSettingsArgs'] readiness_probe: Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+        :param pulumi.Input['ProbeSettingsArgs'] startup_probe: This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if startup_probe is not None:
+            pulumi.set(__self__, "startup_probe", startup_probe)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the environment specification for the inference pool.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Environment variables configuration for the inference pool.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional[pulumi.Input['ProbeSettingsArgs']]:
+        """
+        Liveness probe monitors the health of the container regularly.
+        """
+        return pulumi.get(self, "liveness_probe")
+
+    @liveness_probe.setter
+    def liveness_probe(self, value: Optional[pulumi.Input['ProbeSettingsArgs']]):
+        pulumi.set(self, "liveness_probe", value)
+
+    @property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional[pulumi.Input['ProbeSettingsArgs']]:
+        """
+        Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+        """
+        return pulumi.get(self, "readiness_probe")
+
+    @readiness_probe.setter
+    def readiness_probe(self, value: Optional[pulumi.Input['ProbeSettingsArgs']]):
+        pulumi.set(self, "readiness_probe", value)
+
+    @property
+    @pulumi.getter(name="startupProbe")
+    def startup_probe(self) -> Optional[pulumi.Input['ProbeSettingsArgs']]:
+        """
+        This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
+        return pulumi.get(self, "startup_probe")
+
+    @startup_probe.setter
+    def startup_probe(self, value: Optional[pulumi.Input['ProbeSettingsArgs']]):
+        pulumi.set(self, "startup_probe", value)
+
+
+@pulumi.input_type
+class PoolModelConfigurationArgs:
+    def __init__(__self__, *,
+                 model_id: Optional[pulumi.Input[str]] = None):
+        """
+        Model configuration options.
+        :param pulumi.Input[str] model_id: The URI path to the model.
+        """
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI path to the model.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_id", value)
+
+
+@pulumi.input_type
 class PrivateEndpointDestinationArgs:
     def __init__(__self__, *,
                  service_resource_id: Optional[pulumi.Input[str]] = None,
@@ -18031,6 +18474,52 @@ class RegressionArgs:
 
 
 @pulumi.input_type
+class RequestConfigurationArgs:
+    def __init__(__self__, *,
+                 max_concurrent_requests_per_instance: Optional[pulumi.Input[int]] = None,
+                 request_timeout: Optional[pulumi.Input[str]] = None):
+        """
+        Scoring requests configuration.
+        :param pulumi.Input[int] max_concurrent_requests_per_instance: The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
+        :param pulumi.Input[str] request_timeout: The scoring timeout in ISO 8601 format.
+               Defaults to 5000ms.
+        """
+        if max_concurrent_requests_per_instance is None:
+            max_concurrent_requests_per_instance = 1
+        if max_concurrent_requests_per_instance is not None:
+            pulumi.set(__self__, "max_concurrent_requests_per_instance", max_concurrent_requests_per_instance)
+        if request_timeout is None:
+            request_timeout = 'PT5S'
+        if request_timeout is not None:
+            pulumi.set(__self__, "request_timeout", request_timeout)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRequestsPerInstance")
+    def max_concurrent_requests_per_instance(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
+        """
+        return pulumi.get(self, "max_concurrent_requests_per_instance")
+
+    @max_concurrent_requests_per_instance.setter
+    def max_concurrent_requests_per_instance(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_requests_per_instance", value)
+
+    @property
+    @pulumi.getter(name="requestTimeout")
+    def request_timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scoring timeout in ISO 8601 format.
+        Defaults to 5000ms.
+        """
+        return pulumi.get(self, "request_timeout")
+
+    @request_timeout.setter
+    def request_timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_timeout", value)
+
+
+@pulumi.input_type
 class ResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -18651,6 +19140,137 @@ class SecretConfigurationArgs:
     @workspace_secret_name.setter
     def workspace_secret_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspace_secret_name", value)
+
+
+@pulumi.input_type
+class ServerlessEndpointCapacityReservationArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_group_id: pulumi.Input[str],
+                 endpoint_reserved_capacity: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] capacity_reservation_group_id: [Required] Specifies a capacity reservation group ID to allocate capacity from.
+        :param pulumi.Input[int] endpoint_reserved_capacity: Specifies a capacity amount to reserve for this endpoint within the parent capacity reservation group.
+        """
+        pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+        if endpoint_reserved_capacity is not None:
+            pulumi.set(__self__, "endpoint_reserved_capacity", endpoint_reserved_capacity)
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupId")
+    def capacity_reservation_group_id(self) -> pulumi.Input[str]:
+        """
+        [Required] Specifies a capacity reservation group ID to allocate capacity from.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
+
+    @capacity_reservation_group_id.setter
+    def capacity_reservation_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "capacity_reservation_group_id", value)
+
+    @property
+    @pulumi.getter(name="endpointReservedCapacity")
+    def endpoint_reserved_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a capacity amount to reserve for this endpoint within the parent capacity reservation group.
+        """
+        return pulumi.get(self, "endpoint_reserved_capacity")
+
+    @endpoint_reserved_capacity.setter
+    def endpoint_reserved_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "endpoint_reserved_capacity", value)
+
+
+@pulumi.input_type
+class ServerlessEndpointArgs:
+    def __init__(__self__, *,
+                 offer: pulumi.Input['ServerlessOfferArgs'],
+                 auth_mode: Optional[pulumi.Input[Union[str, 'ServerlessInferenceEndpointAuthMode']]] = None,
+                 capacity_reservation: Optional[pulumi.Input['ServerlessEndpointCapacityReservationArgs']] = None):
+        """
+        :param pulumi.Input['ServerlessOfferArgs'] offer: [Required] The publisher-defined Serverless Offer to provision the endpoint with.
+        :param pulumi.Input[Union[str, 'ServerlessInferenceEndpointAuthMode']] auth_mode: Specifies the authentication mode for the Serverless endpoint.
+        :param pulumi.Input['ServerlessEndpointCapacityReservationArgs'] capacity_reservation: Optional capacity reservation information for the endpoint. When specified, the Serverless Endpoint
+               will be allocated capacity from the specified capacity reservation group.
+        """
+        pulumi.set(__self__, "offer", offer)
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
+        if capacity_reservation is not None:
+            pulumi.set(__self__, "capacity_reservation", capacity_reservation)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> pulumi.Input['ServerlessOfferArgs']:
+        """
+        [Required] The publisher-defined Serverless Offer to provision the endpoint with.
+        """
+        return pulumi.get(self, "offer")
+
+    @offer.setter
+    def offer(self, value: pulumi.Input['ServerlessOfferArgs']):
+        pulumi.set(self, "offer", value)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'ServerlessInferenceEndpointAuthMode']]]:
+        """
+        Specifies the authentication mode for the Serverless endpoint.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'ServerlessInferenceEndpointAuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
+    @pulumi.getter(name="capacityReservation")
+    def capacity_reservation(self) -> Optional[pulumi.Input['ServerlessEndpointCapacityReservationArgs']]:
+        """
+        Optional capacity reservation information for the endpoint. When specified, the Serverless Endpoint
+        will be allocated capacity from the specified capacity reservation group.
+        """
+        return pulumi.get(self, "capacity_reservation")
+
+    @capacity_reservation.setter
+    def capacity_reservation(self, value: Optional[pulumi.Input['ServerlessEndpointCapacityReservationArgs']]):
+        pulumi.set(self, "capacity_reservation", value)
+
+
+@pulumi.input_type
+class ServerlessOfferArgs:
+    def __init__(__self__, *,
+                 offer_name: pulumi.Input[str],
+                 publisher: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] offer_name: [Required] The name of the Serverless Offer
+        :param pulumi.Input[str] publisher: [Required] Publisher name of the Serverless Offer
+        """
+        pulumi.set(__self__, "offer_name", offer_name)
+        pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter(name="offerName")
+    def offer_name(self) -> pulumi.Input[str]:
+        """
+        [Required] The name of the Serverless Offer
+        """
+        return pulumi.get(self, "offer_name")
+
+    @offer_name.setter
+    def offer_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "offer_name", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        [Required] Publisher name of the Serverless Offer
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
 
 
 @pulumi.input_type

@@ -15,6 +15,11 @@ export type BatchEndpoint = import("./batchEndpoint").BatchEndpoint;
 export const BatchEndpoint: typeof import("./batchEndpoint").BatchEndpoint = null as any;
 utilities.lazyLoad(exports, ["BatchEndpoint"], () => require("./batchEndpoint"));
 
+export { CapacityReservationGroupArgs } from "./capacityReservationGroup";
+export type CapacityReservationGroup = import("./capacityReservationGroup").CapacityReservationGroup;
+export const CapacityReservationGroup: typeof import("./capacityReservationGroup").CapacityReservationGroup = null as any;
+utilities.lazyLoad(exports, ["CapacityReservationGroup"], () => require("./capacityReservationGroup"));
+
 export { CodeContainerArgs } from "./codeContainer";
 export type CodeContainer = import("./codeContainer").CodeContainer;
 export const CodeContainer: typeof import("./codeContainer").CodeContainer = null as any;
@@ -100,6 +105,11 @@ export const getBatchEndpoint: typeof import("./getBatchEndpoint").getBatchEndpo
 export const getBatchEndpointOutput: typeof import("./getBatchEndpoint").getBatchEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getBatchEndpoint","getBatchEndpointOutput"], () => require("./getBatchEndpoint"));
 
+export { GetCapacityReservationGroupArgs, GetCapacityReservationGroupResult, GetCapacityReservationGroupOutputArgs } from "./getCapacityReservationGroup";
+export const getCapacityReservationGroup: typeof import("./getCapacityReservationGroup").getCapacityReservationGroup = null as any;
+export const getCapacityReservationGroupOutput: typeof import("./getCapacityReservationGroup").getCapacityReservationGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityReservationGroup","getCapacityReservationGroupOutput"], () => require("./getCapacityReservationGroup"));
+
 export { GetCodeContainerArgs, GetCodeContainerResult, GetCodeContainerOutputArgs } from "./getCodeContainer";
 export const getCodeContainer: typeof import("./getCodeContainer").getCodeContainer = null as any;
 export const getCodeContainerOutput: typeof import("./getCodeContainer").getCodeContainerOutput = null as any;
@@ -124,6 +134,11 @@ export { GetComputeArgs, GetComputeResult, GetComputeOutputArgs } from "./getCom
 export const getCompute: typeof import("./getCompute").getCompute = null as any;
 export const getComputeOutput: typeof import("./getCompute").getComputeOutput = null as any;
 utilities.lazyLoad(exports, ["getCompute","getComputeOutput"], () => require("./getCompute"));
+
+export { GetComputeAllowedResizeSizesArgs, GetComputeAllowedResizeSizesResult, GetComputeAllowedResizeSizesOutputArgs } from "./getComputeAllowedResizeSizes";
+export const getComputeAllowedResizeSizes: typeof import("./getComputeAllowedResizeSizes").getComputeAllowedResizeSizes = null as any;
+export const getComputeAllowedResizeSizesOutput: typeof import("./getComputeAllowedResizeSizes").getComputeAllowedResizeSizesOutput = null as any;
+utilities.lazyLoad(exports, ["getComputeAllowedResizeSizes","getComputeAllowedResizeSizesOutput"], () => require("./getComputeAllowedResizeSizes"));
 
 export { GetDataContainerArgs, GetDataContainerResult, GetDataContainerOutputArgs } from "./getDataContainer";
 export const getDataContainer: typeof import("./getDataContainer").getDataContainer = null as any;
@@ -179,6 +194,31 @@ export { GetFeaturestoreEntityVersionArgs, GetFeaturestoreEntityVersionResult, G
 export const getFeaturestoreEntityVersion: typeof import("./getFeaturestoreEntityVersion").getFeaturestoreEntityVersion = null as any;
 export const getFeaturestoreEntityVersionOutput: typeof import("./getFeaturestoreEntityVersion").getFeaturestoreEntityVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getFeaturestoreEntityVersion","getFeaturestoreEntityVersionOutput"], () => require("./getFeaturestoreEntityVersion"));
+
+export { GetInferenceEndpointArgs, GetInferenceEndpointResult, GetInferenceEndpointOutputArgs } from "./getInferenceEndpoint";
+export const getInferenceEndpoint: typeof import("./getInferenceEndpoint").getInferenceEndpoint = null as any;
+export const getInferenceEndpointOutput: typeof import("./getInferenceEndpoint").getInferenceEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceEndpoint","getInferenceEndpointOutput"], () => require("./getInferenceEndpoint"));
+
+export { GetInferenceGroupArgs, GetInferenceGroupResult, GetInferenceGroupOutputArgs } from "./getInferenceGroup";
+export const getInferenceGroup: typeof import("./getInferenceGroup").getInferenceGroup = null as any;
+export const getInferenceGroupOutput: typeof import("./getInferenceGroup").getInferenceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceGroup","getInferenceGroupOutput"], () => require("./getInferenceGroup"));
+
+export { GetInferenceGroupStatusArgs, GetInferenceGroupStatusResult, GetInferenceGroupStatusOutputArgs } from "./getInferenceGroupStatus";
+export const getInferenceGroupStatus: typeof import("./getInferenceGroupStatus").getInferenceGroupStatus = null as any;
+export const getInferenceGroupStatusOutput: typeof import("./getInferenceGroupStatus").getInferenceGroupStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceGroupStatus","getInferenceGroupStatusOutput"], () => require("./getInferenceGroupStatus"));
+
+export { GetInferencePoolArgs, GetInferencePoolResult, GetInferencePoolOutputArgs } from "./getInferencePool";
+export const getInferencePool: typeof import("./getInferencePool").getInferencePool = null as any;
+export const getInferencePoolOutput: typeof import("./getInferencePool").getInferencePoolOutput = null as any;
+utilities.lazyLoad(exports, ["getInferencePool","getInferencePoolOutput"], () => require("./getInferencePool"));
+
+export { GetInferencePoolStatusArgs, GetInferencePoolStatusResult, GetInferencePoolStatusOutputArgs } from "./getInferencePoolStatus";
+export const getInferencePoolStatus: typeof import("./getInferencePoolStatus").getInferencePoolStatus = null as any;
+export const getInferencePoolStatusOutput: typeof import("./getInferencePoolStatus").getInferencePoolStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getInferencePoolStatus","getInferencePoolStatusOutput"], () => require("./getInferencePoolStatus"));
 
 export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
 export const getJob: typeof import("./getJob").getJob = null as any;
@@ -310,6 +350,16 @@ export const getSchedule: typeof import("./getSchedule").getSchedule = null as a
 export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
 
+export { GetServerlessEndpointArgs, GetServerlessEndpointResult, GetServerlessEndpointOutputArgs } from "./getServerlessEndpoint";
+export const getServerlessEndpoint: typeof import("./getServerlessEndpoint").getServerlessEndpoint = null as any;
+export const getServerlessEndpointOutput: typeof import("./getServerlessEndpoint").getServerlessEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessEndpoint","getServerlessEndpointOutput"], () => require("./getServerlessEndpoint"));
+
+export { GetServerlessEndpointStatusArgs, GetServerlessEndpointStatusResult, GetServerlessEndpointStatusOutputArgs } from "./getServerlessEndpointStatus";
+export const getServerlessEndpointStatus: typeof import("./getServerlessEndpointStatus").getServerlessEndpointStatus = null as any;
+export const getServerlessEndpointStatusOutput: typeof import("./getServerlessEndpointStatus").getServerlessEndpointStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessEndpointStatus","getServerlessEndpointStatusOutput"], () => require("./getServerlessEndpointStatus"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -319,6 +369,21 @@ export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceC
 export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
 export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
+
+export { InferenceEndpointArgs } from "./inferenceEndpoint";
+export type InferenceEndpoint = import("./inferenceEndpoint").InferenceEndpoint;
+export const InferenceEndpoint: typeof import("./inferenceEndpoint").InferenceEndpoint = null as any;
+utilities.lazyLoad(exports, ["InferenceEndpoint"], () => require("./inferenceEndpoint"));
+
+export { InferenceGroupArgs } from "./inferenceGroup";
+export type InferenceGroup = import("./inferenceGroup").InferenceGroup;
+export const InferenceGroup: typeof import("./inferenceGroup").InferenceGroup = null as any;
+utilities.lazyLoad(exports, ["InferenceGroup"], () => require("./inferenceGroup"));
+
+export { InferencePoolArgs } from "./inferencePool";
+export type InferencePool = import("./inferencePool").InferencePool;
+export const InferencePool: typeof import("./inferencePool").InferencePool = null as any;
+utilities.lazyLoad(exports, ["InferencePool"], () => require("./inferencePool"));
 
 export { JobArgs } from "./job";
 export type Job = import("./job").Job;
@@ -374,6 +439,11 @@ export { ListOnlineEndpointKeysArgs, ListOnlineEndpointKeysResult, ListOnlineEnd
 export const listOnlineEndpointKeys: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeys = null as any;
 export const listOnlineEndpointKeysOutput: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listOnlineEndpointKeys","listOnlineEndpointKeysOutput"], () => require("./listOnlineEndpointKeys"));
+
+export { ListServerlessEndpointKeysArgs, ListServerlessEndpointKeysResult, ListServerlessEndpointKeysOutputArgs } from "./listServerlessEndpointKeys";
+export const listServerlessEndpointKeys: typeof import("./listServerlessEndpointKeys").listServerlessEndpointKeys = null as any;
+export const listServerlessEndpointKeysOutput: typeof import("./listServerlessEndpointKeys").listServerlessEndpointKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listServerlessEndpointKeys","listServerlessEndpointKeysOutput"], () => require("./listServerlessEndpointKeys"));
 
 export { ListWorkspaceConnectionSecretsArgs, ListWorkspaceConnectionSecretsResult, ListWorkspaceConnectionSecretsOutputArgs } from "./listWorkspaceConnectionSecrets";
 export const listWorkspaceConnectionSecrets: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecrets = null as any;
@@ -500,6 +570,11 @@ export type Schedule = import("./schedule").Schedule;
 export const Schedule: typeof import("./schedule").Schedule = null as any;
 utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 
+export { ServerlessEndpointArgs } from "./serverlessEndpoint";
+export type ServerlessEndpoint = import("./serverlessEndpoint").ServerlessEndpoint;
+export const ServerlessEndpoint: typeof import("./serverlessEndpoint").ServerlessEndpoint = null as any;
+utilities.lazyLoad(exports, ["ServerlessEndpoint"], () => require("./serverlessEndpoint"));
+
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -527,6 +602,7 @@ import * as v20230201preview from "./v20230201preview";
 import * as v20230401 from "./v20230401";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230601preview from "./v20230601preview";
+import * as v20230801preview from "./v20230801preview";
 
 export {
     v20200501preview,
@@ -541,6 +617,7 @@ export {
     v20230401,
     v20230401preview,
     v20230601preview,
+    v20230801preview,
 };
 
 const _module = {
@@ -551,6 +628,8 @@ const _module = {
                 return new BatchDeployment(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:BatchEndpoint":
                 return new BatchEndpoint(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:CapacityReservationGroup":
+                return new CapacityReservationGroup(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:CodeContainer":
                 return new CodeContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:CodeVersion":
@@ -581,6 +660,12 @@ const _module = {
                 return new FeaturestoreEntityContainerEntity(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:FeaturestoreEntityVersion":
                 return new FeaturestoreEntityVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:InferenceEndpoint":
+                return new InferenceEndpoint(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:InferenceGroup":
+                return new InferenceGroup(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:InferencePool":
+                return new InferencePool(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Job":
                 return new Job(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:LabelingJob":
@@ -629,6 +714,8 @@ const _module = {
                 return new RegistryModelVersion(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ServerlessEndpoint":
+                return new ServerlessEndpoint(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:WorkspaceConnection":

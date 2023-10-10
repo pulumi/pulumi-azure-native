@@ -52,10 +52,12 @@ export * from "../types/enums/search";
 // Export sub-modules:
 import * as v20210401preview from "./v20210401preview";
 import * as v20220901 from "./v20220901";
+import * as v20231101 from "./v20231101";
 
 export {
     v20210401preview,
     v20220901,
+    v20231101,
 };
 
 const _module = {

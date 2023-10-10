@@ -92,7 +92,7 @@ export class RegistryModelVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20230401:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryModelVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20230401:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryModelVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:RegistryModelVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryModelVersion.__pulumiType, name, resourceInputs, opts);
     }

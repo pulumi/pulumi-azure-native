@@ -110,7 +110,7 @@ export class SenderUsername extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication:SenderUsername" }, { type: "azure-native:communication/v20230301preview:SenderUsername" }, { type: "azure-native:communication/v20230401preview:SenderUsername" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication:SenderUsername" }, { type: "azure-native:communication/v20230301preview:SenderUsername" }, { type: "azure-native:communication/v20230401preview:SenderUsername" }, { type: "azure-native:communication/v20230601preview:SenderUsername" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SenderUsername.__pulumiType, name, resourceInputs, opts);
     }

@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .batch_deployment import *
 from .batch_endpoint import *
+from .capacity_reservation_group import *
 from .code_container import *
 from .code_version import *
 from .component_container import *
@@ -25,11 +26,13 @@ from .featurestore_entity_container_entity import *
 from .featurestore_entity_version import *
 from .get_batch_deployment import *
 from .get_batch_endpoint import *
+from .get_capacity_reservation_group import *
 from .get_code_container import *
 from .get_code_version import *
 from .get_component_container import *
 from .get_component_version import *
 from .get_compute import *
+from .get_compute_allowed_resize_sizes import *
 from .get_data_container import *
 from .get_data_version import *
 from .get_datastore import *
@@ -41,6 +44,11 @@ from .get_featureset_version import *
 from .get_featureset_version_feature import *
 from .get_featurestore_entity_container_entity import *
 from .get_featurestore_entity_version import *
+from .get_inference_endpoint import *
+from .get_inference_group import *
+from .get_inference_group_status import *
+from .get_inference_pool import *
+from .get_inference_pool_status import *
 from .get_job import *
 from .get_labeling_job import *
 from .get_linked_service import *
@@ -67,8 +75,13 @@ from .get_registry_environment_version import *
 from .get_registry_model_container import *
 from .get_registry_model_version import *
 from .get_schedule import *
+from .get_serverless_endpoint import *
+from .get_serverless_endpoint_status import *
 from .get_workspace import *
 from .get_workspace_connection import *
+from .inference_endpoint import *
+from .inference_group import *
+from .inference_pool import *
 from .job import *
 from .labeling_job import *
 from .linked_service import *
@@ -80,6 +93,7 @@ from .list_datastore_secrets import *
 from .list_featureset_version_features import *
 from .list_featureset_version_materialization_jobs import *
 from .list_online_endpoint_keys import *
+from .list_serverless_endpoint_keys import *
 from .list_workspace_connection_secrets import *
 from .list_workspace_keys import *
 from .list_workspace_notebook_access_token import *
@@ -105,6 +119,7 @@ from .registry_environment_version import *
 from .registry_model_container import *
 from .registry_model_version import *
 from .schedule import *
+from .serverless_endpoint import *
 from .workspace import *
 from .workspace_connection import *
 from ._inputs import *
@@ -136,6 +151,8 @@ if typing.TYPE_CHECKING:
     v20230401preview = __v20230401preview
     import pulumi_azure_native.machinelearningservices.v20230601preview as __v20230601preview
     v20230601preview = __v20230601preview
+    import pulumi_azure_native.machinelearningservices.v20230801preview as __v20230801preview
+    v20230801preview = __v20230801preview
 else:
     v20200501preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200501preview')
     v20200515preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200515preview')
@@ -149,4 +166,5 @@ else:
     v20230401 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230401')
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230401preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230601preview')
+    v20230801preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230801preview')
 

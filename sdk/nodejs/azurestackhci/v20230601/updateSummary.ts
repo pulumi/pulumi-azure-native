@@ -132,7 +132,7 @@ export class UpdateSummary extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:UpdateSummary" }, { type: "azure-native:azurestackhci/v20221201:UpdateSummary" }, { type: "azure-native:azurestackhci/v20221215preview:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230201:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230301:UpdateSummary" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:UpdateSummary" }, { type: "azure-native:azurestackhci/v20221201:UpdateSummary" }, { type: "azure-native:azurestackhci/v20221215preview:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230201:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230301:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230801:UpdateSummary" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UpdateSummary.__pulumiType, name, resourceInputs, opts);
     }

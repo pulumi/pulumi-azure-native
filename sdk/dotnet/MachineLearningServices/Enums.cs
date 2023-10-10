@@ -39,6 +39,36 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// [Required] Authentication mode for the endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthMode : IEquatable<AuthMode>
+    {
+        private readonly string _value;
+
+        private AuthMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthMode AAD { get; } = new AuthMode("AAD");
+
+        public static bool operator ==(AuthMode left, AuthMode right) => left.Equals(right);
+        public static bool operator !=(AuthMode left, AuthMode right) => !left.Equals(right);
+
+        public static explicit operator string(AuthMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthMode other && Equals(other);
+        public bool Equals(AuthMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// When to check if an asset is expired
     /// </summary>
     [EnumType]
@@ -3153,6 +3183,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SecretsType other && Equals(other);
         public bool Equals(SecretsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the authentication mode for the Serverless endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerlessInferenceEndpointAuthMode : IEquatable<ServerlessInferenceEndpointAuthMode>
+    {
+        private readonly string _value;
+
+        private ServerlessInferenceEndpointAuthMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerlessInferenceEndpointAuthMode Key { get; } = new ServerlessInferenceEndpointAuthMode("Key");
+        public static ServerlessInferenceEndpointAuthMode AAD { get; } = new ServerlessInferenceEndpointAuthMode("AAD");
+
+        public static bool operator ==(ServerlessInferenceEndpointAuthMode left, ServerlessInferenceEndpointAuthMode right) => left.Equals(right);
+        public static bool operator !=(ServerlessInferenceEndpointAuthMode left, ServerlessInferenceEndpointAuthMode right) => !left.Equals(right);
+
+        public static explicit operator string(ServerlessInferenceEndpointAuthMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerlessInferenceEndpointAuthMode other && Equals(other);
+        public bool Equals(ServerlessInferenceEndpointAuthMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

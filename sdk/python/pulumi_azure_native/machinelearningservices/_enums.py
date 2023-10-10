@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ApplicationSharingPolicy',
+    'AuthMode',
     'AutoDeleteCondition',
     'AutoRebuildSetting',
     'BatchLoggingLevel',
@@ -91,6 +92,7 @@ __all__ = [
     'ScheduleStatus',
     'SeasonalityMode',
     'SecretsType',
+    'ServerlessInferenceEndpointAuthMode',
     'ServiceDataAccessAuthIdentity',
     'ShortSeriesHandlingConfiguration',
     'SkuTier',
@@ -121,6 +123,13 @@ class ApplicationSharingPolicy(str, Enum):
     """
     PERSONAL = "Personal"
     SHARED = "Shared"
+
+
+class AuthMode(str, Enum):
+    """
+    [Required] Authentication mode for the endpoint.
+    """
+    AAD = "AAD"
 
 
 class AutoDeleteCondition(str, Enum):
@@ -1288,6 +1297,14 @@ class SecretsType(str, Enum):
     CERTIFICATE = "Certificate"
     SAS = "Sas"
     SERVICE_PRINCIPAL = "ServicePrincipal"
+
+
+class ServerlessInferenceEndpointAuthMode(str, Enum):
+    """
+    Specifies the authentication mode for the Serverless endpoint.
+    """
+    KEY = "Key"
+    AAD = "AAD"
 
 
 class ServiceDataAccessAuthIdentity(str, Enum):

@@ -12,6 +12,7 @@ import * as v20220201preview from "./v20220201preview";
 import * as v20230401 from "./v20230401";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230601preview from "./v20230601preview";
+import * as v20230801preview from "./v20230801preview";
 
 export {
     v20200501preview,
@@ -24,6 +25,7 @@ export {
     v20230401,
     v20230401preview,
     v20230601preview,
+    v20230801preview,
 };
 
 export const ApplicationSharingPolicy = {
@@ -35,6 +37,15 @@ export const ApplicationSharingPolicy = {
  * Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
  */
 export type ApplicationSharingPolicy = (typeof ApplicationSharingPolicy)[keyof typeof ApplicationSharingPolicy];
+
+export const AuthMode = {
+    AAD: "AAD",
+} as const;
+
+/**
+ * [Required] Authentication mode for the endpoint.
+ */
+export type AuthMode = (typeof AuthMode)[keyof typeof AuthMode];
 
 export const AutoDeleteCondition = {
     CreatedGreaterThan: "CreatedGreaterThan",
@@ -1372,6 +1383,16 @@ export const SecretsType = {
  * [Required] Credential type used to authentication with storage.
  */
 export type SecretsType = (typeof SecretsType)[keyof typeof SecretsType];
+
+export const ServerlessInferenceEndpointAuthMode = {
+    Key: "Key",
+    AAD: "AAD",
+} as const;
+
+/**
+ * Specifies the authentication mode for the Serverless endpoint.
+ */
+export type ServerlessInferenceEndpointAuthMode = (typeof ServerlessInferenceEndpointAuthMode)[keyof typeof ServerlessInferenceEndpointAuthMode];
 
 export const ServiceDataAccessAuthIdentity = {
     /**

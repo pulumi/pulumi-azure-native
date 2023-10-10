@@ -68,6 +68,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:FeaturesetContainerEntity"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:FeaturesetContainerEntity"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
