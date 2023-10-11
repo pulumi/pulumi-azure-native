@@ -3794,13 +3794,9 @@
       "2023-11-01-preview"
     ],
     "maccs": [
-      "2023-11-01-beta",
       "2023-11-01-preview"
     ],
     "maccs/contributors": [
-      "2023-07-01-beta",
-      "2023-07-01-preview",
-      "2023-11-01-beta",
       "2023-11-01-preview"
     ],
     "operationresults": [
@@ -3849,6 +3845,10 @@
       "2023-07-01-beta",
       "2023-07-01-preview"
     ],
+    "savingsplanorders/return": [
+      "2023-07-01-beta",
+      "2023-07-01-preview"
+    ],
     "savingsplanorders/savingsplans": [
       "2021-07-01-beta",
       "2021-07-01-privatepreview",
@@ -3876,6 +3876,8 @@
       "2022-06-02-privatepreview",
       "2022-11-01",
       "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview",
       "2023-11-01-beta",
       "2023-11-01-preview"
     ]
@@ -13070,26 +13072,32 @@
   "devhub": {
     "": [
       "2022-04-01-preview",
-      "2022-10-11-preview"
+      "2022-10-11-preview",
+      "2023-08-01"
     ],
     "locations": [
       "2022-04-01-preview",
-      "2022-10-11-preview"
+      "2022-10-11-preview",
+      "2023-08-01"
     ],
     "locations/generatepreviewartifacts": [
-      "2022-10-11-preview"
+      "2022-10-11-preview",
+      "2023-08-01"
     ],
     "locations/githuboauth": [
       "2022-04-01-preview",
-      "2022-10-11-preview"
+      "2022-10-11-preview",
+      "2023-08-01"
     ],
     "operations": [
       "2022-04-01-preview",
-      "2022-10-11-preview"
+      "2022-10-11-preview",
+      "2023-08-01"
     ],
     "workflows": [
       "2022-04-01-preview",
-      "2022-10-11-preview"
+      "2022-10-11-preview",
+      "2023-08-01"
     ]
   },
   "devices": {
@@ -17059,8 +17067,7 @@
     ],
     "tenantactiongroups": [
       "2023-03-01-preview",
-      "2023-05-01-preview",
-      "2023-08-01-preview"
+      "2023-05-01-preview"
     ],
     "topology": [
       "2019-10-17-preview"
@@ -17094,6 +17101,38 @@
     "workbooktemplates": [
       "2019-10-17-preview",
       "2020-11-20"
+    ]
+  },
+  "integrationspaces": {
+    "": [
+      "2023-11-14-preview"
+    ],
+    "locations": [
+      "2023-11-14-preview"
+    ],
+    "locations/operationstatuses": [
+      "2023-11-14-preview"
+    ],
+    "operations": [
+      "2023-11-14-preview"
+    ],
+    "spaces": [
+      "2023-11-14-preview"
+    ],
+    "spaces/applications": [
+      "2023-11-14-preview"
+    ],
+    "spaces/applications/businessprocesses": [
+      "2023-11-14-preview"
+    ],
+    "spaces/applications/businessprocesses/versions": [
+      "2023-11-14-preview"
+    ],
+    "spaces/applications/resources": [
+      "2023-11-14-preview"
+    ],
+    "spaces/infrastructureresources": [
+      "2023-11-14-preview"
     ]
   },
   "iotcentral": {
@@ -28971,9 +29010,7 @@
       "2022-04-01-beta",
       "2022-04-01-preview",
       "2022-05-01",
-      "2022-05-01-preview",
       "2022-07-01-preview",
-      "2022-08-01-preview",
       "2022-11-20-preview",
       "2022-12-01-preview",
       "2023-01-01",
@@ -29244,10 +29281,6 @@
       "2020-01-01-preview"
     ],
     "securityconnectors": [
-      "2021-07-01-preview",
-      "2021-12-01-preview",
-      "2022-05-01-preview",
-      "2022-08-01-preview",
       "2023-03-01-preview"
     ],
     "securitycontacts": [
