@@ -1,6 +1,8 @@
 module github.com/pulumi/pulumi-azure-native/v2/provider
 
-go 1.18
+go 1.21.0
+
+toolchain go1.21.3
 
 require (
 	github.com/Azure/azure-sdk-for-go v68.0.0+incompatible

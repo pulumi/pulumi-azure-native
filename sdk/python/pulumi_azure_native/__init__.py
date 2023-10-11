@@ -4492,7 +4492,12 @@ _utilities.register(
   "mod": "dbformysql/v20171201",
   "fqn": "pulumi_azure_native.dbformysql.v20171201",
   "classes": {
-   "azure-native:dbformysql/v20171201:Server": "Server"
+   "azure-native:dbformysql/v20171201:Configuration": "Configuration",
+   "azure-native:dbformysql/v20171201:Database": "Database",
+   "azure-native:dbformysql/v20171201:FirewallRule": "FirewallRule",
+   "azure-native:dbformysql/v20171201:Server": "Server",
+   "azure-native:dbformysql/v20171201:ServerAdministrator": "ServerAdministrator",
+   "azure-native:dbformysql/v20171201:VirtualNetworkRule": "VirtualNetworkRule"
   }
  },
  {
@@ -4586,7 +4591,13 @@ _utilities.register(
   "mod": "dbforpostgresql/v20171201",
   "fqn": "pulumi_azure_native.dbforpostgresql.v20171201",
   "classes": {
-   "azure-native:dbforpostgresql/v20171201:Server": "Server"
+   "azure-native:dbforpostgresql/v20171201:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20171201:Database": "Database",
+   "azure-native:dbforpostgresql/v20171201:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20171201:Server": "Server",
+   "azure-native:dbforpostgresql/v20171201:ServerAdministrator": "ServerAdministrator",
+   "azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy": "ServerSecurityAlertPolicy",
+   "azure-native:dbforpostgresql/v20171201:VirtualNetworkRule": "VirtualNetworkRule"
   }
  },
  {
