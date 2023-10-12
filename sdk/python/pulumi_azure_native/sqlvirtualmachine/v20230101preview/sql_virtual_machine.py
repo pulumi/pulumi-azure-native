@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -62,51 +62,100 @@ class SqlVirtualMachineArgs:
         :param pulumi.Input['WsfcDomainCredentialsArgs'] wsfc_domain_credentials: Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         :param pulumi.Input[str] wsfc_static_ip: Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SqlVirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            assessment_settings=assessment_settings,
+            auto_backup_settings=auto_backup_settings,
+            auto_patching_settings=auto_patching_settings,
+            enable_automatic_upgrade=enable_automatic_upgrade,
+            identity=identity,
+            key_vault_credential_settings=key_vault_credential_settings,
+            least_privilege_mode=least_privilege_mode,
+            location=location,
+            server_configurations_management_settings=server_configurations_management_settings,
+            sql_image_offer=sql_image_offer,
+            sql_image_sku=sql_image_sku,
+            sql_management=sql_management,
+            sql_server_license_type=sql_server_license_type,
+            sql_virtual_machine_group_resource_id=sql_virtual_machine_group_resource_id,
+            sql_virtual_machine_name=sql_virtual_machine_name,
+            storage_configuration_settings=storage_configuration_settings,
+            tags=tags,
+            virtual_machine_resource_id=virtual_machine_resource_id,
+            wsfc_domain_credentials=wsfc_domain_credentials,
+            wsfc_static_ip=wsfc_static_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             assessment_settings: Optional[pulumi.Input['AssessmentSettingsArgs']] = None,
+             auto_backup_settings: Optional[pulumi.Input['AutoBackupSettingsArgs']] = None,
+             auto_patching_settings: Optional[pulumi.Input['AutoPatchingSettingsArgs']] = None,
+             enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             key_vault_credential_settings: Optional[pulumi.Input['KeyVaultCredentialSettingsArgs']] = None,
+             least_privilege_mode: Optional[pulumi.Input[Union[str, 'LeastPrivilegeMode']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             server_configurations_management_settings: Optional[pulumi.Input['ServerConfigurationsManagementSettingsArgs']] = None,
+             sql_image_offer: Optional[pulumi.Input[str]] = None,
+             sql_image_sku: Optional[pulumi.Input[Union[str, 'SqlImageSku']]] = None,
+             sql_management: Optional[pulumi.Input[Union[str, 'SqlManagementMode']]] = None,
+             sql_server_license_type: Optional[pulumi.Input[Union[str, 'SqlServerLicenseType']]] = None,
+             sql_virtual_machine_group_resource_id: Optional[pulumi.Input[str]] = None,
+             sql_virtual_machine_name: Optional[pulumi.Input[str]] = None,
+             storage_configuration_settings: Optional[pulumi.Input['StorageConfigurationSettingsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_machine_resource_id: Optional[pulumi.Input[str]] = None,
+             wsfc_domain_credentials: Optional[pulumi.Input['WsfcDomainCredentialsArgs']] = None,
+             wsfc_static_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if assessment_settings is not None:
-            pulumi.set(__self__, "assessment_settings", assessment_settings)
+            _setter("assessment_settings", assessment_settings)
         if auto_backup_settings is not None:
-            pulumi.set(__self__, "auto_backup_settings", auto_backup_settings)
+            _setter("auto_backup_settings", auto_backup_settings)
         if auto_patching_settings is not None:
-            pulumi.set(__self__, "auto_patching_settings", auto_patching_settings)
+            _setter("auto_patching_settings", auto_patching_settings)
         if enable_automatic_upgrade is None:
             enable_automatic_upgrade = False
         if enable_automatic_upgrade is not None:
-            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
+            _setter("enable_automatic_upgrade", enable_automatic_upgrade)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_credential_settings is not None:
-            pulumi.set(__self__, "key_vault_credential_settings", key_vault_credential_settings)
+            _setter("key_vault_credential_settings", key_vault_credential_settings)
         if least_privilege_mode is None:
             least_privilege_mode = 'NotSet'
         if least_privilege_mode is not None:
-            pulumi.set(__self__, "least_privilege_mode", least_privilege_mode)
+            _setter("least_privilege_mode", least_privilege_mode)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if server_configurations_management_settings is not None:
-            pulumi.set(__self__, "server_configurations_management_settings", server_configurations_management_settings)
+            _setter("server_configurations_management_settings", server_configurations_management_settings)
         if sql_image_offer is not None:
-            pulumi.set(__self__, "sql_image_offer", sql_image_offer)
+            _setter("sql_image_offer", sql_image_offer)
         if sql_image_sku is not None:
-            pulumi.set(__self__, "sql_image_sku", sql_image_sku)
+            _setter("sql_image_sku", sql_image_sku)
         if sql_management is not None:
-            pulumi.set(__self__, "sql_management", sql_management)
+            _setter("sql_management", sql_management)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if sql_virtual_machine_group_resource_id is not None:
-            pulumi.set(__self__, "sql_virtual_machine_group_resource_id", sql_virtual_machine_group_resource_id)
+            _setter("sql_virtual_machine_group_resource_id", sql_virtual_machine_group_resource_id)
         if sql_virtual_machine_name is not None:
-            pulumi.set(__self__, "sql_virtual_machine_name", sql_virtual_machine_name)
+            _setter("sql_virtual_machine_name", sql_virtual_machine_name)
         if storage_configuration_settings is not None:
-            pulumi.set(__self__, "storage_configuration_settings", storage_configuration_settings)
+            _setter("storage_configuration_settings", storage_configuration_settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_machine_resource_id is not None:
-            pulumi.set(__self__, "virtual_machine_resource_id", virtual_machine_resource_id)
+            _setter("virtual_machine_resource_id", virtual_machine_resource_id)
         if wsfc_domain_credentials is not None:
-            pulumi.set(__self__, "wsfc_domain_credentials", wsfc_domain_credentials)
+            _setter("wsfc_domain_credentials", wsfc_domain_credentials)
         if wsfc_static_ip is not None:
-            pulumi.set(__self__, "wsfc_static_ip", wsfc_static_ip)
+            _setter("wsfc_static_ip", wsfc_static_ip)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -434,6 +483,10 @@ class SqlVirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlVirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -469,13 +522,38 @@ class SqlVirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlVirtualMachineArgs.__new__(SqlVirtualMachineArgs)
 
+            if assessment_settings is not None and not isinstance(assessment_settings, AssessmentSettingsArgs):
+                assessment_settings = assessment_settings or {}
+                def _setter(key, value):
+                    assessment_settings[key] = value
+                AssessmentSettingsArgs._configure(_setter, **assessment_settings)
             __props__.__dict__["assessment_settings"] = assessment_settings
+            if auto_backup_settings is not None and not isinstance(auto_backup_settings, AutoBackupSettingsArgs):
+                auto_backup_settings = auto_backup_settings or {}
+                def _setter(key, value):
+                    auto_backup_settings[key] = value
+                AutoBackupSettingsArgs._configure(_setter, **auto_backup_settings)
             __props__.__dict__["auto_backup_settings"] = auto_backup_settings
+            if auto_patching_settings is not None and not isinstance(auto_patching_settings, AutoPatchingSettingsArgs):
+                auto_patching_settings = auto_patching_settings or {}
+                def _setter(key, value):
+                    auto_patching_settings[key] = value
+                AutoPatchingSettingsArgs._configure(_setter, **auto_patching_settings)
             __props__.__dict__["auto_patching_settings"] = auto_patching_settings
             if enable_automatic_upgrade is None:
                 enable_automatic_upgrade = False
             __props__.__dict__["enable_automatic_upgrade"] = enable_automatic_upgrade
+            if identity is not None and not isinstance(identity, ResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if key_vault_credential_settings is not None and not isinstance(key_vault_credential_settings, KeyVaultCredentialSettingsArgs):
+                key_vault_credential_settings = key_vault_credential_settings or {}
+                def _setter(key, value):
+                    key_vault_credential_settings[key] = value
+                KeyVaultCredentialSettingsArgs._configure(_setter, **key_vault_credential_settings)
             __props__.__dict__["key_vault_credential_settings"] = key_vault_credential_settings
             if least_privilege_mode is None:
                 least_privilege_mode = 'NotSet'
@@ -484,6 +562,11 @@ class SqlVirtualMachine(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if server_configurations_management_settings is not None and not isinstance(server_configurations_management_settings, ServerConfigurationsManagementSettingsArgs):
+                server_configurations_management_settings = server_configurations_management_settings or {}
+                def _setter(key, value):
+                    server_configurations_management_settings[key] = value
+                ServerConfigurationsManagementSettingsArgs._configure(_setter, **server_configurations_management_settings)
             __props__.__dict__["server_configurations_management_settings"] = server_configurations_management_settings
             __props__.__dict__["sql_image_offer"] = sql_image_offer
             __props__.__dict__["sql_image_sku"] = sql_image_sku
@@ -491,9 +574,19 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["sql_server_license_type"] = sql_server_license_type
             __props__.__dict__["sql_virtual_machine_group_resource_id"] = sql_virtual_machine_group_resource_id
             __props__.__dict__["sql_virtual_machine_name"] = sql_virtual_machine_name
+            if storage_configuration_settings is not None and not isinstance(storage_configuration_settings, StorageConfigurationSettingsArgs):
+                storage_configuration_settings = storage_configuration_settings or {}
+                def _setter(key, value):
+                    storage_configuration_settings[key] = value
+                StorageConfigurationSettingsArgs._configure(_setter, **storage_configuration_settings)
             __props__.__dict__["storage_configuration_settings"] = storage_configuration_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_machine_resource_id"] = virtual_machine_resource_id
+            if wsfc_domain_credentials is not None and not isinstance(wsfc_domain_credentials, WsfcDomainCredentialsArgs):
+                wsfc_domain_credentials = wsfc_domain_credentials or {}
+                def _setter(key, value):
+                    wsfc_domain_credentials[key] = value
+                WsfcDomainCredentialsArgs._configure(_setter, **wsfc_domain_credentials)
             __props__.__dict__["wsfc_domain_credentials"] = wsfc_domain_credentials
             __props__.__dict__["wsfc_static_ip"] = wsfc_static_ip
             __props__.__dict__["name"] = None

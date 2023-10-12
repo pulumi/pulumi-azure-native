@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -22,8 +22,17 @@ class DppIdentityDetailsArgs:
         Identity details
         :param pulumi.Input[str] type: The identityType which can be either SystemAssigned or None
         """
+        DppIdentityDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -45,8 +54,17 @@ class ResourceGuardArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vault_critical_operation_exclusion_list: List of critical operations which are not protected by this resourceGuard
         """
+        ResourceGuardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vault_critical_operation_exclusion_list=vault_critical_operation_exclusion_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vault_critical_operation_exclusion_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if vault_critical_operation_exclusion_list is not None:
-            pulumi.set(__self__, "vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
+            _setter("vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
 
     @property
     @pulumi.getter(name="vaultCriticalOperationExclusionList")

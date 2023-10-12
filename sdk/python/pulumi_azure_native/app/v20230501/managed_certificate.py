@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,35 @@ class ManagedCertificateArgs:
         :param pulumi.Input['ManagedCertificatePropertiesArgs'] properties: Certificate resource specific properties
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_name=environment_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            managed_certificate_name=managed_certificate_name,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             managed_certificate_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ManagedCertificatePropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment_name", environment_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_certificate_name is not None:
-            pulumi.set(__self__, "managed_certificate_name", managed_certificate_name)
+            _setter("managed_certificate_name", managed_certificate_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -159,6 +178,10 @@ class ManagedCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -184,6 +207,11 @@ class ManagedCertificate(pulumi.CustomResource):
             __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_certificate_name"] = managed_certificate_name
+            if properties is not None and not isinstance(properties, ManagedCertificatePropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ManagedCertificatePropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

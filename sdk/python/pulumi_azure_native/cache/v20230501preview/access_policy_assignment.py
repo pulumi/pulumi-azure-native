@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['AccessPolicyAssignmentArgs', 'AccessPolicyAssignment']
@@ -29,13 +29,32 @@ class AccessPolicyAssignmentArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] access_policy_assignment_name: The name of the access policy assignment.
         """
-        pulumi.set(__self__, "access_policy_name", access_policy_name)
-        pulumi.set(__self__, "cache_name", cache_name)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "object_id_alias", object_id_alias)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccessPolicyAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy_name=access_policy_name,
+            cache_name=cache_name,
+            object_id=object_id,
+            object_id_alias=object_id_alias,
+            resource_group_name=resource_group_name,
+            access_policy_assignment_name=access_policy_assignment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy_name: pulumi.Input[str],
+             cache_name: pulumi.Input[str],
+             object_id: pulumi.Input[str],
+             object_id_alias: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             access_policy_assignment_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_policy_name", access_policy_name)
+        _setter("cache_name", cache_name)
+        _setter("object_id", object_id)
+        _setter("object_id_alias", object_id_alias)
+        _setter("resource_group_name", resource_group_name)
         if access_policy_assignment_name is not None:
-            pulumi.set(__self__, "access_policy_assignment_name", access_policy_assignment_name)
+            _setter("access_policy_assignment_name", access_policy_assignment_name)
 
     @property
     @pulumi.getter(name="accessPolicyName")
@@ -153,6 +172,10 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPolicyAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

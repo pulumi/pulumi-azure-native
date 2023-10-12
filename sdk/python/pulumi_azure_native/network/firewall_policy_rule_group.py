@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,39 @@ class FirewallPolicyRuleGroupArgs:
         :param pulumi.Input[str] rule_group_name: The name of the FirewallPolicyRuleGroup.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleArgs', 'FirewallPolicyNatRuleArgs']]]] rules: Group of Firewall Policy rules.
         """
-        pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FirewallPolicyRuleGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_policy_name=firewall_policy_name,
+            resource_group_name=resource_group_name,
+            id=id,
+            name=name,
+            priority=priority,
+            rule_group_name=rule_group_name,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_policy_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rule_group_name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleArgs', 'FirewallPolicyNatRuleArgs']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("firewall_policy_name", firewall_policy_name)
+        _setter("resource_group_name", resource_group_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rule_group_name is not None:
-            pulumi.set(__self__, "rule_group_name", rule_group_name)
+            _setter("rule_group_name", rule_group_name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter(name="firewallPolicyName")
@@ -179,6 +200,10 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallPolicyRuleGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,28 +44,59 @@ class TaskArgs:
         :param pulumi.Input[int] timeout: Run timeout in seconds.
         :param pulumi.Input['TriggerPropertiesArgs'] trigger: The properties that describe all triggers for the task.
         """
-        pulumi.set(__self__, "platform", platform)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "step", step)
+        TaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            platform=platform,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            step=step,
+            agent_configuration=agent_configuration,
+            credentials=credentials,
+            location=location,
+            status=status,
+            tags=tags,
+            task_name=task_name,
+            timeout=timeout,
+            trigger=trigger,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             platform: pulumi.Input['PlatformPropertiesArgs'],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             step: pulumi.Input['TaskStepPropertiesArgs'],
+             agent_configuration: Optional[pulumi.Input['AgentPropertiesArgs']] = None,
+             credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'TaskStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             task_name: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             trigger: Optional[pulumi.Input['TriggerPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("platform", platform)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("step", step)
         if agent_configuration is not None:
-            pulumi.set(__self__, "agent_configuration", agent_configuration)
+            _setter("agent_configuration", agent_configuration)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task_name is not None:
-            pulumi.set(__self__, "task_name", task_name)
+            _setter("task_name", task_name)
         if timeout is None:
             timeout = 3600
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if trigger is not None:
-            pulumi.set(__self__, "trigger", trigger)
+            _setter("trigger", trigger)
 
     @property
     @pulumi.getter
@@ -269,6 +300,10 @@ class Task(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -295,9 +330,24 @@ class Task(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TaskArgs.__new__(TaskArgs)
 
+            if agent_configuration is not None and not isinstance(agent_configuration, AgentPropertiesArgs):
+                agent_configuration = agent_configuration or {}
+                def _setter(key, value):
+                    agent_configuration[key] = value
+                AgentPropertiesArgs._configure(_setter, **agent_configuration)
             __props__.__dict__["agent_configuration"] = agent_configuration
+            if credentials is not None and not isinstance(credentials, CredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                CredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["location"] = location
+            if platform is not None and not isinstance(platform, PlatformPropertiesArgs):
+                platform = platform or {}
+                def _setter(key, value):
+                    platform[key] = value
+                PlatformPropertiesArgs._configure(_setter, **platform)
             if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")
             __props__.__dict__["platform"] = platform
@@ -308,6 +358,11 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
+            if step is not None and not isinstance(step, TaskStepPropertiesArgs):
+                step = step or {}
+                def _setter(key, value):
+                    step[key] = value
+                TaskStepPropertiesArgs._configure(_setter, **step)
             if step is None and not opts.urn:
                 raise TypeError("Missing required property 'step'")
             __props__.__dict__["step"] = step
@@ -316,6 +371,11 @@ class Task(pulumi.CustomResource):
             if timeout is None:
                 timeout = 3600
             __props__.__dict__["timeout"] = timeout
+            if trigger is not None and not isinstance(trigger, TriggerPropertiesArgs):
+                trigger = trigger or {}
+                def _setter(key, value):
+                    trigger[key] = value
+                TriggerPropertiesArgs._configure(_setter, **trigger)
             __props__.__dict__["trigger"] = trigger
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["name"] = None

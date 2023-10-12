@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['WebAppHybridConnectionArgs', 'WebAppHybridConnection']
@@ -42,27 +42,58 @@ class WebAppHybridConnectionArgs:
         :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
         :param pulumi.Input[str] service_bus_suffix: The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppHybridConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            hostname=hostname,
+            kind=kind,
+            port=port,
+            relay_arm_uri=relay_arm_uri,
+            relay_name=relay_name,
+            send_key_name=send_key_name,
+            send_key_value=send_key_value,
+            service_bus_namespace=service_bus_namespace,
+            service_bus_suffix=service_bus_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             hostname: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             relay_arm_uri: Optional[pulumi.Input[str]] = None,
+             relay_name: Optional[pulumi.Input[str]] = None,
+             send_key_name: Optional[pulumi.Input[str]] = None,
+             send_key_value: Optional[pulumi.Input[str]] = None,
+             service_bus_namespace: Optional[pulumi.Input[str]] = None,
+             service_bus_suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if relay_arm_uri is not None:
-            pulumi.set(__self__, "relay_arm_uri", relay_arm_uri)
+            _setter("relay_arm_uri", relay_arm_uri)
         if relay_name is not None:
-            pulumi.set(__self__, "relay_name", relay_name)
+            _setter("relay_name", relay_name)
         if send_key_name is not None:
-            pulumi.set(__self__, "send_key_name", send_key_name)
+            _setter("send_key_name", send_key_name)
         if send_key_value is not None:
-            pulumi.set(__self__, "send_key_value", send_key_value)
+            _setter("send_key_value", send_key_value)
         if service_bus_namespace is not None:
-            pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+            _setter("service_bus_namespace", service_bus_namespace)
         if service_bus_suffix is not None:
-            pulumi.set(__self__, "service_bus_suffix", service_bus_suffix)
+            _setter("service_bus_suffix", service_bus_suffix)
 
     @property
     @pulumi.getter
@@ -266,6 +297,10 @@ class WebAppHybridConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppHybridConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -42,8 +42,17 @@ class CreatorPropertiesResponse(dict):
         Creator resource properties
         :param str provisioning_state: The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
         """
+        CreatorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -82,8 +91,17 @@ class PrivateAtlasPropertiesResponse(dict):
         Private Atlas resource properties
         :param str provisioning_state: The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
         """
+        PrivateAtlasPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="provisioningState")

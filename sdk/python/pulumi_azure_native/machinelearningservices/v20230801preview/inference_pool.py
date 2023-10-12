@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,21 +38,46 @@ class InferencePoolInitArgs:
         :param pulumi.Input['SkuArgs'] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "inference_pool_properties", inference_pool_properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        InferencePoolInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inference_pool_properties=inference_pool_properties,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            identity=identity,
+            inference_pool_name=inference_pool_name,
+            kind=kind,
+            location=location,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inference_pool_properties: pulumi.Input['InferencePoolArgs'],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             inference_pool_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("inference_pool_properties", inference_pool_properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inference_pool_name is not None:
-            pulumi.set(__self__, "inference_pool_name", inference_pool_name)
+            _setter("inference_pool_name", inference_pool_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="inferencePoolProperties")
@@ -210,6 +235,10 @@ class InferencePool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InferencePoolInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -233,8 +262,18 @@ class InferencePool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InferencePoolInitArgs.__new__(InferencePoolInitArgs)
 
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inference_pool_name"] = inference_pool_name
+            if inference_pool_properties is not None and not isinstance(inference_pool_properties, InferencePoolArgs):
+                inference_pool_properties = inference_pool_properties or {}
+                def _setter(key, value):
+                    inference_pool_properties[key] = value
+                InferencePoolArgs._configure(_setter, **inference_pool_properties)
             if inference_pool_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'inference_pool_properties'")
             __props__.__dict__["inference_pool_properties"] = inference_pool_properties
@@ -243,6 +282,11 @@ class InferencePool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             if workspace_name is None and not opts.urn:

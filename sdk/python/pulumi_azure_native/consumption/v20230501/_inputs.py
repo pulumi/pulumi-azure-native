@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,9 +30,22 @@ class BudgetComparisonExpressionArgs:
         :param pulumi.Input[Union[str, 'BudgetOperatorType']] operator: The operator to use for comparison.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        BudgetComparisonExpressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[Union[str, 'BudgetOperatorType']],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -81,10 +94,21 @@ class BudgetFilterPropertiesArgs:
         :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
         :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag
         """
+        BudgetFilterPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+             tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -123,12 +147,25 @@ class BudgetFilterArgs:
         :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
         :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag
         """
+        BudgetFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimensions=dimensions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
+             dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+             tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="and")
@@ -177,9 +214,20 @@ class BudgetTimePeriodArgs:
         :param pulumi.Input[str] start_date: The start date for the budget.
         :param pulumi.Input[str] end_date: The end date for the budget. If not provided, we default this to 10 years from the start date.
         """
-        pulumi.set(__self__, "start_date", start_date)
+        BudgetTimePeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            start_date=start_date,
+            end_date=end_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             start_date: pulumi.Input[str],
+             end_date: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("start_date", start_date)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
 
     @property
     @pulumi.getter(name="startDate")
@@ -228,20 +276,43 @@ class NotificationArgs:
         :param pulumi.Input[Union[str, 'CultureCode']] locale: Language in which the recipient will receive the notification
         :param pulumi.Input[Union[str, 'ThresholdType']] threshold_type: The type of threshold
         """
-        pulumi.set(__self__, "contact_emails", contact_emails)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
+        NotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_emails=contact_emails,
+            enabled=enabled,
+            operator=operator,
+            threshold=threshold,
+            contact_groups=contact_groups,
+            contact_roles=contact_roles,
+            locale=locale,
+            threshold_type=threshold_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
+             enabled: pulumi.Input[bool],
+             operator: pulumi.Input[Union[str, 'OperatorType']],
+             threshold: pulumi.Input[float],
+             contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             locale: Optional[pulumi.Input[Union[str, 'CultureCode']]] = None,
+             threshold_type: Optional[pulumi.Input[Union[str, 'ThresholdType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contact_emails", contact_emails)
+        _setter("enabled", enabled)
+        _setter("operator", operator)
+        _setter("threshold", threshold)
         if contact_groups is not None:
-            pulumi.set(__self__, "contact_groups", contact_groups)
+            _setter("contact_groups", contact_groups)
         if contact_roles is not None:
-            pulumi.set(__self__, "contact_roles", contact_roles)
+            _setter("contact_roles", contact_roles)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if threshold_type is None:
             threshold_type = 'Actual'
         if threshold_type is not None:
-            pulumi.set(__self__, "threshold_type", threshold_type)
+            _setter("threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="contactEmails")

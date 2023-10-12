@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,29 +46,62 @@ class LiveEventArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] vanity_url: The Live Event vanity URL flag.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "input", input)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LiveEventArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            input=input,
+            resource_group_name=resource_group_name,
+            auto_start=auto_start,
+            cross_site_access_policies=cross_site_access_policies,
+            description=description,
+            encoding=encoding,
+            live_event_name=live_event_name,
+            location=location,
+            preview=preview,
+            stream_options=stream_options,
+            tags=tags,
+            vanity_url=vanity_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             input: pulumi.Input['LiveEventInputArgs'],
+             resource_group_name: pulumi.Input[str],
+             auto_start: Optional[pulumi.Input[bool]] = None,
+             cross_site_access_policies: Optional[pulumi.Input['CrossSiteAccessPoliciesArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encoding: Optional[pulumi.Input['LiveEventEncodingArgs']] = None,
+             live_event_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             preview: Optional[pulumi.Input['LiveEventPreviewArgs']] = None,
+             stream_options: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOptionsFlag']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vanity_url: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("input", input)
+        _setter("resource_group_name", resource_group_name)
         if auto_start is not None:
-            pulumi.set(__self__, "auto_start", auto_start)
+            _setter("auto_start", auto_start)
         if cross_site_access_policies is not None:
-            pulumi.set(__self__, "cross_site_access_policies", cross_site_access_policies)
+            _setter("cross_site_access_policies", cross_site_access_policies)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if live_event_name is not None:
-            pulumi.set(__self__, "live_event_name", live_event_name)
+            _setter("live_event_name", live_event_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if preview is not None:
-            pulumi.set(__self__, "preview", preview)
+            _setter("preview", preview)
         if stream_options is not None:
-            pulumi.set(__self__, "stream_options", stream_options)
+            _setter("stream_options", stream_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vanity_url is not None:
-            pulumi.set(__self__, "vanity_url", vanity_url)
+            _setter("vanity_url", vanity_url)
 
     @property
     @pulumi.getter(name="accountName")
@@ -284,6 +317,10 @@ class LiveEvent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LiveEventArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -315,14 +352,34 @@ class LiveEvent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["auto_start"] = auto_start
+            if cross_site_access_policies is not None and not isinstance(cross_site_access_policies, CrossSiteAccessPoliciesArgs):
+                cross_site_access_policies = cross_site_access_policies or {}
+                def _setter(key, value):
+                    cross_site_access_policies[key] = value
+                CrossSiteAccessPoliciesArgs._configure(_setter, **cross_site_access_policies)
             __props__.__dict__["cross_site_access_policies"] = cross_site_access_policies
             __props__.__dict__["description"] = description
+            if encoding is not None and not isinstance(encoding, LiveEventEncodingArgs):
+                encoding = encoding or {}
+                def _setter(key, value):
+                    encoding[key] = value
+                LiveEventEncodingArgs._configure(_setter, **encoding)
             __props__.__dict__["encoding"] = encoding
+            if input is not None and not isinstance(input, LiveEventInputArgs):
+                input = input or {}
+                def _setter(key, value):
+                    input[key] = value
+                LiveEventInputArgs._configure(_setter, **input)
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__.__dict__["input"] = input
             __props__.__dict__["live_event_name"] = live_event_name
             __props__.__dict__["location"] = location
+            if preview is not None and not isinstance(preview, LiveEventPreviewArgs):
+                preview = preview or {}
+                def _setter(key, value):
+                    preview[key] = value
+                LiveEventPreviewArgs._configure(_setter, **preview)
             __props__.__dict__["preview"] = preview
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

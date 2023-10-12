@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -51,20 +51,53 @@ class EventImpactedResourceResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param Sequence['KeyValueItemResponse'] info: Additional information.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "maintenance_end_time", maintenance_end_time)
-        pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "target_region", target_region)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "target_resource_type", target_resource_type)
-        pulumi.set(__self__, "type", type)
+        EventImpactedResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            maintenance_end_time=maintenance_end_time,
+            maintenance_start_time=maintenance_start_time,
+            name=name,
+            resource_group=resource_group,
+            resource_name=resource_name,
+            status=status,
+            system_data=system_data,
+            target_region=target_region,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            type=type,
+            info=info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             maintenance_end_time: str,
+             maintenance_start_time: str,
+             name: str,
+             resource_group: str,
+             resource_name: str,
+             status: str,
+             system_data: 'outputs.SystemDataResponse',
+             target_region: str,
+             target_resource_id: str,
+             target_resource_type: str,
+             type: str,
+             info: Optional[Sequence['outputs.KeyValueItemResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("maintenance_end_time", maintenance_end_time)
+        _setter("maintenance_start_time", maintenance_start_time)
+        _setter("name", name)
+        _setter("resource_group", resource_group)
+        _setter("resource_name", resource_name)
+        _setter("status", status)
+        _setter("system_data", system_data)
+        _setter("target_region", target_region)
+        _setter("target_resource_id", target_resource_id)
+        _setter("target_resource_type", target_resource_type)
+        _setter("type", type)
         if info is not None:
-            pulumi.set(__self__, "info", info)
+            _setter("info", info)
 
     @property
     @pulumi.getter
@@ -184,8 +217,19 @@ class KeyValueItemResponse(dict):
         :param str key: Key of tuple.
         :param str value: Value of tuple.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        KeyValueItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -225,18 +269,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

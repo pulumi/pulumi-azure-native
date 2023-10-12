@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'ListBotConnectionServiceProvidersResult',
     'AwaitableListBotConnectionServiceProvidersResult',
     'list_bot_connection_service_providers',
+    'list_bot_connection_service_providers_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,11 @@ def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] =
     return AwaitableListBotConnectionServiceProvidersResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_bot_connection_service_providers)
+def list_bot_connection_service_providers_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBotConnectionServiceProvidersResult]:
+    """
+    Lists the available Service Providers for creating Connection Settings
+    """
+    ...

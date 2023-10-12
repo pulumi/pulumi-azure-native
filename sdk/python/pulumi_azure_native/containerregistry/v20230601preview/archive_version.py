@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,12 +28,29 @@ class ArchiveVersionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] archive_version_name: The name of the archive version resource.
         """
-        pulumi.set(__self__, "archive_name", archive_name)
-        pulumi.set(__self__, "package_type", package_type)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ArchiveVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_name=archive_name,
+            package_type=package_type,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            archive_version_name=archive_version_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_name: pulumi.Input[str],
+             package_type: pulumi.Input[str],
+             registry_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             archive_version_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("archive_name", archive_name)
+        _setter("package_type", package_type)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if archive_version_name is not None:
-            pulumi.set(__self__, "archive_version_name", archive_version_name)
+            _setter("archive_version_name", archive_version_name)
 
     @property
     @pulumi.getter(name="archiveName")
@@ -137,6 +154,10 @@ class ArchiveVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ArchiveVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['NotificationRecipientUserArgs', 'NotificationRecipientUser']
@@ -25,11 +25,26 @@ class NotificationRecipientUserArgs:
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] uid: User identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "notification_name", notification_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        NotificationRecipientUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notification_name=notification_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            uid=uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notification_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             uid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("notification_name", notification_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if uid is not None:
-            pulumi.set(__self__, "uid", uid)
+            _setter("uid", uid)
 
     @property
     @pulumi.getter(name="notificationName")
@@ -119,6 +134,10 @@ class NotificationRecipientUser(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationRecipientUserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

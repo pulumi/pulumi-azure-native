@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,26 @@ class DatasetArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] dataset_name: The dataset name.
         """
-        pulumi.set(__self__, "factory_name", factory_name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            factory_name=factory_name,
+            properties=properties,
+            resource_group_name=resource_group_name,
+            dataset_name=dataset_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             factory_name: pulumi.Input[str],
+             properties: pulumi.Input[Union['AmazonMWSObjectDatasetArgs', 'AmazonRdsForOracleTableDatasetArgs', 'AmazonRdsForSqlServerTableDatasetArgs', 'AmazonRedshiftTableDatasetArgs', 'AmazonS3DatasetArgs', 'AvroDatasetArgs', 'AzureBlobDatasetArgs', 'AzureBlobFSDatasetArgs', 'AzureDataExplorerTableDatasetArgs', 'AzureDataLakeStoreDatasetArgs', 'AzureDatabricksDeltaLakeDatasetArgs', 'AzureMariaDBTableDatasetArgs', 'AzureMySqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgs', 'AzureSearchIndexDatasetArgs', 'AzureSqlDWTableDatasetArgs', 'AzureSqlMITableDatasetArgs', 'AzureSqlTableDatasetArgs', 'AzureTableDatasetArgs', 'BinaryDatasetArgs', 'CassandraTableDatasetArgs', 'CommonDataServiceForAppsEntityDatasetArgs', 'ConcurObjectDatasetArgs', 'CosmosDbMongoDbApiCollectionDatasetArgs', 'CosmosDbSqlApiCollectionDatasetArgs', 'CouchbaseTableDatasetArgs', 'CustomDatasetArgs', 'Db2TableDatasetArgs', 'DelimitedTextDatasetArgs', 'DocumentDbCollectionDatasetArgs', 'DrillTableDatasetArgs', 'DynamicsAXResourceDatasetArgs', 'DynamicsCrmEntityDatasetArgs', 'DynamicsEntityDatasetArgs', 'EloquaObjectDatasetArgs', 'ExcelDatasetArgs', 'FileShareDatasetArgs', 'GoogleAdWordsObjectDatasetArgs', 'GoogleBigQueryObjectDatasetArgs', 'GreenplumTableDatasetArgs', 'HBaseObjectDatasetArgs', 'HiveObjectDatasetArgs', 'HttpDatasetArgs', 'HubspotObjectDatasetArgs', 'ImpalaObjectDatasetArgs', 'InformixTableDatasetArgs', 'JiraObjectDatasetArgs', 'JsonDatasetArgs', 'MagentoObjectDatasetArgs', 'MariaDBTableDatasetArgs', 'MarketoObjectDatasetArgs', 'MicrosoftAccessTableDatasetArgs', 'MongoDbAtlasCollectionDatasetArgs', 'MongoDbCollectionDatasetArgs', 'MongoDbV2CollectionDatasetArgs', 'MySqlTableDatasetArgs', 'NetezzaTableDatasetArgs', 'ODataResourceDatasetArgs', 'OdbcTableDatasetArgs', 'Office365DatasetArgs', 'OracleServiceCloudObjectDatasetArgs', 'OracleTableDatasetArgs', 'OrcDatasetArgs', 'ParquetDatasetArgs', 'PaypalObjectDatasetArgs', 'PhoenixObjectDatasetArgs', 'PostgreSqlTableDatasetArgs', 'PrestoObjectDatasetArgs', 'QuickBooksObjectDatasetArgs', 'RelationalTableDatasetArgs', 'ResponsysObjectDatasetArgs', 'RestResourceDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceObjectDatasetArgs', 'SalesforceServiceCloudObjectDatasetArgs', 'SapBwCubeDatasetArgs', 'SapCloudForCustomerResourceDatasetArgs', 'SapEccResourceDatasetArgs', 'SapHanaTableDatasetArgs', 'SapOdpResourceDatasetArgs', 'SapOpenHubTableDatasetArgs', 'SapTableResourceDatasetArgs', 'ServiceNowObjectDatasetArgs', 'SharePointOnlineListResourceDatasetArgs', 'ShopifyObjectDatasetArgs', 'SnowflakeDatasetArgs', 'SparkObjectDatasetArgs', 'SqlServerTableDatasetArgs', 'SquareObjectDatasetArgs', 'SybaseTableDatasetArgs', 'TeradataTableDatasetArgs', 'VerticaTableDatasetArgs', 'WebTableDatasetArgs', 'XeroObjectDatasetArgs', 'XmlDatasetArgs', 'ZohoObjectDatasetArgs']],
+             resource_group_name: pulumi.Input[str],
+             dataset_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("factory_name", factory_name)
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
         if dataset_name is not None:
-            pulumi.set(__self__, "dataset_name", dataset_name)
+            _setter("dataset_name", dataset_name)
 
     @property
     @pulumi.getter(name="factoryName")
@@ -122,6 +137,10 @@ class Dataset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatasetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

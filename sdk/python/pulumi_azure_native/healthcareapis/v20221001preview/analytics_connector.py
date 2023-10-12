@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,19 +38,44 @@ class AnalyticsConnectorArgs:
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "data_destination_configuration", data_destination_configuration)
-        pulumi.set(__self__, "data_mapping_configuration", data_mapping_configuration)
-        pulumi.set(__self__, "data_source_configuration", data_source_configuration)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        AnalyticsConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_destination_configuration=data_destination_configuration,
+            data_mapping_configuration=data_mapping_configuration,
+            data_source_configuration=data_source_configuration,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            analytics_connector_name=analytics_connector_name,
+            identity=identity,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_destination_configuration: pulumi.Input['AnalyticsConnectorDataLakeDataDestinationArgs'],
+             data_mapping_configuration: pulumi.Input['AnalyticsConnectorFhirToParquetMappingArgs'],
+             data_source_configuration: pulumi.Input['AnalyticsConnectorFhirServiceDataSourceArgs'],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             analytics_connector_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_destination_configuration", data_destination_configuration)
+        _setter("data_mapping_configuration", data_mapping_configuration)
+        _setter("data_source_configuration", data_source_configuration)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if analytics_connector_name is not None:
-            pulumi.set(__self__, "analytics_connector_name", analytics_connector_name)
+            _setter("analytics_connector_name", analytics_connector_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dataDestinationConfiguration")
@@ -210,6 +235,10 @@ class AnalyticsConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnalyticsConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -234,15 +263,35 @@ class AnalyticsConnector(pulumi.CustomResource):
             __props__ = AnalyticsConnectorArgs.__new__(AnalyticsConnectorArgs)
 
             __props__.__dict__["analytics_connector_name"] = analytics_connector_name
+            if data_destination_configuration is not None and not isinstance(data_destination_configuration, AnalyticsConnectorDataLakeDataDestinationArgs):
+                data_destination_configuration = data_destination_configuration or {}
+                def _setter(key, value):
+                    data_destination_configuration[key] = value
+                AnalyticsConnectorDataLakeDataDestinationArgs._configure(_setter, **data_destination_configuration)
             if data_destination_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'data_destination_configuration'")
             __props__.__dict__["data_destination_configuration"] = data_destination_configuration
+            if data_mapping_configuration is not None and not isinstance(data_mapping_configuration, AnalyticsConnectorFhirToParquetMappingArgs):
+                data_mapping_configuration = data_mapping_configuration or {}
+                def _setter(key, value):
+                    data_mapping_configuration[key] = value
+                AnalyticsConnectorFhirToParquetMappingArgs._configure(_setter, **data_mapping_configuration)
             if data_mapping_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'data_mapping_configuration'")
             __props__.__dict__["data_mapping_configuration"] = data_mapping_configuration
+            if data_source_configuration is not None and not isinstance(data_source_configuration, AnalyticsConnectorFhirServiceDataSourceArgs):
+                data_source_configuration = data_source_configuration or {}
+                def _setter(key, value):
+                    data_source_configuration[key] = value
+                AnalyticsConnectorFhirServiceDataSourceArgs._configure(_setter, **data_source_configuration)
             if data_source_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_configuration'")
             __props__.__dict__["data_source_configuration"] = data_source_configuration
+            if identity is not None and not isinstance(identity, ServiceManagedIdentityIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ServiceManagedIdentityIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

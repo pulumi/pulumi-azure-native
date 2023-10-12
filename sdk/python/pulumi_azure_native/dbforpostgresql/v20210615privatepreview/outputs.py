@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -59,8 +59,19 @@ class AADAppResponse(dict):
         """
         Azure active directory application.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        AADAppResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -109,11 +120,24 @@ class BackupResponse(dict):
         :param int backup_retention_days: Backup retention days for the server.
         :param str geo_redundant_backup: A value indicating whether Geo-Redundant backup is enabled on the server.
         """
-        pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
+        BackupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            earliest_restore_date=earliest_restore_date,
+            backup_retention_days=backup_retention_days,
+            geo_redundant_backup=geo_redundant_backup,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             earliest_restore_date: str,
+             backup_retention_days: Optional[int] = None,
+             geo_redundant_backup: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("earliest_restore_date", earliest_restore_date)
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if geo_redundant_backup is not None:
-            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
+            _setter("geo_redundant_backup", geo_redundant_backup)
 
     @property
     @pulumi.getter(name="earliestRestoreDate")
@@ -171,14 +195,29 @@ class DBServerMetadataResponse(dict):
         Database server metadata.
         :param 'ServerSkuResponse' sku: Sku information related properties of a server.
         """
+        DBServerMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            sku=sku,
+            storage_mb=storage_mb,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             sku: Optional['outputs.ServerSkuResponse'] = None,
+             storage_mb: Optional[int] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -236,11 +275,24 @@ class HighAvailabilityResponse(dict):
         :param str mode: The HA mode for the server.
         :param str standby_availability_zone: availability zone information of the standby.
         """
-        pulumi.set(__self__, "state", state)
+        HighAvailabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+            mode=mode,
+            standby_availability_zone=standby_availability_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: str,
+             mode: Optional[str] = None,
+             standby_availability_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("state", state)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if standby_availability_zone is not None:
-            pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+            _setter("standby_availability_zone", standby_availability_zone)
 
     @property
     @pulumi.getter
@@ -301,10 +353,23 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -371,14 +436,29 @@ class MaintenanceWindowResponse(dict):
         :param int start_hour: start hour for maintenance window
         :param int start_minute: start minute for maintenance window
         """
+        MaintenanceWindowResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_window=custom_window,
+            day_of_week=day_of_week,
+            start_hour=start_hour,
+            start_minute=start_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_window: Optional[str] = None,
+             day_of_week: Optional[int] = None,
+             start_hour: Optional[int] = None,
+             start_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_window is not None:
-            pulumi.set(__self__, "custom_window", custom_window)
+            _setter("custom_window", custom_window)
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if start_hour is not None:
-            pulumi.set(__self__, "start_hour", start_hour)
+            _setter("start_hour", start_hour)
         if start_minute is not None:
-            pulumi.set(__self__, "start_minute", start_minute)
+            _setter("start_minute", start_minute)
 
     @property
     @pulumi.getter(name="customWindow")
@@ -443,10 +523,21 @@ class MigrationResourceGroupResponse(dict):
         """
         Migration resource group.
         """
+        MigrationResourceGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            subnet_resource_id=subnet_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             subnet_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if subnet_resource_id is not None:
-            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+            _setter("subnet_resource_id", subnet_resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -487,7 +578,16 @@ class MigrationSecretParametersResponse(dict):
         Migration secret parameters.
         :param 'AADAppResponse' aad_app: Azure active directory application.
         """
-        pulumi.set(__self__, "aad_app", aad_app)
+        MigrationSecretParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_app=aad_app,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_app: 'outputs.AADAppResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aad_app", aad_app)
 
     @property
     @pulumi.getter(name="aadApp")
@@ -529,9 +629,22 @@ class MigrationStatusResponse(dict):
         :param 'MigrationSubStateDetailsResponse' current_sub_state_details: Migration sub state details.
         :param str state: Migration state.
         """
-        pulumi.set(__self__, "current_sub_state_details", current_sub_state_details)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "state", state)
+        MigrationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_sub_state_details=current_sub_state_details,
+            error=error,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_sub_state_details: 'outputs.MigrationSubStateDetailsResponse',
+             error: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("current_sub_state_details", current_sub_state_details)
+        _setter("error", error)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="currentSubStateDetails")
@@ -583,7 +696,16 @@ class MigrationSubStateDetailsResponse(dict):
         Migration sub state details.
         :param str current_sub_state: Migration sub state.
         """
-        pulumi.set(__self__, "current_sub_state", current_sub_state)
+        MigrationSubStateDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_sub_state=current_sub_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_sub_state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("current_sub_state", current_sub_state)
 
     @property
     @pulumi.getter(name="currentSubState")
@@ -630,11 +752,24 @@ class NetworkResponse(dict):
         :param str delegated_subnet_resource_id: delegated subnet arm resource id.
         :param str private_dns_zone_arm_resource_id: private dns zone arm resource id.
         """
-        pulumi.set(__self__, "public_network_access", public_network_access)
+        NetworkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_network_access=public_network_access,
+            delegated_subnet_resource_id=delegated_subnet_resource_id,
+            private_dns_zone_arm_resource_id=private_dns_zone_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_network_access: str,
+             delegated_subnet_resource_id: Optional[str] = None,
+             private_dns_zone_arm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("public_network_access", public_network_access)
         if delegated_subnet_resource_id is not None:
-            pulumi.set(__self__, "delegated_subnet_resource_id", delegated_subnet_resource_id)
+            _setter("delegated_subnet_resource_id", delegated_subnet_resource_id)
         if private_dns_zone_arm_resource_id is not None:
-            pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
+            _setter("private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
@@ -674,8 +809,19 @@ class ServerSkuResponse(dict):
         :param str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         :param str tier: The tier of the particular SKU, e.g. Burstable.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        ServerSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -707,8 +853,19 @@ class SkuResponse(dict):
         :param str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         :param str tier: The tier of the particular SKU, e.g. Burstable.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -755,8 +912,17 @@ class StorageResponse(dict):
         Storage properties of a server
         :param int storage_size_gb: Max storage allowed for a server.
         """
+        StorageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_size_gb=storage_size_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_size_gb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if storage_size_gb is not None:
-            pulumi.set(__self__, "storage_size_gb", storage_size_gb)
+            _setter("storage_size_gb", storage_size_gb)
 
     @property
     @pulumi.getter(name="storageSizeGB")
@@ -815,18 +981,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

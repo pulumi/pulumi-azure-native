@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -46,22 +46,45 @@ class DatadogOrganizationPropertiesArgs:
         :param pulumi.Input[str] name: Name of the Datadog organization.
         :param pulumi.Input[str] redirect_uri: The redirect uri for linking.
         """
+        DatadogOrganizationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            application_key=application_key,
+            enterprise_app_id=enterprise_app_id,
+            id=id,
+            linking_auth_code=linking_auth_code,
+            linking_client_id=linking_client_id,
+            name=name,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             application_key: Optional[pulumi.Input[str]] = None,
+             enterprise_app_id: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             linking_auth_code: Optional[pulumi.Input[str]] = None,
+             linking_client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redirect_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if application_key is not None:
-            pulumi.set(__self__, "application_key", application_key)
+            _setter("application_key", application_key)
         if enterprise_app_id is not None:
-            pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
+            _setter("enterprise_app_id", enterprise_app_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if linking_auth_code is not None:
-            pulumi.set(__self__, "linking_auth_code", linking_auth_code)
+            _setter("linking_auth_code", linking_auth_code)
         if linking_client_id is not None:
-            pulumi.set(__self__, "linking_client_id", linking_client_id)
+            _setter("linking_client_id", linking_client_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -172,12 +195,25 @@ class FilteringTagArgs:
         :param pulumi.Input[str] name: The name (also known as the key) of the tag.
         :param pulumi.Input[str] value: The value of the tag.
         """
+        FilteringTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'TagAction']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -223,8 +259,17 @@ class IdentityPropertiesArgs:
         """
         :param pulumi.Input[Union[str, 'ManagedIdentityTypes']] type: Identity type
         """
+        IdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -253,14 +298,29 @@ class LogRulesArgs:
         :param pulumi.Input[bool] send_resource_logs: Flag specifying if Azure resource logs should be sent for the Monitor resource.
         :param pulumi.Input[bool] send_subscription_logs: Flag specifying if Azure subscription logs should be sent for the Monitor resource.
         """
+        LogRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+            send_aad_logs=send_aad_logs,
+            send_resource_logs=send_resource_logs,
+            send_subscription_logs=send_subscription_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
+             send_aad_logs: Optional[pulumi.Input[bool]] = None,
+             send_resource_logs: Optional[pulumi.Input[bool]] = None,
+             send_subscription_logs: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filtering_tags is not None:
-            pulumi.set(__self__, "filtering_tags", filtering_tags)
+            _setter("filtering_tags", filtering_tags)
         if send_aad_logs is not None:
-            pulumi.set(__self__, "send_aad_logs", send_aad_logs)
+            _setter("send_aad_logs", send_aad_logs)
         if send_resource_logs is not None:
-            pulumi.set(__self__, "send_resource_logs", send_resource_logs)
+            _setter("send_resource_logs", send_resource_logs)
         if send_subscription_logs is not None:
-            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+            _setter("send_subscription_logs", send_subscription_logs)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -319,8 +379,17 @@ class MetricRulesArgs:
         Set of rules for sending metrics for the Monitor resource.
         :param pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]] filtering_tags: List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
+        MetricRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filtering_tags is not None:
-            pulumi.set(__self__, "filtering_tags", filtering_tags)
+            _setter("filtering_tags", filtering_tags)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -347,12 +416,25 @@ class MonitorPropertiesArgs:
         :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param pulumi.Input['UserInfoArgs'] user_info: User info
         """
+        MonitorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datadog_organization_properties=datadog_organization_properties,
+            monitoring_status=monitoring_status,
+            user_info=user_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datadog_organization_properties: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']] = None,
+             monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
+             user_info: Optional[pulumi.Input['UserInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if datadog_organization_properties is not None:
-            pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
+            _setter("datadog_organization_properties", datadog_organization_properties)
         if monitoring_status is not None:
-            pulumi.set(__self__, "monitoring_status", monitoring_status)
+            _setter("monitoring_status", monitoring_status)
         if user_info is not None:
-            pulumi.set(__self__, "user_info", user_info)
+            _setter("user_info", user_info)
 
     @property
     @pulumi.getter(name="datadogOrganizationProperties")
@@ -405,14 +487,29 @@ class MonitoredSubscriptionArgs:
         :param pulumi.Input[str] subscription_id: The subscriptionId to be monitored.
         :param pulumi.Input['MonitoringTagRulesPropertiesArgs'] tag_rules: Definition of the properties for a TagRules resource.
         """
+        MonitoredSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            status=status,
+            subscription_id=subscription_id,
+            tag_rules=tag_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tag_rules: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tag_rules is not None:
-            pulumi.set(__self__, "tag_rules", tag_rules)
+            _setter("tag_rules", tag_rules)
 
     @property
     @pulumi.getter
@@ -475,12 +572,25 @@ class MonitoringTagRulesPropertiesArgs:
         :param pulumi.Input['LogRulesArgs'] log_rules: Set of rules for sending logs for the Monitor resource.
         :param pulumi.Input['MetricRulesArgs'] metric_rules: Set of rules for sending metrics for the Monitor resource.
         """
+        MonitoringTagRulesPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automuting=automuting,
+            log_rules=log_rules,
+            metric_rules=metric_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automuting: Optional[pulumi.Input[bool]] = None,
+             log_rules: Optional[pulumi.Input['LogRulesArgs']] = None,
+             metric_rules: Optional[pulumi.Input['MetricRulesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automuting is not None:
-            pulumi.set(__self__, "automuting", automuting)
+            _setter("automuting", automuting)
         if log_rules is not None:
-            pulumi.set(__self__, "log_rules", log_rules)
+            _setter("log_rules", log_rules)
         if metric_rules is not None:
-            pulumi.set(__self__, "metric_rules", metric_rules)
+            _setter("metric_rules", metric_rules)
 
     @property
     @pulumi.getter
@@ -526,7 +636,16 @@ class ResourceSkuArgs:
         """
         :param pulumi.Input[str] name: Name of the SKU.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -551,10 +670,21 @@ class SubscriptionListArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]] monitored_subscription_list: List of subscriptions and the state of the monitoring.
         :param pulumi.Input[Union[str, 'Operation']] operation: The operation for the patch on the resource.
         """
+        SubscriptionListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitored_subscription_list=monitored_subscription_list,
+            operation=operation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitored_subscription_list: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]] = None,
+             operation: Optional[pulumi.Input[Union[str, 'Operation']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if monitored_subscription_list is not None:
-            pulumi.set(__self__, "monitored_subscription_list", monitored_subscription_list)
+            _setter("monitored_subscription_list", monitored_subscription_list)
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
 
     @property
     @pulumi.getter(name="monitoredSubscriptionList")
@@ -593,12 +723,25 @@ class UserInfoArgs:
         :param pulumi.Input[str] name: Name of the user
         :param pulumi.Input[str] phone_number: Phone number of the user used by Datadog for contacting them if needed
         """
+        UserInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            name=name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="emailAddress")

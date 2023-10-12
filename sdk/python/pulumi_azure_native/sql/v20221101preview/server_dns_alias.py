@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ServerDnsAliasArgs', 'ServerDnsAlias']
@@ -23,10 +23,23 @@ class ServerDnsAliasArgs:
         :param pulumi.Input[str] server_name: The name of the server that the alias is pointing to.
         :param pulumi.Input[str] dns_alias_name: The name of the server dns alias.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        ServerDnsAliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            dns_alias_name=dns_alias_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             dns_alias_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if dns_alias_name is not None:
-            pulumi.set(__self__, "dns_alias_name", dns_alias_name)
+            _setter("dns_alias_name", dns_alias_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -102,6 +115,10 @@ class ServerDnsAlias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerDnsAliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

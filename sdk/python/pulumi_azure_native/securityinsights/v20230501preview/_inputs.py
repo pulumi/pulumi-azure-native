@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -31,10 +31,21 @@ class AzureDevOpsResourceInfoArgs:
         :param pulumi.Input[str] pipeline_id: Id of the pipeline created for the source-control.
         :param pulumi.Input[str] service_connection_id: Id of the service-connection created for the source-control.
         """
+        AzureDevOpsResourceInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pipeline_id=pipeline_id,
+            service_connection_id=service_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pipeline_id: Optional[pulumi.Input[str]] = None,
+             service_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if pipeline_id is not None:
-            pulumi.set(__self__, "pipeline_id", pipeline_id)
+            _setter("pipeline_id", pipeline_id)
         if service_connection_id is not None:
-            pulumi.set(__self__, "service_connection_id", service_connection_id)
+            _setter("service_connection_id", service_connection_id)
 
     @property
     @pulumi.getter(name="pipelineId")
@@ -71,10 +82,21 @@ class ContentPathMapArgs:
         :param pulumi.Input[Union[str, 'ContentType']] content_type: Content type.
         :param pulumi.Input[str] path: The path to the content.
         """
+        ContentPathMapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[pulumi.Input[Union[str, 'ContentType']]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="contentType")
@@ -113,12 +135,25 @@ class DeploymentInfoArgs:
         :param pulumi.Input[Union[str, 'DeploymentFetchStatus']] deployment_fetch_status: Status while fetching the last deployment.
         :param pulumi.Input[str] message: Additional details about the deployment that can be shown to the user.
         """
+        DeploymentInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment=deployment,
+            deployment_fetch_status=deployment_fetch_status,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment: Optional[pulumi.Input['DeploymentArgs']] = None,
+             deployment_fetch_status: Optional[pulumi.Input[Union[str, 'DeploymentFetchStatus']]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment is not None:
-            pulumi.set(__self__, "deployment", deployment)
+            _setter("deployment", deployment)
         if deployment_fetch_status is not None:
-            pulumi.set(__self__, "deployment_fetch_status", deployment_fetch_status)
+            _setter("deployment_fetch_status", deployment_fetch_status)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -173,16 +208,33 @@ class DeploymentArgs:
         :param pulumi.Input[Union[str, 'DeploymentState']] deployment_state: Current status of the deployment.
         :param pulumi.Input[str] deployment_time: The time when the deployment finished.
         """
+        DeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_id=deployment_id,
+            deployment_logs_url=deployment_logs_url,
+            deployment_result=deployment_result,
+            deployment_state=deployment_state,
+            deployment_time=deployment_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_id: Optional[pulumi.Input[str]] = None,
+             deployment_logs_url: Optional[pulumi.Input[str]] = None,
+             deployment_result: Optional[pulumi.Input[Union[str, 'DeploymentResult']]] = None,
+             deployment_state: Optional[pulumi.Input[Union[str, 'DeploymentState']]] = None,
+             deployment_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment_id is not None:
-            pulumi.set(__self__, "deployment_id", deployment_id)
+            _setter("deployment_id", deployment_id)
         if deployment_logs_url is not None:
-            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+            _setter("deployment_logs_url", deployment_logs_url)
         if deployment_result is not None:
-            pulumi.set(__self__, "deployment_result", deployment_result)
+            _setter("deployment_result", deployment_result)
         if deployment_state is not None:
-            pulumi.set(__self__, "deployment_state", deployment_state)
+            _setter("deployment_state", deployment_state)
         if deployment_time is not None:
-            pulumi.set(__self__, "deployment_time", deployment_time)
+            _setter("deployment_time", deployment_time)
 
     @property
     @pulumi.getter(name="deploymentId")
@@ -253,8 +305,17 @@ class GitHubResourceInfoArgs:
         Resources created in GitHub repository.
         :param pulumi.Input[str] app_installation_id: GitHub application installation id.
         """
+        GitHubResourceInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_installation_id=app_installation_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_installation_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_installation_id is not None:
-            pulumi.set(__self__, "app_installation_id", app_installation_id)
+            _setter("app_installation_id", app_installation_id)
 
     @property
     @pulumi.getter(name="appInstallationId")
@@ -281,12 +342,25 @@ class RepositoryResourceInfoArgs:
         :param pulumi.Input['GitHubResourceInfoArgs'] git_hub_resource_info: Resources created in GitHub for this source-control.
         :param pulumi.Input['WebhookArgs'] webhook: The webhook object created for the source-control.
         """
+        RepositoryResourceInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_dev_ops_resource_info=azure_dev_ops_resource_info,
+            git_hub_resource_info=git_hub_resource_info,
+            webhook=webhook,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_dev_ops_resource_info: Optional[pulumi.Input['AzureDevOpsResourceInfoArgs']] = None,
+             git_hub_resource_info: Optional[pulumi.Input['GitHubResourceInfoArgs']] = None,
+             webhook: Optional[pulumi.Input['WebhookArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_dev_ops_resource_info is not None:
-            pulumi.set(__self__, "azure_dev_ops_resource_info", azure_dev_ops_resource_info)
+            _setter("azure_dev_ops_resource_info", azure_dev_ops_resource_info)
         if git_hub_resource_info is not None:
-            pulumi.set(__self__, "git_hub_resource_info", git_hub_resource_info)
+            _setter("git_hub_resource_info", git_hub_resource_info)
         if webhook is not None:
-            pulumi.set(__self__, "webhook", webhook)
+            _setter("webhook", webhook)
 
     @property
     @pulumi.getter(name="azureDevOpsResourceInfo")
@@ -341,16 +415,33 @@ class RepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]] path_mapping: Dictionary of source control content type and path mapping.
         :param pulumi.Input[str] url: Url of repository.
         """
+        RepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            deployment_logs_url=deployment_logs_url,
+            display_url=display_url,
+            path_mapping=path_mapping,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             deployment_logs_url: Optional[pulumi.Input[str]] = None,
+             display_url: Optional[pulumi.Input[str]] = None,
+             path_mapping: Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if deployment_logs_url is not None:
-            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+            _setter("deployment_logs_url", deployment_logs_url)
         if display_url is not None:
-            pulumi.set(__self__, "display_url", display_url)
+            _setter("display_url", display_url)
         if path_mapping is not None:
-            pulumi.set(__self__, "path_mapping", path_mapping)
+            _setter("path_mapping", path_mapping)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -427,14 +518,29 @@ class WebhookArgs:
         :param pulumi.Input[str] webhook_secret_update_time: Time when the webhook secret was updated.
         :param pulumi.Input[str] webhook_url: URL that gets invoked by the webhook.
         """
+        WebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rotate_webhook_secret=rotate_webhook_secret,
+            webhook_id=webhook_id,
+            webhook_secret_update_time=webhook_secret_update_time,
+            webhook_url=webhook_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rotate_webhook_secret: Optional[pulumi.Input[bool]] = None,
+             webhook_id: Optional[pulumi.Input[str]] = None,
+             webhook_secret_update_time: Optional[pulumi.Input[str]] = None,
+             webhook_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rotate_webhook_secret is not None:
-            pulumi.set(__self__, "rotate_webhook_secret", rotate_webhook_secret)
+            _setter("rotate_webhook_secret", rotate_webhook_secret)
         if webhook_id is not None:
-            pulumi.set(__self__, "webhook_id", webhook_id)
+            _setter("webhook_id", webhook_id)
         if webhook_secret_update_time is not None:
-            pulumi.set(__self__, "webhook_secret_update_time", webhook_secret_update_time)
+            _setter("webhook_secret_update_time", webhook_secret_update_time)
         if webhook_url is not None:
-            pulumi.set(__self__, "webhook_url", webhook_url)
+            _setter("webhook_url", webhook_url)
 
     @property
     @pulumi.getter(name="rotateWebhookSecret")

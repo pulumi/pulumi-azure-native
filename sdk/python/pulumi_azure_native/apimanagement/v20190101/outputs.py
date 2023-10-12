@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -29,8 +29,17 @@ class BodyDiagnosticSettingsResponse(dict):
         Body logging settings.
         :param int bytes: Number of request body bytes to log.
         """
+        BodyDiagnosticSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bytes=bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bytes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bytes is not None:
-            pulumi.set(__self__, "bytes", bytes)
+            _setter("bytes", bytes)
 
     @property
     @pulumi.getter
@@ -54,10 +63,21 @@ class HttpMessageDiagnosticResponse(dict):
         :param 'BodyDiagnosticSettingsResponse' body: Body logging settings.
         :param Sequence[str] headers: Array of HTTP Headers to log.
         """
+        HttpMessageDiagnosticResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            headers=headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional['outputs.BodyDiagnosticSettingsResponse'] = None,
+             headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
 
     @property
     @pulumi.getter
@@ -89,10 +109,21 @@ class PipelineDiagnosticSettingsResponse(dict):
         :param 'HttpMessageDiagnosticResponse' request: Diagnostic settings for request.
         :param 'HttpMessageDiagnosticResponse' response: Diagnostic settings for response.
         """
+        PipelineDiagnosticSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request=request,
+            response=response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request: Optional['outputs.HttpMessageDiagnosticResponse'] = None,
+             response: Optional['outputs.HttpMessageDiagnosticResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if response is not None:
-            pulumi.set(__self__, "response", response)
+            _setter("response", response)
 
     @property
     @pulumi.getter
@@ -141,10 +172,21 @@ class SamplingSettingsResponse(dict):
         :param float percentage: Rate of sampling for fixed-rate sampling.
         :param str sampling_type: Sampling type.
         """
+        SamplingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            percentage=percentage,
+            sampling_type=sampling_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             percentage: Optional[float] = None,
+             sampling_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if percentage is not None:
-            pulumi.set(__self__, "percentage", percentage)
+            _setter("percentage", percentage)
         if sampling_type is not None:
-            pulumi.set(__self__, "sampling_type", sampling_type)
+            _setter("sampling_type", sampling_type)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -31,16 +31,35 @@ class WebAppPublicCertificateArgs:
         :param pulumi.Input['PublicCertificateLocation'] public_certificate_location: Public Certificate Location
         :param pulumi.Input[str] public_certificate_name: Public certificate name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppPublicCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            blob=blob,
+            kind=kind,
+            public_certificate_location=public_certificate_location,
+            public_certificate_name=public_certificate_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             blob: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             public_certificate_location: Optional[pulumi.Input['PublicCertificateLocation']] = None,
+             public_certificate_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if blob is not None:
-            pulumi.set(__self__, "blob", blob)
+            _setter("blob", blob)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if public_certificate_location is not None:
-            pulumi.set(__self__, "public_certificate_location", public_certificate_location)
+            _setter("public_certificate_location", public_certificate_location)
         if public_certificate_name is not None:
-            pulumi.set(__self__, "public_certificate_name", public_certificate_name)
+            _setter("public_certificate_name", public_certificate_name)
 
     @property
     @pulumi.getter
@@ -158,6 +177,10 @@ class WebAppPublicCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppPublicCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

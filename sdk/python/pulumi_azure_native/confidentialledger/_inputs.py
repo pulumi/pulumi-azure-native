@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -32,12 +32,25 @@ class AADBasedSecurityPrincipalArgs:
         :param pulumi.Input[str] principal_id: UUID/GUID based Principal Id of the Security Principal
         :param pulumi.Input[str] tenant_id: UUID/GUID based Tenant Id of the Security Principal
         """
+        AADBasedSecurityPrincipalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ledger_role_name=ledger_role_name,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ledger_role_name: Optional[pulumi.Input[Union[str, 'LedgerRoleName']]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ledger_role_name is not None:
-            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+            _setter("ledger_role_name", ledger_role_name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="ledgerRoleName")
@@ -86,10 +99,21 @@ class CertBasedSecurityPrincipalArgs:
         :param pulumi.Input[str] cert: Public key of the user cert (.pem or .cer)
         :param pulumi.Input[Union[str, 'LedgerRoleName']] ledger_role_name: LedgerRole associated with the Security Principal of Ledger
         """
+        CertBasedSecurityPrincipalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            ledger_role_name=ledger_role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[pulumi.Input[str]] = None,
+             ledger_role_name: Optional[pulumi.Input[Union[str, 'LedgerRoleName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if ledger_role_name is not None:
-            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+            _setter("ledger_role_name", ledger_role_name)
 
     @property
     @pulumi.getter
@@ -124,8 +148,17 @@ class CertificateTagsArgs:
         Tags for Managed CCF Certificates
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Additional tags for Managed CCF Certificates
         """
+        CertificateTagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -150,10 +183,21 @@ class DeploymentTypeArgs:
         :param pulumi.Input[str] app_source_uri: Source Uri containing ManagedCCF code
         :param pulumi.Input[Union[str, 'LanguageRuntime']] language_runtime: Unique name for the Managed CCF.
         """
+        DeploymentTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_source_uri=app_source_uri,
+            language_runtime=language_runtime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_source_uri: Optional[pulumi.Input[str]] = None,
+             language_runtime: Optional[pulumi.Input[Union[str, 'LanguageRuntime']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_source_uri is not None:
-            pulumi.set(__self__, "app_source_uri", app_source_uri)
+            _setter("app_source_uri", app_source_uri)
         if language_runtime is not None:
-            pulumi.set(__self__, "language_runtime", language_runtime)
+            _setter("language_runtime", language_runtime)
 
     @property
     @pulumi.getter(name="appSourceUri")
@@ -192,12 +236,25 @@ class LedgerPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]] cert_based_security_principals: Array of all cert based Security Principals.
         :param pulumi.Input[Union[str, 'LedgerType']] ledger_type: Type of Confidential Ledger
         """
+        LedgerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_based_security_principals=aad_based_security_principals,
+            cert_based_security_principals=cert_based_security_principals,
+            ledger_type=ledger_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]] = None,
+             cert_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]] = None,
+             ledger_type: Optional[pulumi.Input[Union[str, 'LedgerType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aad_based_security_principals is not None:
-            pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
+            _setter("aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
-            pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
+            _setter("cert_based_security_principals", cert_based_security_principals)
         if ledger_type is not None:
-            pulumi.set(__self__, "ledger_type", ledger_type)
+            _setter("ledger_type", ledger_type)
 
     @property
     @pulumi.getter(name="aadBasedSecurityPrincipals")
@@ -248,12 +305,25 @@ class ManagedCCFPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]] member_identity_certificates: List of member identity certificates for  Managed CCF
         :param pulumi.Input[int] node_count: Number of CCF nodes in the Managed CCF.
         """
+        ManagedCCFPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_type=deployment_type,
+            member_identity_certificates=member_identity_certificates,
+            node_count=node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_type: Optional[pulumi.Input['DeploymentTypeArgs']] = None,
+             member_identity_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]] = None,
+             node_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
         if member_identity_certificates is not None:
-            pulumi.set(__self__, "member_identity_certificates", member_identity_certificates)
+            _setter("member_identity_certificates", member_identity_certificates)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -303,12 +373,25 @@ class MemberIdentityCertificateArgs:
         :param pulumi.Input[str] certificate: Member Identity Certificate
         :param pulumi.Input[str] encryptionkey: Member Identity Certificate Encryption Key
         """
+        MemberIdentityCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            encryptionkey=encryptionkey,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             encryptionkey: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if encryptionkey is not None:
-            pulumi.set(__self__, "encryptionkey", encryptionkey)
+            _setter("encryptionkey", encryptionkey)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter

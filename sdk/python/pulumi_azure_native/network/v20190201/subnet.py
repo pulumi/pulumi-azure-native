@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,36 +52,75 @@ class SubnetInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]] service_endpoints: An array of service endpoints.
         :param pulumi.Input[str] subnet_name: The name of the subnet.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+        SubnetInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_network_name=virtual_network_name,
+            address_prefix=address_prefix,
+            address_prefixes=address_prefixes,
+            delegations=delegations,
+            id=id,
+            name=name,
+            nat_gateway=nat_gateway,
+            network_security_group=network_security_group,
+            provisioning_state=provisioning_state,
+            resource_navigation_links=resource_navigation_links,
+            route_table=route_table,
+            service_association_links=service_association_links,
+            service_endpoint_policies=service_endpoint_policies,
+            service_endpoints=service_endpoints,
+            subnet_name=subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_network_name: pulumi.Input[str],
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             delegations: Optional[pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nat_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
+             network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             resource_navigation_links: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceNavigationLinkArgs']]]] = None,
+             route_table: Optional[pulumi.Input['RouteTableArgs']] = None,
+             service_association_links: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAssociationLinkArgs']]]] = None,
+             service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]] = None,
+             service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]] = None,
+             subnet_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_network_name", virtual_network_name)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
+            _setter("address_prefixes", address_prefixes)
         if delegations is not None:
-            pulumi.set(__self__, "delegations", delegations)
+            _setter("delegations", delegations)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nat_gateway is not None:
-            pulumi.set(__self__, "nat_gateway", nat_gateway)
+            _setter("nat_gateway", nat_gateway)
         if network_security_group is not None:
-            pulumi.set(__self__, "network_security_group", network_security_group)
+            _setter("network_security_group", network_security_group)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_navigation_links is not None:
-            pulumi.set(__self__, "resource_navigation_links", resource_navigation_links)
+            _setter("resource_navigation_links", resource_navigation_links)
         if route_table is not None:
-            pulumi.set(__self__, "route_table", route_table)
+            _setter("route_table", route_table)
         if service_association_links is not None:
-            pulumi.set(__self__, "service_association_links", service_association_links)
+            _setter("service_association_links", service_association_links)
         if service_endpoint_policies is not None:
-            pulumi.set(__self__, "service_endpoint_policies", service_endpoint_policies)
+            _setter("service_endpoint_policies", service_endpoint_policies)
         if service_endpoints is not None:
-            pulumi.set(__self__, "service_endpoints", service_endpoints)
+            _setter("service_endpoints", service_endpoints)
         if subnet_name is not None:
-            pulumi.set(__self__, "subnet_name", subnet_name)
+            _setter("subnet_name", subnet_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -339,6 +378,10 @@ class Subnet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubnetInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -374,13 +417,28 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["delegations"] = delegations
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
+            if nat_gateway is not None and not isinstance(nat_gateway, SubResourceArgs):
+                nat_gateway = nat_gateway or {}
+                def _setter(key, value):
+                    nat_gateway[key] = value
+                SubResourceArgs._configure(_setter, **nat_gateway)
             __props__.__dict__["nat_gateway"] = nat_gateway
+            if network_security_group is not None and not isinstance(network_security_group, NetworkSecurityGroupArgs):
+                network_security_group = network_security_group or {}
+                def _setter(key, value):
+                    network_security_group[key] = value
+                NetworkSecurityGroupArgs._configure(_setter, **network_security_group)
             __props__.__dict__["network_security_group"] = network_security_group
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_navigation_links"] = resource_navigation_links
+            if route_table is not None and not isinstance(route_table, RouteTableArgs):
+                route_table = route_table or {}
+                def _setter(key, value):
+                    route_table[key] = value
+                RouteTableArgs._configure(_setter, **route_table)
             __props__.__dict__["route_table"] = route_table
             __props__.__dict__["service_association_links"] = service_association_links
             __props__.__dict__["service_endpoint_policies"] = service_endpoint_policies

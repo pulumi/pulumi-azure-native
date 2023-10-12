@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -69,17 +69,36 @@ class ExpressRouteCircuitAuthorizationResponse(dict):
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
-        pulumi.set(__self__, "etag", etag)
+        ExpressRouteCircuitAuthorizationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            authorization_key=authorization_key,
+            authorization_use_status=authorization_use_status,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             authorization_key: Optional[str] = None,
+             authorization_use_status: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if authorization_use_status is not None:
-            pulumi.set(__self__, "authorization_use_status", authorization_use_status)
+            _setter("authorization_use_status", authorization_use_status)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -184,21 +203,46 @@ class ExpressRouteCircuitConnectionResponse(dict):
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param 'SubResourceResponse' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
-        pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ExpressRouteCircuitConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            circuit_connection_status=circuit_connection_status,
+            etag=etag,
+            provisioning_state=provisioning_state,
+            address_prefix=address_prefix,
+            authorization_key=authorization_key,
+            express_route_circuit_peering=express_route_circuit_peering,
+            id=id,
+            name=name,
+            peer_express_route_circuit_peering=peer_express_route_circuit_peering,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             circuit_connection_status: str,
+             etag: str,
+             provisioning_state: str,
+             address_prefix: Optional[str] = None,
+             authorization_key: Optional[str] = None,
+             express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             peer_express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("circuit_connection_status", circuit_connection_status)
+        _setter("etag", etag)
+        _setter("provisioning_state", provisioning_state)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if express_route_circuit_peering is not None:
-            pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+            _setter("express_route_circuit_peering", express_route_circuit_peering)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_express_route_circuit_peering is not None:
-            pulumi.set(__self__, "peer_express_route_circuit_peering", peer_express_route_circuit_peering)
+            _setter("peer_express_route_circuit_peering", peer_express_route_circuit_peering)
 
     @property
     @pulumi.getter(name="circuitConnectionStatus")
@@ -321,18 +365,37 @@ class ExpressRouteCircuitPeeringConfigResponse(dict):
         :param int legacy_mode: The legacy mode of the peering.
         :param str routing_registry_name: The RoutingRegistryName of the configuration.
         """
+        ExpressRouteCircuitPeeringConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advertised_communities=advertised_communities,
+            advertised_public_prefixes=advertised_public_prefixes,
+            advertised_public_prefixes_state=advertised_public_prefixes_state,
+            customer_asn=customer_asn,
+            legacy_mode=legacy_mode,
+            routing_registry_name=routing_registry_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advertised_communities: Optional[Sequence[str]] = None,
+             advertised_public_prefixes: Optional[Sequence[str]] = None,
+             advertised_public_prefixes_state: Optional[str] = None,
+             customer_asn: Optional[int] = None,
+             legacy_mode: Optional[int] = None,
+             routing_registry_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if advertised_communities is not None:
-            pulumi.set(__self__, "advertised_communities", advertised_communities)
+            _setter("advertised_communities", advertised_communities)
         if advertised_public_prefixes is not None:
-            pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
+            _setter("advertised_public_prefixes", advertised_public_prefixes)
         if advertised_public_prefixes_state is not None:
-            pulumi.set(__self__, "advertised_public_prefixes_state", advertised_public_prefixes_state)
+            _setter("advertised_public_prefixes_state", advertised_public_prefixes_state)
         if customer_asn is not None:
-            pulumi.set(__self__, "customer_asn", customer_asn)
+            _setter("customer_asn", customer_asn)
         if legacy_mode is not None:
-            pulumi.set(__self__, "legacy_mode", legacy_mode)
+            _setter("legacy_mode", legacy_mode)
         if routing_registry_name is not None:
-            pulumi.set(__self__, "routing_registry_name", routing_registry_name)
+            _setter("routing_registry_name", routing_registry_name)
 
     @property
     @pulumi.getter(name="advertisedCommunities")
@@ -487,50 +550,103 @@ class ExpressRouteCircuitPeeringResponse(dict):
         :param 'ExpressRouteCircuitStatsResponse' stats: Gets peering stats.
         :param int vlan_id: The VLAN ID.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "peered_connections", peered_connections)
+        ExpressRouteCircuitPeeringResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            peered_connections=peered_connections,
+            azure_asn=azure_asn,
+            connections=connections,
+            express_route_connection=express_route_connection,
+            gateway_manager_etag=gateway_manager_etag,
+            id=id,
+            ipv6_peering_config=ipv6_peering_config,
+            last_modified_by=last_modified_by,
+            microsoft_peering_config=microsoft_peering_config,
+            name=name,
+            peer_asn=peer_asn,
+            peering_type=peering_type,
+            primary_azure_port=primary_azure_port,
+            primary_peer_address_prefix=primary_peer_address_prefix,
+            provisioning_state=provisioning_state,
+            route_filter=route_filter,
+            secondary_azure_port=secondary_azure_port,
+            secondary_peer_address_prefix=secondary_peer_address_prefix,
+            shared_key=shared_key,
+            state=state,
+            stats=stats,
+            vlan_id=vlan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             peered_connections: Sequence['outputs.PeerExpressRouteCircuitConnectionResponse'],
+             azure_asn: Optional[int] = None,
+             connections: Optional[Sequence['outputs.ExpressRouteCircuitConnectionResponse']] = None,
+             express_route_connection: Optional['outputs.ExpressRouteConnectionIdResponse'] = None,
+             gateway_manager_etag: Optional[str] = None,
+             id: Optional[str] = None,
+             ipv6_peering_config: Optional['outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse'] = None,
+             last_modified_by: Optional[str] = None,
+             microsoft_peering_config: Optional['outputs.ExpressRouteCircuitPeeringConfigResponse'] = None,
+             name: Optional[str] = None,
+             peer_asn: Optional[float] = None,
+             peering_type: Optional[str] = None,
+             primary_azure_port: Optional[str] = None,
+             primary_peer_address_prefix: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             route_filter: Optional['outputs.RouteFilterResponse'] = None,
+             secondary_azure_port: Optional[str] = None,
+             secondary_peer_address_prefix: Optional[str] = None,
+             shared_key: Optional[str] = None,
+             state: Optional[str] = None,
+             stats: Optional['outputs.ExpressRouteCircuitStatsResponse'] = None,
+             vlan_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("peered_connections", peered_connections)
         if azure_asn is not None:
-            pulumi.set(__self__, "azure_asn", azure_asn)
+            _setter("azure_asn", azure_asn)
         if connections is not None:
-            pulumi.set(__self__, "connections", connections)
+            _setter("connections", connections)
         if express_route_connection is not None:
-            pulumi.set(__self__, "express_route_connection", express_route_connection)
+            _setter("express_route_connection", express_route_connection)
         if gateway_manager_etag is not None:
-            pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
+            _setter("gateway_manager_etag", gateway_manager_etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ipv6_peering_config is not None:
-            pulumi.set(__self__, "ipv6_peering_config", ipv6_peering_config)
+            _setter("ipv6_peering_config", ipv6_peering_config)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if microsoft_peering_config is not None:
-            pulumi.set(__self__, "microsoft_peering_config", microsoft_peering_config)
+            _setter("microsoft_peering_config", microsoft_peering_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
         if peering_type is not None:
-            pulumi.set(__self__, "peering_type", peering_type)
+            _setter("peering_type", peering_type)
         if primary_azure_port is not None:
-            pulumi.set(__self__, "primary_azure_port", primary_azure_port)
+            _setter("primary_azure_port", primary_azure_port)
         if primary_peer_address_prefix is not None:
-            pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
+            _setter("primary_peer_address_prefix", primary_peer_address_prefix)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if route_filter is not None:
-            pulumi.set(__self__, "route_filter", route_filter)
+            _setter("route_filter", route_filter)
         if secondary_azure_port is not None:
-            pulumi.set(__self__, "secondary_azure_port", secondary_azure_port)
+            _setter("secondary_azure_port", secondary_azure_port)
         if secondary_peer_address_prefix is not None:
-            pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
+            _setter("secondary_peer_address_prefix", secondary_peer_address_prefix)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if stats is not None:
-            pulumi.set(__self__, "stats", stats)
+            _setter("stats", stats)
         if vlan_id is not None:
-            pulumi.set(__self__, "vlan_id", vlan_id)
+            _setter("vlan_id", vlan_id)
 
     @property
     @pulumi.getter
@@ -753,12 +869,25 @@ class ExpressRouteCircuitServiceProviderPropertiesResponse(dict):
         :param str peering_location: The peering location.
         :param str service_provider_name: The serviceProviderName.
         """
+        ExpressRouteCircuitServiceProviderPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth_in_mbps=bandwidth_in_mbps,
+            peering_location=peering_location,
+            service_provider_name=service_provider_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth_in_mbps: Optional[int] = None,
+             peering_location: Optional[str] = None,
+             service_provider_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bandwidth_in_mbps is not None:
-            pulumi.set(__self__, "bandwidth_in_mbps", bandwidth_in_mbps)
+            _setter("bandwidth_in_mbps", bandwidth_in_mbps)
         if peering_location is not None:
-            pulumi.set(__self__, "peering_location", peering_location)
+            _setter("peering_location", peering_location)
         if service_provider_name is not None:
-            pulumi.set(__self__, "service_provider_name", service_provider_name)
+            _setter("service_provider_name", service_provider_name)
 
     @property
     @pulumi.getter(name="bandwidthInMbps")
@@ -800,12 +929,25 @@ class ExpressRouteCircuitSkuResponse(dict):
         :param str name: The name of the SKU.
         :param str tier: The tier of the SKU. Possible values are 'Standard', 'Premium' or 'Local'.
         """
+        ExpressRouteCircuitSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            family=family,
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             family: Optional[str] = None,
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -872,14 +1014,29 @@ class ExpressRouteCircuitStatsResponse(dict):
         :param float secondarybytes_in: Gets BytesIn of the peering.
         :param float secondarybytes_out: Gets BytesOut of the peering.
         """
+        ExpressRouteCircuitStatsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primarybytes_in=primarybytes_in,
+            primarybytes_out=primarybytes_out,
+            secondarybytes_in=secondarybytes_in,
+            secondarybytes_out=secondarybytes_out,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primarybytes_in: Optional[float] = None,
+             primarybytes_out: Optional[float] = None,
+             secondarybytes_in: Optional[float] = None,
+             secondarybytes_out: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if primarybytes_in is not None:
-            pulumi.set(__self__, "primarybytes_in", primarybytes_in)
+            _setter("primarybytes_in", primarybytes_in)
         if primarybytes_out is not None:
-            pulumi.set(__self__, "primarybytes_out", primarybytes_out)
+            _setter("primarybytes_out", primarybytes_out)
         if secondarybytes_in is not None:
-            pulumi.set(__self__, "secondarybytes_in", secondarybytes_in)
+            _setter("secondarybytes_in", secondarybytes_in)
         if secondarybytes_out is not None:
-            pulumi.set(__self__, "secondarybytes_out", secondarybytes_out)
+            _setter("secondarybytes_out", secondarybytes_out)
 
     @property
     @pulumi.getter(name="primarybytesIn")
@@ -925,7 +1082,16 @@ class ExpressRouteConnectionIdResponse(dict):
         The ID of the ExpressRouteConnection.
         :param str id: The ID of the ExpressRouteConnection.
         """
-        pulumi.set(__self__, "id", id)
+        ExpressRouteConnectionIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -978,16 +1144,33 @@ class Ipv6ExpressRouteCircuitPeeringConfigResponse(dict):
         :param str secondary_peer_address_prefix: The secondary address prefix.
         :param str state: The state of peering. Possible values are: 'Disabled' and 'Enabled'
         """
+        Ipv6ExpressRouteCircuitPeeringConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            microsoft_peering_config=microsoft_peering_config,
+            primary_peer_address_prefix=primary_peer_address_prefix,
+            route_filter=route_filter,
+            secondary_peer_address_prefix=secondary_peer_address_prefix,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             microsoft_peering_config: Optional['outputs.ExpressRouteCircuitPeeringConfigResponse'] = None,
+             primary_peer_address_prefix: Optional[str] = None,
+             route_filter: Optional['outputs.RouteFilterResponse'] = None,
+             secondary_peer_address_prefix: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if microsoft_peering_config is not None:
-            pulumi.set(__self__, "microsoft_peering_config", microsoft_peering_config)
+            _setter("microsoft_peering_config", microsoft_peering_config)
         if primary_peer_address_prefix is not None:
-            pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
+            _setter("primary_peer_address_prefix", primary_peer_address_prefix)
         if route_filter is not None:
-            pulumi.set(__self__, "route_filter", route_filter)
+            _setter("route_filter", route_filter)
         if secondary_peer_address_prefix is not None:
-            pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
+            _setter("secondary_peer_address_prefix", secondary_peer_address_prefix)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="microsoftPeeringConfig")
@@ -1088,23 +1271,50 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
         :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param 'SubResourceResponse' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
-        pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        PeerExpressRouteCircuitConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            circuit_connection_status=circuit_connection_status,
+            etag=etag,
+            provisioning_state=provisioning_state,
+            address_prefix=address_prefix,
+            auth_resource_guid=auth_resource_guid,
+            connection_name=connection_name,
+            express_route_circuit_peering=express_route_circuit_peering,
+            id=id,
+            name=name,
+            peer_express_route_circuit_peering=peer_express_route_circuit_peering,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             circuit_connection_status: str,
+             etag: str,
+             provisioning_state: str,
+             address_prefix: Optional[str] = None,
+             auth_resource_guid: Optional[str] = None,
+             connection_name: Optional[str] = None,
+             express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             peer_express_route_circuit_peering: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("circuit_connection_status", circuit_connection_status)
+        _setter("etag", etag)
+        _setter("provisioning_state", provisioning_state)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if auth_resource_guid is not None:
-            pulumi.set(__self__, "auth_resource_guid", auth_resource_guid)
+            _setter("auth_resource_guid", auth_resource_guid)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if express_route_circuit_peering is not None:
-            pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+            _setter("express_route_circuit_peering", express_route_circuit_peering)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_express_route_circuit_peering is not None:
-            pulumi.set(__self__, "peer_express_route_circuit_peering", peer_express_route_circuit_peering)
+            _setter("peer_express_route_circuit_peering", peer_express_route_circuit_peering)
 
     @property
     @pulumi.getter(name="circuitConnectionStatus")
@@ -1231,19 +1441,44 @@ class RouteFilterResponse(dict):
         :param Sequence['RouteFilterRuleResponse'] rules: Collection of RouteFilterRules contained within a route filter.
         :param Mapping[str, str] tags: Resource tags.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        RouteFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            location=location,
+            name=name,
+            provisioning_state=provisioning_state,
+            type=type,
+            id=id,
+            peerings=peerings,
+            rules=rules,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: str,
+             location: str,
+             name: str,
+             provisioning_state: str,
+             type: str,
+             id: Optional[str] = None,
+             peerings: Optional[Sequence['outputs.ExpressRouteCircuitPeeringResponse']] = None,
+             rules: Optional[Sequence['outputs.RouteFilterRuleResponse']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("etag", etag)
+        _setter("location", location)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if peerings is not None:
-            pulumi.set(__self__, "peerings", peerings)
+            _setter("peerings", peerings)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -1362,17 +1597,40 @@ class RouteFilterRuleResponse(dict):
         :param str location: Resource location.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "communities", communities)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "route_filter_rule_type", route_filter_rule_type)
+        RouteFilterRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            communities=communities,
+            etag=etag,
+            provisioning_state=provisioning_state,
+            route_filter_rule_type=route_filter_rule_type,
+            id=id,
+            location=location,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: str,
+             communities: Sequence[str],
+             etag: str,
+             provisioning_state: str,
+             route_filter_rule_type: str,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access", access)
+        _setter("communities", communities)
+        _setter("etag", etag)
+        _setter("provisioning_state", provisioning_state)
+        _setter("route_filter_rule_type", route_filter_rule_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1450,8 +1708,17 @@ class SubResourceResponse(dict):
         Reference to another subresource.
         :param str id: Resource ID.
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter

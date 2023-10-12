@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ExpressRoutePortAuthorizationArgs', 'ExpressRoutePortAuthorization']
@@ -27,14 +27,31 @@ class ExpressRoutePortAuthorizationArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        pulumi.set(__self__, "express_route_port_name", express_route_port_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExpressRoutePortAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            express_route_port_name=express_route_port_name,
+            resource_group_name=resource_group_name,
+            authorization_name=authorization_name,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             express_route_port_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             authorization_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("express_route_port_name", express_route_port_name)
+        _setter("resource_group_name", resource_group_name)
         if authorization_name is not None:
-            pulumi.set(__self__, "authorization_name", authorization_name)
+            _setter("authorization_name", authorization_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="expressRoutePortName")
@@ -138,6 +155,10 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRoutePortAuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

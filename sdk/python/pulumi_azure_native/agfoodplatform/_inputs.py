@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -33,8 +33,19 @@ class ApiKeyAuthCredentialsArgs:
         :param pulumi.Input[str] kind: Enum for different types of AuthCredentials supported.
                Expected value is 'ApiKeyAuthCredentials'.
         """
-        pulumi.set(__self__, "api_key", api_key)
-        pulumi.set(__self__, "kind", 'ApiKeyAuthCredentials')
+        ApiKeyAuthCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: pulumi.Input['KeyVaultPropertiesArgs'],
+             kind: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key", api_key)
+        _setter("kind", 'ApiKeyAuthCredentials')
 
     @property
     @pulumi.getter(name="apiKey")
@@ -70,8 +81,17 @@ class ApiPropertiesArgs:
         Api properties.
         :param pulumi.Input[int] api_freshness_time_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
         """
+        ApiPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_freshness_time_in_minutes=api_freshness_time_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_freshness_time_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_freshness_time_in_minutes is not None:
-            pulumi.set(__self__, "api_freshness_time_in_minutes", api_freshness_time_in_minutes)
+            _setter("api_freshness_time_in_minutes", api_freshness_time_in_minutes)
 
     @property
     @pulumi.getter(name="apiFreshnessTimeInMinutes")
@@ -94,7 +114,16 @@ class DataConnectorPropertiesArgs:
         DataConnector Properties.
         :param pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']] credentials: AuthCredentials abstract base class for Auth Purpose.
         """
-        pulumi.set(__self__, "credentials", credentials)
+        DataConnectorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("credentials", credentials)
 
     @property
     @pulumi.getter
@@ -117,8 +146,17 @@ class IdentityArgs:
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -145,9 +183,22 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_uri: Uri of the key vault.
         :param pulumi.Input[str] key_version: Version of Key Vault key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "key_version", key_version)
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: pulumi.Input[str],
+             key_vault_uri: pulumi.Input[str],
+             key_version: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -199,9 +250,22 @@ class OAuthClientCredentialsArgs:
         :param pulumi.Input[str] kind: Enum for different types of AuthCredentials supported.
                Expected value is 'OAuthClientCredentials'.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "kind", 'OAuthClientCredentials')
+        OAuthClientCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: pulumi.Input[str],
+             client_secret: pulumi.Input['KeyVaultPropertiesArgs'],
+             kind: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("kind", 'OAuthClientCredentials')
 
     @property
     @pulumi.getter(name="clientId")
@@ -253,12 +317,25 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -305,8 +382,17 @@ class SensorIntegrationArgs:
         Sensor integration request model.
         :param pulumi.Input[str] enabled: Sensor integration enable state.
         """
+        SensorIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -341,14 +427,35 @@ class SolutionPropertiesArgs:
         :param pulumi.Input[str] term_id: SaaS application Term Id.
         :param pulumi.Input[str] role_assignment_id: Role Assignment Id.
         """
-        pulumi.set(__self__, "marketplace_publisher_id", marketplace_publisher_id)
-        pulumi.set(__self__, "offer_id", offer_id)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
-        pulumi.set(__self__, "saas_subscription_name", saas_subscription_name)
-        pulumi.set(__self__, "term_id", term_id)
+        SolutionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            marketplace_publisher_id=marketplace_publisher_id,
+            offer_id=offer_id,
+            plan_id=plan_id,
+            saas_subscription_id=saas_subscription_id,
+            saas_subscription_name=saas_subscription_name,
+            term_id=term_id,
+            role_assignment_id=role_assignment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             marketplace_publisher_id: pulumi.Input[str],
+             offer_id: pulumi.Input[str],
+             plan_id: pulumi.Input[str],
+             saas_subscription_id: pulumi.Input[str],
+             saas_subscription_name: pulumi.Input[str],
+             term_id: pulumi.Input[str],
+             role_assignment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("marketplace_publisher_id", marketplace_publisher_id)
+        _setter("offer_id", offer_id)
+        _setter("plan_id", plan_id)
+        _setter("saas_subscription_id", saas_subscription_id)
+        _setter("saas_subscription_name", saas_subscription_name)
+        _setter("term_id", term_id)
         if role_assignment_id is not None:
-            pulumi.set(__self__, "role_assignment_id", role_assignment_id)
+            _setter("role_assignment_id", role_assignment_id)
 
     @property
     @pulumi.getter(name="marketplacePublisherId")

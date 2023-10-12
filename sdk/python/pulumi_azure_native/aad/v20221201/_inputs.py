@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,10 +32,21 @@ class ConfigDiagnosticsValidatorResultIssueArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] description_params: List of domain resource property name or values used to compose a rich description.
         :param pulumi.Input[str] id: Validation issue identifier.
         """
+        ConfigDiagnosticsValidatorResultIssueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description_params=description_params,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description_params: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description_params is not None:
-            pulumi.set(__self__, "description_params", description_params)
+            _setter("description_params", description_params)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter(name="descriptionParams")
@@ -76,16 +87,31 @@ class ConfigDiagnosticsValidatorResultArgs:
         :param pulumi.Input[Union[str, 'Status']] status: Status for individual validator after running diagnostics.
         :param pulumi.Input[str] validator_id: Validator identifier
         """
+        ConfigDiagnosticsValidatorResultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issues=issues,
+            replica_set_subnet_display_name=replica_set_subnet_display_name,
+            status=status,
+            validator_id=validator_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issues: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]] = None,
+             replica_set_subnet_display_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+             validator_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if issues is not None:
-            pulumi.set(__self__, "issues", issues)
+            _setter("issues", issues)
         if replica_set_subnet_display_name is not None:
-            pulumi.set(__self__, "replica_set_subnet_display_name", replica_set_subnet_display_name)
+            _setter("replica_set_subnet_display_name", replica_set_subnet_display_name)
         if status is None:
             status = 'None'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if validator_id is not None:
-            pulumi.set(__self__, "validator_id", validator_id)
+            _setter("validator_id", validator_id)
 
     @property
     @pulumi.getter
@@ -146,10 +172,21 @@ class ConfigDiagnosticsArgs:
         :param pulumi.Input[str] last_executed: Last domain configuration diagnostics DateTime
         :param pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]] validator_results: List of Configuration Diagnostics validator results.
         """
+        ConfigDiagnosticsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_executed=last_executed,
+            validator_results=validator_results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_executed: Optional[pulumi.Input[str]] = None,
+             validator_results: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if last_executed is not None:
-            pulumi.set(__self__, "last_executed", last_executed)
+            _setter("last_executed", last_executed)
         if validator_results is not None:
-            pulumi.set(__self__, "validator_results", validator_results)
+            _setter("validator_results", validator_results)
 
     @property
     @pulumi.getter(name="lastExecuted")
@@ -200,42 +237,67 @@ class DomainSecuritySettingsArgs:
         :param pulumi.Input[Union[str, 'SyncOnPremPasswords']] sync_on_prem_passwords: A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
         :param pulumi.Input[Union[str, 'TlsV1']] tls_v1: A flag to determine whether or not TlsV1 is enabled or disabled.
         """
+        DomainSecuritySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_binding=channel_binding,
+            kerberos_armoring=kerberos_armoring,
+            kerberos_rc4_encryption=kerberos_rc4_encryption,
+            ldap_signing=ldap_signing,
+            ntlm_v1=ntlm_v1,
+            sync_kerberos_passwords=sync_kerberos_passwords,
+            sync_ntlm_passwords=sync_ntlm_passwords,
+            sync_on_prem_passwords=sync_on_prem_passwords,
+            tls_v1=tls_v1,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_binding: Optional[pulumi.Input[Union[str, 'ChannelBinding']]] = None,
+             kerberos_armoring: Optional[pulumi.Input[Union[str, 'KerberosArmoring']]] = None,
+             kerberos_rc4_encryption: Optional[pulumi.Input[Union[str, 'KerberosRc4Encryption']]] = None,
+             ldap_signing: Optional[pulumi.Input[Union[str, 'LdapSigning']]] = None,
+             ntlm_v1: Optional[pulumi.Input[Union[str, 'NtlmV1']]] = None,
+             sync_kerberos_passwords: Optional[pulumi.Input[Union[str, 'SyncKerberosPasswords']]] = None,
+             sync_ntlm_passwords: Optional[pulumi.Input[Union[str, 'SyncNtlmPasswords']]] = None,
+             sync_on_prem_passwords: Optional[pulumi.Input[Union[str, 'SyncOnPremPasswords']]] = None,
+             tls_v1: Optional[pulumi.Input[Union[str, 'TlsV1']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if channel_binding is None:
             channel_binding = 'Disabled'
         if channel_binding is not None:
-            pulumi.set(__self__, "channel_binding", channel_binding)
+            _setter("channel_binding", channel_binding)
         if kerberos_armoring is None:
             kerberos_armoring = 'Disabled'
         if kerberos_armoring is not None:
-            pulumi.set(__self__, "kerberos_armoring", kerberos_armoring)
+            _setter("kerberos_armoring", kerberos_armoring)
         if kerberos_rc4_encryption is None:
             kerberos_rc4_encryption = 'Enabled'
         if kerberos_rc4_encryption is not None:
-            pulumi.set(__self__, "kerberos_rc4_encryption", kerberos_rc4_encryption)
+            _setter("kerberos_rc4_encryption", kerberos_rc4_encryption)
         if ldap_signing is None:
             ldap_signing = 'Disabled'
         if ldap_signing is not None:
-            pulumi.set(__self__, "ldap_signing", ldap_signing)
+            _setter("ldap_signing", ldap_signing)
         if ntlm_v1 is None:
             ntlm_v1 = 'Enabled'
         if ntlm_v1 is not None:
-            pulumi.set(__self__, "ntlm_v1", ntlm_v1)
+            _setter("ntlm_v1", ntlm_v1)
         if sync_kerberos_passwords is None:
             sync_kerberos_passwords = 'Enabled'
         if sync_kerberos_passwords is not None:
-            pulumi.set(__self__, "sync_kerberos_passwords", sync_kerberos_passwords)
+            _setter("sync_kerberos_passwords", sync_kerberos_passwords)
         if sync_ntlm_passwords is None:
             sync_ntlm_passwords = 'Enabled'
         if sync_ntlm_passwords is not None:
-            pulumi.set(__self__, "sync_ntlm_passwords", sync_ntlm_passwords)
+            _setter("sync_ntlm_passwords", sync_ntlm_passwords)
         if sync_on_prem_passwords is None:
             sync_on_prem_passwords = 'Enabled'
         if sync_on_prem_passwords is not None:
-            pulumi.set(__self__, "sync_on_prem_passwords", sync_on_prem_passwords)
+            _setter("sync_on_prem_passwords", sync_on_prem_passwords)
         if tls_v1 is None:
             tls_v1 = 'Enabled'
         if tls_v1 is not None:
-            pulumi.set(__self__, "tls_v1", tls_v1)
+            _setter("tls_v1", tls_v1)
 
     @property
     @pulumi.getter(name="channelBinding")
@@ -362,16 +424,33 @@ class ForestTrustArgs:
         :param pulumi.Input[str] trust_password: Trust Password
         :param pulumi.Input[str] trusted_domain_fqdn: Trusted Domain FQDN
         """
+        ForestTrustArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            friendly_name=friendly_name,
+            remote_dns_ips=remote_dns_ips,
+            trust_direction=trust_direction,
+            trust_password=trust_password,
+            trusted_domain_fqdn=trusted_domain_fqdn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             remote_dns_ips: Optional[pulumi.Input[str]] = None,
+             trust_direction: Optional[pulumi.Input[str]] = None,
+             trust_password: Optional[pulumi.Input[str]] = None,
+             trusted_domain_fqdn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if remote_dns_ips is not None:
-            pulumi.set(__self__, "remote_dns_ips", remote_dns_ips)
+            _setter("remote_dns_ips", remote_dns_ips)
         if trust_direction is not None:
-            pulumi.set(__self__, "trust_direction", trust_direction)
+            _setter("trust_direction", trust_direction)
         if trust_password is not None:
-            pulumi.set(__self__, "trust_password", trust_password)
+            _setter("trust_password", trust_password)
         if trusted_domain_fqdn is not None:
-            pulumi.set(__self__, "trusted_domain_fqdn", trusted_domain_fqdn)
+            _setter("trusted_domain_fqdn", trusted_domain_fqdn)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -448,18 +527,33 @@ class LdapsSettingsArgs:
         :param pulumi.Input[str] pfx_certificate: The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
         :param pulumi.Input[str] pfx_certificate_password: The password to decrypt the provided Secure LDAP certificate pfx file.
         """
+        LdapsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_access=external_access,
+            ldaps=ldaps,
+            pfx_certificate=pfx_certificate,
+            pfx_certificate_password=pfx_certificate_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_access: Optional[pulumi.Input[Union[str, 'ExternalAccess']]] = None,
+             ldaps: Optional[pulumi.Input[Union[str, 'Ldaps']]] = None,
+             pfx_certificate: Optional[pulumi.Input[str]] = None,
+             pfx_certificate_password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if external_access is None:
             external_access = 'Disabled'
         if external_access is not None:
-            pulumi.set(__self__, "external_access", external_access)
+            _setter("external_access", external_access)
         if ldaps is None:
             ldaps = 'Disabled'
         if ldaps is not None:
-            pulumi.set(__self__, "ldaps", ldaps)
+            _setter("ldaps", ldaps)
         if pfx_certificate is not None:
-            pulumi.set(__self__, "pfx_certificate", pfx_certificate)
+            _setter("pfx_certificate", pfx_certificate)
         if pfx_certificate_password is not None:
-            pulumi.set(__self__, "pfx_certificate_password", pfx_certificate_password)
+            _setter("pfx_certificate_password", pfx_certificate_password)
 
     @property
     @pulumi.getter(name="externalAccess")
@@ -522,12 +616,25 @@ class NotificationSettingsArgs:
         :param pulumi.Input[Union[str, 'NotifyDcAdmins']] notify_dc_admins: Should domain controller admins be notified
         :param pulumi.Input[Union[str, 'NotifyGlobalAdmins']] notify_global_admins: Should global admins be notified
         """
+        NotificationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_recipients=additional_recipients,
+            notify_dc_admins=notify_dc_admins,
+            notify_global_admins=notify_global_admins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notify_dc_admins: Optional[pulumi.Input[Union[str, 'NotifyDcAdmins']]] = None,
+             notify_global_admins: Optional[pulumi.Input[Union[str, 'NotifyGlobalAdmins']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_recipients is not None:
-            pulumi.set(__self__, "additional_recipients", additional_recipients)
+            _setter("additional_recipients", additional_recipients)
         if notify_dc_admins is not None:
-            pulumi.set(__self__, "notify_dc_admins", notify_dc_admins)
+            _setter("notify_dc_admins", notify_dc_admins)
         if notify_global_admins is not None:
-            pulumi.set(__self__, "notify_global_admins", notify_global_admins)
+            _setter("notify_global_admins", notify_global_admins)
 
     @property
     @pulumi.getter(name="additionalRecipients")
@@ -576,10 +683,21 @@ class ReplicaSetArgs:
         :param pulumi.Input[str] location: Virtual network location
         :param pulumi.Input[str] subnet_id: The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         """
+        ReplicaSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter
@@ -616,10 +734,21 @@ class ResourceForestSettingsArgs:
         :param pulumi.Input[str] resource_forest: Resource Forest
         :param pulumi.Input[Sequence[pulumi.Input['ForestTrustArgs']]] settings: List of settings for Resource Forest
         """
+        ResourceForestSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_forest=resource_forest,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_forest: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input[Sequence[pulumi.Input['ForestTrustArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_forest is not None:
-            pulumi.set(__self__, "resource_forest", resource_forest)
+            _setter("resource_forest", resource_forest)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter(name="resourceForest")

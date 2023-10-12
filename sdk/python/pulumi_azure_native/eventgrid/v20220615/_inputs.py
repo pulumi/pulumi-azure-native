@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -77,19 +77,36 @@ class AzureFunctionEventSubscriptionDestinationArgs:
         :param pulumi.Input[int] preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", 'AzureFunction')
+        AzureFunctionEventSubscriptionDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            delivery_attribute_mappings=delivery_attribute_mappings,
+            max_events_per_batch=max_events_per_batch,
+            preferred_batch_size_in_kilobytes=preferred_batch_size_in_kilobytes,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             delivery_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]]] = None,
+             max_events_per_batch: Optional[pulumi.Input[int]] = None,
+             preferred_batch_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", 'AzureFunction')
         if delivery_attribute_mappings is not None:
-            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+            _setter("delivery_attribute_mappings", delivery_attribute_mappings)
         if max_events_per_batch is None:
             max_events_per_batch = 1
         if max_events_per_batch is not None:
-            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+            _setter("max_events_per_batch", max_events_per_batch)
         if preferred_batch_size_in_kilobytes is None:
             preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
-            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+            _setter("preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -166,11 +183,24 @@ class BoolEqualsAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[bool] value: The boolean filter value.
         """
-        pulumi.set(__self__, "operator_type", 'BoolEquals')
+        BoolEqualsAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'BoolEquals')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -222,12 +252,25 @@ class ConnectionStateArgs:
         :param pulumi.Input[str] description: Description of the connection state.
         :param pulumi.Input[Union[str, 'PersistedConnectionStatus']] status: Status of the connection.
         """
+        ConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PersistedConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -277,10 +320,21 @@ class DeadLetterWithResourceIdentityArgs:
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input['EventSubscriptionIdentityArgs'] identity: The identity to use when dead-lettering events.
         """
+        DeadLetterWithResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dead_letter_destination=dead_letter_destination,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dead_letter_destination: Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']] = None,
+             identity: Optional[pulumi.Input['EventSubscriptionIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dead_letter_destination is not None:
-            pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
+            _setter("dead_letter_destination", dead_letter_destination)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter(name="deadLetterDestination")
@@ -319,10 +373,21 @@ class DeliveryWithResourceIdentityArgs:
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input['EventSubscriptionIdentityArgs'] identity: The identity to use when delivering events.
         """
+        DeliveryWithResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
+             identity: Optional[pulumi.Input['EventSubscriptionIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter
@@ -363,11 +428,24 @@ class DynamicDeliveryAttributeMappingArgs:
         :param pulumi.Input[str] name: Name of the delivery attribute or header.
         :param pulumi.Input[str] source_field: JSON path in the event which contains attribute value.
         """
-        pulumi.set(__self__, "type", 'Dynamic')
+        DynamicDeliveryAttributeMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            name=name,
+            source_field=source_field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             source_field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Dynamic')
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_field is not None:
-            pulumi.set(__self__, "source_field", source_field)
+            _setter("source_field", source_field)
 
     @property
     @pulumi.getter
@@ -420,11 +498,24 @@ class EventHubEventSubscriptionDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]] delivery_attribute_mappings: Delivery attribute details.
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        EventHubEventSubscriptionDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            delivery_attribute_mappings=delivery_attribute_mappings,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             delivery_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", 'EventHub')
         if delivery_attribute_mappings is not None:
-            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+            _setter("delivery_attribute_mappings", delivery_attribute_mappings)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -486,20 +577,39 @@ class EventSubscriptionFilterArgs:
         :param pulumi.Input[str] subject_ends_with: An optional string to filter events for an event subscription based on a resource path suffix.
                Wildcard characters are not supported in this path.
         """
+        EventSubscriptionFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advanced_filters=advanced_filters,
+            enable_advanced_filtering_on_arrays=enable_advanced_filtering_on_arrays,
+            included_event_types=included_event_types,
+            is_subject_case_sensitive=is_subject_case_sensitive,
+            subject_begins_with=subject_begins_with,
+            subject_ends_with=subject_ends_with,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advanced_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]] = None,
+             enable_advanced_filtering_on_arrays: Optional[pulumi.Input[bool]] = None,
+             included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_subject_case_sensitive: Optional[pulumi.Input[bool]] = None,
+             subject_begins_with: Optional[pulumi.Input[str]] = None,
+             subject_ends_with: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if advanced_filters is not None:
-            pulumi.set(__self__, "advanced_filters", advanced_filters)
+            _setter("advanced_filters", advanced_filters)
         if enable_advanced_filtering_on_arrays is not None:
-            pulumi.set(__self__, "enable_advanced_filtering_on_arrays", enable_advanced_filtering_on_arrays)
+            _setter("enable_advanced_filtering_on_arrays", enable_advanced_filtering_on_arrays)
         if included_event_types is not None:
-            pulumi.set(__self__, "included_event_types", included_event_types)
+            _setter("included_event_types", included_event_types)
         if is_subject_case_sensitive is None:
             is_subject_case_sensitive = False
         if is_subject_case_sensitive is not None:
-            pulumi.set(__self__, "is_subject_case_sensitive", is_subject_case_sensitive)
+            _setter("is_subject_case_sensitive", is_subject_case_sensitive)
         if subject_begins_with is not None:
-            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
+            _setter("subject_begins_with", subject_begins_with)
         if subject_ends_with is not None:
-            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
+            _setter("subject_ends_with", subject_ends_with)
 
     @property
     @pulumi.getter(name="advancedFilters")
@@ -588,10 +698,21 @@ class EventSubscriptionIdentityArgs:
         :param pulumi.Input[Union[str, 'EventSubscriptionIdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
         :param pulumi.Input[str] user_assigned_identity: The user identity associated with the resource.
         """
+        EventSubscriptionIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'EventSubscriptionIdentityType']]] = None,
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
@@ -630,10 +751,21 @@ class EventTypeInfoArgs:
                The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
         :param pulumi.Input[Union[str, 'EventDefinitionKind']] kind: The kind of event type used.
         """
+        EventTypeInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inline_event_types=inline_event_types,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inline_event_types: Optional[pulumi.Input[Mapping[str, pulumi.Input['InlineEventPropertiesArgs']]]] = None,
+             kind: Optional[pulumi.Input[Union[str, 'EventDefinitionKind']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if inline_event_types is not None:
-            pulumi.set(__self__, "inline_event_types", inline_event_types)
+            _setter("inline_event_types", inline_event_types)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter(name="inlineEventTypes")
@@ -675,11 +807,24 @@ class HybridConnectionEventSubscriptionDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]] delivery_attribute_mappings: Delivery attribute details.
         :param pulumi.Input[str] resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", 'HybridConnection')
+        HybridConnectionEventSubscriptionDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            delivery_attribute_mappings=delivery_attribute_mappings,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             delivery_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", 'HybridConnection')
         if delivery_attribute_mappings is not None:
-            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+            _setter("delivery_attribute_mappings", delivery_attribute_mappings)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -735,14 +880,29 @@ class IdentityInfoArgs:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
                This property is currently not used and reserved for future usage.
         """
+        IdentityInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -804,10 +964,21 @@ class InboundIpRuleArgs:
         :param pulumi.Input[Union[str, 'IpActionType']] action: Action to perform based on the match or no match of the IpMask.
         :param pulumi.Input[str] ip_mask: IP Address in CIDR notation e.g., 10.0.0.0/8.
         """
+        InboundIpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            ip_mask=ip_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'IpActionType']]] = None,
+             ip_mask: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if ip_mask is not None:
-            pulumi.set(__self__, "ip_mask", ip_mask)
+            _setter("ip_mask", ip_mask)
 
     @property
     @pulumi.getter
@@ -848,14 +1019,29 @@ class InlineEventPropertiesArgs:
         :param pulumi.Input[str] display_name: The displayName for the inline event.
         :param pulumi.Input[str] documentation_url: The documentationUrl for the inline event.
         """
+        InlineEventPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_schema_url=data_schema_url,
+            description=description,
+            display_name=display_name,
+            documentation_url=documentation_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_schema_url: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             documentation_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_schema_url is not None:
-            pulumi.set(__self__, "data_schema_url", data_schema_url)
+            _setter("data_schema_url", data_schema_url)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if documentation_url is not None:
-            pulumi.set(__self__, "documentation_url", documentation_url)
+            _setter("documentation_url", documentation_url)
 
     @property
     @pulumi.getter(name="dataSchemaUrl")
@@ -917,9 +1103,20 @@ class IsNotNullAdvancedFilterArgs:
                Expected value is 'IsNotNull'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         """
-        pulumi.set(__self__, "operator_type", 'IsNotNull')
+        IsNotNullAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'IsNotNull')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -958,9 +1155,20 @@ class IsNullOrUndefinedAdvancedFilterArgs:
                Expected value is 'IsNullOrUndefined'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         """
-        pulumi.set(__self__, "operator_type", 'IsNullOrUndefined')
+        IsNullOrUndefinedAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'IsNullOrUndefined')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1001,10 +1209,21 @@ class JsonFieldWithDefaultArgs:
         :param pulumi.Input[str] default_value: The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
         :param pulumi.Input[str] source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
         """
+        JsonFieldWithDefaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_value=default_value,
+            source_field=source_field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_value: Optional[pulumi.Input[str]] = None,
+             source_field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if source_field is not None:
-            pulumi.set(__self__, "source_field", source_field)
+            _setter("source_field", source_field)
 
     @property
     @pulumi.getter(name="defaultValue")
@@ -1039,8 +1258,17 @@ class JsonFieldArgs:
         This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
         :param pulumi.Input[str] source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
         """
+        JsonFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_field=source_field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if source_field is not None:
-            pulumi.set(__self__, "source_field", source_field)
+            _setter("source_field", source_field)
 
     @property
     @pulumi.getter(name="sourceField")
@@ -1076,19 +1304,40 @@ class JsonInputSchemaMappingArgs:
         :param pulumi.Input['JsonFieldWithDefaultArgs'] subject: The mapping information for the Subject property of the Event Grid Event.
         :param pulumi.Input['JsonFieldArgs'] topic: The mapping information for the Topic property of the Event Grid Event.
         """
-        pulumi.set(__self__, "input_schema_mapping_type", 'Json')
+        JsonInputSchemaMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_schema_mapping_type=input_schema_mapping_type,
+            data_version=data_version,
+            event_time=event_time,
+            event_type=event_type,
+            id=id,
+            subject=subject,
+            topic=topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_schema_mapping_type: pulumi.Input[str],
+             data_version: Optional[pulumi.Input['JsonFieldWithDefaultArgs']] = None,
+             event_time: Optional[pulumi.Input['JsonFieldArgs']] = None,
+             event_type: Optional[pulumi.Input['JsonFieldWithDefaultArgs']] = None,
+             id: Optional[pulumi.Input['JsonFieldArgs']] = None,
+             subject: Optional[pulumi.Input['JsonFieldWithDefaultArgs']] = None,
+             topic: Optional[pulumi.Input['JsonFieldArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_schema_mapping_type", 'Json')
         if data_version is not None:
-            pulumi.set(__self__, "data_version", data_version)
+            _setter("data_version", data_version)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if topic is not None:
-            pulumi.set(__self__, "topic", topic)
+            _setter("topic", topic)
 
     @property
     @pulumi.getter(name="inputSchemaMappingType")
@@ -1189,11 +1438,24 @@ class NumberGreaterThanAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[float] value: The filter value.
         """
-        pulumi.set(__self__, "operator_type", 'NumberGreaterThan')
+        NumberGreaterThanAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'NumberGreaterThan')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1246,11 +1508,24 @@ class NumberGreaterThanOrEqualsAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[float] value: The filter value.
         """
-        pulumi.set(__self__, "operator_type", 'NumberGreaterThanOrEquals')
+        NumberGreaterThanOrEqualsAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'NumberGreaterThanOrEquals')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1303,11 +1578,24 @@ class NumberInAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[float]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'NumberIn')
+        NumberInAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'NumberIn')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1360,11 +1648,24 @@ class NumberInRangeAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'NumberInRange')
+        NumberInRangeAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'NumberInRange')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1417,11 +1718,24 @@ class NumberLessThanAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[float] value: The filter value.
         """
-        pulumi.set(__self__, "operator_type", 'NumberLessThan')
+        NumberLessThanAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'NumberLessThan')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1474,11 +1788,24 @@ class NumberLessThanOrEqualsAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[float] value: The filter value.
         """
-        pulumi.set(__self__, "operator_type", 'NumberLessThanOrEquals')
+        NumberLessThanOrEqualsAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'NumberLessThanOrEquals')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1531,11 +1858,24 @@ class NumberNotInAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[float]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'NumberNotIn')
+        NumberNotInAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'NumberNotIn')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1588,11 +1928,24 @@ class NumberNotInRangeAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'NumberNotInRange')
+        NumberNotInRangeAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'NumberNotInRange')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1643,10 +1996,21 @@ class PartnerAuthorizationArgs:
         :param pulumi.Input[int] default_maximum_expiration_time_in_days: Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
                not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
         """
+        PartnerAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorized_partners_list=authorized_partners_list,
+            default_maximum_expiration_time_in_days=default_maximum_expiration_time_in_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorized_partners_list: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerArgs']]]] = None,
+             default_maximum_expiration_time_in_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorized_partners_list is not None:
-            pulumi.set(__self__, "authorized_partners_list", authorized_partners_list)
+            _setter("authorized_partners_list", authorized_partners_list)
         if default_maximum_expiration_time_in_days is not None:
-            pulumi.set(__self__, "default_maximum_expiration_time_in_days", default_maximum_expiration_time_in_days)
+            _setter("default_maximum_expiration_time_in_days", default_maximum_expiration_time_in_days)
 
     @property
     @pulumi.getter(name="authorizedPartnersList")
@@ -1695,16 +2059,33 @@ class PartnerTopicInfoArgs:
                are originating. This information can be used by the subscriber during the approval process of the
                created partner topic.
         """
+        PartnerTopicInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_subscription_id=azure_subscription_id,
+            event_type_info=event_type_info,
+            name=name,
+            resource_group_name=resource_group_name,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_subscription_id: Optional[pulumi.Input[str]] = None,
+             event_type_info: Optional[pulumi.Input['EventTypeInfoArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_subscription_id is not None:
-            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
+            _setter("azure_subscription_id", azure_subscription_id)
         if event_type_info is not None:
-            pulumi.set(__self__, "event_type_info", event_type_info)
+            _setter("event_type_info", event_type_info)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter(name="azureSubscriptionId")
@@ -1786,12 +2167,25 @@ class PartnerArgs:
         :param pulumi.Input[str] partner_name: The partner name.
         :param pulumi.Input[str] partner_registration_immutable_id: The immutableId of the corresponding partner registration.
         """
+        PartnerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_expiration_time_in_utc=authorization_expiration_time_in_utc,
+            partner_name=partner_name,
+            partner_registration_immutable_id=partner_registration_immutable_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_expiration_time_in_utc: Optional[pulumi.Input[str]] = None,
+             partner_name: Optional[pulumi.Input[str]] = None,
+             partner_registration_immutable_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorization_expiration_time_in_utc is not None:
-            pulumi.set(__self__, "authorization_expiration_time_in_utc", authorization_expiration_time_in_utc)
+            _setter("authorization_expiration_time_in_utc", authorization_expiration_time_in_utc)
         if partner_name is not None:
-            pulumi.set(__self__, "partner_name", partner_name)
+            _setter("partner_name", partner_name)
         if partner_registration_immutable_id is not None:
-            pulumi.set(__self__, "partner_registration_immutable_id", partner_registration_immutable_id)
+            _setter("partner_registration_immutable_id", partner_registration_immutable_id)
 
     @property
     @pulumi.getter(name="authorizationExpirationTimeInUtc")
@@ -1840,8 +2234,17 @@ class PrivateEndpointArgs:
         PrivateEndpoint information.
         :param pulumi.Input[str] id: The ARM identifier for Private Endpoint.
         """
+        PrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1866,14 +2269,25 @@ class RetryPolicyArgs:
         :param pulumi.Input[int] event_time_to_live_in_minutes: Time To Live (in minutes) for events.
         :param pulumi.Input[int] max_delivery_attempts: Maximum number of delivery retry attempts for events.
         """
+        RetryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_time_to_live_in_minutes=event_time_to_live_in_minutes,
+            max_delivery_attempts=max_delivery_attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_time_to_live_in_minutes: Optional[pulumi.Input[int]] = None,
+             max_delivery_attempts: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if event_time_to_live_in_minutes is None:
             event_time_to_live_in_minutes = 1440
         if event_time_to_live_in_minutes is not None:
-            pulumi.set(__self__, "event_time_to_live_in_minutes", event_time_to_live_in_minutes)
+            _setter("event_time_to_live_in_minutes", event_time_to_live_in_minutes)
         if max_delivery_attempts is None:
             max_delivery_attempts = 30
         if max_delivery_attempts is not None:
-            pulumi.set(__self__, "max_delivery_attempts", max_delivery_attempts)
+            _setter("max_delivery_attempts", max_delivery_attempts)
 
     @property
     @pulumi.getter(name="eventTimeToLiveInMinutes")
@@ -1913,11 +2327,24 @@ class ServiceBusQueueEventSubscriptionDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]] delivery_attribute_mappings: Delivery attribute details.
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", 'ServiceBusQueue')
+        ServiceBusQueueEventSubscriptionDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            delivery_attribute_mappings=delivery_attribute_mappings,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             delivery_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", 'ServiceBusQueue')
         if delivery_attribute_mappings is not None:
-            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+            _setter("delivery_attribute_mappings", delivery_attribute_mappings)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -1970,11 +2397,24 @@ class ServiceBusTopicEventSubscriptionDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]] delivery_attribute_mappings: Delivery attribute details.
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", 'ServiceBusTopic')
+        ServiceBusTopicEventSubscriptionDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            delivery_attribute_mappings=delivery_attribute_mappings,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             delivery_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", 'ServiceBusTopic')
         if delivery_attribute_mappings is not None:
-            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+            _setter("delivery_attribute_mappings", delivery_attribute_mappings)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -2029,15 +2469,30 @@ class StaticDeliveryAttributeMappingArgs:
         :param pulumi.Input[str] name: Name of the delivery attribute or header.
         :param pulumi.Input[str] value: Value of the delivery attribute.
         """
-        pulumi.set(__self__, "type", 'Static')
+        StaticDeliveryAttributeMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            is_secret=is_secret,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             is_secret: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Static')
         if is_secret is None:
             is_secret = False
         if is_secret is not None:
-            pulumi.set(__self__, "is_secret", is_secret)
+            _setter("is_secret", is_secret)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2102,11 +2557,24 @@ class StorageBlobDeadLetterDestinationArgs:
         :param pulumi.Input[str] blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
         :param pulumi.Input[str] resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events
         """
-        pulumi.set(__self__, "endpoint_type", 'StorageBlob')
+        StorageBlobDeadLetterDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            blob_container_name=blob_container_name,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             blob_container_name: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", 'StorageBlob')
         if blob_container_name is not None:
-            pulumi.set(__self__, "blob_container_name", blob_container_name)
+            _setter("blob_container_name", blob_container_name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -2161,13 +2629,28 @@ class StorageQueueEventSubscriptionDestinationArgs:
         :param pulumi.Input[str] queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
         :param pulumi.Input[str] resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", 'StorageQueue')
+        StorageQueueEventSubscriptionDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            queue_message_time_to_live_in_seconds=queue_message_time_to_live_in_seconds,
+            queue_name=queue_name,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             queue_message_time_to_live_in_seconds: Optional[pulumi.Input[float]] = None,
+             queue_name: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", 'StorageQueue')
         if queue_message_time_to_live_in_seconds is not None:
-            pulumi.set(__self__, "queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
+            _setter("queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
         if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
+            _setter("queue_name", queue_name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -2232,11 +2715,24 @@ class StringBeginsWithAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringBeginsWith')
+        StringBeginsWithAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'StringBeginsWith')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -2289,11 +2785,24 @@ class StringContainsAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringContains')
+        StringContainsAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'StringContains')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -2346,11 +2855,24 @@ class StringEndsWithAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringEndsWith')
+        StringEndsWithAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'StringEndsWith')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -2403,11 +2925,24 @@ class StringInAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringIn')
+        StringInAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'StringIn')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -2460,11 +2995,24 @@ class StringNotBeginsWithAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringNotBeginsWith')
+        StringNotBeginsWithAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'StringNotBeginsWith')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -2517,11 +3065,24 @@ class StringNotContainsAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringNotContains')
+        StringNotContainsAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'StringNotContains')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -2574,11 +3135,24 @@ class StringNotEndsWithAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringNotEndsWith')
+        StringNotEndsWithAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'StringNotEndsWith')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -2631,11 +3205,24 @@ class StringNotInAdvancedFilterArgs:
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringNotIn')
+        StringNotInAdvancedFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator_type", 'StringNotIn')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -2685,10 +3272,21 @@ class UserIdentityPropertiesArgs:
         :param pulumi.Input[str] client_id: The client id of user assigned identity.
         :param pulumi.Input[str] principal_id: The principal id of user assigned identity.
         """
+        UserIdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2736,23 +3334,44 @@ class WebHookEventSubscriptionDestinationArgs:
         :param pulumi.Input[int] max_events_per_batch: Maximum number of events per batch.
         :param pulumi.Input[int] preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
-        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        WebHookEventSubscriptionDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            azure_active_directory_application_id_or_uri=azure_active_directory_application_id_or_uri,
+            azure_active_directory_tenant_id=azure_active_directory_tenant_id,
+            delivery_attribute_mappings=delivery_attribute_mappings,
+            endpoint_url=endpoint_url,
+            max_events_per_batch=max_events_per_batch,
+            preferred_batch_size_in_kilobytes=preferred_batch_size_in_kilobytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             azure_active_directory_application_id_or_uri: Optional[pulumi.Input[str]] = None,
+             azure_active_directory_tenant_id: Optional[pulumi.Input[str]] = None,
+             delivery_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]]] = None,
+             endpoint_url: Optional[pulumi.Input[str]] = None,
+             max_events_per_batch: Optional[pulumi.Input[int]] = None,
+             preferred_batch_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", 'WebHook')
         if azure_active_directory_application_id_or_uri is not None:
-            pulumi.set(__self__, "azure_active_directory_application_id_or_uri", azure_active_directory_application_id_or_uri)
+            _setter("azure_active_directory_application_id_or_uri", azure_active_directory_application_id_or_uri)
         if azure_active_directory_tenant_id is not None:
-            pulumi.set(__self__, "azure_active_directory_tenant_id", azure_active_directory_tenant_id)
+            _setter("azure_active_directory_tenant_id", azure_active_directory_tenant_id)
         if delivery_attribute_mappings is not None:
-            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+            _setter("delivery_attribute_mappings", delivery_attribute_mappings)
         if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
+            _setter("endpoint_url", endpoint_url)
         if max_events_per_batch is None:
             max_events_per_batch = 1
         if max_events_per_batch is not None:
-            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+            _setter("max_events_per_batch", max_events_per_batch)
         if preferred_batch_size_in_kilobytes is None:
             preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
-            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+            _setter("preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 
     @property
     @pulumi.getter(name="endpointType")

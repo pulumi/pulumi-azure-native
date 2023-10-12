@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,30 +46,63 @@ class OpenShiftManagedClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OpenShiftRouterProfileArgs']]] router_profiles: Configuration for OpenShift router(s).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "open_shift_version", open_shift_version)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OpenShiftManagedClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            open_shift_version=open_shift_version,
+            resource_group_name=resource_group_name,
+            agent_pool_profiles=agent_pool_profiles,
+            auth_profile=auth_profile,
+            location=location,
+            master_pool_profile=master_pool_profile,
+            monitor_profile=monitor_profile,
+            network_profile=network_profile,
+            plan=plan,
+            refresh_cluster=refresh_cluster,
+            resource_name=resource_name,
+            router_profiles=router_profiles,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             open_shift_version: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterAgentPoolProfileArgs']]]] = None,
+             auth_profile: Optional[pulumi.Input['OpenShiftManagedClusterAuthProfileArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             master_pool_profile: Optional[pulumi.Input['OpenShiftManagedClusterMasterPoolProfileArgs']] = None,
+             monitor_profile: Optional[pulumi.Input['OpenShiftManagedClusterMonitorProfileArgs']] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             plan: Optional[pulumi.Input['PurchasePlanArgs']] = None,
+             refresh_cluster: Optional[pulumi.Input[bool]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             router_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftRouterProfileArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("open_shift_version", open_shift_version)
+        _setter("resource_group_name", resource_group_name)
         if agent_pool_profiles is not None:
-            pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
+            _setter("agent_pool_profiles", agent_pool_profiles)
         if auth_profile is not None:
-            pulumi.set(__self__, "auth_profile", auth_profile)
+            _setter("auth_profile", auth_profile)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if master_pool_profile is not None:
-            pulumi.set(__self__, "master_pool_profile", master_pool_profile)
+            _setter("master_pool_profile", master_pool_profile)
         if monitor_profile is not None:
-            pulumi.set(__self__, "monitor_profile", monitor_profile)
+            _setter("monitor_profile", monitor_profile)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if refresh_cluster is not None:
-            pulumi.set(__self__, "refresh_cluster", refresh_cluster)
+            _setter("refresh_cluster", refresh_cluster)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if router_profiles is not None:
-            pulumi.set(__self__, "router_profiles", router_profiles)
+            _setter("router_profiles", router_profiles)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="openShiftVersion")
@@ -285,6 +318,10 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OpenShiftManagedClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -313,14 +350,39 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
             __props__ = OpenShiftManagedClusterArgs.__new__(OpenShiftManagedClusterArgs)
 
             __props__.__dict__["agent_pool_profiles"] = agent_pool_profiles
+            if auth_profile is not None and not isinstance(auth_profile, OpenShiftManagedClusterAuthProfileArgs):
+                auth_profile = auth_profile or {}
+                def _setter(key, value):
+                    auth_profile[key] = value
+                OpenShiftManagedClusterAuthProfileArgs._configure(_setter, **auth_profile)
             __props__.__dict__["auth_profile"] = auth_profile
             __props__.__dict__["location"] = location
+            if master_pool_profile is not None and not isinstance(master_pool_profile, OpenShiftManagedClusterMasterPoolProfileArgs):
+                master_pool_profile = master_pool_profile or {}
+                def _setter(key, value):
+                    master_pool_profile[key] = value
+                OpenShiftManagedClusterMasterPoolProfileArgs._configure(_setter, **master_pool_profile)
             __props__.__dict__["master_pool_profile"] = master_pool_profile
+            if monitor_profile is not None and not isinstance(monitor_profile, OpenShiftManagedClusterMonitorProfileArgs):
+                monitor_profile = monitor_profile or {}
+                def _setter(key, value):
+                    monitor_profile[key] = value
+                OpenShiftManagedClusterMonitorProfileArgs._configure(_setter, **monitor_profile)
             __props__.__dict__["monitor_profile"] = monitor_profile
+            if network_profile is not None and not isinstance(network_profile, NetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                NetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
             if open_shift_version is None and not opts.urn:
                 raise TypeError("Missing required property 'open_shift_version'")
             __props__.__dict__["open_shift_version"] = open_shift_version
+            if plan is not None and not isinstance(plan, PurchasePlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                PurchasePlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["refresh_cluster"] = refresh_cluster
             if resource_group_name is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -32,16 +32,37 @@ class ManagedPrivateEndpointArgs:
         :param pulumi.Input[str] private_link_resource_region: The region of the resource to which the managed private endpoint is created.
         :param pulumi.Input[str] request_message: The user request message.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedPrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            group_id=group_id,
+            private_link_resource_id=private_link_resource_id,
+            resource_group_name=resource_group_name,
+            managed_private_endpoint_name=managed_private_endpoint_name,
+            private_link_resource_region=private_link_resource_region,
+            request_message=request_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             group_id: pulumi.Input[str],
+             private_link_resource_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             managed_private_endpoint_name: Optional[pulumi.Input[str]] = None,
+             private_link_resource_region: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("group_id", group_id)
+        _setter("private_link_resource_id", private_link_resource_id)
+        _setter("resource_group_name", resource_group_name)
         if managed_private_endpoint_name is not None:
-            pulumi.set(__self__, "managed_private_endpoint_name", managed_private_endpoint_name)
+            _setter("managed_private_endpoint_name", managed_private_endpoint_name)
         if private_link_resource_region is not None:
-            pulumi.set(__self__, "private_link_resource_region", private_link_resource_region)
+            _setter("private_link_resource_region", private_link_resource_region)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -173,6 +194,10 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedPrivateEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

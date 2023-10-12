@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class ExtensionArgs:
         :param pulumi.Input[str] extension_id: Id of extension resource.
         :param pulumi.Input[str] extension_version: Extension Version.
         """
-        pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_manager_for_agriculture_resource_name=data_manager_for_agriculture_resource_name,
+            resource_group_name=resource_group_name,
+            additional_api_properties=additional_api_properties,
+            extension_id=extension_id,
+            extension_version=extension_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_manager_for_agriculture_resource_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]] = None,
+             extension_id: Optional[pulumi.Input[str]] = None,
+             extension_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
+        _setter("resource_group_name", resource_group_name)
         if additional_api_properties is not None:
-            pulumi.set(__self__, "additional_api_properties", additional_api_properties)
+            _setter("additional_api_properties", additional_api_properties)
         if extension_id is not None:
-            pulumi.set(__self__, "extension_id", extension_id)
+            _setter("extension_id", extension_id)
         if extension_version is not None:
-            pulumi.set(__self__, "extension_version", extension_version)
+            _setter("extension_version", extension_version)
 
     @property
     @pulumi.getter(name="dataManagerForAgricultureResourceName")
@@ -142,6 +159,10 @@ class Extension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExtensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

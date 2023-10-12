@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,14 +30,33 @@ class SandboxCustomImageArgs:
         :param pulumi.Input[str] requirements_file_content: The requirements file content.
         :param pulumi.Input[str] sandbox_custom_image_name: The name of the sandbox custom image.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "language", language)
-        pulumi.set(__self__, "language_version", language_version)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SandboxCustomImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            language=language,
+            language_version=language_version,
+            resource_group_name=resource_group_name,
+            requirements_file_content=requirements_file_content,
+            sandbox_custom_image_name=sandbox_custom_image_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             language: pulumi.Input[Union[str, 'Language']],
+             language_version: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             requirements_file_content: Optional[pulumi.Input[str]] = None,
+             sandbox_custom_image_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("language", language)
+        _setter("language_version", language_version)
+        _setter("resource_group_name", resource_group_name)
         if requirements_file_content is not None:
-            pulumi.set(__self__, "requirements_file_content", requirements_file_content)
+            _setter("requirements_file_content", requirements_file_content)
         if sandbox_custom_image_name is not None:
-            pulumi.set(__self__, "sandbox_custom_image_name", sandbox_custom_image_name)
+            _setter("sandbox_custom_image_name", sandbox_custom_image_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -157,6 +176,10 @@ class SandboxCustomImage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SandboxCustomImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

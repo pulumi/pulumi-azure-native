@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ChannelArgs', 'Channel']
@@ -29,15 +29,34 @@ class ChannelArgs:
         :param pulumi.Input[str] channel_name: Channel Name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] credentials: The channel credentials
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "channel_type", channel_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            channel_type=channel_type,
+            resource_group_name=resource_group_name,
+            channel_functions=channel_functions,
+            channel_name=channel_name,
+            credentials=credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             channel_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             channel_functions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             channel_name: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("channel_type", channel_type)
+        _setter("resource_group_name", resource_group_name)
         if channel_functions is not None:
-            pulumi.set(__self__, "channel_functions", channel_functions)
+            _setter("channel_functions", channel_functions)
         if channel_name is not None:
-            pulumi.set(__self__, "channel_name", channel_name)
+            _setter("channel_name", channel_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
 
     @property
     @pulumi.getter(name="accountName")
@@ -157,6 +176,10 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

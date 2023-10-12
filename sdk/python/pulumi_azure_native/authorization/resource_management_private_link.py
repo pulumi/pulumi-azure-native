@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -24,11 +24,24 @@ class ResourceManagementPrivateLinkArgs:
         :param pulumi.Input[str] location: the region to create private link association.
         :param pulumi.Input[str] rmpl_name: The name of the resource management private link.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ResourceManagementPrivateLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            location=location,
+            rmpl_name=rmpl_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             rmpl_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if rmpl_name is not None:
-            pulumi.set(__self__, "rmpl_name", rmpl_name)
+            _setter("rmpl_name", rmpl_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -104,6 +117,10 @@ class ResourceManagementPrivateLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceManagementPrivateLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceArgs', 'Service']
@@ -31,16 +31,37 @@ class ServiceArgs:
         :param pulumi.Input[str] service_name: The name of the service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_topology_name", service_topology_name)
-        pulumi.set(__self__, "target_location", target_location)
-        pulumi.set(__self__, "target_subscription_id", target_subscription_id)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            service_topology_name=service_topology_name,
+            target_location=target_location,
+            target_subscription_id=target_subscription_id,
+            location=location,
+            service_name=service_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             service_topology_name: pulumi.Input[str],
+             target_location: pulumi.Input[str],
+             target_subscription_id: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_topology_name", service_topology_name)
+        _setter("target_location", target_location)
+        _setter("target_subscription_id", target_subscription_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -174,6 +195,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

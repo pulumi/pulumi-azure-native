@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -76,61 +76,124 @@ class ScopeAccessReviewScheduleDefinitionByIdArgs:
         :param pulumi.Input[str] start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
         :param pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']] type: The recurrence range type. The possible values are: endDate, noEnd, numbered.
         """
-        pulumi.set(__self__, "scope", scope)
+        ScopeAccessReviewScheduleDefinitionByIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            auto_apply_decisions_enabled=auto_apply_decisions_enabled,
+            backup_reviewers=backup_reviewers,
+            default_decision=default_decision,
+            default_decision_enabled=default_decision_enabled,
+            description_for_admins=description_for_admins,
+            description_for_reviewers=description_for_reviewers,
+            display_name=display_name,
+            end_date=end_date,
+            exclude_resource_id=exclude_resource_id,
+            exclude_role_definition_id=exclude_role_definition_id,
+            expand_nested_memberships=expand_nested_memberships,
+            inactive_duration=inactive_duration,
+            include_access_below_resource=include_access_below_resource,
+            include_inherited_access=include_inherited_access,
+            instance_duration_in_days=instance_duration_in_days,
+            instances=instances,
+            interval=interval,
+            justification_required_on_approval=justification_required_on_approval,
+            mail_notifications_enabled=mail_notifications_enabled,
+            number_of_occurrences=number_of_occurrences,
+            recommendation_look_back_duration=recommendation_look_back_duration,
+            recommendations_enabled=recommendations_enabled,
+            reminder_notifications_enabled=reminder_notifications_enabled,
+            reviewers=reviewers,
+            schedule_definition_id=schedule_definition_id,
+            start_date=start_date,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             auto_apply_decisions_enabled: Optional[pulumi.Input[bool]] = None,
+             backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
+             default_decision: Optional[pulumi.Input[Union[str, 'DefaultDecisionType']]] = None,
+             default_decision_enabled: Optional[pulumi.Input[bool]] = None,
+             description_for_admins: Optional[pulumi.Input[str]] = None,
+             description_for_reviewers: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             exclude_resource_id: Optional[pulumi.Input[str]] = None,
+             exclude_role_definition_id: Optional[pulumi.Input[str]] = None,
+             expand_nested_memberships: Optional[pulumi.Input[bool]] = None,
+             inactive_duration: Optional[pulumi.Input[str]] = None,
+             include_access_below_resource: Optional[pulumi.Input[bool]] = None,
+             include_inherited_access: Optional[pulumi.Input[bool]] = None,
+             instance_duration_in_days: Optional[pulumi.Input[int]] = None,
+             instances: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewInstanceArgs']]]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             justification_required_on_approval: Optional[pulumi.Input[bool]] = None,
+             mail_notifications_enabled: Optional[pulumi.Input[bool]] = None,
+             number_of_occurrences: Optional[pulumi.Input[int]] = None,
+             recommendation_look_back_duration: Optional[pulumi.Input[str]] = None,
+             recommendations_enabled: Optional[pulumi.Input[bool]] = None,
+             reminder_notifications_enabled: Optional[pulumi.Input[bool]] = None,
+             reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
+             schedule_definition_id: Optional[pulumi.Input[str]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scope", scope)
         if auto_apply_decisions_enabled is not None:
-            pulumi.set(__self__, "auto_apply_decisions_enabled", auto_apply_decisions_enabled)
+            _setter("auto_apply_decisions_enabled", auto_apply_decisions_enabled)
         if backup_reviewers is not None:
-            pulumi.set(__self__, "backup_reviewers", backup_reviewers)
+            _setter("backup_reviewers", backup_reviewers)
         if default_decision is not None:
-            pulumi.set(__self__, "default_decision", default_decision)
+            _setter("default_decision", default_decision)
         if default_decision_enabled is not None:
-            pulumi.set(__self__, "default_decision_enabled", default_decision_enabled)
+            _setter("default_decision_enabled", default_decision_enabled)
         if description_for_admins is not None:
-            pulumi.set(__self__, "description_for_admins", description_for_admins)
+            _setter("description_for_admins", description_for_admins)
         if description_for_reviewers is not None:
-            pulumi.set(__self__, "description_for_reviewers", description_for_reviewers)
+            _setter("description_for_reviewers", description_for_reviewers)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if exclude_resource_id is not None:
-            pulumi.set(__self__, "exclude_resource_id", exclude_resource_id)
+            _setter("exclude_resource_id", exclude_resource_id)
         if exclude_role_definition_id is not None:
-            pulumi.set(__self__, "exclude_role_definition_id", exclude_role_definition_id)
+            _setter("exclude_role_definition_id", exclude_role_definition_id)
         if expand_nested_memberships is not None:
-            pulumi.set(__self__, "expand_nested_memberships", expand_nested_memberships)
+            _setter("expand_nested_memberships", expand_nested_memberships)
         if inactive_duration is not None:
-            pulumi.set(__self__, "inactive_duration", inactive_duration)
+            _setter("inactive_duration", inactive_duration)
         if include_access_below_resource is not None:
-            pulumi.set(__self__, "include_access_below_resource", include_access_below_resource)
+            _setter("include_access_below_resource", include_access_below_resource)
         if include_inherited_access is not None:
-            pulumi.set(__self__, "include_inherited_access", include_inherited_access)
+            _setter("include_inherited_access", include_inherited_access)
         if instance_duration_in_days is not None:
-            pulumi.set(__self__, "instance_duration_in_days", instance_duration_in_days)
+            _setter("instance_duration_in_days", instance_duration_in_days)
         if instances is not None:
-            pulumi.set(__self__, "instances", instances)
+            _setter("instances", instances)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if justification_required_on_approval is not None:
-            pulumi.set(__self__, "justification_required_on_approval", justification_required_on_approval)
+            _setter("justification_required_on_approval", justification_required_on_approval)
         if mail_notifications_enabled is not None:
-            pulumi.set(__self__, "mail_notifications_enabled", mail_notifications_enabled)
+            _setter("mail_notifications_enabled", mail_notifications_enabled)
         if number_of_occurrences is not None:
-            pulumi.set(__self__, "number_of_occurrences", number_of_occurrences)
+            _setter("number_of_occurrences", number_of_occurrences)
         if recommendation_look_back_duration is not None:
-            pulumi.set(__self__, "recommendation_look_back_duration", recommendation_look_back_duration)
+            _setter("recommendation_look_back_duration", recommendation_look_back_duration)
         if recommendations_enabled is not None:
-            pulumi.set(__self__, "recommendations_enabled", recommendations_enabled)
+            _setter("recommendations_enabled", recommendations_enabled)
         if reminder_notifications_enabled is not None:
-            pulumi.set(__self__, "reminder_notifications_enabled", reminder_notifications_enabled)
+            _setter("reminder_notifications_enabled", reminder_notifications_enabled)
         if reviewers is not None:
-            pulumi.set(__self__, "reviewers", reviewers)
+            _setter("reviewers", reviewers)
         if schedule_definition_id is not None:
-            pulumi.set(__self__, "schedule_definition_id", schedule_definition_id)
+            _setter("schedule_definition_id", schedule_definition_id)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -558,6 +621,10 @@ class ScopeAccessReviewScheduleDefinitionById(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScopeAccessReviewScheduleDefinitionByIdArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

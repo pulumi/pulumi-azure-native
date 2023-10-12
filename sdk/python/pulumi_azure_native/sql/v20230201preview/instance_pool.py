@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,41 @@ class InstancePoolArgs:
         :param pulumi.Input['SkuArgs'] sku: The name and tier of the SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "license_type", license_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "v_cores", v_cores)
+        InstancePoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            license_type=license_type,
+            resource_group_name=resource_group_name,
+            subnet_id=subnet_id,
+            v_cores=v_cores,
+            instance_pool_name=instance_pool_name,
+            location=location,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             license_type: pulumi.Input[Union[str, 'InstancePoolLicenseType']],
+             resource_group_name: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             v_cores: pulumi.Input[int],
+             instance_pool_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("license_type", license_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subnet_id", subnet_id)
+        _setter("v_cores", v_cores)
         if instance_pool_name is not None:
-            pulumi.set(__self__, "instance_pool_name", instance_pool_name)
+            _setter("instance_pool_name", instance_pool_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -193,6 +216,10 @@ class InstancePool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstancePoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -223,6 +250,11 @@ class InstancePool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,12 +56,25 @@ class AccessModeSettingsExclusionResponse(dict):
         :param str private_endpoint_connection_name: The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
         :param str query_access_mode: Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
         """
+        AccessModeSettingsExclusionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ingestion_access_mode=ingestion_access_mode,
+            private_endpoint_connection_name=private_endpoint_connection_name,
+            query_access_mode=query_access_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ingestion_access_mode: Optional[str] = None,
+             private_endpoint_connection_name: Optional[str] = None,
+             query_access_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ingestion_access_mode is not None:
-            pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
+            _setter("ingestion_access_mode", ingestion_access_mode)
         if private_endpoint_connection_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+            _setter("private_endpoint_connection_name", private_endpoint_connection_name)
         if query_access_mode is not None:
-            pulumi.set(__self__, "query_access_mode", query_access_mode)
+            _setter("query_access_mode", query_access_mode)
 
     @property
     @pulumi.getter(name="ingestionAccessMode")
@@ -122,10 +135,23 @@ class AccessModeSettingsResponse(dict):
         :param str query_access_mode: Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
         :param Sequence['AccessModeSettingsExclusionResponse'] exclusions: List of exclusions that override the default access mode settings for specific private endpoint connections.
         """
-        pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
-        pulumi.set(__self__, "query_access_mode", query_access_mode)
+        AccessModeSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ingestion_access_mode=ingestion_access_mode,
+            query_access_mode=query_access_mode,
+            exclusions=exclusions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ingestion_access_mode: str,
+             query_access_mode: str,
+             exclusions: Optional[Sequence['outputs.AccessModeSettingsExclusionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ingestion_access_mode", ingestion_access_mode)
+        _setter("query_access_mode", query_access_mode)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
 
     @property
     @pulumi.getter(name="ingestionAccessMode")
@@ -194,13 +220,32 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             provisioning_state: str,
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -262,7 +307,16 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -305,12 +359,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -385,18 +452,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

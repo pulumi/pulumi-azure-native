@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -39,17 +39,36 @@ class AzureMachineLearningWebServiceFunctionBindingArgs:
         :param pulumi.Input['AzureMachineLearningWebServiceInputsArgs'] inputs: The inputs for the Azure Machine Learning web service endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
         """
-        pulumi.set(__self__, "type", 'Microsoft.MachineLearning/WebService')
+        AzureMachineLearningWebServiceFunctionBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            api_key=api_key,
+            batch_size=batch_size,
+            endpoint=endpoint,
+            inputs=inputs,
+            outputs=outputs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
+             batch_size: Optional[pulumi.Input[int]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             inputs: Optional[pulumi.Input['AzureMachineLearningWebServiceInputsArgs']] = None,
+             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Microsoft.MachineLearning/WebService')
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
 
     @property
     @pulumi.getter
@@ -137,12 +156,25 @@ class AzureMachineLearningWebServiceInputColumnArgs:
         :param pulumi.Input[int] map_to: The zero based index of the function parameter this input maps to.
         :param pulumi.Input[str] name: The name of the input column.
         """
+        AzureMachineLearningWebServiceInputColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            map_to=map_to,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[pulumi.Input[str]] = None,
+             map_to: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if map_to is not None:
-            pulumi.set(__self__, "map_to", map_to)
+            _setter("map_to", map_to)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataType")
@@ -191,10 +223,21 @@ class AzureMachineLearningWebServiceInputsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
         :param pulumi.Input[str] name: The name of the input. This is the name provided while authoring the endpoint.
         """
+        AzureMachineLearningWebServiceInputsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_names=column_names,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_names: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if column_names is not None:
-            pulumi.set(__self__, "column_names", column_names)
+            _setter("column_names", column_names)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="columnNames")
@@ -231,10 +274,21 @@ class AzureMachineLearningWebServiceOutputColumnArgs:
         :param pulumi.Input[str] data_type: The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
         :param pulumi.Input[str] name: The name of the output column.
         """
+        AzureMachineLearningWebServiceOutputColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataType")
@@ -271,10 +325,21 @@ class FunctionInputArgs:
         :param pulumi.Input[str] data_type: The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
         :param pulumi.Input[bool] is_configuration_parameter: A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
         """
+        FunctionInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            is_configuration_parameter=is_configuration_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[pulumi.Input[str]] = None,
+             is_configuration_parameter: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if is_configuration_parameter is not None:
-            pulumi.set(__self__, "is_configuration_parameter", is_configuration_parameter)
+            _setter("is_configuration_parameter", is_configuration_parameter)
 
     @property
     @pulumi.getter(name="dataType")
@@ -309,8 +374,17 @@ class FunctionOutputArgs:
         Describes the output of a function.
         :param pulumi.Input[str] data_type: The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
         """
+        FunctionOutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
 
     @property
     @pulumi.getter(name="dataType")
@@ -336,9 +410,20 @@ class JavaScriptFunctionBindingArgs:
                Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         :param pulumi.Input[str] script: The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
         """
-        pulumi.set(__self__, "type", 'Microsoft.StreamAnalytics/JavascriptUdf')
+        JavaScriptFunctionBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            script=script,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             script: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Microsoft.StreamAnalytics/JavascriptUdf')
         if script is not None:
-            pulumi.set(__self__, "script", script)
+            _setter("script", script)
 
     @property
     @pulumi.getter
@@ -381,13 +466,28 @@ class ScalarFunctionPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]] inputs: A list of inputs describing the parameters of the function.
         :param pulumi.Input['FunctionOutputArgs'] output: The output of the function.
         """
-        pulumi.set(__self__, "type", 'Scalar')
+        ScalarFunctionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            binding=binding,
+            inputs=inputs,
+            output=output,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             binding: Optional[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']]] = None,
+             inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]]] = None,
+             output: Optional[pulumi.Input['FunctionOutputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", 'Scalar')
         if binding is not None:
-            pulumi.set(__self__, "binding", binding)
+            _setter("binding", binding)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if output is not None:
-            pulumi.set(__self__, "output", output)
+            _setter("output", output)
 
     @property
     @pulumi.getter

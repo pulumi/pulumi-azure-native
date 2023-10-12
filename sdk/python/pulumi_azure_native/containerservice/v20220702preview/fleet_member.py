@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -26,12 +26,27 @@ class FleetMemberArgs:
         :param pulumi.Input[str] cluster_resource_id: The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         :param pulumi.Input[str] fleet_member_name: The name of the Fleet member resource.
         """
-        pulumi.set(__self__, "fleet_name", fleet_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FleetMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fleet_name=fleet_name,
+            resource_group_name=resource_group_name,
+            cluster_resource_id=cluster_resource_id,
+            fleet_member_name=fleet_member_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fleet_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             fleet_member_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fleet_name", fleet_name)
+        _setter("resource_group_name", resource_group_name)
         if cluster_resource_id is not None:
-            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+            _setter("cluster_resource_id", cluster_resource_id)
         if fleet_member_name is not None:
-            pulumi.set(__self__, "fleet_member_name", fleet_member_name)
+            _setter("fleet_member_name", fleet_member_name)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -121,6 +136,10 @@ class FleetMember(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FleetMemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

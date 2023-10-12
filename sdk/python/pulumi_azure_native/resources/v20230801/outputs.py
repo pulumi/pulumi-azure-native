@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,10 +56,21 @@ class ContainerConfigurationResponse(dict):
         :param str container_group_name: Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
         :param Sequence['ContainerGroupSubnetIdResponse'] subnet_ids: The subnet resource IDs for a container group.
         """
+        ContainerConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_group_name=container_group_name,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_group_name: Optional[str] = None,
+             subnet_ids: Optional[Sequence['outputs.ContainerGroupSubnetIdResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_group_name is not None:
-            pulumi.set(__self__, "container_group_name", container_group_name)
+            _setter("container_group_name", container_group_name)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="containerGroupName")
@@ -91,9 +102,20 @@ class ContainerGroupSubnetIdResponse(dict):
         :param str id: Resource ID of subnet.
         :param str name: Friendly name for the subnet.
         """
-        pulumi.set(__self__, "id", id)
+        ContainerGroupSubnetIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -144,11 +166,24 @@ class EnvironmentVariableResponse(dict):
         :param str secure_value: The value of the secure environment variable.
         :param str value: The value of the environment variable.
         """
-        pulumi.set(__self__, "name", name)
+        EnvironmentVariableResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secure_value=secure_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             secure_value: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if secure_value is not None:
-            pulumi.set(__self__, "secure_value", secure_value)
+            _setter("secure_value", secure_value)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -188,8 +223,19 @@ class ErrorAdditionalInfoResponse(dict):
         :param Any info: The additional info.
         :param str type: The additional info type.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        ErrorAdditionalInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Any,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -244,11 +290,28 @@ class ErrorResponseResponse(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+             code: str,
+             details: Sequence['outputs.ErrorResponseResponse'],
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("additional_info", additional_info)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -325,11 +388,24 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of the managed identity.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="tenantId")
@@ -402,13 +478,32 @@ class ScriptStatusResponse(dict):
         :param str storage_account_id: Storage account resource Id.
         :param 'ErrorResponseResponse' error: Error that is relayed from the script execution.
         """
-        pulumi.set(__self__, "container_instance_id", container_instance_id)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "expiration_time", expiration_time)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        ScriptStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_instance_id=container_instance_id,
+            end_time=end_time,
+            expiration_time=expiration_time,
+            start_time=start_time,
+            storage_account_id=storage_account_id,
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_instance_id: str,
+             end_time: str,
+             expiration_time: str,
+             start_time: str,
+             storage_account_id: str,
+             error: Optional['outputs.ErrorResponseResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_instance_id", container_instance_id)
+        _setter("end_time", end_time)
+        _setter("expiration_time", expiration_time)
+        _setter("start_time", start_time)
+        _setter("storage_account_id", storage_account_id)
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
 
     @property
     @pulumi.getter(name="containerInstanceId")
@@ -491,10 +586,21 @@ class StorageAccountConfigurationResponse(dict):
         :param str storage_account_key: The storage account access key.
         :param str storage_account_name: The storage account name.
         """
+        StorageAccountConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_key=storage_account_key,
+            storage_account_name=storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_key: Optional[str] = None,
+             storage_account_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="storageAccountKey")
@@ -561,18 +667,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -655,8 +780,19 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: Client App Id associated with this identity.
         :param str principal_id: Azure Active Directory principal ID associated with this identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

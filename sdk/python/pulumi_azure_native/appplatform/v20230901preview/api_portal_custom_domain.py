@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,30 @@ class ApiPortalCustomDomainArgs:
         :param pulumi.Input[str] domain_name: The name of the API portal custom domain.
         :param pulumi.Input['ApiPortalCustomDomainPropertiesArgs'] properties: The properties of custom domain for API portal
         """
-        pulumi.set(__self__, "api_portal_name", api_portal_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        ApiPortalCustomDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_portal_name=api_portal_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            domain_name=domain_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_portal_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ApiPortalCustomDomainPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_portal_name", api_portal_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="apiPortalName")
@@ -139,6 +156,10 @@ class ApiPortalCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiPortalCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,6 +183,11 @@ class ApiPortalCustomDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_portal_name'")
             __props__.__dict__["api_portal_name"] = api_portal_name
             __props__.__dict__["domain_name"] = domain_name
+            if properties is not None and not isinstance(properties, ApiPortalCustomDomainPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ApiPortalCustomDomainPropertiesArgs._configure(_setter, **properties)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

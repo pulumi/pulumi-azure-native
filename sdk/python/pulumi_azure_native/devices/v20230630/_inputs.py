@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -49,10 +49,21 @@ class ArmIdentityArgs:
         """
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         """
+        ArmIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -86,10 +97,21 @@ class CertificatePropertiesArgs:
         :param pulumi.Input[str] certificate: The certificate content
         :param pulumi.Input[bool] is_verified: Determines whether certificate has been verified.
         """
+        CertificatePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            is_verified=is_verified,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             is_verified: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if is_verified is not None:
-            pulumi.set(__self__, "is_verified", is_verified)
+            _setter("is_verified", is_verified)
 
     @property
     @pulumi.getter
@@ -128,12 +150,25 @@ class CloudToDevicePropertiesArgs:
         :param pulumi.Input['FeedbackPropertiesArgs'] feedback: The properties of the feedback queue for cloud-to-device messages.
         :param pulumi.Input[int] max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
+        CloudToDevicePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_ttl_as_iso8601=default_ttl_as_iso8601,
+            feedback=feedback,
+            max_delivery_count=max_delivery_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_ttl_as_iso8601: Optional[pulumi.Input[str]] = None,
+             feedback: Optional[pulumi.Input['FeedbackPropertiesArgs']] = None,
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_ttl_as_iso8601 is not None:
-            pulumi.set(__self__, "default_ttl_as_iso8601", default_ttl_as_iso8601)
+            _setter("default_ttl_as_iso8601", default_ttl_as_iso8601)
         if feedback is not None:
-            pulumi.set(__self__, "feedback", feedback)
+            _setter("feedback", feedback)
         if max_delivery_count is not None:
-            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+            _setter("max_delivery_count", max_delivery_count)
 
     @property
     @pulumi.getter(name="defaultTtlAsIso8601")
@@ -184,9 +219,22 @@ class EnrichmentPropertiesArgs:
         :param pulumi.Input[str] key: The key or name for the enrichment property.
         :param pulumi.Input[str] value: The value for the enrichment property.
         """
-        pulumi.set(__self__, "endpoint_names", endpoint_names)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EnrichmentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_names=endpoint_names,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_names", endpoint_names)
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="endpointNames")
@@ -233,7 +281,16 @@ class EventHubConsumerGroupNameArgs:
         The EventHub consumer group name.
         :param pulumi.Input[str] name: EventHub consumer group name
         """
-        pulumi.set(__self__, "name", name)
+        EventHubConsumerGroupNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -258,10 +315,21 @@ class EventHubPropertiesArgs:
         :param pulumi.Input[int] partition_count: The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
         :param pulumi.Input[float] retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
+        EventHubPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partition_count=partition_count,
+            retention_time_in_days=retention_time_in_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partition_count: Optional[pulumi.Input[int]] = None,
+             retention_time_in_days: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if partition_count is not None:
-            pulumi.set(__self__, "partition_count", partition_count)
+            _setter("partition_count", partition_count)
         if retention_time_in_days is not None:
-            pulumi.set(__self__, "retention_time_in_days", retention_time_in_days)
+            _setter("retention_time_in_days", retention_time_in_days)
 
     @property
     @pulumi.getter(name="partitionCount")
@@ -304,13 +372,30 @@ class FallbackRoutePropertiesArgs:
         :param pulumi.Input[str] condition: The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
         :param pulumi.Input[str] name: The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
         """
-        pulumi.set(__self__, "endpoint_names", endpoint_names)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "source", source)
+        FallbackRoutePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_names=endpoint_names,
+            is_enabled=is_enabled,
+            source=source,
+            condition=condition,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             is_enabled: pulumi.Input[bool],
+             source: pulumi.Input[Union[str, 'RoutingSource']],
+             condition: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_names", endpoint_names)
+        _setter("is_enabled", is_enabled)
+        _setter("source", source)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="endpointNames")
@@ -385,12 +470,25 @@ class FeedbackPropertiesArgs:
         :param pulumi.Input[int] max_delivery_count: The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param pulumi.Input[str] ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
+        FeedbackPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lock_duration_as_iso8601=lock_duration_as_iso8601,
+            max_delivery_count=max_delivery_count,
+            ttl_as_iso8601=ttl_as_iso8601,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lock_duration_as_iso8601: Optional[pulumi.Input[str]] = None,
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             ttl_as_iso8601: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lock_duration_as_iso8601 is not None:
-            pulumi.set(__self__, "lock_duration_as_iso8601", lock_duration_as_iso8601)
+            _setter("lock_duration_as_iso8601", lock_duration_as_iso8601)
         if max_delivery_count is not None:
-            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+            _setter("max_delivery_count", max_delivery_count)
         if ttl_as_iso8601 is not None:
-            pulumi.set(__self__, "ttl_as_iso8601", ttl_as_iso8601)
+            _setter("ttl_as_iso8601", ttl_as_iso8601)
 
     @property
     @pulumi.getter(name="lockDurationAsIso8601")
@@ -475,46 +573,93 @@ class IotHubPropertiesArgs:
         :param pulumi.Input['RoutingPropertiesArgs'] routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         :param pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgs']]] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         """
+        IotHubPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_fqdn_list=allowed_fqdn_list,
+            authorization_policies=authorization_policies,
+            cloud_to_device=cloud_to_device,
+            comments=comments,
+            disable_device_sas=disable_device_sas,
+            disable_local_auth=disable_local_auth,
+            disable_module_sas=disable_module_sas,
+            enable_data_residency=enable_data_residency,
+            enable_file_upload_notifications=enable_file_upload_notifications,
+            event_hub_endpoints=event_hub_endpoints,
+            features=features,
+            ip_filter_rules=ip_filter_rules,
+            messaging_endpoints=messaging_endpoints,
+            min_tls_version=min_tls_version,
+            network_rule_sets=network_rule_sets,
+            private_endpoint_connections=private_endpoint_connections,
+            public_network_access=public_network_access,
+            restrict_outbound_network_access=restrict_outbound_network_access,
+            routing=routing,
+            storage_endpoints=storage_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]] = None,
+             cloud_to_device: Optional[pulumi.Input['CloudToDevicePropertiesArgs']] = None,
+             comments: Optional[pulumi.Input[str]] = None,
+             disable_device_sas: Optional[pulumi.Input[bool]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             disable_module_sas: Optional[pulumi.Input[bool]] = None,
+             enable_data_residency: Optional[pulumi.Input[bool]] = None,
+             enable_file_upload_notifications: Optional[pulumi.Input[bool]] = None,
+             event_hub_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]]] = None,
+             features: Optional[pulumi.Input[Union[str, 'Capabilities']]] = None,
+             ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
+             messaging_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]]] = None,
+             min_tls_version: Optional[pulumi.Input[str]] = None,
+             network_rule_sets: Optional[pulumi.Input['NetworkRuleSetPropertiesArgs']] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             restrict_outbound_network_access: Optional[pulumi.Input[bool]] = None,
+             routing: Optional[pulumi.Input['RoutingPropertiesArgs']] = None,
+             storage_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_fqdn_list is not None:
-            pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
+            _setter("allowed_fqdn_list", allowed_fqdn_list)
         if authorization_policies is not None:
-            pulumi.set(__self__, "authorization_policies", authorization_policies)
+            _setter("authorization_policies", authorization_policies)
         if cloud_to_device is not None:
-            pulumi.set(__self__, "cloud_to_device", cloud_to_device)
+            _setter("cloud_to_device", cloud_to_device)
         if comments is not None:
-            pulumi.set(__self__, "comments", comments)
+            _setter("comments", comments)
         if disable_device_sas is not None:
-            pulumi.set(__self__, "disable_device_sas", disable_device_sas)
+            _setter("disable_device_sas", disable_device_sas)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if disable_module_sas is not None:
-            pulumi.set(__self__, "disable_module_sas", disable_module_sas)
+            _setter("disable_module_sas", disable_module_sas)
         if enable_data_residency is not None:
-            pulumi.set(__self__, "enable_data_residency", enable_data_residency)
+            _setter("enable_data_residency", enable_data_residency)
         if enable_file_upload_notifications is not None:
-            pulumi.set(__self__, "enable_file_upload_notifications", enable_file_upload_notifications)
+            _setter("enable_file_upload_notifications", enable_file_upload_notifications)
         if event_hub_endpoints is not None:
-            pulumi.set(__self__, "event_hub_endpoints", event_hub_endpoints)
+            _setter("event_hub_endpoints", event_hub_endpoints)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if ip_filter_rules is not None:
-            pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
+            _setter("ip_filter_rules", ip_filter_rules)
         if messaging_endpoints is not None:
-            pulumi.set(__self__, "messaging_endpoints", messaging_endpoints)
+            _setter("messaging_endpoints", messaging_endpoints)
         if min_tls_version is not None:
-            pulumi.set(__self__, "min_tls_version", min_tls_version)
+            _setter("min_tls_version", min_tls_version)
         if network_rule_sets is not None:
-            pulumi.set(__self__, "network_rule_sets", network_rule_sets)
+            _setter("network_rule_sets", network_rule_sets)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if restrict_outbound_network_access is not None:
-            pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
+            _setter("restrict_outbound_network_access", restrict_outbound_network_access)
         if routing is not None:
-            pulumi.set(__self__, "routing", routing)
+            _setter("routing", routing)
         if storage_endpoints is not None:
-            pulumi.set(__self__, "storage_endpoints", storage_endpoints)
+            _setter("storage_endpoints", storage_endpoints)
 
     @property
     @pulumi.getter(name="allowedFqdnList")
@@ -767,9 +912,20 @@ class IotHubSkuInfoArgs:
         :param pulumi.Input[Union[str, 'IotHubSku']] name: The name of the SKU.
         :param pulumi.Input[float] capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
-        pulumi.set(__self__, "name", name)
+        IotHubSkuInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'IotHubSku']],
+             capacity: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -808,9 +964,22 @@ class IpFilterRuleArgs:
         :param pulumi.Input[str] filter_name: The name of the IP filter rule.
         :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "filter_name", filter_name)
-        pulumi.set(__self__, "ip_mask", ip_mask)
+        IpFilterRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            filter_name=filter_name,
+            ip_mask=ip_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input['IpFilterActionType'],
+             filter_name: pulumi.Input[str],
+             ip_mask: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("filter_name", filter_name)
+        _setter("ip_mask", ip_mask)
 
     @property
     @pulumi.getter
@@ -857,8 +1026,17 @@ class ManagedIdentityArgs:
         The properties of the Managed identity.
         :param pulumi.Input[str] user_assigned_identity: The user assigned identity.
         """
+        ManagedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="userAssignedIdentity")
@@ -885,12 +1063,25 @@ class MessagingEndpointPropertiesArgs:
         :param pulumi.Input[int] max_delivery_count: The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         :param pulumi.Input[str] ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         """
+        MessagingEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lock_duration_as_iso8601=lock_duration_as_iso8601,
+            max_delivery_count=max_delivery_count,
+            ttl_as_iso8601=ttl_as_iso8601,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lock_duration_as_iso8601: Optional[pulumi.Input[str]] = None,
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             ttl_as_iso8601: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lock_duration_as_iso8601 is not None:
-            pulumi.set(__self__, "lock_duration_as_iso8601", lock_duration_as_iso8601)
+            _setter("lock_duration_as_iso8601", lock_duration_as_iso8601)
         if max_delivery_count is not None:
-            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+            _setter("max_delivery_count", max_delivery_count)
         if ttl_as_iso8601 is not None:
-            pulumi.set(__self__, "ttl_as_iso8601", ttl_as_iso8601)
+            _setter("ttl_as_iso8601", ttl_as_iso8601)
 
     @property
     @pulumi.getter(name="lockDurationAsIso8601")
@@ -941,12 +1132,25 @@ class NetworkRuleSetIpRuleArgs:
         :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
         :param pulumi.Input[Union[str, 'NetworkRuleIPAction']] action: IP Filter Action
         """
-        pulumi.set(__self__, "filter_name", filter_name)
-        pulumi.set(__self__, "ip_mask", ip_mask)
+        NetworkRuleSetIpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_name=filter_name,
+            ip_mask=ip_mask,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_name: pulumi.Input[str],
+             ip_mask: pulumi.Input[str],
+             action: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter_name", filter_name)
+        _setter("ip_mask", ip_mask)
         if action is None:
             action = 'Allow'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="filterName")
@@ -997,12 +1201,25 @@ class NetworkRuleSetPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]] ip_rules: List of IP Rules
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Default Action for Network Rule Set
         """
-        pulumi.set(__self__, "apply_to_built_in_event_hub_endpoint", apply_to_built_in_event_hub_endpoint)
-        pulumi.set(__self__, "ip_rules", ip_rules)
+        NetworkRuleSetPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_to_built_in_event_hub_endpoint=apply_to_built_in_event_hub_endpoint,
+            ip_rules=ip_rules,
+            default_action=default_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_to_built_in_event_hub_endpoint: pulumi.Input[bool],
+             ip_rules: pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]],
+             default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("apply_to_built_in_event_hub_endpoint", apply_to_built_in_event_hub_endpoint)
+        _setter("ip_rules", ip_rules)
         if default_action is None:
             default_action = 'Deny'
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
 
     @property
     @pulumi.getter(name="applyToBuiltInEventHubEndpoint")
@@ -1049,7 +1266,16 @@ class PrivateEndpointConnectionPropertiesArgs:
         The properties of a private endpoint connection
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The current state of a private endpoint connection
         """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        PrivateEndpointConnectionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -1072,7 +1298,16 @@ class PrivateEndpointConnectionArgs:
         The private endpoint connection of an IotHub
         :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The properties of a private endpoint connection
         """
-        pulumi.set(__self__, "properties", properties)
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -1099,10 +1334,23 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: The status of a private endpoint connection
         :param pulumi.Input[str] actions_required: Actions required for a private endpoint connection
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+            actions_required=actions_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("status", status)
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
 
     @property
     @pulumi.getter
@@ -1157,12 +1405,29 @@ class RoutePropertiesArgs:
         :param pulumi.Input[Union[str, 'RoutingSource']] source: The source that the routing rule is to be applied to, such as DeviceMessages.
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
         """
-        pulumi.set(__self__, "endpoint_names", endpoint_names)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "source", source)
+        RoutePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_names=endpoint_names,
+            is_enabled=is_enabled,
+            name=name,
+            source=source,
+            condition=condition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             is_enabled: pulumi.Input[bool],
+             name: pulumi.Input[str],
+             source: pulumi.Input[Union[str, 'RoutingSource']],
+             condition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_names", endpoint_names)
+        _setter("is_enabled", is_enabled)
+        _setter("name", name)
+        _setter("source", source)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
 
     @property
     @pulumi.getter(name="endpointNames")
@@ -1255,26 +1520,57 @@ class RoutingCosmosDBSqlApiPropertiesArgs:
         :param pulumi.Input[str] secondary_key: The secondary key of the cosmos DB account.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the cosmos DB account.
         """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
-        pulumi.set(__self__, "name", name)
+        RoutingCosmosDBSqlApiPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            database_name=database_name,
+            endpoint_uri=endpoint_uri,
+            name=name,
+            authentication_type=authentication_type,
+            identity=identity,
+            partition_key_name=partition_key_name,
+            partition_key_template=partition_key_template,
+            primary_key=primary_key,
+            resource_group=resource_group,
+            secondary_key=secondary_key,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             endpoint_uri: pulumi.Input[str],
+             name: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             partition_key_name: Optional[pulumi.Input[str]] = None,
+             partition_key_template: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_name", container_name)
+        _setter("database_name", database_name)
+        _setter("endpoint_uri", endpoint_uri)
+        _setter("name", name)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if partition_key_name is not None:
-            pulumi.set(__self__, "partition_key_name", partition_key_name)
+            _setter("partition_key_name", partition_key_name)
         if partition_key_template is not None:
-            pulumi.set(__self__, "partition_key_template", partition_key_template)
+            _setter("partition_key_template", partition_key_template)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="containerName")
@@ -1437,16 +1733,33 @@ class RoutingEndpointsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgs']]] storage_containers: The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
         """
+        RoutingEndpointsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cosmos_db_sql_containers=cosmos_db_sql_containers,
+            event_hubs=event_hubs,
+            service_bus_queues=service_bus_queues,
+            service_bus_topics=service_bus_topics,
+            storage_containers=storage_containers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cosmos_db_sql_containers: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingCosmosDBSqlApiPropertiesArgs']]]] = None,
+             event_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingEventHubPropertiesArgs']]]] = None,
+             service_bus_queues: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]]] = None,
+             service_bus_topics: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]]] = None,
+             storage_containers: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cosmos_db_sql_containers is not None:
-            pulumi.set(__self__, "cosmos_db_sql_containers", cosmos_db_sql_containers)
+            _setter("cosmos_db_sql_containers", cosmos_db_sql_containers)
         if event_hubs is not None:
-            pulumi.set(__self__, "event_hubs", event_hubs)
+            _setter("event_hubs", event_hubs)
         if service_bus_queues is not None:
-            pulumi.set(__self__, "service_bus_queues", service_bus_queues)
+            _setter("service_bus_queues", service_bus_queues)
         if service_bus_topics is not None:
-            pulumi.set(__self__, "service_bus_topics", service_bus_topics)
+            _setter("service_bus_topics", service_bus_topics)
         if storage_containers is not None:
-            pulumi.set(__self__, "storage_containers", storage_containers)
+            _setter("storage_containers", storage_containers)
 
     @property
     @pulumi.getter(name="cosmosDBSqlContainers")
@@ -1533,23 +1846,48 @@ class RoutingEventHubPropertiesArgs:
         :param pulumi.Input[str] resource_group: The name of the resource group of the event hub endpoint.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the event hub endpoint.
         """
-        pulumi.set(__self__, "name", name)
+        RoutingEventHubPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            authentication_type=authentication_type,
+            connection_string=connection_string,
+            endpoint_uri=endpoint_uri,
+            entity_path=entity_path,
+            id=id,
+            identity=identity,
+            resource_group=resource_group,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             entity_path: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if entity_path is not None:
-            pulumi.set(__self__, "entity_path", entity_path)
+            _setter("entity_path", entity_path)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter
@@ -1674,14 +2012,29 @@ class RoutingPropertiesArgs:
         :param pulumi.Input['FallbackRoutePropertiesArgs'] fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not present in the template, the fallback route is disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgs']]] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
+        RoutingPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoints=endpoints,
+            enrichments=enrichments,
+            fallback_route=fallback_route,
+            routes=routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoints: Optional[pulumi.Input['RoutingEndpointsArgs']] = None,
+             enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['EnrichmentPropertiesArgs']]]] = None,
+             fallback_route: Optional[pulumi.Input['FallbackRoutePropertiesArgs']] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if enrichments is not None:
-            pulumi.set(__self__, "enrichments", enrichments)
+            _setter("enrichments", enrichments)
         if fallback_route is not None:
-            pulumi.set(__self__, "fallback_route", fallback_route)
+            _setter("fallback_route", fallback_route)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
 
     @property
     @pulumi.getter
@@ -1756,23 +2109,48 @@ class RoutingServiceBusQueueEndpointPropertiesArgs:
         :param pulumi.Input[str] resource_group: The name of the resource group of the service bus queue endpoint.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the service bus queue endpoint.
         """
-        pulumi.set(__self__, "name", name)
+        RoutingServiceBusQueueEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            authentication_type=authentication_type,
+            connection_string=connection_string,
+            endpoint_uri=endpoint_uri,
+            entity_path=entity_path,
+            id=id,
+            identity=identity,
+            resource_group=resource_group,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             entity_path: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if entity_path is not None:
-            pulumi.set(__self__, "entity_path", entity_path)
+            _setter("entity_path", entity_path)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter
@@ -1907,23 +2285,48 @@ class RoutingServiceBusTopicEndpointPropertiesArgs:
         :param pulumi.Input[str] resource_group: The name of the resource group of the service bus topic endpoint.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the service bus topic endpoint.
         """
-        pulumi.set(__self__, "name", name)
+        RoutingServiceBusTopicEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            authentication_type=authentication_type,
+            connection_string=connection_string,
+            endpoint_uri=endpoint_uri,
+            entity_path=entity_path,
+            id=id,
+            identity=identity,
+            resource_group=resource_group,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             entity_path: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if entity_path is not None:
-            pulumi.set(__self__, "entity_path", entity_path)
+            _setter("entity_path", entity_path)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter
@@ -2066,30 +2469,63 @@ class RoutingStorageContainerPropertiesArgs:
         :param pulumi.Input[str] resource_group: The name of the resource group of the storage account.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the storage account.
         """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "name", name)
+        RoutingStorageContainerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            name=name,
+            authentication_type=authentication_type,
+            batch_frequency_in_seconds=batch_frequency_in_seconds,
+            connection_string=connection_string,
+            encoding=encoding,
+            endpoint_uri=endpoint_uri,
+            file_name_format=file_name_format,
+            id=id,
+            identity=identity,
+            max_chunk_size_in_bytes=max_chunk_size_in_bytes,
+            resource_group=resource_group,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             encoding: Optional[pulumi.Input[str]] = None,
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             file_name_format: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_name", container_name)
+        _setter("name", name)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if batch_frequency_in_seconds is not None:
-            pulumi.set(__self__, "batch_frequency_in_seconds", batch_frequency_in_seconds)
+            _setter("batch_frequency_in_seconds", batch_frequency_in_seconds)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if file_name_format is not None:
-            pulumi.set(__self__, "file_name_format", file_name_format)
+            _setter("file_name_format", file_name_format)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if max_chunk_size_in_bytes is not None:
-            pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
+            _setter("max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="containerName")
@@ -2262,12 +2698,27 @@ class SharedAccessSignatureAuthorizationRuleArgs:
         :param pulumi.Input[str] primary_key: The primary key.
         :param pulumi.Input[str] secondary_key: The secondary key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "rights", rights)
+        SharedAccessSignatureAuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            rights=rights,
+            primary_key=primary_key,
+            secondary_key=secondary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: pulumi.Input[str],
+             rights: pulumi.Input['AccessRights'],
+             primary_key: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("rights", rights)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
 
     @property
     @pulumi.getter(name="keyName")
@@ -2334,14 +2785,31 @@ class StorageEndpointPropertiesArgs:
         :param pulumi.Input['ManagedIdentityArgs'] identity: Managed identity properties of storage endpoint for file upload.
         :param pulumi.Input[str] sas_ttl_as_iso8601: The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "container_name", container_name)
+        StorageEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            container_name=container_name,
+            authentication_type=authentication_type,
+            identity=identity,
+            sas_ttl_as_iso8601=sas_ttl_as_iso8601,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: pulumi.Input[str],
+             container_name: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             sas_ttl_as_iso8601: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("container_name", container_name)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if sas_ttl_as_iso8601 is not None:
-            pulumi.set(__self__, "sas_ttl_as_iso8601", sas_ttl_as_iso8601)
+            _setter("sas_ttl_as_iso8601", sas_ttl_as_iso8601)
 
     @property
     @pulumi.getter(name="connectionString")

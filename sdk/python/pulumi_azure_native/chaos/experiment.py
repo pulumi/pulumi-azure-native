@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,35 @@ class ExperimentArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExperimentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            resource_group_name=resource_group_name,
+            experiment_name=experiment_name,
+            identity=identity,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['ExperimentPropertiesArgs'],
+             resource_group_name: pulumi.Input[str],
+             experiment_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
         if experiment_name is not None:
-            pulumi.set(__self__, "experiment_name", experiment_name)
+            _setter("experiment_name", experiment_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -161,6 +180,10 @@ class Experiment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExperimentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,8 +205,18 @@ class Experiment(pulumi.CustomResource):
             __props__ = ExperimentArgs.__new__(ExperimentArgs)
 
             __props__.__dict__["experiment_name"] = experiment_name
+            if identity is not None and not isinstance(identity, ResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if properties is not None and not isinstance(properties, ExperimentPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                ExperimentPropertiesArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

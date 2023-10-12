@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -46,11 +46,24 @@ class RecommendationConfigurationPropertiesResponse(dict):
         :param str recommendation_type: The recommendation type.
         :param str status: Recommendation status. The recommendation is not generated when the status is disabled
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "recommendation_type", recommendation_type)
+        RecommendationConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            recommendation_type=recommendation_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             recommendation_type: str,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("recommendation_type", recommendation_type)
         if status is None:
             status = 'Enabled'
-        pulumi.set(__self__, "status", status)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -104,8 +117,19 @@ class UserDefinedResourcesPropertiesResponse(dict):
         :param str query: Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
         :param Sequence[str] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
         """
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "query_subscriptions", query_subscriptions)
+        UserDefinedResourcesPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query=query,
+            query_subscriptions=query_subscriptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query: str,
+             query_subscriptions: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("query", query)
+        _setter("query_subscriptions", query_subscriptions)
 
     @property
     @pulumi.getter

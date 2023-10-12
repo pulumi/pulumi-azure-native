@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -114,14 +114,29 @@ class AcsChatChannelResponse(dict):
         :param str etag: Entity Tag of the resource
         :param str location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'AcsChatChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AcsChatChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'AcsChatChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -197,10 +212,25 @@ class AlexaChannelPropertiesResponse(dict):
         :param str service_endpoint_uri: Full Uri used to configured the skill in Alexa
         :param str url_fragment: Url fragment used in part of the Uri configured in Alexa
         """
-        pulumi.set(__self__, "alexa_skill_id", alexa_skill_id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "service_endpoint_uri", service_endpoint_uri)
-        pulumi.set(__self__, "url_fragment", url_fragment)
+        AlexaChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alexa_skill_id=alexa_skill_id,
+            is_enabled=is_enabled,
+            service_endpoint_uri=service_endpoint_uri,
+            url_fragment=url_fragment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alexa_skill_id: str,
+             is_enabled: bool,
+             service_endpoint_uri: str,
+             url_fragment: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alexa_skill_id", alexa_skill_id)
+        _setter("is_enabled", is_enabled)
+        _setter("service_endpoint_uri", service_endpoint_uri)
+        _setter("url_fragment", url_fragment)
 
     @property
     @pulumi.getter(name="alexaSkillId")
@@ -274,16 +304,33 @@ class AlexaChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'AlexaChannelPropertiesResponse' properties: The set of properties specific to Alexa channel resource
         """
-        pulumi.set(__self__, "channel_name", 'AlexaChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AlexaChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.AlexaChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'AlexaChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -489,74 +536,153 @@ class BotPropertiesResponse(dict):
         :param str storage_resource_id: The storage resourceId for the bot
         :param str tenant_id: The Tenant Id for the bot
         """
-        pulumi.set(__self__, "cmek_encryption_status", cmek_encryption_status)
-        pulumi.set(__self__, "configured_channels", configured_channels)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "enabled_channels", enabled_channels)
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "endpoint_version", endpoint_version)
-        pulumi.set(__self__, "is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
-        pulumi.set(__self__, "migration_token", migration_token)
-        pulumi.set(__self__, "msa_app_id", msa_app_id)
-        pulumi.set(__self__, "network_security_perimeter_configurations", network_security_perimeter_configurations)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        BotPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cmek_encryption_status=cmek_encryption_status,
+            configured_channels=configured_channels,
+            display_name=display_name,
+            enabled_channels=enabled_channels,
+            endpoint=endpoint,
+            endpoint_version=endpoint_version,
+            is_developer_app_insights_api_key_set=is_developer_app_insights_api_key_set,
+            migration_token=migration_token,
+            msa_app_id=msa_app_id,
+            network_security_perimeter_configurations=network_security_perimeter_configurations,
+            private_endpoint_connections=private_endpoint_connections,
+            provisioning_state=provisioning_state,
+            all_settings=all_settings,
+            app_password_hint=app_password_hint,
+            cmek_key_vault_url=cmek_key_vault_url,
+            description=description,
+            developer_app_insight_key=developer_app_insight_key,
+            developer_app_insights_api_key=developer_app_insights_api_key,
+            developer_app_insights_application_id=developer_app_insights_application_id,
+            disable_local_auth=disable_local_auth,
+            icon_url=icon_url,
+            is_cmek_enabled=is_cmek_enabled,
+            is_streaming_supported=is_streaming_supported,
+            luis_app_ids=luis_app_ids,
+            luis_key=luis_key,
+            manifest_url=manifest_url,
+            msa_app_msi_resource_id=msa_app_msi_resource_id,
+            msa_app_tenant_id=msa_app_tenant_id,
+            msa_app_type=msa_app_type,
+            open_with_hint=open_with_hint,
+            parameters=parameters,
+            public_network_access=public_network_access,
+            publishing_credentials=publishing_credentials,
+            schema_transformation_version=schema_transformation_version,
+            storage_resource_id=storage_resource_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cmek_encryption_status: str,
+             configured_channels: Sequence[str],
+             display_name: str,
+             enabled_channels: Sequence[str],
+             endpoint: str,
+             endpoint_version: str,
+             is_developer_app_insights_api_key_set: bool,
+             migration_token: str,
+             msa_app_id: str,
+             network_security_perimeter_configurations: Sequence['outputs.NetworkSecurityPerimeterConfigurationResponse'],
+             private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+             provisioning_state: str,
+             all_settings: Optional[Mapping[str, str]] = None,
+             app_password_hint: Optional[str] = None,
+             cmek_key_vault_url: Optional[str] = None,
+             description: Optional[str] = None,
+             developer_app_insight_key: Optional[str] = None,
+             developer_app_insights_api_key: Optional[str] = None,
+             developer_app_insights_application_id: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             icon_url: Optional[str] = None,
+             is_cmek_enabled: Optional[bool] = None,
+             is_streaming_supported: Optional[bool] = None,
+             luis_app_ids: Optional[Sequence[str]] = None,
+             luis_key: Optional[str] = None,
+             manifest_url: Optional[str] = None,
+             msa_app_msi_resource_id: Optional[str] = None,
+             msa_app_tenant_id: Optional[str] = None,
+             msa_app_type: Optional[str] = None,
+             open_with_hint: Optional[str] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             public_network_access: Optional[str] = None,
+             publishing_credentials: Optional[str] = None,
+             schema_transformation_version: Optional[str] = None,
+             storage_resource_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cmek_encryption_status", cmek_encryption_status)
+        _setter("configured_channels", configured_channels)
+        _setter("display_name", display_name)
+        _setter("enabled_channels", enabled_channels)
+        _setter("endpoint", endpoint)
+        _setter("endpoint_version", endpoint_version)
+        _setter("is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
+        _setter("migration_token", migration_token)
+        _setter("msa_app_id", msa_app_id)
+        _setter("network_security_perimeter_configurations", network_security_perimeter_configurations)
+        _setter("private_endpoint_connections", private_endpoint_connections)
+        _setter("provisioning_state", provisioning_state)
         if all_settings is not None:
-            pulumi.set(__self__, "all_settings", all_settings)
+            _setter("all_settings", all_settings)
         if app_password_hint is not None:
-            pulumi.set(__self__, "app_password_hint", app_password_hint)
+            _setter("app_password_hint", app_password_hint)
         if cmek_key_vault_url is not None:
-            pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
+            _setter("cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if developer_app_insight_key is not None:
-            pulumi.set(__self__, "developer_app_insight_key", developer_app_insight_key)
+            _setter("developer_app_insight_key", developer_app_insight_key)
         if developer_app_insights_api_key is not None:
-            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
+            _setter("developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
-            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
+            _setter("developer_app_insights_application_id", developer_app_insights_application_id)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if icon_url is None:
             icon_url = ''
         if icon_url is not None:
-            pulumi.set(__self__, "icon_url", icon_url)
+            _setter("icon_url", icon_url)
         if is_cmek_enabled is None:
             is_cmek_enabled = False
         if is_cmek_enabled is not None:
-            pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
+            _setter("is_cmek_enabled", is_cmek_enabled)
         if is_streaming_supported is None:
             is_streaming_supported = False
         if is_streaming_supported is not None:
-            pulumi.set(__self__, "is_streaming_supported", is_streaming_supported)
+            _setter("is_streaming_supported", is_streaming_supported)
         if luis_app_ids is not None:
-            pulumi.set(__self__, "luis_app_ids", luis_app_ids)
+            _setter("luis_app_ids", luis_app_ids)
         if luis_key is not None:
-            pulumi.set(__self__, "luis_key", luis_key)
+            _setter("luis_key", luis_key)
         if manifest_url is not None:
-            pulumi.set(__self__, "manifest_url", manifest_url)
+            _setter("manifest_url", manifest_url)
         if msa_app_msi_resource_id is not None:
-            pulumi.set(__self__, "msa_app_msi_resource_id", msa_app_msi_resource_id)
+            _setter("msa_app_msi_resource_id", msa_app_msi_resource_id)
         if msa_app_tenant_id is not None:
-            pulumi.set(__self__, "msa_app_tenant_id", msa_app_tenant_id)
+            _setter("msa_app_tenant_id", msa_app_tenant_id)
         if msa_app_type is not None:
-            pulumi.set(__self__, "msa_app_type", msa_app_type)
+            _setter("msa_app_type", msa_app_type)
         if open_with_hint is not None:
-            pulumi.set(__self__, "open_with_hint", open_with_hint)
+            _setter("open_with_hint", open_with_hint)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if publishing_credentials is not None:
-            pulumi.set(__self__, "publishing_credentials", publishing_credentials)
+            _setter("publishing_credentials", publishing_credentials)
         if schema_transformation_version is not None:
-            pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
+            _setter("schema_transformation_version", schema_transformation_version)
         if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+            _setter("storage_resource_id", storage_resource_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="cmekEncryptionStatus")
@@ -876,30 +1002,57 @@ class ChannelSettingsResponse(dict):
         :param bool require_terms_agreement: Whether customer needs to agree to new terms.
         :param Sequence['SiteResponse'] sites: The list of sites
         """
+        ChannelSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_icon_url=bot_icon_url,
+            bot_id=bot_id,
+            channel_display_name=channel_display_name,
+            channel_id=channel_id,
+            disable_local_auth=disable_local_auth,
+            extension_key1=extension_key1,
+            extension_key2=extension_key2,
+            is_enabled=is_enabled,
+            require_terms_agreement=require_terms_agreement,
+            sites=sites,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_icon_url: Optional[str] = None,
+             bot_id: Optional[str] = None,
+             channel_display_name: Optional[str] = None,
+             channel_id: Optional[str] = None,
+             disable_local_auth: Optional[bool] = None,
+             extension_key1: Optional[str] = None,
+             extension_key2: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             require_terms_agreement: Optional[bool] = None,
+             sites: Optional[Sequence['outputs.SiteResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bot_icon_url is not None:
-            pulumi.set(__self__, "bot_icon_url", bot_icon_url)
+            _setter("bot_icon_url", bot_icon_url)
         if bot_id is not None:
-            pulumi.set(__self__, "bot_id", bot_id)
+            _setter("bot_id", bot_id)
         if channel_display_name is not None:
-            pulumi.set(__self__, "channel_display_name", channel_display_name)
+            _setter("channel_display_name", channel_display_name)
         if channel_id is not None:
-            pulumi.set(__self__, "channel_id", channel_id)
+            _setter("channel_id", channel_id)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if extension_key1 is None:
             extension_key1 = ''
         if extension_key1 is not None:
-            pulumi.set(__self__, "extension_key1", extension_key1)
+            _setter("extension_key1", extension_key1)
         if extension_key2 is None:
             extension_key2 = ''
         if extension_key2 is not None:
-            pulumi.set(__self__, "extension_key2", extension_key2)
+            _setter("extension_key2", extension_key2)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if require_terms_agreement is not None:
-            pulumi.set(__self__, "require_terms_agreement", require_terms_agreement)
+            _setter("require_terms_agreement", require_terms_agreement)
         if sites is not None:
-            pulumi.set(__self__, "sites", sites)
+            _setter("sites", sites)
 
     @property
     @pulumi.getter(name="botIconUrl")
@@ -995,10 +1148,21 @@ class ConnectionSettingParameterResponse(dict):
         :param str key: Key for the Connection Setting Parameter.
         :param str value: Value associated with the Connection Setting Parameter.
         """
+        ConnectionSettingParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1073,27 +1237,54 @@ class ConnectionSettingPropertiesResponse(dict):
         :param str service_provider_display_name: Service Provider Display Name associated with the Connection Setting
         :param str service_provider_id: Service Provider Id associated with the Connection Setting
         """
-        pulumi.set(__self__, "setting_id", setting_id)
+        ConnectionSettingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            setting_id=setting_id,
+            client_id=client_id,
+            client_secret=client_secret,
+            id=id,
+            name=name,
+            parameters=parameters,
+            provisioning_state=provisioning_state,
+            scopes=scopes,
+            service_provider_display_name=service_provider_display_name,
+            service_provider_id=service_provider_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             setting_id: str,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.ConnectionSettingParameterResponse']] = None,
+             provisioning_state: Optional[str] = None,
+             scopes: Optional[str] = None,
+             service_provider_display_name: Optional[str] = None,
+             service_provider_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("setting_id", setting_id)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if scopes is None:
             scopes = ''
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if service_provider_display_name is not None:
-            pulumi.set(__self__, "service_provider_display_name", service_provider_display_name)
+            _setter("service_provider_display_name", service_provider_display_name)
         if service_provider_id is not None:
-            pulumi.set(__self__, "service_provider_id", service_provider_id)
+            _setter("service_provider_id", service_provider_id)
 
     @property
     @pulumi.getter(name="settingId")
@@ -1214,18 +1405,33 @@ class DirectLineChannelPropertiesResponse(dict):
         :param str extension_key2: The extensionKey2
         :param Sequence['DirectLineSiteResponse'] sites: The list of Direct Line sites
         """
+        DirectLineChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direct_line_embed_code=direct_line_embed_code,
+            extension_key1=extension_key1,
+            extension_key2=extension_key2,
+            sites=sites,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direct_line_embed_code: Optional[str] = None,
+             extension_key1: Optional[str] = None,
+             extension_key2: Optional[str] = None,
+             sites: Optional[Sequence['outputs.DirectLineSiteResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if direct_line_embed_code is not None:
-            pulumi.set(__self__, "direct_line_embed_code", direct_line_embed_code)
+            _setter("direct_line_embed_code", direct_line_embed_code)
         if extension_key1 is None:
             extension_key1 = ''
         if extension_key1 is not None:
-            pulumi.set(__self__, "extension_key1", extension_key1)
+            _setter("extension_key1", extension_key1)
         if extension_key2 is None:
             extension_key2 = ''
         if extension_key2 is not None:
-            pulumi.set(__self__, "extension_key2", extension_key2)
+            _setter("extension_key2", extension_key2)
         if sites is not None:
-            pulumi.set(__self__, "sites", sites)
+            _setter("sites", sites)
 
     @property
     @pulumi.getter(name="directLineEmbedCode")
@@ -1299,16 +1505,33 @@ class DirectLineChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'DirectLineChannelPropertiesResponse' properties: The set of properties specific to Direct Line channel resource
         """
-        pulumi.set(__self__, "channel_name", 'DirectLineChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        DirectLineChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.DirectLineChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'DirectLineChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1448,40 +1671,85 @@ class DirectLineSiteResponse(dict):
         :param str tenant_id: Tenant Id
         :param Sequence[str] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "is_token_enabled", is_token_enabled)
-        pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
-        pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "key2", key2)
-        pulumi.set(__self__, "site_id", site_id)
-        pulumi.set(__self__, "site_name", site_name)
+        DirectLineSiteResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            is_token_enabled=is_token_enabled,
+            is_v1_enabled=is_v1_enabled,
+            is_v3_enabled=is_v3_enabled,
+            key=key,
+            key2=key2,
+            site_id=site_id,
+            site_name=site_name,
+            app_id=app_id,
+            e_tag=e_tag,
+            is_block_user_upload_enabled=is_block_user_upload_enabled,
+            is_detailed_logging_enabled=is_detailed_logging_enabled,
+            is_endpoint_parameters_enabled=is_endpoint_parameters_enabled,
+            is_no_storage_enabled=is_no_storage_enabled,
+            is_secure_site_enabled=is_secure_site_enabled,
+            is_web_chat_speech_enabled=is_web_chat_speech_enabled,
+            is_webchat_preview_enabled=is_webchat_preview_enabled,
+            tenant_id=tenant_id,
+            trusted_origins=trusted_origins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: bool,
+             is_token_enabled: bool,
+             is_v1_enabled: bool,
+             is_v3_enabled: bool,
+             key: str,
+             key2: str,
+             site_id: str,
+             site_name: str,
+             app_id: Optional[str] = None,
+             e_tag: Optional[str] = None,
+             is_block_user_upload_enabled: Optional[bool] = None,
+             is_detailed_logging_enabled: Optional[bool] = None,
+             is_endpoint_parameters_enabled: Optional[bool] = None,
+             is_no_storage_enabled: Optional[bool] = None,
+             is_secure_site_enabled: Optional[bool] = None,
+             is_web_chat_speech_enabled: Optional[bool] = None,
+             is_webchat_preview_enabled: Optional[bool] = None,
+             tenant_id: Optional[str] = None,
+             trusted_origins: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_enabled", is_enabled)
+        _setter("is_token_enabled", is_token_enabled)
+        _setter("is_v1_enabled", is_v1_enabled)
+        _setter("is_v3_enabled", is_v3_enabled)
+        _setter("key", key)
+        _setter("key2", key2)
+        _setter("site_id", site_id)
+        _setter("site_name", site_name)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if is_block_user_upload_enabled is not None:
-            pulumi.set(__self__, "is_block_user_upload_enabled", is_block_user_upload_enabled)
+            _setter("is_block_user_upload_enabled", is_block_user_upload_enabled)
         if is_detailed_logging_enabled is not None:
-            pulumi.set(__self__, "is_detailed_logging_enabled", is_detailed_logging_enabled)
+            _setter("is_detailed_logging_enabled", is_detailed_logging_enabled)
         if is_endpoint_parameters_enabled is not None:
-            pulumi.set(__self__, "is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
+            _setter("is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
         if is_no_storage_enabled is not None:
-            pulumi.set(__self__, "is_no_storage_enabled", is_no_storage_enabled)
+            _setter("is_no_storage_enabled", is_no_storage_enabled)
         if is_secure_site_enabled is not None:
-            pulumi.set(__self__, "is_secure_site_enabled", is_secure_site_enabled)
+            _setter("is_secure_site_enabled", is_secure_site_enabled)
         if is_web_chat_speech_enabled is None:
             is_web_chat_speech_enabled = False
         if is_web_chat_speech_enabled is not None:
-            pulumi.set(__self__, "is_web_chat_speech_enabled", is_web_chat_speech_enabled)
+            _setter("is_web_chat_speech_enabled", is_web_chat_speech_enabled)
         if is_webchat_preview_enabled is None:
             is_webchat_preview_enabled = False
         if is_webchat_preview_enabled is not None:
-            pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
+            _setter("is_webchat_preview_enabled", is_webchat_preview_enabled)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if trusted_origins is not None:
-            pulumi.set(__self__, "trusted_origins", trusted_origins)
+            _setter("trusted_origins", trusted_origins)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1688,20 +1956,41 @@ class DirectLineSpeechChannelPropertiesResponse(dict):
         :param bool is_default_bot_for_cog_svc_account: Make this a default bot for chosen cognitive service account.
         :param bool is_enabled: Whether this channel is enabled or not.
         """
+        DirectLineSpeechChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cognitive_service_region=cognitive_service_region,
+            cognitive_service_resource_id=cognitive_service_resource_id,
+            cognitive_service_subscription_key=cognitive_service_subscription_key,
+            custom_speech_model_id=custom_speech_model_id,
+            custom_voice_deployment_id=custom_voice_deployment_id,
+            is_default_bot_for_cog_svc_account=is_default_bot_for_cog_svc_account,
+            is_enabled=is_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cognitive_service_region: Optional[str] = None,
+             cognitive_service_resource_id: Optional[str] = None,
+             cognitive_service_subscription_key: Optional[str] = None,
+             custom_speech_model_id: Optional[str] = None,
+             custom_voice_deployment_id: Optional[str] = None,
+             is_default_bot_for_cog_svc_account: Optional[bool] = None,
+             is_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cognitive_service_region is not None:
-            pulumi.set(__self__, "cognitive_service_region", cognitive_service_region)
+            _setter("cognitive_service_region", cognitive_service_region)
         if cognitive_service_resource_id is not None:
-            pulumi.set(__self__, "cognitive_service_resource_id", cognitive_service_resource_id)
+            _setter("cognitive_service_resource_id", cognitive_service_resource_id)
         if cognitive_service_subscription_key is not None:
-            pulumi.set(__self__, "cognitive_service_subscription_key", cognitive_service_subscription_key)
+            _setter("cognitive_service_subscription_key", cognitive_service_subscription_key)
         if custom_speech_model_id is not None:
-            pulumi.set(__self__, "custom_speech_model_id", custom_speech_model_id)
+            _setter("custom_speech_model_id", custom_speech_model_id)
         if custom_voice_deployment_id is not None:
-            pulumi.set(__self__, "custom_voice_deployment_id", custom_voice_deployment_id)
+            _setter("custom_voice_deployment_id", custom_voice_deployment_id)
         if is_default_bot_for_cog_svc_account is not None:
-            pulumi.set(__self__, "is_default_bot_for_cog_svc_account", is_default_bot_for_cog_svc_account)
+            _setter("is_default_bot_for_cog_svc_account", is_default_bot_for_cog_svc_account)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="cognitiveServiceRegion")
@@ -1799,16 +2088,33 @@ class DirectLineSpeechChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'DirectLineSpeechChannelPropertiesResponse' properties: The set of properties specific to DirectLine Speech channel resource
         """
-        pulumi.set(__self__, "channel_name", 'DirectLineSpeechChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        DirectLineSpeechChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.DirectLineSpeechChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'DirectLineSpeechChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1894,14 +2200,31 @@ class EmailChannelPropertiesResponse(dict):
         :param str magic_code: The magic code for setting up the modern authentication.
         :param str password: The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
         """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        EmailChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            is_enabled=is_enabled,
+            auth_method=auth_method,
+            magic_code=magic_code,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: str,
+             is_enabled: bool,
+             auth_method: Optional[float] = None,
+             magic_code: Optional[str] = None,
+             password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
+        _setter("is_enabled", is_enabled)
         if auth_method is not None:
-            pulumi.set(__self__, "auth_method", auth_method)
+            _setter("auth_method", auth_method)
         if magic_code is not None:
-            pulumi.set(__self__, "magic_code", magic_code)
+            _setter("magic_code", magic_code)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -1983,16 +2306,33 @@ class EmailChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'EmailChannelPropertiesResponse' properties: The set of properties specific to email channel resource
         """
-        pulumi.set(__self__, "channel_name", 'EmailChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        EmailChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.EmailChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'EmailChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2082,14 +2422,33 @@ class FacebookChannelPropertiesResponse(dict):
         :param str app_secret: Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param Sequence['FacebookPageResponse'] pages: The list of Facebook pages
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "callback_url", callback_url)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "verify_token", verify_token)
+        FacebookChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            callback_url=callback_url,
+            is_enabled=is_enabled,
+            verify_token=verify_token,
+            app_secret=app_secret,
+            pages=pages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: str,
+             callback_url: str,
+             is_enabled: bool,
+             verify_token: str,
+             app_secret: Optional[str] = None,
+             pages: Optional[Sequence['outputs.FacebookPageResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_id", app_id)
+        _setter("callback_url", callback_url)
+        _setter("is_enabled", is_enabled)
+        _setter("verify_token", verify_token)
         if app_secret is not None:
-            pulumi.set(__self__, "app_secret", app_secret)
+            _setter("app_secret", app_secret)
         if pages is not None:
-            pulumi.set(__self__, "pages", pages)
+            _setter("pages", pages)
 
     @property
     @pulumi.getter(name="appId")
@@ -2179,16 +2538,33 @@ class FacebookChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'FacebookChannelPropertiesResponse' properties: The set of properties specific to bot facebook channel
         """
-        pulumi.set(__self__, "channel_name", 'FacebookChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        FacebookChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.FacebookChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'FacebookChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2262,9 +2638,20 @@ class FacebookPageResponse(dict):
         :param str id: Page id
         :param str access_token: Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
-        pulumi.set(__self__, "id", id)
+        FacebookPageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            access_token=access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             access_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
 
     @property
     @pulumi.getter
@@ -2323,12 +2710,27 @@ class KikChannelPropertiesResponse(dict):
         :param str api_key: Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
         :param bool is_validated: Whether this channel is validated for the bot
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "user_name", user_name)
+        KikChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            user_name=user_name,
+            api_key=api_key,
+            is_validated=is_validated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: bool,
+             user_name: str,
+             api_key: Optional[str] = None,
+             is_validated: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_enabled", is_enabled)
+        _setter("user_name", user_name)
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if is_validated is not None:
-            pulumi.set(__self__, "is_validated", is_validated)
+            _setter("is_validated", is_validated)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -2402,16 +2804,33 @@ class KikChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'KikChannelPropertiesResponse' properties: The set of properties specific to Kik channel resource
         """
-        pulumi.set(__self__, "channel_name", 'KikChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        KikChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.KikChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'KikChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2491,9 +2910,22 @@ class LineChannelPropertiesResponse(dict):
         :param bool is_validated: Whether this channel is validated for the bot
         :param Sequence['LineRegistrationResponse'] line_registrations: The list of line channel registrations
         """
-        pulumi.set(__self__, "callback_url", callback_url)
-        pulumi.set(__self__, "is_validated", is_validated)
-        pulumi.set(__self__, "line_registrations", line_registrations)
+        LineChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            callback_url=callback_url,
+            is_validated=is_validated,
+            line_registrations=line_registrations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             callback_url: str,
+             is_validated: bool,
+             line_registrations: Sequence['outputs.LineRegistrationResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("callback_url", callback_url)
+        _setter("is_validated", is_validated)
+        _setter("line_registrations", line_registrations)
 
     @property
     @pulumi.getter(name="callbackUrl")
@@ -2559,16 +2991,33 @@ class LineChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'LineChannelPropertiesResponse' properties: The set of properties specific to line channel resource
         """
-        pulumi.set(__self__, "channel_name", 'LineChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        LineChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.LineChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'LineChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2648,11 +3097,24 @@ class LineRegistrationResponse(dict):
         :param str channel_access_token: Access token for the line channel registration
         :param str channel_secret: Secret for the line channel registration
         """
-        pulumi.set(__self__, "generated_id", generated_id)
+        LineRegistrationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            generated_id=generated_id,
+            channel_access_token=channel_access_token,
+            channel_secret=channel_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             generated_id: str,
+             channel_access_token: Optional[str] = None,
+             channel_secret: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("generated_id", generated_id)
         if channel_access_token is not None:
-            pulumi.set(__self__, "channel_access_token", channel_access_token)
+            _setter("channel_access_token", channel_access_token)
         if channel_secret is not None:
-            pulumi.set(__self__, "channel_secret", channel_secret)
+            _setter("channel_secret", channel_secret)
 
     @property
     @pulumi.getter(name="generatedId")
@@ -2716,14 +3178,29 @@ class M365ExtensionsResponse(dict):
         :param str etag: Entity Tag of the resource
         :param str location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'M365Extensions')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        M365ExtensionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'M365Extensions')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2807,21 +3284,40 @@ class MsTeamsChannelPropertiesResponse(dict):
         :param bool enable_calling: Enable calling for Microsoft Teams channel
         :param str incoming_call_route: Webhook for Microsoft Teams channel calls
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        MsTeamsChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            accepted_terms=accepted_terms,
+            calling_webhook=calling_webhook,
+            deployment_environment=deployment_environment,
+            enable_calling=enable_calling,
+            incoming_call_route=incoming_call_route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: bool,
+             accepted_terms: Optional[bool] = None,
+             calling_webhook: Optional[str] = None,
+             deployment_environment: Optional[str] = None,
+             enable_calling: Optional[bool] = None,
+             incoming_call_route: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_enabled", is_enabled)
         if accepted_terms is not None:
-            pulumi.set(__self__, "accepted_terms", accepted_terms)
+            _setter("accepted_terms", accepted_terms)
         if calling_webhook is not None:
-            pulumi.set(__self__, "calling_webhook", calling_webhook)
+            _setter("calling_webhook", calling_webhook)
         if deployment_environment is None:
             deployment_environment = 'FallbackDeploymentEnvironment'
         if deployment_environment is not None:
-            pulumi.set(__self__, "deployment_environment", deployment_environment)
+            _setter("deployment_environment", deployment_environment)
         if enable_calling is None:
             enable_calling = False
         if enable_calling is not None:
-            pulumi.set(__self__, "enable_calling", enable_calling)
+            _setter("enable_calling", enable_calling)
         if incoming_call_route is not None:
-            pulumi.set(__self__, "incoming_call_route", incoming_call_route)
+            _setter("incoming_call_route", incoming_call_route)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -2911,16 +3407,33 @@ class MsTeamsChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'MsTeamsChannelPropertiesResponse' properties: The set of properties specific to Microsoft Teams channel resource
         """
-        pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        MsTeamsChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.MsTeamsChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'MsTeamsChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3005,15 +3518,32 @@ class NetworkSecurityPerimeterConfigurationPropertiesResponse(dict):
         :param 'ResourceAssociationResponse' resource_association: Information about resource association
         :param Sequence['ProvisioningIssueResponse'] provisioning_issues: List of Provisioning Issues if any
         """
-        pulumi.set(__self__, "network_security_perimeter", network_security_perimeter)
-        pulumi.set(__self__, "profile", profile)
-        pulumi.set(__self__, "resource_association", resource_association)
+        NetworkSecurityPerimeterConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_security_perimeter=network_security_perimeter,
+            profile=profile,
+            resource_association=resource_association,
+            provisioning_issues=provisioning_issues,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_security_perimeter: 'outputs.NetworkSecurityPerimeterResponse',
+             profile: 'outputs.ProfileResponse',
+             resource_association: 'outputs.ResourceAssociationResponse',
+             provisioning_issues: Optional[Sequence['outputs.ProvisioningIssueResponse']] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_security_perimeter", network_security_perimeter)
+        _setter("profile", profile)
+        _setter("resource_association", resource_association)
         if provisioning_issues is not None:
-            pulumi.set(__self__, "provisioning_issues", provisioning_issues)
+            _setter("provisioning_issues", provisioning_issues)
         if provisioning_state is None:
             provisioning_state = 'Succeeded'
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="networkSecurityPerimeter")
@@ -3070,13 +3600,28 @@ class NetworkSecurityPerimeterConfigurationResponse(dict):
         :param str name: Name of the resource
         :param str type: Type of the resource
         """
-        pulumi.set(__self__, "properties", properties)
+        NetworkSecurityPerimeterConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            id=id,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: 'outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse',
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3143,11 +3688,24 @@ class NetworkSecurityPerimeterResponse(dict):
         :param str location: Location of the Network Security Perimeter
         :param str perimeter_guid: Guid of the Network Security Perimeter
         """
-        pulumi.set(__self__, "id", id)
+        NetworkSecurityPerimeterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            perimeter_guid=perimeter_guid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             location: Optional[str] = None,
+             perimeter_guid: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if perimeter_guid is not None:
-            pulumi.set(__self__, "perimeter_guid", perimeter_guid)
+            _setter("perimeter_guid", perimeter_guid)
 
     @property
     @pulumi.getter
@@ -3187,9 +3745,20 @@ class NspAccessRuleResponse(dict):
         :param 'NspAccessRuleResponseProperties' properties: Properties of Access Rule
         :param str name: Name of the access rule
         """
-        pulumi.set(__self__, "properties", properties)
+        NspAccessRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: 'outputs.NspAccessRuleResponseProperties',
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3256,16 +3825,37 @@ class NspAccessRuleResponseProperties(dict):
         :param str direction: Direction of Access Rule
         :param Sequence['NspAccessRuleResponseSubscriptions'] subscriptions: Subscriptions for inbound rules
         """
-        pulumi.set(__self__, "email_addresses", email_addresses)
-        pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
-        pulumi.set(__self__, "network_security_perimeters", network_security_perimeters)
-        pulumi.set(__self__, "phone_numbers", phone_numbers)
+        NspAccessRuleResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_addresses=email_addresses,
+            fully_qualified_domain_names=fully_qualified_domain_names,
+            network_security_perimeters=network_security_perimeters,
+            phone_numbers=phone_numbers,
+            address_prefixes=address_prefixes,
+            direction=direction,
+            subscriptions=subscriptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_addresses: Sequence[str],
+             fully_qualified_domain_names: Sequence[str],
+             network_security_perimeters: Sequence['outputs.NetworkSecurityPerimeterResponse'],
+             phone_numbers: Sequence[str],
+             address_prefixes: Optional[Sequence[str]] = None,
+             direction: Optional[str] = None,
+             subscriptions: Optional[Sequence['outputs.NspAccessRuleResponseSubscriptions']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_addresses", email_addresses)
+        _setter("fully_qualified_domain_names", fully_qualified_domain_names)
+        _setter("network_security_perimeters", network_security_perimeters)
+        _setter("phone_numbers", phone_numbers)
         if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
+            _setter("address_prefixes", address_prefixes)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if subscriptions is not None:
-            pulumi.set(__self__, "subscriptions", subscriptions)
+            _setter("subscriptions", subscriptions)
 
     @property
     @pulumi.getter(name="emailAddresses")
@@ -3335,8 +3925,17 @@ class NspAccessRuleResponseSubscriptions(dict):
         Subscription for inbound rule
         :param str id: Fully qualified identifier of subscription
         """
+        NspAccessRuleResponseSubscriptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3384,14 +3983,29 @@ class OmnichannelResponse(dict):
         :param str etag: Entity Tag of the resource
         :param str location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'Omnichannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        OmnichannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'Omnichannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3464,14 +4078,29 @@ class OutlookChannelResponse(dict):
         :param str etag: Entity Tag of the resource
         :param str location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'OutlookChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        OutlookChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'OutlookChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3553,15 +4182,36 @@ class PrivateEndpointConnectionResponse(dict):
         :param Sequence[str] group_ids: Group ids
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            type=type,
+            group_ids=group_ids,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             provisioning_state: str,
+             type: str,
+             group_ids: Optional[Sequence[str]] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -3631,7 +4281,16 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3674,12 +4333,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -3748,15 +4420,32 @@ class ProfileResponse(dict):
         :param float diagnostic_settings_version: Current diagnostic settings version
         :param str name: Name of the profile
         """
-        pulumi.set(__self__, "enabled_log_categories", enabled_log_categories)
+        ProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled_log_categories=enabled_log_categories,
+            access_rules=access_rules,
+            access_rules_version=access_rules_version,
+            diagnostic_settings_version=diagnostic_settings_version,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled_log_categories: Sequence[str],
+             access_rules: Optional[Sequence['outputs.NspAccessRuleResponse']] = None,
+             access_rules_version: Optional[float] = None,
+             diagnostic_settings_version: Optional[float] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled_log_categories", enabled_log_categories)
         if access_rules is not None:
-            pulumi.set(__self__, "access_rules", access_rules)
+            _setter("access_rules", access_rules)
         if access_rules_version is not None:
-            pulumi.set(__self__, "access_rules_version", access_rules_version)
+            _setter("access_rules_version", access_rules_version)
         if diagnostic_settings_version is not None:
-            pulumi.set(__self__, "diagnostic_settings_version", diagnostic_settings_version)
+            _setter("diagnostic_settings_version", diagnostic_settings_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="enabledLogCategories")
@@ -3812,9 +4501,20 @@ class ProvisioningIssueResponse(dict):
         :param 'ProvisioningIssueResponseProperties' properties: Properties of Provisioning Issue
         :param str name: Name of the issue
         """
-        pulumi.set(__self__, "properties", properties)
+        ProvisioningIssueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: 'outputs.ProvisioningIssueResponseProperties',
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3873,15 +4573,32 @@ class ProvisioningIssueResponseProperties(dict):
         :param str severity: Provisioning state of Network Security Perimeter configuration propagation
         :param Sequence['NspAccessRuleResponse'] suggested_access_rules: Access rules that can be added to the same profile to remediate the issue.
         """
-        pulumi.set(__self__, "suggested_resource_ids", suggested_resource_ids)
+        ProvisioningIssueResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            suggested_resource_ids=suggested_resource_ids,
+            description=description,
+            issue_type=issue_type,
+            severity=severity,
+            suggested_access_rules=suggested_access_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             suggested_resource_ids: Sequence[str],
+             description: Optional[str] = None,
+             issue_type: Optional[str] = None,
+             severity: Optional[str] = None,
+             suggested_access_rules: Optional[Sequence['outputs.NspAccessRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("suggested_resource_ids", suggested_resource_ids)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if issue_type is not None:
-            pulumi.set(__self__, "issue_type", issue_type)
+            _setter("issue_type", issue_type)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if suggested_access_rules is not None:
-            pulumi.set(__self__, "suggested_access_rules", suggested_access_rules)
+            _setter("suggested_access_rules", suggested_access_rules)
 
     @property
     @pulumi.getter(name="suggestedResourceIds")
@@ -3954,10 +4671,21 @@ class ResourceAssociationResponse(dict):
         :param str access_mode: Access Mode of the resource association
         :param str name: Name of the resource association
         """
+        ResourceAssociationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_mode=access_mode,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_mode: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_mode is not None:
-            pulumi.set(__self__, "access_mode", access_mode)
+            _setter("access_mode", access_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="accessMode")
@@ -4013,14 +4741,29 @@ class SearchAssistantResponse(dict):
         :param str etag: Entity Tag of the resource
         :param str location: Specifies the location of the resource.
         """
-        pulumi.set(__self__, "channel_name", 'SearchAssistant')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        SearchAssistantResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'SearchAssistant')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="channelName")
@@ -4079,13 +4822,34 @@ class ServiceProviderParameterResponse(dict):
         :param str name: Name of the Service Provider
         :param str type: Type of the Service Provider
         """
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "help_url", help_url)
-        pulumi.set(__self__, "metadata", metadata)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ServiceProviderParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default=default,
+            description=description,
+            display_name=display_name,
+            help_url=help_url,
+            metadata=metadata,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default: str,
+             description: str,
+             display_name: str,
+             help_url: str,
+             metadata: 'outputs.ServiceProviderParameterResponseMetadata',
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default", default)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("help_url", help_url)
+        _setter("metadata", metadata)
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -4155,8 +4919,17 @@ class ServiceProviderParameterResponseConstraints(dict):
         the constraints of the bot meta data.
         :param bool required: Whether required the constraints of the bot meta data.
         """
+        ServiceProviderParameterResponseConstraints._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            required=required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             required: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
 
     @property
     @pulumi.getter
@@ -4178,8 +4951,17 @@ class ServiceProviderParameterResponseMetadata(dict):
         Meta data for the Service Provider
         :param 'ServiceProviderParameterResponseConstraints' constraints: the constraints of the bot meta data.
         """
+        ServiceProviderParameterResponseMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            constraints=constraints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             constraints: Optional['outputs.ServiceProviderParameterResponseConstraints'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if constraints is not None:
-            pulumi.set(__self__, "constraints", constraints)
+            _setter("constraints", constraints)
 
     @property
     @pulumi.getter
@@ -4211,16 +4993,35 @@ class ServiceProviderPropertiesResponse(dict):
         :param str icon_url: The URL of icon
         :param Sequence['ServiceProviderParameterResponse'] parameters: The list of parameters for the Service Provider
         """
-        pulumi.set(__self__, "dev_portal_url", dev_portal_url)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "service_provider_name", service_provider_name)
+        ServiceProviderPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dev_portal_url=dev_portal_url,
+            display_name=display_name,
+            id=id,
+            service_provider_name=service_provider_name,
+            icon_url=icon_url,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dev_portal_url: str,
+             display_name: str,
+             id: str,
+             service_provider_name: str,
+             icon_url: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.ServiceProviderParameterResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dev_portal_url", dev_portal_url)
+        _setter("display_name", display_name)
+        _setter("id", id)
+        _setter("service_provider_name", service_provider_name)
         if icon_url is None:
             icon_url = ''
         if icon_url is not None:
-            pulumi.set(__self__, "icon_url", icon_url)
+            _setter("icon_url", icon_url)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="devPortalUrl")
@@ -4282,8 +5083,17 @@ class ServiceProviderResponse(dict):
         Service Provider Definition
         :param 'ServiceProviderPropertiesResponse' properties: The Properties of a Service Provider Object
         """
+        ServiceProviderResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.ServiceProviderPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -4341,42 +5151,87 @@ class SiteResponse(dict):
         :param str tenant_id: Tenant Id
         :param Sequence[str] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "is_token_enabled", is_token_enabled)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "key2", key2)
-        pulumi.set(__self__, "site_id", site_id)
-        pulumi.set(__self__, "site_name", site_name)
+        SiteResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            is_token_enabled=is_token_enabled,
+            key=key,
+            key2=key2,
+            site_id=site_id,
+            site_name=site_name,
+            app_id=app_id,
+            e_tag=e_tag,
+            is_block_user_upload_enabled=is_block_user_upload_enabled,
+            is_detailed_logging_enabled=is_detailed_logging_enabled,
+            is_endpoint_parameters_enabled=is_endpoint_parameters_enabled,
+            is_no_storage_enabled=is_no_storage_enabled,
+            is_secure_site_enabled=is_secure_site_enabled,
+            is_v1_enabled=is_v1_enabled,
+            is_v3_enabled=is_v3_enabled,
+            is_web_chat_speech_enabled=is_web_chat_speech_enabled,
+            is_webchat_preview_enabled=is_webchat_preview_enabled,
+            tenant_id=tenant_id,
+            trusted_origins=trusted_origins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: bool,
+             is_token_enabled: bool,
+             key: str,
+             key2: str,
+             site_id: str,
+             site_name: str,
+             app_id: Optional[str] = None,
+             e_tag: Optional[str] = None,
+             is_block_user_upload_enabled: Optional[bool] = None,
+             is_detailed_logging_enabled: Optional[bool] = None,
+             is_endpoint_parameters_enabled: Optional[bool] = None,
+             is_no_storage_enabled: Optional[bool] = None,
+             is_secure_site_enabled: Optional[bool] = None,
+             is_v1_enabled: Optional[bool] = None,
+             is_v3_enabled: Optional[bool] = None,
+             is_web_chat_speech_enabled: Optional[bool] = None,
+             is_webchat_preview_enabled: Optional[bool] = None,
+             tenant_id: Optional[str] = None,
+             trusted_origins: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_enabled", is_enabled)
+        _setter("is_token_enabled", is_token_enabled)
+        _setter("key", key)
+        _setter("key2", key2)
+        _setter("site_id", site_id)
+        _setter("site_name", site_name)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if is_block_user_upload_enabled is not None:
-            pulumi.set(__self__, "is_block_user_upload_enabled", is_block_user_upload_enabled)
+            _setter("is_block_user_upload_enabled", is_block_user_upload_enabled)
         if is_detailed_logging_enabled is not None:
-            pulumi.set(__self__, "is_detailed_logging_enabled", is_detailed_logging_enabled)
+            _setter("is_detailed_logging_enabled", is_detailed_logging_enabled)
         if is_endpoint_parameters_enabled is not None:
-            pulumi.set(__self__, "is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
+            _setter("is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
         if is_no_storage_enabled is not None:
-            pulumi.set(__self__, "is_no_storage_enabled", is_no_storage_enabled)
+            _setter("is_no_storage_enabled", is_no_storage_enabled)
         if is_secure_site_enabled is not None:
-            pulumi.set(__self__, "is_secure_site_enabled", is_secure_site_enabled)
+            _setter("is_secure_site_enabled", is_secure_site_enabled)
         if is_v1_enabled is not None:
-            pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
+            _setter("is_v1_enabled", is_v1_enabled)
         if is_v3_enabled is not None:
-            pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
+            _setter("is_v3_enabled", is_v3_enabled)
         if is_web_chat_speech_enabled is None:
             is_web_chat_speech_enabled = False
         if is_web_chat_speech_enabled is not None:
-            pulumi.set(__self__, "is_web_chat_speech_enabled", is_web_chat_speech_enabled)
+            _setter("is_web_chat_speech_enabled", is_web_chat_speech_enabled)
         if is_webchat_preview_enabled is None:
             is_webchat_preview_enabled = False
         if is_webchat_preview_enabled is not None:
-            pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
+            _setter("is_webchat_preview_enabled", is_webchat_preview_enabled)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if trusted_origins is not None:
-            pulumi.set(__self__, "trusted_origins", trusted_origins)
+            _setter("trusted_origins", trusted_origins)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -4544,8 +5399,19 @@ class SkuResponse(dict):
         :param str name: The sku name
         :param str tier: Gets the sku tier. This is based on the SKU name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             tier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -4628,27 +5494,54 @@ class SkypeChannelPropertiesResponse(dict):
         :param str groups_mode: Group mode for Skype channel
         :param str incoming_call_route: Incoming call route for Skype channel
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        SkypeChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            calling_web_hook=calling_web_hook,
+            enable_calling=enable_calling,
+            enable_groups=enable_groups,
+            enable_media_cards=enable_media_cards,
+            enable_messaging=enable_messaging,
+            enable_screen_sharing=enable_screen_sharing,
+            enable_video=enable_video,
+            groups_mode=groups_mode,
+            incoming_call_route=incoming_call_route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: bool,
+             calling_web_hook: Optional[str] = None,
+             enable_calling: Optional[bool] = None,
+             enable_groups: Optional[bool] = None,
+             enable_media_cards: Optional[bool] = None,
+             enable_messaging: Optional[bool] = None,
+             enable_screen_sharing: Optional[bool] = None,
+             enable_video: Optional[bool] = None,
+             groups_mode: Optional[str] = None,
+             incoming_call_route: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_enabled", is_enabled)
         if calling_web_hook is not None:
-            pulumi.set(__self__, "calling_web_hook", calling_web_hook)
+            _setter("calling_web_hook", calling_web_hook)
         if enable_calling is None:
             enable_calling = False
         if enable_calling is not None:
-            pulumi.set(__self__, "enable_calling", enable_calling)
+            _setter("enable_calling", enable_calling)
         if enable_groups is not None:
-            pulumi.set(__self__, "enable_groups", enable_groups)
+            _setter("enable_groups", enable_groups)
         if enable_media_cards is not None:
-            pulumi.set(__self__, "enable_media_cards", enable_media_cards)
+            _setter("enable_media_cards", enable_media_cards)
         if enable_messaging is not None:
-            pulumi.set(__self__, "enable_messaging", enable_messaging)
+            _setter("enable_messaging", enable_messaging)
         if enable_screen_sharing is not None:
-            pulumi.set(__self__, "enable_screen_sharing", enable_screen_sharing)
+            _setter("enable_screen_sharing", enable_screen_sharing)
         if enable_video is not None:
-            pulumi.set(__self__, "enable_video", enable_video)
+            _setter("enable_video", enable_video)
         if groups_mode is not None:
-            pulumi.set(__self__, "groups_mode", groups_mode)
+            _setter("groups_mode", groups_mode)
         if incoming_call_route is not None:
-            pulumi.set(__self__, "incoming_call_route", incoming_call_route)
+            _setter("incoming_call_route", incoming_call_route)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -4770,16 +5663,33 @@ class SkypeChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'SkypeChannelPropertiesResponse' properties: The set of properties specific to Skype channel resource
         """
-        pulumi.set(__self__, "channel_name", 'SkypeChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        SkypeChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.SkypeChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'SkypeChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -4889,24 +5799,53 @@ class SlackChannelPropertiesResponse(dict):
         :param str signing_secret: The Slack signing secret.
         :param str verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "is_validated", is_validated)
-        pulumi.set(__self__, "last_submission_id", last_submission_id)
-        pulumi.set(__self__, "redirect_action", redirect_action)
+        SlackChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            is_validated=is_validated,
+            last_submission_id=last_submission_id,
+            redirect_action=redirect_action,
+            client_id=client_id,
+            client_secret=client_secret,
+            landing_page_url=landing_page_url,
+            register_before_o_auth_flow=register_before_o_auth_flow,
+            scopes=scopes,
+            signing_secret=signing_secret,
+            verification_token=verification_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: bool,
+             is_validated: bool,
+             last_submission_id: str,
+             redirect_action: str,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             landing_page_url: Optional[str] = None,
+             register_before_o_auth_flow: Optional[bool] = None,
+             scopes: Optional[str] = None,
+             signing_secret: Optional[str] = None,
+             verification_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_enabled", is_enabled)
+        _setter("is_validated", is_validated)
+        _setter("last_submission_id", last_submission_id)
+        _setter("redirect_action", redirect_action)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if landing_page_url is not None:
-            pulumi.set(__self__, "landing_page_url", landing_page_url)
+            _setter("landing_page_url", landing_page_url)
         if register_before_o_auth_flow is not None:
-            pulumi.set(__self__, "register_before_o_auth_flow", register_before_o_auth_flow)
+            _setter("register_before_o_auth_flow", register_before_o_auth_flow)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if signing_secret is not None:
-            pulumi.set(__self__, "signing_secret", signing_secret)
+            _setter("signing_secret", signing_secret)
         if verification_token is not None:
-            pulumi.set(__self__, "verification_token", verification_token)
+            _setter("verification_token", verification_token)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -5036,16 +5975,33 @@ class SlackChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'SlackChannelPropertiesResponse' properties: The set of properties specific to Slack channel resource
         """
-        pulumi.set(__self__, "channel_name", 'SlackChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        SlackChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.SlackChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'SlackChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -5131,13 +6087,30 @@ class SmsChannelPropertiesResponse(dict):
         :param str auth_token: The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param bool is_validated: Whether this channel is validated for the bot
         """
-        pulumi.set(__self__, "account_sid", account_sid)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "phone", phone)
+        SmsChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_sid=account_sid,
+            is_enabled=is_enabled,
+            phone=phone,
+            auth_token=auth_token,
+            is_validated=is_validated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_sid: str,
+             is_enabled: bool,
+             phone: str,
+             auth_token: Optional[str] = None,
+             is_validated: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_sid", account_sid)
+        _setter("is_enabled", is_enabled)
+        _setter("phone", phone)
         if auth_token is not None:
-            pulumi.set(__self__, "auth_token", auth_token)
+            _setter("auth_token", auth_token)
         if is_validated is not None:
-            pulumi.set(__self__, "is_validated", is_validated)
+            _setter("is_validated", is_validated)
 
     @property
     @pulumi.getter(name="accountSID")
@@ -5219,16 +6192,33 @@ class SmsChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'SmsChannelPropertiesResponse' properties: The set of properties specific to Sms channel resource
         """
-        pulumi.set(__self__, "channel_name", 'SmsChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        SmsChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.SmsChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'SmsChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -5308,11 +6298,24 @@ class TelegramChannelPropertiesResponse(dict):
         :param str access_token: The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param bool is_validated: Whether this channel is validated for the bot
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
+        TelegramChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            access_token=access_token,
+            is_validated=is_validated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: bool,
+             access_token: Optional[str] = None,
+             is_validated: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_enabled", is_enabled)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if is_validated is not None:
-            pulumi.set(__self__, "is_validated", is_validated)
+            _setter("is_validated", is_validated)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -5378,16 +6381,33 @@ class TelegramChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'TelegramChannelPropertiesResponse' properties: The set of properties specific to Telegram channel resource
         """
-        pulumi.set(__self__, "channel_name", 'TelegramChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        TelegramChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.TelegramChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'TelegramChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -5483,20 +6503,41 @@ class TelephonyChannelPropertiesResponse(dict):
         :param Sequence['TelephonyPhoneNumbersResponse'] phone_numbers: The list of Telephony phone numbers
         :param str premium_sku: The premium SKU applied to the channel
         """
+        TelephonyChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_configurations=api_configurations,
+            cognitive_service_region=cognitive_service_region,
+            cognitive_service_subscription_key=cognitive_service_subscription_key,
+            default_locale=default_locale,
+            is_enabled=is_enabled,
+            phone_numbers=phone_numbers,
+            premium_sku=premium_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_configurations: Optional[Sequence['outputs.TelephonyChannelResourceApiConfigurationResponse']] = None,
+             cognitive_service_region: Optional[str] = None,
+             cognitive_service_subscription_key: Optional[str] = None,
+             default_locale: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             phone_numbers: Optional[Sequence['outputs.TelephonyPhoneNumbersResponse']] = None,
+             premium_sku: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_configurations is not None:
-            pulumi.set(__self__, "api_configurations", api_configurations)
+            _setter("api_configurations", api_configurations)
         if cognitive_service_region is not None:
-            pulumi.set(__self__, "cognitive_service_region", cognitive_service_region)
+            _setter("cognitive_service_region", cognitive_service_region)
         if cognitive_service_subscription_key is not None:
-            pulumi.set(__self__, "cognitive_service_subscription_key", cognitive_service_subscription_key)
+            _setter("cognitive_service_subscription_key", cognitive_service_subscription_key)
         if default_locale is not None:
-            pulumi.set(__self__, "default_locale", default_locale)
+            _setter("default_locale", default_locale)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if phone_numbers is not None:
-            pulumi.set(__self__, "phone_numbers", phone_numbers)
+            _setter("phone_numbers", phone_numbers)
         if premium_sku is not None:
-            pulumi.set(__self__, "premium_sku", premium_sku)
+            _setter("premium_sku", premium_sku)
 
     @property
     @pulumi.getter(name="apiConfigurations")
@@ -5601,18 +6642,37 @@ class TelephonyChannelResourceApiConfigurationResponse(dict):
         :param str id: The id of config.
         :param str provider_name: The provider name.
         """
+        TelephonyChannelResourceApiConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cognitive_service_region=cognitive_service_region,
+            cognitive_service_resource_id=cognitive_service_resource_id,
+            cognitive_service_subscription_key=cognitive_service_subscription_key,
+            default_locale=default_locale,
+            id=id,
+            provider_name=provider_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cognitive_service_region: Optional[str] = None,
+             cognitive_service_resource_id: Optional[str] = None,
+             cognitive_service_subscription_key: Optional[str] = None,
+             default_locale: Optional[str] = None,
+             id: Optional[str] = None,
+             provider_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cognitive_service_region is not None:
-            pulumi.set(__self__, "cognitive_service_region", cognitive_service_region)
+            _setter("cognitive_service_region", cognitive_service_region)
         if cognitive_service_resource_id is not None:
-            pulumi.set(__self__, "cognitive_service_resource_id", cognitive_service_resource_id)
+            _setter("cognitive_service_resource_id", cognitive_service_resource_id)
         if cognitive_service_subscription_key is not None:
-            pulumi.set(__self__, "cognitive_service_subscription_key", cognitive_service_subscription_key)
+            _setter("cognitive_service_subscription_key", cognitive_service_subscription_key)
         if default_locale is not None:
-            pulumi.set(__self__, "default_locale", default_locale)
+            _setter("default_locale", default_locale)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
 
     @property
     @pulumi.getter(name="cognitiveServiceRegion")
@@ -5702,16 +6762,33 @@ class TelephonyChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'TelephonyChannelPropertiesResponse' properties: The set of properties specific to Telephony channel resource
         """
-        pulumi.set(__self__, "channel_name", 'TelephonyChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        TelephonyChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.TelephonyChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'TelephonyChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -5817,26 +6894,53 @@ class TelephonyPhoneNumbersResponse(dict):
         :param str offer_type: Optional Property that will determine the offering type of the phone.
         :param str phone_number: The phone number.
         """
+        TelephonyPhoneNumbersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acs_endpoint=acs_endpoint,
+            acs_resource_id=acs_resource_id,
+            acs_secret=acs_secret,
+            cognitive_service_region=cognitive_service_region,
+            cognitive_service_resource_id=cognitive_service_resource_id,
+            cognitive_service_subscription_key=cognitive_service_subscription_key,
+            default_locale=default_locale,
+            id=id,
+            offer_type=offer_type,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acs_endpoint: Optional[str] = None,
+             acs_resource_id: Optional[str] = None,
+             acs_secret: Optional[str] = None,
+             cognitive_service_region: Optional[str] = None,
+             cognitive_service_resource_id: Optional[str] = None,
+             cognitive_service_subscription_key: Optional[str] = None,
+             default_locale: Optional[str] = None,
+             id: Optional[str] = None,
+             offer_type: Optional[str] = None,
+             phone_number: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acs_endpoint is not None:
-            pulumi.set(__self__, "acs_endpoint", acs_endpoint)
+            _setter("acs_endpoint", acs_endpoint)
         if acs_resource_id is not None:
-            pulumi.set(__self__, "acs_resource_id", acs_resource_id)
+            _setter("acs_resource_id", acs_resource_id)
         if acs_secret is not None:
-            pulumi.set(__self__, "acs_secret", acs_secret)
+            _setter("acs_secret", acs_secret)
         if cognitive_service_region is not None:
-            pulumi.set(__self__, "cognitive_service_region", cognitive_service_region)
+            _setter("cognitive_service_region", cognitive_service_region)
         if cognitive_service_resource_id is not None:
-            pulumi.set(__self__, "cognitive_service_resource_id", cognitive_service_resource_id)
+            _setter("cognitive_service_resource_id", cognitive_service_resource_id)
         if cognitive_service_subscription_key is not None:
-            pulumi.set(__self__, "cognitive_service_subscription_key", cognitive_service_subscription_key)
+            _setter("cognitive_service_subscription_key", cognitive_service_subscription_key)
         if default_locale is not None:
-            pulumi.set(__self__, "default_locale", default_locale)
+            _setter("default_locale", default_locale)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if offer_type is not None:
-            pulumi.set(__self__, "offer_type", offer_type)
+            _setter("offer_type", offer_type)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="acsEndpoint")
@@ -5949,9 +7053,20 @@ class WebChatChannelPropertiesResponse(dict):
         :param str web_chat_embed_code: Web chat control embed code
         :param Sequence['WebChatSiteResponse'] sites: The list of Web Chat sites
         """
-        pulumi.set(__self__, "web_chat_embed_code", web_chat_embed_code)
+        WebChatChannelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            web_chat_embed_code=web_chat_embed_code,
+            sites=sites,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             web_chat_embed_code: str,
+             sites: Optional[Sequence['outputs.WebChatSiteResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("web_chat_embed_code", web_chat_embed_code)
         if sites is not None:
-            pulumi.set(__self__, "sites", sites)
+            _setter("sites", sites)
 
     @property
     @pulumi.getter(name="webChatEmbedCode")
@@ -6009,16 +7124,33 @@ class WebChatChannelResponse(dict):
         :param str location: Specifies the location of the resource.
         :param 'WebChatChannelPropertiesResponse' properties: The set of properties specific to Web Chat channel resource
         """
-        pulumi.set(__self__, "channel_name", 'WebChatChannel')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        WebChatChannelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            provisioning_state=provisioning_state,
+            etag=etag,
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: str,
+             provisioning_state: str,
+             etag: Optional[str] = None,
+             location: Optional[str] = None,
+             properties: Optional['outputs.WebChatChannelPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channel_name", 'WebChatChannel')
+        _setter("provisioning_state", provisioning_state)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is None:
             location = 'global'
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="channelName")
@@ -6158,41 +7290,86 @@ class WebChatSiteResponse(dict):
         :param str tenant_id: Tenant Id
         :param Sequence[str] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "is_token_enabled", is_token_enabled)
+        WebChatSiteResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            is_token_enabled=is_token_enabled,
+            is_webchat_preview_enabled=is_webchat_preview_enabled,
+            key=key,
+            key2=key2,
+            site_id=site_id,
+            site_name=site_name,
+            app_id=app_id,
+            e_tag=e_tag,
+            is_block_user_upload_enabled=is_block_user_upload_enabled,
+            is_detailed_logging_enabled=is_detailed_logging_enabled,
+            is_endpoint_parameters_enabled=is_endpoint_parameters_enabled,
+            is_no_storage_enabled=is_no_storage_enabled,
+            is_secure_site_enabled=is_secure_site_enabled,
+            is_v1_enabled=is_v1_enabled,
+            is_v3_enabled=is_v3_enabled,
+            is_web_chat_speech_enabled=is_web_chat_speech_enabled,
+            tenant_id=tenant_id,
+            trusted_origins=trusted_origins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: bool,
+             is_token_enabled: bool,
+             is_webchat_preview_enabled: Optional[bool] = None,
+             key: str,
+             key2: str,
+             site_id: str,
+             site_name: str,
+             app_id: Optional[str] = None,
+             e_tag: Optional[str] = None,
+             is_block_user_upload_enabled: Optional[bool] = None,
+             is_detailed_logging_enabled: Optional[bool] = None,
+             is_endpoint_parameters_enabled: Optional[bool] = None,
+             is_no_storage_enabled: Optional[bool] = None,
+             is_secure_site_enabled: Optional[bool] = None,
+             is_v1_enabled: Optional[bool] = None,
+             is_v3_enabled: Optional[bool] = None,
+             is_web_chat_speech_enabled: Optional[bool] = None,
+             tenant_id: Optional[str] = None,
+             trusted_origins: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_enabled", is_enabled)
+        _setter("is_token_enabled", is_token_enabled)
         if is_webchat_preview_enabled is None:
             is_webchat_preview_enabled = False
-        pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "key2", key2)
-        pulumi.set(__self__, "site_id", site_id)
-        pulumi.set(__self__, "site_name", site_name)
+        _setter("is_webchat_preview_enabled", is_webchat_preview_enabled)
+        _setter("key", key)
+        _setter("key2", key2)
+        _setter("site_id", site_id)
+        _setter("site_name", site_name)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if is_block_user_upload_enabled is not None:
-            pulumi.set(__self__, "is_block_user_upload_enabled", is_block_user_upload_enabled)
+            _setter("is_block_user_upload_enabled", is_block_user_upload_enabled)
         if is_detailed_logging_enabled is not None:
-            pulumi.set(__self__, "is_detailed_logging_enabled", is_detailed_logging_enabled)
+            _setter("is_detailed_logging_enabled", is_detailed_logging_enabled)
         if is_endpoint_parameters_enabled is not None:
-            pulumi.set(__self__, "is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
+            _setter("is_endpoint_parameters_enabled", is_endpoint_parameters_enabled)
         if is_no_storage_enabled is not None:
-            pulumi.set(__self__, "is_no_storage_enabled", is_no_storage_enabled)
+            _setter("is_no_storage_enabled", is_no_storage_enabled)
         if is_secure_site_enabled is not None:
-            pulumi.set(__self__, "is_secure_site_enabled", is_secure_site_enabled)
+            _setter("is_secure_site_enabled", is_secure_site_enabled)
         if is_v1_enabled is not None:
-            pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
+            _setter("is_v1_enabled", is_v1_enabled)
         if is_v3_enabled is not None:
-            pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
+            _setter("is_v3_enabled", is_v3_enabled)
         if is_web_chat_speech_enabled is None:
             is_web_chat_speech_enabled = False
         if is_web_chat_speech_enabled is not None:
-            pulumi.set(__self__, "is_web_chat_speech_enabled", is_web_chat_speech_enabled)
+            _setter("is_web_chat_speech_enabled", is_web_chat_speech_enabled)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if trusted_origins is not None:
-            pulumi.set(__self__, "trusted_origins", trusted_origins)
+            _setter("trusted_origins", trusted_origins)
 
     @property
     @pulumi.getter(name="isEnabled")

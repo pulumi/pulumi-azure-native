@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -68,53 +68,108 @@ class ServerGroupArgs:
         :param pulumi.Input[str] standby_availability_zone: Standby Availability Zone information of the server group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServerGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            availability_zone=availability_zone,
+            backup_retention_days=backup_retention_days,
+            citus_version=citus_version,
+            create_mode=create_mode,
+            delegated_subnet_arguments=delegated_subnet_arguments,
+            enable_mx=enable_mx,
+            enable_shards_on_coordinator=enable_shards_on_coordinator,
+            enable_zfs=enable_zfs,
+            location=location,
+            maintenance_window=maintenance_window,
+            point_in_time_utc=point_in_time_utc,
+            postgresql_version=postgresql_version,
+            private_dns_zone_arguments=private_dns_zone_arguments,
+            server_group_name=server_group_name,
+            server_role_groups=server_role_groups,
+            source_location=source_location,
+            source_resource_group_name=source_resource_group_name,
+            source_server_group_name=source_server_group_name,
+            source_subscription_id=source_subscription_id,
+            standby_availability_zone=standby_availability_zone,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             backup_retention_days: Optional[pulumi.Input[int]] = None,
+             citus_version: Optional[pulumi.Input[Union[str, 'CitusVersion']]] = None,
+             create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+             delegated_subnet_arguments: Optional[pulumi.Input['ServerGroupPropertiesDelegatedSubnetArgumentsArgs']] = None,
+             enable_mx: Optional[pulumi.Input[bool]] = None,
+             enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
+             enable_zfs: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
+             point_in_time_utc: Optional[pulumi.Input[str]] = None,
+             postgresql_version: Optional[pulumi.Input[Union[str, 'PostgreSQLVersion']]] = None,
+             private_dns_zone_arguments: Optional[pulumi.Input['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']] = None,
+             server_group_name: Optional[pulumi.Input[str]] = None,
+             server_role_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ServerRoleGroupArgs']]]] = None,
+             source_location: Optional[pulumi.Input[str]] = None,
+             source_resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_server_group_name: Optional[pulumi.Input[str]] = None,
+             source_subscription_id: Optional[pulumi.Input[str]] = None,
+             standby_availability_zone: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if citus_version is not None:
-            pulumi.set(__self__, "citus_version", citus_version)
+            _setter("citus_version", citus_version)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if delegated_subnet_arguments is not None:
-            pulumi.set(__self__, "delegated_subnet_arguments", delegated_subnet_arguments)
+            _setter("delegated_subnet_arguments", delegated_subnet_arguments)
         if enable_mx is not None:
-            pulumi.set(__self__, "enable_mx", enable_mx)
+            _setter("enable_mx", enable_mx)
         if enable_shards_on_coordinator is not None:
-            pulumi.set(__self__, "enable_shards_on_coordinator", enable_shards_on_coordinator)
+            _setter("enable_shards_on_coordinator", enable_shards_on_coordinator)
         if enable_zfs is not None:
-            pulumi.set(__self__, "enable_zfs", enable_zfs)
+            _setter("enable_zfs", enable_zfs)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if point_in_time_utc is not None:
-            pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
+            _setter("point_in_time_utc", point_in_time_utc)
         if postgresql_version is not None:
-            pulumi.set(__self__, "postgresql_version", postgresql_version)
+            _setter("postgresql_version", postgresql_version)
         if private_dns_zone_arguments is not None:
-            pulumi.set(__self__, "private_dns_zone_arguments", private_dns_zone_arguments)
+            _setter("private_dns_zone_arguments", private_dns_zone_arguments)
         if server_group_name is not None:
-            pulumi.set(__self__, "server_group_name", server_group_name)
+            _setter("server_group_name", server_group_name)
         if server_role_groups is not None:
-            pulumi.set(__self__, "server_role_groups", server_role_groups)
+            _setter("server_role_groups", server_role_groups)
         if source_location is not None:
-            pulumi.set(__self__, "source_location", source_location)
+            _setter("source_location", source_location)
         if source_resource_group_name is not None:
-            pulumi.set(__self__, "source_resource_group_name", source_resource_group_name)
+            _setter("source_resource_group_name", source_resource_group_name)
         if source_server_group_name is not None:
-            pulumi.set(__self__, "source_server_group_name", source_server_group_name)
+            _setter("source_server_group_name", source_server_group_name)
         if source_subscription_id is not None:
-            pulumi.set(__self__, "source_subscription_id", source_subscription_id)
+            _setter("source_subscription_id", source_subscription_id)
         if standby_availability_zone is not None:
-            pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+            _setter("standby_availability_zone", standby_availability_zone)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -484,6 +539,10 @@ class ServerGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -528,14 +587,29 @@ class ServerGroup(pulumi.CustomResource):
             __props__.__dict__["backup_retention_days"] = backup_retention_days
             __props__.__dict__["citus_version"] = citus_version
             __props__.__dict__["create_mode"] = create_mode
+            if delegated_subnet_arguments is not None and not isinstance(delegated_subnet_arguments, ServerGroupPropertiesDelegatedSubnetArgumentsArgs):
+                delegated_subnet_arguments = delegated_subnet_arguments or {}
+                def _setter(key, value):
+                    delegated_subnet_arguments[key] = value
+                ServerGroupPropertiesDelegatedSubnetArgumentsArgs._configure(_setter, **delegated_subnet_arguments)
             __props__.__dict__["delegated_subnet_arguments"] = delegated_subnet_arguments
             __props__.__dict__["enable_mx"] = enable_mx
             __props__.__dict__["enable_shards_on_coordinator"] = enable_shards_on_coordinator
             __props__.__dict__["enable_zfs"] = enable_zfs
             __props__.__dict__["location"] = location
+            if maintenance_window is not None and not isinstance(maintenance_window, MaintenanceWindowArgs):
+                maintenance_window = maintenance_window or {}
+                def _setter(key, value):
+                    maintenance_window[key] = value
+                MaintenanceWindowArgs._configure(_setter, **maintenance_window)
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["point_in_time_utc"] = point_in_time_utc
             __props__.__dict__["postgresql_version"] = postgresql_version
+            if private_dns_zone_arguments is not None and not isinstance(private_dns_zone_arguments, ServerGroupPropertiesPrivateDnsZoneArgumentsArgs):
+                private_dns_zone_arguments = private_dns_zone_arguments or {}
+                def _setter(key, value):
+                    private_dns_zone_arguments[key] = value
+                ServerGroupPropertiesPrivateDnsZoneArgumentsArgs._configure(_setter, **private_dns_zone_arguments)
             __props__.__dict__["private_dns_zone_arguments"] = private_dns_zone_arguments
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

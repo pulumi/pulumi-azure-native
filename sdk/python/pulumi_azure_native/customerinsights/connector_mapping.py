@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,20 +40,47 @@ class ConnectorMappingArgs:
         :param pulumi.Input[str] display_name: Display name for the connector mapping.
         :param pulumi.Input[str] mapping_name: The name of the connector mapping.
         """
-        pulumi.set(__self__, "connector_name", connector_name)
-        pulumi.set(__self__, "entity_type", entity_type)
-        pulumi.set(__self__, "entity_type_name", entity_type_name)
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "mapping_properties", mapping_properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectorMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_name=connector_name,
+            entity_type=entity_type,
+            entity_type_name=entity_type_name,
+            hub_name=hub_name,
+            mapping_properties=mapping_properties,
+            resource_group_name=resource_group_name,
+            connector_type=connector_type,
+            description=description,
+            display_name=display_name,
+            mapping_name=mapping_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_name: pulumi.Input[str],
+             entity_type: pulumi.Input['EntityTypes'],
+             entity_type_name: pulumi.Input[str],
+             hub_name: pulumi.Input[str],
+             mapping_properties: pulumi.Input['ConnectorMappingPropertiesArgs'],
+             resource_group_name: pulumi.Input[str],
+             connector_type: Optional[pulumi.Input[Union[str, 'ConnectorTypes']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             mapping_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_name", connector_name)
+        _setter("entity_type", entity_type)
+        _setter("entity_type_name", entity_type_name)
+        _setter("hub_name", hub_name)
+        _setter("mapping_properties", mapping_properties)
+        _setter("resource_group_name", resource_group_name)
         if connector_type is not None:
-            pulumi.set(__self__, "connector_type", connector_type)
+            _setter("connector_type", connector_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if mapping_name is not None:
-            pulumi.set(__self__, "mapping_name", mapping_name)
+            _setter("mapping_name", mapping_name)
 
     @property
     @pulumi.getter(name="connectorName")
@@ -229,6 +256,10 @@ class ConnectorMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -269,6 +300,11 @@ class ConnectorMapping(pulumi.CustomResource):
                 raise TypeError("Missing required property 'hub_name'")
             __props__.__dict__["hub_name"] = hub_name
             __props__.__dict__["mapping_name"] = mapping_name
+            if mapping_properties is not None and not isinstance(mapping_properties, ConnectorMappingPropertiesArgs):
+                mapping_properties = mapping_properties or {}
+                def _setter(key, value):
+                    mapping_properties[key] = value
+                ConnectorMappingPropertiesArgs._configure(_setter, **mapping_properties)
             if mapping_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'mapping_properties'")
             __props__.__dict__["mapping_properties"] = mapping_properties

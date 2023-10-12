@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,15 +30,32 @@ class PartnerConfigurationArgs:
         :param pulumi.Input[Union[str, 'PartnerConfigurationProvisioningState']] provisioning_state: Provisioning state of the partner configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PartnerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            location=location,
+            partner_authorization=partner_authorization,
+            provisioning_state=provisioning_state,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             partner_authorization: Optional[pulumi.Input['PartnerAuthorizationArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'PartnerConfigurationProvisioningState']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if partner_authorization is not None:
-            pulumi.set(__self__, "partner_authorization", partner_authorization)
+            _setter("partner_authorization", partner_authorization)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -144,6 +161,10 @@ class PartnerConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartnerConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -164,6 +185,11 @@ class PartnerConfiguration(pulumi.CustomResource):
             __props__ = PartnerConfigurationArgs.__new__(PartnerConfigurationArgs)
 
             __props__.__dict__["location"] = location
+            if partner_authorization is not None and not isinstance(partner_authorization, PartnerAuthorizationArgs):
+                partner_authorization = partner_authorization or {}
+                def _setter(key, value):
+                    partner_authorization[key] = value
+                PartnerAuthorizationArgs._configure(_setter, **partner_authorization)
             __props__.__dict__["partner_authorization"] = partner_authorization
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:

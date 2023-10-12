@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,10 +56,25 @@ class ConnectorCollectionErrorInfoResponse(dict):
         :param str error_message: Detailed error message
         :param str error_start_time: Time the error started occurring (Last time error occurred in lastChecked)
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_inner_message", error_inner_message)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_start_time", error_start_time)
+        ConnectorCollectionErrorInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_inner_message=error_inner_message,
+            error_message=error_message,
+            error_start_time=error_start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: str,
+             error_inner_message: str,
+             error_message: str,
+             error_start_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_code", error_code)
+        _setter("error_inner_message", error_inner_message)
+        _setter("error_message", error_message)
+        _setter("error_start_time", error_start_time)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -132,11 +147,26 @@ class ConnectorCollectionInfoResponse(dict):
         :param str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
         :param 'ConnectorCollectionErrorInfoResponse' error: Error information of last collection
         """
-        pulumi.set(__self__, "last_checked", last_checked)
-        pulumi.set(__self__, "last_updated", last_updated)
-        pulumi.set(__self__, "source_last_updated", source_last_updated)
+        ConnectorCollectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_checked=last_checked,
+            last_updated=last_updated,
+            source_last_updated=source_last_updated,
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_checked: str,
+             last_updated: str,
+             source_last_updated: str,
+             error: Optional['outputs.ConnectorCollectionErrorInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("last_checked", last_checked)
+        _setter("last_updated", last_updated)
+        _setter("source_last_updated", source_last_updated)
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
 
     @property
     @pulumi.getter(name="lastChecked")

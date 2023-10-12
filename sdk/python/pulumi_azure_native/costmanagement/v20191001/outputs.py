@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -61,10 +61,23 @@ class ExportDeliveryDestinationResponse(dict):
         :param str resource_id: The resource id of the storage account where exports will be delivered.
         :param str root_folder_path: The name of the directory where exports will be uploaded.
         """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "resource_id", resource_id)
+        ExportDeliveryDestinationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            resource_id=resource_id,
+            root_folder_path=root_folder_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: str,
+             resource_id: str,
+             root_folder_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container", container)
+        _setter("resource_id", resource_id)
         if root_folder_path is not None:
-            pulumi.set(__self__, "root_folder_path", root_folder_path)
+            _setter("root_folder_path", root_folder_path)
 
     @property
     @pulumi.getter
@@ -102,7 +115,16 @@ class ExportDeliveryInfoResponse(dict):
         The delivery information associated with a export.
         :param 'ExportDeliveryDestinationResponse' destination: Has destination for the export being delivered.
         """
-        pulumi.set(__self__, "destination", destination)
+        ExportDeliveryInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: 'outputs.ExportDeliveryDestinationResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination", destination)
 
     @property
     @pulumi.getter
@@ -143,9 +165,20 @@ class ExportRecurrencePeriodResponse(dict):
         :param str from_: The start date of recurrence.
         :param str to: The end date of recurrence.
         """
-        pulumi.set(__self__, "from_", from_)
+        ExportRecurrencePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: str,
+             to: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("from_", from_)
         if to is not None:
-            pulumi.set(__self__, "to", to)
+            _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -196,11 +229,24 @@ class ExportScheduleResponse(dict):
         :param 'ExportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param str status: The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
         """
-        pulumi.set(__self__, "recurrence", recurrence)
+        ExportScheduleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence=recurrence,
+            recurrence_period=recurrence_period,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence: str,
+             recurrence_period: Optional['outputs.ExportRecurrencePeriodResponse'] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recurrence", recurrence)
         if recurrence_period is not None:
-            pulumi.set(__self__, "recurrence_period", recurrence_period)
+            _setter("recurrence_period", recurrence_period)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -240,8 +286,19 @@ class QueryAggregationResponse(dict):
         :param str function: The name of the aggregation function to use.
         :param str name: The name of the column to aggregate.
         """
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "name", name)
+        QueryAggregationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function=function,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function", function)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -275,9 +332,22 @@ class QueryComparisonExpressionResponse(dict):
         :param str operator: The operator to use for comparison.
         :param Sequence[str] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        QueryComparisonExpressionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             operator: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -315,8 +385,17 @@ class QueryDatasetConfigurationResponse(dict):
         The configuration of dataset in the query.
         :param Sequence[str] columns: Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
         """
+        QueryDatasetConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -348,18 +427,37 @@ class QueryDatasetResponse(dict):
         :param Sequence['QueryGroupingResponse'] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         :param Sequence['QuerySortingConfigurationResponse'] sorting: Array of sorting by columns in query.
         """
+        QueryDatasetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation=aggregation,
+            configuration=configuration,
+            filter=filter,
+            granularity=granularity,
+            grouping=grouping,
+            sorting=sorting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation: Optional[Mapping[str, 'outputs.QueryAggregationResponse']] = None,
+             configuration: Optional['outputs.QueryDatasetConfigurationResponse'] = None,
+             filter: Optional['outputs.QueryFilterResponse'] = None,
+             granularity: Optional[str] = None,
+             grouping: Optional[Sequence['outputs.QueryGroupingResponse']] = None,
+             sorting: Optional[Sequence['outputs.QuerySortingConfigurationResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aggregation is not None:
-            pulumi.set(__self__, "aggregation", aggregation)
+            _setter("aggregation", aggregation)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
+            _setter("granularity", granularity)
         if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
+            _setter("grouping", grouping)
         if sorting is not None:
-            pulumi.set(__self__, "sorting", sorting)
+            _setter("sorting", sorting)
 
     @property
     @pulumi.getter
@@ -444,12 +542,27 @@ class QueryDefinitionResponse(dict):
         :param 'QueryDatasetResponse' dataset: Has definition for data in this query.
         :param 'QueryTimePeriodResponse' time_period: Has time period for pulling data for the query.
         """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
+        QueryDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timeframe=timeframe,
+            type=type,
+            dataset=dataset,
+            time_period=time_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timeframe: str,
+             type: str,
+             dataset: Optional['outputs.QueryDatasetResponse'] = None,
+             time_period: Optional['outputs.QueryTimePeriodResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("timeframe", timeframe)
+        _setter("type", type)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
+            _setter("time_period", time_period)
 
     @property
     @pulumi.getter
@@ -524,16 +637,33 @@ class QueryFilterResponse(dict):
         :param Sequence['QueryFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'QueryComparisonExpressionResponse' tag: Has comparison expression for a tag
         """
+        QueryFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimension=dimension,
+            not_=not_,
+            or_=or_,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[Sequence['outputs.QueryFilterResponse']] = None,
+             dimension: Optional['outputs.QueryComparisonExpressionResponse'] = None,
+             not_: Optional['outputs.QueryFilterResponse'] = None,
+             or_: Optional[Sequence['outputs.QueryFilterResponse']] = None,
+             tag: Optional['outputs.QueryComparisonExpressionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
+            _setter("dimension", dimension)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if or_ is not None:
-            pulumi.set(__self__, "or_", or_)
+            _setter("or_", or_)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
 
     @property
     @pulumi.getter(name="and")
@@ -589,8 +719,19 @@ class QueryGroupingResponse(dict):
         :param str name: The name of the column to group.
         :param str type: Has type of the column to group.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        QueryGroupingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -639,10 +780,21 @@ class QuerySortingConfigurationResponse(dict):
         :param str name: The name of the column to use in sorting.
         :param str query_sorting_direction: The sorting direction
         """
+        QuerySortingConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            query_sorting_direction=query_sorting_direction,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             query_sorting_direction: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query_sorting_direction is not None:
-            pulumi.set(__self__, "query_sorting_direction", query_sorting_direction)
+            _setter("query_sorting_direction", query_sorting_direction)
 
     @property
     @pulumi.getter
@@ -691,8 +843,19 @@ class QueryTimePeriodResponse(dict):
         :param str from_: The start date to pull data from.
         :param str to: The end date to pull data to.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        QueryTimePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: str,
+             to: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,30 +48,65 @@ class PacketCoreControlPlaneArgs:
         :param pulumi.Input[int] ue_mtu: The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
         :param pulumi.Input[str] version: The version of the packet core software that is deployed.
         """
-        pulumi.set(__self__, "control_plane_access_interface", control_plane_access_interface)
-        pulumi.set(__self__, "local_diagnostics_access", local_diagnostics_access)
-        pulumi.set(__self__, "platform", platform)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sites", sites)
-        pulumi.set(__self__, "sku", sku)
+        PacketCoreControlPlaneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_plane_access_interface=control_plane_access_interface,
+            local_diagnostics_access=local_diagnostics_access,
+            platform=platform,
+            resource_group_name=resource_group_name,
+            sites=sites,
+            sku=sku,
+            core_network_technology=core_network_technology,
+            identity=identity,
+            interop_settings=interop_settings,
+            location=location,
+            packet_core_control_plane_name=packet_core_control_plane_name,
+            tags=tags,
+            ue_mtu=ue_mtu,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_plane_access_interface: pulumi.Input['InterfacePropertiesArgs'],
+             local_diagnostics_access: pulumi.Input['LocalDiagnosticsAccessConfigurationArgs'],
+             platform: pulumi.Input['PlatformConfigurationArgs'],
+             resource_group_name: pulumi.Input[str],
+             sites: pulumi.Input[Sequence[pulumi.Input['SiteResourceIdArgs']]],
+             sku: pulumi.Input[Union[str, 'BillingSku']],
+             core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             interop_settings: Optional[Any] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ue_mtu: Optional[pulumi.Input[int]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("control_plane_access_interface", control_plane_access_interface)
+        _setter("local_diagnostics_access", local_diagnostics_access)
+        _setter("platform", platform)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sites", sites)
+        _setter("sku", sku)
         if core_network_technology is not None:
-            pulumi.set(__self__, "core_network_technology", core_network_technology)
+            _setter("core_network_technology", core_network_technology)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if interop_settings is not None:
-            pulumi.set(__self__, "interop_settings", interop_settings)
+            _setter("interop_settings", interop_settings)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if packet_core_control_plane_name is not None:
-            pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
+            _setter("packet_core_control_plane_name", packet_core_control_plane_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ue_mtu is None:
             ue_mtu = 1440
         if ue_mtu is not None:
-            pulumi.set(__self__, "ue_mtu", ue_mtu)
+            _setter("ue_mtu", ue_mtu)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="controlPlaneAccessInterface")
@@ -301,6 +336,10 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PacketCoreControlPlaneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -329,17 +368,37 @@ class PacketCoreControlPlane(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PacketCoreControlPlaneArgs.__new__(PacketCoreControlPlaneArgs)
 
+            if control_plane_access_interface is not None and not isinstance(control_plane_access_interface, InterfacePropertiesArgs):
+                control_plane_access_interface = control_plane_access_interface or {}
+                def _setter(key, value):
+                    control_plane_access_interface[key] = value
+                InterfacePropertiesArgs._configure(_setter, **control_plane_access_interface)
             if control_plane_access_interface is None and not opts.urn:
                 raise TypeError("Missing required property 'control_plane_access_interface'")
             __props__.__dict__["control_plane_access_interface"] = control_plane_access_interface
             __props__.__dict__["core_network_technology"] = core_network_technology
+            if identity is not None and not isinstance(identity, ManagedServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["interop_settings"] = interop_settings
+            if local_diagnostics_access is not None and not isinstance(local_diagnostics_access, LocalDiagnosticsAccessConfigurationArgs):
+                local_diagnostics_access = local_diagnostics_access or {}
+                def _setter(key, value):
+                    local_diagnostics_access[key] = value
+                LocalDiagnosticsAccessConfigurationArgs._configure(_setter, **local_diagnostics_access)
             if local_diagnostics_access is None and not opts.urn:
                 raise TypeError("Missing required property 'local_diagnostics_access'")
             __props__.__dict__["local_diagnostics_access"] = local_diagnostics_access
             __props__.__dict__["location"] = location
             __props__.__dict__["packet_core_control_plane_name"] = packet_core_control_plane_name
+            if platform is not None and not isinstance(platform, PlatformConfigurationArgs):
+                platform = platform or {}
+                def _setter(key, value):
+                    platform[key] = value
+                PlatformConfigurationArgs._configure(_setter, **platform)
             if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")
             __props__.__dict__["platform"] = platform

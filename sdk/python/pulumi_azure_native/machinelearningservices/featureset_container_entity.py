@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,26 @@ class FeaturesetContainerEntityArgs:
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] name: Container name. This is case-sensitive.
         """
-        pulumi.set(__self__, "featureset_container_properties", featureset_container_properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        FeaturesetContainerEntityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            featureset_container_properties=featureset_container_properties,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             featureset_container_properties: pulumi.Input['FeaturesetContainerArgs'],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("featureset_container_properties", featureset_container_properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="featuresetContainerProperties")
@@ -123,6 +138,10 @@ class FeaturesetContainerEntity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FeaturesetContainerEntityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -141,6 +160,11 @@ class FeaturesetContainerEntity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FeaturesetContainerEntityArgs.__new__(FeaturesetContainerEntityArgs)
 
+            if featureset_container_properties is not None and not isinstance(featureset_container_properties, FeaturesetContainerArgs):
+                featureset_container_properties = featureset_container_properties or {}
+                def _setter(key, value):
+                    featureset_container_properties[key] = value
+                FeaturesetContainerArgs._configure(_setter, **featureset_container_properties)
             if featureset_container_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'featureset_container_properties'")
             __props__.__dict__["featureset_container_properties"] = featureset_container_properties

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -76,8 +76,19 @@ class AmlFilesystemArchiveResponse(dict):
         :param str filesystem_path: Lustre file system path to archive relative to the file system root.  Specify '/' to archive all modified data.
         :param 'AmlFilesystemArchiveResponseStatus' status: The status of the archive
         """
-        pulumi.set(__self__, "filesystem_path", filesystem_path)
-        pulumi.set(__self__, "status", status)
+        AmlFilesystemArchiveResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filesystem_path=filesystem_path,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filesystem_path: str,
+             status: 'outputs.AmlFilesystemArchiveResponseStatus',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filesystem_path", filesystem_path)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="filesystemPath")
@@ -142,12 +153,31 @@ class AmlFilesystemArchiveResponseStatus(dict):
         :param int percent_complete: The completion percentage of the archive operation
         :param str state: The state of the archive operation
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "last_completion_time", last_completion_time)
-        pulumi.set(__self__, "last_started_time", last_started_time)
-        pulumi.set(__self__, "percent_complete", percent_complete)
-        pulumi.set(__self__, "state", state)
+        AmlFilesystemArchiveResponseStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            last_completion_time=last_completion_time,
+            last_started_time=last_started_time,
+            percent_complete=percent_complete,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: str,
+             error_message: str,
+             last_completion_time: str,
+             last_started_time: str,
+             percent_complete: int,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("last_completion_time", last_completion_time)
+        _setter("last_started_time", last_started_time)
+        _setter("percent_complete", percent_complete)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -226,8 +256,17 @@ class AmlFilesystemEncryptionSettingsResponse(dict):
         AML file system encryption settings.
         :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the encryption key in Key Vault.
         """
+        AmlFilesystemEncryptionSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_encryption_key=key_encryption_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -272,12 +311,25 @@ class AmlFilesystemHealthResponse(dict):
         :param str status_code: Server-defined error code for the AML file system health
         :param str status_description: Describes the health state.
         """
+        AmlFilesystemHealthResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+            status_code=status_code,
+            status_description=status_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[str] = None,
+             status_code: Optional[str] = None,
+             status_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
         if status_description is not None:
-            pulumi.set(__self__, "status_description", status_description)
+            _setter("status_description", status_description)
 
     @property
     @pulumi.getter
@@ -338,12 +390,25 @@ class AmlFilesystemHsmSettingsResponse(dict):
         :param str logging_container: Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
         :param str import_prefix: Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
         """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "logging_container", logging_container)
+        AmlFilesystemHsmSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            logging_container=logging_container,
+            import_prefix=import_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: str,
+             logging_container: str,
+             import_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container", container)
+        _setter("logging_container", logging_container)
         if import_prefix is None:
             import_prefix = '/'
         if import_prefix is not None:
-            pulumi.set(__self__, "import_prefix", import_prefix)
+            _setter("import_prefix", import_prefix)
 
     @property
     @pulumi.getter
@@ -408,12 +473,27 @@ class AmlFilesystemIdentityResponse(dict):
         :param str type: The type of identity used for the resource.
         :param Mapping[str, 'UserAssignedIdentitiesResponseUserAssignedIdentities'] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        AmlFilesystemIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -478,9 +558,20 @@ class AmlFilesystemResponseHsm(dict):
         :param Sequence['AmlFilesystemArchiveResponse'] archive_status: Archive status
         :param 'AmlFilesystemHsmSettingsResponse' settings: Specifies HSM settings of the AML file system.
         """
-        pulumi.set(__self__, "archive_status", archive_status)
+        AmlFilesystemResponseHsm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_status=archive_status,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_status: Sequence['outputs.AmlFilesystemArchiveResponse'],
+             settings: Optional['outputs.AmlFilesystemHsmSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("archive_status", archive_status)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter(name="archiveStatus")
@@ -531,10 +622,21 @@ class AmlFilesystemResponseMaintenanceWindow(dict):
         :param str day_of_week: Day of the week on which the maintenance window will occur.
         :param str time_of_day_utc: The time of day (in UTC) to start the maintenance window.
         """
+        AmlFilesystemResponseMaintenanceWindow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            time_of_day_utc=time_of_day_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: Optional[str] = None,
+             time_of_day_utc: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if time_of_day_utc is not None:
-            pulumi.set(__self__, "time_of_day_utc", time_of_day_utc)
+            _setter("time_of_day_utc", time_of_day_utc)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -603,15 +705,36 @@ class CacheActiveDirectorySettingsResponse(dict):
         :param 'CacheActiveDirectorySettingsResponseCredentials' credentials: Active Directory admin credentials used to join the HPC Cache to a domain.
         :param str secondary_dns_ip_address: Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
         """
-        pulumi.set(__self__, "cache_net_bios_name", cache_net_bios_name)
-        pulumi.set(__self__, "domain_joined", domain_joined)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_net_bios_name", domain_net_bios_name)
-        pulumi.set(__self__, "primary_dns_ip_address", primary_dns_ip_address)
+        CacheActiveDirectorySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_net_bios_name=cache_net_bios_name,
+            domain_joined=domain_joined,
+            domain_name=domain_name,
+            domain_net_bios_name=domain_net_bios_name,
+            primary_dns_ip_address=primary_dns_ip_address,
+            credentials=credentials,
+            secondary_dns_ip_address=secondary_dns_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_net_bios_name: str,
+             domain_joined: str,
+             domain_name: str,
+             domain_net_bios_name: str,
+             primary_dns_ip_address: str,
+             credentials: Optional['outputs.CacheActiveDirectorySettingsResponseCredentials'] = None,
+             secondary_dns_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cache_net_bios_name", cache_net_bios_name)
+        _setter("domain_joined", domain_joined)
+        _setter("domain_name", domain_name)
+        _setter("domain_net_bios_name", domain_net_bios_name)
+        _setter("primary_dns_ip_address", primary_dns_ip_address)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if secondary_dns_ip_address is not None:
-            pulumi.set(__self__, "secondary_dns_ip_address", secondary_dns_ip_address)
+            _setter("secondary_dns_ip_address", secondary_dns_ip_address)
 
     @property
     @pulumi.getter(name="cacheNetBiosName")
@@ -683,9 +806,20 @@ class CacheActiveDirectorySettingsResponseCredentials(dict):
         :param str username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         :param str password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
-        pulumi.set(__self__, "username", username)
+        CacheActiveDirectorySettingsResponseCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter
@@ -736,10 +870,21 @@ class CacheDirectorySettingsResponse(dict):
         :param 'CacheActiveDirectorySettingsResponse' active_directory: Specifies settings for joining the HPC Cache to an Active Directory domain.
         :param 'CacheUsernameDownloadSettingsResponse' username_download: Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
         """
+        CacheDirectorySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_directory=active_directory,
+            username_download=username_download,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_directory: Optional['outputs.CacheActiveDirectorySettingsResponse'] = None,
+             username_download: Optional['outputs.CacheUsernameDownloadSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if active_directory is not None:
-            pulumi.set(__self__, "active_directory", active_directory)
+            _setter("active_directory", active_directory)
         if username_download is not None:
-            pulumi.set(__self__, "username_download", username_download)
+            _setter("username_download", username_download)
 
     @property
     @pulumi.getter(name="activeDirectory")
@@ -790,10 +935,21 @@ class CacheEncryptionSettingsResponse(dict):
         :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in key vault.
         :param bool rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         """
+        CacheEncryptionSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_encryption_key=key_encryption_key,
+            rotation_to_latest_key_version_enabled=rotation_to_latest_key_version_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None,
+             rotation_to_latest_key_version_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
         if rotation_to_latest_key_version_enabled is not None:
-            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
+            _setter("rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -844,11 +1000,24 @@ class CacheHealthResponse(dict):
         :param str state: List of cache health states. Down is when the cluster is not responding.  Degraded is when its functioning but has some alerts. Transitioning when it is creating or deleting. Unknown will be returned in old api versions when a new value is added in future versions. WaitingForKey is when the create is waiting for the system assigned identity to be given access to the encryption key in the encryption settings.
         :param str status_description: Describes explanation of state.
         """
-        pulumi.set(__self__, "conditions", conditions)
+        CacheHealthResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conditions=conditions,
+            state=state,
+            status_description=status_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conditions: Sequence['outputs.ConditionResponse'],
+             state: Optional[str] = None,
+             status_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("conditions", conditions)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if status_description is not None:
-            pulumi.set(__self__, "status_description", status_description)
+            _setter("status_description", status_description)
 
     @property
     @pulumi.getter
@@ -913,12 +1082,27 @@ class CacheIdentityResponse(dict):
         :param str type: The type of identity used for the cache
         :param Mapping[str, 'CacheIdentityResponseUserAssignedIdentities'] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        CacheIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.CacheIdentityResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -981,8 +1165,19 @@ class CacheIdentityResponseUserAssignedIdentities(dict):
         :param str client_id: The client ID of the user-assigned identity.
         :param str principal_id: The principal ID of the user-assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        CacheIdentityResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1043,19 +1238,36 @@ class CacheNetworkSettingsResponse(dict):
         :param int mtu: The IPv4 maximum transmission unit configured for the subnet.
         :param str ntp_server: NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
         """
-        pulumi.set(__self__, "utility_addresses", utility_addresses)
+        CacheNetworkSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            utility_addresses=utility_addresses,
+            dns_search_domain=dns_search_domain,
+            dns_servers=dns_servers,
+            mtu=mtu,
+            ntp_server=ntp_server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             utility_addresses: Sequence[str],
+             dns_search_domain: Optional[str] = None,
+             dns_servers: Optional[Sequence[str]] = None,
+             mtu: Optional[int] = None,
+             ntp_server: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("utility_addresses", utility_addresses)
         if dns_search_domain is not None:
-            pulumi.set(__self__, "dns_search_domain", dns_search_domain)
+            _setter("dns_search_domain", dns_search_domain)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if mtu is None:
             mtu = 1500
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if ntp_server is None:
             ntp_server = 'time.windows.com'
         if ntp_server is not None:
-            pulumi.set(__self__, "ntp_server", ntp_server)
+            _setter("ntp_server", ntp_server)
 
     @property
     @pulumi.getter(name="utilityAddresses")
@@ -1109,8 +1321,17 @@ class CacheResponseSku(dict):
         SKU for the cache.
         :param str name: SKU name for this cache.
         """
+        CacheResponseSku._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1149,8 +1370,17 @@ class CacheSecuritySettingsResponse(dict):
         Cache security settings.
         :param Sequence['NfsAccessPolicyResponse'] access_policies: NFS access policies defined for this cache.
         """
+        CacheSecuritySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policies=access_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policies: Optional[Sequence['outputs.NfsAccessPolicyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -1193,10 +1423,21 @@ class CacheUpgradeSettingsResponse(dict):
         :param str scheduled_time: When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
         :param bool upgrade_schedule_enabled: True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
         """
+        CacheUpgradeSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scheduled_time=scheduled_time,
+            upgrade_schedule_enabled=upgrade_schedule_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scheduled_time: Optional[str] = None,
+             upgrade_schedule_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if scheduled_time is not None:
-            pulumi.set(__self__, "scheduled_time", scheduled_time)
+            _setter("scheduled_time", scheduled_time)
         if upgrade_schedule_enabled is not None:
-            pulumi.set(__self__, "upgrade_schedule_enabled", upgrade_schedule_enabled)
+            _setter("upgrade_schedule_enabled", upgrade_schedule_enabled)
 
     @property
     @pulumi.getter(name="scheduledTime")
@@ -1259,11 +1500,28 @@ class CacheUpgradeStatusResponse(dict):
         :param str last_firmware_update: Time of the last successful firmware update.
         :param str pending_firmware_version: When firmwareUpdateAvailable is true, this field holds the version string for the update.
         """
-        pulumi.set(__self__, "current_firmware_version", current_firmware_version)
-        pulumi.set(__self__, "firmware_update_deadline", firmware_update_deadline)
-        pulumi.set(__self__, "firmware_update_status", firmware_update_status)
-        pulumi.set(__self__, "last_firmware_update", last_firmware_update)
-        pulumi.set(__self__, "pending_firmware_version", pending_firmware_version)
+        CacheUpgradeStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_firmware_version=current_firmware_version,
+            firmware_update_deadline=firmware_update_deadline,
+            firmware_update_status=firmware_update_status,
+            last_firmware_update=last_firmware_update,
+            pending_firmware_version=pending_firmware_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_firmware_version: str,
+             firmware_update_deadline: str,
+             firmware_update_status: str,
+             last_firmware_update: str,
+             pending_firmware_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("current_firmware_version", current_firmware_version)
+        _setter("firmware_update_deadline", firmware_update_deadline)
+        _setter("firmware_update_status", firmware_update_status)
+        _setter("last_firmware_update", last_firmware_update)
+        _setter("pending_firmware_version", pending_firmware_version)
 
     @property
     @pulumi.getter(name="currentFirmwareVersion")
@@ -1376,37 +1634,68 @@ class CacheUsernameDownloadSettingsResponse(dict):
         :param str user_file_uri: The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
         :param str username_source: This setting determines how the cache gets username and group names for clients.
         """
-        pulumi.set(__self__, "username_downloaded", username_downloaded)
+        CacheUsernameDownloadSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username_downloaded=username_downloaded,
+            auto_download_certificate=auto_download_certificate,
+            ca_certificate_uri=ca_certificate_uri,
+            credentials=credentials,
+            encrypt_ldap_connection=encrypt_ldap_connection,
+            extended_groups=extended_groups,
+            group_file_uri=group_file_uri,
+            ldap_base_dn=ldap_base_dn,
+            ldap_server=ldap_server,
+            require_valid_certificate=require_valid_certificate,
+            user_file_uri=user_file_uri,
+            username_source=username_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username_downloaded: str,
+             auto_download_certificate: Optional[bool] = None,
+             ca_certificate_uri: Optional[str] = None,
+             credentials: Optional['outputs.CacheUsernameDownloadSettingsResponseCredentials'] = None,
+             encrypt_ldap_connection: Optional[bool] = None,
+             extended_groups: Optional[bool] = None,
+             group_file_uri: Optional[str] = None,
+             ldap_base_dn: Optional[str] = None,
+             ldap_server: Optional[str] = None,
+             require_valid_certificate: Optional[bool] = None,
+             user_file_uri: Optional[str] = None,
+             username_source: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username_downloaded", username_downloaded)
         if auto_download_certificate is None:
             auto_download_certificate = False
         if auto_download_certificate is not None:
-            pulumi.set(__self__, "auto_download_certificate", auto_download_certificate)
+            _setter("auto_download_certificate", auto_download_certificate)
         if ca_certificate_uri is not None:
-            pulumi.set(__self__, "ca_certificate_uri", ca_certificate_uri)
+            _setter("ca_certificate_uri", ca_certificate_uri)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if encrypt_ldap_connection is None:
             encrypt_ldap_connection = False
         if encrypt_ldap_connection is not None:
-            pulumi.set(__self__, "encrypt_ldap_connection", encrypt_ldap_connection)
+            _setter("encrypt_ldap_connection", encrypt_ldap_connection)
         if extended_groups is not None:
-            pulumi.set(__self__, "extended_groups", extended_groups)
+            _setter("extended_groups", extended_groups)
         if group_file_uri is not None:
-            pulumi.set(__self__, "group_file_uri", group_file_uri)
+            _setter("group_file_uri", group_file_uri)
         if ldap_base_dn is not None:
-            pulumi.set(__self__, "ldap_base_dn", ldap_base_dn)
+            _setter("ldap_base_dn", ldap_base_dn)
         if ldap_server is not None:
-            pulumi.set(__self__, "ldap_server", ldap_server)
+            _setter("ldap_server", ldap_server)
         if require_valid_certificate is None:
             require_valid_certificate = False
         if require_valid_certificate is not None:
-            pulumi.set(__self__, "require_valid_certificate", require_valid_certificate)
+            _setter("require_valid_certificate", require_valid_certificate)
         if user_file_uri is not None:
-            pulumi.set(__self__, "user_file_uri", user_file_uri)
+            _setter("user_file_uri", user_file_uri)
         if username_source is None:
             username_source = 'None'
         if username_source is not None:
-            pulumi.set(__self__, "username_source", username_source)
+            _setter("username_source", username_source)
 
     @property
     @pulumi.getter(name="usernameDownloaded")
@@ -1537,10 +1826,21 @@ class CacheUsernameDownloadSettingsResponseCredentials(dict):
         :param str bind_dn: The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
         :param str bind_password: The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
         """
+        CacheUsernameDownloadSettingsResponseCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bind_dn=bind_dn,
+            bind_password=bind_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bind_dn: Optional[str] = None,
+             bind_password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bind_dn is not None:
-            pulumi.set(__self__, "bind_dn", bind_dn)
+            _setter("bind_dn", bind_dn)
         if bind_password is not None:
-            pulumi.set(__self__, "bind_password", bind_password)
+            _setter("bind_password", bind_password)
 
     @property
     @pulumi.getter(name="bindDn")
@@ -1572,8 +1872,19 @@ class ConditionResponse(dict):
         :param str message: The issue requiring attention.
         :param str timestamp: The time when the condition was raised.
         """
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "timestamp", timestamp)
+        ConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: str,
+             timestamp: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
+        _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter
@@ -1624,8 +1935,19 @@ class KeyVaultKeyReferenceResponse(dict):
         :param str key_url: The URL referencing a key encryption key in key vault.
         :param 'KeyVaultKeyReferenceResponseSourceVault' source_vault: Describes a resource Id to source key vault.
         """
-        pulumi.set(__self__, "key_url", key_url)
-        pulumi.set(__self__, "source_vault", source_vault)
+        KeyVaultKeyReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_url=key_url,
+            source_vault=source_vault,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_url: str,
+             source_vault: 'outputs.KeyVaultKeyReferenceResponseSourceVault',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_url", key_url)
+        _setter("source_vault", source_vault)
 
     @property
     @pulumi.getter(name="keyUrl")
@@ -1655,8 +1977,17 @@ class KeyVaultKeyReferenceResponseSourceVault(dict):
         Describes a resource Id to source key vault.
         :param str id: Resource Id.
         """
+        KeyVaultKeyReferenceResponseSourceVault._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1697,8 +2028,19 @@ class NfsAccessPolicyResponse(dict):
         :param Sequence['NfsAccessRuleResponse'] access_rules: The set of rules describing client accesses allowed under this policy.
         :param str name: Name identifying this policy. Access Policy names are not case sensitive.
         """
-        pulumi.set(__self__, "access_rules", access_rules)
-        pulumi.set(__self__, "name", name)
+        NfsAccessPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_rules=access_rules,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_rules: Sequence['outputs.NfsAccessRuleResponse'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_rules", access_rules)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="accessRules")
@@ -1765,20 +2107,43 @@ class NfsAccessRuleResponse(dict):
         :param bool submount_access: For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
         :param bool suid: Allow SUID semantics.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "scope", scope)
+        NfsAccessRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            scope=scope,
+            anonymous_gid=anonymous_gid,
+            anonymous_uid=anonymous_uid,
+            filter=filter,
+            root_squash=root_squash,
+            submount_access=submount_access,
+            suid=suid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: str,
+             scope: str,
+             anonymous_gid: Optional[str] = None,
+             anonymous_uid: Optional[str] = None,
+             filter: Optional[str] = None,
+             root_squash: Optional[bool] = None,
+             submount_access: Optional[bool] = None,
+             suid: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access", access)
+        _setter("scope", scope)
         if anonymous_gid is not None:
-            pulumi.set(__self__, "anonymous_gid", anonymous_gid)
+            _setter("anonymous_gid", anonymous_gid)
         if anonymous_uid is not None:
-            pulumi.set(__self__, "anonymous_uid", anonymous_uid)
+            _setter("anonymous_uid", anonymous_uid)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if root_squash is not None:
-            pulumi.set(__self__, "root_squash", root_squash)
+            _setter("root_squash", root_squash)
         if submount_access is not None:
-            pulumi.set(__self__, "submount_access", submount_access)
+            _setter("submount_access", submount_access)
         if suid is not None:
-            pulumi.set(__self__, "suid", suid)
+            _setter("suid", suid)
 
     @property
     @pulumi.getter
@@ -1893,12 +2258,31 @@ class PrimingJobResponse(dict):
         :param str priming_job_state: The state of the priming operation.
         :param str priming_job_status: The status code of the priming job.
         """
-        pulumi.set(__self__, "priming_job_details", priming_job_details)
-        pulumi.set(__self__, "priming_job_id", priming_job_id)
-        pulumi.set(__self__, "priming_job_name", priming_job_name)
-        pulumi.set(__self__, "priming_job_percent_complete", priming_job_percent_complete)
-        pulumi.set(__self__, "priming_job_state", priming_job_state)
-        pulumi.set(__self__, "priming_job_status", priming_job_status)
+        PrimingJobResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priming_job_details=priming_job_details,
+            priming_job_id=priming_job_id,
+            priming_job_name=priming_job_name,
+            priming_job_percent_complete=priming_job_percent_complete,
+            priming_job_state=priming_job_state,
+            priming_job_status=priming_job_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priming_job_details: str,
+             priming_job_id: str,
+             priming_job_name: str,
+             priming_job_percent_complete: float,
+             priming_job_state: str,
+             priming_job_status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priming_job_details", priming_job_details)
+        _setter("priming_job_id", priming_job_id)
+        _setter("priming_job_name", priming_job_name)
+        _setter("priming_job_percent_complete", priming_job_percent_complete)
+        _setter("priming_job_state", priming_job_state)
+        _setter("priming_job_status", priming_job_status)
 
     @property
     @pulumi.getter(name="primingJobDetails")
@@ -1960,8 +2344,17 @@ class SkuNameResponse(dict):
         SKU for the resource.
         :param str name: SKU name for this resource.
         """
+        SkuNameResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2002,10 +2395,21 @@ class StorageTargetSpaceAllocationResponse(dict):
         :param int allocation_percentage: The percentage of cache space allocated for this storage target
         :param str name: Name of the storage target.
         """
+        StorageTargetSpaceAllocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_percentage=allocation_percentage,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_percentage: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allocation_percentage is not None:
-            pulumi.set(__self__, "allocation_percentage", allocation_percentage)
+            _setter("allocation_percentage", allocation_percentage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="allocationPercentage")
@@ -2072,18 +2476,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -2162,8 +2585,19 @@ class UserAssignedIdentitiesResponseUserAssignedIdentities(dict):
         :param str client_id: The client ID of the user-assigned identity.
         :param str principal_id: The principal ID of the user-assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentitiesResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

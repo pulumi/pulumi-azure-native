@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,8 +30,17 @@ class AzureMonitorWorkspaceIntegrationArgs:
         Integrations for Azure Monitor Workspace.
         :param pulumi.Input[str] azure_monitor_workspace_resource_id: The resource Id of the connected Azure Monitor Workspace.
         """
+        AzureMonitorWorkspaceIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_monitor_workspace_resource_id=azure_monitor_workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_monitor_workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_monitor_workspace_resource_id is not None:
-            pulumi.set(__self__, "azure_monitor_workspace_resource_id", azure_monitor_workspace_resource_id)
+            _setter("azure_monitor_workspace_resource_id", azure_monitor_workspace_resource_id)
 
     @property
     @pulumi.getter(name="azureMonitorWorkspaceResourceId")
@@ -56,10 +65,21 @@ class EnterpriseConfigurationsArgs:
         :param pulumi.Input[Union[str, 'MarketplaceAutoRenew']] marketplace_auto_renew: The AutoRenew setting of the Enterprise subscription
         :param pulumi.Input[str] marketplace_plan_id: The Plan Id of the Azure Marketplace subscription for the Enterprise plugins
         """
+        EnterpriseConfigurationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            marketplace_auto_renew=marketplace_auto_renew,
+            marketplace_plan_id=marketplace_plan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             marketplace_auto_renew: Optional[pulumi.Input[Union[str, 'MarketplaceAutoRenew']]] = None,
+             marketplace_plan_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if marketplace_auto_renew is not None:
-            pulumi.set(__self__, "marketplace_auto_renew", marketplace_auto_renew)
+            _setter("marketplace_auto_renew", marketplace_auto_renew)
         if marketplace_plan_id is not None:
-            pulumi.set(__self__, "marketplace_plan_id", marketplace_plan_id)
+            _setter("marketplace_plan_id", marketplace_plan_id)
 
     @property
     @pulumi.getter(name="marketplaceAutoRenew")
@@ -95,8 +115,17 @@ class GrafanaConfigurationsArgs:
         :param pulumi.Input['SmtpArgs'] smtp: Email server settings.
                https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
         """
+        GrafanaConfigurationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            smtp=smtp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             smtp: Optional[pulumi.Input['SmtpArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if smtp is not None:
-            pulumi.set(__self__, "smtp", smtp)
+            _setter("smtp", smtp)
 
     @property
     @pulumi.getter
@@ -119,8 +148,17 @@ class GrafanaIntegrationsArgs:
         """
         GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
         """
+        GrafanaIntegrationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_monitor_workspace_integrations=azure_monitor_workspace_integrations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_monitor_workspace_integrations is not None:
-            pulumi.set(__self__, "azure_monitor_workspace_integrations", azure_monitor_workspace_integrations)
+            _setter("azure_monitor_workspace_integrations", azure_monitor_workspace_integrations)
 
     @property
     @pulumi.getter(name="azureMonitorWorkspaceIntegrations")
@@ -158,26 +196,53 @@ class ManagedGrafanaPropertiesArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Indicate the state for enable or disable traffic over the public interface.
         :param pulumi.Input[Union[str, 'ZoneRedundancy']] zone_redundancy: The zone redundancy setting of the Grafana instance.
         """
+        ManagedGrafanaPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            auto_generated_domain_name_label_scope=auto_generated_domain_name_label_scope,
+            deterministic_outbound_ip=deterministic_outbound_ip,
+            enterprise_configurations=enterprise_configurations,
+            grafana_configurations=grafana_configurations,
+            grafana_integrations=grafana_integrations,
+            grafana_major_version=grafana_major_version,
+            grafana_plugins=grafana_plugins,
+            public_network_access=public_network_access,
+            zone_redundancy=zone_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[Union[str, 'ApiKey']]] = None,
+             auto_generated_domain_name_label_scope: Optional[pulumi.Input[Union[str, 'AutoGeneratedDomainNameLabelScope']]] = None,
+             deterministic_outbound_ip: Optional[pulumi.Input[Union[str, 'DeterministicOutboundIP']]] = None,
+             enterprise_configurations: Optional[pulumi.Input['EnterpriseConfigurationsArgs']] = None,
+             grafana_configurations: Optional[pulumi.Input['GrafanaConfigurationsArgs']] = None,
+             grafana_integrations: Optional[pulumi.Input['GrafanaIntegrationsArgs']] = None,
+             grafana_major_version: Optional[pulumi.Input[str]] = None,
+             grafana_plugins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if auto_generated_domain_name_label_scope is not None:
-            pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
+            _setter("auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if deterministic_outbound_ip is not None:
-            pulumi.set(__self__, "deterministic_outbound_ip", deterministic_outbound_ip)
+            _setter("deterministic_outbound_ip", deterministic_outbound_ip)
         if enterprise_configurations is not None:
-            pulumi.set(__self__, "enterprise_configurations", enterprise_configurations)
+            _setter("enterprise_configurations", enterprise_configurations)
         if grafana_configurations is not None:
-            pulumi.set(__self__, "grafana_configurations", grafana_configurations)
+            _setter("grafana_configurations", grafana_configurations)
         if grafana_integrations is not None:
-            pulumi.set(__self__, "grafana_integrations", grafana_integrations)
+            _setter("grafana_integrations", grafana_integrations)
         if grafana_major_version is not None:
-            pulumi.set(__self__, "grafana_major_version", grafana_major_version)
+            _setter("grafana_major_version", grafana_major_version)
         if grafana_plugins is not None:
-            pulumi.set(__self__, "grafana_plugins", grafana_plugins)
+            _setter("grafana_plugins", grafana_plugins)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if zone_redundancy is not None:
-            pulumi.set(__self__, "zone_redundancy", zone_redundancy)
+            _setter("zone_redundancy", zone_redundancy)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -310,9 +375,20 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -351,12 +427,25 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -399,7 +488,16 @@ class PrivateLinkServiceConnectionStateArgs:
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
-        pulumi.set(__self__, "name", name)
+        ResourceSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -438,24 +536,47 @@ class SmtpArgs:
                https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy
         :param pulumi.Input[str] user: User of SMTP auth
         """
+        SmtpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            from_address=from_address,
+            from_name=from_name,
+            host=host,
+            password=password,
+            skip_verify=skip_verify,
+            start_tls_policy=start_tls_policy,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             from_address: Optional[pulumi.Input[str]] = None,
+             from_name: Optional[pulumi.Input[str]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             skip_verify: Optional[pulumi.Input[bool]] = None,
+             start_tls_policy: Optional[pulumi.Input[Union[str, 'StartTLSPolicy']]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is None:
             enabled = False
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if from_address is not None:
-            pulumi.set(__self__, "from_address", from_address)
+            _setter("from_address", from_address)
         if from_name is not None:
-            pulumi.set(__self__, "from_name", from_name)
+            _setter("from_name", from_name)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if skip_verify is not None:
-            pulumi.set(__self__, "skip_verify", skip_verify)
+            _setter("skip_verify", skip_verify)
         if start_tls_policy is not None:
-            pulumi.set(__self__, "start_tls_policy", start_tls_policy)
+            _setter("start_tls_policy", start_tls_policy)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter

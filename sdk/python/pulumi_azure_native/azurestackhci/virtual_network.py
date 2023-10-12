@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,48 @@ class VirtualNetworkArgs:
         :param pulumi.Input[str] virtual_network_name: Name of the virtual network
         :param pulumi.Input[str] vm_switch_name: name of the network switch to be used for VMs
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            dhcp_options=dhcp_options,
+            extended_location=extended_location,
+            location=location,
+            network_type=network_type,
+            subnets=subnets,
+            tags=tags,
+            virtual_network_name=virtual_network_name,
+            vm_switch_name=vm_switch_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             dhcp_options: Optional[pulumi.Input['VirtualNetworkPropertiesDhcpOptionsArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_type: Optional[pulumi.Input[Union[str, 'NetworkTypeEnum']]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesSubnetsArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_name: Optional[pulumi.Input[str]] = None,
+             vm_switch_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if dhcp_options is not None:
-            pulumi.set(__self__, "dhcp_options", dhcp_options)
+            _setter("dhcp_options", dhcp_options)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_type is not None:
-            pulumi.set(__self__, "network_type", network_type)
+            _setter("network_type", network_type)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_name is not None:
-            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+            _setter("virtual_network_name", virtual_network_name)
         if vm_switch_name is not None:
-            pulumi.set(__self__, "vm_switch_name", vm_switch_name)
+            _setter("vm_switch_name", vm_switch_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -216,6 +241,10 @@ class VirtualNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -239,7 +268,17 @@ class VirtualNetwork(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
+            if dhcp_options is not None and not isinstance(dhcp_options, VirtualNetworkPropertiesDhcpOptionsArgs):
+                dhcp_options = dhcp_options or {}
+                def _setter(key, value):
+                    dhcp_options[key] = value
+                VirtualNetworkPropertiesDhcpOptionsArgs._configure(_setter, **dhcp_options)
             __props__.__dict__["dhcp_options"] = dhcp_options
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
             __props__.__dict__["network_type"] = network_type

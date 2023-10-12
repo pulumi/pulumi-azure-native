@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,21 +38,46 @@ class IscsiTargetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AclArgs']]] static_acls: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
         :param pulumi.Input[str] target_iqn: iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         """
-        pulumi.set(__self__, "acl_mode", acl_mode)
-        pulumi.set(__self__, "disk_pool_name", disk_pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IscsiTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl_mode=acl_mode,
+            disk_pool_name=disk_pool_name,
+            resource_group_name=resource_group_name,
+            iscsi_target_name=iscsi_target_name,
+            luns=luns,
+            managed_by=managed_by,
+            managed_by_extended=managed_by_extended,
+            static_acls=static_acls,
+            target_iqn=target_iqn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl_mode: pulumi.Input[Union[str, 'IscsiTargetAclMode']],
+             disk_pool_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             iscsi_target_name: Optional[pulumi.Input[str]] = None,
+             luns: Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             static_acls: Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]] = None,
+             target_iqn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acl_mode", acl_mode)
+        _setter("disk_pool_name", disk_pool_name)
+        _setter("resource_group_name", resource_group_name)
         if iscsi_target_name is not None:
-            pulumi.set(__self__, "iscsi_target_name", iscsi_target_name)
+            _setter("iscsi_target_name", iscsi_target_name)
         if luns is not None:
-            pulumi.set(__self__, "luns", luns)
+            _setter("luns", luns)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if managed_by_extended is not None:
-            pulumi.set(__self__, "managed_by_extended", managed_by_extended)
+            _setter("managed_by_extended", managed_by_extended)
         if static_acls is not None:
-            pulumi.set(__self__, "static_acls", static_acls)
+            _setter("static_acls", static_acls)
         if target_iqn is not None:
-            pulumi.set(__self__, "target_iqn", target_iqn)
+            _setter("target_iqn", target_iqn)
 
     @property
     @pulumi.getter(name="aclMode")
@@ -212,6 +237,10 @@ class IscsiTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IscsiTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

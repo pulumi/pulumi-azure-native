@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,12 +28,29 @@ class VolumeArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] volume_name: Volume Resource
         """
-        pulumi.set(__self__, "capacity_gi_b", capacity_gi_b)
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_gi_b=capacity_gi_b,
+            labels=labels,
+            pool_name=pool_name,
+            resource_group_name=resource_group_name,
+            volume_name=volume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_gi_b: pulumi.Input[float],
+             labels: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             pool_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             volume_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity_gi_b", capacity_gi_b)
+        _setter("labels", labels)
+        _setter("pool_name", pool_name)
+        _setter("resource_group_name", resource_group_name)
         if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+            _setter("volume_name", volume_name)
 
     @property
     @pulumi.getter(name="capacityGiB")
@@ -137,6 +154,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

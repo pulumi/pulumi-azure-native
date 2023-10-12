@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['CosmosDbDataConnectionArgs', 'CosmosDbDataConnection']
@@ -44,23 +44,56 @@ class CosmosDbDataConnectionArgs:
         :param pulumi.Input[str] mapping_rule_name: The name of an existing mapping rule to use when ingesting the retrieved data.
         :param pulumi.Input[str] retrieval_start_date: Optional. If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cosmos_db_account_resource_id", cosmos_db_account_resource_id)
-        pulumi.set(__self__, "cosmos_db_container", cosmos_db_container)
-        pulumi.set(__self__, "cosmos_db_database", cosmos_db_database)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "kind", 'CosmosDb')
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "table_name", table_name)
+        CosmosDbDataConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            cosmos_db_account_resource_id=cosmos_db_account_resource_id,
+            cosmos_db_container=cosmos_db_container,
+            cosmos_db_database=cosmos_db_database,
+            database_name=database_name,
+            kind=kind,
+            managed_identity_resource_id=managed_identity_resource_id,
+            resource_group_name=resource_group_name,
+            table_name=table_name,
+            data_connection_name=data_connection_name,
+            location=location,
+            mapping_rule_name=mapping_rule_name,
+            retrieval_start_date=retrieval_start_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             cosmos_db_account_resource_id: pulumi.Input[str],
+             cosmos_db_container: pulumi.Input[str],
+             cosmos_db_database: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             managed_identity_resource_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             data_connection_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             retrieval_start_date: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("cosmos_db_account_resource_id", cosmos_db_account_resource_id)
+        _setter("cosmos_db_container", cosmos_db_container)
+        _setter("cosmos_db_database", cosmos_db_database)
+        _setter("database_name", database_name)
+        _setter("kind", 'CosmosDb')
+        _setter("managed_identity_resource_id", managed_identity_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("table_name", table_name)
         if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
+            _setter("data_connection_name", data_connection_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
         if retrieval_start_date is not None:
-            pulumi.set(__self__, "retrieval_start_date", retrieval_start_date)
+            _setter("retrieval_start_date", retrieval_start_date)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -278,6 +311,10 @@ class CosmosDbDataConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CosmosDbDataConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

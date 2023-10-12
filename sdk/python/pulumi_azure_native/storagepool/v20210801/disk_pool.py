@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,25 +41,54 @@ class DiskPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_by_extended: List of Azure resource ids that manage this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        DiskPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            subnet_id=subnet_id,
+            additional_capabilities=additional_capabilities,
+            availability_zones=availability_zones,
+            disk_pool_name=disk_pool_name,
+            disks=disks,
+            location=location,
+            managed_by=managed_by,
+            managed_by_extended=managed_by_extended,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['SkuArgs'],
+             subnet_id: pulumi.Input[str],
+             additional_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             disk_pool_name: Optional[pulumi.Input[str]] = None,
+             disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
+        _setter("subnet_id", subnet_id)
         if additional_capabilities is not None:
-            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+            _setter("additional_capabilities", additional_capabilities)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if disk_pool_name is not None:
-            pulumi.set(__self__, "disk_pool_name", disk_pool_name)
+            _setter("disk_pool_name", disk_pool_name)
         if disks is not None:
-            pulumi.set(__self__, "disks", disks)
+            _setter("disks", disks)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if managed_by_extended is not None:
-            pulumi.set(__self__, "managed_by_extended", managed_by_extended)
+            _setter("managed_by_extended", managed_by_extended)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -247,6 +276,10 @@ class DiskPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiskPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -282,6 +315,11 @@ class DiskPool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

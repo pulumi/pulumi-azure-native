@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -29,10 +29,21 @@ class CmkKekIdentityArgs:
         :param pulumi.Input[bool] use_system_assigned_identity: Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
         :param pulumi.Input[str] user_assigned_identity: The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
         """
+        CmkKekIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            use_system_assigned_identity=use_system_assigned_identity,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if use_system_assigned_identity is not None:
-            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+            _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="useSystemAssignedIdentity")
@@ -67,8 +78,17 @@ class CmkKeyVaultPropertiesArgs:
         The properties of the Key Vault which hosts CMK
         :param pulumi.Input[str] key_uri: The key uri of the Customer Managed Key
         """
+        CmkKeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_uri=key_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_uri is not None:
-            pulumi.set(__self__, "key_uri", key_uri)
+            _setter("key_uri", key_uri)
 
     @property
     @pulumi.getter(name="keyUri")
@@ -93,9 +113,20 @@ class IdentityDataArgs:
         :param pulumi.Input[Union[str, 'ResourceIdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "type", type)
+        IdentityDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'ResourceIdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -130,7 +161,16 @@ class SkuArgs:
         Identifies the unique system identifier for each Azure resource.
         :param pulumi.Input[Union[str, 'SkuName']] name: The Sku name.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -157,12 +197,25 @@ class VaultPropertiesEncryptionArgs:
         :param pulumi.Input['CmkKekIdentityArgs'] kek_identity: The details of the identity used for CMK
         :param pulumi.Input['CmkKeyVaultPropertiesArgs'] key_vault_properties: The properties of the Key Vault which hosts CMK
         """
+        VaultPropertiesEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            infrastructure_encryption=infrastructure_encryption,
+            kek_identity=kek_identity,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             infrastructure_encryption: Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionState']]] = None,
+             kek_identity: Optional[pulumi.Input['CmkKekIdentityArgs']] = None,
+             key_vault_properties: Optional[pulumi.Input['CmkKeyVaultPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if infrastructure_encryption is not None:
-            pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
+            _setter("infrastructure_encryption", infrastructure_encryption)
         if kek_identity is not None:
-            pulumi.set(__self__, "kek_identity", kek_identity)
+            _setter("kek_identity", kek_identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter(name="infrastructureEncryption")
@@ -209,8 +262,17 @@ class VaultPropertiesArgs:
         Properties of the vault.
         :param pulumi.Input['VaultPropertiesEncryptionArgs'] encryption: Customer Managed Key details of the resource.
         """
+        VaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption=encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption: Optional[pulumi.Input['VaultPropertiesEncryptionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
 
     @property
     @pulumi.getter

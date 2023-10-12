@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,46 @@ class GovernanceAssignmentArgs:
         :param pulumi.Input[str] owner: The Owner for the governance assignment - e.g. user@contoso.com - see example
         :param pulumi.Input['RemediationEtaArgs'] remediation_eta: The ETA (estimated time of arrival) for remediation (optional), see example
         """
-        pulumi.set(__self__, "assessment_name", assessment_name)
-        pulumi.set(__self__, "remediation_due_date", remediation_due_date)
-        pulumi.set(__self__, "scope", scope)
+        GovernanceAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_name=assessment_name,
+            remediation_due_date=remediation_due_date,
+            scope=scope,
+            additional_data=additional_data,
+            assignment_key=assignment_key,
+            governance_email_notification=governance_email_notification,
+            is_grace_period=is_grace_period,
+            owner=owner,
+            remediation_eta=remediation_eta,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_name: pulumi.Input[str],
+             remediation_due_date: pulumi.Input[str],
+             scope: pulumi.Input[str],
+             additional_data: Optional[pulumi.Input['GovernanceAssignmentAdditionalDataArgs']] = None,
+             assignment_key: Optional[pulumi.Input[str]] = None,
+             governance_email_notification: Optional[pulumi.Input['GovernanceEmailNotificationArgs']] = None,
+             is_grace_period: Optional[pulumi.Input[bool]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             remediation_eta: Optional[pulumi.Input['RemediationEtaArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assessment_name", assessment_name)
+        _setter("remediation_due_date", remediation_due_date)
+        _setter("scope", scope)
         if additional_data is not None:
-            pulumi.set(__self__, "additional_data", additional_data)
+            _setter("additional_data", additional_data)
         if assignment_key is not None:
-            pulumi.set(__self__, "assignment_key", assignment_key)
+            _setter("assignment_key", assignment_key)
         if governance_email_notification is not None:
-            pulumi.set(__self__, "governance_email_notification", governance_email_notification)
+            _setter("governance_email_notification", governance_email_notification)
         if is_grace_period is not None:
-            pulumi.set(__self__, "is_grace_period", is_grace_period)
+            _setter("is_grace_period", is_grace_period)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if remediation_eta is not None:
-            pulumi.set(__self__, "remediation_eta", remediation_eta)
+            _setter("remediation_eta", remediation_eta)
 
     @property
     @pulumi.getter(name="assessmentName")
@@ -211,6 +236,10 @@ class GovernanceAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GovernanceAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -234,17 +263,32 @@ class GovernanceAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GovernanceAssignmentArgs.__new__(GovernanceAssignmentArgs)
 
+            if additional_data is not None and not isinstance(additional_data, GovernanceAssignmentAdditionalDataArgs):
+                additional_data = additional_data or {}
+                def _setter(key, value):
+                    additional_data[key] = value
+                GovernanceAssignmentAdditionalDataArgs._configure(_setter, **additional_data)
             __props__.__dict__["additional_data"] = additional_data
             if assessment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_name'")
             __props__.__dict__["assessment_name"] = assessment_name
             __props__.__dict__["assignment_key"] = assignment_key
+            if governance_email_notification is not None and not isinstance(governance_email_notification, GovernanceEmailNotificationArgs):
+                governance_email_notification = governance_email_notification or {}
+                def _setter(key, value):
+                    governance_email_notification[key] = value
+                GovernanceEmailNotificationArgs._configure(_setter, **governance_email_notification)
             __props__.__dict__["governance_email_notification"] = governance_email_notification
             __props__.__dict__["is_grace_period"] = is_grace_period
             __props__.__dict__["owner"] = owner
             if remediation_due_date is None and not opts.urn:
                 raise TypeError("Missing required property 'remediation_due_date'")
             __props__.__dict__["remediation_due_date"] = remediation_due_date
+            if remediation_eta is not None and not isinstance(remediation_eta, RemediationEtaArgs):
+                remediation_eta = remediation_eta or {}
+                def _setter(key, value):
+                    remediation_eta[key] = value
+                RemediationEtaArgs._configure(_setter, **remediation_eta)
             __props__.__dict__["remediation_eta"] = remediation_eta
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

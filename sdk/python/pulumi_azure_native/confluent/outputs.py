@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -59,12 +59,31 @@ class OfferDetailResponse(dict):
         :param str status: SaaS Offer Status
         :param str term_unit: Offer Plan Term unit
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "plan_name", plan_name)
-        pulumi.set(__self__, "publisher_id", publisher_id)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "term_unit", term_unit)
+        OfferDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            plan_id=plan_id,
+            plan_name=plan_name,
+            publisher_id=publisher_id,
+            status=status,
+            term_unit=term_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             plan_id: str,
+             plan_name: str,
+             publisher_id: str,
+             status: str,
+             term_unit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("plan_id", plan_id)
+        _setter("plan_name", plan_name)
+        _setter("publisher_id", publisher_id)
+        _setter("status", status)
+        _setter("term_unit", term_unit)
 
     @property
     @pulumi.getter
@@ -163,18 +182,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -261,11 +299,24 @@ class UserDetailResponse(dict):
         :param str first_name: First name
         :param str last_name: Last name
         """
-        pulumi.set(__self__, "email_address", email_address)
+        UserDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: str,
+             first_name: Optional[str] = None,
+             last_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
 
     @property
     @pulumi.getter(name="emailAddress")

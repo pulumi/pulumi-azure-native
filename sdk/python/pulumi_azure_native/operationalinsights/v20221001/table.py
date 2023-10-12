@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,47 @@ class TableArgs:
         :param pulumi.Input[str] table_name: The name of the table.
         :param pulumi.Input[int] total_retention_in_days: The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        TableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            plan=plan,
+            restored_logs=restored_logs,
+            retention_in_days=retention_in_days,
+            schema=schema,
+            search_results=search_results,
+            table_name=table_name,
+            total_retention_in_days=total_retention_in_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             plan: Optional[pulumi.Input[Union[str, 'TablePlanEnum']]] = None,
+             restored_logs: Optional[pulumi.Input['RestoredLogsArgs']] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             schema: Optional[pulumi.Input['SchemaArgs']] = None,
+             search_results: Optional[pulumi.Input['SearchResultsArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             total_retention_in_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if restored_logs is not None:
-            pulumi.set(__self__, "restored_logs", restored_logs)
+            _setter("restored_logs", restored_logs)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if search_results is not None:
-            pulumi.set(__self__, "search_results", search_results)
+            _setter("search_results", search_results)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
         if total_retention_in_days is not None:
-            pulumi.set(__self__, "total_retention_in_days", total_retention_in_days)
+            _setter("total_retention_in_days", total_retention_in_days)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -213,6 +238,10 @@ class Table(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -240,9 +269,24 @@ class Table(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if restored_logs is not None and not isinstance(restored_logs, RestoredLogsArgs):
+                restored_logs = restored_logs or {}
+                def _setter(key, value):
+                    restored_logs[key] = value
+                RestoredLogsArgs._configure(_setter, **restored_logs)
             __props__.__dict__["restored_logs"] = restored_logs
             __props__.__dict__["retention_in_days"] = retention_in_days
+            if schema is not None and not isinstance(schema, SchemaArgs):
+                schema = schema or {}
+                def _setter(key, value):
+                    schema[key] = value
+                SchemaArgs._configure(_setter, **schema)
             __props__.__dict__["schema"] = schema
+            if search_results is not None and not isinstance(search_results, SearchResultsArgs):
+                search_results = search_results or {}
+                def _setter(key, value):
+                    search_results[key] = value
+                SearchResultsArgs._configure(_setter, **search_results)
             __props__.__dict__["search_results"] = search_results
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["total_retention_in_days"] = total_retention_in_days

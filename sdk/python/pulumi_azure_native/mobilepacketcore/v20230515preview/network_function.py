@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,22 +39,49 @@ class NetworkFunctionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] user_description: User provided description
         """
-        pulumi.set(__self__, "network_function_administrative_state", network_function_administrative_state)
-        pulumi.set(__self__, "network_function_type", network_function_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        NetworkFunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_function_administrative_state=network_function_administrative_state,
+            network_function_type=network_function_type,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            capacity=capacity,
+            deployment_notes=deployment_notes,
+            location=location,
+            network_function_name=network_function_name,
+            tags=tags,
+            user_description=user_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_function_administrative_state: pulumi.Input[Union[str, 'NetworkFunctionAdministrativeState']],
+             network_function_type: pulumi.Input[Union[str, 'NetworkFunctionType']],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input[Union[str, 'SkuDefinitions']],
+             capacity: Optional[pulumi.Input[int]] = None,
+             deployment_notes: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_function_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_function_administrative_state", network_function_administrative_state)
+        _setter("network_function_type", network_function_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if deployment_notes is not None:
-            pulumi.set(__self__, "deployment_notes", deployment_notes)
+            _setter("deployment_notes", deployment_notes)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_function_name is not None:
-            pulumi.set(__self__, "network_function_name", network_function_name)
+            _setter("network_function_name", network_function_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_description is not None:
-            pulumi.set(__self__, "user_description", user_description)
+            _setter("user_description", user_description)
 
     @property
     @pulumi.getter(name="networkFunctionAdministrativeState")
@@ -228,6 +255,10 @@ class NetworkFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

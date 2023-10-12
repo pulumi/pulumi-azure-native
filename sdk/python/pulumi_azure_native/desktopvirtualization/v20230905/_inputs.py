@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -39,14 +39,29 @@ class AgentUpdatePropertiesArgs:
         :param pulumi.Input[Union[str, 'SessionHostComponentUpdateType']] type: The type of maintenance for session host components.
         :param pulumi.Input[bool] use_session_host_local_time: Whether to use localTime of the virtual machine.
         """
+        AgentUpdatePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maintenance_window_time_zone=maintenance_window_time_zone,
+            maintenance_windows=maintenance_windows,
+            type=type,
+            use_session_host_local_time=use_session_host_local_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maintenance_window_time_zone: Optional[pulumi.Input[str]] = None,
+             maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]] = None,
+             type: Optional[pulumi.Input[Union[str, 'SessionHostComponentUpdateType']]] = None,
+             use_session_host_local_time: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if maintenance_window_time_zone is not None:
-            pulumi.set(__self__, "maintenance_window_time_zone", maintenance_window_time_zone)
+            _setter("maintenance_window_time_zone", maintenance_window_time_zone)
         if maintenance_windows is not None:
-            pulumi.set(__self__, "maintenance_windows", maintenance_windows)
+            _setter("maintenance_windows", maintenance_windows)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if use_session_host_local_time is not None:
-            pulumi.set(__self__, "use_session_host_local_time", use_session_host_local_time)
+            _setter("use_session_host_local_time", use_session_host_local_time)
 
     @property
     @pulumi.getter(name="maintenanceWindowTimeZone")
@@ -107,10 +122,21 @@ class MaintenanceWindowPropertiesArgs:
         :param pulumi.Input['DayOfWeek'] day_of_week: Day of the week.
         :param pulumi.Input[int] hour: The update start hour of the day. (0 - 23)
         """
+        MaintenanceWindowPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            hour=hour,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: Optional[pulumi.Input['DayOfWeek']] = None,
+             hour: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if hour is not None:
-            pulumi.set(__self__, "hour", hour)
+            _setter("hour", hour)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -157,20 +183,41 @@ class MsixPackageApplicationsArgs:
         :param pulumi.Input[str] raw_icon: the icon a 64 bit string as a byte array.
         :param pulumi.Input[str] raw_png: the icon a 64 bit string as a byte array.
         """
+        MsixPackageApplicationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            app_user_model_id=app_user_model_id,
+            description=description,
+            friendly_name=friendly_name,
+            icon_image_name=icon_image_name,
+            raw_icon=raw_icon,
+            raw_png=raw_png,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_user_model_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             icon_image_name: Optional[pulumi.Input[str]] = None,
+             raw_icon: Optional[pulumi.Input[str]] = None,
+             raw_png: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if app_user_model_id is not None:
-            pulumi.set(__self__, "app_user_model_id", app_user_model_id)
+            _setter("app_user_model_id", app_user_model_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if icon_image_name is not None:
-            pulumi.set(__self__, "icon_image_name", icon_image_name)
+            _setter("icon_image_name", icon_image_name)
         if raw_icon is not None:
-            pulumi.set(__self__, "raw_icon", raw_icon)
+            _setter("raw_icon", raw_icon)
         if raw_png is not None:
-            pulumi.set(__self__, "raw_png", raw_png)
+            _setter("raw_png", raw_png)
 
     @property
     @pulumi.getter(name="appId")
@@ -269,12 +316,25 @@ class MsixPackageDependenciesArgs:
         :param pulumi.Input[str] min_version: Dependency version required.
         :param pulumi.Input[str] publisher: Name of dependency publisher.
         """
+        MsixPackageDependenciesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dependency_name=dependency_name,
+            min_version=min_version,
+            publisher=publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dependency_name: Optional[pulumi.Input[str]] = None,
+             min_version: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dependency_name is not None:
-            pulumi.set(__self__, "dependency_name", dependency_name)
+            _setter("dependency_name", dependency_name)
         if min_version is not None:
-            pulumi.set(__self__, "min_version", min_version)
+            _setter("min_version", min_version)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
 
     @property
     @pulumi.getter(name="dependencyName")
@@ -325,12 +385,25 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -381,12 +454,25 @@ class RegistrationInfoArgs:
         :param pulumi.Input[Union[str, 'RegistrationTokenOperation']] registration_token_operation: The type of resetting the token.
         :param pulumi.Input[str] token: The registration token base64 encoded string.
         """
+        RegistrationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_time=expiration_time,
+            registration_token_operation=registration_token_operation,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_time: Optional[pulumi.Input[str]] = None,
+             registration_token_operation: Optional[pulumi.Input[Union[str, 'RegistrationTokenOperation']]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expiration_time is not None:
-            pulumi.set(__self__, "expiration_time", expiration_time)
+            _setter("expiration_time", expiration_time)
         if registration_token_operation is not None:
-            pulumi.set(__self__, "registration_token_operation", registration_token_operation)
+            _setter("registration_token_operation", registration_token_operation)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
 
     @property
     @pulumi.getter(name="expirationTime")
@@ -432,8 +518,17 @@ class ResourceModelWithAllowedPropertySetIdentityArgs:
         """
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
+        ResourceModelWithAllowedPropertySetIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -463,13 +558,30 @@ class ResourceModelWithAllowedPropertySetPlanArgs:
         :param pulumi.Input[str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[str] version: The version of the desired product/artifact.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
+        ResourceModelWithAllowedPropertySetPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            promotion_code=promotion_code,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             product: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             promotion_code: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -547,15 +659,32 @@ class ResourceModelWithAllowedPropertySetSkuArgs:
         :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceModelWithAllowedPropertySetSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input['SkuTier']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -628,10 +757,21 @@ class ScalingHostPoolReferenceArgs:
         :param pulumi.Input[str] host_pool_arm_path: Arm path of referenced hostpool.
         :param pulumi.Input[bool] scaling_plan_enabled: Is the scaling plan enabled for this hostpool.
         """
+        ScalingHostPoolReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_pool_arm_path=host_pool_arm_path,
+            scaling_plan_enabled=scaling_plan_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_pool_arm_path: Optional[pulumi.Input[str]] = None,
+             scaling_plan_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if host_pool_arm_path is not None:
-            pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
+            _setter("host_pool_arm_path", host_pool_arm_path)
         if scaling_plan_enabled is not None:
-            pulumi.set(__self__, "scaling_plan_enabled", scaling_plan_enabled)
+            _setter("scaling_plan_enabled", scaling_plan_enabled)
 
     @property
     @pulumi.getter(name="hostPoolArmPath")
@@ -700,42 +840,85 @@ class ScalingScheduleArgs:
         :param pulumi.Input[int] ramp_up_minimum_hosts_pct: Minimum host percentage for ramp up period.
         :param pulumi.Input['TimeArgs'] ramp_up_start_time: Starting time for ramp up period.
         """
+        ScalingScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_week=days_of_week,
+            name=name,
+            off_peak_load_balancing_algorithm=off_peak_load_balancing_algorithm,
+            off_peak_start_time=off_peak_start_time,
+            peak_load_balancing_algorithm=peak_load_balancing_algorithm,
+            peak_start_time=peak_start_time,
+            ramp_down_capacity_threshold_pct=ramp_down_capacity_threshold_pct,
+            ramp_down_force_logoff_users=ramp_down_force_logoff_users,
+            ramp_down_load_balancing_algorithm=ramp_down_load_balancing_algorithm,
+            ramp_down_minimum_hosts_pct=ramp_down_minimum_hosts_pct,
+            ramp_down_notification_message=ramp_down_notification_message,
+            ramp_down_start_time=ramp_down_start_time,
+            ramp_down_stop_hosts_when=ramp_down_stop_hosts_when,
+            ramp_down_wait_time_minutes=ramp_down_wait_time_minutes,
+            ramp_up_capacity_threshold_pct=ramp_up_capacity_threshold_pct,
+            ramp_up_load_balancing_algorithm=ramp_up_load_balancing_algorithm,
+            ramp_up_minimum_hosts_pct=ramp_up_minimum_hosts_pct,
+            ramp_up_start_time=ramp_up_start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+             off_peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+             peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             ramp_down_capacity_threshold_pct: Optional[pulumi.Input[int]] = None,
+             ramp_down_force_logoff_users: Optional[pulumi.Input[bool]] = None,
+             ramp_down_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+             ramp_down_minimum_hosts_pct: Optional[pulumi.Input[int]] = None,
+             ramp_down_notification_message: Optional[pulumi.Input[str]] = None,
+             ramp_down_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             ramp_down_stop_hosts_when: Optional[pulumi.Input[Union[str, 'StopHostsWhen']]] = None,
+             ramp_down_wait_time_minutes: Optional[pulumi.Input[int]] = None,
+             ramp_up_capacity_threshold_pct: Optional[pulumi.Input[int]] = None,
+             ramp_up_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+             ramp_up_minimum_hosts_pct: Optional[pulumi.Input[int]] = None,
+             ramp_up_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days_of_week is not None:
-            pulumi.set(__self__, "days_of_week", days_of_week)
+            _setter("days_of_week", days_of_week)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if off_peak_load_balancing_algorithm is not None:
-            pulumi.set(__self__, "off_peak_load_balancing_algorithm", off_peak_load_balancing_algorithm)
+            _setter("off_peak_load_balancing_algorithm", off_peak_load_balancing_algorithm)
         if off_peak_start_time is not None:
-            pulumi.set(__self__, "off_peak_start_time", off_peak_start_time)
+            _setter("off_peak_start_time", off_peak_start_time)
         if peak_load_balancing_algorithm is not None:
-            pulumi.set(__self__, "peak_load_balancing_algorithm", peak_load_balancing_algorithm)
+            _setter("peak_load_balancing_algorithm", peak_load_balancing_algorithm)
         if peak_start_time is not None:
-            pulumi.set(__self__, "peak_start_time", peak_start_time)
+            _setter("peak_start_time", peak_start_time)
         if ramp_down_capacity_threshold_pct is not None:
-            pulumi.set(__self__, "ramp_down_capacity_threshold_pct", ramp_down_capacity_threshold_pct)
+            _setter("ramp_down_capacity_threshold_pct", ramp_down_capacity_threshold_pct)
         if ramp_down_force_logoff_users is not None:
-            pulumi.set(__self__, "ramp_down_force_logoff_users", ramp_down_force_logoff_users)
+            _setter("ramp_down_force_logoff_users", ramp_down_force_logoff_users)
         if ramp_down_load_balancing_algorithm is not None:
-            pulumi.set(__self__, "ramp_down_load_balancing_algorithm", ramp_down_load_balancing_algorithm)
+            _setter("ramp_down_load_balancing_algorithm", ramp_down_load_balancing_algorithm)
         if ramp_down_minimum_hosts_pct is not None:
-            pulumi.set(__self__, "ramp_down_minimum_hosts_pct", ramp_down_minimum_hosts_pct)
+            _setter("ramp_down_minimum_hosts_pct", ramp_down_minimum_hosts_pct)
         if ramp_down_notification_message is not None:
-            pulumi.set(__self__, "ramp_down_notification_message", ramp_down_notification_message)
+            _setter("ramp_down_notification_message", ramp_down_notification_message)
         if ramp_down_start_time is not None:
-            pulumi.set(__self__, "ramp_down_start_time", ramp_down_start_time)
+            _setter("ramp_down_start_time", ramp_down_start_time)
         if ramp_down_stop_hosts_when is not None:
-            pulumi.set(__self__, "ramp_down_stop_hosts_when", ramp_down_stop_hosts_when)
+            _setter("ramp_down_stop_hosts_when", ramp_down_stop_hosts_when)
         if ramp_down_wait_time_minutes is not None:
-            pulumi.set(__self__, "ramp_down_wait_time_minutes", ramp_down_wait_time_minutes)
+            _setter("ramp_down_wait_time_minutes", ramp_down_wait_time_minutes)
         if ramp_up_capacity_threshold_pct is not None:
-            pulumi.set(__self__, "ramp_up_capacity_threshold_pct", ramp_up_capacity_threshold_pct)
+            _setter("ramp_up_capacity_threshold_pct", ramp_up_capacity_threshold_pct)
         if ramp_up_load_balancing_algorithm is not None:
-            pulumi.set(__self__, "ramp_up_load_balancing_algorithm", ramp_up_load_balancing_algorithm)
+            _setter("ramp_up_load_balancing_algorithm", ramp_up_load_balancing_algorithm)
         if ramp_up_minimum_hosts_pct is not None:
-            pulumi.set(__self__, "ramp_up_minimum_hosts_pct", ramp_up_minimum_hosts_pct)
+            _setter("ramp_up_minimum_hosts_pct", ramp_up_minimum_hosts_pct)
         if ramp_up_start_time is not None:
-            pulumi.set(__self__, "ramp_up_start_time", ramp_up_start_time)
+            _setter("ramp_up_start_time", ramp_up_start_time)
 
     @property
     @pulumi.getter(name="daysOfWeek")
@@ -964,8 +1147,19 @@ class TimeArgs:
         :param pulumi.Input[int] hour: The hour.
         :param pulumi.Input[int] minute: The minute.
         """
-        pulumi.set(__self__, "hour", hour)
-        pulumi.set(__self__, "minute", minute)
+        TimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hour=hour,
+            minute=minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hour: pulumi.Input[int],
+             minute: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hour", hour)
+        _setter("minute", minute)
 
     @property
     @pulumi.getter

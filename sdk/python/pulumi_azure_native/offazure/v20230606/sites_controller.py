@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,44 @@ class SitesControllerArgs:
         :param pulumi.Input[str] site_name: Site name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SitesControllerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            agent_details=agent_details,
+            appliance_name=appliance_name,
+            discovery_solution_id=discovery_solution_id,
+            location=location,
+            service_principal_identity_details=service_principal_identity_details,
+            site_name=site_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             agent_details: Optional[pulumi.Input['SiteAgentPropertiesArgs']] = None,
+             appliance_name: Optional[pulumi.Input[str]] = None,
+             discovery_solution_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             service_principal_identity_details: Optional[pulumi.Input['SiteSpnPropertiesArgs']] = None,
+             site_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if agent_details is not None:
-            pulumi.set(__self__, "agent_details", agent_details)
+            _setter("agent_details", agent_details)
         if appliance_name is not None:
-            pulumi.set(__self__, "appliance_name", appliance_name)
+            _setter("appliance_name", appliance_name)
         if discovery_solution_id is not None:
-            pulumi.set(__self__, "discovery_solution_id", discovery_solution_id)
+            _setter("discovery_solution_id", discovery_solution_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if service_principal_identity_details is not None:
-            pulumi.set(__self__, "service_principal_identity_details", service_principal_identity_details)
+            _setter("service_principal_identity_details", service_principal_identity_details)
         if site_name is not None:
-            pulumi.set(__self__, "site_name", site_name)
+            _setter("site_name", site_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -201,6 +224,10 @@ class SitesController(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SitesControllerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -223,6 +250,11 @@ class SitesController(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SitesControllerArgs.__new__(SitesControllerArgs)
 
+            if agent_details is not None and not isinstance(agent_details, SiteAgentPropertiesArgs):
+                agent_details = agent_details or {}
+                def _setter(key, value):
+                    agent_details[key] = value
+                SiteAgentPropertiesArgs._configure(_setter, **agent_details)
             __props__.__dict__["agent_details"] = agent_details
             __props__.__dict__["appliance_name"] = appliance_name
             __props__.__dict__["discovery_solution_id"] = discovery_solution_id
@@ -230,6 +262,11 @@ class SitesController(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if service_principal_identity_details is not None and not isinstance(service_principal_identity_details, SiteSpnPropertiesArgs):
+                service_principal_identity_details = service_principal_identity_details or {}
+                def _setter(key, value):
+                    service_principal_identity_details[key] = value
+                SiteSpnPropertiesArgs._configure(_setter, **service_principal_identity_details)
             __props__.__dict__["service_principal_identity_details"] = service_principal_identity_details
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["tags"] = tags

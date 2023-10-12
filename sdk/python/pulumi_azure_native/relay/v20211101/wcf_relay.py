@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -33,18 +33,39 @@ class WCFRelayArgs:
         :param pulumi.Input[bool] requires_transport_security: Returns true if transport security is needed for this relay; otherwise, false.
         :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WCFRelayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            relay_name=relay_name,
+            relay_type=relay_type,
+            requires_client_authorization=requires_client_authorization,
+            requires_transport_security=requires_transport_security,
+            user_metadata=user_metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             relay_name: Optional[pulumi.Input[str]] = None,
+             relay_type: Optional[pulumi.Input['Relaytype']] = None,
+             requires_client_authorization: Optional[pulumi.Input[bool]] = None,
+             requires_transport_security: Optional[pulumi.Input[bool]] = None,
+             user_metadata: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if relay_name is not None:
-            pulumi.set(__self__, "relay_name", relay_name)
+            _setter("relay_name", relay_name)
         if relay_type is not None:
-            pulumi.set(__self__, "relay_type", relay_type)
+            _setter("relay_type", relay_type)
         if requires_client_authorization is not None:
-            pulumi.set(__self__, "requires_client_authorization", requires_client_authorization)
+            _setter("requires_client_authorization", requires_client_authorization)
         if requires_transport_security is not None:
-            pulumi.set(__self__, "requires_transport_security", requires_transport_security)
+            _setter("requires_transport_security", requires_transport_security)
         if user_metadata is not None:
-            pulumi.set(__self__, "user_metadata", user_metadata)
+            _setter("user_metadata", user_metadata)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -176,6 +197,10 @@ class WCFRelay(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WCFRelayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

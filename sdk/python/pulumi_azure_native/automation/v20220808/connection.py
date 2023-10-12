@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,37 @@ class ConnectionArgs:
         :param pulumi.Input[str] description: Gets or sets the description of the connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] field_definition_values: Gets or sets the field definition properties of the connection.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "connection_type", connection_type)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            connection_type=connection_type,
+            name=name,
+            resource_group_name=resource_group_name,
+            connection_name=connection_name,
+            description=description,
+            field_definition_values=field_definition_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             connection_type: pulumi.Input['ConnectionTypeAssociationPropertyArgs'],
+             name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             connection_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             field_definition_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("connection_type", connection_type)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if field_definition_values is not None:
-            pulumi.set(__self__, "field_definition_values", field_definition_values)
+            _setter("field_definition_values", field_definition_values)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -174,6 +195,10 @@ class Connection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,6 +224,11 @@ class Connection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["connection_name"] = connection_name
+            if connection_type is not None and not isinstance(connection_type, ConnectionTypeAssociationPropertyArgs):
+                connection_type = connection_type or {}
+                def _setter(key, value):
+                    connection_type[key] = value
+                ConnectionTypeAssociationPropertyArgs._configure(_setter, **connection_type)
             if connection_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_type'")
             __props__.__dict__["connection_type"] = connection_type

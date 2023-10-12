@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -62,47 +62,86 @@ class WebPubSubArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['WebPubSubTlsSettingsArgs'] tls: TLS settings for the resource
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebPubSubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            disable_aad_auth=disable_aad_auth,
+            disable_local_auth=disable_local_auth,
+            identity=identity,
+            kind=kind,
+            live_trace_configuration=live_trace_configuration,
+            location=location,
+            network_acls=network_acls,
+            public_network_access=public_network_access,
+            region_endpoint_enabled=region_endpoint_enabled,
+            resource_log_configuration=resource_log_configuration,
+            resource_name=resource_name,
+            resource_stopped=resource_stopped,
+            sku=sku,
+            tags=tags,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             disable_aad_auth: Optional[pulumi.Input[bool]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
+             live_trace_configuration: Optional[pulumi.Input['LiveTraceConfigurationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_acls: Optional[pulumi.Input['WebPubSubNetworkACLsArgs']] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
+             resource_log_configuration: Optional[pulumi.Input['ResourceLogConfigurationArgs']] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             resource_stopped: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls: Optional[pulumi.Input['WebPubSubTlsSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if disable_aad_auth is None:
             disable_aad_auth = False
         if disable_aad_auth is not None:
-            pulumi.set(__self__, "disable_aad_auth", disable_aad_auth)
+            _setter("disable_aad_auth", disable_aad_auth)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if live_trace_configuration is not None:
-            pulumi.set(__self__, "live_trace_configuration", live_trace_configuration)
+            _setter("live_trace_configuration", live_trace_configuration)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if region_endpoint_enabled is None:
             region_endpoint_enabled = 'Enabled'
         if region_endpoint_enabled is not None:
-            pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
+            _setter("region_endpoint_enabled", region_endpoint_enabled)
         if resource_log_configuration is not None:
-            pulumi.set(__self__, "resource_log_configuration", resource_log_configuration)
+            _setter("resource_log_configuration", resource_log_configuration)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if resource_stopped is None:
             resource_stopped = 'false'
         if resource_stopped is not None:
-            pulumi.set(__self__, "resource_stopped", resource_stopped)
+            _setter("resource_stopped", resource_stopped)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -380,6 +419,10 @@ class WebPubSub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebPubSubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -416,10 +459,25 @@ class WebPubSub(pulumi.CustomResource):
             if disable_local_auth is None:
                 disable_local_auth = False
             __props__.__dict__["disable_local_auth"] = disable_local_auth
+            if identity is not None and not isinstance(identity, ManagedIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
+            if live_trace_configuration is not None and not isinstance(live_trace_configuration, LiveTraceConfigurationArgs):
+                live_trace_configuration = live_trace_configuration or {}
+                def _setter(key, value):
+                    live_trace_configuration[key] = value
+                LiveTraceConfigurationArgs._configure(_setter, **live_trace_configuration)
             __props__.__dict__["live_trace_configuration"] = live_trace_configuration
             __props__.__dict__["location"] = location
+            if network_acls is not None and not isinstance(network_acls, WebPubSubNetworkACLsArgs):
+                network_acls = network_acls or {}
+                def _setter(key, value):
+                    network_acls[key] = value
+                WebPubSubNetworkACLsArgs._configure(_setter, **network_acls)
             __props__.__dict__["network_acls"] = network_acls
             if public_network_access is None:
                 public_network_access = 'Enabled'
@@ -430,13 +488,28 @@ class WebPubSub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_log_configuration is not None and not isinstance(resource_log_configuration, ResourceLogConfigurationArgs):
+                resource_log_configuration = resource_log_configuration or {}
+                def _setter(key, value):
+                    resource_log_configuration[key] = value
+                ResourceLogConfigurationArgs._configure(_setter, **resource_log_configuration)
             __props__.__dict__["resource_log_configuration"] = resource_log_configuration
             __props__.__dict__["resource_name"] = resource_name_
             if resource_stopped is None:
                 resource_stopped = 'false'
             __props__.__dict__["resource_stopped"] = resource_stopped
+            if sku is not None and not isinstance(sku, ResourceSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ResourceSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if tls is not None and not isinstance(tls, WebPubSubTlsSettingsArgs):
+                tls = tls or {}
+                def _setter(key, value):
+                    tls[key] = value
+                WebPubSubTlsSettingsArgs._configure(_setter, **tls)
             __props__.__dict__["tls"] = tls
             __props__.__dict__["external_ip"] = None
             __props__.__dict__["host_name"] = None

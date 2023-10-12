@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,18 +33,37 @@ class ProviderArgs:
         :param pulumi.Input[Union[str, 'Status']] provisioning_state: Provisioning status field
         :param pulumi.Input[str] resource_usage_id: Id to track resource usage for the provider.
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            instance_uri=instance_uri,
+            provider_id=provider_id,
+            provider_sku=provider_sku,
+            provisioning_state=provisioning_state,
+            resource_usage_id=resource_usage_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: Optional[pulumi.Input[str]] = None,
+             instance_uri: Optional[pulumi.Input[str]] = None,
+             provider_id: Optional[pulumi.Input[str]] = None,
+             provider_sku: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+             resource_usage_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if instance_uri is not None:
-            pulumi.set(__self__, "instance_uri", instance_uri)
+            _setter("instance_uri", instance_uri)
         if provider_id is not None:
-            pulumi.set(__self__, "provider_id", provider_id)
+            _setter("provider_id", provider_id)
         if provider_sku is not None:
-            pulumi.set(__self__, "provider_sku", provider_sku)
+            _setter("provider_sku", provider_sku)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_usage_id is not None:
-            pulumi.set(__self__, "resource_usage_id", resource_usage_id)
+            _setter("resource_usage_id", resource_usage_id)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -127,8 +146,17 @@ class QuantumWorkspaceIdentityArgs:
         Managed Identity information.
         :param pulumi.Input[Union[str, 'ResourceIdentityType']] type: The identity type.
         """
+        QuantumWorkspaceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

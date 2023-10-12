@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -33,17 +33,38 @@ class DomainArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'UserEngagementTracking']] user_engagement_tracking: Describes whether user engagement tracking is enabled or disabled.
         """
-        pulumi.set(__self__, "domain_management", domain_management)
-        pulumi.set(__self__, "email_service_name", email_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_management=domain_management,
+            email_service_name=email_service_name,
+            resource_group_name=resource_group_name,
+            domain_name=domain_name,
+            location=location,
+            tags=tags,
+            user_engagement_tracking=user_engagement_tracking,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_management: pulumi.Input[Union[str, 'DomainManagement']],
+             email_service_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_engagement_tracking: Optional[pulumi.Input[Union[str, 'UserEngagementTracking']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_management", domain_management)
+        _setter("email_service_name", email_service_name)
+        _setter("resource_group_name", resource_group_name)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_engagement_tracking is not None:
-            pulumi.set(__self__, "user_engagement_tracking", user_engagement_tracking)
+            _setter("user_engagement_tracking", user_engagement_tracking)
 
     @property
     @pulumi.getter(name="domainManagement")
@@ -175,6 +196,10 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

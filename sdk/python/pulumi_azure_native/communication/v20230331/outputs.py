@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,10 +36,25 @@ class DnsRecordResponse(dict):
         :param str type: Type of the DNS record. Example: TXT
         :param str value: Value of the DNS record.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "ttl", ttl)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        DnsRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            ttl=ttl,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             ttl: int,
+             type: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("ttl", ttl)
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -116,16 +131,33 @@ class DomainPropertiesResponseVerificationRecords(dict):
         :param 'DnsRecordResponse' domain: A class that represents a VerificationStatus record.
         :param 'DnsRecordResponse' s_pf: A class that represents a VerificationStatus record.
         """
+        DomainPropertiesResponseVerificationRecords._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            d_kim=d_kim,
+            d_kim2=d_kim2,
+            d_marc=d_marc,
+            domain=domain,
+            s_pf=s_pf,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             d_kim: Optional['outputs.DnsRecordResponse'] = None,
+             d_kim2: Optional['outputs.DnsRecordResponse'] = None,
+             d_marc: Optional['outputs.DnsRecordResponse'] = None,
+             domain: Optional['outputs.DnsRecordResponse'] = None,
+             s_pf: Optional['outputs.DnsRecordResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if d_kim is not None:
-            pulumi.set(__self__, "d_kim", d_kim)
+            _setter("d_kim", d_kim)
         if d_kim2 is not None:
-            pulumi.set(__self__, "d_kim2", d_kim2)
+            _setter("d_kim2", d_kim2)
         if d_marc is not None:
-            pulumi.set(__self__, "d_marc", d_marc)
+            _setter("d_marc", d_marc)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if s_pf is not None:
-            pulumi.set(__self__, "s_pf", s_pf)
+            _setter("s_pf", s_pf)
 
     @property
     @pulumi.getter(name="dKIM")
@@ -210,16 +242,33 @@ class DomainPropertiesResponseVerificationStates(dict):
         :param 'VerificationStatusRecordResponse' domain: A class that represents a VerificationStatus record.
         :param 'VerificationStatusRecordResponse' s_pf: A class that represents a VerificationStatus record.
         """
+        DomainPropertiesResponseVerificationStates._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            d_kim=d_kim,
+            d_kim2=d_kim2,
+            d_marc=d_marc,
+            domain=domain,
+            s_pf=s_pf,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             d_kim: Optional['outputs.VerificationStatusRecordResponse'] = None,
+             d_kim2: Optional['outputs.VerificationStatusRecordResponse'] = None,
+             d_marc: Optional['outputs.VerificationStatusRecordResponse'] = None,
+             domain: Optional['outputs.VerificationStatusRecordResponse'] = None,
+             s_pf: Optional['outputs.VerificationStatusRecordResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if d_kim is not None:
-            pulumi.set(__self__, "d_kim", d_kim)
+            _setter("d_kim", d_kim)
         if d_kim2 is not None:
-            pulumi.set(__self__, "d_kim2", d_kim2)
+            _setter("d_kim2", d_kim2)
         if d_marc is not None:
-            pulumi.set(__self__, "d_marc", d_marc)
+            _setter("d_marc", d_marc)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if s_pf is not None:
-            pulumi.set(__self__, "s_pf", s_pf)
+            _setter("s_pf", s_pf)
 
     @property
     @pulumi.getter(name="dKIM")
@@ -310,18 +359,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -402,8 +470,19 @@ class VerificationStatusRecordResponse(dict):
         :param str error_code: Error code. This property will only be present if the status is UnableToVerify.
         :param str status: Status of the verification operation.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "status", status)
+        VerificationStatusRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("error_code", error_code)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="errorCode")

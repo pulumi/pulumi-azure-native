@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
     'GetGetPrivateDnsZoneSuffixExecuteResult',
     'AwaitableGetGetPrivateDnsZoneSuffixExecuteResult',
     'get_get_private_dns_zone_suffix_execute',
+    'get_get_private_dns_zone_suffix_execute_output',
 ]
 
 @pulumi.output_type
@@ -53,3 +54,11 @@ def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions]
 
     return AwaitableGetGetPrivateDnsZoneSuffixExecuteResult(
         private_dns_zone_suffix=pulumi.get(__ret__, 'private_dns_zone_suffix'))
+
+
+@_utilities.lift_output_func(get_get_private_dns_zone_suffix_execute)
+def get_get_private_dns_zone_suffix_execute_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGetPrivateDnsZoneSuffixExecuteResult]:
+    """
+    Get private DNS zone suffix in the cloud.
+    """
+    ...

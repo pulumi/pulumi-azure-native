@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -22,8 +22,17 @@ class PrivateEndpointPropertyArgs:
         Private endpoint which the connection belongs to.
         :param pulumi.Input[str] id: Resource id of the private endpoint.
         """
+        PrivateEndpointPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -48,8 +57,19 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
         :param pulumi.Input[str] description: The private link service connection description.
         :param pulumi.Input[str] status: The private link service connection status.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        PrivateLinkServiceConnectionStatePropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             status: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter

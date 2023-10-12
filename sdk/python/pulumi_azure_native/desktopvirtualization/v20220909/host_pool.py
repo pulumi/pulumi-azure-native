@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -71,56 +71,117 @@ class HostPoolArgs:
         :param pulumi.Input[bool] validation_environment: Is validation environment.
         :param pulumi.Input[str] vm_template: VM template for sessionhosts configuration within hostpool.
         """
-        pulumi.set(__self__, "host_pool_type", host_pool_type)
-        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
-        pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HostPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_pool_type=host_pool_type,
+            load_balancer_type=load_balancer_type,
+            preferred_app_group_type=preferred_app_group_type,
+            resource_group_name=resource_group_name,
+            agent_update=agent_update,
+            custom_rdp_property=custom_rdp_property,
+            description=description,
+            friendly_name=friendly_name,
+            host_pool_name=host_pool_name,
+            identity=identity,
+            kind=kind,
+            location=location,
+            managed_by=managed_by,
+            max_session_limit=max_session_limit,
+            personal_desktop_assignment_type=personal_desktop_assignment_type,
+            plan=plan,
+            registration_info=registration_info,
+            ring=ring,
+            sku=sku,
+            sso_client_id=sso_client_id,
+            sso_client_secret_key_vault_path=sso_client_secret_key_vault_path,
+            sso_secret_type=sso_secret_type,
+            ssoadfs_authority=ssoadfs_authority,
+            start_vm_on_connect=start_vm_on_connect,
+            tags=tags,
+            validation_environment=validation_environment,
+            vm_template=vm_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_pool_type: pulumi.Input[Union[str, 'HostPoolType']],
+             load_balancer_type: pulumi.Input[Union[str, 'LoadBalancerType']],
+             preferred_app_group_type: pulumi.Input[Union[str, 'PreferredAppGroupType']],
+             resource_group_name: pulumi.Input[str],
+             agent_update: Optional[pulumi.Input['AgentUpdatePropertiesArgs']] = None,
+             custom_rdp_property: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             host_pool_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             max_session_limit: Optional[pulumi.Input[int]] = None,
+             personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
+             plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+             registration_info: Optional[pulumi.Input['RegistrationInfoArgs']] = None,
+             ring: Optional[pulumi.Input[int]] = None,
+             sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
+             sso_client_id: Optional[pulumi.Input[str]] = None,
+             sso_client_secret_key_vault_path: Optional[pulumi.Input[str]] = None,
+             sso_secret_type: Optional[pulumi.Input[Union[str, 'SSOSecretType']]] = None,
+             ssoadfs_authority: Optional[pulumi.Input[str]] = None,
+             start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             validation_environment: Optional[pulumi.Input[bool]] = None,
+             vm_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_pool_type", host_pool_type)
+        _setter("load_balancer_type", load_balancer_type)
+        _setter("preferred_app_group_type", preferred_app_group_type)
+        _setter("resource_group_name", resource_group_name)
         if agent_update is not None:
-            pulumi.set(__self__, "agent_update", agent_update)
+            _setter("agent_update", agent_update)
         if custom_rdp_property is not None:
-            pulumi.set(__self__, "custom_rdp_property", custom_rdp_property)
+            _setter("custom_rdp_property", custom_rdp_property)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if host_pool_name is not None:
-            pulumi.set(__self__, "host_pool_name", host_pool_name)
+            _setter("host_pool_name", host_pool_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if max_session_limit is not None:
-            pulumi.set(__self__, "max_session_limit", max_session_limit)
+            _setter("max_session_limit", max_session_limit)
         if personal_desktop_assignment_type is not None:
-            pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
+            _setter("personal_desktop_assignment_type", personal_desktop_assignment_type)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if registration_info is not None:
-            pulumi.set(__self__, "registration_info", registration_info)
+            _setter("registration_info", registration_info)
         if ring is not None:
-            pulumi.set(__self__, "ring", ring)
+            _setter("ring", ring)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if sso_client_id is not None:
-            pulumi.set(__self__, "sso_client_id", sso_client_id)
+            _setter("sso_client_id", sso_client_id)
         if sso_client_secret_key_vault_path is not None:
-            pulumi.set(__self__, "sso_client_secret_key_vault_path", sso_client_secret_key_vault_path)
+            _setter("sso_client_secret_key_vault_path", sso_client_secret_key_vault_path)
         if sso_secret_type is not None:
-            pulumi.set(__self__, "sso_secret_type", sso_secret_type)
+            _setter("sso_secret_type", sso_secret_type)
         if ssoadfs_authority is not None:
-            pulumi.set(__self__, "ssoadfs_authority", ssoadfs_authority)
+            _setter("ssoadfs_authority", ssoadfs_authority)
         if start_vm_on_connect is not None:
-            pulumi.set(__self__, "start_vm_on_connect", start_vm_on_connect)
+            _setter("start_vm_on_connect", start_vm_on_connect)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validation_environment is not None:
-            pulumi.set(__self__, "validation_environment", validation_environment)
+            _setter("validation_environment", validation_environment)
         if vm_template is not None:
-            pulumi.set(__self__, "vm_template", vm_template)
+            _setter("vm_template", vm_template)
 
     @property
     @pulumi.getter(name="hostPoolType")
@@ -520,6 +581,10 @@ class HostPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -561,6 +626,11 @@ class HostPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HostPoolArgs.__new__(HostPoolArgs)
 
+            if agent_update is not None and not isinstance(agent_update, AgentUpdatePropertiesArgs):
+                agent_update = agent_update or {}
+                def _setter(key, value):
+                    agent_update[key] = value
+                AgentUpdatePropertiesArgs._configure(_setter, **agent_update)
             __props__.__dict__["agent_update"] = agent_update
             __props__.__dict__["custom_rdp_property"] = custom_rdp_property
             __props__.__dict__["description"] = description
@@ -569,6 +639,11 @@ class HostPool(pulumi.CustomResource):
             if host_pool_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_type'")
             __props__.__dict__["host_pool_type"] = host_pool_type
+            if identity is not None and not isinstance(identity, ResourceModelWithAllowedPropertySetIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceModelWithAllowedPropertySetIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             if load_balancer_type is None and not opts.urn:
@@ -578,15 +653,30 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["max_session_limit"] = max_session_limit
             __props__.__dict__["personal_desktop_assignment_type"] = personal_desktop_assignment_type
+            if plan is not None and not isinstance(plan, ResourceModelWithAllowedPropertySetPlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                ResourceModelWithAllowedPropertySetPlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             if preferred_app_group_type is None and not opts.urn:
                 raise TypeError("Missing required property 'preferred_app_group_type'")
             __props__.__dict__["preferred_app_group_type"] = preferred_app_group_type
+            if registration_info is not None and not isinstance(registration_info, RegistrationInfoArgs):
+                registration_info = registration_info or {}
+                def _setter(key, value):
+                    registration_info[key] = value
+                RegistrationInfoArgs._configure(_setter, **registration_info)
             __props__.__dict__["registration_info"] = registration_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["ring"] = ring
+            if sku is not None and not isinstance(sku, ResourceModelWithAllowedPropertySetSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ResourceModelWithAllowedPropertySetSkuArgs._configure(_setter, **sku)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["sso_client_id"] = sso_client_id
             __props__.__dict__["sso_client_secret_key_vault_path"] = sso_client_secret_key_vault_path

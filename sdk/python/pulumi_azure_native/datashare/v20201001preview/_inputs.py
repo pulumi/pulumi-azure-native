@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,11 +27,24 @@ class ADLSGen2StorageAccountPathArgs:
         :param pulumi.Input[str] consumer_path: Gets or sets the path on the consumer side where the dataset is to be mapped.
         :param pulumi.Input[str] provider_path: Gets or sets the path to file/folder within the container.
         """
-        pulumi.set(__self__, "container_name", container_name)
+        ADLSGen2StorageAccountPathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            consumer_path=consumer_path,
+            provider_path=provider_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: pulumi.Input[str],
+             consumer_path: Optional[pulumi.Input[str]] = None,
+             provider_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_name", container_name)
         if consumer_path is not None:
-            pulumi.set(__self__, "consumer_path", consumer_path)
+            _setter("consumer_path", consumer_path)
         if provider_path is not None:
-            pulumi.set(__self__, "provider_path", provider_path)
+            _setter("provider_path", provider_path)
 
     @property
     @pulumi.getter(name="containerName")
@@ -82,11 +95,24 @@ class BlobStorageAccountPathArgs:
         :param pulumi.Input[str] consumer_path: Gets or sets the path on the consumer side where the dataset is to be mapped.
         :param pulumi.Input[str] provider_path: Gets or sets the path to file/folder within the container.
         """
-        pulumi.set(__self__, "container_name", container_name)
+        BlobStorageAccountPathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            consumer_path=consumer_path,
+            provider_path=provider_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: pulumi.Input[str],
+             consumer_path: Optional[pulumi.Input[str]] = None,
+             provider_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_name", container_name)
         if consumer_path is not None:
-            pulumi.set(__self__, "consumer_path", consumer_path)
+            _setter("consumer_path", consumer_path)
         if provider_path is not None:
-            pulumi.set(__self__, "provider_path", provider_path)
+            _setter("provider_path", provider_path)
 
     @property
     @pulumi.getter(name="containerName")

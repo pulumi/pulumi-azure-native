@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -30,11 +30,28 @@ class OfferDetailArgs:
         :param pulumi.Input[str] publisher_id: Publisher Id
         :param pulumi.Input[str] term_unit: Offer Plan Term unit
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "plan_name", plan_name)
-        pulumi.set(__self__, "publisher_id", publisher_id)
-        pulumi.set(__self__, "term_unit", term_unit)
+        OfferDetailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            plan_id=plan_id,
+            plan_name=plan_name,
+            publisher_id=publisher_id,
+            term_unit=term_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             plan_id: pulumi.Input[str],
+             plan_name: pulumi.Input[str],
+             publisher_id: pulumi.Input[str],
+             term_unit: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("plan_id", plan_id)
+        _setter("plan_name", plan_name)
+        _setter("publisher_id", publisher_id)
+        _setter("term_unit", term_unit)
 
     @property
     @pulumi.getter
@@ -109,11 +126,24 @@ class UserDetailArgs:
         :param pulumi.Input[str] first_name: First name
         :param pulumi.Input[str] last_name: Last name
         """
-        pulumi.set(__self__, "email_address", email_address)
+        UserDetailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: pulumi.Input[str],
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
 
     @property
     @pulumi.getter(name="emailAddress")

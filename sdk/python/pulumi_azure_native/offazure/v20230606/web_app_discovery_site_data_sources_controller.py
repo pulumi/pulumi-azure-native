@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,13 +28,30 @@ class WebAppDiscoverySiteDataSourcesControllerArgs:
         :param pulumi.Input[str] discovery_site_data_source_name: Data Source ARM name.
         :param pulumi.Input[str] discovery_site_id: Gets or sets the discovery site Id.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "site_name", site_name)
-        pulumi.set(__self__, "web_app_site_name", web_app_site_name)
+        WebAppDiscoverySiteDataSourcesControllerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            site_name=site_name,
+            web_app_site_name=web_app_site_name,
+            discovery_site_data_source_name=discovery_site_data_source_name,
+            discovery_site_id=discovery_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             site_name: pulumi.Input[str],
+             web_app_site_name: pulumi.Input[str],
+             discovery_site_data_source_name: Optional[pulumi.Input[str]] = None,
+             discovery_site_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("site_name", site_name)
+        _setter("web_app_site_name", web_app_site_name)
         if discovery_site_data_source_name is not None:
-            pulumi.set(__self__, "discovery_site_data_source_name", discovery_site_data_source_name)
+            _setter("discovery_site_data_source_name", discovery_site_data_source_name)
         if discovery_site_id is not None:
-            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+            _setter("discovery_site_id", discovery_site_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -138,6 +155,10 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppDiscoverySiteDataSourcesControllerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

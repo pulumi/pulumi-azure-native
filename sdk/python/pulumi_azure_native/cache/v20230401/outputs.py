@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -63,11 +63,26 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -144,13 +159,32 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+             provisioning_state: str,
+             type: str,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -212,7 +246,16 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -255,12 +298,25 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -319,8 +375,19 @@ class RedisAccessKeysResponse(dict):
         :param str primary_key: The current primary key that clients can use to authenticate with Redis cache.
         :param str secondary_key: The current secondary key that clients can use to authenticate with Redis cache.
         """
-        pulumi.set(__self__, "primary_key", primary_key)
-        pulumi.set(__self__, "secondary_key", secondary_key)
+        RedisAccessKeysResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_key=primary_key,
+            secondary_key=secondary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_key: str,
+             secondary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("primary_key", primary_key)
+        _setter("secondary_key", secondary_key)
 
     @property
     @pulumi.getter(name="primaryKey")
@@ -427,37 +494,78 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         :param str rdb_storage_connection_string: The storage account connection string for storing rdb file
         :param str storage_subscription_id: SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
         """
-        pulumi.set(__self__, "maxclients", maxclients)
-        pulumi.set(__self__, "preferred_data_archive_auth_method", preferred_data_archive_auth_method)
-        pulumi.set(__self__, "zonal_configuration", zonal_configuration)
+        RedisCommonPropertiesResponseRedisConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maxclients=maxclients,
+            preferred_data_archive_auth_method=preferred_data_archive_auth_method,
+            zonal_configuration=zonal_configuration,
+            aof_backup_enabled=aof_backup_enabled,
+            aof_storage_connection_string0=aof_storage_connection_string0,
+            aof_storage_connection_string1=aof_storage_connection_string1,
+            authnotrequired=authnotrequired,
+            maxfragmentationmemory_reserved=maxfragmentationmemory_reserved,
+            maxmemory_delta=maxmemory_delta,
+            maxmemory_policy=maxmemory_policy,
+            maxmemory_reserved=maxmemory_reserved,
+            preferred_data_persistence_auth_method=preferred_data_persistence_auth_method,
+            rdb_backup_enabled=rdb_backup_enabled,
+            rdb_backup_frequency=rdb_backup_frequency,
+            rdb_backup_max_snapshot_count=rdb_backup_max_snapshot_count,
+            rdb_storage_connection_string=rdb_storage_connection_string,
+            storage_subscription_id=storage_subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maxclients: str,
+             preferred_data_archive_auth_method: str,
+             zonal_configuration: str,
+             aof_backup_enabled: Optional[str] = None,
+             aof_storage_connection_string0: Optional[str] = None,
+             aof_storage_connection_string1: Optional[str] = None,
+             authnotrequired: Optional[str] = None,
+             maxfragmentationmemory_reserved: Optional[str] = None,
+             maxmemory_delta: Optional[str] = None,
+             maxmemory_policy: Optional[str] = None,
+             maxmemory_reserved: Optional[str] = None,
+             preferred_data_persistence_auth_method: Optional[str] = None,
+             rdb_backup_enabled: Optional[str] = None,
+             rdb_backup_frequency: Optional[str] = None,
+             rdb_backup_max_snapshot_count: Optional[str] = None,
+             rdb_storage_connection_string: Optional[str] = None,
+             storage_subscription_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maxclients", maxclients)
+        _setter("preferred_data_archive_auth_method", preferred_data_archive_auth_method)
+        _setter("zonal_configuration", zonal_configuration)
         if aof_backup_enabled is not None:
-            pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
+            _setter("aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
-            pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
+            _setter("aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
-            pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+            _setter("aof_storage_connection_string1", aof_storage_connection_string1)
         if authnotrequired is not None:
-            pulumi.set(__self__, "authnotrequired", authnotrequired)
+            _setter("authnotrequired", authnotrequired)
         if maxfragmentationmemory_reserved is not None:
-            pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
+            _setter("maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
         if maxmemory_delta is not None:
-            pulumi.set(__self__, "maxmemory_delta", maxmemory_delta)
+            _setter("maxmemory_delta", maxmemory_delta)
         if maxmemory_policy is not None:
-            pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
+            _setter("maxmemory_policy", maxmemory_policy)
         if maxmemory_reserved is not None:
-            pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+            _setter("maxmemory_reserved", maxmemory_reserved)
         if preferred_data_persistence_auth_method is not None:
-            pulumi.set(__self__, "preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
+            _setter("preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
         if rdb_backup_enabled is not None:
-            pulumi.set(__self__, "rdb_backup_enabled", rdb_backup_enabled)
+            _setter("rdb_backup_enabled", rdb_backup_enabled)
         if rdb_backup_frequency is not None:
-            pulumi.set(__self__, "rdb_backup_frequency", rdb_backup_frequency)
+            _setter("rdb_backup_frequency", rdb_backup_frequency)
         if rdb_backup_max_snapshot_count is not None:
-            pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
+            _setter("rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
-            pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+            _setter("rdb_storage_connection_string", rdb_storage_connection_string)
         if storage_subscription_id is not None:
-            pulumi.set(__self__, "storage_subscription_id", storage_subscription_id)
+            _setter("storage_subscription_id", storage_subscription_id)
 
     @property
     @pulumi.getter
@@ -642,12 +750,31 @@ class RedisInstanceDetailsResponse(dict):
         :param int ssl_port: Redis instance SSL port.
         :param str zone: If the Cache uses availability zones, specifies availability zone where this instance is located.
         """
-        pulumi.set(__self__, "is_master", is_master)
-        pulumi.set(__self__, "is_primary", is_primary)
-        pulumi.set(__self__, "non_ssl_port", non_ssl_port)
-        pulumi.set(__self__, "shard_id", shard_id)
-        pulumi.set(__self__, "ssl_port", ssl_port)
-        pulumi.set(__self__, "zone", zone)
+        RedisInstanceDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_master=is_master,
+            is_primary=is_primary,
+            non_ssl_port=non_ssl_port,
+            shard_id=shard_id,
+            ssl_port=ssl_port,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_master: bool,
+             is_primary: bool,
+             non_ssl_port: int,
+             shard_id: int,
+             ssl_port: int,
+             zone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_master", is_master)
+        _setter("is_primary", is_primary)
+        _setter("non_ssl_port", non_ssl_port)
+        _setter("shard_id", shard_id)
+        _setter("ssl_port", ssl_port)
+        _setter("zone", zone)
 
     @property
     @pulumi.getter(name="isMaster")
@@ -709,7 +836,16 @@ class RedisLinkedServerResponse(dict):
         Linked server Id
         :param str id: Linked server Id.
         """
-        pulumi.set(__self__, "id", id)
+        RedisLinkedServerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -756,10 +892,23 @@ class ScheduleEntryResponse(dict):
         :param int start_hour_utc: Start hour after which cache patching can start.
         :param str maintenance_window: ISO8601 timespan specifying how much time cache patching can take. 
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "start_hour_utc", start_hour_utc)
+        ScheduleEntryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            start_hour_utc=start_hour_utc,
+            maintenance_window=maintenance_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: str,
+             start_hour_utc: int,
+             maintenance_window: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("day_of_week", day_of_week)
+        _setter("start_hour_utc", start_hour_utc)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -801,9 +950,22 @@ class SkuResponse(dict):
         :param str family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
         :param str name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "family", family)
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            family=family,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: int,
+             family: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("family", family)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -862,8 +1024,19 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

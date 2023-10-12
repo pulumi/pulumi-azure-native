@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -80,65 +80,132 @@ class VirtualMachineArgs:
         :param pulumi.Input[str] vm_name: The name of the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine zones.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            additional_capabilities=additional_capabilities,
+            application_profile=application_profile,
+            availability_set=availability_set,
+            billing_profile=billing_profile,
+            capacity_reservation=capacity_reservation,
+            diagnostics_profile=diagnostics_profile,
+            eviction_policy=eviction_policy,
+            extended_location=extended_location,
+            extensions_time_budget=extensions_time_budget,
+            hardware_profile=hardware_profile,
+            host=host,
+            host_group=host_group,
+            identity=identity,
+            license_type=license_type,
+            location=location,
+            network_profile=network_profile,
+            os_profile=os_profile,
+            plan=plan,
+            platform_fault_domain=platform_fault_domain,
+            priority=priority,
+            proximity_placement_group=proximity_placement_group,
+            scheduled_events_profile=scheduled_events_profile,
+            security_profile=security_profile,
+            storage_profile=storage_profile,
+            tags=tags,
+            user_data=user_data,
+            virtual_machine_scale_set=virtual_machine_scale_set,
+            vm_name=vm_name,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             additional_capabilities: Optional[pulumi.Input['AdditionalCapabilitiesArgs']] = None,
+             application_profile: Optional[pulumi.Input['ApplicationProfileArgs']] = None,
+             availability_set: Optional[pulumi.Input['SubResourceArgs']] = None,
+             billing_profile: Optional[pulumi.Input['BillingProfileArgs']] = None,
+             capacity_reservation: Optional[pulumi.Input['CapacityReservationProfileArgs']] = None,
+             diagnostics_profile: Optional[pulumi.Input['DiagnosticsProfileArgs']] = None,
+             eviction_policy: Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             extensions_time_budget: Optional[pulumi.Input[str]] = None,
+             hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
+             host: Optional[pulumi.Input['SubResourceArgs']] = None,
+             host_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+             identity: Optional[pulumi.Input['VirtualMachineIdentityArgs']] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
+             plan: Optional[pulumi.Input['PlanArgs']] = None,
+             platform_fault_domain: Optional[pulumi.Input[int]] = None,
+             priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
+             proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+             scheduled_events_profile: Optional[pulumi.Input['ScheduledEventsProfileArgs']] = None,
+             security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             virtual_machine_scale_set: Optional[pulumi.Input['SubResourceArgs']] = None,
+             vm_name: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if additional_capabilities is not None:
-            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+            _setter("additional_capabilities", additional_capabilities)
         if application_profile is not None:
-            pulumi.set(__self__, "application_profile", application_profile)
+            _setter("application_profile", application_profile)
         if availability_set is not None:
-            pulumi.set(__self__, "availability_set", availability_set)
+            _setter("availability_set", availability_set)
         if billing_profile is not None:
-            pulumi.set(__self__, "billing_profile", billing_profile)
+            _setter("billing_profile", billing_profile)
         if capacity_reservation is not None:
-            pulumi.set(__self__, "capacity_reservation", capacity_reservation)
+            _setter("capacity_reservation", capacity_reservation)
         if diagnostics_profile is not None:
-            pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
+            _setter("diagnostics_profile", diagnostics_profile)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if extensions_time_budget is not None:
-            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+            _setter("extensions_time_budget", extensions_time_budget)
         if hardware_profile is not None:
-            pulumi.set(__self__, "hardware_profile", hardware_profile)
+            _setter("hardware_profile", hardware_profile)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if host_group is not None:
-            pulumi.set(__self__, "host_group", host_group)
+            _setter("host_group", host_group)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if platform_fault_domain is not None:
-            pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
+            _setter("platform_fault_domain", platform_fault_domain)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if proximity_placement_group is not None:
-            pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+            _setter("proximity_placement_group", proximity_placement_group)
         if scheduled_events_profile is not None:
-            pulumi.set(__self__, "scheduled_events_profile", scheduled_events_profile)
+            _setter("scheduled_events_profile", scheduled_events_profile)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if virtual_machine_scale_set is not None:
-            pulumi.set(__self__, "virtual_machine_scale_set", virtual_machine_scale_set)
+            _setter("virtual_machine_scale_set", virtual_machine_scale_set)
         if vm_name is not None:
-            pulumi.set(__self__, "vm_name", vm_name)
+            _setter("vm_name", vm_name)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -594,6 +661,10 @@ class VirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -638,35 +709,130 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineArgs.__new__(VirtualMachineArgs)
 
+            if additional_capabilities is not None and not isinstance(additional_capabilities, AdditionalCapabilitiesArgs):
+                additional_capabilities = additional_capabilities or {}
+                def _setter(key, value):
+                    additional_capabilities[key] = value
+                AdditionalCapabilitiesArgs._configure(_setter, **additional_capabilities)
             __props__.__dict__["additional_capabilities"] = additional_capabilities
+            if application_profile is not None and not isinstance(application_profile, ApplicationProfileArgs):
+                application_profile = application_profile or {}
+                def _setter(key, value):
+                    application_profile[key] = value
+                ApplicationProfileArgs._configure(_setter, **application_profile)
             __props__.__dict__["application_profile"] = application_profile
+            if availability_set is not None and not isinstance(availability_set, SubResourceArgs):
+                availability_set = availability_set or {}
+                def _setter(key, value):
+                    availability_set[key] = value
+                SubResourceArgs._configure(_setter, **availability_set)
             __props__.__dict__["availability_set"] = availability_set
+            if billing_profile is not None and not isinstance(billing_profile, BillingProfileArgs):
+                billing_profile = billing_profile or {}
+                def _setter(key, value):
+                    billing_profile[key] = value
+                BillingProfileArgs._configure(_setter, **billing_profile)
             __props__.__dict__["billing_profile"] = billing_profile
+            if capacity_reservation is not None and not isinstance(capacity_reservation, CapacityReservationProfileArgs):
+                capacity_reservation = capacity_reservation or {}
+                def _setter(key, value):
+                    capacity_reservation[key] = value
+                CapacityReservationProfileArgs._configure(_setter, **capacity_reservation)
             __props__.__dict__["capacity_reservation"] = capacity_reservation
+            if diagnostics_profile is not None and not isinstance(diagnostics_profile, DiagnosticsProfileArgs):
+                diagnostics_profile = diagnostics_profile or {}
+                def _setter(key, value):
+                    diagnostics_profile[key] = value
+                DiagnosticsProfileArgs._configure(_setter, **diagnostics_profile)
             __props__.__dict__["diagnostics_profile"] = diagnostics_profile
             __props__.__dict__["eviction_policy"] = eviction_policy
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+            if hardware_profile is not None and not isinstance(hardware_profile, HardwareProfileArgs):
+                hardware_profile = hardware_profile or {}
+                def _setter(key, value):
+                    hardware_profile[key] = value
+                HardwareProfileArgs._configure(_setter, **hardware_profile)
             __props__.__dict__["hardware_profile"] = hardware_profile
+            if host is not None and not isinstance(host, SubResourceArgs):
+                host = host or {}
+                def _setter(key, value):
+                    host[key] = value
+                SubResourceArgs._configure(_setter, **host)
             __props__.__dict__["host"] = host
+            if host_group is not None and not isinstance(host_group, SubResourceArgs):
+                host_group = host_group or {}
+                def _setter(key, value):
+                    host_group[key] = value
+                SubResourceArgs._configure(_setter, **host_group)
             __props__.__dict__["host_group"] = host_group
+            if identity is not None and not isinstance(identity, VirtualMachineIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                VirtualMachineIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
+            if network_profile is not None and not isinstance(network_profile, NetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                NetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
+            if os_profile is not None and not isinstance(os_profile, OSProfileArgs):
+                os_profile = os_profile or {}
+                def _setter(key, value):
+                    os_profile[key] = value
+                OSProfileArgs._configure(_setter, **os_profile)
             __props__.__dict__["os_profile"] = os_profile
+            if plan is not None and not isinstance(plan, PlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                PlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["platform_fault_domain"] = platform_fault_domain
             __props__.__dict__["priority"] = priority
+            if proximity_placement_group is not None and not isinstance(proximity_placement_group, SubResourceArgs):
+                proximity_placement_group = proximity_placement_group or {}
+                def _setter(key, value):
+                    proximity_placement_group[key] = value
+                SubResourceArgs._configure(_setter, **proximity_placement_group)
             __props__.__dict__["proximity_placement_group"] = proximity_placement_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if scheduled_events_profile is not None and not isinstance(scheduled_events_profile, ScheduledEventsProfileArgs):
+                scheduled_events_profile = scheduled_events_profile or {}
+                def _setter(key, value):
+                    scheduled_events_profile[key] = value
+                ScheduledEventsProfileArgs._configure(_setter, **scheduled_events_profile)
             __props__.__dict__["scheduled_events_profile"] = scheduled_events_profile
+            if security_profile is not None and not isinstance(security_profile, SecurityProfileArgs):
+                security_profile = security_profile or {}
+                def _setter(key, value):
+                    security_profile[key] = value
+                SecurityProfileArgs._configure(_setter, **security_profile)
             __props__.__dict__["security_profile"] = security_profile
+            if storage_profile is not None and not isinstance(storage_profile, StorageProfileArgs):
+                storage_profile = storage_profile or {}
+                def _setter(key, value):
+                    storage_profile[key] = value
+                StorageProfileArgs._configure(_setter, **storage_profile)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_data"] = user_data
+            if virtual_machine_scale_set is not None and not isinstance(virtual_machine_scale_set, SubResourceArgs):
+                virtual_machine_scale_set = virtual_machine_scale_set or {}
+                def _setter(key, value):
+                    virtual_machine_scale_set[key] = value
+                SubResourceArgs._configure(_setter, **virtual_machine_scale_set)
             __props__.__dict__["virtual_machine_scale_set"] = virtual_machine_scale_set
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["zones"] = zones

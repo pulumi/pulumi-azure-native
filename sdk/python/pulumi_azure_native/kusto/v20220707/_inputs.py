@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,8 +28,17 @@ class AcceptedAudiencesArgs:
         Represents an accepted audience trusted by the cluster.
         :param pulumi.Input[str] value: GUID or valid URL representing an accepted audience.
         """
+        AcceptedAudiencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -56,10 +65,23 @@ class AzureSkuArgs:
         :param pulumi.Input[Union[str, 'AzureSkuTier']] tier: SKU tier.
         :param pulumi.Input[int] capacity: The number of instances of the cluster.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        AzureSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'AzureSkuName']],
+             tier: pulumi.Input[Union[str, 'AzureSkuTier']],
+             capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("tier", tier)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -108,9 +130,20 @@ class IdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "type", type)
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'IdentityType']],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -151,14 +184,29 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_version: The version of the key vault key.
         :param pulumi.Input[str] user_identity: The user assigned identity (ARM resource id) that has access to the key.
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+            user_identity=user_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             user_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
         if user_identity is not None:
-            pulumi.set(__self__, "user_identity", user_identity)
+            _setter("user_identity", user_identity)
 
     @property
     @pulumi.getter(name="keyName")
@@ -223,10 +271,25 @@ class OptimizedAutoscaleArgs:
         :param pulumi.Input[int] minimum: Minimum allowed instances count.
         :param pulumi.Input[int] version: The version of the template defined, for instance 1.
         """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "maximum", maximum)
-        pulumi.set(__self__, "minimum", minimum)
-        pulumi.set(__self__, "version", version)
+        OptimizedAutoscaleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_enabled=is_enabled,
+            maximum=maximum,
+            minimum=minimum,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_enabled: pulumi.Input[bool],
+             maximum: pulumi.Input[int],
+             minimum: pulumi.Input[int],
+             version: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_enabled", is_enabled)
+        _setter("maximum", maximum)
+        _setter("minimum", minimum)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -285,8 +348,17 @@ class TrustedExternalTenantArgs:
         Represents a tenant ID that is trusted by the cluster.
         :param pulumi.Input[str] value: GUID representing an external tenant.
         """
+        TrustedExternalTenantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -313,9 +385,22 @@ class VirtualNetworkConfigurationArgs:
         :param pulumi.Input[str] engine_public_ip_id: Engine service's public IP address resource id.
         :param pulumi.Input[str] subnet_id: The subnet resource id.
         """
-        pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
-        pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        VirtualNetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_management_public_ip_id=data_management_public_ip_id,
+            engine_public_ip_id=engine_public_ip_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_management_public_ip_id: pulumi.Input[str],
+             engine_public_ip_id: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_management_public_ip_id", data_management_public_ip_id)
+        _setter("engine_public_ip_id", engine_public_ip_id)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="dataManagementPublicIpId")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,10 +26,21 @@ class AttestationEvidenceArgs:
         :param pulumi.Input[str] description: The description for this piece of evidence.
         :param pulumi.Input[str] source_uri: The URI location of the evidence.
         """
+        AttestationEvidenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            source_uri=source_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             source_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if source_uri is not None:
-            pulumi.set(__self__, "source_uri", source_uri)
+            _setter("source_uri", source_uri)
 
     @property
     @pulumi.getter
@@ -64,8 +75,17 @@ class RemediationFiltersArgs:
         The filters that will be applied to determine which resources to remediate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: The resource locations that will be remediated.
         """
+        RemediationFiltersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
 
     @property
     @pulumi.getter
@@ -88,8 +108,17 @@ class RemediationPropertiesFailureThresholdArgs:
         The remediation failure threshold settings
         :param pulumi.Input[float] percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         """
+        RemediationPropertiesFailureThresholdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            percentage=percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             percentage: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if percentage is not None:
-            pulumi.set(__self__, "percentage", percentage)
+            _setter("percentage", percentage)
 
     @property
     @pulumi.getter

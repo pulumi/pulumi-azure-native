@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -56,40 +56,83 @@ class VirtualNetworkPeeringInitArgs:
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] virtual_network_peering_name: The name of the peering.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+        VirtualNetworkPeeringInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_network_name=virtual_network_name,
+            allow_forwarded_traffic=allow_forwarded_traffic,
+            allow_gateway_transit=allow_gateway_transit,
+            allow_virtual_network_access=allow_virtual_network_access,
+            do_not_verify_remote_gateways=do_not_verify_remote_gateways,
+            id=id,
+            name=name,
+            peering_state=peering_state,
+            peering_sync_level=peering_sync_level,
+            remote_address_space=remote_address_space,
+            remote_bgp_communities=remote_bgp_communities,
+            remote_virtual_network=remote_virtual_network,
+            remote_virtual_network_address_space=remote_virtual_network_address_space,
+            sync_remote_address_space=sync_remote_address_space,
+            type=type,
+            use_remote_gateways=use_remote_gateways,
+            virtual_network_peering_name=virtual_network_peering_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_network_name: pulumi.Input[str],
+             allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
+             allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
+             allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+             do_not_verify_remote_gateways: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             peering_state: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringState']]] = None,
+             peering_sync_level: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringLevel']]] = None,
+             remote_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             remote_bgp_communities: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']] = None,
+             remote_virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
+             remote_virtual_network_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             sync_remote_address_space: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             use_remote_gateways: Optional[pulumi.Input[bool]] = None,
+             virtual_network_peering_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_network_name", virtual_network_name)
         if allow_forwarded_traffic is not None:
-            pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
+            _setter("allow_forwarded_traffic", allow_forwarded_traffic)
         if allow_gateway_transit is not None:
-            pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
+            _setter("allow_gateway_transit", allow_gateway_transit)
         if allow_virtual_network_access is not None:
-            pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+            _setter("allow_virtual_network_access", allow_virtual_network_access)
         if do_not_verify_remote_gateways is not None:
-            pulumi.set(__self__, "do_not_verify_remote_gateways", do_not_verify_remote_gateways)
+            _setter("do_not_verify_remote_gateways", do_not_verify_remote_gateways)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peering_state is not None:
-            pulumi.set(__self__, "peering_state", peering_state)
+            _setter("peering_state", peering_state)
         if peering_sync_level is not None:
-            pulumi.set(__self__, "peering_sync_level", peering_sync_level)
+            _setter("peering_sync_level", peering_sync_level)
         if remote_address_space is not None:
-            pulumi.set(__self__, "remote_address_space", remote_address_space)
+            _setter("remote_address_space", remote_address_space)
         if remote_bgp_communities is not None:
-            pulumi.set(__self__, "remote_bgp_communities", remote_bgp_communities)
+            _setter("remote_bgp_communities", remote_bgp_communities)
         if remote_virtual_network is not None:
-            pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+            _setter("remote_virtual_network", remote_virtual_network)
         if remote_virtual_network_address_space is not None:
-            pulumi.set(__self__, "remote_virtual_network_address_space", remote_virtual_network_address_space)
+            _setter("remote_virtual_network_address_space", remote_virtual_network_address_space)
         if sync_remote_address_space is not None:
-            pulumi.set(__self__, "sync_remote_address_space", sync_remote_address_space)
+            _setter("sync_remote_address_space", sync_remote_address_space)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if use_remote_gateways is not None:
-            pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
+            _setter("use_remote_gateways", use_remote_gateways)
         if virtual_network_peering_name is not None:
-            pulumi.set(__self__, "virtual_network_peering_name", virtual_network_peering_name)
+            _setter("virtual_network_peering_name", virtual_network_peering_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -377,6 +420,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkPeeringInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -417,9 +464,29 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["peering_state"] = peering_state
             __props__.__dict__["peering_sync_level"] = peering_sync_level
+            if remote_address_space is not None and not isinstance(remote_address_space, AddressSpaceArgs):
+                remote_address_space = remote_address_space or {}
+                def _setter(key, value):
+                    remote_address_space[key] = value
+                AddressSpaceArgs._configure(_setter, **remote_address_space)
             __props__.__dict__["remote_address_space"] = remote_address_space
+            if remote_bgp_communities is not None and not isinstance(remote_bgp_communities, VirtualNetworkBgpCommunitiesArgs):
+                remote_bgp_communities = remote_bgp_communities or {}
+                def _setter(key, value):
+                    remote_bgp_communities[key] = value
+                VirtualNetworkBgpCommunitiesArgs._configure(_setter, **remote_bgp_communities)
             __props__.__dict__["remote_bgp_communities"] = remote_bgp_communities
+            if remote_virtual_network is not None and not isinstance(remote_virtual_network, SubResourceArgs):
+                remote_virtual_network = remote_virtual_network or {}
+                def _setter(key, value):
+                    remote_virtual_network[key] = value
+                SubResourceArgs._configure(_setter, **remote_virtual_network)
             __props__.__dict__["remote_virtual_network"] = remote_virtual_network
+            if remote_virtual_network_address_space is not None and not isinstance(remote_virtual_network_address_space, AddressSpaceArgs):
+                remote_virtual_network_address_space = remote_virtual_network_address_space or {}
+                def _setter(key, value):
+                    remote_virtual_network_address_space[key] = value
+                AddressSpaceArgs._configure(_setter, **remote_virtual_network_address_space)
             __props__.__dict__["remote_virtual_network_address_space"] = remote_virtual_network_address_space
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,33 @@ class UserRuleCollectionArgs:
         :param pulumi.Input[str] description: A description of the user rule collection.
         :param pulumi.Input[str] rule_collection_name: The name of the network manager security Configuration rule collection.
         """
-        pulumi.set(__self__, "applies_to_groups", applies_to_groups)
-        pulumi.set(__self__, "configuration_name", configuration_name)
-        pulumi.set(__self__, "network_manager_name", network_manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        UserRuleCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applies_to_groups=applies_to_groups,
+            configuration_name=configuration_name,
+            network_manager_name=network_manager_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            rule_collection_name=rule_collection_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applies_to_groups: pulumi.Input[Sequence[pulumi.Input['NetworkManagerSecurityGroupItemArgs']]],
+             configuration_name: pulumi.Input[str],
+             network_manager_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             rule_collection_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("applies_to_groups", applies_to_groups)
+        _setter("configuration_name", configuration_name)
+        _setter("network_manager_name", network_manager_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if rule_collection_name is not None:
-            pulumi.set(__self__, "rule_collection_name", rule_collection_name)
+            _setter("rule_collection_name", rule_collection_name)
 
     @property
     @pulumi.getter(name="appliesToGroups")
@@ -158,6 +177,10 @@ class UserRuleCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserRuleCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

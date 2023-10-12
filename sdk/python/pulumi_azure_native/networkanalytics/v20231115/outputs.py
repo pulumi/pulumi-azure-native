@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -71,12 +71,31 @@ class ConsumptionEndpointsPropertiesResponse(dict):
         :param str query_resource_id: Resource Id of query endpoint.
         :param str query_url: Url to consume the processed data.
         """
-        pulumi.set(__self__, "file_access_resource_id", file_access_resource_id)
-        pulumi.set(__self__, "file_access_url", file_access_url)
-        pulumi.set(__self__, "ingestion_resource_id", ingestion_resource_id)
-        pulumi.set(__self__, "ingestion_url", ingestion_url)
-        pulumi.set(__self__, "query_resource_id", query_resource_id)
-        pulumi.set(__self__, "query_url", query_url)
+        ConsumptionEndpointsPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_access_resource_id=file_access_resource_id,
+            file_access_url=file_access_url,
+            ingestion_resource_id=ingestion_resource_id,
+            ingestion_url=ingestion_url,
+            query_resource_id=query_resource_id,
+            query_url=query_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_access_resource_id: str,
+             file_access_url: str,
+             ingestion_resource_id: str,
+             ingestion_url: str,
+             query_resource_id: str,
+             query_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("file_access_resource_id", file_access_resource_id)
+        _setter("file_access_url", file_access_url)
+        _setter("ingestion_resource_id", ingestion_resource_id)
+        _setter("ingestion_url", ingestion_url)
+        _setter("query_resource_id", query_resource_id)
+        _setter("query_url", query_url)
 
     @property
     @pulumi.getter(name="fileAccessResourceId")
@@ -167,10 +186,25 @@ class DataProductNetworkAclsResponse(dict):
         :param Sequence['IPRulesResponse'] ip_rules: IP rule with specific IP or IP range in CIDR format.
         :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rule: Virtual Network Rule
         """
-        pulumi.set(__self__, "allowed_query_ip_range_list", allowed_query_ip_range_list)
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "ip_rules", ip_rules)
-        pulumi.set(__self__, "virtual_network_rule", virtual_network_rule)
+        DataProductNetworkAclsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_query_ip_range_list=allowed_query_ip_range_list,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_rule=virtual_network_rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_query_ip_range_list: Sequence[str],
+             default_action: str,
+             ip_rules: Sequence['outputs.IPRulesResponse'],
+             virtual_network_rule: Sequence['outputs.VirtualNetworkRuleResponse'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_query_ip_range_list", allowed_query_ip_range_list)
+        _setter("default_action", default_action)
+        _setter("ip_rules", ip_rules)
+        _setter("virtual_network_rule", virtual_network_rule)
 
     @property
     @pulumi.getter(name="allowedQueryIpRangeList")
@@ -241,9 +275,22 @@ class EncryptionKeyDetailsResponse(dict):
         :param str key_vault_uri: The Uri of the key vault.
         :param str key_version: The version of the key vault key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "key_version", key_version)
+        EncryptionKeyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: str,
+             key_vault_uri: str,
+             key_version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -283,9 +330,20 @@ class IPRulesResponse(dict):
         :param str action: The action of virtual network rule.
         :param str value: IP Rules Value
         """
-        pulumi.set(__self__, "action", action)
+        IPRulesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -342,11 +400,26 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -404,13 +477,34 @@ class RoleAssignmentDetailResponse(dict):
         :param str role_id: Role Id of the Built-In Role
         :param str user_name: User name.
         """
-        pulumi.set(__self__, "data_type_scope", data_type_scope)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "principal_type", principal_type)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "role_assignment_id", role_assignment_id)
-        pulumi.set(__self__, "role_id", role_id)
-        pulumi.set(__self__, "user_name", user_name)
+        RoleAssignmentDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type_scope=data_type_scope,
+            principal_id=principal_id,
+            principal_type=principal_type,
+            role=role,
+            role_assignment_id=role_assignment_id,
+            role_id=role_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type_scope: Sequence[str],
+             principal_id: str,
+             principal_type: str,
+             role: str,
+             role_assignment_id: str,
+             role_id: str,
+             user_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_type_scope", data_type_scope)
+        _setter("principal_id", principal_id)
+        _setter("principal_type", principal_type)
+        _setter("role", role)
+        _setter("role_assignment_id", role_assignment_id)
+        _setter("role_id", role_id)
+        _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataTypeScope")
@@ -517,18 +611,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -611,8 +724,19 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -646,11 +770,24 @@ class VirtualNetworkRuleResponse(dict):
         :param str action: The action of virtual network rule.
         :param str state: Gets the state of virtual network rule.
         """
-        pulumi.set(__self__, "id", id)
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            action=action,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             action: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter

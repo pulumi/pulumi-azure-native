@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,42 +58,87 @@ class VirtualMachineScaleSetVMArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
+        VirtualMachineScaleSetVMArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            vm_scale_set_name=vm_scale_set_name,
+            additional_capabilities=additional_capabilities,
+            availability_set=availability_set,
+            diagnostics_profile=diagnostics_profile,
+            hardware_profile=hardware_profile,
+            identity=identity,
+            instance_id=instance_id,
+            license_type=license_type,
+            location=location,
+            network_profile=network_profile,
+            network_profile_configuration=network_profile_configuration,
+            os_profile=os_profile,
+            plan=plan,
+            protection_policy=protection_policy,
+            security_profile=security_profile,
+            storage_profile=storage_profile,
+            tags=tags,
+            user_data=user_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             vm_scale_set_name: pulumi.Input[str],
+             additional_capabilities: Optional[pulumi.Input['AdditionalCapabilitiesArgs']] = None,
+             availability_set: Optional[pulumi.Input['SubResourceArgs']] = None,
+             diagnostics_profile: Optional[pulumi.Input['DiagnosticsProfileArgs']] = None,
+             hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
+             identity: Optional[pulumi.Input['VirtualMachineIdentityArgs']] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             network_profile_configuration: Optional[pulumi.Input['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs']] = None,
+             os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
+             plan: Optional[pulumi.Input['PlanArgs']] = None,
+             protection_policy: Optional[pulumi.Input['VirtualMachineScaleSetVMProtectionPolicyArgs']] = None,
+             security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("vm_scale_set_name", vm_scale_set_name)
         if additional_capabilities is not None:
-            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+            _setter("additional_capabilities", additional_capabilities)
         if availability_set is not None:
-            pulumi.set(__self__, "availability_set", availability_set)
+            _setter("availability_set", availability_set)
         if diagnostics_profile is not None:
-            pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
+            _setter("diagnostics_profile", diagnostics_profile)
         if hardware_profile is not None:
-            pulumi.set(__self__, "hardware_profile", hardware_profile)
+            _setter("hardware_profile", hardware_profile)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if network_profile_configuration is not None:
-            pulumi.set(__self__, "network_profile_configuration", network_profile_configuration)
+            _setter("network_profile_configuration", network_profile_configuration)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if protection_policy is not None:
-            pulumi.set(__self__, "protection_policy", protection_policy)
+            _setter("protection_policy", protection_policy)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -393,6 +438,10 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineScaleSetVMArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -426,23 +475,83 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineScaleSetVMArgs.__new__(VirtualMachineScaleSetVMArgs)
 
+            if additional_capabilities is not None and not isinstance(additional_capabilities, AdditionalCapabilitiesArgs):
+                additional_capabilities = additional_capabilities or {}
+                def _setter(key, value):
+                    additional_capabilities[key] = value
+                AdditionalCapabilitiesArgs._configure(_setter, **additional_capabilities)
             __props__.__dict__["additional_capabilities"] = additional_capabilities
+            if availability_set is not None and not isinstance(availability_set, SubResourceArgs):
+                availability_set = availability_set or {}
+                def _setter(key, value):
+                    availability_set[key] = value
+                SubResourceArgs._configure(_setter, **availability_set)
             __props__.__dict__["availability_set"] = availability_set
+            if diagnostics_profile is not None and not isinstance(diagnostics_profile, DiagnosticsProfileArgs):
+                diagnostics_profile = diagnostics_profile or {}
+                def _setter(key, value):
+                    diagnostics_profile[key] = value
+                DiagnosticsProfileArgs._configure(_setter, **diagnostics_profile)
             __props__.__dict__["diagnostics_profile"] = diagnostics_profile
+            if hardware_profile is not None and not isinstance(hardware_profile, HardwareProfileArgs):
+                hardware_profile = hardware_profile or {}
+                def _setter(key, value):
+                    hardware_profile[key] = value
+                HardwareProfileArgs._configure(_setter, **hardware_profile)
             __props__.__dict__["hardware_profile"] = hardware_profile
+            if identity is not None and not isinstance(identity, VirtualMachineIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                VirtualMachineIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
+            if network_profile is not None and not isinstance(network_profile, NetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                NetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
+            if network_profile_configuration is not None and not isinstance(network_profile_configuration, VirtualMachineScaleSetVMNetworkProfileConfigurationArgs):
+                network_profile_configuration = network_profile_configuration or {}
+                def _setter(key, value):
+                    network_profile_configuration[key] = value
+                VirtualMachineScaleSetVMNetworkProfileConfigurationArgs._configure(_setter, **network_profile_configuration)
             __props__.__dict__["network_profile_configuration"] = network_profile_configuration
+            if os_profile is not None and not isinstance(os_profile, OSProfileArgs):
+                os_profile = os_profile or {}
+                def _setter(key, value):
+                    os_profile[key] = value
+                OSProfileArgs._configure(_setter, **os_profile)
             __props__.__dict__["os_profile"] = os_profile
+            if plan is not None and not isinstance(plan, PlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                PlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
+            if protection_policy is not None and not isinstance(protection_policy, VirtualMachineScaleSetVMProtectionPolicyArgs):
+                protection_policy = protection_policy or {}
+                def _setter(key, value):
+                    protection_policy[key] = value
+                VirtualMachineScaleSetVMProtectionPolicyArgs._configure(_setter, **protection_policy)
             __props__.__dict__["protection_policy"] = protection_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if security_profile is not None and not isinstance(security_profile, SecurityProfileArgs):
+                security_profile = security_profile or {}
+                def _setter(key, value):
+                    security_profile[key] = value
+                SecurityProfileArgs._configure(_setter, **security_profile)
             __props__.__dict__["security_profile"] = security_profile
+            if storage_profile is not None and not isinstance(storage_profile, StorageProfileArgs):
+                storage_profile = storage_profile or {}
+                def _setter(key, value):
+                    storage_profile[key] = value
+                StorageProfileArgs._configure(_setter, **storage_profile)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_data"] = user_data

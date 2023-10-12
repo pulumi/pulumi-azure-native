@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,8 +28,17 @@ class PrivateEndpointPropertyResponse(dict):
         """
         :param str id: Resource id of the private endpoint.
         """
+        PrivateEndpointPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -74,10 +83,23 @@ class ResourceIdentityResponse(dict):
         :param str tenant_id: The Azure Active Directory tenant id.
         :param str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ResourceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -140,11 +162,24 @@ class ServerPrivateEndpointConnectionPropertiesResponse(dict):
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'ServerPrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ServerPrivateEndpointConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: str,
+             private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provisioning_state", provisioning_state)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -184,8 +219,19 @@ class ServerPrivateEndpointConnectionResponse(dict):
         :param str id: Resource Id of the private endpoint connection.
         :param 'ServerPrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "properties", properties)
+        ServerPrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             properties: 'outputs.ServerPrivateEndpointConnectionPropertiesResponse',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -232,9 +278,22 @@ class ServerPrivateLinkServiceConnectionStatePropertyResponse(dict):
         :param str description: The private link service connection description.
         :param str status: The private link service connection status.
         """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        ServerPrivateLinkServiceConnectionStatePropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: str,
+             description: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions_required", actions_required)
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -280,15 +339,32 @@ class SkuResponse(dict):
         :param str size: The size code, to be interpreted by resource as appropriate.
         :param str tier: The tier of the particular SKU, e.g. Basic.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             size: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -371,14 +447,29 @@ class StorageProfileResponse(dict):
         :param str storage_autogrow: Enable Storage Auto Grow.
         :param int storage_mb: Max storage allowed for a server.
         """
+        StorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_retention_days=backup_retention_days,
+            geo_redundant_backup=geo_redundant_backup,
+            storage_autogrow=storage_autogrow,
+            storage_mb=storage_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_retention_days: Optional[int] = None,
+             geo_redundant_backup: Optional[str] = None,
+             storage_autogrow: Optional[str] = None,
+             storage_mb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if geo_redundant_backup is not None:
-            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
+            _setter("geo_redundant_backup", geo_redundant_backup)
         if storage_autogrow is not None:
-            pulumi.set(__self__, "storage_autogrow", storage_autogrow)
+            _setter("storage_autogrow", storage_autogrow)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
 
     @property
     @pulumi.getter(name="backupRetentionDays")

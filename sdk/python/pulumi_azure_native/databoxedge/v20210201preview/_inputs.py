@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,10 +28,23 @@ class AsymmetricEncryptedSecretArgs:
         :param pulumi.Input[str] value: The value of the secret.
         :param pulumi.Input[str] encryption_cert_thumbprint: Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
         """
-        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
-        pulumi.set(__self__, "value", value)
+        AsymmetricEncryptedSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_algorithm=encryption_algorithm,
+            value=value,
+            encryption_cert_thumbprint=encryption_cert_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_algorithm: pulumi.Input[Union[str, 'EncryptionAlgorithm']],
+             value: pulumi.Input[str],
+             encryption_cert_thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("encryption_algorithm", encryption_algorithm)
+        _setter("value", value)
         if encryption_cert_thumbprint is not None:
-            pulumi.set(__self__, "encryption_cert_thumbprint", encryption_cert_thumbprint)
+            _setter("encryption_cert_thumbprint", encryption_cert_thumbprint)
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
@@ -78,8 +91,17 @@ class ResourceIdentityArgs:
         Msi identity details of the resource
         :param pulumi.Input[Union[str, 'MsiIdentityType']] type: Identity type
         """
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'MsiIdentityType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -104,10 +126,21 @@ class SkuArgs:
         :param pulumi.Input[Union[str, 'SkuName']] name: SKU name.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The SKU tier. This is based on the SKU name.
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

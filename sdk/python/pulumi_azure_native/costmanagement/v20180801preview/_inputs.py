@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,8 +35,19 @@ class ReportAggregationArgs:
         :param pulumi.Input[Union[str, 'FunctionType']] function: The name of the aggregation function to use.
         :param pulumi.Input[str] name: The name of the column to aggregate.
         """
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "name", name)
+        ReportAggregationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function=function,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function: pulumi.Input[Union[str, 'FunctionType']],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function", function)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -75,9 +86,22 @@ class ReportComparisonExpressionArgs:
         :param pulumi.Input[Union[str, 'OperatorType']] operator: The operator to use for comparison.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ReportComparisonExpressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[Union[str, 'OperatorType']],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -124,8 +148,17 @@ class ReportDatasetConfigurationArgs:
         The configuration of dataset in the report.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
+        ReportDatasetConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -156,16 +189,33 @@ class ReportDatasetArgs:
         :param pulumi.Input[Union[str, 'GranularityType']] granularity: The granularity of rows in the report.
         :param pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
+        ReportDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation=aggregation,
+            configuration=configuration,
+            filter=filter,
+            granularity=granularity,
+            grouping=grouping,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgs']]]] = None,
+             configuration: Optional[pulumi.Input['ReportDatasetConfigurationArgs']] = None,
+             filter: Optional[pulumi.Input['ReportFilterArgs']] = None,
+             granularity: Optional[pulumi.Input[Union[str, 'GranularityType']]] = None,
+             grouping: Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aggregation is not None:
-            pulumi.set(__self__, "aggregation", aggregation)
+            _setter("aggregation", aggregation)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
+            _setter("granularity", granularity)
         if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
+            _setter("grouping", grouping)
 
     @property
     @pulumi.getter
@@ -242,12 +292,27 @@ class ReportDefinitionArgs:
         :param pulumi.Input['ReportDatasetArgs'] dataset: Has definition for data in this report.
         :param pulumi.Input['ReportTimePeriodArgs'] time_period: Has time period for pulling data for the report.
         """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
+        ReportDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timeframe=timeframe,
+            type=type,
+            dataset=dataset,
+            time_period=time_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timeframe: pulumi.Input[Union[str, 'TimeframeType']],
+             type: pulumi.Input[Union[str, 'ReportType']],
+             dataset: Optional[pulumi.Input['ReportDatasetArgs']] = None,
+             time_period: Optional[pulumi.Input['ReportTimePeriodArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("timeframe", timeframe)
+        _setter("type", type)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
+            _setter("time_period", time_period)
 
     @property
     @pulumi.getter
@@ -310,10 +375,23 @@ class ReportDeliveryDestinationArgs:
         :param pulumi.Input[str] resource_id: The resource id of the storage account where reports will be delivered.
         :param pulumi.Input[str] root_folder_path: The name of the directory where reports will be uploaded.
         """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "resource_id", resource_id)
+        ReportDeliveryDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            resource_id=resource_id,
+            root_folder_path=root_folder_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: pulumi.Input[str],
+             resource_id: pulumi.Input[str],
+             root_folder_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container", container)
+        _setter("resource_id", resource_id)
         if root_folder_path is not None:
-            pulumi.set(__self__, "root_folder_path", root_folder_path)
+            _setter("root_folder_path", root_folder_path)
 
     @property
     @pulumi.getter
@@ -360,7 +438,16 @@ class ReportDeliveryInfoArgs:
         The delivery information associated with a report.
         :param pulumi.Input['ReportDeliveryDestinationArgs'] destination: Has destination for the report being delivered.
         """
-        pulumi.set(__self__, "destination", destination)
+        ReportDeliveryInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: pulumi.Input['ReportDeliveryDestinationArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination", destination)
 
     @property
     @pulumi.getter
@@ -391,16 +478,33 @@ class ReportFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
         :param pulumi.Input['ReportComparisonExpressionArgs'] tag: Has comparison expression for a tag
         """
+        ReportFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimension=dimension,
+            not_=not_,
+            or_=or_,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]] = None,
+             dimension: Optional[pulumi.Input['ReportComparisonExpressionArgs']] = None,
+             not_: Optional[pulumi.Input['ReportFilterArgs']] = None,
+             or_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]] = None,
+             tag: Optional[pulumi.Input['ReportComparisonExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
+            _setter("dimension", dimension)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if or_ is not None:
-            pulumi.set(__self__, "or_", or_)
+            _setter("or_", or_)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
 
     @property
     @pulumi.getter(name="and")
@@ -473,8 +577,19 @@ class ReportGroupingArgs:
         :param pulumi.Input[str] name: The name of the column to group.
         :param pulumi.Input[Union[str, 'ReportColumnType']] type: Has type of the column to group.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReportGroupingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'ReportColumnType']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -511,9 +626,20 @@ class ReportRecurrencePeriodArgs:
         :param pulumi.Input[str] from_: The start date of recurrence.
         :param pulumi.Input[str] to: The end date of recurrence.
         """
-        pulumi.set(__self__, "from_", from_)
+        ReportRecurrencePeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: pulumi.Input[str],
+             to: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("from_", from_)
         if to is not None:
-            pulumi.set(__self__, "to", to)
+            _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -552,11 +678,24 @@ class ReportScheduleArgs:
         :param pulumi.Input['ReportRecurrencePeriodArgs'] recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param pulumi.Input[Union[str, 'StatusType']] status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
         """
-        pulumi.set(__self__, "recurrence", recurrence)
+        ReportScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence=recurrence,
+            recurrence_period=recurrence_period,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence: pulumi.Input[Union[str, 'RecurrenceType']],
+             recurrence_period: Optional[pulumi.Input['ReportRecurrencePeriodArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'StatusType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recurrence", recurrence)
         if recurrence_period is not None:
-            pulumi.set(__self__, "recurrence_period", recurrence_period)
+            _setter("recurrence_period", recurrence_period)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -605,8 +744,19 @@ class ReportTimePeriodArgs:
         :param pulumi.Input[str] from_: The start date to pull data from.
         :param pulumi.Input[str] to: The end date to pull data to.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        ReportTimePeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: pulumi.Input[str],
+             to: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")

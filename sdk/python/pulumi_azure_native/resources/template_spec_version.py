@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,24 +39,51 @@ class TemplateSpecVersionArgs:
         :param pulumi.Input[str] template_spec_version: The version of the Template Spec.
         :param Any ui_form_definition: The Azure Resource Manager template UI definition content.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "template_spec_name", template_spec_name)
+        TemplateSpecVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            template_spec_name=template_spec_name,
+            description=description,
+            linked_templates=linked_templates,
+            location=location,
+            main_template=main_template,
+            metadata=metadata,
+            tags=tags,
+            template_spec_version=template_spec_version,
+            ui_form_definition=ui_form_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             template_spec_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             main_template: Optional[Any] = None,
+             metadata: Optional[Any] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_spec_version: Optional[pulumi.Input[str]] = None,
+             ui_form_definition: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("template_spec_name", template_spec_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if linked_templates is not None:
-            pulumi.set(__self__, "linked_templates", linked_templates)
+            _setter("linked_templates", linked_templates)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if main_template is not None:
-            pulumi.set(__self__, "main_template", main_template)
+            _setter("main_template", main_template)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_spec_version is not None:
-            pulumi.set(__self__, "template_spec_version", template_spec_version)
+            _setter("template_spec_version", template_spec_version)
         if ui_form_definition is not None:
-            pulumi.set(__self__, "ui_form_definition", ui_form_definition)
+            _setter("ui_form_definition", ui_form_definition)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -232,6 +259,10 @@ class TemplateSpecVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TemplateSpecVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

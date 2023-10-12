@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,16 +34,37 @@ class ForwardingRuleArgs:
         :param pulumi.Input[Union[str, 'ForwardingRuleState']] forwarding_rule_state: The state of forwarding rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the forwarding rule.
         """
-        pulumi.set(__self__, "dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_dns_servers", target_dns_servers)
+        ForwardingRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_forwarding_ruleset_name=dns_forwarding_ruleset_name,
+            domain_name=domain_name,
+            resource_group_name=resource_group_name,
+            target_dns_servers=target_dns_servers,
+            forwarding_rule_name=forwarding_rule_name,
+            forwarding_rule_state=forwarding_rule_state,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_forwarding_ruleset_name: pulumi.Input[str],
+             domain_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             target_dns_servers: pulumi.Input[Sequence[pulumi.Input['TargetDnsServerArgs']]],
+             forwarding_rule_name: Optional[pulumi.Input[str]] = None,
+             forwarding_rule_state: Optional[pulumi.Input[Union[str, 'ForwardingRuleState']]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
+        _setter("domain_name", domain_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_dns_servers", target_dns_servers)
         if forwarding_rule_name is not None:
-            pulumi.set(__self__, "forwarding_rule_name", forwarding_rule_name)
+            _setter("forwarding_rule_name", forwarding_rule_name)
         if forwarding_rule_state is not None:
-            pulumi.set(__self__, "forwarding_rule_state", forwarding_rule_state)
+            _setter("forwarding_rule_state", forwarding_rule_state)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="dnsForwardingRulesetName")
@@ -177,6 +198,10 @@ class ForwardingRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ForwardingRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

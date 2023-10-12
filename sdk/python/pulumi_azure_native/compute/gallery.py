@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,40 @@ class GalleryArgs:
         :param pulumi.Input['SoftDeletePolicyArgs'] soft_delete_policy: Contains information about the soft deletion policy of the gallery.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GalleryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            description=description,
+            gallery_name=gallery_name,
+            location=location,
+            sharing_profile=sharing_profile,
+            soft_delete_policy=soft_delete_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sharing_profile: Optional[pulumi.Input['SharingProfileArgs']] = None,
+             soft_delete_policy: Optional[pulumi.Input['SoftDeletePolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if gallery_name is not None:
-            pulumi.set(__self__, "gallery_name", gallery_name)
+            _setter("gallery_name", gallery_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sharing_profile is not None:
-            pulumi.set(__self__, "sharing_profile", sharing_profile)
+            _setter("sharing_profile", sharing_profile)
         if soft_delete_policy is not None:
-            pulumi.set(__self__, "soft_delete_policy", soft_delete_policy)
+            _setter("soft_delete_policy", soft_delete_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -180,6 +201,10 @@ class Gallery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GalleryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -207,7 +232,17 @@ class Gallery(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sharing_profile is not None and not isinstance(sharing_profile, SharingProfileArgs):
+                sharing_profile = sharing_profile or {}
+                def _setter(key, value):
+                    sharing_profile[key] = value
+                SharingProfileArgs._configure(_setter, **sharing_profile)
             __props__.__dict__["sharing_profile"] = sharing_profile
+            if soft_delete_policy is not None and not isinstance(soft_delete_policy, SoftDeletePolicyArgs):
+                soft_delete_policy = soft_delete_policy or {}
+                def _setter(key, value):
+                    soft_delete_policy[key] = value
+                SoftDeletePolicyArgs._configure(_setter, **soft_delete_policy)
             __props__.__dict__["soft_delete_policy"] = soft_delete_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["identifier"] = None

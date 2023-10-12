@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,14 +30,33 @@ class SnapshotArgs:
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] snapshot_name: The name of the snapshot
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_name", volume_name)
+        SnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            pool_name=pool_name,
+            resource_group_name=resource_group_name,
+            volume_name=volume_name,
+            location=location,
+            snapshot_name=snapshot_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             pool_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             volume_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("pool_name", pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("volume_name", volume_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -157,6 +176,10 @@ class Snapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

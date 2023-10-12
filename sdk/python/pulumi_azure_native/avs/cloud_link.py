@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CloudLinkArgs', 'CloudLink']
@@ -25,12 +25,27 @@ class CloudLinkArgs:
         :param pulumi.Input[str] cloud_link_name: Name of the cloud link resource
         :param pulumi.Input[str] linked_cloud: Identifier of the other private cloud participating in the link.
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CloudLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            cloud_link_name=cloud_link_name,
+            linked_cloud=linked_cloud,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             cloud_link_name: Optional[pulumi.Input[str]] = None,
+             linked_cloud: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if cloud_link_name is not None:
-            pulumi.set(__self__, "cloud_link_name", cloud_link_name)
+            _setter("cloud_link_name", cloud_link_name)
         if linked_cloud is not None:
-            pulumi.set(__self__, "linked_cloud", linked_cloud)
+            _setter("linked_cloud", linked_cloud)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -122,6 +137,10 @@ class CloudLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

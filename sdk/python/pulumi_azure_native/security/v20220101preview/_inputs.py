@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,12 +30,25 @@ class GovernanceAssignmentAdditionalDataArgs:
         :param pulumi.Input[int] ticket_number: Ticket number associated with this governance assignment
         :param pulumi.Input[str] ticket_status: The ticket status associated with this governance assignment - for example: Active
         """
+        GovernanceAssignmentAdditionalDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ticket_link=ticket_link,
+            ticket_number=ticket_number,
+            ticket_status=ticket_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ticket_link: Optional[pulumi.Input[str]] = None,
+             ticket_number: Optional[pulumi.Input[int]] = None,
+             ticket_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ticket_link is not None:
-            pulumi.set(__self__, "ticket_link", ticket_link)
+            _setter("ticket_link", ticket_link)
         if ticket_number is not None:
-            pulumi.set(__self__, "ticket_number", ticket_number)
+            _setter("ticket_number", ticket_number)
         if ticket_status is not None:
-            pulumi.set(__self__, "ticket_status", ticket_status)
+            _setter("ticket_status", ticket_status)
 
     @property
     @pulumi.getter(name="ticketLink")
@@ -84,10 +97,21 @@ class GovernanceEmailNotificationArgs:
         :param pulumi.Input[bool] disable_manager_email_notification: Exclude manager from weekly email notification.
         :param pulumi.Input[bool] disable_owner_email_notification: Exclude  owner from weekly email notification.
         """
+        GovernanceEmailNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_manager_email_notification=disable_manager_email_notification,
+            disable_owner_email_notification=disable_owner_email_notification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_manager_email_notification: Optional[pulumi.Input[bool]] = None,
+             disable_owner_email_notification: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disable_manager_email_notification is not None:
-            pulumi.set(__self__, "disable_manager_email_notification", disable_manager_email_notification)
+            _setter("disable_manager_email_notification", disable_manager_email_notification)
         if disable_owner_email_notification is not None:
-            pulumi.set(__self__, "disable_owner_email_notification", disable_owner_email_notification)
+            _setter("disable_owner_email_notification", disable_owner_email_notification)
 
     @property
     @pulumi.getter(name="disableManagerEmailNotification")
@@ -124,10 +148,21 @@ class GovernanceRuleEmailNotificationArgs:
         :param pulumi.Input[bool] disable_manager_email_notification: Defines whether manager email notifications are disabled
         :param pulumi.Input[bool] disable_owner_email_notification: Defines whether owner email notifications are disabled
         """
+        GovernanceRuleEmailNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_manager_email_notification=disable_manager_email_notification,
+            disable_owner_email_notification=disable_owner_email_notification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_manager_email_notification: Optional[pulumi.Input[bool]] = None,
+             disable_owner_email_notification: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disable_manager_email_notification is not None:
-            pulumi.set(__self__, "disable_manager_email_notification", disable_manager_email_notification)
+            _setter("disable_manager_email_notification", disable_manager_email_notification)
         if disable_owner_email_notification is not None:
-            pulumi.set(__self__, "disable_owner_email_notification", disable_owner_email_notification)
+            _setter("disable_owner_email_notification", disable_owner_email_notification)
 
     @property
     @pulumi.getter(name="disableManagerEmailNotification")
@@ -164,10 +199,21 @@ class GovernanceRuleOwnerSourceArgs:
         :param pulumi.Input[Union[str, 'GovernanceRuleOwnerSourceType']] type: The owner type for the governance rule owner source
         :param pulumi.Input[str] value: The source value e.g. tag key like owner name or email address
         """
+        GovernanceRuleOwnerSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'GovernanceRuleOwnerSourceType']]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -204,8 +250,19 @@ class RemediationEtaArgs:
         :param pulumi.Input[str] eta: ETA for remediation.
         :param pulumi.Input[str] justification: Justification for change of Eta.
         """
-        pulumi.set(__self__, "eta", eta)
-        pulumi.set(__self__, "justification", justification)
+        RemediationEtaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eta=eta,
+            justification=justification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eta: pulumi.Input[str],
+             justification: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("eta", eta)
+        _setter("justification", justification)
 
     @property
     @pulumi.getter

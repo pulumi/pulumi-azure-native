@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 from ._inputs import *
@@ -41,26 +41,55 @@ class SourceControlArgs:
         :param pulumi.Input[str] source_control_name: The source control name.
         :param pulumi.Input[Union[str, 'SourceType']] source_type: The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SourceControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            resource_group_name=resource_group_name,
+            auto_sync=auto_sync,
+            branch=branch,
+            description=description,
+            folder_path=folder_path,
+            publish_runbook=publish_runbook,
+            repo_url=repo_url,
+            security_token=security_token,
+            source_control_name=source_control_name,
+            source_type=source_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             auto_sync: Optional[pulumi.Input[bool]] = None,
+             branch: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder_path: Optional[pulumi.Input[str]] = None,
+             publish_runbook: Optional[pulumi.Input[bool]] = None,
+             repo_url: Optional[pulumi.Input[str]] = None,
+             security_token: Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']] = None,
+             source_control_name: Optional[pulumi.Input[str]] = None,
+             source_type: Optional[pulumi.Input[Union[str, 'SourceType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("resource_group_name", resource_group_name)
         if auto_sync is not None:
-            pulumi.set(__self__, "auto_sync", auto_sync)
+            _setter("auto_sync", auto_sync)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder_path is not None:
-            pulumi.set(__self__, "folder_path", folder_path)
+            _setter("folder_path", folder_path)
         if publish_runbook is not None:
-            pulumi.set(__self__, "publish_runbook", publish_runbook)
+            _setter("publish_runbook", publish_runbook)
         if repo_url is not None:
-            pulumi.set(__self__, "repo_url", repo_url)
+            _setter("repo_url", repo_url)
         if security_token is not None:
-            pulumi.set(__self__, "security_token", security_token)
+            _setter("security_token", security_token)
         if source_control_name is not None:
-            pulumi.set(__self__, "source_control_name", source_control_name)
+            _setter("source_control_name", source_control_name)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -250,6 +279,10 @@ class SourceControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -287,6 +320,11 @@ class SourceControl(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if security_token is not None and not isinstance(security_token, SourceControlSecurityTokenPropertiesArgs):
+                security_token = security_token or {}
+                def _setter(key, value):
+                    security_token[key] = value
+                SourceControlSecurityTokenPropertiesArgs._configure(_setter, **security_token)
             __props__.__dict__["security_token"] = security_token
             __props__.__dict__["source_control_name"] = source_control_name
             __props__.__dict__["source_type"] = source_type

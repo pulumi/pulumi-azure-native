@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ContentItemArgs', 'ContentItem']
@@ -27,13 +27,30 @@ class ContentItemArgs:
         :param pulumi.Input[str] content_item_id: Content item identifier.
         :param Any properties: Properties of the content item.
         """
-        pulumi.set(__self__, "content_type_id", content_type_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        ContentItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type_id=content_type_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            content_item_id=content_item_id,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             content_item_id: Optional[pulumi.Input[str]] = None,
+             properties: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_type_id", content_type_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if content_item_id is not None:
-            pulumi.set(__self__, "content_item_id", content_item_id)
+            _setter("content_item_id", content_item_id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="contentTypeId")
@@ -139,6 +156,10 @@ class ContentItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContentItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

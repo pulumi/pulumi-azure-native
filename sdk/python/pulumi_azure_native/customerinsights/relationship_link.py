@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,20 +40,47 @@ class RelationshipLinkArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]] mappings: The mappings between Interaction and Relationship fields.
         :param pulumi.Input[str] relationship_link_name: The name of the relationship link.
         """
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "interaction_type", interaction_type)
-        pulumi.set(__self__, "profile_property_references", profile_property_references)
-        pulumi.set(__self__, "related_profile_property_references", related_profile_property_references)
-        pulumi.set(__self__, "relationship_name", relationship_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RelationshipLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hub_name=hub_name,
+            interaction_type=interaction_type,
+            profile_property_references=profile_property_references,
+            related_profile_property_references=related_profile_property_references,
+            relationship_name=relationship_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            display_name=display_name,
+            mappings=mappings,
+            relationship_link_name=relationship_link_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hub_name: pulumi.Input[str],
+             interaction_type: pulumi.Input[str],
+             profile_property_references: pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]],
+             related_profile_property_references: pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]],
+             relationship_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             mappings: Optional[pulumi.Input[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]]] = None,
+             relationship_link_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hub_name", hub_name)
+        _setter("interaction_type", interaction_type)
+        _setter("profile_property_references", profile_property_references)
+        _setter("related_profile_property_references", related_profile_property_references)
+        _setter("relationship_name", relationship_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if mappings is not None:
-            pulumi.set(__self__, "mappings", mappings)
+            _setter("mappings", mappings)
         if relationship_link_name is not None:
-            pulumi.set(__self__, "relationship_link_name", relationship_link_name)
+            _setter("relationship_link_name", relationship_link_name)
 
     @property
     @pulumi.getter(name="hubName")
@@ -229,6 +256,10 @@ class RelationshipLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RelationshipLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -59,12 +59,27 @@ class AccountEncryptionResponse(dict):
         :param 'ResourceIdentityResponse' identity: The Key Vault identity.
         :param 'KeyVaultPropertiesResponse' key_vault_properties: The properties of the key used to encrypt the account.
         """
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        AccountEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            type=type,
+            identity=identity,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: str,
+             type: str,
+             identity: Optional['outputs.ResourceIdentityResponse'] = None,
+             key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status", status)
+        _setter("type", type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter
@@ -129,9 +144,20 @@ class EndpointResponse(dict):
         :param str type: The type of the endpoint.
         :param str endpoint_url: The URL of the endpoint.
         """
-        pulumi.set(__self__, "type", type)
+        EndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            endpoint_url=endpoint_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             endpoint_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
+            _setter("endpoint_url", endpoint_url)
 
     @property
     @pulumi.getter
@@ -182,8 +208,19 @@ class KeyVaultPropertiesResponse(dict):
         :param str current_key_identifier: The current key used to encrypt Video Analyzer account, including the key version.
         :param str key_identifier: The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
         """
-        pulumi.set(__self__, "current_key_identifier", current_key_identifier)
-        pulumi.set(__self__, "key_identifier", key_identifier)
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_key_identifier=current_key_identifier,
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_key_identifier: str,
+             key_identifier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("current_key_identifier", current_key_identifier)
+        _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="currentKeyIdentifier")
@@ -230,7 +267,16 @@ class ResourceIdentityResponse(dict):
         The user assigned managed identity to use when accessing a resource.
         :param str user_assigned_identity: The user assigned managed identity's resource identifier to use when accessing a resource.
         """
-        pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+        ResourceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identity: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="userAssignedIdentity")
@@ -256,11 +302,24 @@ class StorageAccountResponse(dict):
         :param str id: The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
         :param 'ResourceIdentityResponse' identity: A managed identity that Video Analyzer will use to access the storage account.
         """
-        pulumi.set(__self__, "status", status)
+        StorageAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            id=id,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: str,
+             id: Optional[str] = None,
+             identity: Optional['outputs.ResourceIdentityResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status", status)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter
@@ -335,18 +394,37 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -429,8 +507,19 @@ class UserAssignedManagedIdentityResponse(dict):
         :param str client_id: The client ID.
         :param str principal_id: The principal ID.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedManagedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             principal_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -479,9 +568,20 @@ class VideoAnalyzerIdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'UserAssignedManagedIdentityResponse'] user_assigned_identities: The User Assigned Managed Identities.
         """
-        pulumi.set(__self__, "type", type)
+        VideoAnalyzerIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -536,9 +636,22 @@ class VideoFlagsResponse(dict):
         :param bool has_data: Value indicating whether or not there has ever been data recorded or uploaded into the video. Newly created videos have this value set to false.
         :param bool is_recording: Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
         """
-        pulumi.set(__self__, "can_stream", can_stream)
-        pulumi.set(__self__, "has_data", has_data)
-        pulumi.set(__self__, "is_recording", is_recording)
+        VideoFlagsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            can_stream=can_stream,
+            has_data=has_data,
+            is_recording=is_recording,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             can_stream: bool,
+             has_data: bool,
+             is_recording: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("can_stream", can_stream)
+        _setter("has_data", has_data)
+        _setter("is_recording", is_recording)
 
     @property
     @pulumi.getter(name="canStream")
@@ -593,7 +706,16 @@ class VideoMediaInfoResponse(dict):
         Contains information about the video and audio content.
         :param str segment_length: Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
         """
-        pulumi.set(__self__, "segment_length", segment_length)
+        VideoMediaInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            segment_length=segment_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             segment_length: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("segment_length", segment_length)
 
     @property
     @pulumi.getter(name="segmentLength")
@@ -638,8 +760,17 @@ class VideoStreamingResponse(dict):
                
                Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length.
         """
+        VideoStreamingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_base_url=archive_base_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_base_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if archive_base_url is not None:
-            pulumi.set(__self__, "archive_base_url", archive_base_url)
+            _setter("archive_base_url", archive_base_url)
 
     @property
     @pulumi.getter(name="archiveBaseUrl")

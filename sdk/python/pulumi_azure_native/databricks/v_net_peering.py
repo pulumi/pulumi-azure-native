@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,25 +41,54 @@ class VNetPeeringArgs:
         :param pulumi.Input['AddressSpaceArgs'] remote_address_space: The reference to the remote virtual network address space.
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
-        pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        VNetPeeringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            remote_virtual_network=remote_virtual_network,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            allow_forwarded_traffic=allow_forwarded_traffic,
+            allow_gateway_transit=allow_gateway_transit,
+            allow_virtual_network_access=allow_virtual_network_access,
+            databricks_address_space=databricks_address_space,
+            databricks_virtual_network=databricks_virtual_network,
+            peering_name=peering_name,
+            remote_address_space=remote_address_space,
+            use_remote_gateways=use_remote_gateways,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             remote_virtual_network: pulumi.Input['VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs'],
+             resource_group_name: pulumi.Input[str],
+             workspace_name: pulumi.Input[str],
+             allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
+             allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
+             allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+             databricks_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             databricks_virtual_network: Optional[pulumi.Input['VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs']] = None,
+             peering_name: Optional[pulumi.Input[str]] = None,
+             remote_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             use_remote_gateways: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("remote_virtual_network", remote_virtual_network)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if allow_forwarded_traffic is not None:
-            pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
+            _setter("allow_forwarded_traffic", allow_forwarded_traffic)
         if allow_gateway_transit is not None:
-            pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
+            _setter("allow_gateway_transit", allow_gateway_transit)
         if allow_virtual_network_access is not None:
-            pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+            _setter("allow_virtual_network_access", allow_virtual_network_access)
         if databricks_address_space is not None:
-            pulumi.set(__self__, "databricks_address_space", databricks_address_space)
+            _setter("databricks_address_space", databricks_address_space)
         if databricks_virtual_network is not None:
-            pulumi.set(__self__, "databricks_virtual_network", databricks_virtual_network)
+            _setter("databricks_virtual_network", databricks_virtual_network)
         if peering_name is not None:
-            pulumi.set(__self__, "peering_name", peering_name)
+            _setter("peering_name", peering_name)
         if remote_address_space is not None:
-            pulumi.set(__self__, "remote_address_space", remote_address_space)
+            _setter("remote_address_space", remote_address_space)
         if use_remote_gateways is not None:
-            pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
+            _setter("use_remote_gateways", use_remote_gateways)
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
@@ -249,6 +278,10 @@ class VNetPeering(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VNetPeeringArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -277,10 +310,30 @@ class VNetPeering(pulumi.CustomResource):
             __props__.__dict__["allow_forwarded_traffic"] = allow_forwarded_traffic
             __props__.__dict__["allow_gateway_transit"] = allow_gateway_transit
             __props__.__dict__["allow_virtual_network_access"] = allow_virtual_network_access
+            if databricks_address_space is not None and not isinstance(databricks_address_space, AddressSpaceArgs):
+                databricks_address_space = databricks_address_space or {}
+                def _setter(key, value):
+                    databricks_address_space[key] = value
+                AddressSpaceArgs._configure(_setter, **databricks_address_space)
             __props__.__dict__["databricks_address_space"] = databricks_address_space
+            if databricks_virtual_network is not None and not isinstance(databricks_virtual_network, VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs):
+                databricks_virtual_network = databricks_virtual_network or {}
+                def _setter(key, value):
+                    databricks_virtual_network[key] = value
+                VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs._configure(_setter, **databricks_virtual_network)
             __props__.__dict__["databricks_virtual_network"] = databricks_virtual_network
             __props__.__dict__["peering_name"] = peering_name
+            if remote_address_space is not None and not isinstance(remote_address_space, AddressSpaceArgs):
+                remote_address_space = remote_address_space or {}
+                def _setter(key, value):
+                    remote_address_space[key] = value
+                AddressSpaceArgs._configure(_setter, **remote_address_space)
             __props__.__dict__["remote_address_space"] = remote_address_space
+            if remote_virtual_network is not None and not isinstance(remote_virtual_network, VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs):
+                remote_virtual_network = remote_virtual_network or {}
+                def _setter(key, value):
+                    remote_virtual_network[key] = value
+                VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs._configure(_setter, **remote_virtual_network)
             if remote_virtual_network is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_virtual_network'")
             __props__.__dict__["remote_virtual_network"] = remote_virtual_network

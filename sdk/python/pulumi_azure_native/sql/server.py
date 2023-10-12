@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,35 +50,72 @@ class ServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] version: The version of the server.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            administrators=administrators,
+            federated_client_id=federated_client_id,
+            identity=identity,
+            key_id=key_id,
+            location=location,
+            minimal_tls_version=minimal_tls_version,
+            primary_user_assigned_identity_id=primary_user_assigned_identity_id,
+            public_network_access=public_network_access,
+            restrict_outbound_network_access=restrict_outbound_network_access,
+            server_name=server_name,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             administrators: Optional[pulumi.Input['ServerExternalAdministratorArgs']] = None,
+             federated_client_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimal_tls_version: Optional[pulumi.Input[str]] = None,
+             primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
+             restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if administrators is not None:
-            pulumi.set(__self__, "administrators", administrators)
+            _setter("administrators", administrators)
         if federated_client_id is not None:
-            pulumi.set(__self__, "federated_client_id", federated_client_id)
+            _setter("federated_client_id", federated_client_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimal_tls_version is not None:
-            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
+            _setter("minimal_tls_version", minimal_tls_version)
         if primary_user_assigned_identity_id is not None:
-            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+            _setter("primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if restrict_outbound_network_access is not None:
-            pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
+            _setter("restrict_outbound_network_access", restrict_outbound_network_access)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -324,6 +361,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -355,8 +396,18 @@ class Server(pulumi.CustomResource):
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = administrator_login_password
+            if administrators is not None and not isinstance(administrators, ServerExternalAdministratorArgs):
+                administrators = administrators or {}
+                def _setter(key, value):
+                    administrators[key] = value
+                ServerExternalAdministratorArgs._configure(_setter, **administrators)
             __props__.__dict__["administrators"] = administrators
             __props__.__dict__["federated_client_id"] = federated_client_id
+            if identity is not None and not isinstance(identity, ResourceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ResourceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_id"] = key_id
             __props__.__dict__["location"] = location

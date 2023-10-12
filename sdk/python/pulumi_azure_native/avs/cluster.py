@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class ClusterArgs:
         :param pulumi.Input[int] cluster_size: The cluster size
         :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: The hosts
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            cluster_name=cluster_name,
+            cluster_size=cluster_size,
+            hosts=hosts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['SkuArgs'],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             cluster_size: Optional[pulumi.Input[int]] = None,
+             hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if cluster_size is not None:
-            pulumi.set(__self__, "cluster_size", cluster_size)
+            _setter("cluster_size", cluster_size)
         if hosts is not None:
-            pulumi.set(__self__, "hosts", hosts)
+            _setter("hosts", hosts)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -159,6 +178,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -188,6 +211,11 @@ class Cluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, SkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                SkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

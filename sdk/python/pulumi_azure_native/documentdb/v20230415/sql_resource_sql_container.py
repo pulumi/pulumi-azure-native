@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,41 @@ class SqlResourceSqlContainerArgs:
         :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource", resource)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SqlResourceSqlContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            database_name=database_name,
+            resource=resource,
+            resource_group_name=resource_group_name,
+            container_name=container_name,
+            location=location,
+            options=options,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             resource: pulumi.Input['SqlContainerResourceArgs'],
+             resource_group_name: pulumi.Input[str],
+             container_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("database_name", database_name)
+        _setter("resource", resource)
+        _setter("resource_group_name", resource_group_name)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountName")
@@ -193,6 +216,10 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlResourceSqlContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -223,7 +250,17 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["location"] = location
+            if options is not None and not isinstance(options, CreateUpdateOptionsArgs):
+                options = options or {}
+                def _setter(key, value):
+                    options[key] = value
+                CreateUpdateOptionsArgs._configure(_setter, **options)
             __props__.__dict__["options"] = options
+            if resource is not None and not isinstance(resource, SqlContainerResourceArgs):
+                resource = resource or {}
+                def _setter(key, value):
+                    resource[key] = value
+                SqlContainerResourceArgs._configure(_setter, **resource)
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource

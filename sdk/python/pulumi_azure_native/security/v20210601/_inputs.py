@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,11 +33,24 @@ class AssessmentStatusArgs:
         :param pulumi.Input[str] cause: Programmatic code for the cause of the assessment status
         :param pulumi.Input[str] description: Human readable description of the assessment status
         """
-        pulumi.set(__self__, "code", code)
+        AssessmentStatusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            cause=cause,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: pulumi.Input[Union[str, 'AssessmentStatusCode']],
+             cause: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
         if cause is not None:
-            pulumi.set(__self__, "cause", cause)
+            _setter("cause", cause)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -85,7 +98,16 @@ class AzureResourceDetailsArgs:
         :param pulumi.Input[str] source: The platform where the assessed resource resides
                Expected value is 'Azure'.
         """
-        pulumi.set(__self__, "source", 'Azure')
+        AzureResourceDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", 'Azure')
 
     @property
     @pulumi.getter
@@ -118,11 +140,28 @@ class OnPremiseResourceDetailsArgs:
         :param pulumi.Input[str] vmuuid: The unique Id of the machine
         :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
         """
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "source", 'OnPremise')
-        pulumi.set(__self__, "source_computer_id", source_computer_id)
-        pulumi.set(__self__, "vmuuid", vmuuid)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        OnPremiseResourceDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            machine_name=machine_name,
+            source=source,
+            source_computer_id=source_computer_id,
+            vmuuid=vmuuid,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             machine_name: pulumi.Input[str],
+             source: pulumi.Input[str],
+             source_computer_id: pulumi.Input[str],
+             vmuuid: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("machine_name", machine_name)
+        _setter("source", 'OnPremise')
+        _setter("source_computer_id", source_computer_id)
+        _setter("vmuuid", vmuuid)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="machineName")
@@ -207,13 +246,34 @@ class OnPremiseSqlResourceDetailsArgs:
         :param pulumi.Input[str] vmuuid: The unique Id of the machine
         :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "source", 'OnPremiseSql')
-        pulumi.set(__self__, "source_computer_id", source_computer_id)
-        pulumi.set(__self__, "vmuuid", vmuuid)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        OnPremiseSqlResourceDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            machine_name=machine_name,
+            server_name=server_name,
+            source=source,
+            source_computer_id=source_computer_id,
+            vmuuid=vmuuid,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             machine_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             source: pulumi.Input[str],
+             source_computer_id: pulumi.Input[str],
+             vmuuid: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("machine_name", machine_name)
+        _setter("server_name", server_name)
+        _setter("source", 'OnPremiseSql')
+        _setter("source_computer_id", source_computer_id)
+        _setter("vmuuid", vmuuid)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -313,10 +373,23 @@ class SecurityAssessmentMetadataPartnerDataArgs:
         :param pulumi.Input[str] secret: Secret to authenticate the partner and verify it created the assessment - write only
         :param pulumi.Input[str] product_name: Name of the product of the partner that created the assessment
         """
-        pulumi.set(__self__, "partner_name", partner_name)
-        pulumi.set(__self__, "secret", secret)
+        SecurityAssessmentMetadataPartnerDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_name=partner_name,
+            secret=secret,
+            product_name=product_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_name: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             product_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("partner_name", partner_name)
+        _setter("secret", secret)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
 
     @property
     @pulumi.getter(name="partnerName")
@@ -360,9 +433,20 @@ class SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs:
     def __init__(__self__, *,
                  public: pulumi.Input[str],
                  g_a: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "public", public)
+        SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public=public,
+            g_a=g_a,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public: pulumi.Input[str],
+             g_a: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("public", public)
         if g_a is not None:
-            pulumi.set(__self__, "g_a", g_a)
+            _setter("g_a", g_a)
 
     @property
     @pulumi.getter
@@ -409,25 +493,54 @@ class SecurityAssessmentMetadataPropertiesArgs:
         :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
         :param pulumi.Input[Union[str, 'UserImpact']] user_impact: The user impact of the assessment
         """
-        pulumi.set(__self__, "assessment_type", assessment_type)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "severity", severity)
+        SecurityAssessmentMetadataPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_type=assessment_type,
+            display_name=display_name,
+            severity=severity,
+            categories=categories,
+            description=description,
+            implementation_effort=implementation_effort,
+            partner_data=partner_data,
+            preview=preview,
+            remediation_description=remediation_description,
+            threats=threats,
+            user_impact=user_impact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_type: pulumi.Input[Union[str, 'AssessmentType']],
+             display_name: pulumi.Input[str],
+             severity: pulumi.Input[Union[str, 'Severity']],
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
+             partner_data: Optional[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgs']] = None,
+             preview: Optional[pulumi.Input[bool]] = None,
+             remediation_description: Optional[pulumi.Input[str]] = None,
+             threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
+             user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assessment_type", assessment_type)
+        _setter("display_name", display_name)
+        _setter("severity", severity)
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if implementation_effort is not None:
-            pulumi.set(__self__, "implementation_effort", implementation_effort)
+            _setter("implementation_effort", implementation_effort)
         if partner_data is not None:
-            pulumi.set(__self__, "partner_data", partner_data)
+            _setter("partner_data", partner_data)
         if preview is not None:
-            pulumi.set(__self__, "preview", preview)
+            _setter("preview", preview)
         if remediation_description is not None:
-            pulumi.set(__self__, "remediation_description", remediation_description)
+            _setter("remediation_description", remediation_description)
         if threats is not None:
-            pulumi.set(__self__, "threats", threats)
+            _setter("threats", threats)
         if user_impact is not None:
-            pulumi.set(__self__, "user_impact", user_impact)
+            _setter("user_impact", user_impact)
 
     @property
     @pulumi.getter(name="assessmentType")
@@ -566,8 +679,19 @@ class SecurityAssessmentPartnerDataArgs:
         :param pulumi.Input[str] partner_name: Name of the company of the partner
         :param pulumi.Input[str] secret: secret to authenticate the partner - write only
         """
-        pulumi.set(__self__, "partner_name", partner_name)
-        pulumi.set(__self__, "secret", secret)
+        SecurityAssessmentPartnerDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_name=partner_name,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_name: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("partner_name", partner_name)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter(name="partnerName")

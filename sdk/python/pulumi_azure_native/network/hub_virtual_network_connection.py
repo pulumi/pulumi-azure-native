@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,51 @@ class HubVirtualNetworkConnectionArgs:
         :param pulumi.Input['SubResourceArgs'] remote_virtual_network: Reference to the remote virtual network.
         :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+        HubVirtualNetworkConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_hub_name=virtual_hub_name,
+            allow_hub_to_remote_vnet_transit=allow_hub_to_remote_vnet_transit,
+            allow_remote_vnet_to_use_hub_vnet_gateways=allow_remote_vnet_to_use_hub_vnet_gateways,
+            connection_name=connection_name,
+            enable_internet_security=enable_internet_security,
+            id=id,
+            name=name,
+            remote_virtual_network=remote_virtual_network,
+            routing_configuration=routing_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_hub_name: pulumi.Input[str],
+             allow_hub_to_remote_vnet_transit: Optional[pulumi.Input[bool]] = None,
+             allow_remote_vnet_to_use_hub_vnet_gateways: Optional[pulumi.Input[bool]] = None,
+             connection_name: Optional[pulumi.Input[str]] = None,
+             enable_internet_security: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remote_virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
+             routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_hub_name", virtual_hub_name)
         if allow_hub_to_remote_vnet_transit is not None:
-            pulumi.set(__self__, "allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
+            _setter("allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
         if allow_remote_vnet_to_use_hub_vnet_gateways is not None:
-            pulumi.set(__self__, "allow_remote_vnet_to_use_hub_vnet_gateways", allow_remote_vnet_to_use_hub_vnet_gateways)
+            _setter("allow_remote_vnet_to_use_hub_vnet_gateways", allow_remote_vnet_to_use_hub_vnet_gateways)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if enable_internet_security is not None:
-            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+            _setter("enable_internet_security", enable_internet_security)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remote_virtual_network is not None:
-            pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+            _setter("remote_virtual_network", remote_virtual_network)
         if routing_configuration is not None:
-            pulumi.set(__self__, "routing_configuration", routing_configuration)
+            _setter("routing_configuration", routing_configuration)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -233,6 +260,10 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HubVirtualNetworkConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -263,10 +294,20 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
             __props__.__dict__["enable_internet_security"] = enable_internet_security
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
+            if remote_virtual_network is not None and not isinstance(remote_virtual_network, SubResourceArgs):
+                remote_virtual_network = remote_virtual_network or {}
+                def _setter(key, value):
+                    remote_virtual_network[key] = value
+                SubResourceArgs._configure(_setter, **remote_virtual_network)
             __props__.__dict__["remote_virtual_network"] = remote_virtual_network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if routing_configuration is not None and not isinstance(routing_configuration, RoutingConfigurationArgs):
+                routing_configuration = routing_configuration or {}
+                def _setter(key, value):
+                    routing_configuration[key] = value
+                RoutingConfigurationArgs._configure(_setter, **routing_configuration)
             __props__.__dict__["routing_configuration"] = routing_configuration
             if virtual_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -51,9 +51,22 @@ class AdmCredentialPropertiesArgs:
         :param pulumi.Input[str] client_id: Gets or sets the client identifier.
         :param pulumi.Input[str] client_secret: Gets or sets the credential secret access key.
         """
-        pulumi.set(__self__, "auth_token_url", auth_token_url)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        AdmCredentialPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_token_url=auth_token_url,
+            client_id=client_id,
+            client_secret=client_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_token_url: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             client_secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_token_url", auth_token_url)
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
 
     @property
     @pulumi.getter(name="authTokenUrl")
@@ -100,7 +113,16 @@ class AdmCredentialArgs:
         Description of a NotificationHub AdmCredential.
         :param pulumi.Input['AdmCredentialPropertiesArgs'] properties: Description of a NotificationHub AdmCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        AdmCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['AdmCredentialPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -140,21 +162,44 @@ class ApnsCredentialPropertiesArgs:
         :param pulumi.Input[str] token: Gets or sets provider Authentication Token, obtained through your
                developer account
         """
-        pulumi.set(__self__, "endpoint", endpoint)
+        ApnsCredentialPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            apns_certificate=apns_certificate,
+            app_id=app_id,
+            app_name=app_name,
+            certificate_key=certificate_key,
+            key_id=key_id,
+            thumbprint=thumbprint,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[str],
+             apns_certificate: Optional[pulumi.Input[str]] = None,
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_name: Optional[pulumi.Input[str]] = None,
+             certificate_key: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
         if apns_certificate is not None:
-            pulumi.set(__self__, "apns_certificate", apns_certificate)
+            _setter("apns_certificate", apns_certificate)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if app_name is not None:
-            pulumi.set(__self__, "app_name", app_name)
+            _setter("app_name", app_name)
         if certificate_key is not None:
-            pulumi.set(__self__, "certificate_key", certificate_key)
+            _setter("certificate_key", certificate_key)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
 
     @property
     @pulumi.getter
@@ -264,7 +309,16 @@ class ApnsCredentialArgs:
         Description of a NotificationHub ApnsCredential.
         :param pulumi.Input['ApnsCredentialPropertiesArgs'] properties: Description of a NotificationHub ApnsCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        ApnsCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['ApnsCredentialPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -291,9 +345,22 @@ class BaiduCredentialPropertiesArgs:
         :param pulumi.Input[str] baidu_end_point: Gets or sets baidu Endpoint.
         :param pulumi.Input[str] baidu_secret_key: Gets or sets baidu Secret Key
         """
-        pulumi.set(__self__, "baidu_api_key", baidu_api_key)
-        pulumi.set(__self__, "baidu_end_point", baidu_end_point)
-        pulumi.set(__self__, "baidu_secret_key", baidu_secret_key)
+        BaiduCredentialPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            baidu_api_key=baidu_api_key,
+            baidu_end_point=baidu_end_point,
+            baidu_secret_key=baidu_secret_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             baidu_api_key: pulumi.Input[str],
+             baidu_end_point: pulumi.Input[str],
+             baidu_secret_key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("baidu_api_key", baidu_api_key)
+        _setter("baidu_end_point", baidu_end_point)
+        _setter("baidu_secret_key", baidu_secret_key)
 
     @property
     @pulumi.getter(name="baiduApiKey")
@@ -340,7 +407,16 @@ class BaiduCredentialArgs:
         Description of a NotificationHub BaiduCredential.
         :param pulumi.Input['BaiduCredentialPropertiesArgs'] properties: Description of a NotificationHub BaiduCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        BaiduCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['BaiduCredentialPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -367,9 +443,22 @@ class BrowserCredentialPropertiesArgs:
         :param pulumi.Input[str] vapid_private_key: Gets or sets VAPID private key.
         :param pulumi.Input[str] vapid_public_key: Gets or sets VAPID public key.
         """
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "vapid_private_key", vapid_private_key)
-        pulumi.set(__self__, "vapid_public_key", vapid_public_key)
+        BrowserCredentialPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject=subject,
+            vapid_private_key=vapid_private_key,
+            vapid_public_key=vapid_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject: pulumi.Input[str],
+             vapid_private_key: pulumi.Input[str],
+             vapid_public_key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subject", subject)
+        _setter("vapid_private_key", vapid_private_key)
+        _setter("vapid_public_key", vapid_public_key)
 
     @property
     @pulumi.getter
@@ -416,7 +505,16 @@ class BrowserCredentialArgs:
         Description of a NotificationHub BrowserCredential.
         :param pulumi.Input['BrowserCredentialPropertiesArgs'] properties: Description of a NotificationHub BrowserCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        BrowserCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['BrowserCredentialPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -441,9 +539,20 @@ class GcmCredentialPropertiesArgs:
         :param pulumi.Input[str] google_api_key: Gets or sets the Google API key.
         :param pulumi.Input[str] gcm_endpoint: Gets or sets the GCM endpoint.
         """
-        pulumi.set(__self__, "google_api_key", google_api_key)
+        GcmCredentialPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            google_api_key=google_api_key,
+            gcm_endpoint=gcm_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             google_api_key: pulumi.Input[str],
+             gcm_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("google_api_key", google_api_key)
         if gcm_endpoint is not None:
-            pulumi.set(__self__, "gcm_endpoint", gcm_endpoint)
+            _setter("gcm_endpoint", gcm_endpoint)
 
     @property
     @pulumi.getter(name="googleApiKey")
@@ -478,7 +587,16 @@ class GcmCredentialArgs:
         Description of a NotificationHub GcmCredential.
         :param pulumi.Input['GcmCredentialPropertiesArgs'] properties: Description of a NotificationHub GcmCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        GcmCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['GcmCredentialPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -503,8 +621,19 @@ class IpRuleArgs:
         :param pulumi.Input[str] ip_mask: IP mask.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: List of access rights.
         """
-        pulumi.set(__self__, "ip_mask", ip_mask)
-        pulumi.set(__self__, "rights", rights)
+        IpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_mask=ip_mask,
+            rights=rights,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_mask: pulumi.Input[str],
+             rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_mask", ip_mask)
+        _setter("rights", rights)
 
     @property
     @pulumi.getter(name="ipMask")
@@ -543,9 +672,22 @@ class MpnsCredentialPropertiesArgs:
         :param pulumi.Input[str] mpns_certificate: Gets or sets the MPNS certificate.
         :param pulumi.Input[str] thumbprint: Gets or sets the MPNS certificate Thumbprint
         """
-        pulumi.set(__self__, "certificate_key", certificate_key)
-        pulumi.set(__self__, "mpns_certificate", mpns_certificate)
-        pulumi.set(__self__, "thumbprint", thumbprint)
+        MpnsCredentialPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_key=certificate_key,
+            mpns_certificate=mpns_certificate,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_key: pulumi.Input[str],
+             mpns_certificate: pulumi.Input[str],
+             thumbprint: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_key", certificate_key)
+        _setter("mpns_certificate", mpns_certificate)
+        _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="certificateKey")
@@ -592,7 +734,16 @@ class MpnsCredentialArgs:
         Description of a NotificationHub MpnsCredential.
         :param pulumi.Input['MpnsCredentialPropertiesArgs'] properties: Description of a NotificationHub MpnsCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        MpnsCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['MpnsCredentialPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -633,26 +784,53 @@ class NamespacePropertiesArgs:
         :param pulumi.Input[Union[str, 'NamespaceStatus']] status: Namespace status.
         :param pulumi.Input[Union[str, 'ZoneRedundancyPreference']] zone_redundancy: Namespace SKU name.
         """
+        NamespacePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_center=data_center,
+            namespace_type=namespace_type,
+            network_acls=network_acls,
+            pns_credentials=pns_credentials,
+            provisioning_state=provisioning_state,
+            public_network_access=public_network_access,
+            replication_region=replication_region,
+            scale_unit=scale_unit,
+            status=status,
+            zone_redundancy=zone_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_center: Optional[pulumi.Input[str]] = None,
+             namespace_type: Optional[pulumi.Input[Union[str, 'NamespaceType']]] = None,
+             network_acls: Optional[pulumi.Input['NetworkAclsArgs']] = None,
+             pns_credentials: Optional[pulumi.Input['PnsCredentialsArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'OperationProvisioningState']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             replication_region: Optional[pulumi.Input[Union[str, 'ReplicationRegion']]] = None,
+             scale_unit: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'NamespaceStatus']]] = None,
+             zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancyPreference']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_center is not None:
-            pulumi.set(__self__, "data_center", data_center)
+            _setter("data_center", data_center)
         if namespace_type is not None:
-            pulumi.set(__self__, "namespace_type", namespace_type)
+            _setter("namespace_type", namespace_type)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if pns_credentials is not None:
-            pulumi.set(__self__, "pns_credentials", pns_credentials)
+            _setter("pns_credentials", pns_credentials)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if replication_region is not None:
-            pulumi.set(__self__, "replication_region", replication_region)
+            _setter("replication_region", replication_region)
         if scale_unit is not None:
-            pulumi.set(__self__, "scale_unit", scale_unit)
+            _setter("scale_unit", scale_unit)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if zone_redundancy is not None:
-            pulumi.set(__self__, "zone_redundancy", zone_redundancy)
+            _setter("zone_redundancy", zone_redundancy)
 
     @property
     @pulumi.getter(name="dataCenter")
@@ -785,10 +963,21 @@ class NetworkAclsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: List of IP rules.
         :param pulumi.Input['PublicInternetAuthorizationRuleArgs'] public_network_rule: A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
         """
+        NetworkAclsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_rules=ip_rules,
+            public_network_rule=public_network_rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]] = None,
+             public_network_rule: Optional[pulumi.Input['PublicInternetAuthorizationRuleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if public_network_rule is not None:
-            pulumi.set(__self__, "public_network_rule", public_network_rule)
+            _setter("public_network_rule", public_network_rule)
 
     @property
     @pulumi.getter(name="ipRules")
@@ -841,26 +1030,53 @@ class NotificationHubPropertiesArgs:
         :param pulumi.Input['WnsCredentialArgs'] wns_credential: Description of a NotificationHub WnsCredential.
         :param pulumi.Input['XiaomiCredentialArgs'] xiaomi_credential: Description of a NotificationHub XiaomiCredential.
         """
+        NotificationHubPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adm_credential=adm_credential,
+            apns_credential=apns_credential,
+            baidu_credential=baidu_credential,
+            browser_credential=browser_credential,
+            gcm_credential=gcm_credential,
+            mpns_credential=mpns_credential,
+            name=name,
+            registration_ttl=registration_ttl,
+            wns_credential=wns_credential,
+            xiaomi_credential=xiaomi_credential,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adm_credential: Optional[pulumi.Input['AdmCredentialArgs']] = None,
+             apns_credential: Optional[pulumi.Input['ApnsCredentialArgs']] = None,
+             baidu_credential: Optional[pulumi.Input['BaiduCredentialArgs']] = None,
+             browser_credential: Optional[pulumi.Input['BrowserCredentialArgs']] = None,
+             gcm_credential: Optional[pulumi.Input['GcmCredentialArgs']] = None,
+             mpns_credential: Optional[pulumi.Input['MpnsCredentialArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             registration_ttl: Optional[pulumi.Input[str]] = None,
+             wns_credential: Optional[pulumi.Input['WnsCredentialArgs']] = None,
+             xiaomi_credential: Optional[pulumi.Input['XiaomiCredentialArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if adm_credential is not None:
-            pulumi.set(__self__, "adm_credential", adm_credential)
+            _setter("adm_credential", adm_credential)
         if apns_credential is not None:
-            pulumi.set(__self__, "apns_credential", apns_credential)
+            _setter("apns_credential", apns_credential)
         if baidu_credential is not None:
-            pulumi.set(__self__, "baidu_credential", baidu_credential)
+            _setter("baidu_credential", baidu_credential)
         if browser_credential is not None:
-            pulumi.set(__self__, "browser_credential", browser_credential)
+            _setter("browser_credential", browser_credential)
         if gcm_credential is not None:
-            pulumi.set(__self__, "gcm_credential", gcm_credential)
+            _setter("gcm_credential", gcm_credential)
         if mpns_credential is not None:
-            pulumi.set(__self__, "mpns_credential", mpns_credential)
+            _setter("mpns_credential", mpns_credential)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if registration_ttl is not None:
-            pulumi.set(__self__, "registration_ttl", registration_ttl)
+            _setter("registration_ttl", registration_ttl)
         if wns_credential is not None:
-            pulumi.set(__self__, "wns_credential", wns_credential)
+            _setter("wns_credential", wns_credential)
         if xiaomi_credential is not None:
-            pulumi.set(__self__, "xiaomi_credential", xiaomi_credential)
+            _setter("xiaomi_credential", xiaomi_credential)
 
     @property
     @pulumi.getter(name="admCredential")
@@ -1005,22 +1221,45 @@ class PnsCredentialsArgs:
         :param pulumi.Input['WnsCredentialArgs'] wns_credential: Description of a NotificationHub WnsCredential.
         :param pulumi.Input['XiaomiCredentialArgs'] xiaomi_credential: Description of a NotificationHub XiaomiCredential.
         """
+        PnsCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adm_credential=adm_credential,
+            apns_credential=apns_credential,
+            baidu_credential=baidu_credential,
+            browser_credential=browser_credential,
+            gcm_credential=gcm_credential,
+            mpns_credential=mpns_credential,
+            wns_credential=wns_credential,
+            xiaomi_credential=xiaomi_credential,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adm_credential: Optional[pulumi.Input['AdmCredentialArgs']] = None,
+             apns_credential: Optional[pulumi.Input['ApnsCredentialArgs']] = None,
+             baidu_credential: Optional[pulumi.Input['BaiduCredentialArgs']] = None,
+             browser_credential: Optional[pulumi.Input['BrowserCredentialArgs']] = None,
+             gcm_credential: Optional[pulumi.Input['GcmCredentialArgs']] = None,
+             mpns_credential: Optional[pulumi.Input['MpnsCredentialArgs']] = None,
+             wns_credential: Optional[pulumi.Input['WnsCredentialArgs']] = None,
+             xiaomi_credential: Optional[pulumi.Input['XiaomiCredentialArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if adm_credential is not None:
-            pulumi.set(__self__, "adm_credential", adm_credential)
+            _setter("adm_credential", adm_credential)
         if apns_credential is not None:
-            pulumi.set(__self__, "apns_credential", apns_credential)
+            _setter("apns_credential", apns_credential)
         if baidu_credential is not None:
-            pulumi.set(__self__, "baidu_credential", baidu_credential)
+            _setter("baidu_credential", baidu_credential)
         if browser_credential is not None:
-            pulumi.set(__self__, "browser_credential", browser_credential)
+            _setter("browser_credential", browser_credential)
         if gcm_credential is not None:
-            pulumi.set(__self__, "gcm_credential", gcm_credential)
+            _setter("gcm_credential", gcm_credential)
         if mpns_credential is not None:
-            pulumi.set(__self__, "mpns_credential", mpns_credential)
+            _setter("mpns_credential", mpns_credential)
         if wns_credential is not None:
-            pulumi.set(__self__, "wns_credential", wns_credential)
+            _setter("wns_credential", wns_credential)
         if xiaomi_credential is not None:
-            pulumi.set(__self__, "xiaomi_credential", xiaomi_credential)
+            _setter("xiaomi_credential", xiaomi_credential)
 
     @property
     @pulumi.getter(name="admCredential")
@@ -1129,10 +1368,21 @@ class PrivateEndpointConnectionPropertiesArgs:
         :param pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: State of the Private Link Service connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']] provisioning_state: State of Private Endpoint Connection.
         """
+        PrivateEndpointConnectionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: Optional[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -1167,7 +1417,16 @@ class PublicInternetAuthorizationRuleArgs:
         A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: List of access rights.
         """
-        pulumi.set(__self__, "rights", rights)
+        PublicInternetAuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rights=rights,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rights", rights)
 
     @property
     @pulumi.getter
@@ -1190,8 +1449,17 @@ class RemotePrivateLinkServiceConnectionStateArgs:
         State of the Private Link Service connection.
         :param pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']] status: State of Private Link Connection.
         """
+        RemotePrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -1220,11 +1488,24 @@ class SharedAccessAuthorizationRulePropertiesArgs:
         :param pulumi.Input[str] secondary_key: Gets a base64-encoded 256-bit primary key for signing and
                validating the SAS token.
         """
-        pulumi.set(__self__, "rights", rights)
+        SharedAccessAuthorizationRulePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rights=rights,
+            primary_key=primary_key,
+            secondary_key=secondary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
+             primary_key: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rights", rights)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
 
     @property
     @pulumi.getter
@@ -1281,15 +1562,32 @@ class SkuArgs:
         :param pulumi.Input[str] size: Gets or sets the Sku size
         :param pulumi.Input[str] tier: Gets or sets the tier of particular sku
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1368,16 +1666,33 @@ class WnsCredentialPropertiesArgs:
         :param pulumi.Input[str] windows_live_endpoint: Gets or sets the Windows Live endpoint.
         :param pulumi.Input[str] wns_certificate: Gets or sets the WNS Certificate.
         """
+        WnsCredentialPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_key=certificate_key,
+            package_sid=package_sid,
+            secret_key=secret_key,
+            windows_live_endpoint=windows_live_endpoint,
+            wns_certificate=wns_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_key: Optional[pulumi.Input[str]] = None,
+             package_sid: Optional[pulumi.Input[str]] = None,
+             secret_key: Optional[pulumi.Input[str]] = None,
+             windows_live_endpoint: Optional[pulumi.Input[str]] = None,
+             wns_certificate: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_key is not None:
-            pulumi.set(__self__, "certificate_key", certificate_key)
+            _setter("certificate_key", certificate_key)
         if package_sid is not None:
-            pulumi.set(__self__, "package_sid", package_sid)
+            _setter("package_sid", package_sid)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
         if windows_live_endpoint is not None:
-            pulumi.set(__self__, "windows_live_endpoint", windows_live_endpoint)
+            _setter("windows_live_endpoint", windows_live_endpoint)
         if wns_certificate is not None:
-            pulumi.set(__self__, "wns_certificate", wns_certificate)
+            _setter("wns_certificate", wns_certificate)
 
     @property
     @pulumi.getter(name="certificateKey")
@@ -1448,7 +1763,16 @@ class WnsCredentialArgs:
         Description of a NotificationHub WnsCredential.
         :param pulumi.Input['WnsCredentialPropertiesArgs'] properties: Description of a NotificationHub WnsCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        WnsCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['WnsCredentialPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -1473,10 +1797,21 @@ class XiaomiCredentialPropertiesArgs:
         :param pulumi.Input[str] app_secret: Gets or sets app secret.
         :param pulumi.Input[str] endpoint: Gets or sets xiaomi service endpoint.
         """
+        XiaomiCredentialPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_secret=app_secret,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_secret: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_secret is not None:
-            pulumi.set(__self__, "app_secret", app_secret)
+            _setter("app_secret", app_secret)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter(name="appSecret")
@@ -1511,7 +1846,16 @@ class XiaomiCredentialArgs:
         Description of a NotificationHub XiaomiCredential.
         :param pulumi.Input['XiaomiCredentialPropertiesArgs'] properties: Description of a NotificationHub XiaomiCredentialProperties.
         """
-        pulumi.set(__self__, "properties", properties)
+        XiaomiCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: pulumi.Input['XiaomiCredentialPropertiesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("properties", properties)
 
     @property
     @pulumi.getter

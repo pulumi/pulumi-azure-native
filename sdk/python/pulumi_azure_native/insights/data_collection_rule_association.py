@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,15 +28,32 @@ class DataCollectionRuleAssociationArgs:
         :param pulumi.Input[str] data_collection_rule_id: The resource ID of the data collection rule that is to be associated.
         :param pulumi.Input[str] description: Description of the association.
         """
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        DataCollectionRuleAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_uri=resource_uri,
+            association_name=association_name,
+            data_collection_endpoint_id=data_collection_endpoint_id,
+            data_collection_rule_id=data_collection_rule_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_uri: pulumi.Input[str],
+             association_name: Optional[pulumi.Input[str]] = None,
+             data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
+             data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_uri", resource_uri)
         if association_name is not None:
-            pulumi.set(__self__, "association_name", association_name)
+            _setter("association_name", association_name)
         if data_collection_endpoint_id is not None:
-            pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
+            _setter("data_collection_endpoint_id", data_collection_endpoint_id)
         if data_collection_rule_id is not None:
-            pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
+            _setter("data_collection_rule_id", data_collection_rule_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -142,6 +159,10 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataCollectionRuleAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

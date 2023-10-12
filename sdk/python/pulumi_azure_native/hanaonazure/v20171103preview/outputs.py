@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -52,11 +52,24 @@ class DiskResponse(dict):
         :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes.
         :param str name: The disk name.
         """
-        pulumi.set(__self__, "lun", lun)
+        DiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lun=lun,
+            disk_size_gb=disk_size_gb,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lun: int,
+             disk_size_gb: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lun", lun)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -115,8 +128,19 @@ class HardwareProfileResponse(dict):
         :param str hana_instance_size: Specifies the HANA instance SKU.
         :param str hardware_type: Name of the hardware type (vendor and/or their product name)
         """
-        pulumi.set(__self__, "hana_instance_size", hana_instance_size)
-        pulumi.set(__self__, "hardware_type", hardware_type)
+        HardwareProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hana_instance_size=hana_instance_size,
+            hardware_type=hardware_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hana_instance_size: str,
+             hardware_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hana_instance_size", hana_instance_size)
+        _setter("hardware_type", hardware_type)
 
     @property
     @pulumi.getter(name="hanaInstanceSize")
@@ -163,8 +187,17 @@ class IpAddressResponse(dict):
         Specifies the IP address of the network interface.
         :param str ip_address: Specifies the IP address of the network interface.
         """
+        IpAddressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address=ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -207,9 +240,20 @@ class NetworkProfileResponse(dict):
         :param str circuit_id: Specifies the circuit id for connecting to express route.
         :param Sequence['IpAddressResponse'] network_interfaces: Specifies the network interfaces for the HANA instance.
         """
-        pulumi.set(__self__, "circuit_id", circuit_id)
+        NetworkProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            circuit_id=circuit_id,
+            network_interfaces=network_interfaces,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             circuit_id: str,
+             network_interfaces: Optional[Sequence['outputs.IpAddressResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("circuit_id", circuit_id)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="circuitId")
@@ -266,12 +310,27 @@ class OSProfileResponse(dict):
         :param str computer_name: Specifies the host OS name of the HANA instance.
         :param str ssh_public_key: Specifies the SSH public key used to access the operating system.
         """
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "version", version)
+        OSProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            version=version,
+            computer_name=computer_name,
+            ssh_public_key=ssh_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: str,
+             version: str,
+             computer_name: Optional[str] = None,
+             ssh_public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os_type", os_type)
+        _setter("version", version)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if ssh_public_key is not None:
-            pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+            _setter("ssh_public_key", ssh_public_key)
 
     @property
     @pulumi.getter(name="osType")
@@ -342,15 +401,32 @@ class SAPSystemIDResponse(dict):
         :param str uid: User ID of the HANA database user.
         :param str username: Name of the HANA database user.
         """
-        pulumi.set(__self__, "memory_allocation", memory_allocation)
+        SAPSystemIDResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            memory_allocation=memory_allocation,
+            gid=gid,
+            sid=sid,
+            uid=uid,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             memory_allocation: str,
+             gid: Optional[str] = None,
+             sid: Optional[str] = None,
+             uid: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("memory_allocation", memory_allocation)
         if gid is not None:
-            pulumi.set(__self__, "gid", gid)
+            _setter("gid", gid)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
         if uid is not None:
-            pulumi.set(__self__, "uid", uid)
+            _setter("uid", uid)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="memoryAllocation")
@@ -429,11 +505,24 @@ class StorageProfileResponse(dict):
         :param Sequence['SAPSystemIDResponse'] hana_sids: Specifies information related to SAP system IDs for the hana instance.
         :param Sequence['DiskResponse'] os_disks: Specifies information about the operating system disk used by the hana instance.
         """
-        pulumi.set(__self__, "nfs_ip_address", nfs_ip_address)
+        StorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nfs_ip_address=nfs_ip_address,
+            hana_sids=hana_sids,
+            os_disks=os_disks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nfs_ip_address: str,
+             hana_sids: Optional[Sequence['outputs.SAPSystemIDResponse']] = None,
+             os_disks: Optional[Sequence['outputs.DiskResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("nfs_ip_address", nfs_ip_address)
         if hana_sids is not None:
-            pulumi.set(__self__, "hana_sids", hana_sids)
+            _setter("hana_sids", hana_sids)
         if os_disks is not None:
-            pulumi.set(__self__, "os_disks", os_disks)
+            _setter("os_disks", os_disks)
 
     @property
     @pulumi.getter(name="nfsIpAddress")

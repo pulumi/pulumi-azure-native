@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -49,8 +49,19 @@ class AclResponse(dict):
         :param str initiator_iqn: iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
         :param Sequence[str] mapped_luns: List of LUN names mapped to the ACL.
         """
-        pulumi.set(__self__, "initiator_iqn", initiator_iqn)
-        pulumi.set(__self__, "mapped_luns", mapped_luns)
+        AclResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initiator_iqn=initiator_iqn,
+            mapped_luns=mapped_luns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initiator_iqn: str,
+             mapped_luns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("initiator_iqn", initiator_iqn)
+        _setter("mapped_luns", mapped_luns)
 
     @property
     @pulumi.getter(name="initiatorIqn")
@@ -80,7 +91,16 @@ class DiskResponse(dict):
         Azure Managed Disk to attach to the Disk Pool.
         :param str id: Unique Azure Resource ID of the Managed Disk.
         """
-        pulumi.set(__self__, "id", id)
+        DiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -123,9 +143,22 @@ class IscsiLunResponse(dict):
         :param str managed_disk_azure_resource_id: Azure Resource ID of the Managed Disk.
         :param str name: User defined name for iSCSI LUN; example: "lun0"
         """
-        pulumi.set(__self__, "lun", lun)
-        pulumi.set(__self__, "managed_disk_azure_resource_id", managed_disk_azure_resource_id)
-        pulumi.set(__self__, "name", name)
+        IscsiLunResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lun=lun,
+            managed_disk_azure_resource_id=managed_disk_azure_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lun: int,
+             managed_disk_azure_resource_id: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lun", lun)
+        _setter("managed_disk_azure_resource_id", managed_disk_azure_resource_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -200,18 +233,37 @@ class SystemMetadataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

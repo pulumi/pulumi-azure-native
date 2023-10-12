@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,43 @@ class VirtualHubBgpConnectionArgs:
         :param pulumi.Input[float] peer_asn: Peer ASN.
         :param pulumi.Input[str] peer_ip: Peer IP.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+        VirtualHubBgpConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_hub_name=virtual_hub_name,
+            connection_name=connection_name,
+            hub_virtual_network_connection=hub_virtual_network_connection,
+            id=id,
+            name=name,
+            peer_asn=peer_asn,
+            peer_ip=peer_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             virtual_hub_name: pulumi.Input[str],
+             connection_name: Optional[pulumi.Input[str]] = None,
+             hub_virtual_network_connection: Optional[pulumi.Input['SubResourceArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             peer_asn: Optional[pulumi.Input[float]] = None,
+             peer_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_hub_name", virtual_hub_name)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if hub_virtual_network_connection is not None:
-            pulumi.set(__self__, "hub_virtual_network_connection", hub_virtual_network_connection)
+            _setter("hub_virtual_network_connection", hub_virtual_network_connection)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
         if peer_ip is not None:
-            pulumi.set(__self__, "peer_ip", peer_ip)
+            _setter("peer_ip", peer_ip)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +219,10 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualHubBgpConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -219,6 +246,11 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
             __props__ = VirtualHubBgpConnectionArgs.__new__(VirtualHubBgpConnectionArgs)
 
             __props__.__dict__["connection_name"] = connection_name
+            if hub_virtual_network_connection is not None and not isinstance(hub_virtual_network_connection, SubResourceArgs):
+                hub_virtual_network_connection = hub_virtual_network_connection or {}
+                def _setter(key, value):
+                    hub_virtual_network_connection[key] = value
+                SubResourceArgs._configure(_setter, **hub_virtual_network_connection)
             __props__.__dict__["hub_virtual_network_connection"] = hub_virtual_network_connection
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name

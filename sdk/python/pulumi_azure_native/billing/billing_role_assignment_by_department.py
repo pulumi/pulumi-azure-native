@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BillingRoleAssignmentByDepartmentArgs', 'BillingRoleAssignmentByDepartment']
@@ -33,20 +33,43 @@ class BillingRoleAssignmentByDepartmentArgs:
         :param pulumi.Input[str] user_authentication_type: The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
         :param pulumi.Input[str] user_email_address: The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
         """
-        pulumi.set(__self__, "billing_account_name", billing_account_name)
-        pulumi.set(__self__, "department_name", department_name)
+        BillingRoleAssignmentByDepartmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_account_name=billing_account_name,
+            department_name=department_name,
+            billing_role_assignment_name=billing_role_assignment_name,
+            principal_id=principal_id,
+            principal_tenant_id=principal_tenant_id,
+            role_definition_id=role_definition_id,
+            user_authentication_type=user_authentication_type,
+            user_email_address=user_email_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_account_name: pulumi.Input[str],
+             department_name: pulumi.Input[str],
+             billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_tenant_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             user_authentication_type: Optional[pulumi.Input[str]] = None,
+             user_email_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("billing_account_name", billing_account_name)
+        _setter("department_name", department_name)
         if billing_role_assignment_name is not None:
-            pulumi.set(__self__, "billing_role_assignment_name", billing_role_assignment_name)
+            _setter("billing_role_assignment_name", billing_role_assignment_name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if principal_tenant_id is not None:
-            pulumi.set(__self__, "principal_tenant_id", principal_tenant_id)
+            _setter("principal_tenant_id", principal_tenant_id)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
         if user_authentication_type is not None:
-            pulumi.set(__self__, "user_authentication_type", user_authentication_type)
+            _setter("user_authentication_type", user_authentication_type)
         if user_email_address is not None:
-            pulumi.set(__self__, "user_email_address", user_email_address)
+            _setter("user_email_address", user_email_address)
 
     @property
     @pulumi.getter(name="billingAccountName")
@@ -194,6 +217,10 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BillingRoleAssignmentByDepartmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

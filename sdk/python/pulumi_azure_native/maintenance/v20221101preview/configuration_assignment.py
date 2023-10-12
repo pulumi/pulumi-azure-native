@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -34,18 +34,41 @@ class ConfigurationAssignmentArgs:
         :param pulumi.Input[str] maintenance_configuration_id: The maintenance configuration Id
         :param pulumi.Input[str] resource_id: The unique resourceId
         """
-        pulumi.set(__self__, "provider_name", provider_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "resource_type", resource_type)
+        ConfigurationAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_name=provider_name,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            configuration_assignment_name=configuration_assignment_name,
+            location=location,
+            maintenance_configuration_id=maintenance_configuration_id,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             resource_type: pulumi.Input[str],
+             configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_name", provider_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
+        _setter("resource_type", resource_type)
         if configuration_assignment_name is not None:
-            pulumi.set(__self__, "configuration_assignment_name", configuration_assignment_name)
+            _setter("configuration_assignment_name", configuration_assignment_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_configuration_id is not None:
-            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+            _setter("maintenance_configuration_id", maintenance_configuration_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="providerName")
@@ -191,6 +214,10 @@ class ConfigurationAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

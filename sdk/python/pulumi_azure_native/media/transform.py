@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,30 @@ class TransformArgs:
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
         :param pulumi.Input[str] transform_name: The Transform name.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "outputs", outputs)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TransformArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            outputs=outputs,
+            resource_group_name=resource_group_name,
+            description=description,
+            transform_name=transform_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             outputs: pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             transform_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("outputs", outputs)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if transform_name is not None:
-            pulumi.set(__self__, "transform_name", transform_name)
+            _setter("transform_name", transform_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -142,6 +159,10 @@ class Transform(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransformArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

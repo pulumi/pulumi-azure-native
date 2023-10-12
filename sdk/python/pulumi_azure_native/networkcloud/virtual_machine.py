@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -62,48 +62,97 @@ class VirtualMachineArgs:
         :param pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']] vm_device_model: The type of the device model to use.
         :param pulumi.Input['ImageRepositoryCredentialsArgs'] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image.
         """
-        pulumi.set(__self__, "admin_username", admin_username)
-        pulumi.set(__self__, "cloud_services_network_attachment", cloud_services_network_attachment)
-        pulumi.set(__self__, "cpu_cores", cpu_cores)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "memory_size_gb", memory_size_gb)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_profile", storage_profile)
-        pulumi.set(__self__, "vm_image", vm_image)
+        VirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            cloud_services_network_attachment=cloud_services_network_attachment,
+            cpu_cores=cpu_cores,
+            extended_location=extended_location,
+            memory_size_gb=memory_size_gb,
+            resource_group_name=resource_group_name,
+            storage_profile=storage_profile,
+            vm_image=vm_image,
+            boot_method=boot_method,
+            isolate_emulator_thread=isolate_emulator_thread,
+            location=location,
+            network_attachments=network_attachments,
+            network_data=network_data,
+            placement_hints=placement_hints,
+            ssh_public_keys=ssh_public_keys,
+            tags=tags,
+            user_data=user_data,
+            virtio_interface=virtio_interface,
+            virtual_machine_name=virtual_machine_name,
+            vm_device_model=vm_device_model,
+            vm_image_repository_credentials=vm_image_repository_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: pulumi.Input[str],
+             cloud_services_network_attachment: pulumi.Input['NetworkAttachmentArgs'],
+             cpu_cores: pulumi.Input[float],
+             extended_location: pulumi.Input['ExtendedLocationArgs'],
+             memory_size_gb: pulumi.Input[float],
+             resource_group_name: pulumi.Input[str],
+             storage_profile: pulumi.Input['StorageProfileArgs'],
+             vm_image: pulumi.Input[str],
+             boot_method: Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]] = None,
+             isolate_emulator_thread: Optional[pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]]] = None,
+             network_data: Optional[pulumi.Input[str]] = None,
+             placement_hints: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]] = None,
+             ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             virtio_interface: Optional[pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']]] = None,
+             virtual_machine_name: Optional[pulumi.Input[str]] = None,
+             vm_device_model: Optional[pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']]] = None,
+             vm_image_repository_credentials: Optional[pulumi.Input['ImageRepositoryCredentialsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_username", admin_username)
+        _setter("cloud_services_network_attachment", cloud_services_network_attachment)
+        _setter("cpu_cores", cpu_cores)
+        _setter("extended_location", extended_location)
+        _setter("memory_size_gb", memory_size_gb)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_profile", storage_profile)
+        _setter("vm_image", vm_image)
         if boot_method is None:
             boot_method = 'UEFI'
         if boot_method is not None:
-            pulumi.set(__self__, "boot_method", boot_method)
+            _setter("boot_method", boot_method)
         if isolate_emulator_thread is None:
             isolate_emulator_thread = 'True'
         if isolate_emulator_thread is not None:
-            pulumi.set(__self__, "isolate_emulator_thread", isolate_emulator_thread)
+            _setter("isolate_emulator_thread", isolate_emulator_thread)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_attachments is not None:
-            pulumi.set(__self__, "network_attachments", network_attachments)
+            _setter("network_attachments", network_attachments)
         if network_data is not None:
-            pulumi.set(__self__, "network_data", network_data)
+            _setter("network_data", network_data)
         if placement_hints is not None:
-            pulumi.set(__self__, "placement_hints", placement_hints)
+            _setter("placement_hints", placement_hints)
         if ssh_public_keys is not None:
-            pulumi.set(__self__, "ssh_public_keys", ssh_public_keys)
+            _setter("ssh_public_keys", ssh_public_keys)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if virtio_interface is None:
             virtio_interface = 'Modern'
         if virtio_interface is not None:
-            pulumi.set(__self__, "virtio_interface", virtio_interface)
+            _setter("virtio_interface", virtio_interface)
         if virtual_machine_name is not None:
-            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+            _setter("virtual_machine_name", virtual_machine_name)
         if vm_device_model is None:
             vm_device_model = 'T2'
         if vm_device_model is not None:
-            pulumi.set(__self__, "vm_device_model", vm_device_model)
+            _setter("vm_device_model", vm_device_model)
         if vm_image_repository_credentials is not None:
-            pulumi.set(__self__, "vm_image_repository_credentials", vm_image_repository_credentials)
+            _setter("vm_image_repository_credentials", vm_image_repository_credentials)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -431,6 +480,10 @@ class VirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -472,12 +525,22 @@ class VirtualMachine(pulumi.CustomResource):
             if boot_method is None:
                 boot_method = 'UEFI'
             __props__.__dict__["boot_method"] = boot_method
+            if cloud_services_network_attachment is not None and not isinstance(cloud_services_network_attachment, NetworkAttachmentArgs):
+                cloud_services_network_attachment = cloud_services_network_attachment or {}
+                def _setter(key, value):
+                    cloud_services_network_attachment[key] = value
+                NetworkAttachmentArgs._configure(_setter, **cloud_services_network_attachment)
             if cloud_services_network_attachment is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_services_network_attachment'")
             __props__.__dict__["cloud_services_network_attachment"] = cloud_services_network_attachment
             if cpu_cores is None and not opts.urn:
                 raise TypeError("Missing required property 'cpu_cores'")
             __props__.__dict__["cpu_cores"] = cpu_cores
+            if extended_location is not None and not isinstance(extended_location, ExtendedLocationArgs):
+                extended_location = extended_location or {}
+                def _setter(key, value):
+                    extended_location[key] = value
+                ExtendedLocationArgs._configure(_setter, **extended_location)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
@@ -495,6 +558,11 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["ssh_public_keys"] = ssh_public_keys
+            if storage_profile is not None and not isinstance(storage_profile, StorageProfileArgs):
+                storage_profile = storage_profile or {}
+                def _setter(key, value):
+                    storage_profile[key] = value
+                StorageProfileArgs._configure(_setter, **storage_profile)
             if storage_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_profile'")
             __props__.__dict__["storage_profile"] = storage_profile
@@ -510,6 +578,11 @@ class VirtualMachine(pulumi.CustomResource):
             if vm_image is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_image'")
             __props__.__dict__["vm_image"] = vm_image
+            if vm_image_repository_credentials is not None and not isinstance(vm_image_repository_credentials, ImageRepositoryCredentialsArgs):
+                vm_image_repository_credentials = vm_image_repository_credentials or {}
+                def _setter(key, value):
+                    vm_image_repository_credentials[key] = value
+                ImageRepositoryCredentialsArgs._configure(_setter, **vm_image_repository_credentials)
             __props__.__dict__["vm_image_repository_credentials"] = vm_image_repository_credentials
             __props__.__dict__["availability_zone"] = None
             __props__.__dict__["bare_metal_machine_id"] = None

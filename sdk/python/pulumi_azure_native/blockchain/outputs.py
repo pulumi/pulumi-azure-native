@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -31,10 +31,21 @@ class ApiKeyResponse(dict):
         :param str key_name: Gets or sets the API key name.
         :param str value: Gets or sets the API key value.
         """
+        ApiKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="keyName")
@@ -64,8 +75,17 @@ class BlockchainMemberNodesSkuResponse(dict):
         Payload of the blockchain member nodes Sku for a blockchain member.
         :param int capacity: Gets or sets the nodes capacity.
         """
+        BlockchainMemberNodesSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -89,10 +109,21 @@ class ConsortiumResponse(dict):
         :param str name: Gets or sets the blockchain member name.
         :param str protocol: Gets or sets the protocol for the consortium.
         """
+        ConsortiumResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -147,12 +178,25 @@ class FirewallRuleResponse(dict):
         :param str rule_name: Gets or sets the name of the firewall rules.
         :param str start_ip_address: Gets or sets the start IP address of the firewall rule range.
         """
+        FirewallRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            rule_name=rule_name,
+            start_ip_address=start_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: Optional[str] = None,
+             rule_name: Optional[str] = None,
+             start_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end_ip_address is not None:
-            pulumi.set(__self__, "end_ip_address", end_ip_address)
+            _setter("end_ip_address", end_ip_address)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if start_ip_address is not None:
-            pulumi.set(__self__, "start_ip_address", start_ip_address)
+            _setter("start_ip_address", start_ip_address)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -192,10 +236,21 @@ class SkuResponse(dict):
         :param str name: Gets or sets Sku name
         :param str tier: Gets or sets Sku tier
         """
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

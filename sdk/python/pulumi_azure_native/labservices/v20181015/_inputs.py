@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,9 +26,20 @@ class ReferenceVmArgs:
         :param pulumi.Input[str] user_name: The username of the virtual machine
         :param pulumi.Input[str] password: The password of the virtual machine. This will be set to null in GET resource API
         """
-        pulumi.set(__self__, "user_name", user_name)
+        ReferenceVmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_name=user_name,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_name: pulumi.Input[str],
+             password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("user_name", user_name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter(name="userName")
@@ -67,11 +78,24 @@ class ResourceSettingsArgs:
         :param pulumi.Input[str] gallery_image_resource_id: The resource id of the gallery image used for creating the virtual machine
         :param pulumi.Input[Union[str, 'ManagedLabVmSize']] size: The size of the virtual machine
         """
-        pulumi.set(__self__, "reference_vm", reference_vm)
+        ResourceSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reference_vm=reference_vm,
+            gallery_image_resource_id=gallery_image_resource_id,
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reference_vm: pulumi.Input['ReferenceVmArgs'],
+             gallery_image_resource_id: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[Union[str, 'ManagedLabVmSize']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("reference_vm", reference_vm)
         if gallery_image_resource_id is not None:
-            pulumi.set(__self__, "gallery_image_resource_id", gallery_image_resource_id)
+            _setter("gallery_image_resource_id", gallery_image_resource_id)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
 
     @property
     @pulumi.getter(name="referenceVm")
@@ -120,10 +144,21 @@ class ResourceSetArgs:
         :param pulumi.Input[str] resource_setting_id: resourceSettingId for the environment
         :param pulumi.Input[str] vm_resource_id: VM resource Id for the environment
         """
+        ResourceSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_setting_id=resource_setting_id,
+            vm_resource_id=vm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_setting_id: Optional[pulumi.Input[str]] = None,
+             vm_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_setting_id is not None:
-            pulumi.set(__self__, "resource_setting_id", resource_setting_id)
+            _setter("resource_setting_id", resource_setting_id)
         if vm_resource_id is not None:
-            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+            _setter("vm_resource_id", vm_resource_id)
 
     @property
     @pulumi.getter(name="resourceSettingId")

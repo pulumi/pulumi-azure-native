@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,22 +39,49 @@ class EnvironmentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
-        pulumi.set(__self__, "environment_setting_name", environment_setting_name)
-        pulumi.set(__self__, "lab_account_name", lab_account_name)
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_setting_name=environment_setting_name,
+            lab_account_name=lab_account_name,
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            environment_name=environment_name,
+            location=location,
+            provisioning_state=provisioning_state,
+            resource_sets=resource_sets,
+            tags=tags,
+            unique_identifier=unique_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_setting_name: pulumi.Input[str],
+             lab_account_name: pulumi.Input[str],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             environment_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             resource_sets: Optional[pulumi.Input['ResourceSetArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             unique_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment_setting_name", environment_setting_name)
+        _setter("lab_account_name", lab_account_name)
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_sets is not None:
-            pulumi.set(__self__, "resource_sets", resource_sets)
+            _setter("resource_sets", resource_sets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
+            _setter("unique_identifier", unique_identifier)
 
     @property
     @pulumi.getter(name="environmentSettingName")
@@ -230,6 +257,10 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -269,6 +300,11 @@ class Environment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_sets is not None and not isinstance(resource_sets, ResourceSetArgs):
+                resource_sets = resource_sets or {}
+                def _setter(key, value):
+                    resource_sets[key] = value
+                ResourceSetArgs._configure(_setter, **resource_sets)
             __props__.__dict__["resource_sets"] = resource_sets
             __props__.__dict__["tags"] = tags
             __props__.__dict__["unique_identifier"] = unique_identifier

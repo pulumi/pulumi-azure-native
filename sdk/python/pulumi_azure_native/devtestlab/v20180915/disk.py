@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -46,31 +46,66 @@ class DiskArgs:
         :param pulumi.Input[str] storage_account_id: When backed by a blob, the storage account where the blob is.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_name", user_name)
+        DiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            user_name=user_name,
+            disk_blob_name=disk_blob_name,
+            disk_size_gi_b=disk_size_gi_b,
+            disk_type=disk_type,
+            disk_uri=disk_uri,
+            host_caching=host_caching,
+            leased_by_lab_vm_id=leased_by_lab_vm_id,
+            location=location,
+            managed_disk_id=managed_disk_id,
+            name=name,
+            storage_account_id=storage_account_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             disk_blob_name: Optional[pulumi.Input[str]] = None,
+             disk_size_gi_b: Optional[pulumi.Input[int]] = None,
+             disk_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
+             disk_uri: Optional[pulumi.Input[str]] = None,
+             host_caching: Optional[pulumi.Input[str]] = None,
+             leased_by_lab_vm_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_disk_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_name", user_name)
         if disk_blob_name is not None:
-            pulumi.set(__self__, "disk_blob_name", disk_blob_name)
+            _setter("disk_blob_name", disk_blob_name)
         if disk_size_gi_b is not None:
-            pulumi.set(__self__, "disk_size_gi_b", disk_size_gi_b)
+            _setter("disk_size_gi_b", disk_size_gi_b)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if disk_uri is not None:
-            pulumi.set(__self__, "disk_uri", disk_uri)
+            _setter("disk_uri", disk_uri)
         if host_caching is not None:
-            pulumi.set(__self__, "host_caching", host_caching)
+            _setter("host_caching", host_caching)
         if leased_by_lab_vm_id is not None:
-            pulumi.set(__self__, "leased_by_lab_vm_id", leased_by_lab_vm_id)
+            _setter("leased_by_lab_vm_id", leased_by_lab_vm_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_disk_id is not None:
-            pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+            _setter("managed_disk_id", managed_disk_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="labName")
@@ -300,6 +335,10 @@ class Disk(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

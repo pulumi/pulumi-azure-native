@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -27,10 +27,21 @@ class CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs:
         :param pulumi.Input['CmkIdentityType'] identity_type: Values can be SystemAssigned or UserAssigned
         :param pulumi.Input[str] user_assigned_identity_resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
         """
+        CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_type=identity_type,
+            user_assigned_identity_resource_id=user_assigned_identity_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_type: Optional[pulumi.Input['CmkIdentityType']] = None,
+             user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if identity_type is not None:
-            pulumi.set(__self__, "identity_type", identity_type)
+            _setter("identity_type", identity_type)
         if user_assigned_identity_resource_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+            _setter("user_assigned_identity_resource_id", user_assigned_identity_resource_id)
 
     @property
     @pulumi.getter(name="identityType")
@@ -67,10 +78,21 @@ class CustomerManagedKeyEncryptionPropertiesArgs:
         :param pulumi.Input['CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param pulumi.Input[str] key_encryption_key_url: key encryption key Url, with or without a version. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek. Key auto rotation is enabled by providing a key uri without version. Otherwise, customer is responsible for rotating the key. The keyEncryptionKeyIdentity(either SystemAssigned or UserAssigned) should have permission to access this key url.
         """
+        CustomerManagedKeyEncryptionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_encryption_key_identity=key_encryption_key_identity,
+            key_encryption_key_url=key_encryption_key_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_encryption_key_identity: Optional[pulumi.Input['CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs']] = None,
+             key_encryption_key_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_encryption_key_identity is not None:
-            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+            _setter("key_encryption_key_identity", key_encryption_key_identity)
         if key_encryption_key_url is not None:
-            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+            _setter("key_encryption_key_url", key_encryption_key_url)
 
     @property
     @pulumi.getter(name="keyEncryptionKeyIdentity")
@@ -105,8 +127,17 @@ class EncryptionPropertiesArgs:
         All encryption configuration for a resource.
         :param pulumi.Input['CustomerManagedKeyEncryptionPropertiesArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
+        EncryptionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_managed_key_encryption=customer_managed_key_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_managed_key_encryption: Optional[pulumi.Input['CustomerManagedKeyEncryptionPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if customer_managed_key_encryption is not None:
-            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+            _setter("customer_managed_key_encryption", customer_managed_key_encryption)
 
     @property
     @pulumi.getter(name="customerManagedKeyEncryption")
@@ -131,10 +162,21 @@ class IdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter

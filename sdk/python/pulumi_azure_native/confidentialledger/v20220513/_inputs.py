@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,12 +28,25 @@ class AADBasedSecurityPrincipalArgs:
         :param pulumi.Input[str] principal_id: UUID/GUID based Principal Id of the Security Principal
         :param pulumi.Input[str] tenant_id: UUID/GUID based Tenant Id of the Security Principal
         """
+        AADBasedSecurityPrincipalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ledger_role_name=ledger_role_name,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ledger_role_name: Optional[pulumi.Input[Union[str, 'LedgerRoleName']]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ledger_role_name is not None:
-            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+            _setter("ledger_role_name", ledger_role_name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="ledgerRoleName")
@@ -82,10 +95,21 @@ class CertBasedSecurityPrincipalArgs:
         :param pulumi.Input[str] cert: Public key of the user cert (.pem or .cer)
         :param pulumi.Input[Union[str, 'LedgerRoleName']] ledger_role_name: LedgerRole associated with the Security Principal of Ledger
         """
+        CertBasedSecurityPrincipalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            ledger_role_name=ledger_role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[pulumi.Input[str]] = None,
+             ledger_role_name: Optional[pulumi.Input[Union[str, 'LedgerRoleName']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if ledger_role_name is not None:
-            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+            _setter("ledger_role_name", ledger_role_name)
 
     @property
     @pulumi.getter
@@ -124,12 +148,25 @@ class LedgerPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]] cert_based_security_principals: Array of all cert based Security Principals.
         :param pulumi.Input[Union[str, 'LedgerType']] ledger_type: Type of Confidential Ledger
         """
+        LedgerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_based_security_principals=aad_based_security_principals,
+            cert_based_security_principals=cert_based_security_principals,
+            ledger_type=ledger_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]] = None,
+             cert_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]] = None,
+             ledger_type: Optional[pulumi.Input[Union[str, 'LedgerType']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aad_based_security_principals is not None:
-            pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
+            _setter("aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
-            pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
+            _setter("cert_based_security_principals", cert_based_security_principals)
         if ledger_type is not None:
-            pulumi.set(__self__, "ledger_type", ledger_type)
+            _setter("ledger_type", ledger_type)
 
     @property
     @pulumi.getter(name="aadBasedSecurityPrincipals")

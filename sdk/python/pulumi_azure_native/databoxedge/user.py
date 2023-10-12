@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,30 @@ class UserArgs:
         :param pulumi.Input['AsymmetricEncryptedSecretArgs'] encrypted_password: The password details.
         :param pulumi.Input[str] name: The user name.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_type", user_type)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            resource_group_name=resource_group_name,
+            user_type=user_type,
+            encrypted_password=encrypted_password,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             user_type: pulumi.Input[Union[str, 'UserType']],
+             encrypted_password: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_name", device_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_type", user_type)
         if encrypted_password is not None:
-            pulumi.set(__self__, "encrypted_password", encrypted_password)
+            _setter("encrypted_password", encrypted_password)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -142,6 +159,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -164,6 +185,11 @@ class User(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
+            if encrypted_password is not None and not isinstance(encrypted_password, AsymmetricEncryptedSecretArgs):
+                encrypted_password = encrypted_password or {}
+                def _setter(key, value):
+                    encrypted_password[key] = value
+                AsymmetricEncryptedSecretArgs._configure(_setter, **encrypted_password)
             __props__.__dict__["encrypted_password"] = encrypted_password
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

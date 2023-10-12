@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -31,13 +31,26 @@ class AutoStorageBasePropertiesArgs:
         :param pulumi.Input['AutoStorageAuthenticationMode'] authentication_mode: The authentication mode which the Batch service will use to manage the auto-storage account.
         :param pulumi.Input['ComputeNodeIdentityReferenceArgs'] node_identity_reference: The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
         """
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        AutoStorageBasePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_id=storage_account_id,
+            authentication_mode=authentication_mode,
+            node_identity_reference=node_identity_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_id: pulumi.Input[str],
+             authentication_mode: Optional[pulumi.Input['AutoStorageAuthenticationMode']] = None,
+             node_identity_reference: Optional[pulumi.Input['ComputeNodeIdentityReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_account_id", storage_account_id)
         if authentication_mode is None:
             authentication_mode = 'StorageKeys'
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if node_identity_reference is not None:
-            pulumi.set(__self__, "node_identity_reference", node_identity_reference)
+            _setter("node_identity_reference", node_identity_reference)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -86,9 +99,20 @@ class BatchAccountIdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the Batch account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Batch account.
         """
-        pulumi.set(__self__, "type", type)
+        BatchAccountIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input['ResourceIdentityType'],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -123,8 +147,17 @@ class ComputeNodeIdentityReferenceArgs:
         The reference to a user assigned identity associated with the Batch pool which a compute node will use.
         :param pulumi.Input[str] resource_id: The ARM resource id of the user assigned identity.
         """
+        ComputeNodeIdentityReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -149,10 +182,21 @@ class EncryptionPropertiesArgs:
         :param pulumi.Input['KeySource'] key_source: Type of the key source.
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Additional details when using Microsoft.KeyVault
         """
+        EncryptionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_source=key_source,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_source: Optional[pulumi.Input['KeySource']] = None,
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter(name="keySource")
@@ -191,8 +235,17 @@ class KeyVaultPropertiesArgs:
                 The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
                 The KeyVault has soft-delete and purge protection enabled
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -221,8 +274,19 @@ class KeyVaultReferenceArgs:
         :param pulumi.Input[str] id: The resource ID of the Azure key vault associated with the Batch account.
         :param pulumi.Input[str] url: The URL of the Azure key vault associated with the Batch account.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "url", url)
+        KeyVaultReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             url: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("url", url)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -38,24 +38,51 @@ class GalleryImageArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
-        pulumi.set(__self__, "lab_account_name", lab_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GalleryImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_account_name=lab_account_name,
+            resource_group_name=resource_group_name,
+            gallery_image_name=gallery_image_name,
+            is_enabled=is_enabled,
+            is_override=is_override,
+            is_plan_authorized=is_plan_authorized,
+            location=location,
+            provisioning_state=provisioning_state,
+            tags=tags,
+            unique_identifier=unique_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             gallery_image_name: Optional[pulumi.Input[str]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             is_override: Optional[pulumi.Input[bool]] = None,
+             is_plan_authorized: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             unique_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_account_name", lab_account_name)
+        _setter("resource_group_name", resource_group_name)
         if gallery_image_name is not None:
-            pulumi.set(__self__, "gallery_image_name", gallery_image_name)
+            _setter("gallery_image_name", gallery_image_name)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if is_override is not None:
-            pulumi.set(__self__, "is_override", is_override)
+            _setter("is_override", is_override)
         if is_plan_authorized is not None:
-            pulumi.set(__self__, "is_plan_authorized", is_plan_authorized)
+            _setter("is_plan_authorized", is_plan_authorized)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
+            _setter("unique_identifier", unique_identifier)
 
     @property
     @pulumi.getter(name="labAccountName")
@@ -231,6 +258,10 @@ class GalleryImage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GalleryImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

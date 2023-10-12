@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,13 +34,32 @@ class AddressArgs:
         :param pulumi.Input[str] state: The state or province for the address.
         :param pulumi.Input[str] address2: The second line of the Address. Optional.
         """
-        pulumi.set(__self__, "address1", address1)
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "postal_code", postal_code)
-        pulumi.set(__self__, "state", state)
+        AddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address1=address1,
+            city=city,
+            country=country,
+            postal_code=postal_code,
+            state=state,
+            address2=address2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address1: pulumi.Input[str],
+             city: pulumi.Input[str],
+             country: pulumi.Input[str],
+             postal_code: pulumi.Input[str],
+             state: pulumi.Input[str],
+             address2: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address1", address1)
+        _setter("city", city)
+        _setter("country", country)
+        _setter("postal_code", postal_code)
+        _setter("state", state)
         if address2 is not None:
-            pulumi.set(__self__, "address2", address2)
+            _setter("address2", address2)
 
     @property
     @pulumi.getter
@@ -140,20 +159,45 @@ class ContactArgs:
         :param pulumi.Input[str] name_middle: Middle name.
         :param pulumi.Input[str] organization: Organization contact belongs to.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "name_first", name_first)
-        pulumi.set(__self__, "name_last", name_last)
-        pulumi.set(__self__, "phone", phone)
+        ContactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            name_first=name_first,
+            name_last=name_last,
+            phone=phone,
+            address_mailing=address_mailing,
+            fax=fax,
+            job_title=job_title,
+            name_middle=name_middle,
+            organization=organization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: pulumi.Input[str],
+             name_first: pulumi.Input[str],
+             name_last: pulumi.Input[str],
+             phone: pulumi.Input[str],
+             address_mailing: Optional[pulumi.Input['AddressArgs']] = None,
+             fax: Optional[pulumi.Input[str]] = None,
+             job_title: Optional[pulumi.Input[str]] = None,
+             name_middle: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
+        _setter("name_first", name_first)
+        _setter("name_last", name_last)
+        _setter("phone", phone)
         if address_mailing is not None:
-            pulumi.set(__self__, "address_mailing", address_mailing)
+            _setter("address_mailing", address_mailing)
         if fax is not None:
-            pulumi.set(__self__, "fax", fax)
+            _setter("fax", fax)
         if job_title is not None:
-            pulumi.set(__self__, "job_title", job_title)
+            _setter("job_title", job_title)
         if name_middle is not None:
-            pulumi.set(__self__, "name_middle", name_middle)
+            _setter("name_middle", name_middle)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
 
     @property
     @pulumi.getter
@@ -276,12 +320,25 @@ class DomainPurchaseConsentArgs:
         :param pulumi.Input[str] agreed_by: Client IP address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agreement_keys: List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
         """
+        DomainPurchaseConsentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agreed_at=agreed_at,
+            agreed_by=agreed_by,
+            agreement_keys=agreement_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agreed_at: Optional[pulumi.Input[str]] = None,
+             agreed_by: Optional[pulumi.Input[str]] = None,
+             agreement_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if agreed_at is not None:
-            pulumi.set(__self__, "agreed_at", agreed_at)
+            _setter("agreed_at", agreed_at)
         if agreed_by is not None:
-            pulumi.set(__self__, "agreed_by", agreed_by)
+            _setter("agreed_by", agreed_by)
         if agreement_keys is not None:
-            pulumi.set(__self__, "agreement_keys", agreement_keys)
+            _setter("agreement_keys", agreement_keys)
 
     @property
     @pulumi.getter(name="agreedAt")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,23 +37,48 @@ class MachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            client_public_key=client_public_key,
+            extensions=extensions,
+            identity=identity,
+            location=location,
+            location_data=location_data,
+            name=name,
+            tags=tags,
+            vm_id=vm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             client_public_key: Optional[pulumi.Input[str]] = None,
+             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]] = None,
+             identity: Optional[pulumi.Input['MachineIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             location_data: Optional[pulumi.Input['LocationDataArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vm_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if client_public_key is not None:
-            pulumi.set(__self__, "client_public_key", client_public_key)
+            _setter("client_public_key", client_public_key)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if location_data is not None:
-            pulumi.set(__self__, "location_data", location_data)
+            _setter("location_data", location_data)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -209,6 +234,10 @@ class Machine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -234,8 +263,18 @@ class Machine(pulumi.CustomResource):
 
             __props__.__dict__["client_public_key"] = client_public_key
             __props__.__dict__["extensions"] = extensions
+            if identity is not None and not isinstance(identity, MachineIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                MachineIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if location_data is not None and not isinstance(location_data, LocationDataArgs):
+                location_data = location_data or {}
+                def _setter(key, value):
+                    location_data[key] = value
+                LocationDataArgs._configure(_setter, **location_data)
             __props__.__dict__["location_data"] = location_data
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

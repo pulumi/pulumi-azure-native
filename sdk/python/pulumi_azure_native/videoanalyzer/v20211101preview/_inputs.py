@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -62,11 +62,24 @@ class AccountEncryptionArgs:
         :param pulumi.Input['ResourceIdentityArgs'] identity: The Key Vault identity.
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: The properties of the key used to encrypt the account.
         """
-        pulumi.set(__self__, "type", type)
+        AccountEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity=identity,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[Union[str, 'AccountEncryptionKeyType']],
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter
@@ -116,9 +129,20 @@ class AudioEncoderAacArgs:
                Expected value is '#Microsoft.VideoAnalyzer.AudioEncoderAac'.
         :param pulumi.Input[str] bitrate_kbps: Bitrate, in kilobits per second or Kbps, at which audio should be encoded (2-channel stereo audio at a sampling rate of 48 kHz). Allowed values are 96, 112, 128, 160, 192, 224, and 256. If omitted, the bitrate of the input audio is used.
         """
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.AudioEncoderAac')
+        AudioEncoderAacArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            bitrate_kbps=bitrate_kbps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             bitrate_kbps: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", '#Microsoft.VideoAnalyzer.AudioEncoderAac')
         if bitrate_kbps is not None:
-            pulumi.set(__self__, "bitrate_kbps", bitrate_kbps)
+            _setter("bitrate_kbps", bitrate_kbps)
 
     @property
     @pulumi.getter
@@ -163,11 +187,28 @@ class EccTokenKeyArgs:
         :param pulumi.Input[str] x: X coordinate.
         :param pulumi.Input[str] y: Y coordinate.
         """
-        pulumi.set(__self__, "alg", alg)
-        pulumi.set(__self__, "kid", kid)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EccTokenKey')
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
+        EccTokenKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alg=alg,
+            kid=kid,
+            type=type,
+            x=x,
+            y=y,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alg: pulumi.Input[Union[str, 'AccessPolicyEccAlgo']],
+             kid: pulumi.Input[str],
+             type: pulumi.Input[str],
+             x: pulumi.Input[str],
+             y: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alg", alg)
+        _setter("kid", kid)
+        _setter("type", '#Microsoft.VideoAnalyzer.EccTokenKey')
+        _setter("x", x)
+        _setter("y", y)
 
     @property
     @pulumi.getter
@@ -244,11 +285,24 @@ class EncoderCustomPresetArgs:
         :param pulumi.Input['AudioEncoderAacArgs'] audio_encoder: Describes a custom preset for encoding audio.
         :param pulumi.Input['VideoEncoderH264Args'] video_encoder: Describes a custom preset for encoding video.
         """
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EncoderCustomPreset')
+        EncoderCustomPresetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            audio_encoder=audio_encoder,
+            video_encoder=video_encoder,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             audio_encoder: Optional[pulumi.Input['AudioEncoderAacArgs']] = None,
+             video_encoder: Optional[pulumi.Input['VideoEncoderH264Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", '#Microsoft.VideoAnalyzer.EncoderCustomPreset')
         if audio_encoder is not None:
-            pulumi.set(__self__, "audio_encoder", audio_encoder)
+            _setter("audio_encoder", audio_encoder)
         if video_encoder is not None:
-            pulumi.set(__self__, "video_encoder", video_encoder)
+            _setter("video_encoder", video_encoder)
 
     @property
     @pulumi.getter
@@ -303,10 +357,25 @@ class EncoderProcessorArgs:
         :param pulumi.Input[str] type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.EncoderProcessor'.
         """
-        pulumi.set(__self__, "inputs", inputs)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "preset", preset)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EncoderProcessor')
+        EncoderProcessorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inputs=inputs,
+            name=name,
+            preset=preset,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inputs: pulumi.Input[Sequence[pulumi.Input['NodeInputArgs']]],
+             name: pulumi.Input[str],
+             preset: pulumi.Input[Union['EncoderCustomPresetArgs', 'EncoderSystemPresetArgs']],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("inputs", inputs)
+        _setter("name", name)
+        _setter("preset", preset)
+        _setter("type", '#Microsoft.VideoAnalyzer.EncoderProcessor')
 
     @property
     @pulumi.getter
@@ -369,8 +438,19 @@ class EncoderSystemPresetArgs:
         :param pulumi.Input[str] type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.EncoderSystemPreset'.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EncoderSystemPreset')
+        EncoderSystemPresetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'EncoderSystemPresetType']],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", '#Microsoft.VideoAnalyzer.EncoderSystemPreset')
 
     @property
     @pulumi.getter
@@ -406,8 +486,17 @@ class GroupLevelAccessControlArgs:
         Group level network access control.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for specified resources under the Video Analyzer account.
         """
+        GroupLevelAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
@@ -432,8 +521,19 @@ class IotHubArgs:
         :param pulumi.Input[str] id: The IoT Hub resource identifier.
         :param pulumi.Input['ResourceIdentityArgs'] identity: The IoT Hub identity.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "identity", identity)
+        IotHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             identity: pulumi.Input['ResourceIdentityArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("identity", identity)
 
     @property
     @pulumi.getter
@@ -477,15 +577,32 @@ class JwtAuthenticationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] issuers: List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EccTokenKeyArgs', 'RsaTokenKeyArgs']]]] keys: List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
         """
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.JwtAuthentication')
+        JwtAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            audiences=audiences,
+            claims=claims,
+            issuers=issuers,
+            keys=keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             claims: Optional[pulumi.Input[Sequence[pulumi.Input['TokenClaimArgs']]]] = None,
+             issuers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EccTokenKeyArgs', 'RsaTokenKeyArgs']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", '#Microsoft.VideoAnalyzer.JwtAuthentication')
         if audiences is not None:
-            pulumi.set(__self__, "audiences", audiences)
+            _setter("audiences", audiences)
         if claims is not None:
-            pulumi.set(__self__, "claims", claims)
+            _setter("claims", claims)
         if issuers is not None:
-            pulumi.set(__self__, "issuers", issuers)
+            _setter("issuers", issuers)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
 
     @property
     @pulumi.getter
@@ -557,7 +674,16 @@ class KeyVaultPropertiesArgs:
         The details for accessing the encryption keys in Key Vault.
         :param pulumi.Input[str] key_identifier: The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
         """
-        pulumi.set(__self__, "key_identifier", key_identifier)
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -584,12 +710,25 @@ class NetworkAccessControlArgs:
         :param pulumi.Input['GroupLevelAccessControlArgs'] ingestion: Public network access for ingestion group.
         :param pulumi.Input['GroupLevelAccessControlArgs'] integration: Public network access for integration group.
         """
+        NetworkAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumption=consumption,
+            ingestion=ingestion,
+            integration=integration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumption: Optional[pulumi.Input['GroupLevelAccessControlArgs']] = None,
+             ingestion: Optional[pulumi.Input['GroupLevelAccessControlArgs']] = None,
+             integration: Optional[pulumi.Input['GroupLevelAccessControlArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if consumption is not None:
-            pulumi.set(__self__, "consumption", consumption)
+            _setter("consumption", consumption)
         if ingestion is not None:
-            pulumi.set(__self__, "ingestion", ingestion)
+            _setter("ingestion", ingestion)
         if integration is not None:
-            pulumi.set(__self__, "integration", integration)
+            _setter("integration", integration)
 
     @property
     @pulumi.getter
@@ -636,7 +775,16 @@ class NodeInputArgs:
         Describes an input signal to be used on a pipeline node.
         :param pulumi.Input[str] node_name: The name of the upstream node in the pipeline which output is used as input of the current node.
         """
-        pulumi.set(__self__, "node_name", node_name)
+        NodeInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_name=node_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("node_name", node_name)
 
     @property
     @pulumi.getter(name="nodeName")
@@ -665,12 +813,27 @@ class ParameterDeclarationArgs:
         :param pulumi.Input[str] default: The default value for the parameter to be used if the pipeline does not specify a value.
         :param pulumi.Input[str] description: Description of the parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ParameterDeclarationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            default=default,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[Union[str, 'ParameterType']],
+             default: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -731,9 +894,20 @@ class ParameterDefinitionArgs:
         :param pulumi.Input[str] name: Name of the parameter declared in the pipeline topology.
         :param pulumi.Input[str] value: Parameter value to be applied on this specific pipeline.
         """
-        pulumi.set(__self__, "name", name)
+        ParameterDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -771,8 +945,19 @@ class PemCertificateListArgs:
         :param pulumi.Input[str] type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.PemCertificateList'.
         """
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.PemCertificateList')
+        PemCertificateListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificates", certificates)
+        _setter("type", '#Microsoft.VideoAnalyzer.PemCertificateList')
 
     @property
     @pulumi.getter
@@ -812,12 +997,25 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -864,7 +1062,16 @@ class ResourceIdentityArgs:
         The user assigned managed identity to use when accessing a resource.
         :param pulumi.Input[str] user_assigned_identity: The user assigned managed identity's resource identifier to use when accessing a resource.
         """
-        pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identity: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="userAssignedIdentity")
@@ -896,11 +1103,28 @@ class RsaTokenKeyArgs:
         :param pulumi.Input[str] type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
         """
-        pulumi.set(__self__, "alg", alg)
-        pulumi.set(__self__, "e", e)
-        pulumi.set(__self__, "kid", kid)
-        pulumi.set(__self__, "n", n)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.RsaTokenKey')
+        RsaTokenKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alg=alg,
+            e=e,
+            kid=kid,
+            n=n,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alg: pulumi.Input[Union[str, 'AccessPolicyRsaAlgo']],
+             e: pulumi.Input[str],
+             kid: pulumi.Input[str],
+             n: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alg", alg)
+        _setter("e", e)
+        _setter("kid", kid)
+        _setter("n", n)
+        _setter("type", '#Microsoft.VideoAnalyzer.RsaTokenKey')
 
     @property
     @pulumi.getter
@@ -979,11 +1203,26 @@ class RtspSourceArgs:
                Expected value is '#Microsoft.VideoAnalyzer.RtspSource'.
         :param pulumi.Input[Union[str, 'RtspTransport']] transport: Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.RtspSource')
+        RtspSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            name=name,
+            type=type,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[Union['TlsEndpointArgs', 'UnsecuredEndpointArgs']],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             transport: Optional[pulumi.Input[Union[str, 'RtspTransport']]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
+        _setter("name", name)
+        _setter("type", '#Microsoft.VideoAnalyzer.RtspSource')
         if transport is not None:
-            pulumi.set(__self__, "transport", transport)
+            _setter("transport", transport)
 
     @property
     @pulumi.getter
@@ -1048,9 +1287,22 @@ class SecureIotDeviceRemoteTunnelArgs:
         :param pulumi.Input[str] type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel'.
         """
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "iot_hub_name", iot_hub_name)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel')
+        SecureIotDeviceRemoteTunnelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_id=device_id,
+            iot_hub_name=iot_hub_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_id: pulumi.Input[str],
+             iot_hub_name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_id", device_id)
+        _setter("iot_hub_name", iot_hub_name)
+        _setter("type", '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel')
 
     @property
     @pulumi.getter(name="deviceId")
@@ -1098,7 +1350,16 @@ class SkuArgs:
         The SKU details.
         :param pulumi.Input[Union[str, 'SkuName']] name: The SKU name.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[Union[str, 'SkuName']],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1123,9 +1384,20 @@ class StorageAccountArgs:
         :param pulumi.Input[str] id: The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
         :param pulumi.Input['ResourceIdentityArgs'] identity: A managed identity that Video Analyzer will use to access the storage account.
         """
-        pulumi.set(__self__, "id", id)
+        StorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter
@@ -1171,15 +1443,34 @@ class TlsEndpointArgs:
         :param pulumi.Input['SecureIotDeviceRemoteTunnelArgs'] tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
         :param pulumi.Input['TlsValidationOptionsArgs'] validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.TlsEndpoint')
-        pulumi.set(__self__, "url", url)
+        TlsEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            type=type,
+            url=url,
+            trusted_certificates=trusted_certificates,
+            tunnel=tunnel,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: pulumi.Input['UsernamePasswordCredentialsArgs'],
+             type: pulumi.Input[str],
+             url: pulumi.Input[str],
+             trusted_certificates: Optional[pulumi.Input['PemCertificateListArgs']] = None,
+             tunnel: Optional[pulumi.Input['SecureIotDeviceRemoteTunnelArgs']] = None,
+             validation_options: Optional[pulumi.Input['TlsValidationOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("credentials", credentials)
+        _setter("type", '#Microsoft.VideoAnalyzer.TlsEndpoint')
+        _setter("url", url)
         if trusted_certificates is not None:
-            pulumi.set(__self__, "trusted_certificates", trusted_certificates)
+            _setter("trusted_certificates", trusted_certificates)
         if tunnel is not None:
-            pulumi.set(__self__, "tunnel", tunnel)
+            _setter("tunnel", tunnel)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter
@@ -1265,10 +1556,21 @@ class TlsValidationOptionsArgs:
         :param pulumi.Input[str] ignore_hostname: When set to 'true' causes the certificate subject name validation to be skipped. Default is 'false'.
         :param pulumi.Input[str] ignore_signature: When set to 'true' causes the certificate chain trust validation to be skipped. Default is 'false'.
         """
+        TlsValidationOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_hostname=ignore_hostname,
+            ignore_signature=ignore_signature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_hostname: Optional[pulumi.Input[str]] = None,
+             ignore_signature: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ignore_hostname is not None:
-            pulumi.set(__self__, "ignore_hostname", ignore_hostname)
+            _setter("ignore_hostname", ignore_hostname)
         if ignore_signature is not None:
-            pulumi.set(__self__, "ignore_signature", ignore_signature)
+            _setter("ignore_signature", ignore_signature)
 
     @property
     @pulumi.getter(name="ignoreHostname")
@@ -1305,8 +1607,19 @@ class TokenClaimArgs:
         :param pulumi.Input[str] name: Name of the claim which must be present on the token.
         :param pulumi.Input[str] value: Expected value of the claim to be present on the token.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        TokenClaimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1348,11 +1661,26 @@ class UnsecuredEndpointArgs:
         :param pulumi.Input[str] url: The endpoint URL for Video Analyzer to connect to.
         :param pulumi.Input['SecureIotDeviceRemoteTunnelArgs'] tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.UnsecuredEndpoint')
-        pulumi.set(__self__, "url", url)
+        UnsecuredEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            type=type,
+            url=url,
+            tunnel=tunnel,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: pulumi.Input['UsernamePasswordCredentialsArgs'],
+             type: pulumi.Input[str],
+             url: pulumi.Input[str],
+             tunnel: Optional[pulumi.Input['SecureIotDeviceRemoteTunnelArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("credentials", credentials)
+        _setter("type", '#Microsoft.VideoAnalyzer.UnsecuredEndpoint')
+        _setter("url", url)
         if tunnel is not None:
-            pulumi.set(__self__, "tunnel", tunnel)
+            _setter("tunnel", tunnel)
 
     @property
     @pulumi.getter
@@ -1417,9 +1745,22 @@ class UsernamePasswordCredentialsArgs:
                Expected value is '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials'.
         :param pulumi.Input[str] username: Username to be presented as part of the credentials.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials')
-        pulumi.set(__self__, "username", username)
+        UsernamePasswordCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            type=type,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             type: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("type", '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials')
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1469,9 +1810,20 @@ class VideoAnalyzerIdentityArgs:
         :param pulumi.Input[str] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The User Assigned Managed Identities.
         """
-        pulumi.set(__self__, "type", type)
+        VideoAnalyzerIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -1506,8 +1858,17 @@ class VideoArchivalArgs:
         Video archival properties.
         :param pulumi.Input[str] retention_period: Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
         """
+        VideoArchivalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_period=retention_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_period: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
 
     @property
     @pulumi.getter(name="retentionPeriod")
@@ -1536,14 +1897,29 @@ class VideoCreationPropertiesArgs:
         :param pulumi.Input[str] segment_length: Segment length indicates the length of individual content files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments. Changing this value after the initial call to create the video resource can lead to errors when uploading content to the archive. Default value is 30 seconds. This property is only allowed for topologies where "kind" is set to "live".
         :param pulumi.Input[str] title: Optional title provided by the user. Value can be up to 256 characters long.
         """
+        VideoCreationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            retention_period=retention_period,
+            segment_length=segment_length,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             retention_period: Optional[pulumi.Input[str]] = None,
+             segment_length: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if segment_length is not None:
-            pulumi.set(__self__, "segment_length", segment_length)
+            _setter("segment_length", segment_length)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -1609,13 +1985,28 @@ class VideoEncoderH264Args:
         :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) of the encoded video. The value must be greater than zero, and less than or equal to 300. If omitted, the encoder uses the average frame rate of the input video.
         :param pulumi.Input['VideoScaleArgs'] scale: Describes the resolution of the encoded video. If omitted, the encoder uses the resolution of the input video.
         """
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoEncoderH264')
+        VideoEncoderH264Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            bitrate_kbps=bitrate_kbps,
+            frame_rate=frame_rate,
+            scale=scale,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             bitrate_kbps: Optional[pulumi.Input[str]] = None,
+             frame_rate: Optional[pulumi.Input[str]] = None,
+             scale: Optional[pulumi.Input['VideoScaleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", '#Microsoft.VideoAnalyzer.VideoEncoderH264')
         if bitrate_kbps is not None:
-            pulumi.set(__self__, "bitrate_kbps", bitrate_kbps)
+            _setter("bitrate_kbps", bitrate_kbps)
         if frame_rate is not None:
-            pulumi.set(__self__, "frame_rate", frame_rate)
+            _setter("frame_rate", frame_rate)
         if scale is not None:
-            pulumi.set(__self__, "scale", scale)
+            _setter("scale", scale)
 
     @property
     @pulumi.getter
@@ -1675,8 +2066,17 @@ class VideoMediaInfoArgs:
         Contains information about the video and audio content.
         :param pulumi.Input[str] segment_length: Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
         """
+        VideoMediaInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            segment_length=segment_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             segment_length: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if segment_length is not None:
-            pulumi.set(__self__, "segment_length", segment_length)
+            _setter("segment_length", segment_length)
 
     @property
     @pulumi.getter(name="segmentLength")
@@ -1701,10 +2101,21 @@ class VideoPublishingOptionsArgs:
         :param pulumi.Input[str] disable_archive: When set to 'true' content will not be archived or recorded. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'true', then "disableRtspPublishing" must be set to 'false'.
         :param pulumi.Input[str] disable_rtsp_publishing: When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
         """
+        VideoPublishingOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_archive=disable_archive,
+            disable_rtsp_publishing=disable_rtsp_publishing,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_archive: Optional[pulumi.Input[str]] = None,
+             disable_rtsp_publishing: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disable_archive is not None:
-            pulumi.set(__self__, "disable_archive", disable_archive)
+            _setter("disable_archive", disable_archive)
         if disable_rtsp_publishing is not None:
-            pulumi.set(__self__, "disable_rtsp_publishing", disable_rtsp_publishing)
+            _setter("disable_rtsp_publishing", disable_rtsp_publishing)
 
     @property
     @pulumi.getter(name="disableArchive")
@@ -1743,12 +2154,25 @@ class VideoScaleArgs:
         :param pulumi.Input[Union[str, 'VideoScaleMode']] mode: Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.
         :param pulumi.Input[str] width: The desired output video width.
         """
+        VideoScaleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            height=height,
+            mode=mode,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             height: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'VideoScaleMode']]] = None,
+             width: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -1798,8 +2222,19 @@ class VideoSequenceAbsoluteTimeMarkersArgs:
         :param pulumi.Input[str] type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers'.
         """
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers')
+        VideoSequenceAbsoluteTimeMarkersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ranges=ranges,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ranges: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ranges", ranges)
+        _setter("type", '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers')
 
     @property
     @pulumi.getter
@@ -1846,14 +2281,33 @@ class VideoSinkArgs:
         :param pulumi.Input['VideoCreationPropertiesArgs'] video_creation_properties: Optional video properties to be used in case a new video resource needs to be created on the service.
         :param pulumi.Input['VideoPublishingOptionsArgs'] video_publishing_options: Options to change how the video sink publishes content via the video resource. This property is only allowed for topologies where "kind" is set to "live".
         """
-        pulumi.set(__self__, "inputs", inputs)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoSink')
-        pulumi.set(__self__, "video_name", video_name)
+        VideoSinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inputs=inputs,
+            name=name,
+            type=type,
+            video_name=video_name,
+            video_creation_properties=video_creation_properties,
+            video_publishing_options=video_publishing_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inputs: pulumi.Input[Sequence[pulumi.Input['NodeInputArgs']]],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             video_name: pulumi.Input[str],
+             video_creation_properties: Optional[pulumi.Input['VideoCreationPropertiesArgs']] = None,
+             video_publishing_options: Optional[pulumi.Input['VideoPublishingOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("inputs", inputs)
+        _setter("name", name)
+        _setter("type", '#Microsoft.VideoAnalyzer.VideoSink')
+        _setter("video_name", video_name)
         if video_creation_properties is not None:
-            pulumi.set(__self__, "video_creation_properties", video_creation_properties)
+            _setter("video_creation_properties", video_creation_properties)
         if video_publishing_options is not None:
-            pulumi.set(__self__, "video_publishing_options", video_publishing_options)
+            _setter("video_publishing_options", video_publishing_options)
 
     @property
     @pulumi.getter
@@ -1944,10 +2398,25 @@ class VideoSourceArgs:
                Expected value is '#Microsoft.VideoAnalyzer.VideoSource'.
         :param pulumi.Input[str] video_name: Name of the Video Analyzer video resource to be used as the source.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "time_sequences", time_sequences)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoSource')
-        pulumi.set(__self__, "video_name", video_name)
+        VideoSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            time_sequences=time_sequences,
+            type=type,
+            video_name=video_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             time_sequences: pulumi.Input['VideoSequenceAbsoluteTimeMarkersArgs'],
+             type: pulumi.Input[str],
+             video_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("time_sequences", time_sequences)
+        _setter("type", '#Microsoft.VideoAnalyzer.VideoSource')
+        _setter("video_name", video_name)
 
     @property
     @pulumi.getter

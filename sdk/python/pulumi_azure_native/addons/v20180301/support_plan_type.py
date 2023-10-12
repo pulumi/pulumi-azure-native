@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['SupportPlanTypeArgs', 'SupportPlanType']
@@ -21,9 +21,20 @@ class SupportPlanTypeArgs:
         :param pulumi.Input[str] provider_name: The support plan type. For now the only valid type is "canonical".
         :param pulumi.Input[str] plan_type_name: The Canonical support plan type.
         """
-        pulumi.set(__self__, "provider_name", provider_name)
+        SupportPlanTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_name=provider_name,
+            plan_type_name=plan_type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_name: pulumi.Input[str],
+             plan_type_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_name", provider_name)
         if plan_type_name is not None:
-            pulumi.set(__self__, "plan_type_name", plan_type_name)
+            _setter("plan_type_name", plan_type_name)
 
     @property
     @pulumi.getter(name="providerName")
@@ -85,6 +96,10 @@ class SupportPlanType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SupportPlanTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

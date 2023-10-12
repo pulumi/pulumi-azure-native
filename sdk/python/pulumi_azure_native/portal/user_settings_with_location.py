@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,10 +26,23 @@ class UserSettingsWithLocationArgs:
         :param pulumi.Input['UserPropertiesArgs'] properties: The cloud shell user settings properties.
         :param pulumi.Input[str] user_settings_name: The name of the user settings
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "properties", properties)
+        UserSettingsWithLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            properties=properties,
+            user_settings_name=user_settings_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: pulumi.Input[str],
+             properties: pulumi.Input['UserPropertiesArgs'],
+             user_settings_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
+        _setter("properties", properties)
         if user_settings_name is not None:
-            pulumi.set(__self__, "user_settings_name", user_settings_name)
+            _setter("user_settings_name", user_settings_name)
 
     @property
     @pulumi.getter
@@ -107,6 +120,10 @@ class UserSettingsWithLocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserSettingsWithLocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -127,6 +144,11 @@ class UserSettingsWithLocation(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
+            if properties is not None and not isinstance(properties, UserPropertiesArgs):
+                properties = properties or {}
+                def _setter(key, value):
+                    properties[key] = value
+                UserPropertiesArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
