@@ -2532,6 +2532,16 @@
       "Update",
       "UpdateRun",
       "UpdateSummary"
+    ],
+    "2023-09-01-preview": [
+      "GalleryImage",
+      "GuestAgent",
+      "LogicalNetwork",
+      "MarketplaceGalleryImage",
+      "NetworkInterface",
+      "StorageContainer",
+      "VirtualHardDisk",
+      "VirtualMachineInstance"
     ]
   },
   "BareMetalInfrastructure": {
@@ -3278,6 +3288,19 @@
       "CommitmentPlanAssociation",
       "Deployment",
       "PrivateEndpointConnection",
+      "SharedCommitmentPlan",
+      "listAccountKeys"
+    ],
+    "2023-10-01-preview": [
+      "Account",
+      "CommitmentPlan",
+      "CommitmentPlanAssociation",
+      "Deployment",
+      "EncryptionScope",
+      "PrivateEndpointConnection",
+      "RaiBlocklist",
+      "RaiBlocklistItem",
+      "RaiPolicy",
       "SharedCommitmentPlan",
       "listAccountKeys"
     ]
@@ -18760,6 +18783,14 @@
       "SyncGroup"
     ],
     "2022-06-01": [
+      "CloudEndpoint",
+      "PrivateEndpointConnection",
+      "RegisteredServer",
+      "ServerEndpoint",
+      "StorageSyncService",
+      "SyncGroup"
+    ],
+    "2022-09-01": [
       "CloudEndpoint",
       "PrivateEndpointConnection",
       "RegisteredServer",
