@@ -643,6 +643,8 @@ class ManagedCluster(pulumi.CustomResource):
         Managed cluster.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01
 
+        When creating a managed cluster you must define at least one agent pool inline via the `agentPoolProfiles` property. The Azure API does not currently allow this property to be updated directly. Instead, additional agent pools can be defined via the `AgentPool` resource. If needing to change the initial agent pool profile property, you can either trigger the whole cluster to be re-created by using the [replaceOnChanges resource option](https://www.pulumi.com/docs/concepts/options/replaceonchanges/), or make the change directly in Azure then use `pulumi refresh` to update the stack's stack to match.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: The Azure Active Directory configuration.
@@ -691,6 +693,8 @@ class ManagedCluster(pulumi.CustomResource):
         """
         Managed cluster.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01
+
+        When creating a managed cluster you must define at least one agent pool inline via the `agentPoolProfiles` property. The Azure API does not currently allow this property to be updated directly. Instead, additional agent pools can be defined via the `AgentPool` resource. If needing to change the initial agent pool profile property, you can either trigger the whole cluster to be re-created by using the [replaceOnChanges resource option](https://www.pulumi.com/docs/concepts/options/replaceonchanges/), or make the change directly in Azure then use `pulumi refresh` to update the stack's stack to match.
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.
