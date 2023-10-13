@@ -248,6 +248,8 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 		return nil, err
 	}
 
+	writeDebugHCL(programBody, example.Location)
+
 	debug.Log("Generating example programs for %s\n%s\n", example.Location, programBody)
 	parser := syntax.NewParser()
 	if err := parser.ParseFile(strings.NewReader(programBody), "program.pp"); err != nil {
@@ -311,6 +313,35 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 	}
 
 	return languageExample, nil
+}
+
+// writeDebugHCL writes the given example program to DEBUG_CODEGEN_EXAMPLE_HCL/ as a .pp file if
+// the exampleLocation path matches the value of DEBUG_CODEGEN_EXAMPLE_HCL. Paths are from the
+// root of the provider repository. Wildcards are allowed.
+// Example: DEBUG_CODEGEN_EXAMPLE_HCL=azure-rest-api-specs/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2023-08-01/examples/ManagedClustersCreate_*
+func writeDebugHCL(programBody string, exampleLocation string) {
+	debugExamplesPath := os.Getenv("DEBUG_CODEGEN_EXAMPLE_HCL")
+	match, err := path.Match(debugExamplesPath, exampleLocation)
+	if err != nil {
+		log.Printf("\nMalformed DEBUG_CODEGEN_EXAMPLE_HCL %s: %v", debugExamplesPath, err)
+	} else if match {
+		log.Printf("\nGenerated HCL for %s:\n%s\n", exampleLocation, programBody)
+
+		// Switch path from azure-rest-api-specs/specification/provider/... to reports/provider/...
+		parts := strings.Split(exampleLocation, "/")
+		newParts := make([]string, len(parts))
+		newParts = append(newParts, "DEBUG_CODEGEN_EXAMPLE_HCL")
+		newParts = append(newParts, parts[2:]...)
+		newParts[len(newParts)-1] = newParts[len(newParts)-1] + ".pp"
+		dest := filepath.Join(newParts...)
+		log.Printf("Writing example %s to %s", exampleLocation, dest)
+
+		os.MkdirAll(filepath.Dir(dest), 0755)
+		err := os.WriteFile(dest, []byte(programBody), 0644)
+		if err != nil {
+			log.Printf("\nFailed to write example to %s: %v", dest, err)
+		}
+	}
 }
 
 func recoverableProgramGen(name string, program *hcl2.Program, fn programGenFn) (files map[string][]byte, err error) {

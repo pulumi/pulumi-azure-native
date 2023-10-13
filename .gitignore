@@ -38,3 +38,5 @@ pulumi-azure-native-sdk
 .make/
 
 sdk/python/venv
+
+DEBUG_CODEGEN_EXAMPLE_HCL
