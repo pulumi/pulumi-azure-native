@@ -698,9 +698,11 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 		}
 	}
 
+	additionalDocs := getAdditionalDocs(g.rootDir, resourceTok)
+
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: g.formatDescription(resourceResponse.description, swagger.Info, apiSpec),
+			Description: g.formatDescription(resourceResponse.description, swagger.Info, apiSpec, additionalDocs),
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
@@ -954,16 +956,19 @@ func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, respons
 	if op.Description != "" {
 		desc = op.Description
 	}
-	return g.formatDescription(desc, info, nil)
+	return g.formatDescription(desc, info, nil, nil)
 }
 
-func (g *packageGenerator) formatDescription(desc string, info *spec.Info, resourceSpec *openapi.ResourceSpec) string {
+func (g *packageGenerator) formatDescription(desc string, info *spec.Info, resourceSpec *openapi.ResourceSpec, additionalDocs *string) string {
 	description := desc
 	if g.apiVersion == "" {
 		description = fmt.Sprintf("%s\nAzure REST API version: %s.", description, info.Version)
 	}
 	if resourceSpec != nil && resourceSpec.PreviousVersion != "" {
 		description = fmt.Sprintf("%s Prior API version in Azure Native 1.x: %s", description, resourceSpec.PreviousVersion)
+	}
+	if additionalDocs != nil {
+		description = fmt.Sprintf("%s\n\n%s", description, *additionalDocs)
 	}
 	return description
 }
