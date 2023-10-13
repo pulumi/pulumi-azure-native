@@ -315,6 +315,10 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 	return languageExample, nil
 }
 
+// writeDebugHCL writes the given example program to DEBUG_CODEGEN_EXAMPLE_HCL/ as a .pp file if
+// the exampleLocation path matches the value of DEBUG_CODEGEN_EXAMPLE_HCL. Paths are from the
+// root of the provider repository. Wildcards are allowed.
+// Example: DEBUG_CODEGEN_EXAMPLE_HCL=azure-rest-api-specs/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2023-08-01/examples/ManagedClustersCreate_*
 func writeDebugHCL(programBody string, exampleLocation string) {
 	debugExamplesPath := os.Getenv("DEBUG_CODEGEN_EXAMPLE_HCL")
 	match, err := path.Match(debugExamplesPath, exampleLocation)
@@ -327,7 +331,7 @@ func writeDebugHCL(programBody string, exampleLocation string) {
 		parts := strings.Split(exampleLocation, "/")
 		newParts := make([]string, len(parts))
 		newParts = append(newParts, "DEBUG_CODEGEN_EXAMPLE_HCL")
-		newParts = append(newParts, parts[2:len(parts)]...)
+		newParts = append(newParts, parts[2:]...)
 		newParts[len(newParts)-1] = newParts[len(newParts)-1] + ".pp"
 		dest := filepath.Join(newParts...)
 		log.Printf("Writing example %s to %s", exampleLocation, dest)
