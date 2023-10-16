@@ -150,6 +150,7 @@ AzureStackHCI:
         GalleryImage: 2022-12-15-preview
         GuestAgent: 2022-12-15-preview
         HybridIdentityMetadatum: 2022-12-15-preview
+        LogicalNetwork: 2023-09-01-preview
         MachineExtension: 2022-12-15-preview
         MarketplaceGalleryImage: 2022-12-15-preview
         NetworkInterface: 2022-12-15-preview
@@ -197,6 +198,11 @@ Chaos:
     tracking: 2023-04-15-preview
 CognitiveServices:
     tracking: "2023-05-01"
+    additions:
+        EncryptionScope: 2023-10-01-preview
+        RaiBlocklist: 2023-10-01-preview
+        RaiBlocklistItem: 2023-10-01-preview
+        RaiPolicy: 2023-10-01-preview
 Commerce: {}
 Communication:
     tracking: "2023-03-31"
