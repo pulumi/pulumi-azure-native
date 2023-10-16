@@ -118,6 +118,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:networkinterfaceRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:NetworkinterfaceRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:networkinterfaceRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:NetworkinterfaceRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:networkinterfaceRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

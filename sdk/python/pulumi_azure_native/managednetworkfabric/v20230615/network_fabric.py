@@ -26,6 +26,7 @@ class NetworkFabricArgs:
                  server_count_per_rack: pulumi.Input[int],
                  terminal_server_configuration: pulumi.Input['TerminalServerConfigurationArgs'],
                  annotation: Optional[pulumi.Input[str]] = None,
+                 fabric_version: Optional[pulumi.Input[str]] = None,
                  ipv6_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_fabric_name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class NetworkFabricArgs:
         :param pulumi.Input[int] server_count_per_rack: Number of servers.Possible values are from 1-16.
         :param pulumi.Input['TerminalServerConfigurationArgs'] terminal_server_configuration: Network and credentials configuration currently applied to terminal server.
         :param pulumi.Input[str] annotation: Switch configuration description.
+        :param pulumi.Input[str] fabric_version: The version of Network Fabric.
         :param pulumi.Input[str] ipv6_prefix: IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] network_fabric_name: Name of the Network Fabric.
@@ -58,6 +60,8 @@ class NetworkFabricArgs:
         pulumi.set(__self__, "terminal_server_configuration", terminal_server_configuration)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
+        if fabric_version is not None:
+            pulumi.set(__self__, "fabric_version", fabric_version)
         if ipv6_prefix is not None:
             pulumi.set(__self__, "ipv6_prefix", ipv6_prefix)
         if location is not None:
@@ -178,6 +182,18 @@ class NetworkFabricArgs:
         pulumi.set(self, "annotation", value)
 
     @property
+    @pulumi.getter(name="fabricVersion")
+    def fabric_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Network Fabric.
+        """
+        return pulumi.get(self, "fabric_version")
+
+    @fabric_version.setter
+    def fabric_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fabric_version", value)
+
+    @property
     @pulumi.getter(name="ipv6Prefix")
     def ipv6_prefix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -245,6 +261,7 @@ class NetworkFabric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
                  fabric_asn: Optional[pulumi.Input[float]] = None,
+                 fabric_version: Optional[pulumi.Input[str]] = None,
                  ipv4_prefix: Optional[pulumi.Input[str]] = None,
                  ipv6_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -265,6 +282,7 @@ class NetworkFabric(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
         :param pulumi.Input[float] fabric_asn: ASN of CE devices for CE/PE connectivity.
+        :param pulumi.Input[str] fabric_version: The version of Network Fabric.
         :param pulumi.Input[str] ipv4_prefix: IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         :param pulumi.Input[str] ipv6_prefix: IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -304,6 +322,7 @@ class NetworkFabric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
                  fabric_asn: Optional[pulumi.Input[float]] = None,
+                 fabric_version: Optional[pulumi.Input[str]] = None,
                  ipv4_prefix: Optional[pulumi.Input[str]] = None,
                  ipv6_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -329,6 +348,7 @@ class NetworkFabric(pulumi.CustomResource):
             if fabric_asn is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_asn'")
             __props__.__dict__["fabric_asn"] = fabric_asn
+            __props__.__dict__["fabric_version"] = fabric_version
             if ipv4_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'ipv4_prefix'")
             __props__.__dict__["ipv4_prefix"] = ipv4_prefix
@@ -357,7 +377,6 @@ class NetworkFabric(pulumi.CustomResource):
             __props__.__dict__["terminal_server_configuration"] = terminal_server_configuration
             __props__.__dict__["administrative_state"] = None
             __props__.__dict__["configuration_state"] = None
-            __props__.__dict__["fabric_version"] = None
             __props__.__dict__["l2_isolation_domains"] = None
             __props__.__dict__["l3_isolation_domains"] = None
             __props__.__dict__["name"] = None
@@ -449,7 +468,7 @@ class NetworkFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fabricVersion")
-    def fabric_version(self) -> pulumi.Output[str]:
+    def fabric_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of Network Fabric.
         """

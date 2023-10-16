@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
+    /// Level at which content is filtered.
+    /// </summary>
+    [EnumType]
+    public readonly struct AllowedContentLevel : IEquatable<AllowedContentLevel>
+    {
+        private readonly string _value;
+
+        private AllowedContentLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AllowedContentLevel Low { get; } = new AllowedContentLevel("Low");
+        public static AllowedContentLevel Medium { get; } = new AllowedContentLevel("Medium");
+        public static AllowedContentLevel High { get; } = new AllowedContentLevel("High");
+
+        public static bool operator ==(AllowedContentLevel left, AllowedContentLevel right) => left.Equals(right);
+        public static bool operator !=(AllowedContentLevel left, AllowedContentLevel right) => !left.Equals(right);
+
+        public static explicit operator string(AllowedContentLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AllowedContentLevel other && Equals(other);
+        public bool Equals(AllowedContentLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Deployment model version upgrade option.
     /// </summary>
     [EnumType]
@@ -63,6 +95,37 @@ namespace Pulumi.AzureNative.CognitiveServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DeploymentScaleType other && Equals(other);
         public bool Equals(DeploymentScaleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The encryptionScope state.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionScopeState : IEquatable<EncryptionScopeState>
+    {
+        private readonly string _value;
+
+        private EncryptionScopeState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EncryptionScopeState Disabled { get; } = new EncryptionScopeState("Disabled");
+        public static EncryptionScopeState Enabled { get; } = new EncryptionScopeState("Enabled");
+
+        public static bool operator ==(EncryptionScopeState left, EncryptionScopeState right) => left.Equals(right);
+        public static bool operator !=(EncryptionScopeState left, EncryptionScopeState right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionScopeState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionScopeState other && Equals(other);
+        public bool Equals(EncryptionScopeState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -221,6 +284,69 @@ namespace Pulumi.AzureNative.CognitiveServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Content source to apply the Content Filters.
+    /// </summary>
+    [EnumType]
+    public readonly struct RaiPolicyContentSource : IEquatable<RaiPolicyContentSource>
+    {
+        private readonly string _value;
+
+        private RaiPolicyContentSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RaiPolicyContentSource Prompt { get; } = new RaiPolicyContentSource("Prompt");
+        public static RaiPolicyContentSource Completion { get; } = new RaiPolicyContentSource("Completion");
+
+        public static bool operator ==(RaiPolicyContentSource left, RaiPolicyContentSource right) => left.Equals(right);
+        public static bool operator !=(RaiPolicyContentSource left, RaiPolicyContentSource right) => !left.Equals(right);
+
+        public static explicit operator string(RaiPolicyContentSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RaiPolicyContentSource other && Equals(other);
+        public bool Equals(RaiPolicyContentSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Content Filters mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct RaiPolicyMode : IEquatable<RaiPolicyMode>
+    {
+        private readonly string _value;
+
+        private RaiPolicyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RaiPolicyMode Default { get; } = new RaiPolicyMode("Default");
+        public static RaiPolicyMode Deferred { get; } = new RaiPolicyMode("Deferred");
+        public static RaiPolicyMode Blocking { get; } = new RaiPolicyMode("Blocking");
+
+        public static bool operator ==(RaiPolicyMode left, RaiPolicyMode right) => left.Equals(right);
+        public static bool operator !=(RaiPolicyMode left, RaiPolicyMode right) => !left.Equals(right);
+
+        public static explicit operator string(RaiPolicyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RaiPolicyMode other && Equals(other);
+        public bool Equals(RaiPolicyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

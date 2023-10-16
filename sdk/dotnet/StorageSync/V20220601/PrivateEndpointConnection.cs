@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.StorageSync.V20220601
                     new global::Pulumi.Alias { Type = "azure-native:storagesync:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20220901:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

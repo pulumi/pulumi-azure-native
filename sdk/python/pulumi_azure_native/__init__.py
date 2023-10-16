@@ -2240,6 +2240,7 @@ _utilities.register(
    "azure-native:azurestackhci:GalleryImage": "GalleryImage",
    "azure-native:azurestackhci:GuestAgent": "GuestAgent",
    "azure-native:azurestackhci:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:azurestackhci:LogicalNetwork": "LogicalNetwork",
    "azure-native:azurestackhci:MachineExtension": "MachineExtension",
    "azure-native:azurestackhci:MarketplaceGalleryImage": "MarketplaceGalleryImage",
    "azure-native:azurestackhci:NetworkInterface": "NetworkInterface",
@@ -2359,6 +2360,21 @@ _utilities.register(
    "azure-native:azurestackhci/v20230801:Update": "Update",
    "azure-native:azurestackhci/v20230801:UpdateRun": "UpdateRun",
    "azure-native:azurestackhci/v20230801:UpdateSummary": "UpdateSummary"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20230901preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20230901preview",
+  "classes": {
+   "azure-native:azurestackhci/v20230901preview:GalleryImage": "GalleryImage",
+   "azure-native:azurestackhci/v20230901preview:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci/v20230901preview:LogicalNetwork": "LogicalNetwork",
+   "azure-native:azurestackhci/v20230901preview:MarketplaceGalleryImage": "MarketplaceGalleryImage",
+   "azure-native:azurestackhci/v20230901preview:NetworkInterface": "NetworkInterface",
+   "azure-native:azurestackhci/v20230901preview:StorageContainer": "StorageContainer",
+   "azure-native:azurestackhci/v20230901preview:VirtualHardDisk": "VirtualHardDisk",
+   "azure-native:azurestackhci/v20230901preview:VirtualMachineInstance": "VirtualMachineInstance"
   }
  },
  {
@@ -2802,7 +2818,11 @@ _utilities.register(
    "azure-native:cognitiveservices:CommitmentPlan": "CommitmentPlan",
    "azure-native:cognitiveservices:CommitmentPlanAssociation": "CommitmentPlanAssociation",
    "azure-native:cognitiveservices:Deployment": "Deployment",
+   "azure-native:cognitiveservices:EncryptionScope": "EncryptionScope",
    "azure-native:cognitiveservices:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices:RaiBlocklist": "RaiBlocklist",
+   "azure-native:cognitiveservices:RaiBlocklistItem": "RaiBlocklistItem",
+   "azure-native:cognitiveservices:RaiPolicy": "RaiPolicy",
    "azure-native:cognitiveservices:SharedCommitmentPlan": "SharedCommitmentPlan"
   }
  },
@@ -2825,6 +2845,23 @@ _utilities.register(
    "azure-native:cognitiveservices/v20230501:Deployment": "Deployment",
    "azure-native:cognitiveservices/v20230501:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:cognitiveservices/v20230501:SharedCommitmentPlan": "SharedCommitmentPlan"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cognitiveservices/v20231001preview",
+  "fqn": "pulumi_azure_native.cognitiveservices.v20231001preview",
+  "classes": {
+   "azure-native:cognitiveservices/v20231001preview:Account": "Account",
+   "azure-native:cognitiveservices/v20231001preview:CommitmentPlan": "CommitmentPlan",
+   "azure-native:cognitiveservices/v20231001preview:CommitmentPlanAssociation": "CommitmentPlanAssociation",
+   "azure-native:cognitiveservices/v20231001preview:Deployment": "Deployment",
+   "azure-native:cognitiveservices/v20231001preview:EncryptionScope": "EncryptionScope",
+   "azure-native:cognitiveservices/v20231001preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices/v20231001preview:RaiBlocklist": "RaiBlocklist",
+   "azure-native:cognitiveservices/v20231001preview:RaiBlocklistItem": "RaiBlocklistItem",
+   "azure-native:cognitiveservices/v20231001preview:RaiPolicy": "RaiPolicy",
+   "azure-native:cognitiveservices/v20231001preview:SharedCommitmentPlan": "SharedCommitmentPlan"
   }
  },
  {
@@ -4949,6 +4986,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devcenter/v20231001preview",
+  "fqn": "pulumi_azure_native.devcenter.v20231001preview",
+  "classes": {
+   "azure-native:devcenter/v20231001preview:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
+   "azure-native:devcenter/v20231001preview:Catalog": "Catalog",
+   "azure-native:devcenter/v20231001preview:DevBoxDefinition": "DevBoxDefinition",
+   "azure-native:devcenter/v20231001preview:DevCenter": "DevCenter",
+   "azure-native:devcenter/v20231001preview:EnvironmentType": "EnvironmentType",
+   "azure-native:devcenter/v20231001preview:Gallery": "Gallery",
+   "azure-native:devcenter/v20231001preview:NetworkConnection": "NetworkConnection",
+   "azure-native:devcenter/v20231001preview:Pool": "Pool",
+   "azure-native:devcenter/v20231001preview:Project": "Project",
+   "azure-native:devcenter/v20231001preview:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter/v20231001preview:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devhub",
   "fqn": "pulumi_azure_native.devhub",
   "classes": {
@@ -6640,6 +6695,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "keyvault/v20230701",
+  "fqn": "pulumi_azure_native.keyvault.v20230701",
+  "classes": {
+   "azure-native:keyvault/v20230701:Key": "Key",
+   "azure-native:keyvault/v20230701:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
+   "azure-native:keyvault/v20230701:ManagedHsm": "ManagedHsm",
+   "azure-native:keyvault/v20230701:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:keyvault/v20230701:Secret": "Secret",
+   "azure-native:keyvault/v20230701:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "kubernetes",
   "fqn": "pulumi_azure_native.kubernetes",
   "classes": {
@@ -8114,6 +8182,26 @@ _utilities.register(
    "azure-native:mobilenetwork/v20230601:SimPolicy": "SimPolicy",
    "azure-native:mobilenetwork/v20230601:Site": "Site",
    "azure-native:mobilenetwork/v20230601:Slice": "Slice"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "mobilenetwork/v20230901",
+  "fqn": "pulumi_azure_native.mobilenetwork.v20230901",
+  "classes": {
+   "azure-native:mobilenetwork/v20230901:AttachedDataNetwork": "AttachedDataNetwork",
+   "azure-native:mobilenetwork/v20230901:DataNetwork": "DataNetwork",
+   "azure-native:mobilenetwork/v20230901:DiagnosticsPackage": "DiagnosticsPackage",
+   "azure-native:mobilenetwork/v20230901:MobileNetwork": "MobileNetwork",
+   "azure-native:mobilenetwork/v20230901:PacketCapture": "PacketCapture",
+   "azure-native:mobilenetwork/v20230901:PacketCoreControlPlane": "PacketCoreControlPlane",
+   "azure-native:mobilenetwork/v20230901:PacketCoreDataPlane": "PacketCoreDataPlane",
+   "azure-native:mobilenetwork/v20230901:Service": "Service",
+   "azure-native:mobilenetwork/v20230901:Sim": "Sim",
+   "azure-native:mobilenetwork/v20230901:SimGroup": "SimGroup",
+   "azure-native:mobilenetwork/v20230901:SimPolicy": "SimPolicy",
+   "azure-native:mobilenetwork/v20230901:Site": "Site",
+   "azure-native:mobilenetwork/v20230901:Slice": "Slice"
   }
  },
  {
@@ -11881,6 +11969,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "storagesync/v20220901",
+  "fqn": "pulumi_azure_native.storagesync.v20220901",
+  "classes": {
+   "azure-native:storagesync/v20220901:CloudEndpoint": "CloudEndpoint",
+   "azure-native:storagesync/v20220901:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:storagesync/v20220901:RegisteredServer": "RegisteredServer",
+   "azure-native:storagesync/v20220901:ServerEndpoint": "ServerEndpoint",
+   "azure-native:storagesync/v20220901:StorageSyncService": "StorageSyncService",
+   "azure-native:storagesync/v20220901:SyncGroup": "SyncGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "storsimple",
   "fqn": "pulumi_azure_native.storsimple",
   "classes": {
@@ -12841,6 +12942,17 @@ _utilities.register(
    "azure-native:workloads/v20230401:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads/v20230401:SAPVirtualInstance": "SAPVirtualInstance",
    "azure-native:workloads/v20230401:SapLandscapeMonitor": "SapLandscapeMonitor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "workloads/v20231001preview",
+  "fqn": "pulumi_azure_native.workloads.v20231001preview",
+  "classes": {
+   "azure-native:workloads/v20231001preview:SAPApplicationServerInstance": "SAPApplicationServerInstance",
+   "azure-native:workloads/v20231001preview:SAPCentralInstance": "SAPCentralInstance",
+   "azure-native:workloads/v20231001preview:SAPDatabaseInstance": "SAPDatabaseInstance",
+   "azure-native:workloads/v20231001preview:SAPVirtualInstance": "SAPVirtualInstance"
   }
  }
 ]

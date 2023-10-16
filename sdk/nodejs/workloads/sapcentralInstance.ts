@@ -176,7 +176,7 @@ export class SAPCentralInstance extends pulumi.CustomResource {
             resourceInputs["vmDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SAPCentralInstance" }, { type: "azure-native:workloads/v20221101preview:SAPCentralInstance" }, { type: "azure-native:workloads/v20230401:SAPCentralInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SAPCentralInstance" }, { type: "azure-native:workloads/v20221101preview:SAPCentralInstance" }, { type: "azure-native:workloads/v20230401:SAPCentralInstance" }, { type: "azure-native:workloads/v20231001preview:SAPCentralInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SAPCentralInstance.__pulumiType, name, resourceInputs, opts);
     }

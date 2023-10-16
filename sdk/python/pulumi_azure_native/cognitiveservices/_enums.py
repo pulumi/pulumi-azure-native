@@ -5,17 +5,30 @@
 from enum import Enum
 
 __all__ = [
+    'AllowedContentLevel',
     'DeploymentModelVersionUpgradeOption',
     'DeploymentScaleType',
+    'EncryptionScopeState',
     'HostingModel',
     'KeySource',
     'NetworkRuleAction',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
+    'RaiPolicyContentSource',
+    'RaiPolicyMode',
     'ResourceIdentityType',
     'RoutingMethods',
     'SkuTier',
 ]
+
+
+class AllowedContentLevel(str, Enum):
+    """
+    Level at which content is filtered.
+    """
+    LOW = "Low"
+    MEDIUM = "Medium"
+    HIGH = "High"
 
 
 class DeploymentModelVersionUpgradeOption(str, Enum):
@@ -33,6 +46,14 @@ class DeploymentScaleType(str, Enum):
     """
     STANDARD = "Standard"
     MANUAL = "Manual"
+
+
+class EncryptionScopeState(str, Enum):
+    """
+    The encryptionScope state.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class HostingModel(str, Enum):
@@ -76,6 +97,23 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class RaiPolicyContentSource(str, Enum):
+    """
+    Content source to apply the Content Filters.
+    """
+    PROMPT = "Prompt"
+    COMPLETION = "Completion"
+
+
+class RaiPolicyMode(str, Enum):
+    """
+    Content Filters mode.
+    """
+    DEFAULT = "Default"
+    DEFERRED = "Deferred"
+    BLOCKING = "Blocking"
 
 
 class ResourceIdentityType(str, Enum):

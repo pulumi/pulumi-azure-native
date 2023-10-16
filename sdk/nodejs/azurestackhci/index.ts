@@ -55,6 +55,11 @@ export const getHybridIdentityMetadatum: typeof import("./getHybridIdentityMetad
 export const getHybridIdentityMetadatumOutput: typeof import("./getHybridIdentityMetadatum").getHybridIdentityMetadatumOutput = null as any;
 utilities.lazyLoad(exports, ["getHybridIdentityMetadatum","getHybridIdentityMetadatumOutput"], () => require("./getHybridIdentityMetadatum"));
 
+export { GetLogicalNetworkArgs, GetLogicalNetworkResult, GetLogicalNetworkOutputArgs } from "./getLogicalNetwork";
+export const getLogicalNetwork: typeof import("./getLogicalNetwork").getLogicalNetwork = null as any;
+export const getLogicalNetworkOutput: typeof import("./getLogicalNetwork").getLogicalNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getLogicalNetwork","getLogicalNetworkOutput"], () => require("./getLogicalNetwork"));
+
 export { GetMachineExtensionArgs, GetMachineExtensionResult, GetMachineExtensionOutputArgs } from "./getMachineExtension";
 export const getMachineExtension: typeof import("./getMachineExtension").getMachineExtension = null as any;
 export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
@@ -119,6 +124,11 @@ export { HybridIdentityMetadatumArgs } from "./hybridIdentityMetadatum";
 export type HybridIdentityMetadatum = import("./hybridIdentityMetadatum").HybridIdentityMetadatum;
 export const HybridIdentityMetadatum: typeof import("./hybridIdentityMetadatum").HybridIdentityMetadatum = null as any;
 utilities.lazyLoad(exports, ["HybridIdentityMetadatum"], () => require("./hybridIdentityMetadatum"));
+
+export { LogicalNetworkArgs } from "./logicalNetwork";
+export type LogicalNetwork = import("./logicalNetwork").LogicalNetwork;
+export const LogicalNetwork: typeof import("./logicalNetwork").LogicalNetwork = null as any;
+utilities.lazyLoad(exports, ["LogicalNetwork"], () => require("./logicalNetwork"));
 
 export { MachineExtensionArgs } from "./machineExtension";
 export type MachineExtension = import("./machineExtension").MachineExtension;
@@ -188,6 +198,7 @@ import * as v20230301 from "./v20230301";
 import * as v20230601 from "./v20230601";
 import * as v20230701preview from "./v20230701preview";
 import * as v20230801 from "./v20230801";
+import * as v20230901preview from "./v20230901preview";
 
 export {
     v20210901preview,
@@ -198,6 +209,7 @@ export {
     v20230601,
     v20230701preview,
     v20230801,
+    v20230901preview,
 };
 
 const _module = {
@@ -216,6 +228,8 @@ const _module = {
                 return new GuestAgent(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:HybridIdentityMetadatum":
                 return new HybridIdentityMetadatum(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:LogicalNetwork":
+                return new LogicalNetwork(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:MachineExtension":
                 return new MachineExtension(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:MarketplaceGalleryImage":

@@ -117,7 +117,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Project" }, { type: "azure-native:devcenter/v20220801preview:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }, { type: "azure-native:devcenter/v20230101preview:Project" }, { type: "azure-native:devcenter/v20230801preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Project" }, { type: "azure-native:devcenter/v20220801preview:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }, { type: "azure-native:devcenter/v20230101preview:Project" }, { type: "azure-native:devcenter/v20230801preview:Project" }, { type: "azure-native:devcenter/v20231001preview:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }

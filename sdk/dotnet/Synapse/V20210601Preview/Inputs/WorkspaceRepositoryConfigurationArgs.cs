@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         public Input<string>? CollaborationBranch { get; set; }
 
         /// <summary>
-        /// GitHub Enterprise host name. For example: https://github.mydomain.com
+        /// GitHub Enterprise host name. For example: `https://github.mydomain.com`
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }

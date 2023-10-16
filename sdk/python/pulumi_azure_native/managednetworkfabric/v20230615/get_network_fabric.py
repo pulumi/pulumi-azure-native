@@ -130,7 +130,7 @@ class GetNetworkFabricResult:
 
     @property
     @pulumi.getter(name="fabricVersion")
-    def fabric_version(self) -> str:
+    def fabric_version(self) -> Optional[str]:
         """
         The version of Network Fabric.
         """

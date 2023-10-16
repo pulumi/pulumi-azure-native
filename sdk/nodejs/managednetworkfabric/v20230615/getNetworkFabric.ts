@@ -53,7 +53,7 @@ export interface GetNetworkFabricResult {
     /**
      * The version of Network Fabric.
      */
-    readonly fabricVersion: string;
+    readonly fabricVersion?: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */

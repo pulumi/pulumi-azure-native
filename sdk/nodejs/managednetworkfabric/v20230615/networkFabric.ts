@@ -56,7 +56,7 @@ export class NetworkFabric extends pulumi.CustomResource {
     /**
      * The version of Network Fabric.
      */
-    public /*out*/ readonly fabricVersion!: pulumi.Output<string>;
+    public readonly fabricVersion!: pulumi.Output<string | undefined>;
     /**
      * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */
@@ -167,6 +167,7 @@ export class NetworkFabric extends pulumi.CustomResource {
             }
             resourceInputs["annotation"] = args ? args.annotation : undefined;
             resourceInputs["fabricASN"] = args ? args.fabricASN : undefined;
+            resourceInputs["fabricVersion"] = args ? args.fabricVersion : undefined;
             resourceInputs["ipv4Prefix"] = args ? args.ipv4Prefix : undefined;
             resourceInputs["ipv6Prefix"] = args ? args.ipv6Prefix : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -181,7 +182,6 @@ export class NetworkFabric extends pulumi.CustomResource {
             resourceInputs["terminalServerConfiguration"] = args ? args.terminalServerConfiguration : undefined;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;
-            resourceInputs["fabricVersion"] = undefined /*out*/;
             resourceInputs["l2IsolationDomains"] = undefined /*out*/;
             resourceInputs["l3IsolationDomains"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -234,6 +234,10 @@ export interface NetworkFabricArgs {
      * ASN of CE devices for CE/PE connectivity.
      */
     fabricASN: pulumi.Input<number>;
+    /**
+     * The version of Network Fabric.
+     */
+    fabricVersion?: pulumi.Input<string>;
     /**
      * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */

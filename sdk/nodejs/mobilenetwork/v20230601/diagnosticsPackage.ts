@@ -97,7 +97,7 @@ export class DiagnosticsPackage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:DiagnosticsPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:DiagnosticsPackage" }, { type: "azure-native:mobilenetwork/v20230901:DiagnosticsPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiagnosticsPackage.__pulumiType, name, resourceInputs, opts);
     }

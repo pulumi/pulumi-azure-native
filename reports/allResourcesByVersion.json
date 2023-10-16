@@ -2532,6 +2532,16 @@
       "Update",
       "UpdateRun",
       "UpdateSummary"
+    ],
+    "2023-09-01-preview": [
+      "GalleryImage",
+      "GuestAgent",
+      "LogicalNetwork",
+      "MarketplaceGalleryImage",
+      "NetworkInterface",
+      "StorageContainer",
+      "VirtualHardDisk",
+      "VirtualMachineInstance"
     ]
   },
   "BareMetalInfrastructure": {
@@ -3278,6 +3288,19 @@
       "CommitmentPlanAssociation",
       "Deployment",
       "PrivateEndpointConnection",
+      "SharedCommitmentPlan",
+      "listAccountKeys"
+    ],
+    "2023-10-01-preview": [
+      "Account",
+      "CommitmentPlan",
+      "CommitmentPlanAssociation",
+      "Deployment",
+      "EncryptionScope",
+      "PrivateEndpointConnection",
+      "RaiBlocklist",
+      "RaiBlocklistItem",
+      "RaiPolicy",
       "SharedCommitmentPlan",
       "listAccountKeys"
     ]
@@ -6412,6 +6435,23 @@
       "getCatalogSyncErrorDetails",
       "getCustomizationTaskErrorDetails",
       "getEnvironmentDefinitionErrorDetails"
+    ],
+    "2023-10-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule",
+      "getCatalogDevBoxDefinitionErrorDetails",
+      "getCatalogSyncErrorDetails",
+      "getCustomizationTaskErrorDetails",
+      "getEnvironmentDefinitionErrorDetails"
     ]
   },
   "DevHub": {
@@ -9185,6 +9225,14 @@
       "PrivateEndpointConnection",
       "Secret",
       "Vault"
+    ],
+    "2023-07-01": [
+      "Key",
+      "MHSMPrivateEndpointConnection",
+      "ManagedHsm",
+      "PrivateEndpointConnection",
+      "Secret",
+      "Vault"
     ]
   },
   "Kubernetes": {
@@ -11007,6 +11055,21 @@
       "Slice"
     ],
     "2023-06-01": [
+      "AttachedDataNetwork",
+      "DataNetwork",
+      "DiagnosticsPackage",
+      "MobileNetwork",
+      "PacketCapture",
+      "PacketCoreControlPlane",
+      "PacketCoreDataPlane",
+      "Service",
+      "Sim",
+      "SimGroup",
+      "SimPolicy",
+      "Site",
+      "Slice"
+    ],
+    "2023-09-01": [
       "AttachedDataNetwork",
       "DataNetwork",
       "DiagnosticsPackage",
@@ -18766,6 +18829,14 @@
       "ServerEndpoint",
       "StorageSyncService",
       "SyncGroup"
+    ],
+    "2022-09-01": [
+      "CloudEndpoint",
+      "PrivateEndpointConnection",
+      "RegisteredServer",
+      "ServerEndpoint",
+      "StorageSyncService",
+      "SyncGroup"
     ]
   },
   "StreamAnalytics": {
@@ -20652,6 +20723,16 @@
       "getSAPSizingRecommendations",
       "getSAPSupportedSku",
       "monitor"
+    ],
+    "2023-10-01-preview": [
+      "SAPApplicationServerInstance",
+      "SAPCentralInstance",
+      "SAPDatabaseInstance",
+      "SAPVirtualInstance",
+      "getSAPAvailabilityZoneDetails",
+      "getSAPDiskConfigurations",
+      "getSAPSizingRecommendations",
+      "getSAPSupportedSku"
     ]
   }
 }

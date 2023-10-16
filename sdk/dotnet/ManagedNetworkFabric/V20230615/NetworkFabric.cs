@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// The version of Network Fabric.
         /// </summary>
         [Output("fabricVersion")]
-        public Output<string> FabricVersion { get; private set; } = null!;
+        public Output<string?> FabricVersion { get; private set; } = null!;
 
         /// <summary>
         /// IPv4Prefix for Management Network. Example: 10.1.0.0/19.
@@ -214,6 +214,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         [Input("fabricASN", required: true)]
         public Input<double> FabricASN { get; set; } = null!;
+
+        /// <summary>
+        /// The version of Network Fabric.
+        /// </summary>
+        [Input("fabricVersion")]
+        public Input<string>? FabricVersion { get; set; }
 
         /// <summary>
         /// IPv4Prefix for Management Network. Example: 10.1.0.0/19.

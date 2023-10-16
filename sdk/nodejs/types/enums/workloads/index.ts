@@ -5,11 +5,13 @@
 import * as v20211201preview from "./v20211201preview";
 import * as v20221101preview from "./v20221101preview";
 import * as v20230401 from "./v20230401";
+import * as v20231001preview from "./v20231001preview";
 
 export {
     v20211201preview,
     v20221101preview,
     v20230401,
+    v20231001preview,
 };
 
 export const ConfigurationType = {

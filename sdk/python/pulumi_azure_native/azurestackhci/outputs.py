@@ -41,6 +41,9 @@ __all__ = [
     'IdentityResponse',
     'InstanceViewStatusResponse',
     'InterfaceDNSSettingsResponse',
+    'LogicalNetworkPropertiesResponseDhcpOptions',
+    'LogicalNetworkStatusResponse',
+    'LogicalNetworkStatusResponseProvisioningStatus',
     'MachineExtensionInstanceViewResponseStatus',
     'MachineExtensionPropertiesResponseInstanceView',
     'MarketplaceGalleryImageStatusResponse',
@@ -50,12 +53,16 @@ __all__ = [
     'NetworkInterfaceStatusResponseProvisioningStatus',
     'PerNodeExtensionStateResponse',
     'PerNodeStateResponse',
+    'RouteResponse',
+    'RouteTableResponse',
     'SoftwareAssurancePropertiesResponse',
     'SshConfigurationResponse',
     'SshPublicKeyResponse',
     'StepResponse',
     'StorageContainerStatusResponse',
     'StorageContainerStatusResponseProvisioningStatus',
+    'SubnetPropertiesFormatResponseIpConfigurationReferences',
+    'SubnetResponse',
     'SystemDataResponse',
     'UpdatePrerequisiteResponse',
     'UserAssignedIdentityResponse',
@@ -1686,10 +1693,12 @@ class IPPoolResponse(dict):
                  end: Optional[str] = None,
                  info: Optional['outputs.IPPoolInfoResponse'] = None,
                  ip_pool_type: Optional[str] = None,
+                 name: Optional[str] = None,
                  start: Optional[str] = None):
         """
         :param str end: end of the ip address pool
         :param str ip_pool_type: ip pool type
+        :param str name: Name of the IP-Pool
         :param str start: start of the ip address pool
         """
         if end is not None:
@@ -1698,6 +1707,8 @@ class IPPoolResponse(dict):
             pulumi.set(__self__, "info", info)
         if ip_pool_type is not None:
             pulumi.set(__self__, "ip_pool_type", ip_pool_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if start is not None:
             pulumi.set(__self__, "start", start)
 
@@ -1721,6 +1732,14 @@ class IPPoolResponse(dict):
         ip pool type
         """
         return pulumi.get(self, "ip_pool_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the IP-Pool
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
@@ -1917,6 +1936,158 @@ class InterfaceDNSSettingsResponse(dict):
         List of DNS server IP Addresses for the interface
         """
         return pulumi.get(self, "dns_servers")
+
+
+@pulumi.output_type
+class LogicalNetworkPropertiesResponseDhcpOptions(dict):
+    """
+    DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServers":
+            suggest = "dns_servers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogicalNetworkPropertiesResponseDhcpOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogicalNetworkPropertiesResponseDhcpOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogicalNetworkPropertiesResponseDhcpOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_servers: Optional[Sequence[str]] = None):
+        """
+        DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
+        :param Sequence[str] dns_servers: The list of DNS servers IP addresses.
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[str]]:
+        """
+        The list of DNS servers IP addresses.
+        """
+        return pulumi.get(self, "dns_servers")
+
+
+@pulumi.output_type
+class LogicalNetworkStatusResponse(dict):
+    """
+    The observed state of logical networks
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "provisioningStatus":
+            suggest = "provisioning_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogicalNetworkStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogicalNetworkStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogicalNetworkStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[str] = None,
+                 error_message: Optional[str] = None,
+                 provisioning_status: Optional['outputs.LogicalNetworkStatusResponseProvisioningStatus'] = None):
+        """
+        The observed state of logical networks
+        :param str error_code: LogicalNetwork provisioning error code
+        :param str error_message: Descriptive error message
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[str]:
+        """
+        LogicalNetwork provisioning error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[str]:
+        """
+        Descriptive error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional['outputs.LogicalNetworkStatusResponseProvisioningStatus']:
+        return pulumi.get(self, "provisioning_status")
+
+
+@pulumi.output_type
+class LogicalNetworkStatusResponseProvisioningStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogicalNetworkStatusResponseProvisioningStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogicalNetworkStatusResponseProvisioningStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogicalNetworkStatusResponseProvisioningStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation_id: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str operation_id: The ID of the operation performed on the logical network
+        :param str status: The status of the operation performed on the logical network [Succeeded, Failed, InProgress]
+        """
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[str]:
+        """
+        The ID of the operation performed on the logical network
+        """
+        return pulumi.get(self, "operation_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the operation performed on the logical network [Succeeded, Failed, InProgress]
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -2514,6 +2685,128 @@ class PerNodeStateResponse(dict):
 
 
 @pulumi.output_type
+class RouteResponse(dict):
+    """
+    Route - Route resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "nextHopIpAddress":
+            suggest = "next_hop_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefix: Optional[str] = None,
+                 name: Optional[str] = None,
+                 next_hop_ip_address: Optional[str] = None):
+        """
+        Route - Route resource.
+        :param str address_prefix: The destination CIDR to which the route applies.
+        :param str name: Name - name of the subnet
+        :param str next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if next_hop_ip_address is not None:
+            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[str]:
+        """
+        The destination CIDR to which the route applies.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name - name of the subnet
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextHopIpAddress")
+    def next_hop_ip_address(self) -> Optional[str]:
+        """
+        The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+        return pulumi.get(self, "next_hop_ip_address")
+
+
+@pulumi.output_type
+class RouteTableResponse(dict):
+    """
+    Route table resource.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 name: str,
+                 type: str,
+                 routes: Optional[Sequence['outputs.RouteResponse']] = None):
+        """
+        Route table resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: Resource name.
+        :param str type: Resource type.
+        :param Sequence['RouteResponse'] routes: Collection of routes contained within a route table.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[Sequence['outputs.RouteResponse']]:
+        """
+        Collection of routes contained within a route table.
+        """
+        return pulumi.get(self, "routes")
+
+
+@pulumi.output_type
 class SoftwareAssurancePropertiesResponse(dict):
     """
     Software Assurance properties of the cluster.
@@ -2940,6 +3233,159 @@ class StorageContainerStatusResponseProvisioningStatus(dict):
         The status of the operation performed on the storage container [Succeeded, Failed, InProgress]
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class SubnetPropertiesFormatResponseIpConfigurationReferences(dict):
+    """
+    IPConfigurationReference - Describes a IPConfiguration under the virtual network
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        IPConfigurationReference - Describes a IPConfiguration under the virtual network
+        :param str id: IPConfigurationID
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        IPConfigurationID
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SubnetResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "ipAllocationMethod":
+            suggest = "ip_allocation_method"
+        elif key == "ipConfigurationReferences":
+            suggest = "ip_configuration_references"
+        elif key == "ipPools":
+            suggest = "ip_pools"
+        elif key == "routeTable":
+            suggest = "route_table"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefix: Optional[str] = None,
+                 address_prefixes: Optional[Sequence[str]] = None,
+                 ip_allocation_method: Optional[str] = None,
+                 ip_configuration_references: Optional[Sequence['outputs.SubnetPropertiesFormatResponseIpConfigurationReferences']] = None,
+                 ip_pools: Optional[Sequence['outputs.IPPoolResponse']] = None,
+                 name: Optional[str] = None,
+                 route_table: Optional['outputs.RouteTableResponse'] = None,
+                 vlan: Optional[int] = None):
+        """
+        :param str address_prefix: The address prefix for the subnet: Cidr for this subnet - IPv4, IPv6.
+        :param Sequence[str] address_prefixes: List of address prefixes for the subnet.
+        :param str ip_allocation_method: IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
+        :param Sequence['SubnetPropertiesFormatResponseIpConfigurationReferences'] ip_configuration_references: IPConfigurationReferences - list of IPConfigurationReferences
+        :param Sequence['IPPoolResponse'] ip_pools: network associated pool of IP Addresses
+        :param str name: Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'RouteTableResponse' route_table: Route table resource.
+        :param int vlan: Vlan to use for the subnet
+        """
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if ip_allocation_method is not None:
+            pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
+        if ip_configuration_references is not None:
+            pulumi.set(__self__, "ip_configuration_references", ip_configuration_references)
+        if ip_pools is not None:
+            pulumi.set(__self__, "ip_pools", ip_pools)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if route_table is not None:
+            pulumi.set(__self__, "route_table", route_table)
+        if vlan is not None:
+            pulumi.set(__self__, "vlan", vlan)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[str]:
+        """
+        The address prefix for the subnet: Cidr for this subnet - IPv4, IPv6.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        List of address prefixes for the subnet.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="ipAllocationMethod")
+    def ip_allocation_method(self) -> Optional[str]:
+        """
+        IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
+        """
+        return pulumi.get(self, "ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="ipConfigurationReferences")
+    def ip_configuration_references(self) -> Optional[Sequence['outputs.SubnetPropertiesFormatResponseIpConfigurationReferences']]:
+        """
+        IPConfigurationReferences - list of IPConfigurationReferences
+        """
+        return pulumi.get(self, "ip_configuration_references")
+
+    @property
+    @pulumi.getter(name="ipPools")
+    def ip_pools(self) -> Optional[Sequence['outputs.IPPoolResponse']]:
+        """
+        network associated pool of IP Addresses
+        """
+        return pulumi.get(self, "ip_pools")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional['outputs.RouteTableResponse']:
+        """
+        Route table resource.
+        """
+        return pulumi.get(self, "route_table")
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> Optional[int]:
+        """
+        Vlan to use for the subnet
+        """
+        return pulumi.get(self, "vlan")
 
 
 @pulumi.output_type

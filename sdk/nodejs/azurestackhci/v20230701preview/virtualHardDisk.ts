@@ -144,7 +144,7 @@ export class VirtualHardDisk extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20210701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualHardDisk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20210701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20230901preview:VirtualHardDisk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualHardDisk.__pulumiType, name, resourceInputs, opts);
     }

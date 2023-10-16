@@ -46,9 +46,12 @@ if typing.TYPE_CHECKING:
     v20221101 = __v20221101
     import pulumi_azure_native.mobilenetwork.v20230601 as __v20230601
     v20230601 = __v20230601
+    import pulumi_azure_native.mobilenetwork.v20230901 as __v20230901
+    v20230901 = __v20230901
 else:
     v20220301preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220301preview')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220401preview')
     v20221101 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20221101')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20230601')
+    v20230901 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20230901')
 

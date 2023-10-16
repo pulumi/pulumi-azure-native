@@ -259,7 +259,7 @@ class SAPVirtualInstance(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads:SAPVirtualInstance"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:SAPVirtualInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SAPVirtualInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads:SAPVirtualInstance"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:SAPVirtualInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SAPVirtualInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SAPVirtualInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SAPVirtualInstance, __self__).__init__(
             'azure-native:workloads/v20230401:SAPVirtualInstance',

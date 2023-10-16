@@ -158,6 +158,7 @@ namespace Pulumi.AzureNative.Workloads
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPCentralInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SAPCentralInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPCentralInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPCentralInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -1209,7 +1209,7 @@ class WorkspaceRepositoryConfigurationResponse(dict):
         Git integration settings
         :param str account_name: Account name
         :param str collaboration_branch: Collaboration branch
-        :param str host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
+        :param str host_name: GitHub Enterprise host name. For example: `https://github.mydomain.com`
         :param str last_commit_id: The last commit ID
         :param str project_name: VSTS project name
         :param str repository_name: Repository name
@@ -1256,7 +1256,7 @@ class WorkspaceRepositoryConfigurationResponse(dict):
     @pulumi.getter(name="hostName")
     def host_name(self) -> Optional[str]:
         """
-        GitHub Enterprise host name. For example: https://github.mydomain.com
+        GitHub Enterprise host name. For example: `https://github.mydomain.com`
         """
         return pulumi.get(self, "host_name")
 

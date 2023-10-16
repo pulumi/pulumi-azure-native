@@ -23,6 +23,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string? IpPoolType;
         /// <summary>
+        /// Name of the IP-Pool
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
         /// start of the ip address pool
         /// </summary>
         public readonly string? Start;
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string? ipPoolType,
 
+            string? name,
+
             string? start)
         {
             End = end;
             Info = info;
             IpPoolType = ipPoolType;
+            Name = name;
             Start = start;
         }
     }

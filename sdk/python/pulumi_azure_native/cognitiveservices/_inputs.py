@@ -18,6 +18,7 @@ __all__ = [
     'DeploymentModelArgs',
     'DeploymentPropertiesArgs',
     'DeploymentScaleSettingsArgs',
+    'EncryptionScopePropertiesArgs',
     'EncryptionArgs',
     'IdentityArgs',
     'IpRuleArgs',
@@ -26,6 +27,11 @@ __all__ = [
     'NetworkRuleSetArgs',
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'RaiBlocklistConfigArgs',
+    'RaiBlocklistItemPropertiesArgs',
+    'RaiBlocklistPropertiesArgs',
+    'RaiPolicyContentFilterArgs',
+    'RaiPolicyPropertiesArgs',
     'RegionSettingArgs',
     'SkuArgs',
     'UserOwnedStorageArgs',
@@ -729,6 +735,64 @@ class DeploymentScaleSettingsArgs:
 
 
 @pulumi.input_type
+class EncryptionScopePropertiesArgs:
+    def __init__(__self__, *,
+                 key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+                 state: Optional[pulumi.Input[Union[str, 'EncryptionScopeState']]] = None):
+        """
+        Properties to EncryptionScope
+        :param pulumi.Input[Union[str, 'KeySource']] key_source: Enumerates the possible value of keySource for Encryption
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties of KeyVault
+        :param pulumi.Input[Union[str, 'EncryptionScopeState']] state: The encryptionScope state.
+        """
+        if key_source is None:
+            key_source = 'Microsoft.KeyVault'
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[pulumi.Input[Union[str, 'KeySource']]]:
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: Optional[pulumi.Input[Union[str, 'KeySource']]]):
+        pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        Properties of KeyVault
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'EncryptionScopeState']]]:
+        """
+        The encryptionScope state.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'EncryptionScopeState']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
                  key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
@@ -1086,6 +1150,286 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class RaiBlocklistConfigArgs:
+    def __init__(__self__, *,
+                 blocking: Optional[pulumi.Input[bool]] = None,
+                 blocklist_name: Optional[pulumi.Input[str]] = None):
+        """
+        Azure OpenAI blocklist config.
+        :param pulumi.Input[bool] blocking: If blocking would occur.
+        :param pulumi.Input[str] blocklist_name: Name of ContentFilter.
+        """
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if blocklist_name is not None:
+            pulumi.set(__self__, "blocklist_name", blocklist_name)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @blocking.setter
+    def blocking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blocking", value)
+
+    @property
+    @pulumi.getter(name="blocklistName")
+    def blocklist_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of ContentFilter.
+        """
+        return pulumi.get(self, "blocklist_name")
+
+    @blocklist_name.setter
+    def blocklist_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blocklist_name", value)
+
+
+@pulumi.input_type
+class RaiBlocklistItemPropertiesArgs:
+    def __init__(__self__, *,
+                 is_regex: Optional[pulumi.Input[bool]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None):
+        """
+        RAI Custom Blocklist Item properties.
+        :param pulumi.Input[bool] is_regex: If the pattern is a regex pattern.
+        :param pulumi.Input[str] pattern: Pattern to match against.
+        """
+        if is_regex is not None:
+            pulumi.set(__self__, "is_regex", is_regex)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter(name="isRegex")
+    def is_regex(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the pattern is a regex pattern.
+        """
+        return pulumi.get(self, "is_regex")
+
+    @is_regex.setter
+    def is_regex(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_regex", value)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        Pattern to match against.
+        """
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern", value)
+
+
+@pulumi.input_type
+class RaiBlocklistPropertiesArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        RAI Custom Blocklist properties.
+        :param pulumi.Input[str] description: Description of the block list.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the block list.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class RaiPolicyContentFilterArgs:
+    def __init__(__self__, *,
+                 allowed_content_level: Optional[pulumi.Input[Union[str, 'AllowedContentLevel']]] = None,
+                 blocking: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]] = None):
+        """
+        Azure OpenAI Content Filter.
+        :param pulumi.Input[Union[str, 'AllowedContentLevel']] allowed_content_level: Level at which content is filtered.
+        :param pulumi.Input[bool] blocking: If blocking would occur.
+        :param pulumi.Input[bool] enabled: If the ContentFilter is enabled.
+        :param pulumi.Input[str] policy_name: Name of ContentFilter.
+        :param pulumi.Input[Union[str, 'RaiPolicyContentSource']] source: Content source to apply the Content Filters.
+        """
+        if allowed_content_level is not None:
+            pulumi.set(__self__, "allowed_content_level", allowed_content_level)
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="allowedContentLevel")
+    def allowed_content_level(self) -> Optional[pulumi.Input[Union[str, 'AllowedContentLevel']]]:
+        """
+        Level at which content is filtered.
+        """
+        return pulumi.get(self, "allowed_content_level")
+
+    @allowed_content_level.setter
+    def allowed_content_level(self, value: Optional[pulumi.Input[Union[str, 'AllowedContentLevel']]]):
+        pulumi.set(self, "allowed_content_level", value)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @blocking.setter
+    def blocking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blocking", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the ContentFilter is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of ContentFilter.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]]:
+        """
+        Content source to apply the Content Filters.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]]):
+        pulumi.set(self, "source", value)
+
+
+@pulumi.input_type
+class RaiPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 base_policy_name: Optional[pulumi.Input[str]] = None,
+                 completion_blocklists: Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]] = None,
+                 content_filters: Optional[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'RaiPolicyMode']]] = None,
+                 prompt_blocklists: Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]] = None):
+        """
+        Azure OpenAI Content Filters properties.
+        :param pulumi.Input[str] base_policy_name: Name of the base Content Filters.
+        :param pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]] completion_blocklists: The list of blocklists for completion.
+        :param pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]] content_filters: The list of Content Filters.
+        :param pulumi.Input[Union[str, 'RaiPolicyMode']] mode: Content Filters mode.
+        :param pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]] prompt_blocklists: The list of blocklists for prompt.
+        """
+        if base_policy_name is not None:
+            pulumi.set(__self__, "base_policy_name", base_policy_name)
+        if completion_blocklists is not None:
+            pulumi.set(__self__, "completion_blocklists", completion_blocklists)
+        if content_filters is not None:
+            pulumi.set(__self__, "content_filters", content_filters)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if prompt_blocklists is not None:
+            pulumi.set(__self__, "prompt_blocklists", prompt_blocklists)
+
+    @property
+    @pulumi.getter(name="basePolicyName")
+    def base_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the base Content Filters.
+        """
+        return pulumi.get(self, "base_policy_name")
+
+    @base_policy_name.setter
+    def base_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_policy_name", value)
+
+    @property
+    @pulumi.getter(name="completionBlocklists")
+    def completion_blocklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]]:
+        """
+        The list of blocklists for completion.
+        """
+        return pulumi.get(self, "completion_blocklists")
+
+    @completion_blocklists.setter
+    def completion_blocklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]]):
+        pulumi.set(self, "completion_blocklists", value)
+
+    @property
+    @pulumi.getter(name="contentFilters")
+    def content_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]]]:
+        """
+        The list of Content Filters.
+        """
+        return pulumi.get(self, "content_filters")
+
+    @content_filters.setter
+    def content_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]]]):
+        pulumi.set(self, "content_filters", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'RaiPolicyMode']]]:
+        """
+        Content Filters mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'RaiPolicyMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="promptBlocklists")
+    def prompt_blocklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]]:
+        """
+        The list of blocklists for prompt.
+        """
+        return pulumi.get(self, "prompt_blocklists")
+
+    @prompt_blocklists.setter
+    def prompt_blocklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgs']]]]):
+        pulumi.set(self, "prompt_blocklists", value)
 
 
 @pulumi.input_type

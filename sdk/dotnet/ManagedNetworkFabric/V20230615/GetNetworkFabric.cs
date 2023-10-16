@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// <summary>
         /// The version of Network Fabric.
         /// </summary>
-        public readonly string FabricVersion;
+        public readonly string? FabricVersion;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
 
             double fabricASN,
 
-            string fabricVersion,
+            string? fabricVersion,
 
             string id,
 

@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation"},
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:CommitmentPlanAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

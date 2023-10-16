@@ -24,6 +24,7 @@ __all__ = [
     'DeploymentPropertiesResponse',
     'DeploymentScaleSettingsResponse',
     'EncryptionResponse',
+    'EncryptionScopePropertiesResponse',
     'IdentityResponse',
     'IpRuleResponse',
     'KeyVaultPropertiesResponse',
@@ -34,6 +35,11 @@ __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'QuotaLimitResponse',
+    'RaiBlocklistConfigResponse',
+    'RaiBlocklistItemPropertiesResponse',
+    'RaiBlocklistPropertiesResponse',
+    'RaiPolicyContentFilterResponse',
+    'RaiPolicyPropertiesResponse',
     'RegionSettingResponse',
     'RequestMatchPatternResponse',
     'SkuCapabilityResponse',
@@ -1349,6 +1355,87 @@ class EncryptionResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionScopePropertiesResponse(dict):
+    """
+    Properties to EncryptionScope
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionScopePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionScopePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionScopePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 key_source: Optional[str] = None,
+                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+                 state: Optional[str] = None):
+        """
+        Properties to EncryptionScope
+        :param str provisioning_state: Gets the status of the resource at the time the operation was called.
+        :param str key_source: Enumerates the possible value of keySource for Encryption
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties of KeyVault
+        :param str state: The encryptionScope state.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if key_source is None:
+            key_source = 'Microsoft.KeyVault'
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets the status of the resource at the time the operation was called.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[str]:
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+        """
+        Properties of KeyVault
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The encryptionScope state.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
@@ -1959,6 +2046,330 @@ class QuotaLimitResponse(dict):
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.ThrottlingRuleResponse']]:
         return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class RaiBlocklistConfigResponse(dict):
+    """
+    Azure OpenAI blocklist config.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blocklistName":
+            suggest = "blocklist_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiBlocklistConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiBlocklistConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiBlocklistConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blocking: Optional[bool] = None,
+                 blocklist_name: Optional[str] = None):
+        """
+        Azure OpenAI blocklist config.
+        :param bool blocking: If blocking would occur.
+        :param str blocklist_name: Name of ContentFilter.
+        """
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if blocklist_name is not None:
+            pulumi.set(__self__, "blocklist_name", blocklist_name)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[bool]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @property
+    @pulumi.getter(name="blocklistName")
+    def blocklist_name(self) -> Optional[str]:
+        """
+        Name of ContentFilter.
+        """
+        return pulumi.get(self, "blocklist_name")
+
+
+@pulumi.output_type
+class RaiBlocklistItemPropertiesResponse(dict):
+    """
+    RAI Custom Blocklist Item properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isRegex":
+            suggest = "is_regex"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiBlocklistItemPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiBlocklistItemPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiBlocklistItemPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_regex: Optional[bool] = None,
+                 pattern: Optional[str] = None):
+        """
+        RAI Custom Blocklist Item properties.
+        :param bool is_regex: If the pattern is a regex pattern.
+        :param str pattern: Pattern to match against.
+        """
+        if is_regex is not None:
+            pulumi.set(__self__, "is_regex", is_regex)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter(name="isRegex")
+    def is_regex(self) -> Optional[bool]:
+        """
+        If the pattern is a regex pattern.
+        """
+        return pulumi.get(self, "is_regex")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[str]:
+        """
+        Pattern to match against.
+        """
+        return pulumi.get(self, "pattern")
+
+
+@pulumi.output_type
+class RaiBlocklistPropertiesResponse(dict):
+    """
+    RAI Custom Blocklist properties.
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None):
+        """
+        RAI Custom Blocklist properties.
+        :param str description: Description of the block list.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the block list.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class RaiPolicyContentFilterResponse(dict):
+    """
+    Azure OpenAI Content Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedContentLevel":
+            suggest = "allowed_content_level"
+        elif key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyContentFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiPolicyContentFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiPolicyContentFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_content_level: Optional[str] = None,
+                 blocking: Optional[bool] = None,
+                 enabled: Optional[bool] = None,
+                 policy_name: Optional[str] = None,
+                 source: Optional[str] = None):
+        """
+        Azure OpenAI Content Filter.
+        :param str allowed_content_level: Level at which content is filtered.
+        :param bool blocking: If blocking would occur.
+        :param bool enabled: If the ContentFilter is enabled.
+        :param str policy_name: Name of ContentFilter.
+        :param str source: Content source to apply the Content Filters.
+        """
+        if allowed_content_level is not None:
+            pulumi.set(__self__, "allowed_content_level", allowed_content_level)
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="allowedContentLevel")
+    def allowed_content_level(self) -> Optional[str]:
+        """
+        Level at which content is filtered.
+        """
+        return pulumi.get(self, "allowed_content_level")
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[bool]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        If the ContentFilter is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of ContentFilter.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Content source to apply the Content Filters.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class RaiPolicyPropertiesResponse(dict):
+    """
+    Azure OpenAI Content Filters properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyType":
+            suggest = "policy_type"
+        elif key == "basePolicyName":
+            suggest = "base_policy_name"
+        elif key == "completionBlocklists":
+            suggest = "completion_blocklists"
+        elif key == "contentFilters":
+            suggest = "content_filters"
+        elif key == "promptBlocklists":
+            suggest = "prompt_blocklists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_type: str,
+                 base_policy_name: Optional[str] = None,
+                 completion_blocklists: Optional[Sequence['outputs.RaiBlocklistConfigResponse']] = None,
+                 content_filters: Optional[Sequence['outputs.RaiPolicyContentFilterResponse']] = None,
+                 mode: Optional[str] = None,
+                 prompt_blocklists: Optional[Sequence['outputs.RaiBlocklistConfigResponse']] = None):
+        """
+        Azure OpenAI Content Filters properties.
+        :param str policy_type: Content Filters policy type.
+        :param str base_policy_name: Name of the base Content Filters.
+        :param Sequence['RaiBlocklistConfigResponse'] completion_blocklists: The list of blocklists for completion.
+        :param Sequence['RaiPolicyContentFilterResponse'] content_filters: The list of Content Filters.
+        :param str mode: Content Filters mode.
+        :param Sequence['RaiBlocklistConfigResponse'] prompt_blocklists: The list of blocklists for prompt.
+        """
+        pulumi.set(__self__, "policy_type", policy_type)
+        if base_policy_name is not None:
+            pulumi.set(__self__, "base_policy_name", base_policy_name)
+        if completion_blocklists is not None:
+            pulumi.set(__self__, "completion_blocklists", completion_blocklists)
+        if content_filters is not None:
+            pulumi.set(__self__, "content_filters", content_filters)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if prompt_blocklists is not None:
+            pulumi.set(__self__, "prompt_blocklists", prompt_blocklists)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> str:
+        """
+        Content Filters policy type.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter(name="basePolicyName")
+    def base_policy_name(self) -> Optional[str]:
+        """
+        Name of the base Content Filters.
+        """
+        return pulumi.get(self, "base_policy_name")
+
+    @property
+    @pulumi.getter(name="completionBlocklists")
+    def completion_blocklists(self) -> Optional[Sequence['outputs.RaiBlocklistConfigResponse']]:
+        """
+        The list of blocklists for completion.
+        """
+        return pulumi.get(self, "completion_blocklists")
+
+    @property
+    @pulumi.getter(name="contentFilters")
+    def content_filters(self) -> Optional[Sequence['outputs.RaiPolicyContentFilterResponse']]:
+        """
+        The list of Content Filters.
+        """
+        return pulumi.get(self, "content_filters")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Content Filters mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="promptBlocklists")
+    def prompt_blocklists(self) -> Optional[Sequence['outputs.RaiBlocklistConfigResponse']]:
+        """
+        The list of blocklists for prompt.
+        """
+        return pulumi.get(self, "prompt_blocklists")
 
 
 @pulumi.output_type

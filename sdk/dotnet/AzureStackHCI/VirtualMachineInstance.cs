@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualMachineInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:VirtualMachineInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

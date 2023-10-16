@@ -25,6 +25,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         public Input<Pulumi.AzureNative.AzureStackHCI.IPPoolTypeEnum>? IpPoolType { get; set; }
 
         /// <summary>
+        /// Name of the IP-Pool
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// start of the ip address pool
         /// </summary>
         [Input("start")]

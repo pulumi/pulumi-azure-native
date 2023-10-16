@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.MobileNetwork
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:DiagnosticsPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:DiagnosticsPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

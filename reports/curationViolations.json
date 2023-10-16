@@ -32,6 +32,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "CognitiveServices",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "Communication",
     "Detail": "expected tracking preview but found stable"
   },

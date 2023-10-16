@@ -24,10 +24,15 @@ __all__ = [
     'IPPoolArgs',
     'IdentityArgs',
     'InterfaceDNSSettingsArgs',
+    'LogicalNetworkPropertiesDhcpOptionsArgs',
+    'RouteTableArgs',
+    'RouteArgs',
     'SoftwareAssurancePropertiesArgs',
     'SshConfigurationArgs',
     'SshPublicKeyArgs',
     'StepArgs',
+    'SubnetPropertiesFormatIpConfigurationReferencesArgs',
+    'SubnetArgs',
     'UpdatePrerequisiteArgs',
     'VirtualMachineInstancePropertiesDataDisksArgs',
     'VirtualMachineInstancePropertiesDynamicMemoryConfigArgs',
@@ -452,16 +457,20 @@ class IPPoolArgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input[str]] = None,
                  ip_pool_type: Optional[pulumi.Input['IPPoolTypeEnum']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] end: end of the ip address pool
         :param pulumi.Input['IPPoolTypeEnum'] ip_pool_type: ip pool type
+        :param pulumi.Input[str] name: Name of the IP-Pool
         :param pulumi.Input[str] start: start of the ip address pool
         """
         if end is not None:
             pulumi.set(__self__, "end", end)
         if ip_pool_type is not None:
             pulumi.set(__self__, "ip_pool_type", ip_pool_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if start is not None:
             pulumi.set(__self__, "start", start)
 
@@ -488,6 +497,18 @@ class IPPoolArgs:
     @ip_pool_type.setter
     def ip_pool_type(self, value: Optional[pulumi.Input['IPPoolTypeEnum']]):
         pulumi.set(self, "ip_pool_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the IP-Pool
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -547,6 +568,110 @@ class InterfaceDNSSettingsArgs:
     @dns_servers.setter
     def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
+
+
+@pulumi.input_type
+class LogicalNetworkPropertiesDhcpOptionsArgs:
+    def __init__(__self__, *,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: The list of DNS servers IP addresses.
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of DNS servers IP addresses.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+
+@pulumi.input_type
+class RouteTableArgs:
+    def __init__(__self__, *,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteArgs']]]] = None):
+        """
+        Route table resource.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteArgs']]] routes: Collection of routes contained within a route table.
+        """
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteArgs']]]]:
+        """
+        Collection of routes contained within a route table.
+        """
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteArgs']]]]):
+        pulumi.set(self, "routes", value)
+
+
+@pulumi.input_type
+class RouteArgs:
+    def __init__(__self__, *,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 next_hop_ip_address: Optional[pulumi.Input[str]] = None):
+        """
+        Route - Route resource.
+        :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies.
+        :param pulumi.Input[str] name: Name - name of the subnet
+        :param pulumi.Input[str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if next_hop_ip_address is not None:
+            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination CIDR to which the route applies.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name - name of the subnet
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nextHopIpAddress")
+    def next_hop_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+        return pulumi.get(self, "next_hop_ip_address")
+
+    @next_hop_ip_address.setter
+    def next_hop_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_hop_ip_address", value)
 
 
 @pulumi.input_type
@@ -787,6 +912,165 @@ class StepArgs:
     @steps.setter
     def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]]):
         pulumi.set(self, "steps", value)
+
+
+@pulumi.input_type
+class SubnetPropertiesFormatIpConfigurationReferencesArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        IPConfigurationReference - Describes a IPConfiguration under the virtual network
+        :param pulumi.Input[str] id: IPConfigurationID
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        IPConfigurationID
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SubnetArgs:
+    def __init__(__self__, *,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_allocation_method: Optional[pulumi.Input[Union[str, 'IpAllocationMethodEnum']]] = None,
+                 ip_configuration_references: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetPropertiesFormatIpConfigurationReferencesArgs']]]] = None,
+                 ip_pools: Optional[pulumi.Input[Sequence[pulumi.Input['IPPoolArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 route_table: Optional[pulumi.Input['RouteTableArgs']] = None,
+                 vlan: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] address_prefix: The address prefix for the subnet: Cidr for this subnet - IPv4, IPv6.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of address prefixes for the subnet.
+        :param pulumi.Input[Union[str, 'IpAllocationMethodEnum']] ip_allocation_method: IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetPropertiesFormatIpConfigurationReferencesArgs']]] ip_configuration_references: IPConfigurationReferences - list of IPConfigurationReferences
+        :param pulumi.Input[Sequence[pulumi.Input['IPPoolArgs']]] ip_pools: network associated pool of IP Addresses
+        :param pulumi.Input[str] name: Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input['RouteTableArgs'] route_table: Route table resource.
+        :param pulumi.Input[int] vlan: Vlan to use for the subnet
+        """
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if ip_allocation_method is not None:
+            pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
+        if ip_configuration_references is not None:
+            pulumi.set(__self__, "ip_configuration_references", ip_configuration_references)
+        if ip_pools is not None:
+            pulumi.set(__self__, "ip_pools", ip_pools)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if route_table is not None:
+            pulumi.set(__self__, "route_table", route_table)
+        if vlan is not None:
+            pulumi.set(__self__, "vlan", vlan)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The address prefix for the subnet: Cidr for this subnet - IPv4, IPv6.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of address prefixes for the subnet.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @address_prefixes.setter
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "address_prefixes", value)
+
+    @property
+    @pulumi.getter(name="ipAllocationMethod")
+    def ip_allocation_method(self) -> Optional[pulumi.Input[Union[str, 'IpAllocationMethodEnum']]]:
+        """
+        IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
+        """
+        return pulumi.get(self, "ip_allocation_method")
+
+    @ip_allocation_method.setter
+    def ip_allocation_method(self, value: Optional[pulumi.Input[Union[str, 'IpAllocationMethodEnum']]]):
+        pulumi.set(self, "ip_allocation_method", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurationReferences")
+    def ip_configuration_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetPropertiesFormatIpConfigurationReferencesArgs']]]]:
+        """
+        IPConfigurationReferences - list of IPConfigurationReferences
+        """
+        return pulumi.get(self, "ip_configuration_references")
+
+    @ip_configuration_references.setter
+    def ip_configuration_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetPropertiesFormatIpConfigurationReferencesArgs']]]]):
+        pulumi.set(self, "ip_configuration_references", value)
+
+    @property
+    @pulumi.getter(name="ipPools")
+    def ip_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPPoolArgs']]]]:
+        """
+        network associated pool of IP Addresses
+        """
+        return pulumi.get(self, "ip_pools")
+
+    @ip_pools.setter
+    def ip_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPPoolArgs']]]]):
+        pulumi.set(self, "ip_pools", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional[pulumi.Input['RouteTableArgs']]:
+        """
+        Route table resource.
+        """
+        return pulumi.get(self, "route_table")
+
+    @route_table.setter
+    def route_table(self, value: Optional[pulumi.Input['RouteTableArgs']]):
+        pulumi.set(self, "route_table", value)
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> Optional[pulumi.Input[int]]:
+        """
+        Vlan to use for the subnet
+        """
+        return pulumi.get(self, "vlan")
+
+    @vlan.setter
+    def vlan(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vlan", value)
 
 
 @pulumi.input_type
