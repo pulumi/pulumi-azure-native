@@ -10469,6 +10469,9 @@
     "locations": [
       "2018-09-01-preview"
     ],
+    "locations/operationresults": [
+      "2018-09-01-preview"
+    ],
     "locations/operationstatuses": [
       "2018-09-01-preview"
     ],
@@ -10476,6 +10479,12 @@
       "2018-09-01-preview"
     ],
     "resourceproviders": [
+      "2018-09-01-preview"
+    ],
+    "resourceproviders/operationresults": [
+      "2018-09-01-preview"
+    ],
+    "resourceproviders/operationstatuses": [
       "2018-09-01-preview"
     ]
   },
@@ -11304,6 +11313,9 @@
       "2022-03-30-preview",
       "2023-07-15-preview"
     ],
+    "locations/migrationserviceoperationresults": [
+      "2023-07-15-preview"
+    ],
     "locations/operationresults": [
       "2017-04-15-privatepreview",
       "2017-11-15-preview",
@@ -11344,6 +11356,9 @@
       "2021-10-30-preview",
       "2022-01-30-preview",
       "2022-03-30-preview",
+      "2023-07-15-preview"
+    ],
+    "migrationservices": [
       "2023-07-15-preview"
     ],
     "operations": [
@@ -18457,6 +18472,9 @@
       "2023-08-01-preview",
       "2023-10-01"
     ],
+    "capacityreservationgroups": [
+      "2023-08-01-preview"
+    ],
     "locations": [
       "2018-03-01-preview",
       "2018-11-19",
@@ -18851,6 +18869,12 @@
       "2023-08-01-preview",
       "2023-10-01"
     ],
+    "registries/datareferences": [
+      "2023-10-01"
+    ],
+    "registries/datareferences/versions": [
+      "2023-10-01"
+    ],
     "registries/environments": [
       "2022-10-01-preview",
       "2022-12-01-preview",
@@ -19109,6 +19133,10 @@
       "2023-08-01-preview",
       "2023-10-01"
     ],
+    "workspaces/endpoints": [
+      "2023-08-01-preview",
+      "2023-10-01"
+    ],
     "workspaces/environments": [
       "2021-03-01-preview",
       "2021-10-01",
@@ -19202,6 +19230,15 @@
       "2023-06-01-preview",
       "2023-08-01-preview",
       "2023-10-01"
+    ],
+    "workspaces/inferencepools": [
+      "2023-08-01-preview"
+    ],
+    "workspaces/inferencepools/endpoints": [
+      "2023-08-01-preview"
+    ],
+    "workspaces/inferencepools/groups": [
+      "2023-08-01-preview"
     ],
     "workspaces/jobs": [
       "2021-03-01-preview",
@@ -21375,6 +21412,7 @@
       "2023-04-01",
       "2023-05-01",
       "2023-06-01",
+      "2023-07-01",
       "2023-07-01-preview"
     ],
     "applicationgatewayavailablerequestheaders": [
@@ -22107,15 +22145,21 @@
     ],
     "dnsforwardingrulesets": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
     ],
     "dnsforwardingrulesets/forwardingrules": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
     ],
     "dnsforwardingrulesets/virtualnetworklinks": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
     ],
     "dnsoperationresults": [
       "2016-04-01",
@@ -22135,17 +22179,35 @@
       "2018-05-01",
       "2023-07-01-preview"
     ],
+    "dnsresolverdomainlists": [
+      "2023-07-01-preview"
+    ],
+    "dnsresolverpolicies": [
+      "2023-07-01-preview"
+    ],
+    "dnsresolverpolicies/dnssecurityrules": [
+      "2023-07-01-preview"
+    ],
+    "dnsresolverpolicies/virtualnetworklinks": [
+      "2023-07-01-preview"
+    ],
     "dnsresolvers": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
     ],
     "dnsresolvers/inboundendpoints": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
     ],
     "dnsresolvers/outboundendpoints": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
     ],
     "dnszones": [
       "2015-05-04-preview",
@@ -23345,11 +23407,21 @@
     ],
     "locations/dnsresolveroperationresults": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
     ],
     "locations/dnsresolveroperationstatuses": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
+    ],
+    "locations/dnsresolverpolicyoperationresults": [
+      "2023-07-01-preview"
+    ],
+    "locations/dnsresolverpolicyoperationstatuses": [
+      "2023-07-01-preview"
     ],
     "locations/effectiveresourceownership": [
       "2018-04-01",
@@ -25527,11 +25599,18 @@
     ],
     "virtualnetworks/listdnsforwardingrulesets": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
+    ],
+    "virtualnetworks/listdnsresolverpolicies": [
+      "2023-07-01-preview"
     ],
     "virtualnetworks/listdnsresolvers": [
       "2020-04-01-preview",
-      "2022-07-01"
+      "2022-07-01",
+      "2023-07-01",
+      "2023-07-01-preview"
     ],
     "virtualnetworks/listnetworkmanagereffectiveconnectivityconfigurations": [
       "2022-01-01",

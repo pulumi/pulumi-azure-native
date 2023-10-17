@@ -13096,6 +13096,12 @@
         ]
       },
       {
+        "resourceType": "locations/operationResults",
+        "apiVersions": [
+          "2018-09-01-preview"
+        ]
+      },
+      {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
           "2018-09-01-preview"
@@ -13109,6 +13115,18 @@
       },
       {
         "resourceType": "resourceProviders",
+        "apiVersions": [
+          "2018-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "resourceProviders/operationResults",
+        "apiVersions": [
+          "2018-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "resourceProviders/operationStatuses",
         "apiVersions": [
           "2018-09-01-preview"
         ]
@@ -14887,6 +14905,12 @@
         ]
       },
       {
+        "resourceType": "locations/migrationServiceOperationResults",
+        "apiVersions": [
+          "2023-07-15-preview"
+        ]
+      },
+      {
         "resourceType": "locations/operationResults",
         "apiVersions": [
           "2023-07-15-preview",
@@ -14918,6 +14942,12 @@
           "2017-11-15-privatepreview",
           "2017-11-15-preview",
           "2017-04-15-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "migrationServices",
+        "apiVersions": [
+          "2023-07-15-preview"
         ]
       },
       {
@@ -22278,6 +22308,12 @@
     "namespace": "Microsoft.MachineLearningServices",
     "resourceTypes": [
       {
+        "resourceType": "capacityReservationGroups",
+        "apiVersions": [
+          "2023-08-01-preview"
+        ]
+      },
+      {
         "resourceType": "locations",
         "apiVersions": [
           "2023-10-01",
@@ -22726,6 +22762,18 @@
         ]
       },
       {
+        "resourceType": "registries/datareferences",
+        "apiVersions": [
+          "2023-10-01"
+        ]
+      },
+      {
+        "resourceType": "registries/datareferences/versions",
+        "apiVersions": [
+          "2023-10-01"
+        ]
+      },
+      {
         "resourceType": "registries/environments",
         "apiVersions": [
           "2023-10-01",
@@ -23032,6 +23080,13 @@
         ]
       },
       {
+        "resourceType": "workspaces/endpoints",
+        "apiVersions": [
+          "2023-10-01",
+          "2023-08-01-preview"
+        ]
+      },
+      {
         "resourceType": "workspaces/environments",
         "apiVersions": [
           "2023-10-01",
@@ -23144,6 +23199,24 @@
           "2023-06-01-preview",
           "2023-04-01-preview",
           "2023-02-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workspaces/inferencePools",
+        "apiVersions": [
+          "2023-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workspaces/inferencePools/endpoints",
+        "apiVersions": [
+          "2023-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workspaces/inferencePools/groups",
+        "apiVersions": [
+          "2023-08-01-preview"
         ]
       },
       {
@@ -26549,6 +26622,8 @@
       {
         "resourceType": "dnsForwardingRulesets",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
         ]
@@ -26556,6 +26631,8 @@
       {
         "resourceType": "dnsForwardingRulesets/forwardingRules",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
         ]
@@ -26563,6 +26640,8 @@
       {
         "resourceType": "dnsForwardingRulesets/virtualNetworkLinks",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
         ]
@@ -26592,8 +26671,34 @@
         ]
       },
       {
+        "resourceType": "dnsResolverDomainLists",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "dnsResolverPolicies",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "dnsResolverPolicies/dnsSecurityRules",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "dnsResolverPolicies/virtualNetworkLinks",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
         "resourceType": "dnsResolvers",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
         ]
@@ -26601,6 +26706,8 @@
       {
         "resourceType": "dnsResolvers/inboundEndpoints",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
         ]
@@ -26608,6 +26715,8 @@
       {
         "resourceType": "dnsResolvers/outboundEndpoints",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
         ]
@@ -27964,6 +28073,8 @@
       {
         "resourceType": "locations/dnsResolverOperationResults",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
         ]
@@ -27971,8 +28082,22 @@
       {
         "resourceType": "locations/dnsResolverOperationStatuses",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/dnsResolverPolicyOperationResults",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/dnsResolverPolicyOperationStatuses",
+        "apiVersions": [
+          "2023-07-01-preview"
         ]
       },
       {
@@ -30413,13 +30538,23 @@
       {
         "resourceType": "virtualNetworks/listDnsForwardingRulesets",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
         ]
       },
       {
+        "resourceType": "virtualNetworks/listDnsResolverPolicies",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
         "resourceType": "virtualNetworks/listDnsResolvers",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
         ]
