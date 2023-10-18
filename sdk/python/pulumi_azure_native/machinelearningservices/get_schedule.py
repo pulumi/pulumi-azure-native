@@ -100,7 +100,8 @@ def get_schedule(name: Optional[str] = None,
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str name: Schedule name.
@@ -130,7 +131,8 @@ def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str name: Schedule name.

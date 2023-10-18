@@ -134,7 +134,8 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
         """
         Managed instance's Start/Stop schedule.
         Azure REST API version: 2022-11-01-preview.
-        <br/>Other available API versions: 2023-02-01-preview.
+
+        Other available API versions: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +155,8 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
         """
         Managed instance's Start/Stop schedule.
         Azure REST API version: 2022-11-01-preview.
-        <br/>Other available API versions: 2023-02-01-preview.
+
+        Other available API versions: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param StartStopManagedInstanceScheduleArgs args: The arguments to use to populate this resource's properties.

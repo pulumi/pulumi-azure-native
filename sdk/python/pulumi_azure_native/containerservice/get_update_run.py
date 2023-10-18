@@ -150,7 +150,8 @@ def get_update_run(fleet_name: Optional[str] = None,
     """
     Get a UpdateRun
     Azure REST API version: 2023-03-15-preview.
-    <br/>Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
+
+    Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -184,7 +185,8 @@ def get_update_run_output(fleet_name: Optional[pulumi.Input[str]] = None,
     """
     Get a UpdateRun
     Azure REST API version: 2023-03-15-preview.
-    <br/>Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
+
+    Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.

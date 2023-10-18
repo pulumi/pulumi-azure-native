@@ -224,7 +224,8 @@ def get_system_topic_event_subscription(event_subscription_name: Optional[str] =
     """
     Get an event subscription.
     Azure REST API version: 2022-06-15.
-    <br/>Other available API versions: 2023-06-01-preview.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -264,7 +265,8 @@ def get_system_topic_event_subscription_output(event_subscription_name: Optional
     """
     Get an event subscription.
     Azure REST API version: 2022-06-15.
-    <br/>Other available API versions: 2023-06-01-preview.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

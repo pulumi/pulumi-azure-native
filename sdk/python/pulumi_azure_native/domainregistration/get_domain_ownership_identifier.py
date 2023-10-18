@@ -99,7 +99,8 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
     """
     Description for Get ownership identifier for domain
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2020-10-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str domain_name: Name of domain.
@@ -129,7 +130,8 @@ def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[st
     """
     Description for Get ownership identifier for domain
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2020-10-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str domain_name: Name of domain.

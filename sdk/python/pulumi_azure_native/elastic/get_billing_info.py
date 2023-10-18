@@ -63,7 +63,8 @@ def get_billing_info(monitor_name: Optional[str] = None,
     """
     Marketplace Subscription and Organization details to which resource gets billed into.
     Azure REST API version: 2023-07-01-preview.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -87,7 +88,8 @@ def get_billing_info_output(monitor_name: Optional[pulumi.Input[str]] = None,
     """
     Marketplace Subscription and Organization details to which resource gets billed into.
     Azure REST API version: 2023-07-01-preview.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

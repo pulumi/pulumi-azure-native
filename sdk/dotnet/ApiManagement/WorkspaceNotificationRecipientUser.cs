@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Recipient User details.
     /// Azure REST API version: 2022-09-01-preview.
-    /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
+    /// 
+    /// Other available API versions: 2023-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceNotificationRecipientUser")]
     public partial class WorkspaceNotificationRecipientUser : global::Pulumi.CustomResource

@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the gallery image version that you want to create or update.
-    /// Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
-    /// &lt;br/&gt;Other available API versions: 2019-03-01.
+    /// Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+    /// 
+    /// Other available API versions: 2019-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryImageVersion")]
     public partial class GalleryImageVersion : global::Pulumi.CustomResource

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2020-09-01, 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2020-09-01, 2023-07-01-preview.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:cdn:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2020-09-01, 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2020-09-01, 2023-07-01-preview.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:cdn:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());

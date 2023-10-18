@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// A cloud link resource
         /// Azure REST API version: 2022-05-01.
-        /// &lt;br/&gt;Other available API versions: 2023-03-01.
+        /// 
+        /// Other available API versions: 2023-03-01.
         /// </summary>
         public static Task<GetCloudLinkResult> InvokeAsync(GetCloudLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudLinkResult>("azure-native:avs:getCloudLink", args ?? new GetCloudLinkArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// A cloud link resource
         /// Azure REST API version: 2022-05-01.
-        /// &lt;br/&gt;Other available API versions: 2023-03-01.
+        /// 
+        /// Other available API versions: 2023-03-01.
         /// </summary>
         public static Output<GetCloudLinkResult> Invoke(GetCloudLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudLinkResult>("azure-native:avs:getCloudLink", args ?? new GetCloudLinkInvokeArgs(), options.WithDefaults());

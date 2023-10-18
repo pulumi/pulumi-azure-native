@@ -136,7 +136,8 @@ def get_workspace_api_version_set(resource_group_name: Optional[str] = None,
     """
     Gets the details of the Api Version Set specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -172,7 +173,8 @@ def get_workspace_api_version_set_output(resource_group_name: Optional[pulumi.In
     """
     Gets the details of the Api Version Set specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

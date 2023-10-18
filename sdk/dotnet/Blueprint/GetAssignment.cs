@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Get a blueprint assignment.
         /// Azure REST API version: 2018-11-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2017-11-11-preview.
+        /// 
+        /// Other available API versions: 2017-11-11-preview.
         /// </summary>
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:blueprint:getAssignment", args ?? new GetAssignmentArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Get a blueprint assignment.
         /// Azure REST API version: 2018-11-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2017-11-11-preview.
+        /// 
+        /// Other available API versions: 2017-11-11-preview.
         /// </summary>
         public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:blueprint:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());

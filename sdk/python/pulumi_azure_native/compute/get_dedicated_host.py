@@ -221,7 +221,8 @@ def get_dedicated_host(expand: Optional[str] = None,
     """
     Retrieves information about a dedicated host.
     Azure REST API version: 2023-03-01.
-    <br/>Other available API versions: 2023-07-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
@@ -264,7 +265,8 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
     """
     Retrieves information about a dedicated host.
     Azure REST API version: 2023-03-01.
-    <br/>Other available API versions: 2023-07-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.

@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A project resource
-    /// Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19
-    /// &lt;br/&gt;Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview.
+    /// Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
+    /// 
+    /// Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Project")]
     public partial class Project : global::Pulumi.CustomResource

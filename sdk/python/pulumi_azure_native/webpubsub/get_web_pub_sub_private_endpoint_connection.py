@@ -136,7 +136,8 @@ def get_web_pub_sub_private_endpoint_connection(private_endpoint_connection_name
     """
     Get the specified private endpoint connection
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection
@@ -169,7 +170,8 @@ def get_web_pub_sub_private_endpoint_connection_output(private_endpoint_connecti
     """
     Get the specified private endpoint connection
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection

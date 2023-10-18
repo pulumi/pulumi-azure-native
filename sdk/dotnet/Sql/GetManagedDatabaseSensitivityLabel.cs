@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets the sensitivity label of a given column
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
         /// </summary>
         public static Task<GetManagedDatabaseSensitivityLabelResult> InvokeAsync(GetManagedDatabaseSensitivityLabelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets the sensitivity label of a given column
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
         /// </summary>
         public static Output<GetManagedDatabaseSensitivityLabelResult> Invoke(GetManagedDatabaseSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelInvokeArgs(), options.WithDefaults());

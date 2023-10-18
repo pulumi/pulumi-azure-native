@@ -52,7 +52,8 @@ def get_domain_event_subscription_delivery_attributes(domain_name: Optional[str]
     """
     Get all delivery attributes for an event subscription for domain.
     Azure REST API version: 2022-06-15.
-    <br/>Other available API versions: 2023-06-01-preview.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str domain_name: Name of the domain topic.
@@ -78,7 +79,8 @@ def get_domain_event_subscription_delivery_attributes_output(domain_name: Option
     """
     Get all delivery attributes for an event subscription for domain.
     Azure REST API version: 2022-06-15.
-    <br/>Other available API versions: 2023-06-01-preview.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str domain_name: Name of the domain topic.

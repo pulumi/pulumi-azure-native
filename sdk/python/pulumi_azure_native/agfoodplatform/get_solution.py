@@ -112,7 +112,8 @@ def get_solution(data_manager_for_agriculture_resource_name: Optional[str] = Non
     """
     Get installed Solution details by Solution id.
     Azure REST API version: 2023-06-01-preview.
-    <br/>Other available API versions: 2021-09-01-preview.
+
+    Other available API versions: 2021-09-01-preview.
 
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
@@ -143,7 +144,8 @@ def get_solution_output(data_manager_for_agriculture_resource_name: Optional[pul
     """
     Get installed Solution details by Solution id.
     Azure REST API version: 2023-06-01-preview.
-    <br/>Other available API versions: 2021-09-01-preview.
+
+    Other available API versions: 2021-09-01-preview.
 
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.

@@ -87,7 +87,8 @@ def list_iot_hub_resource_keys_for_key_name(key_name: Optional[str] = None,
     """
     Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
     Azure REST API version: 2022-04-30-preview.
-    <br/>Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+
+    Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
 
 
     :param str key_name: The name of the shared access policy.
@@ -116,7 +117,8 @@ def list_iot_hub_resource_keys_for_key_name_output(key_name: Optional[pulumi.Inp
     """
     Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
     Azure REST API version: 2022-04-30-preview.
-    <br/>Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+
+    Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
 
 
     :param str key_name: The name of the shared access policy.

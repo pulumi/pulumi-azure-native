@@ -100,7 +100,8 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
     """
     Get an integration runtime
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2021-06-01-preview.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str integration_runtime_name: Integration runtime name
@@ -130,7 +131,8 @@ def get_integration_runtime_output(integration_runtime_name: Optional[pulumi.Inp
     """
     Get an integration runtime
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2021-06-01-preview.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str integration_runtime_name: Integration runtime name

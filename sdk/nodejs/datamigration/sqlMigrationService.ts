@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Migration Service.
- * Azure REST API version: 2022-03-30-preview. Prior API version in Azure Native 1.x: 2021-10-30-preview
+ * Azure REST API version: 2022-03-30-preview. Prior API version in Azure Native 1.x: 2021-10-30-preview.
  */
 export class SqlMigrationService extends pulumi.CustomResource {
     /**

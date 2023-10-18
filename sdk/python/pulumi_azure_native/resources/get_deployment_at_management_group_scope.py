@@ -111,7 +111,8 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
     """
     Gets a deployment.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2023-07-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str deployment_name: The name of the deployment.
@@ -139,7 +140,8 @@ def get_deployment_at_management_group_scope_output(deployment_name: Optional[pu
     """
     Gets a deployment.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2023-07-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str deployment_name: The name of the deployment.

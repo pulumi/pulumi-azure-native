@@ -164,8 +164,9 @@ class L2Network(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
-        <br/>Other available API versions: 2023-07-01.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,8 +186,9 @@ class L2Network(pulumi.CustomResource):
                  args: L2NetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
-        <br/>Other available API versions: 2023-07-01.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param L2NetworkArgs args: The arguments to use to populate this resource's properties.

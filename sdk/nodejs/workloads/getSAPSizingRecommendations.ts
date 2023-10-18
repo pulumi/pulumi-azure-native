@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+ *
+ * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
 export function getSAPSizingRecommendations(args: GetSAPSizingRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPSizingRecommendationsResult> {
 
@@ -84,7 +85,8 @@ export interface GetSAPSizingRecommendationsResult {
 /**
  * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+ *
+ * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
 export function getSAPSizingRecommendationsOutput(args: GetSAPSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSizingRecommendationsResult> {
     return pulumi.output(args).apply((a: any) => getSAPSizingRecommendations(a, opts))

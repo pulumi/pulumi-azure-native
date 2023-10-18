@@ -161,7 +161,8 @@ def get_restore_point(expand: Optional[str] = None,
     """
     The operation to get the restore point.
     Azure REST API version: 2023-03-01.
-    <br/>Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01.
+
+    Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
@@ -199,7 +200,8 @@ def get_restore_point_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     """
     The operation to get the restore point.
     Azure REST API version: 2023-03-01.
-    <br/>Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01.
+
+    Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get the project with the specified name.
         /// Azure REST API version: 2019-10-01.
-        /// &lt;br/&gt;Other available API versions: 2018-02-02.
+        /// 
+        /// Other available API versions: 2018-02-02.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:migrate:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get the project with the specified name.
         /// Azure REST API version: 2019-10-01.
-        /// &lt;br/&gt;Other available API versions: 2018-02-02.
+        /// 
+        /// Other available API versions: 2018-02-02.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:migrate:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());

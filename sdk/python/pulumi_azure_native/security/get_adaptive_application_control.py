@@ -171,7 +171,8 @@ def get_adaptive_application_control(asc_location: Optional[str] = None,
     """
     Gets an application control VM/server group.
     Azure REST API version: 2020-01-01.
-    <br/>Other available API versions: 2015-06-01-preview.
+
+    Other available API versions: 2015-06-01-preview.
 
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -205,7 +206,8 @@ def get_adaptive_application_control_output(asc_location: Optional[pulumi.Input[
     """
     Gets an application control VM/server group.
     Azure REST API version: 2020-01-01.
-    <br/>Other available API versions: 2015-06-01-preview.
+
+    Other available API versions: 2015-06-01-preview.
 
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations

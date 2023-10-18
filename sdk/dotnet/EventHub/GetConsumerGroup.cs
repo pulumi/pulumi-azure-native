@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets a description for the specified consumer group.
         /// Azure REST API version: 2022-10-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2023-01-01-preview.
+        /// 
+        /// Other available API versions: 2015-08-01, 2023-01-01-preview.
         /// </summary>
         public static Task<GetConsumerGroupResult> InvokeAsync(GetConsumerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-native:eventhub:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets a description for the specified consumer group.
         /// Azure REST API version: 2022-10-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2023-01-01-preview.
+        /// 
+        /// Other available API versions: 2015-08-01, 2023-01-01-preview.
         /// </summary>
         public static Output<GetConsumerGroupResult> Invoke(GetConsumerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsumerGroupResult>("azure-native:eventhub:getConsumerGroup", args ?? new GetConsumerGroupInvokeArgs(), options.WithDefaults());

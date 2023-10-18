@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Intune
         /// <summary>
         /// Returns Intune iOS policies.
         /// Azure REST API version: 2015-01-14-preview.
-        /// &lt;br/&gt;Other available API versions: 2015-01-14-privatepreview.
+        /// 
+        /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>
         public static Task<GetIoMAMPolicyByNameResult> InvokeAsync(GetIoMAMPolicyByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-native:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Intune
         /// <summary>
         /// Returns Intune iOS policies.
         /// Azure REST API version: 2015-01-14-preview.
-        /// &lt;br/&gt;Other available API versions: 2015-01-14-privatepreview.
+        /// 
+        /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>
         public static Output<GetIoMAMPolicyByNameResult> Invoke(GetIoMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoMAMPolicyByNameResult>("azure-native:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameInvokeArgs(), options.WithDefaults());

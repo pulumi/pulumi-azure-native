@@ -51,7 +51,8 @@ def list_open_id_connect_provider_secrets(opid: Optional[str] = None,
     """
     Gets the client secret details of the OpenID Connect Provider.
     Azure REST API version: 2022-08-01.
-    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.
@@ -77,7 +78,8 @@ def list_open_id_connect_provider_secrets_output(opid: Optional[pulumi.Input[str
     """
     Gets the client secret details of the OpenID Connect Provider.
     Azure REST API version: 2022-08-01.
-    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.

@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra view.
-    /// Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
-    /// &lt;br/&gt;Other available API versions: 2023-09-15-preview.
+    /// Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
+    /// 
+    /// Other available API versions: 2023-09-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraResourceCassandraView")]
     public partial class CassandraResourceCassandraView : global::Pulumi.CustomResource

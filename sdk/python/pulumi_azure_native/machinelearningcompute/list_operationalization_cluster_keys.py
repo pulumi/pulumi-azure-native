@@ -111,7 +111,8 @@ def list_operationalization_cluster_keys(cluster_name: Optional[str] = None,
     """
     Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
     Azure REST API version: 2017-08-01-preview.
-    <br/>Other available API versions: 2017-06-01-preview.
+
+    Other available API versions: 2017-06-01-preview.
 
 
     :param str cluster_name: The name of the cluster.
@@ -139,7 +140,8 @@ def list_operationalization_cluster_keys_output(cluster_name: Optional[pulumi.In
     """
     Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
     Azure REST API version: 2017-08-01-preview.
-    <br/>Other available API versions: 2017-06-01-preview.
+
+    Other available API versions: 2017-06-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of an outbound endpoint for a DNS resolver.
  * Azure REST API version: 2022-07-01.
- * <br/>Other available API versions: 2020-04-01-preview.
+ *
+ * Other available API versions: 2020-04-01-preview.
  */
 export function getOutboundEndpoint(args: GetOutboundEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOutboundEndpointResult> {
 
@@ -85,7 +86,8 @@ export interface GetOutboundEndpointResult {
 /**
  * Gets properties of an outbound endpoint for a DNS resolver.
  * Azure REST API version: 2022-07-01.
- * <br/>Other available API versions: 2020-04-01-preview.
+ *
+ * Other available API versions: 2020-04-01-preview.
  */
 export function getOutboundEndpointOutput(args: GetOutboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundEndpointResult> {
     return pulumi.output(args).apply((a: any) => getOutboundEndpoint(a, opts))

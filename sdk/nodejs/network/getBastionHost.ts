@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Bastion Host.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
 
@@ -108,7 +109,8 @@ export interface GetBastionHostResult {
 /**
  * Gets the specified Bastion Host.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
     return pulumi.output(args).apply((a: any) => getBastionHost(a, opts))

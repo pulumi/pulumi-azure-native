@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns the description for the specified WCF relay.
  * Azure REST API version: 2021-11-01.
- * <br/>Other available API versions: 2016-07-01.
+ *
+ * Other available API versions: 2016-07-01.
  */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
 
@@ -97,7 +98,8 @@ export interface GetWCFRelayResult {
 /**
  * Returns the description for the specified WCF relay.
  * Azure REST API version: 2021-11-01.
- * <br/>Other available API versions: 2016-07-01.
+ *
+ * Other available API versions: 2016-07-01.
  */
 export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
     return pulumi.output(args).apply((a: any) => getWCFRelay(a, opts))

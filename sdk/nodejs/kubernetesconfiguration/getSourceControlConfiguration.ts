@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets details of the Source Control Configuration.
  * Azure REST API version: 2023-05-01.
- * <br/>Other available API versions: 2019-11-01-preview.
+ *
+ * Other available API versions: 2019-11-01-preview.
  */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
 
@@ -123,7 +124,8 @@ export interface GetSourceControlConfigurationResult {
 /**
  * Gets details of the Source Control Configuration.
  * Azure REST API version: 2023-05-01.
- * <br/>Other available API versions: 2019-11-01-preview.
+ *
+ * Other available API versions: 2019-11-01-preview.
  */
 export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getSourceControlConfiguration(a, opts))

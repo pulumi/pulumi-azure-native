@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The Get Storage Account ManagementPolicies operation response.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
- * <br/>Other available API versions: 2018-03-01-preview, 2023-01-01.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
+ *
+ * Other available API versions: 2018-03-01-preview, 2023-01-01.
  */
 export class ManagementPolicy extends pulumi.CustomResource {
     /**

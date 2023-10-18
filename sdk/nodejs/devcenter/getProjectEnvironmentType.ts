@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a project environment type.
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+ *
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
  */
 export function getProjectEnvironmentType(args: GetProjectEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectEnvironmentTypeResult> {
 
@@ -93,7 +94,8 @@ export interface GetProjectEnvironmentTypeResult {
 /**
  * Gets a project environment type.
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+ *
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
  */
 export function getProjectEnvironmentTypeOutput(args: GetProjectEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectEnvironmentTypeResult> {
     return pulumi.output(args).apply((a: any) => getProjectEnvironmentType(a, opts))

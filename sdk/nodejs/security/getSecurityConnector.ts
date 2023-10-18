@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves details of a specific security connector
  * Azure REST API version: 2023-03-01-preview.
- * <br/>Other available API versions: 2021-07-01-preview.
+ *
+ * Other available API versions: 2021-07-01-preview.
  */
 export function getSecurityConnector(args: GetSecurityConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorResult> {
 
@@ -92,7 +93,8 @@ export interface GetSecurityConnectorResult {
 /**
  * Retrieves details of a specific security connector
  * Azure REST API version: 2023-03-01-preview.
- * <br/>Other available API versions: 2021-07-01-preview.
+ *
+ * Other available API versions: 2021-07-01-preview.
  */
 export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorResult> {
     return pulumi.output(args).apply((a: any) => getSecurityConnector(a, opts))

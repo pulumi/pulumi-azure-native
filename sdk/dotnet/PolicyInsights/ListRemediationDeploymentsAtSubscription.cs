@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets all deployments for a remediation at subscription scope.
         /// Azure REST API version: 2021-10-01.
-        /// &lt;br/&gt;Other available API versions: 2018-07-01-preview.
+        /// 
+        /// Other available API versions: 2018-07-01-preview.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtSubscriptionResult> InvokeAsync(ListRemediationDeploymentsAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets all deployments for a remediation at subscription scope.
         /// Azure REST API version: 2021-10-01.
-        /// &lt;br/&gt;Other available API versions: 2018-07-01-preview.
+        /// 
+        /// Other available API versions: 2018-07-01-preview.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtSubscriptionResult> Invoke(ListRemediationDeploymentsAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionInvokeArgs(), options.WithDefaults());

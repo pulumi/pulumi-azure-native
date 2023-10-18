@@ -148,7 +148,8 @@ def get_encryption_scope(account_name: Optional[str] = None,
     """
     Returns the properties for the specified encryption scope.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2023-01-01.
+
+    Other available API versions: 2023-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -182,7 +183,8 @@ def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None
     """
     Returns the properties for the specified encryption scope.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2023-01-01.
+
+    Other available API versions: 2023-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

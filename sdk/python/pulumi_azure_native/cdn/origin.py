@@ -279,8 +279,9 @@ class Origin(pulumi.CustomResource):
                  __props__=None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
-        <br/>Other available API versions: 2023-07-01-preview.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
+
+        Other available API versions: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,8 +309,9 @@ class Origin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
-        <br/>Other available API versions: 2023-07-01-preview.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
+
+        Other available API versions: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param OriginArgs args: The arguments to use to populate this resource's properties.

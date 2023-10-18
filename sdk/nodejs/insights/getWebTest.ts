@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a specific Application Insights web test definition.
  * Azure REST API version: 2022-06-15.
- * <br/>Other available API versions: 2020-10-05-preview.
+ *
+ * Other available API versions: 2020-10-05-preview.
  */
 export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebTestResult> {
 
@@ -116,7 +117,8 @@ export interface GetWebTestResult {
 /**
  * Get a specific Application Insights web test definition.
  * Azure REST API version: 2022-06-15.
- * <br/>Other available API versions: 2020-10-05-preview.
+ *
+ * Other available API versions: 2020-10-05-preview.
  */
 export function getWebTestOutput(args: GetWebTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebTestResult> {
     return pulumi.output(args).apply((a: any) => getWebTest(a, opts))

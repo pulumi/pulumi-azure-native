@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// List SSH authorized keys and shared key of the local user.
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2023-01-01.
+        /// 
+        /// Other available API versions: 2023-01-01.
         /// </summary>
         public static Task<ListLocalUserKeysResult> InvokeAsync(ListLocalUserKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListLocalUserKeysResult>("azure-native:storage:listLocalUserKeys", args ?? new ListLocalUserKeysArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// List SSH authorized keys and shared key of the local user.
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2023-01-01.
+        /// 
+        /// Other available API versions: 2023-01-01.
         /// </summary>
         public static Output<ListLocalUserKeysResult> Invoke(ListLocalUserKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalUserKeysResult>("azure-native:storage:listLocalUserKeys", args ?? new ListLocalUserKeysInvokeArgs(), options.WithDefaults());

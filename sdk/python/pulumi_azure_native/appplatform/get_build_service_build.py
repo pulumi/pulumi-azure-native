@@ -101,7 +101,8 @@ def get_build_service_build(build_name: Optional[str] = None,
     """
     Get a KPack build.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str build_name: The name of the build resource.
@@ -134,7 +135,8 @@ def get_build_service_build_output(build_name: Optional[pulumi.Input[str]] = Non
     """
     Get a KPack build.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str build_name: The name of the build resource.

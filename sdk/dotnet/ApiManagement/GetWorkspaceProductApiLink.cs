@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the API link for the product.
         /// Azure REST API version: 2022-09-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<GetWorkspaceProductApiLinkResult> InvokeAsync(GetWorkspaceProductApiLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceProductApiLinkResult>("azure-native:apimanagement:getWorkspaceProductApiLink", args ?? new GetWorkspaceProductApiLinkArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the API link for the product.
         /// Azure REST API version: 2022-09-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<GetWorkspaceProductApiLinkResult> Invoke(GetWorkspaceProductApiLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductApiLinkResult>("azure-native:apimanagement:getWorkspaceProductApiLink", args ?? new GetWorkspaceProductApiLinkInvokeArgs(), options.WithDefaults());

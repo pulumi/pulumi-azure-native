@@ -66,7 +66,8 @@ def list_configurations(configuration_filters: Optional[Sequence[pulumi.InputTyp
     """
     This method provides the list of configurations for the given product family, product line and product under subscription.
     Azure REST API version: 2021-12-01.
-    <br/>Other available API versions: 2020-12-01-preview.
+
+    Other available API versions: 2020-12-01-preview.
 
 
     :param Sequence[pulumi.InputType['ConfigurationFilters']] configuration_filters: Holds details about product hierarchy information and filterable property.
@@ -93,7 +94,8 @@ def list_configurations_output(configuration_filters: Optional[pulumi.Input[Sequ
     """
     This method provides the list of configurations for the given product family, product line and product under subscription.
     Azure REST API version: 2021-12-01.
-    <br/>Other available API versions: 2020-12-01-preview.
+
+    Other available API versions: 2020-12-01-preview.
 
 
     :param Sequence[pulumi.InputType['ConfigurationFilters']] configuration_filters: Holds details about product hierarchy information and filterable property.

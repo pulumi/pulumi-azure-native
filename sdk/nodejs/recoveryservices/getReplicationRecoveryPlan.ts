@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the recovery plan.
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2023-06-01.
+ *
+ * Other available API versions: 2023-06-01.
  */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
 
@@ -65,7 +66,8 @@ export interface GetReplicationRecoveryPlanResult {
 /**
  * Gets the details of the recovery plan.
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2023-06-01.
+ *
+ * Other available API versions: 2023-06-01.
  */
 export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
     return pulumi.output(args).apply((a: any) => getReplicationRecoveryPlan(a, opts))

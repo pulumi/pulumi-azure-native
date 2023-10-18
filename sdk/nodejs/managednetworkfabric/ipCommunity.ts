@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The IpCommunity resource definition.
  * Azure REST API version: 2023-02-01-preview.
- * <br/>Other available API versions: 2023-06-15.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export class IpCommunity extends pulumi.CustomResource {
     /**

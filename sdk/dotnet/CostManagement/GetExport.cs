@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
+        /// 
+        /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
+        /// 
+        /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());

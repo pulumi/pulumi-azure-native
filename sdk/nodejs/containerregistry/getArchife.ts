@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the archive.
  * Azure REST API version: 2023-06-01-preview.
- * <br/>Other available API versions: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-08-01-preview.
  */
 export function getArchife(args: GetArchifeArgs, opts?: pulumi.InvokeOptions): Promise<GetArchifeResult> {
 
@@ -80,7 +81,8 @@ export interface GetArchifeResult {
 /**
  * Gets the properties of the archive.
  * Azure REST API version: 2023-06-01-preview.
- * <br/>Other available API versions: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-08-01-preview.
  */
 export function getArchifeOutput(args: GetArchifeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArchifeResult> {
     return pulumi.output(args).apply((a: any) => getArchife(a, opts))

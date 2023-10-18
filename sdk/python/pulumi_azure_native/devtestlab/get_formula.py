@@ -197,7 +197,8 @@ def get_formula(expand: Optional[str] = None,
     """
     Get formula.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'
@@ -238,7 +239,8 @@ def get_formula_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Get formula.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'

@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.AppConfiguration
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01
-    /// &lt;br/&gt;Other available API versions: 2019-02-01-preview.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
+    /// 
+    /// Other available API versions: 2019-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:ConfigurationStore")]
     public partial class ConfigurationStore : global::Pulumi.CustomResource

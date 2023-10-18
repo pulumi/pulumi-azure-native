@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided Kubernetes cluster agent pool.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
 
@@ -126,7 +127,8 @@ export interface GetAgentPoolResult {
 /**
  * Get properties of the provided Kubernetes cluster agent pool.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
     return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))

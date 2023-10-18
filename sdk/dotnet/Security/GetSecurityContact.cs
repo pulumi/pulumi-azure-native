@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Get Default Security contact configurations for the subscription
         /// Azure REST API version: 2020-01-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2017-08-01-preview.
+        /// 
+        /// Other available API versions: 2017-08-01-preview.
         /// </summary>
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Get Default Security contact configurations for the subscription
         /// Azure REST API version: 2020-01-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2017-08-01-preview.
+        /// 
+        /// Other available API versions: 2017-08-01-preview.
         /// </summary>
         public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());

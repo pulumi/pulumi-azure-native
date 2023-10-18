@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// Get a shareSubscription in an account
         /// Azure REST API version: 2021-08-01.
-        /// &lt;br/&gt;Other available API versions: 2018-11-01-preview.
+        /// 
+        /// Other available API versions: 2018-11-01-preview.
         /// </summary>
         public static Task<GetShareSubscriptionResult> InvokeAsync(GetShareSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareSubscriptionResult>("azure-native:datashare:getShareSubscription", args ?? new GetShareSubscriptionArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// Get a shareSubscription in an account
         /// Azure REST API version: 2021-08-01.
-        /// &lt;br/&gt;Other available API versions: 2018-11-01-preview.
+        /// 
+        /// Other available API versions: 2018-11-01-preview.
         /// </summary>
         public static Output<GetShareSubscriptionResult> Invoke(GetShareSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareSubscriptionResult>("azure-native:datashare:getShareSubscription", args ?? new GetShareSubscriptionInvokeArgs(), options.WithDefaults());

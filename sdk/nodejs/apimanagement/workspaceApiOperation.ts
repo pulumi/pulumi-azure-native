@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * API Operation details.
  * Azure REST API version: 2022-09-01-preview.
- * <br/>Other available API versions: 2023-03-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export class WorkspaceApiOperation extends pulumi.CustomResource {
     /**

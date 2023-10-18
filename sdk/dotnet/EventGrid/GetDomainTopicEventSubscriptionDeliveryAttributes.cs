@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get all delivery attributes for an event subscription for domain topic.
         /// Azure REST API version: 2022-06-15.
-        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Task<GetDomainTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetDomainTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getDomainTopicEventSubscriptionDeliveryAttributes", args ?? new GetDomainTopicEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get all delivery attributes for an event subscription for domain topic.
         /// Azure REST API version: 2022-06-15.
-        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Output<GetDomainTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetDomainTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getDomainTopicEventSubscriptionDeliveryAttributes", args ?? new GetDomainTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());

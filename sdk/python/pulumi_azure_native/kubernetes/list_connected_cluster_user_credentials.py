@@ -66,7 +66,8 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[Unio
     """
     Gets cluster user credentials of the connected cluster with a specified resource group and name.
     Azure REST API version: 2021-04-01-preview.
-    <br/>Other available API versions: 2020-01-01-preview.
+
+    Other available API versions: 2020-01-01-preview.
 
 
     :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
@@ -96,7 +97,8 @@ def list_connected_cluster_user_credentials_output(authentication_method: Option
     """
     Gets cluster user credentials of the connected cluster with a specified resource group and name.
     Azure REST API version: 2021-04-01-preview.
-    <br/>Other available API versions: 2020-01-01-preview.
+
+    Other available API versions: 2020-01-01-preview.
 
 
     :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.

@@ -93,7 +93,8 @@ def list_workspace_connection_secrets(connection_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceConnectionSecretsResult:
     """
     Azure REST API version: 2023-06-01-preview.
-    <br/>Other available API versions: 2023-08-01-preview.
+
+    Other available API versions: 2023-08-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection
@@ -122,7 +123,8 @@ def list_workspace_connection_secrets_output(connection_name: Optional[pulumi.In
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceConnectionSecretsResult]:
     """
     Azure REST API version: 2023-06-01-preview.
-    <br/>Other available API versions: 2023-08-01-preview.
+
+    Other available API versions: 2023-08-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection

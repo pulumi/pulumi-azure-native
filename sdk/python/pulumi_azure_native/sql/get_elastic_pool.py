@@ -238,7 +238,8 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
     """
     Gets an elastic pool.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
+
+    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str elastic_pool_name: The name of the elastic pool.
@@ -279,7 +280,8 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
     """
     Gets an elastic pool.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
+
+    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str elastic_pool_name: The name of the elastic pool.

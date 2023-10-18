@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get object metadata from an integration runtime
         /// Azure REST API version: 2021-06-01.
-        /// &lt;br/&gt;Other available API versions: 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Task<GetIntegrationRuntimeObjectMetadatumResult> InvokeAsync(GetIntegrationRuntimeObjectMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeObjectMetadatumResult>("azure-native:synapse:getIntegrationRuntimeObjectMetadatum", args ?? new GetIntegrationRuntimeObjectMetadatumArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get object metadata from an integration runtime
         /// Azure REST API version: 2021-06-01.
-        /// &lt;br/&gt;Other available API versions: 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetIntegrationRuntimeObjectMetadatumResult> Invoke(GetIntegrationRuntimeObjectMetadatumInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeObjectMetadatumResult>("azure-native:synapse:getIntegrationRuntimeObjectMetadatum", args ?? new GetIntegrationRuntimeObjectMetadatumInvokeArgs(), options.WithDefaults());

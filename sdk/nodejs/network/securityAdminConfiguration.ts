@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the security admin configuration
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
- * <br/>Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+ *
+ * Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01.
  */
 export class SecurityAdminConfiguration extends pulumi.CustomResource {
     /**

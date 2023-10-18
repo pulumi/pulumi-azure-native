@@ -304,7 +304,8 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
     """
     Gets a SQL virtual machine.
     Azure REST API version: 2022-02-01.
-    <br/>Other available API versions: 2023-01-01-preview.
+
+    Other available API versions: 2023-01-01-preview.
 
 
     :param str expand: The child resources to include in the response.
@@ -351,7 +352,8 @@ def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]]
     """
     Gets a SQL virtual machine.
     Azure REST API version: 2022-02-01.
-    <br/>Other available API versions: 2023-01-01-preview.
+
+    Other available API versions: 2023-01-01-preview.
 
 
     :param str expand: The child resources to include in the response.

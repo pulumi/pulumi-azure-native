@@ -111,7 +111,8 @@ def get_content_type(content_type_id: Optional[str] = None,
     """
     Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
     Azure REST API version: 2022-08-01.
-    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str content_type_id: Content type identifier.
@@ -142,7 +143,8 @@ def get_content_type_output(content_type_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
     Azure REST API version: 2022-08-01.
-    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str content_type_id: Content type identifier.

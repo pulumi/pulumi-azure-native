@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Migration item.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2023-06-01.
+        /// 
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Task<GetReplicationMigrationItemResult> InvokeAsync(GetReplicationMigrationItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationMigrationItemResult>("azure-native:recoveryservices:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Migration item.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2023-06-01.
+        /// 
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Output<GetReplicationMigrationItemResult> Invoke(GetReplicationMigrationItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationMigrationItemResult>("azure-native:recoveryservices:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemInvokeArgs(), options.WithDefaults());

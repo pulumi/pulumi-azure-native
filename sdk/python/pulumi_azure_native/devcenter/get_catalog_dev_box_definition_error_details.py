@@ -53,7 +53,8 @@ def get_catalog_dev_box_definition_error_details(catalog_name: Optional[str] = N
     """
     Gets Catalog Devbox Definition error details
     Azure REST API version: 2023-08-01-preview.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str catalog_name: The name of the Catalog.
@@ -82,7 +83,8 @@ def get_catalog_dev_box_definition_error_details_output(catalog_name: Optional[p
     """
     Gets Catalog Devbox Definition error details
     Azure REST API version: 2023-08-01-preview.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str catalog_name: The name of the Catalog.

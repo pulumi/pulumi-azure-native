@@ -604,7 +604,8 @@ def get_storage_account(account_name: Optional[str] = None,
     """
     Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
+
+    Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -676,7 +677,8 @@ def get_storage_account_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
+
+    Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

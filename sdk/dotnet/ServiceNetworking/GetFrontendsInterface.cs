@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a Frontend
         /// Azure REST API version: 2023-05-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2022-10-01-preview.
+        /// 
+        /// Other available API versions: 2022-10-01-preview.
         /// </summary>
         public static Task<GetFrontendsInterfaceResult> InvokeAsync(GetFrontendsInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontendsInterfaceResult>("azure-native:servicenetworking:getFrontendsInterface", args ?? new GetFrontendsInterfaceArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a Frontend
         /// Azure REST API version: 2023-05-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2022-10-01-preview.
+        /// 
+        /// Other available API versions: 2022-10-01-preview.
         /// </summary>
         public static Output<GetFrontendsInterfaceResult> Invoke(GetFrontendsInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontendsInterfaceResult>("azure-native:servicenetworking:getFrontendsInterface", args ?? new GetFrontendsInterfaceInvokeArgs(), options.WithDefaults());

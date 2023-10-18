@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a workspace
         /// Azure REST API version: 2021-06-01.
-        /// &lt;br/&gt;Other available API versions: 2021-05-01, 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:synapse:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a workspace
         /// Azure REST API version: 2021-06-01.
-        /// &lt;br/&gt;Other available API versions: 2021-05-01, 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:synapse:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

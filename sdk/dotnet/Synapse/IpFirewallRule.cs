@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// IP firewall rule
-    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
-    /// &lt;br/&gt;Other available API versions: 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+    /// 
+    /// Other available API versions: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:IpFirewallRule")]
     public partial class IpFirewallRule : global::Pulumi.CustomResource

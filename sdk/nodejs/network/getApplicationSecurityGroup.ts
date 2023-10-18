@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified application security group.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {
 
@@ -69,7 +70,8 @@ export interface GetApplicationSecurityGroupResult {
 /**
  * Gets information about the specified application security group.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getApplicationSecurityGroup(a, opts))

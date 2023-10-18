@@ -135,7 +135,8 @@ def get_service(resource_group_name: Optional[str] = None,
     """
     Get a Service and its properties.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -165,7 +166,8 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Service and its properties.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

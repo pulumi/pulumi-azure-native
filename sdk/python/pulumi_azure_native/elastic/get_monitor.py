@@ -147,7 +147,8 @@ def get_monitor(monitor_name: Optional[str] = None,
     """
     Monitor resource.
     Azure REST API version: 2023-06-01.
-    <br/>Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -178,7 +179,8 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     """
     Monitor resource.
     Azure REST API version: 2023-06-01.
-    <br/>Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

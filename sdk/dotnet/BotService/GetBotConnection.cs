@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
         /// Azure REST API version: 2022-09-15.
-        /// &lt;br/&gt;Other available API versions: 2023-09-15-preview.
+        /// 
+        /// Other available API versions: 2023-09-15-preview.
         /// </summary>
         public static Task<GetBotConnectionResult> InvokeAsync(GetBotConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azure-native:botservice:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
         /// Azure REST API version: 2022-09-15.
-        /// &lt;br/&gt;Other available API versions: 2023-09-15-preview.
+        /// 
+        /// Other available API versions: 2023-09-15-preview.
         /// </summary>
         public static Output<GetBotConnectionResult> Invoke(GetBotConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithDefaults());

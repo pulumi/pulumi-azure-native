@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a LoadTest resource.
  * Azure REST API version: 2022-12-01.
- * <br/>Other available API versions: 2021-12-01-preview.
+ *
+ * Other available API versions: 2021-12-01-preview.
  */
 export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestResult> {
 
@@ -84,7 +85,8 @@ export interface GetLoadTestResult {
 /**
  * Get a LoadTest resource.
  * Azure REST API version: 2022-12-01.
- * <br/>Other available API versions: 2021-12-01-preview.
+ *
+ * Other available API versions: 2021-12-01-preview.
  */
 export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestResult> {
     return pulumi.output(args).apply((a: any) => getLoadTest(a, opts))

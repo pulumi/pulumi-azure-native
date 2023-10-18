@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
  * Azure REST API version: 2023-04-06.
- * <br/>Other available API versions: 2023-08-04-preview.
+ *
+ * Other available API versions: 2023-08-04-preview.
  */
 export function getAzureBareMetalStorageInstance(args: GetAzureBareMetalStorageInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureBareMetalStorageInstanceResult> {
 
@@ -72,7 +73,8 @@ export interface GetAzureBareMetalStorageInstanceResult {
 /**
  * Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
  * Azure REST API version: 2023-04-06.
- * <br/>Other available API versions: 2023-08-04-preview.
+ *
+ * Other available API versions: 2023-08-04-preview.
  */
 export function getAzureBareMetalStorageInstanceOutput(args: GetAzureBareMetalStorageInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureBareMetalStorageInstanceResult> {
     return pulumi.output(args).apply((a: any) => getAzureBareMetalStorageInstance(a, opts))

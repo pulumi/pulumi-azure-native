@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getModelContainer(args: GetModelContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetModelContainerResult> {
 
@@ -65,7 +66,8 @@ export interface GetModelContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getModelContainerOutput(args: GetModelContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelContainerResult> {
     return pulumi.output(args).apply((a: any) => getModelContainer(a, opts))

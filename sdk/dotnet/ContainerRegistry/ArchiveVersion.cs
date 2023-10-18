@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// <summary>
     /// An object that represents an export pipeline for a container registry.
     /// Azure REST API version: 2023-06-01-preview.
-    /// &lt;br/&gt;Other available API versions: 2023-08-01-preview.
+    /// 
+    /// Other available API versions: 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ArchiveVersion")]
     public partial class ArchiveVersion : global::Pulumi.CustomResource

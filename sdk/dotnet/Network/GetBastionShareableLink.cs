@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Return the Bastion Shareable Links for all the VMs specified in the request.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetBastionShareableLinkResult> InvokeAsync(GetBastionShareableLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBastionShareableLinkResult>("azure-native:network:getBastionShareableLink", args ?? new GetBastionShareableLinkArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Return the Bastion Shareable Links for all the VMs specified in the request.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetBastionShareableLinkResult> Invoke(GetBastionShareableLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBastionShareableLinkResult>("azure-native:network:getBastionShareableLink", args ?? new GetBastionShareableLinkInvokeArgs(), options.WithDefaults());

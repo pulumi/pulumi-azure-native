@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// Contains information about a pool.
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
-    /// &lt;br/&gt;Other available API versions: 2020-05-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// 
+    /// Other available API versions: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:Pool")]
     public partial class Pool : global::Pulumi.CustomResource

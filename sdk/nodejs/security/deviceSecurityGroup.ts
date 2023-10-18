@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The device security group resource
- * Azure REST API version: 2019-08-01. Prior API version in Azure Native 1.x: 2019-08-01
+ * Azure REST API version: 2019-08-01. Prior API version in Azure Native 1.x: 2019-08-01.
  */
 export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**

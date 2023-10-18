@@ -183,8 +183,9 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Hybrid Connection for an App Service app.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
-        <br/>Other available API versions: 2020-10-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Other available API versions: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,8 +202,9 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Hybrid Connection for an App Service app.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
-        <br/>Other available API versions: 2020-10-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Other available API versions: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppRelayServiceConnectionSlotArgs args: The arguments to use to populate this resource's properties.

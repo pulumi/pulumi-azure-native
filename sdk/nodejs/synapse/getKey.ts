@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a workspace key
  * Azure REST API version: 2021-06-01.
- * <br/>Other available API versions: 2021-06-01-preview.
+ *
+ * Other available API versions: 2021-06-01-preview.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
 
@@ -62,7 +63,8 @@ export interface GetKeyResult {
 /**
  * Gets a workspace key
  * Azure REST API version: 2021-06-01.
- * <br/>Other available API versions: 2021-06-01-preview.
+ *
+ * Other available API versions: 2021-06-01-preview.
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
     return pulumi.output(args).apply((a: any) => getKey(a, opts))

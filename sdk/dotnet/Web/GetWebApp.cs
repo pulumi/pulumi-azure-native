@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the details of a web, mobile, or API app.
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
+        /// 
+        /// Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
         /// </summary>
         public static Task<GetWebAppResult> InvokeAsync(GetWebAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppResult>("azure-native:web:getWebApp", args ?? new GetWebAppArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the details of a web, mobile, or API app.
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
+        /// 
+        /// Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
         /// </summary>
         public static Output<GetWebAppResult> Invoke(GetWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppResult>("azure-native:web:getWebApp", args ?? new GetWebAppInvokeArgs(), options.WithDefaults());

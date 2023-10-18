@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a job.
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:sql:getJob", args ?? new GetJobArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a job.
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:sql:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());

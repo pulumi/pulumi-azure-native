@@ -244,7 +244,8 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
     """
     Gets an existing remediation at management group scope.
     Azure REST API version: 2021-10-01.
-    <br/>Other available API versions: 2018-07-01-preview.
+
+    Other available API versions: 2018-07-01-preview.
 
 
     :param str management_group_id: Management group ID.
@@ -286,7 +287,8 @@ def get_remediation_at_management_group_output(management_group_id: Optional[pul
     """
     Gets an existing remediation at management group scope.
     Azure REST API version: 2021-10-01.
-    <br/>Other available API versions: 2018-07-01-preview.
+
+    Other available API versions: 2018-07-01-preview.
 
 
     :param str management_group_id: Management group ID.

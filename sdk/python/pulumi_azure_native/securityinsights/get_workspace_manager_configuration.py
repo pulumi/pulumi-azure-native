@@ -112,7 +112,8 @@ def get_workspace_manager_configuration(resource_group_name: Optional[str] = Non
     """
     Gets a workspace manager configuration
     Azure REST API version: 2023-06-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -143,7 +144,8 @@ def get_workspace_manager_configuration_output(resource_group_name: Optional[pul
     """
     Gets a workspace manager configuration
     Azure REST API version: 2023-06-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

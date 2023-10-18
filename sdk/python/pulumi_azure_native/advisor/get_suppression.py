@@ -124,7 +124,8 @@ def get_suppression(name: Optional[str] = None,
     """
     Obtains the details of a suppression.
     Azure REST API version: 2023-01-01.
-    <br/>Other available API versions: 2016-07-12-preview.
+
+    Other available API versions: 2016-07-12-preview.
 
 
     :param str name: The name of the suppression.
@@ -156,7 +157,8 @@ def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
     """
     Obtains the details of a suppression.
     Azure REST API version: 2023-01-01.
-    <br/>Other available API versions: 2016-07-12-preview.
+
+    Other available API versions: 2016-07-12-preview.
 
 
     :param str name: The name of the suppression.

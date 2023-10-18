@@ -98,7 +98,8 @@ def list_static_site_secrets(name: Optional[str] = None,
     """
     Description for Lists the secrets for an existing static site.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2020-10-01, 2021-02-01.
+
+    Other available API versions: 2020-10-01, 2021-02-01.
 
 
     :param str name: Name of the static site.
@@ -125,7 +126,8 @@ def list_static_site_secrets_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Lists the secrets for an existing static site.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2020-10-01, 2021-02-01.
+
+    Other available API versions: 2020-10-01, 2021-02-01.
 
 
     :param str name: Name of the static site.

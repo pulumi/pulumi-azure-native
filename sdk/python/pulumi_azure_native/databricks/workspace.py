@@ -232,7 +232,7 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         Information about workspace.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,7 +257,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about workspace.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

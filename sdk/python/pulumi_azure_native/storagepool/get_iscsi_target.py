@@ -220,7 +220,8 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
     """
     Get an iSCSI Target.
     Azure REST API version: 2021-08-01.
-    <br/>Other available API versions: 2020-03-15-preview.
+
+    Other available API versions: 2020-03-15-preview.
 
 
     :param str disk_pool_name: The name of the Disk Pool.
@@ -260,7 +261,8 @@ def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
     """
     Get an iSCSI Target.
     Azure REST API version: 2021-08-01.
-    <br/>Other available API versions: 2020-03-15-preview.
+
+    Other available API versions: 2020-03-15-preview.
 
 
     :param str disk_pool_name: The name of the Disk Pool.

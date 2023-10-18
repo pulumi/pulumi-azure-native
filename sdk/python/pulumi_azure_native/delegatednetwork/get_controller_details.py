@@ -158,7 +158,8 @@ def get_controller_details(resource_group_name: Optional[str] = None,
     """
     Gets details about the specified dnc controller.
     Azure REST API version: 2021-03-15.
-    <br/>Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+
+    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -190,7 +191,8 @@ def get_controller_details_output(resource_group_name: Optional[pulumi.Input[str
     """
     Gets details about the specified dnc controller.
     Azure REST API version: 2021-03-15.
-    <br/>Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+
+    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

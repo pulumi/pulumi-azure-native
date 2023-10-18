@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Task<GetModelContainerResult> InvokeAsync(GetModelContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelContainerResult>("azure-native:machinelearningservices:getModelContainer", args ?? new GetModelContainerArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Output<GetModelContainerResult> Invoke(GetModelContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelContainerResult>("azure-native:machinelearningservices:getModelContainer", args ?? new GetModelContainerInvokeArgs(), options.WithDefaults());

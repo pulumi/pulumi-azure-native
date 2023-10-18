@@ -111,7 +111,8 @@ def get_deployment(deployment_name: Optional[str] = None,
     """
     Gets a deployment.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2016-07-01, 2023-07-01.
+
+    Other available API versions: 2016-07-01, 2023-07-01.
 
 
     :param str deployment_name: The name of the deployment.
@@ -139,7 +140,8 @@ def get_deployment_output(deployment_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a deployment.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2016-07-01, 2023-07-01.
+
+    Other available API versions: 2016-07-01, 2023-07-01.
 
 
     :param str deployment_name: The name of the deployment.

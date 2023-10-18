@@ -64,7 +64,8 @@ def list_dns_resolver_by_virtual_network(resource_group_name: Optional[str] = No
     """
     Lists DNS resolver resource IDs linked to a virtual network.
     Azure REST API version: 2022-07-01.
-    <br/>Other available API versions: 2020-04-01-preview.
+
+    Other available API versions: 2020-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -91,7 +92,8 @@ def list_dns_resolver_by_virtual_network_output(resource_group_name: Optional[pu
     """
     Lists DNS resolver resource IDs linked to a virtual network.
     Azure REST API version: 2022-07-01.
-    <br/>Other available API versions: 2020-04-01-preview.
+
+    Other available API versions: 2020-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

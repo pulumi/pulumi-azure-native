@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns an Application Insights component.
  * Azure REST API version: 2020-02-02.
- * <br/>Other available API versions: 2020-02-02-preview.
+ *
+ * Other available API versions: 2020-02-02-preview.
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
 
@@ -164,7 +165,8 @@ export interface GetComponentResult {
 /**
  * Returns an Application Insights component.
  * Azure REST API version: 2020-02-02.
- * <br/>Other available API versions: 2020-02-02-preview.
+ *
+ * Other available API versions: 2020-02-02-preview.
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
     return pulumi.output(args).apply((a: any) => getComponent(a, opts))

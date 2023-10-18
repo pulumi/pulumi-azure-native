@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.RecommendationsService
 {
     /// <summary>
     /// Modeling resource details.
-    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01
-    /// &lt;br/&gt;Other available API versions: 2022-03-01-preview.
+    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
+    /// 
+    /// Other available API versions: 2022-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice:Modeling")]
     public partial class Modeling : global::Pulumi.CustomResource

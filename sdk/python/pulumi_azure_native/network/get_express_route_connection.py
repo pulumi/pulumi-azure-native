@@ -160,7 +160,8 @@ def get_express_route_connection(connection_name: Optional[str] = None,
     """
     Gets the specified ExpressRouteConnection.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str connection_name: The name of the ExpressRoute connection.
@@ -195,7 +196,8 @@ def get_express_route_connection_output(connection_name: Optional[pulumi.Input[s
     """
     Gets the specified ExpressRouteConnection.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str connection_name: The name of the ExpressRoute connection.

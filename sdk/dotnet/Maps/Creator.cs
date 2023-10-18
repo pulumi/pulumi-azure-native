@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.Maps
 {
     /// <summary>
     /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-    /// Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview
-    /// &lt;br/&gt;Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01.
+    /// Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview.
+    /// 
+    /// Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:maps:Creator")]
     public partial class Creator : global::Pulumi.CustomResource

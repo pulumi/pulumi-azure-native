@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the identity.
  * Azure REST API version: 2023-01-31.
- * <br/>Other available API versions: 2015-08-31-preview.
+ *
+ * Other available API versions: 2015-08-31-preview.
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
 
@@ -76,7 +77,8 @@ export interface GetUserAssignedIdentityResult {
 /**
  * Gets the identity.
  * Azure REST API version: 2023-01-31.
- * <br/>Other available API versions: 2015-08-31-preview.
+ *
+ * Other available API versions: 2015-08-31-preview.
  */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
     return pulumi.output(args).apply((a: any) => getUserAssignedIdentity(a, opts))

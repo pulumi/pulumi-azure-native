@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery image definition that you want to create or update.
- * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
+ * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**

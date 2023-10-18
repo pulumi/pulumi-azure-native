@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// Get a Maps Account.
         /// Azure REST API version: 2021-02-01.
-        /// &lt;br/&gt;Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01.
+        /// 
+        /// Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// Get a Maps Account.
         /// Azure REST API version: 2021-02-01.
-        /// &lt;br/&gt;Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01.
+        /// 
+        /// Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

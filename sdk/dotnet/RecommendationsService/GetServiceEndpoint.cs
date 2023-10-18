@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns ServiceEndpoint resources for a given name.
         /// Azure REST API version: 2022-02-01.
-        /// &lt;br/&gt;Other available API versions: 2022-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-03-01-preview.
         /// </summary>
         public static Task<GetServiceEndpointResult> InvokeAsync(GetServiceEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointResult>("azure-native:recommendationsservice:getServiceEndpoint", args ?? new GetServiceEndpointArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns ServiceEndpoint resources for a given name.
         /// Azure REST API version: 2022-02-01.
-        /// &lt;br/&gt;Other available API versions: 2022-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-03-01-preview.
         /// </summary>
         public static Output<GetServiceEndpointResult> Invoke(GetServiceEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointResult>("azure-native:recommendationsservice:getServiceEndpoint", args ?? new GetServiceEndpointInvokeArgs(), options.WithDefaults());

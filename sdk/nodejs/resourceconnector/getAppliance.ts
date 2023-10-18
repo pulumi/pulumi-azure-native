@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of an Appliance with a specified resource group and name.
  * Azure REST API version: 2022-10-27.
- * <br/>Other available API versions: 2021-10-31-preview.
+ *
+ * Other available API versions: 2021-10-31-preview.
  */
 export function getAppliance(args: GetApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceResult> {
 
@@ -92,7 +93,8 @@ export interface GetApplianceResult {
 /**
  * Gets the details of an Appliance with a specified resource group and name.
  * Azure REST API version: 2022-10-27.
- * <br/>Other available API versions: 2021-10-31-preview.
+ *
+ * Other available API versions: 2021-10-31-preview.
  */
 export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceResult> {
     return pulumi.output(args).apply((a: any) => getAppliance(a, opts))

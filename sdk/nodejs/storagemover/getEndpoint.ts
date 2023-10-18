@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an Endpoint resource.
  * Azure REST API version: 2023-03-01.
- * <br/>Other available API versions: 2023-07-01-preview, 2023-10-01.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-10-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -65,7 +66,8 @@ export interface GetEndpointResult {
 /**
  * Gets an Endpoint resource.
  * Azure REST API version: 2023-03-01.
- * <br/>Other available API versions: 2023-07-01-preview, 2023-10-01.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-10-01.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

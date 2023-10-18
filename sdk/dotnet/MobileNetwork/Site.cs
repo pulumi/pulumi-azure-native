@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Site resource. Must be created in the same location as its parent mobile network.
-    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
-    /// &lt;br/&gt;Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+    /// 
+    /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Site")]
     public partial class Site : global::Pulumi.CustomResource

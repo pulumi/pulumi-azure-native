@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a gallery
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:devcenter:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a gallery
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:devcenter:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());

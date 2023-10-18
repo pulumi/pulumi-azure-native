@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get the named public certificate for an app (or deployment slot, if specified).
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2020-10-01.
+        /// 
+        /// Other available API versions: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppPublicCertificateResult> InvokeAsync(GetWebAppPublicCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateResult>("azure-native:web:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get the named public certificate for an app (or deployment slot, if specified).
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2020-10-01.
+        /// 
+        /// Other available API versions: 2020-10-01.
         /// </summary>
         public static Output<GetWebAppPublicCertificateResult> Invoke(GetWebAppPublicCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateResult>("azure-native:web:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateInvokeArgs(), options.WithDefaults());

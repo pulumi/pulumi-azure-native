@@ -473,8 +473,9 @@ class HostPool(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a HostPool definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
-        <br/>Other available API versions: 2020-11-02-preview, 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
+        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+
+        Other available API versions: 2020-11-02-preview, 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -511,8 +512,9 @@ class HostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a HostPool definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
-        <br/>Other available API versions: 2020-11-02-preview, 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
+        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+
+        Other available API versions: 2020-11-02-preview, 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
 
         :param str resource_name: The name of the resource.
         :param HostPoolArgs args: The arguments to use to populate this resource's properties.

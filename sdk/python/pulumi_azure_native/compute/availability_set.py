@@ -181,8 +181,9 @@ class AvailabilitySet(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
-        <br/>Other available API versions: 2016-04-30-preview, 2023-07-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Other available API versions: 2016-04-30-preview, 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,8 +205,9 @@ class AvailabilitySet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
-        <br/>Other available API versions: 2016-04-30-preview, 2023-07-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Other available API versions: 2016-04-30-preview, 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param AvailabilitySetArgs args: The arguments to use to populate this resource's properties.

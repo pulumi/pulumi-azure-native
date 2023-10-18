@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a msixpackage.
  * Azure REST API version: 2022-09-09.
- * <br/>Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
+ *
+ * Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
  */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
 
@@ -105,7 +106,8 @@ export interface GetMSIXPackageResult {
 /**
  * Get a msixpackage.
  * Azure REST API version: 2022-09-09.
- * <br/>Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
+ *
+ * Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
  */
 export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSIXPackageResult> {
     return pulumi.output(args).apply((a: any) => getMSIXPackage(a, opts))

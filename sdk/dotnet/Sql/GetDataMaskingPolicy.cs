@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets the database data masking policy.
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
         /// </summary>
         public static Task<GetDataMaskingPolicyResult> InvokeAsync(GetDataMaskingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataMaskingPolicyResult>("azure-native:sql:getDataMaskingPolicy", args ?? new GetDataMaskingPolicyArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets the database data masking policy.
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
         /// </summary>
         public static Output<GetDataMaskingPolicyResult> Invoke(GetDataMaskingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataMaskingPolicyResult>("azure-native:sql:getDataMaskingPolicy", args ?? new GetDataMaskingPolicyInvokeArgs(), options.WithDefaults());

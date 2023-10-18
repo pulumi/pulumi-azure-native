@@ -111,8 +111,9 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the HybridIdentityMetadata.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
-        <br/>Other available API versions: 2023-03-01-preview.
+        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+
+        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,8 +131,9 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the HybridIdentityMetadata.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
-        <br/>Other available API versions: 2023-03-01-preview.
+        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+
+        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param HybridIdentityMetadatumArgs args: The arguments to use to populate this resource's properties.

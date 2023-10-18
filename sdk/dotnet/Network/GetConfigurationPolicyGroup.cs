@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of a ConfigurationPolicyGroup.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetConfigurationPolicyGroupResult> InvokeAsync(GetConfigurationPolicyGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationPolicyGroupResult>("azure-native:network:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of a ConfigurationPolicyGroup.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetConfigurationPolicyGroupResult> Invoke(GetConfigurationPolicyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationPolicyGroupResult>("azure-native:network:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupInvokeArgs(), options.WithDefaults());

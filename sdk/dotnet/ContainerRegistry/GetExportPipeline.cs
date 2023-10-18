@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the export pipeline.
         /// Azure REST API version: 2023-01-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Task<GetExportPipelineResult> InvokeAsync(GetExportPipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportPipelineResult>("azure-native:containerregistry:getExportPipeline", args ?? new GetExportPipelineArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the export pipeline.
         /// Azure REST API version: 2023-01-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Output<GetExportPipelineResult> Invoke(GetExportPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportPipelineResult>("azure-native:containerregistry:getExportPipeline", args ?? new GetExportPipelineInvokeArgs(), options.WithDefaults());

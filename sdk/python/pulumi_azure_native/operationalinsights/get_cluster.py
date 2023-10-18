@@ -231,7 +231,8 @@ def get_cluster(cluster_name: Optional[str] = None,
     """
     Gets a Log Analytics cluster instance.
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2019-08-01-preview, 2020-08-01.
+
+    Other available API versions: 2019-08-01-preview, 2020-08-01.
 
 
     :param str cluster_name: Name of the Log Analytics Cluster.
@@ -269,7 +270,8 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a Log Analytics cluster instance.
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2019-08-01-preview, 2020-08-01.
+
+    Other available API versions: 2019-08-01-preview, 2020-08-01.
 
 
     :param str cluster_name: Name of the Log Analytics Cluster.

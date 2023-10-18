@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// The Application Group object
-    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
-    /// &lt;br/&gt;Other available API versions: 2023-01-01-preview.
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
+    /// 
+    /// Other available API versions: 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:ApplicationGroup")]
     public partial class ApplicationGroup : global::Pulumi.CustomResource

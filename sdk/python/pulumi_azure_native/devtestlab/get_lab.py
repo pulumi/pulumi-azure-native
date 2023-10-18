@@ -342,7 +342,8 @@ def get_lab(expand: Optional[str] = None,
     """
     Get lab.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
@@ -392,7 +393,8 @@ def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Get lab.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'

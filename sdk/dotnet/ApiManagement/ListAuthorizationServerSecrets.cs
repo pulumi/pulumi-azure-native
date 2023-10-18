@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the client secret details of the authorization server.
         /// Azure REST API version: 2022-08-01.
-        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Task<ListAuthorizationServerSecretsResult> InvokeAsync(ListAuthorizationServerSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAuthorizationServerSecretsResult>("azure-native:apimanagement:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the client secret details of the authorization server.
         /// Azure REST API version: 2022-08-01.
-        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Output<ListAuthorizationServerSecretsResult> Invoke(ListAuthorizationServerSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAuthorizationServerSecretsResult>("azure-native:apimanagement:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsInvokeArgs(), options.WithDefaults());

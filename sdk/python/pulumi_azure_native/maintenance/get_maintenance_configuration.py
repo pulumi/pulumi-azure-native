@@ -243,7 +243,8 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
     """
     Maintenance configuration record type
     Azure REST API version: 2022-11-01-preview.
-    <br/>Other available API versions: 2023-04-01.
+
+    Other available API versions: 2023-04-01.
 
 
     :param str resource_group_name: Resource Group Name
@@ -282,7 +283,8 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
     """
     Maintenance configuration record type
     Azure REST API version: 2022-11-01-preview.
-    <br/>Other available API versions: 2023-04-01.
+
+    Other available API versions: 2023-04-01.
 
 
     :param str resource_group_name: Resource Group Name

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a target group.
  * Azure REST API version: 2021-11-01.
- * <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+ *
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getJobTargetGroup(args: GetJobTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTargetGroupResult> {
 
@@ -66,7 +67,8 @@ export interface GetJobTargetGroupResult {
 /**
  * Gets a target group.
  * Azure REST API version: 2021-11-01.
- * <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+ *
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getJobTargetGroupOutput(args: GetJobTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTargetGroupResult> {
     return pulumi.output(args).apply((a: any) => getJobTargetGroup(a, opts))

@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Storage Sync Service object.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01
-    /// &lt;br/&gt;Other available API versions: 2017-06-05-preview, 2019-10-01, 2022-09-01.
+    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
+    /// 
+    /// Other available API versions: 2017-06-05-preview, 2019-10-01, 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:StorageSyncService")]
     public partial class StorageSyncService : global::Pulumi.CustomResource

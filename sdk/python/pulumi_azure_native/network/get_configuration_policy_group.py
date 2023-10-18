@@ -148,7 +148,8 @@ def get_configuration_policy_group(configuration_policy_group_name: Optional[str
     """
     Retrieves the details of a ConfigurationPolicyGroup.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str configuration_policy_group_name: The name of the ConfigurationPolicyGroup being retrieved.
@@ -182,7 +183,8 @@ def get_configuration_policy_group_output(configuration_policy_group_name: Optio
     """
     Retrieves the details of a ConfigurationPolicyGroup.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str configuration_policy_group_name: The name of the ConfigurationPolicyGroup being retrieved.

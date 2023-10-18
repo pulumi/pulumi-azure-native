@@ -149,7 +149,8 @@ class SharedCommitmentPlan(pulumi.CustomResource):
         """
         Cognitive Services account commitment plan.
         Azure REST API version: 2023-05-01.
-        <br/>Other available API versions: 2023-10-01-preview.
+
+        Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +171,8 @@ class SharedCommitmentPlan(pulumi.CustomResource):
         """
         Cognitive Services account commitment plan.
         Azure REST API version: 2023-05-01.
-        <br/>Other available API versions: 2023-10-01-preview.
+
+        Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SharedCommitmentPlanArgs args: The arguments to use to populate this resource's properties.

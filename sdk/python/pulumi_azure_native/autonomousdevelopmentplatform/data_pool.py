@@ -112,7 +112,7 @@ class DataPool(pulumi.CustomResource):
                  __props__=None):
         """
         ADP Data Pool
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class DataPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ADP Data Pool
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DataPoolArgs args: The arguments to use to populate this resource's properties.

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         ///  List of all active elastic deployments.
         /// Azure REST API version: 2023-07-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<ListConnectedPartnerResourceResult> InvokeAsync(ListConnectedPartnerResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectedPartnerResourceResult>("azure-native:elastic:listConnectedPartnerResource", args ?? new ListConnectedPartnerResourceArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         ///  List of all active elastic deployments.
         /// Azure REST API version: 2023-07-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<ListConnectedPartnerResourceResult> Invoke(ListConnectedPartnerResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectedPartnerResourceResult>("azure-native:elastic:listConnectedPartnerResource", args ?? new ListConnectedPartnerResourceInvokeArgs(), options.WithDefaults());

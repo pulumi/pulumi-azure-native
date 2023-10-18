@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Media Graph.
- * Azure REST API version: 2020-02-01-preview. Prior API version in Azure Native 1.x: 2020-02-01-preview
+ * Azure REST API version: 2020-02-01-preview. Prior API version in Azure Native 1.x: 2020-02-01-preview.
  */
 export class MediaGraph extends pulumi.CustomResource {
     /**

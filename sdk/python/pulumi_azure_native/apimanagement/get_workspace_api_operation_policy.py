@@ -103,7 +103,8 @@ def get_workspace_api_operation_policy(api_id: Optional[str] = None,
     """
     Get the policy configuration at the API Operation level.
     Azure REST API version: 2022-09-01-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -145,7 +146,8 @@ def get_workspace_api_operation_policy_output(api_id: Optional[pulumi.Input[str]
     """
     Get the policy configuration at the API Operation level.
     Azure REST API version: 2022-09-01-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

@@ -53,7 +53,8 @@ def list_workspace_notebook_keys(resource_group_name: Optional[str] = None,
     """
     List keys of a notebook.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -77,7 +78,8 @@ def list_workspace_notebook_keys_output(resource_group_name: Optional[pulumi.Inp
     """
     List keys of a notebook.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

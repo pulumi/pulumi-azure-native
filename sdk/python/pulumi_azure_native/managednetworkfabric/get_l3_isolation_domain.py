@@ -243,7 +243,8 @@ def get_l3_isolation_domain(l3_isolation_domain_name: Optional[str] = None,
     """
     Retrieves details of this L3 Isolation Domain.
     Azure REST API version: 2023-02-01-preview.
-    <br/>Other available API versions: 2023-06-15.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str l3_isolation_domain_name: Name of the L3 Isolation Domain
@@ -282,7 +283,8 @@ def get_l3_isolation_domain_output(l3_isolation_domain_name: Optional[pulumi.Inp
     """
     Retrieves details of this L3 Isolation Domain.
     Azure REST API version: 2023-02-01-preview.
-    <br/>Other available API versions: 2023-06-15.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str l3_isolation_domain_name: Name of the L3 Isolation Domain

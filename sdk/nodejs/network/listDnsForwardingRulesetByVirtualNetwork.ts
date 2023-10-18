@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Lists DNS forwarding ruleset resource IDs attached to a virtual network.
  * Azure REST API version: 2022-07-01.
- * <br/>Other available API versions: 2020-04-01-preview.
+ *
+ * Other available API versions: 2020-04-01-preview.
  */
 export function listDnsForwardingRulesetByVirtualNetwork(args: ListDnsForwardingRulesetByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsForwardingRulesetByVirtualNetworkResult> {
 
@@ -53,7 +54,8 @@ export interface ListDnsForwardingRulesetByVirtualNetworkResult {
 /**
  * Lists DNS forwarding ruleset resource IDs attached to a virtual network.
  * Azure REST API version: 2022-07-01.
- * <br/>Other available API versions: 2020-04-01-preview.
+ *
+ * Other available API versions: 2020-04-01-preview.
  */
 export function listDnsForwardingRulesetByVirtualNetworkOutput(args: ListDnsForwardingRulesetByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsForwardingRulesetByVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => listDnsForwardingRulesetByVirtualNetwork(a, opts))

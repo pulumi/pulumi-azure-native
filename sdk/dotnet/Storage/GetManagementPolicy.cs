@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets the managementpolicy associated with the specified storage account.
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2018-03-01-preview, 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-03-01-preview, 2023-01-01.
         /// </summary>
         public static Task<GetManagementPolicyResult> InvokeAsync(GetManagementPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets the managementpolicy associated with the specified storage account.
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2018-03-01-preview, 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-03-01-preview, 2023-01-01.
         /// </summary>
         public static Output<GetManagementPolicyResult> Invoke(GetManagementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithDefaults());

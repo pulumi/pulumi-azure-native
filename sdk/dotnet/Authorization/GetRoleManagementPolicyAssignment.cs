@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get the specified role management policy assignment for a resource scope
         /// Azure REST API version: 2020-10-01.
-        /// &lt;br/&gt;Other available API versions: 2020-10-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01-preview.
         /// </summary>
         public static Task<GetRoleManagementPolicyAssignmentResult> InvokeAsync(GetRoleManagementPolicyAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get the specified role management policy assignment for a resource scope
         /// Azure REST API version: 2020-10-01.
-        /// &lt;br/&gt;Other available API versions: 2020-10-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01-preview.
         /// </summary>
         public static Output<GetRoleManagementPolicyAssignmentResult> Invoke(GetRoleManagementPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentInvokeArgs(), options.WithDefaults());

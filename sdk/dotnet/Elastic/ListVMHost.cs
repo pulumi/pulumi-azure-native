@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Response of a list operation.
         /// Azure REST API version: 2023-06-01.
-        /// &lt;br/&gt;Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Task<ListVMHostResult> InvokeAsync(ListVMHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVMHostResult>("azure-native:elastic:listVMHost", args ?? new ListVMHostArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// Response of a list operation.
         /// Azure REST API version: 2023-06-01.
-        /// &lt;br/&gt;Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Output<ListVMHostResult> Invoke(ListVMHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVMHostResult>("azure-native:elastic:listVMHost", args ?? new ListVMHostInvokeArgs(), options.WithDefaults());

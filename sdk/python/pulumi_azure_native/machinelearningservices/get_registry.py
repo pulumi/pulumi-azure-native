@@ -155,7 +155,8 @@ def get_registry(registry_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryResult:
     """
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str registry_name: Name of Azure Machine Learning registry. This is case-insensitive
@@ -186,7 +187,8 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
     """
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str registry_name: Name of Azure Machine Learning registry. This is case-insensitive

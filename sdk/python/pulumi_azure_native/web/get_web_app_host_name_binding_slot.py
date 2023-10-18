@@ -196,7 +196,8 @@ def get_web_app_host_name_binding_slot(host_name: Optional[str] = None,
     """
     Description for Get the named hostname binding for an app (or deployment slot, if specified).
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2020-10-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str host_name: Hostname in the hostname binding.
@@ -237,7 +238,8 @@ def get_web_app_host_name_binding_slot_output(host_name: Optional[pulumi.Input[s
     """
     Description for Get the named hostname binding for an app (or deployment slot, if specified).
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2020-10-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str host_name: Hostname in the hostname binding.

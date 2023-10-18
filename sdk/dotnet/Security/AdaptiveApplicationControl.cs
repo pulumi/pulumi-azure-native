@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security
 {
     /// <summary>
-    /// Azure REST API version: 2020-01-01. Prior API version in Azure Native 1.x: 2020-01-01
-    /// &lt;br/&gt;Other available API versions: 2015-06-01-preview.
+    /// Azure REST API version: 2020-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+    /// 
+    /// Other available API versions: 2015-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AdaptiveApplicationControl")]
     public partial class AdaptiveApplicationControl : global::Pulumi.CustomResource

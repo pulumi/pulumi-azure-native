@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a container registry.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01
-    /// &lt;br/&gt;Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
+    /// 
+    /// Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Registry")]
     public partial class Registry : global::Pulumi.CustomResource

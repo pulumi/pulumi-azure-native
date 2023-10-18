@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2016-04-02, 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2016-04-02, 2023-07-01-preview.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:cdn:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2016-04-02, 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2016-04-02, 2023-07-01-preview.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:cdn:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());

@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Buildpack Binding Resource object
- * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
- * <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
  */
 export class BuildpackBinding extends pulumi.CustomResource {
     /**

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// <summary>
     /// Define the virtualMachineInstance.
     /// Azure REST API version: 2023-03-01-preview.
-    /// &lt;br/&gt;Other available API versions: 2023-10-01.
+    /// 
+    /// Other available API versions: 2023-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:VirtualMachineInstance")]
     public partial class VirtualMachineInstance : global::Pulumi.CustomResource

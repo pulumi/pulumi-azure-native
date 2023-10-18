@@ -196,7 +196,7 @@ class Webhook(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the webhook type.
-        Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31
+        Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,7 +219,7 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the webhook type.
-        Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31
+        Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31.
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

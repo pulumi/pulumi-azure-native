@@ -100,7 +100,8 @@ def get_connected_environments_storage(connected_environment_name: Optional[str]
     """
     Get storage for a connectedEnvironment.
     Azure REST API version: 2022-10-01.
-    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str connected_environment_name: Name of the Environment.
@@ -130,7 +131,8 @@ def get_connected_environments_storage_output(connected_environment_name: Option
     """
     Get storage for a connectedEnvironment.
     Azure REST API version: 2022-10-01.
-    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
 
 
     :param str connected_environment_name: Name of the Environment.

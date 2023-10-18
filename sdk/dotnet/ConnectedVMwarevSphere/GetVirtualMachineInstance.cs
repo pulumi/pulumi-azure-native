@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Retrieves information about a virtual machine instance.
         /// Azure REST API version: 2023-03-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-10-01.
+        /// 
+        /// Other available API versions: 2023-10-01.
         /// </summary>
         public static Task<GetVirtualMachineInstanceResult> InvokeAsync(GetVirtualMachineInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineInstanceResult>("azure-native:connectedvmwarevsphere:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Retrieves information about a virtual machine instance.
         /// Azure REST API version: 2023-03-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-10-01.
+        /// 
+        /// Other available API versions: 2023-10-01.
         /// </summary>
         public static Output<GetVirtualMachineInstanceResult> Invoke(GetVirtualMachineInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineInstanceResult>("azure-native:connectedvmwarevsphere:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceInvokeArgs(), options.WithDefaults());

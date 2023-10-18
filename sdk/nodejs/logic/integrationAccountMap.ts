@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The integration account map.
- * Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01
- * <br/>Other available API versions: 2015-08-01-preview.
+ * Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+ *
+ * Other available API versions: 2015-08-01-preview.
  */
 export class IntegrationAccountMap extends pulumi.CustomResource {
     /**

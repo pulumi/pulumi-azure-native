@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified Private Endpoint.
  * Azure REST API version: 2020-03-01.
- * <br/>Other available API versions: 2020-03-01-preview.
+ *
+ * Other available API versions: 2020-03-01-preview.
  */
 export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointResult> {
 
@@ -69,7 +70,8 @@ export interface GetPrivateEndpointResult {
 /**
  * Gets information about the specified Private Endpoint.
  * Azure REST API version: 2020-03-01.
- * <br/>Other available API versions: 2020-03-01-preview.
+ *
+ * Other available API versions: 2020-03-01-preview.
  */
 export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpoint(a, opts))

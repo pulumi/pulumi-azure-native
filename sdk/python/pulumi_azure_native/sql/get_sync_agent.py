@@ -147,7 +147,8 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
     """
     Gets a sync agent.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -181,7 +182,8 @@ def get_sync_agent_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     """
     Gets a sync agent.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

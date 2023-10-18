@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The application resource.
  * Azure REST API version: 2023-03-01-preview.
- * <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
  */
 export class ManagedClusterApplication extends pulumi.CustomResource {
     /**

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  * Azure REST API version: 2023-05-01.
- * <br/>Other available API versions: 2016-04-02, 2023-07-01-preview.
+ *
+ * Other available API versions: 2016-04-02, 2023-07-01-preview.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -149,7 +150,8 @@ export interface GetEndpointResult {
 /**
  * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  * Azure REST API version: 2023-05-01.
- * <br/>Other available API versions: 2016-04-02, 2023-07-01-preview.
+ *
+ * Other available API versions: 2016-04-02, 2023-07-01-preview.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

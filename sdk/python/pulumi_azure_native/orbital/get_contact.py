@@ -280,7 +280,8 @@ def get_contact(contact_name: Optional[str] = None,
     """
     Gets the specified contact in a specified resource group.
     Azure REST API version: 2022-11-01.
-    <br/>Other available API versions: 2022-03-01.
+
+    Other available API versions: 2022-03-01.
 
 
     :param str contact_name: Contact name.
@@ -325,7 +326,8 @@ def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified contact in a specified resource group.
     Azure REST API version: 2022-11-01.
-    <br/>Other available API versions: 2022-03-01.
+
+    Other available API versions: 2022-03-01.
 
 
     :param str contact_name: Contact name.

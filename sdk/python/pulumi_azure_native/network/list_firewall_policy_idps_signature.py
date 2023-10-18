@@ -70,7 +70,8 @@ def list_firewall_policy_idps_signature(filters: Optional[Sequence[pulumi.InputT
     """
     Retrieves the current status of IDPS signatures for the relevant policy
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01.
 
 
     :param Sequence[pulumi.InputType['FilterItems']] filters: Contain all filters names and values
@@ -109,7 +110,8 @@ def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Op
     """
     Retrieves the current status of IDPS signatures for the relevant policy
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01.
 
 
     :param Sequence[pulumi.InputType['FilterItems']] filters: Contain all filters names and values

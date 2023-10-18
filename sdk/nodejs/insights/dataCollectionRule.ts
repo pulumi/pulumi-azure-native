@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview
+ * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
  */
 export class DataCollectionRule extends pulumi.CustomResource {
     /**

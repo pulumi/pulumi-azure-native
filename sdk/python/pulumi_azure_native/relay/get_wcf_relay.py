@@ -196,7 +196,8 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
     """
     Returns the description for the specified WCF relay.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2016-07-01.
+
+    Other available API versions: 2016-07-01.
 
 
     :param str namespace_name: The namespace name
@@ -234,7 +235,8 @@ def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
     """
     Returns the description for the specified WCF relay.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2016-07-01.
+
+    Other available API versions: 2016-07-01.
 
 
     :param str namespace_name: The namespace name

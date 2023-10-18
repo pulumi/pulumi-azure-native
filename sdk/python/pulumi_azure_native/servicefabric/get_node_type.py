@@ -628,7 +628,8 @@ def get_node_type(cluster_name: Optional[str] = None,
     """
     Get a Service Fabric node type of a given managed cluster.
     Azure REST API version: 2023-03-01-preview.
-    <br/>Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -702,7 +703,8 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Service Fabric node type of a given managed cluster.
     Azure REST API version: 2023-03-01-preview.
-    <br/>Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List stop sell notifications for both stop sell offers and stop sell plans
  * Azure REST API version: 2023-01-01.
- * <br/>Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
+ *
+ * Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
  */
 export function listPrivateStoreStopSellOffersPlansNotifications(args: ListPrivateStoreStopSellOffersPlansNotificationsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
 
@@ -38,7 +39,8 @@ export interface ListPrivateStoreStopSellOffersPlansNotificationsResult {
 /**
  * List stop sell notifications for both stop sell offers and stop sell plans
  * Azure REST API version: 2023-01-01.
- * <br/>Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
+ *
+ * Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
  */
 export function listPrivateStoreStopSellOffersPlansNotificationsOutput(args: ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
     return pulumi.output(args).apply((a: any) => listPrivateStoreStopSellOffersPlansNotifications(a, opts))

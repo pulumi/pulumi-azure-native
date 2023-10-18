@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The commitment plan association.
  * Azure REST API version: 2023-05-01.
- * <br/>Other available API versions: 2023-10-01-preview.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export class CommitmentPlanAssociation extends pulumi.CustomResource {
     /**

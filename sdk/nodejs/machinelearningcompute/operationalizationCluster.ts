@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Instance of an Azure ML Operationalization Cluster resource.
- * Azure REST API version: 2017-08-01-preview. Prior API version in Azure Native 1.x: 2017-08-01-preview
- * <br/>Other available API versions: 2017-06-01-preview.
+ * Azure REST API version: 2017-08-01-preview. Prior API version in Azure Native 1.x: 2017-08-01-preview.
+ *
+ * Other available API versions: 2017-06-01-preview.
  */
 export class OperationalizationCluster extends pulumi.CustomResource {
     /**

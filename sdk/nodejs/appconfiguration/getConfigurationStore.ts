@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the specified configuration store.
  * Azure REST API version: 2023-03-01.
- * <br/>Other available API versions: 2019-02-01-preview.
+ *
+ * Other available API versions: 2019-02-01-preview.
  */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
 
@@ -108,7 +109,8 @@ export interface GetConfigurationStoreResult {
 /**
  * Gets the properties of the specified configuration store.
  * Azure REST API version: 2023-03-01.
- * <br/>Other available API versions: 2019-02-01-preview.
+ *
+ * Other available API versions: 2019-02-01-preview.
  */
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationStore(a, opts))

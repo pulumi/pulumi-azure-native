@@ -255,7 +255,8 @@ def get_host(host_name: Optional[str] = None,
     """
     Implements host GET method.
     Azure REST API version: 2022-07-15-preview.
-    <br/>Other available API versions: 2023-03-01-preview, 2023-10-01.
+
+    Other available API versions: 2023-03-01-preview, 2023-10-01.
 
 
     :param str host_name: Name of the host.
@@ -295,7 +296,8 @@ def get_host_output(host_name: Optional[pulumi.Input[str]] = None,
     """
     Implements host GET method.
     Azure REST API version: 2022-07-15-preview.
-    <br/>Other available API versions: 2023-03-01-preview, 2023-10-01.
+
+    Other available API versions: 2023-03-01-preview, 2023-10-01.
 
 
     :param str host_name: Name of the host.

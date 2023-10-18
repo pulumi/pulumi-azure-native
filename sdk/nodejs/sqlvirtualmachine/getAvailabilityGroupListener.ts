@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an availability group listener.
  * Azure REST API version: 2022-02-01.
- * <br/>Other available API versions: 2023-01-01-preview.
+ *
+ * Other available API versions: 2023-01-01-preview.
  */
 export function getAvailabilityGroupListener(args: GetAvailabilityGroupListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityGroupListenerResult> {
 
@@ -94,7 +95,8 @@ export interface GetAvailabilityGroupListenerResult {
 /**
  * Gets an availability group listener.
  * Azure REST API version: 2022-02-01.
- * <br/>Other available API versions: 2023-01-01-preview.
+ *
+ * Other available API versions: 2023-01-01-preview.
  */
 export function getAvailabilityGroupListenerOutput(args: GetAvailabilityGroupListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityGroupListenerResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilityGroupListener(a, opts))

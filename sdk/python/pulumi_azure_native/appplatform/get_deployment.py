@@ -113,7 +113,8 @@ def get_deployment(app_name: Optional[str] = None,
     """
     Get a Deployment and its properties.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str app_name: The name of the App resource.
@@ -147,7 +148,8 @@ def get_deployment_output(app_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Deployment and its properties.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str app_name: The name of the App resource.

@@ -268,7 +268,8 @@ def get_share_subscription(account_name: Optional[str] = None,
     """
     Get a shareSubscription in an account
     Azure REST API version: 2021-08-01.
-    <br/>Other available API versions: 2018-11-01-preview.
+
+    Other available API versions: 2018-11-01-preview.
 
 
     :param str account_name: The name of the share account.
@@ -312,7 +313,8 @@ def get_share_subscription_output(account_name: Optional[pulumi.Input[str]] = No
     """
     Get a shareSubscription in an account
     Azure REST API version: 2021-08-01.
-    <br/>Other available API versions: 2018-11-01-preview.
+
+    Other available API versions: 2018-11-01-preview.
 
 
     :param str account_name: The name of the share account.

@@ -101,7 +101,8 @@ def get_replicationv_center(fabric_name: Optional[str] = None,
     """
     Gets the details of a registered vCenter server(Add vCenter server).
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2021-03-01, 2023-06-01.
+
+    Other available API versions: 2021-03-01, 2023-06-01.
 
 
     :param str fabric_name: Fabric name.
@@ -134,7 +135,8 @@ def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = No
     """
     Gets the details of a registered vCenter server(Add vCenter server).
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2021-03-01, 2023-06-01.
+
+    Other available API versions: 2021-03-01, 2023-06-01.
 
 
     :param str fabric_name: Fabric name.

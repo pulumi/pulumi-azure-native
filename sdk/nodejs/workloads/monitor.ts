@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
  */
 export class Monitor extends pulumi.CustomResource {
     /**

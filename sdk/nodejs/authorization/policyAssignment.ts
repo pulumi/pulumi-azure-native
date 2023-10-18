@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The policy assignment.
- * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-09-01
- * <br/>Other available API versions: 2016-04-01, 2016-12-01, 2019-06-01, 2020-03-01, 2023-04-01.
+ * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+ *
+ * Other available API versions: 2016-04-01, 2016-12-01, 2019-06-01, 2020-03-01, 2023-04-01.
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**

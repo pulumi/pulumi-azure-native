@@ -124,7 +124,8 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
     """
     Gets the specified private endpoint connection associated with the Cognitive Services account.
     Azure REST API version: 2023-05-01.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -156,7 +157,8 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
     """
     Gets the specified private endpoint connection associated with the Cognitive Services account.
     Azure REST API version: 2023-05-01.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str account_name: The name of Cognitive Services account.

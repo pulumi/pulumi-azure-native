@@ -329,7 +329,8 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
     """
     Get a ServerEndpoint.
     Azure REST API version: 2022-06-01.
-    <br/>Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2019-10-01, 2022-09-01.
+
+    Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2019-10-01, 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -381,7 +382,8 @@ def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     Get a ServerEndpoint.
     Azure REST API version: 2022-06-01.
-    <br/>Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2019-10-01, 2022-09-01.
+
+    Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2019-10-01, 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

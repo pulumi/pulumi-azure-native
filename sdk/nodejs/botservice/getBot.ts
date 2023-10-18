@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns a BotService specified by the parameters.
  * Azure REST API version: 2022-09-15.
- * <br/>Other available API versions: 2023-09-15-preview.
+ *
+ * Other available API versions: 2023-09-15-preview.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
 
@@ -80,7 +81,8 @@ export interface GetBotResult {
 /**
  * Returns a BotService specified by the parameters.
  * Azure REST API version: 2022-09-15.
- * <br/>Other available API versions: 2023-09-15-preview.
+ *
+ * Other available API versions: 2023-09-15-preview.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
     return pulumi.output(args).apply((a: any) => getBot(a, opts))

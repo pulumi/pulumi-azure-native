@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridData
 {
     /// <summary>
     /// Job Definition.
-    /// Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01
+    /// Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybriddata:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource

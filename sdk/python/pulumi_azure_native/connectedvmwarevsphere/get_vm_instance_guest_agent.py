@@ -194,7 +194,8 @@ def get_vm_instance_guest_agent(resource_uri: Optional[str] = None,
     """
     Implements GuestAgent GET method.
     Azure REST API version: 2023-03-01-preview.
-    <br/>Other available API versions: 2023-10-01.
+
+    Other available API versions: 2023-10-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
@@ -226,7 +227,8 @@ def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[str]]
     """
     Implements GuestAgent GET method.
     Azure REST API version: 2023-03-01-preview.
-    <br/>Other available API versions: 2023-10-01.
+
+    Other available API versions: 2023-10-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.

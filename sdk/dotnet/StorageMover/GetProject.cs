@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// Gets a Project resource.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-10-01.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-10-01.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:storagemover:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// Gets a Project resource.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-10-01.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-10-01.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:storagemover:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());

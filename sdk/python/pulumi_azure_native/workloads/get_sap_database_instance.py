@@ -220,7 +220,8 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
     """
     Gets the SAP Database Instance resource.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
@@ -260,7 +261,8 @@ def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Inp
     """
     Gets the SAP Database Instance resource.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.

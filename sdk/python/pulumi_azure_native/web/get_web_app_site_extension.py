@@ -324,7 +324,8 @@ def get_web_app_site_extension(name: Optional[str] = None,
     """
     Description for Get site extension information by its ID for a web site, or a deployment slot.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2016-08-01, 2020-10-01.
+
+    Other available API versions: 2016-08-01, 2020-10-01.
 
 
     :param str name: Site name.
@@ -373,7 +374,8 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get site extension information by its ID for a web site, or a deployment slot.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2016-08-01, 2020-10-01.
+
+    Other available API versions: 2016-08-01, 2020-10-01.
 
 
     :param str name: Site name.

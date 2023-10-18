@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a user rule.
         /// Azure REST API version: 2022-04-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2021-05-01-preview.
+        /// 
+        /// Other available API versions: 2021-05-01-preview.
         /// </summary>
         public static Task<GetUserRuleResult> InvokeAsync(GetUserRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleResult>("azure-native:network:getUserRule", args ?? new GetUserRuleArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a user rule.
         /// Azure REST API version: 2022-04-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2021-05-01-preview.
+        /// 
+        /// Other available API versions: 2021-05-01-preview.
         /// </summary>
         public static Output<GetUserRuleResult> Invoke(GetUserRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleResult>("azure-native:network:getUserRule", args ?? new GetUserRuleInvokeArgs(), options.WithDefaults());

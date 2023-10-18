@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The policy definition.
-    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01
-    /// &lt;br/&gt;Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+    /// 
+    /// Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyDefinition")]
     public partial class PolicyDefinition : global::Pulumi.CustomResource

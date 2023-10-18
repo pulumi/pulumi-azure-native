@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// disk access resource.
-    /// Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
-    /// &lt;br/&gt;Other available API versions: 2023-01-02, 2023-04-02.
+    /// Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
+    /// 
+    /// Other available API versions: 2023-01-02, 2023-04-02.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskAccess")]
     public partial class DiskAccess : global::Pulumi.CustomResource

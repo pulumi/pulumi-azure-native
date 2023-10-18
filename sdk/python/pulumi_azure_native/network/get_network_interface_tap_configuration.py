@@ -112,7 +112,8 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
     """
     Get the specified tap configuration on a network interface.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str network_interface_name: The name of the network interface.
@@ -143,7 +144,8 @@ def get_network_interface_tap_configuration_output(network_interface_name: Optio
     """
     Get the specified tap configuration on a network interface.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str network_interface_name: The name of the network interface.

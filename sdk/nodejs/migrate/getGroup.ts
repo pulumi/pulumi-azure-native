@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
  * Azure REST API version: 2019-10-01.
- * <br/>Other available API versions: 2018-02-02.
+ *
+ * Other available API versions: 2018-02-02.
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
@@ -65,7 +66,8 @@ export interface GetGroupResult {
 /**
  * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
  * Azure REST API version: 2019-10-01.
- * <br/>Other available API versions: 2018-02-02.
+ *
+ * Other available API versions: 2018-02-02.
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))

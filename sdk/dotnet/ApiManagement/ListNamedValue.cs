@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the secret of the named value specified by its identifier.
         /// Azure REST API version: 2022-08-01.
-        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Task<ListNamedValueResult> InvokeAsync(ListNamedValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-native:apimanagement:listNamedValue", args ?? new ListNamedValueArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the secret of the named value specified by its identifier.
         /// Azure REST API version: 2022-08-01.
-        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Output<ListNamedValueResult> Invoke(ListNamedValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamedValueResult>("azure-native:apimanagement:listNamedValue", args ?? new ListNamedValueInvokeArgs(), options.WithDefaults());

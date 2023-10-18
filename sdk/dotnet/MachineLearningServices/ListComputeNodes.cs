@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Task<ListComputeNodesResult> InvokeAsync(ListComputeNodesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListComputeNodesResult>("azure-native:machinelearningservices:listComputeNodes", args ?? new ListComputeNodesArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Output<ListComputeNodesResult> Invoke(ListComputeNodesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListComputeNodesResult>("azure-native:machinelearningservices:listComputeNodes", args ?? new ListComputeNodesInvokeArgs(), options.WithDefaults());

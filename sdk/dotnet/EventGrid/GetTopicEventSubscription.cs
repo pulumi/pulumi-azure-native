@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of an event subscription of a topic.
         /// Azure REST API version: 2022-06-15.
-        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Task<GetTopicEventSubscriptionResult> InvokeAsync(GetTopicEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicEventSubscriptionResult>("azure-native:eventgrid:getTopicEventSubscription", args ?? new GetTopicEventSubscriptionArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of an event subscription of a topic.
         /// Azure REST API version: 2022-06-15.
-        /// &lt;br/&gt;Other available API versions: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Output<GetTopicEventSubscriptionResult> Invoke(GetTopicEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicEventSubscriptionResult>("azure-native:eventgrid:getTopicEventSubscription", args ?? new GetTopicEventSubscriptionInvokeArgs(), options.WithDefaults());

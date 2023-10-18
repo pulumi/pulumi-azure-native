@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a dedicated host.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01.
+        /// 
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a dedicated host.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01.
+        /// 
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Define the virtualMachineInstance.
  * Azure REST API version: 2023-03-01-preview.
- * <br/>Other available API versions: 2023-10-01.
+ *
+ * Other available API versions: 2023-10-01.
  */
 export class VirtualMachineInstance extends pulumi.CustomResource {
     /**

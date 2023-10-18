@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get an application group.
         /// Azure REST API version: 2022-09-09.
-        /// &lt;br/&gt;Other available API versions: 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
+        /// 
+        /// Other available API versions: 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get an application group.
         /// Azure REST API version: 2022-09-09.
-        /// &lt;br/&gt;Other available API versions: 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
+        /// 
+        /// Other available API versions: 2020-11-10-preview, 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());

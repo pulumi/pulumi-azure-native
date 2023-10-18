@@ -249,8 +249,9 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  __props__=None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14
-        <br/>Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14.
+
+        Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,8 +277,9 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14
-        <br/>Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14.
+
+        Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineImageTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets load balancer backend address pool.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerBackendAddressPoolResult> {
 
@@ -105,7 +106,8 @@ export interface GetLoadBalancerBackendAddressPoolResult {
 /**
  * Gets load balancer backend address pool.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancerBackendAddressPool(a, opts))

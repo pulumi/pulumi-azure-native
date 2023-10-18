@@ -113,8 +113,9 @@ class Deployment(pulumi.CustomResource):
                  __props__=None):
         """
         Cognitive Services account deployment.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01
-        <br/>Other available API versions: 2023-10-01-preview.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01.
+
+        Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,8 +133,9 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services account deployment.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01
-        <br/>Other available API versions: 2023-10-01-preview.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01.
+
+        Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

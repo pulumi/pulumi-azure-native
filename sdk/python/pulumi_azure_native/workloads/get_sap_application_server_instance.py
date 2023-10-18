@@ -292,7 +292,8 @@ def get_sap_application_server_instance(application_instance_name: Optional[str]
     """
     Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
 
 
     :param str application_instance_name: The name of SAP Application Server instance resource.
@@ -338,7 +339,8 @@ def get_sap_application_server_instance_output(application_instance_name: Option
     """
     Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
 
 
     :param str application_instance_name: The name of SAP Application Server instance resource.

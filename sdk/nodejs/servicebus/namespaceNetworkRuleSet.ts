@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Description of NetworkRuleSet resource.
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
- * <br/>Other available API versions: 2022-10-01-preview.
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+ *
+ * Other available API versions: 2022-10-01-preview.
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**

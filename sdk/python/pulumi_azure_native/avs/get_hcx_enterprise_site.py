@@ -99,7 +99,8 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
     """
     An HCX Enterprise Site resource
     Azure REST API version: 2022-05-01.
-    <br/>Other available API versions: 2023-03-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
@@ -129,7 +130,8 @@ def get_hcx_enterprise_site_output(hcx_enterprise_site_name: Optional[pulumi.Inp
     """
     An HCX Enterprise Site resource
     Azure REST API version: 2022-05-01.
-    <br/>Other available API versions: 2023-03-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud

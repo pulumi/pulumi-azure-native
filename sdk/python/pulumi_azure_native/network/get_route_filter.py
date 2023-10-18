@@ -160,7 +160,8 @@ def get_route_filter(expand: Optional[str] = None,
     """
     Gets the specified route filter.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced express route bgp peering resources.
@@ -195,7 +196,8 @@ def get_route_filter_output(expand: Optional[pulumi.Input[Optional[str]]] = None
     """
     Gets the specified route filter.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced express route bgp peering resources.

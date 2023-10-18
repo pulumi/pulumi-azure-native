@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * List keys of a notebook.
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function listWorkspaceNotebookKeys(args: ListWorkspaceNotebookKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookKeysResult> {
 
@@ -36,7 +37,8 @@ export interface ListWorkspaceNotebookKeysResult {
 /**
  * List keys of a notebook.
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function listWorkspaceNotebookKeysOutput(args: ListWorkspaceNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceNotebookKeys(a, opts))

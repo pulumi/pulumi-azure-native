@@ -136,7 +136,8 @@ def get_private_resolver_virtual_network_link(dns_forwarding_ruleset_name: Optio
     """
     Gets properties of a virtual network link to a DNS forwarding ruleset.
     Azure REST API version: 2022-07-01.
-    <br/>Other available API versions: 2020-04-01-preview.
+
+    Other available API versions: 2020-04-01-preview.
 
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -169,7 +170,8 @@ def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name
     """
     Gets properties of a virtual network link to a DNS forwarding ruleset.
     Azure REST API version: 2022-07-01.
-    <br/>Other available API versions: 2020-04-01-preview.
+
+    Other available API versions: 2020-04-01-preview.
 
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.

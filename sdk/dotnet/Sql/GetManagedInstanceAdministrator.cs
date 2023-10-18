@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a managed instance administrator.
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
         /// </summary>
         public static Task<GetManagedInstanceAdministratorResult> InvokeAsync(GetManagedInstanceAdministratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAdministratorResult>("azure-native:sql:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a managed instance administrator.
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
         /// </summary>
         public static Output<GetManagedInstanceAdministratorResult> Invoke(GetManagedInstanceAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAdministratorResult>("azure-native:sql:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorInvokeArgs(), options.WithDefaults());

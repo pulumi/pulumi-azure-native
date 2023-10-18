@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the details of a ConfigurationPolicyGroup.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getConfigurationPolicyGroup(args: GetConfigurationPolicyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationPolicyGroupResult> {
 
@@ -81,7 +82,8 @@ export interface GetConfigurationPolicyGroupResult {
 /**
  * Retrieves the details of a ConfigurationPolicyGroup.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getConfigurationPolicyGroupOutput(args: GetConfigurationPolicyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationPolicyGroupResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationPolicyGroup(a, opts))

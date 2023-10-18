@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Dapr Component.
  * Azure REST API version: 2022-10-01.
- * <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+ *
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
  */
 export function getConnectedEnvironmentsDaprComponent(args: GetConnectedEnvironmentsDaprComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentsDaprComponentResult> {
 
@@ -93,7 +94,8 @@ export interface GetConnectedEnvironmentsDaprComponentResult {
 /**
  * Dapr Component.
  * Azure REST API version: 2022-10-01.
- * <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+ *
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
  */
 export function getConnectedEnvironmentsDaprComponentOutput(args: GetConnectedEnvironmentsDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsDaprComponentResult> {
     return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsDaprComponent(a, opts))

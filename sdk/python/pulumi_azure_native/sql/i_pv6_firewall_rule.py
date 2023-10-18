@@ -127,8 +127,9 @@ class IPv6FirewallRule(pulumi.CustomResource):
                  __props__=None):
         """
         An IPv6 server firewall rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview
-        <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview.
+
+        Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,8 +148,9 @@ class IPv6FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An IPv6 server firewall rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview
-        <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview.
+
+        Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IPv6FirewallRuleArgs args: The arguments to use to populate this resource's properties.

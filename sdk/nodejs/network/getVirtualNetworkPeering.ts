@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified virtual network peering.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
  */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
 
@@ -117,7 +118,8 @@ export interface GetVirtualNetworkPeeringResult {
 /**
  * Gets the specified virtual network peering.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
  */
 export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkPeering(a, opts))

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// List the two keys used to publish to a topic.
         /// Azure REST API version: 2022-06-15.
-        /// &lt;br/&gt;Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
         /// </summary>
         public static Task<ListTopicSharedAccessKeysResult> InvokeAsync(ListTopicSharedAccessKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopicSharedAccessKeysResult>("azure-native:eventgrid:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// List the two keys used to publish to a topic.
         /// Azure REST API version: 2022-06-15.
-        /// &lt;br/&gt;Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview.
         /// </summary>
         public static Output<ListTopicSharedAccessKeysResult> Invoke(ListTopicSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopicSharedAccessKeysResult>("azure-native:eventgrid:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysInvokeArgs(), options.WithDefaults());

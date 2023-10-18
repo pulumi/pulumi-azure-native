@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Get a Sql pool's workload group.
  * Azure REST API version: 2021-06-01.
- * <br/>Other available API versions: 2021-06-01-preview.
+ *
+ * Other available API versions: 2021-06-01-preview.
  */
 export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadGroupResult> {
 
@@ -83,7 +84,8 @@ export interface GetSqlPoolWorkloadGroupResult {
 /**
  * Get a Sql pool's workload group.
  * Azure REST API version: 2021-06-01.
- * <br/>Other available API versions: 2021-06-01-preview.
+ *
+ * Other available API versions: 2021-06-01-preview.
  */
 export function getSqlPoolWorkloadGroupOutput(args: GetSqlPoolWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadGroupResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolWorkloadGroup(a, opts))

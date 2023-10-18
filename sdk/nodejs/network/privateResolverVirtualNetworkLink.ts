@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Describes a virtual network link.
  * Azure REST API version: 2022-07-01.
- * <br/>Other available API versions: 2020-04-01-preview.
+ *
+ * Other available API versions: 2020-04-01-preview.
  */
 export class PrivateResolverVirtualNetworkLink extends pulumi.CustomResource {
     /**

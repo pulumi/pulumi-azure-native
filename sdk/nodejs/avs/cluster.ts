@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A cluster resource
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20
- * <br/>Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01.
+ * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
+ *
+ * Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// The virtual machine instance resource definition.
     /// Azure REST API version: 2023-07-01-preview.
-    /// &lt;br/&gt;Other available API versions: 2023-09-01-preview.
+    /// 
+    /// Other available API versions: 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:VirtualMachineInstance")]
     public partial class VirtualMachineInstance : global::Pulumi.CustomResource

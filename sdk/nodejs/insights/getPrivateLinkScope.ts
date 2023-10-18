@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns a Azure Monitor PrivateLinkScope.
  * Azure REST API version: 2021-07-01-preview.
- * <br/>Other available API versions: 2019-10-17-preview.
+ *
+ * Other available API versions: 2019-10-17-preview.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
 
@@ -76,7 +77,8 @@ export interface GetPrivateLinkScopeResult {
 /**
  * Returns a Azure Monitor PrivateLinkScope.
  * Azure REST API version: 2021-07-01-preview.
- * <br/>Other available API versions: 2019-10-17-preview.
+ *
+ * Other available API versions: 2019-10-17-preview.
  */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))

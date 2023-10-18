@@ -386,7 +386,8 @@ class Migration(pulumi.CustomResource):
         """
         Represents a migration resource.
         Azure REST API version: 2023-03-01-preview.
-        <br/>Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
+
+        Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -421,7 +422,8 @@ class Migration(pulumi.CustomResource):
         """
         Represents a migration resource.
         Azure REST API version: 2023-03-01-preview.
-        <br/>Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
+
+        Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MigrationArgs args: The arguments to use to populate this resource's properties.

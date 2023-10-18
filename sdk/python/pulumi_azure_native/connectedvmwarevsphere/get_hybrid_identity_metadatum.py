@@ -136,7 +136,8 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
     """
     Implements HybridIdentityMetadata GET method.
     Azure REST API version: 2022-07-15-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.
@@ -169,7 +170,8 @@ def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[st
     """
     Implements HybridIdentityMetadata GET method.
     Azure REST API version: 2022-07-15-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.

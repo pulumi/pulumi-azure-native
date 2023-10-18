@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Orbital
     /// <summary>
     /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
     /// Azure REST API version: 2022-11-01.
-    /// &lt;br/&gt;Other available API versions: 2022-03-01.
+    /// 
+    /// Other available API versions: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:ContactProfile")]
     public partial class ContactProfile : global::Pulumi.CustomResource

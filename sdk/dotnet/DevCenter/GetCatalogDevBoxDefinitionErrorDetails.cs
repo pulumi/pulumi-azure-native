@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Catalog Devbox Definition error details
         /// Azure REST API version: 2023-08-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetCatalogDevBoxDefinitionErrorDetailsResult> InvokeAsync(GetCatalogDevBoxDefinitionErrorDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogDevBoxDefinitionErrorDetailsResult>("azure-native:devcenter:getCatalogDevBoxDefinitionErrorDetails", args ?? new GetCatalogDevBoxDefinitionErrorDetailsArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Catalog Devbox Definition error details
         /// Azure REST API version: 2023-08-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetCatalogDevBoxDefinitionErrorDetailsResult> Invoke(GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogDevBoxDefinitionErrorDetailsResult>("azure-native:devcenter:getCatalogDevBoxDefinitionErrorDetails", args ?? new GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());

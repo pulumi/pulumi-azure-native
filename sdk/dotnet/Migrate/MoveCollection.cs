@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Define the move collection.
-    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-01-01
-    /// &lt;br/&gt;Other available API versions: 2023-08-01.
+    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// 
+    /// Other available API versions: 2023-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MoveCollection")]
     public partial class MoveCollection : global::Pulumi.CustomResource

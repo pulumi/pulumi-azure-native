@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a workspace manager configuration
         /// Azure REST API version: 2023-06-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetWorkspaceManagerConfigurationResult> InvokeAsync(GetWorkspaceManagerConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceManagerConfigurationResult>("azure-native:securityinsights:getWorkspaceManagerConfiguration", args ?? new GetWorkspaceManagerConfigurationArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a workspace manager configuration
         /// Azure REST API version: 2023-06-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetWorkspaceManagerConfigurationResult> Invoke(GetWorkspaceManagerConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceManagerConfigurationResult>("azure-native:securityinsights:getWorkspaceManagerConfiguration", args ?? new GetWorkspaceManagerConfigurationInvokeArgs(), options.WithDefaults());

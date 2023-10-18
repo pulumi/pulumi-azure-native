@@ -11,7 +11,8 @@ import * as utilities from "../utilities";
  * Get the details of the management group.
  *
  * Azure REST API version: 2021-04-01.
- * <br/>Other available API versions: 2017-11-01-preview, 2020-02-01, 2023-04-01.
+ *
+ * Other available API versions: 2017-11-01-preview, 2020-02-01, 2023-04-01.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
 
@@ -80,7 +81,8 @@ export interface GetManagementGroupResult {
  * Get the details of the management group.
  *
  * Azure REST API version: 2021-04-01.
- * <br/>Other available API versions: 2017-11-01-preview, 2020-02-01, 2023-04-01.
+ *
+ * Other available API versions: 2017-11-01-preview, 2020-02-01, 2023-04-01.
  */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))

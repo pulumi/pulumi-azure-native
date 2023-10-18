@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// <summary>
         /// Gets details about the specified Analysis Services server.
         /// Azure REST API version: 2017-08-01.
-        /// &lt;br/&gt;Other available API versions: 2017-08-01-beta.
+        /// 
+        /// Other available API versions: 2017-08-01-beta.
         /// </summary>
         public static Task<GetServerDetailsResult> InvokeAsync(GetServerDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-native:analysisservices:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// <summary>
         /// Gets details about the specified Analysis Services server.
         /// Azure REST API version: 2017-08-01.
-        /// &lt;br/&gt;Other available API versions: 2017-08-01-beta.
+        /// 
+        /// Other available API versions: 2017-08-01-beta.
         /// </summary>
         public static Output<GetServerDetailsResult> Invoke(GetServerDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithDefaults());

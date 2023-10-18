@@ -15,7 +15,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
         /// PNS credentials.
         /// Azure REST API version: 2023-01-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
+        /// 
+        /// Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
         /// </summary>
         public static Task<GetNotificationHubPnsCredentialsResult> InvokeAsync(GetNotificationHubPnsCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsArgs(), options.WithDefaults());
@@ -24,7 +25,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
         /// PNS credentials.
         /// Azure REST API version: 2023-01-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
+        /// 
+        /// Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
         /// </summary>
         public static Output<GetNotificationHubPnsCredentialsResult> Invoke(GetNotificationHubPnsCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsInvokeArgs(), options.WithDefaults());

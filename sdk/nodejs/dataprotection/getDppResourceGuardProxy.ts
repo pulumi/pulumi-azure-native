@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
  * Azure REST API version: 2023-01-01.
- * <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
  */
 export function getDppResourceGuardProxy(args: GetDppResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetDppResourceGuardProxyResult> {
 
@@ -65,7 +66,8 @@ export interface GetDppResourceGuardProxyResult {
 /**
  * ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
  * Azure REST API version: 2023-01-01.
- * <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
  */
 export function getDppResourceGuardProxyOutput(args: GetDppResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDppResourceGuardProxyResult> {
     return pulumi.output(args).apply((a: any) => getDppResourceGuardProxy(a, opts))

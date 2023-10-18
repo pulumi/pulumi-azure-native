@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Define the cluster.
-    /// Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
-    /// &lt;br/&gt;Other available API versions: 2023-03-01-preview, 2023-10-01.
+    /// Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+    /// 
+    /// Other available API versions: 2023-03-01-preview, 2023-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

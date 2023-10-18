@@ -63,7 +63,8 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[str]
     """
     Gets all deployments for a remediation at subscription scope.
     Azure REST API version: 2021-10-01.
-    <br/>Other available API versions: 2018-07-01-preview.
+
+    Other available API versions: 2018-07-01-preview.
 
 
     :param str remediation_name: The name of the remediation.
@@ -87,7 +88,8 @@ def list_remediation_deployments_at_subscription_output(remediation_name: Option
     """
     Gets all deployments for a remediation at subscription scope.
     Azure REST API version: 2021-10-01.
-    <br/>Other available API versions: 2018-07-01-preview.
+
+    Other available API versions: 2018-07-01-preview.
 
 
     :param str remediation_name: The name of the remediation.

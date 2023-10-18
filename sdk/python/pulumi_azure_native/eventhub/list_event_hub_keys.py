@@ -124,7 +124,8 @@ def list_event_hub_keys(authorization_rule_name: Optional[str] = None,
     """
     Gets the ACS and SAS connection strings for the Event Hub.
     Azure REST API version: 2022-10-01-preview.
-    <br/>Other available API versions: 2015-08-01, 2023-01-01-preview.
+
+    Other available API versions: 2015-08-01, 2023-01-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -159,7 +160,8 @@ def list_event_hub_keys_output(authorization_rule_name: Optional[pulumi.Input[st
     """
     Gets the ACS and SAS connection strings for the Event Hub.
     Azure REST API version: 2022-10-01-preview.
-    <br/>Other available API versions: 2015-08-01, 2023-01-01-preview.
+
+    Other available API versions: 2015-08-01, 2023-01-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.

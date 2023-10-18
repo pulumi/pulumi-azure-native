@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the certificate resource.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2021-06-01-preview, 2023-07-01-preview, 2023-09-01-preview.
+ *
+ * Other available API versions: 2021-06-01-preview, 2023-07-01-preview, 2023-09-01-preview.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -65,7 +66,8 @@ export interface GetCertificateResult {
 /**
  * Get the certificate resource.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2021-06-01-preview, 2023-07-01-preview, 2023-09-01-preview.
+ *
+ * Other available API versions: 2021-06-01-preview, 2023-07-01-preview, 2023-09-01-preview.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified public IP prefix in a specified resource group.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetPublicIPPrefixResult> InvokeAsync(GetPublicIPPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified public IP prefix in a specified resource group.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetPublicIPPrefixResult> Invoke(GetPublicIPPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixInvokeArgs(), options.WithDefaults());

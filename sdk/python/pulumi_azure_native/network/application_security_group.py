@@ -111,8 +111,9 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
                  __props__=None):
         """
         An application security group in a resource group.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
-        <br/>Other available API versions: 2023-04-01, 2023-05-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+
+        Other available API versions: 2023-04-01, 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,8 +131,9 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An application security group in a resource group.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
-        <br/>Other available API versions: 2023-04-01, 2023-05-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+
+        Other available API versions: 2023-04-01, 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param ApplicationSecurityGroupInitArgs args: The arguments to use to populate this resource's properties.

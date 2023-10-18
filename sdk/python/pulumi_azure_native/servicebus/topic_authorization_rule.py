@@ -110,8 +110,9 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  __props__=None):
         """
         Description of a namespace authorization rule.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
-        <br/>Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+
+        Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,8 +130,9 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a namespace authorization rule.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
-        <br/>Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+
+        Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TopicAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

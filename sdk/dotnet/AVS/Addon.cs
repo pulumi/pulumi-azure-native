@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An addon resource
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
-    /// &lt;br/&gt;Other available API versions: 2021-01-01-preview, 2023-03-01.
+    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+    /// 
+    /// Other available API versions: 2021-01-01-preview, 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Addon")]
     public partial class Addon : global::Pulumi.CustomResource

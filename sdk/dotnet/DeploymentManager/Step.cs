@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.DeploymentManager
 {
     /// <summary>
     /// The resource representation of a rollout step.
-    /// Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2019-11-01-preview
-    /// &lt;br/&gt;Other available API versions: 2018-09-01-preview.
+    /// Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2019-11-01-preview.
+    /// 
+    /// Other available API versions: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager:Step")]
     public partial class Step : global::Pulumi.CustomResource

@@ -101,7 +101,8 @@ def get_featurestore_entity_version(name: Optional[str] = None,
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01-preview.
-    <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str name: Container name. This is case-sensitive.
@@ -134,7 +135,8 @@ def get_featurestore_entity_version_output(name: Optional[pulumi.Input[str]] = N
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01-preview.
-    <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
 
 
     :param str name: Container name. This is case-sensitive.

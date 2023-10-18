@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Gets a private endpoint connection.
         /// Azure REST API version: 2022-12-29.
-        /// &lt;br/&gt;Other available API versions: 2023-05-02, 2023-08-15.
+        /// 
+        /// Other available API versions: 2023-05-02, 2023-08-15.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:kusto:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Gets a private endpoint connection.
         /// Azure REST API version: 2022-12-29.
-        /// &lt;br/&gt;Other available API versions: 2023-05-02, 2023-08-15.
+        /// 
+        /// Other available API versions: 2023-05-02, 2023-08-15.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:kusto:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

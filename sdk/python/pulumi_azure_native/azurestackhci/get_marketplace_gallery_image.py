@@ -219,7 +219,8 @@ def get_marketplace_gallery_image(marketplace_gallery_image_name: Optional[str] 
     """
     Gets a marketplace gallery image
     Azure REST API version: 2022-12-15-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str marketplace_gallery_image_name: Name of the marketplace gallery image
@@ -256,7 +257,8 @@ def get_marketplace_gallery_image_output(marketplace_gallery_image_name: Optiona
     """
     Gets a marketplace gallery image
     Azure REST API version: 2022-12-15-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str marketplace_gallery_image_name: Name of the marketplace gallery image

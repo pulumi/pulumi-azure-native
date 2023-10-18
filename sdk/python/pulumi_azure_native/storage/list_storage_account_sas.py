@@ -59,7 +59,8 @@ def list_storage_account_sas(account_name: Optional[str] = None,
     """
     List SAS credentials of a storage account.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2018-11-01, 2023-01-01.
+
+    Other available API versions: 2018-11-01, 2023-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -106,7 +107,8 @@ def list_storage_account_sas_output(account_name: Optional[pulumi.Input[str]] = 
     """
     List SAS credentials of a storage account.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2018-11-01, 2023-01-01.
+
+    Other available API versions: 2018-11-01, 2023-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

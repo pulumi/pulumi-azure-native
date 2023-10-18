@@ -112,7 +112,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     """
     To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview.
+
+    Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -143,7 +144,8 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     """
     To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview.
+
+    Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

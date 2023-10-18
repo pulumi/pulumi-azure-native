@@ -148,7 +148,8 @@ def get_application_package(account_name: Optional[str] = None,
     """
     Gets information about the specified application package.
     Azure REST API version: 2023-05-01.
-    <br/>Other available API versions: 2017-09-01.
+
+    Other available API versions: 2017-09-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -185,7 +186,8 @@ def get_application_package_output(account_name: Optional[pulumi.Input[str]] = N
     """
     Gets information about the specified application package.
     Azure REST API version: 2023-05-01.
-    <br/>Other available API versions: 2017-09-01.
+
+    Other available API versions: 2017-09-01.
 
 
     :param str account_name: The name of the Batch account.

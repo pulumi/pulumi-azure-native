@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Get the private scheduled action by name.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview, 2023-08-01.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-08-01.
         /// </summary>
         public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Get the private scheduled action by name.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview, 2023-08-01.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-08-01.
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());

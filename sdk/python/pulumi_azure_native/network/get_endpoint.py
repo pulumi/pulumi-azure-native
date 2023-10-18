@@ -245,7 +245,8 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     """
     Gets a Traffic Manager endpoint.
     Azure REST API version: 2022-04-01.
-    <br/>Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
+
+    Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
 
 
     :param str endpoint_name: The name of the Traffic Manager endpoint.
@@ -290,7 +291,8 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a Traffic Manager endpoint.
     Azure REST API version: 2022-04-01.
-    <br/>Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
+
+    Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
 
 
     :param str endpoint_name: The name of the Traffic Manager endpoint.

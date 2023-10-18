@@ -267,7 +267,8 @@ def get_server(resource_group_name: Optional[str] = None,
     """
     Gets information about a server.
     Azure REST API version: 2018-06-01.
-    <br/>Other available API versions: 2018-06-01-preview.
+
+    Other available API versions: 2018-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -308,7 +309,8 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about a server.
     Azure REST API version: 2018-06-01.
-    <br/>Other available API versions: 2018-06-01-preview.
+
+    Other available API versions: 2018-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

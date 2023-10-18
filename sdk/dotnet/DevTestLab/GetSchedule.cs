@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get schedule.
         /// Azure REST API version: 2018-09-15.
-        /// &lt;br/&gt;Other available API versions: 2016-05-15.
+        /// 
+        /// Other available API versions: 2016-05-15.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:devtestlab:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get schedule.
         /// Azure REST API version: 2018-09-15.
-        /// &lt;br/&gt;Other available API versions: 2016-05-15.
+        /// 
+        /// Other available API versions: 2016-05-15.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:devtestlab:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());

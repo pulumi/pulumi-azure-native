@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Represents a ScalingPlanPersonalSchedule definition.
  * Azure REST API version: 2023-07-07-preview.
- * <br/>Other available API versions: 2023-09-05.
+ *
+ * Other available API versions: 2023-09-05.
  */
 export class ScalingPlanPersonalSchedule extends pulumi.CustomResource {
     /**

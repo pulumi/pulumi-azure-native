@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the group link for the product.
  * Azure REST API version: 2022-09-01-preview.
- * <br/>Other available API versions: 2023-03-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getProductGroupLink(args: GetProductGroupLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetProductGroupLinkResult> {
 
@@ -63,7 +64,8 @@ export interface GetProductGroupLinkResult {
 /**
  * Gets the group link for the product.
  * Azure REST API version: 2022-09-01-preview.
- * <br/>Other available API versions: 2023-03-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getProductGroupLinkOutput(args: GetProductGroupLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductGroupLinkResult> {
     return pulumi.output(args).apply((a: any) => getProductGroupLink(a, opts))

@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// NSX Public IP Block
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01
-    /// &lt;br/&gt;Other available API versions: 2023-03-01.
+    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
+    /// 
+    /// Other available API versions: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkPublicIP")]
     public partial class WorkloadNetworkPublicIP : global::Pulumi.CustomResource

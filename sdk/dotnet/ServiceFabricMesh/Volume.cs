@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 {
     /// <summary>
     /// This type describes a volume resource.
-    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview
-    /// &lt;br/&gt;Other available API versions: 2018-07-01-preview.
+    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+    /// 
+    /// Other available API versions: 2018-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

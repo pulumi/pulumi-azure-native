@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Implements ExternalNetworks GET method.
  * Azure REST API version: 2023-02-01-preview.
- * <br/>Other available API versions: 2023-06-15.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export function getExternalNetwork(args: GetExternalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalNetworkResult> {
 
@@ -101,7 +102,8 @@ export interface GetExternalNetworkResult {
 /**
  * Implements ExternalNetworks GET method.
  * Azure REST API version: 2023-02-01-preview.
- * <br/>Other available API versions: 2023-06-15.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export function getExternalNetworkOutput(args: GetExternalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalNetworkResult> {
     return pulumi.output(args).apply((a: any) => getExternalNetwork(a, opts))

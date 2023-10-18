@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.ScVmm
     /// <summary>
     /// Describes a Machine Extension.
     /// Azure REST API version: 2022-05-21-preview.
-    /// &lt;br/&gt;Other available API versions: 2023-04-01-preview.
+    /// 
+    /// Other available API versions: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource

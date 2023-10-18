@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the automation account type.
-    /// Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
+    /// Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:AutomationAccount")]
     public partial class AutomationAccount : global::Pulumi.CustomResource

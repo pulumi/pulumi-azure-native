@@ -208,7 +208,8 @@ def get_flow_log(flow_log_name: Optional[str] = None,
     """
     Gets a flow log resource by name.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str flow_log_name: The name of the flow log resource.
@@ -247,7 +248,8 @@ def get_flow_log_output(flow_log_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a flow log resource by name.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str flow_log_name: The name of the flow log resource.

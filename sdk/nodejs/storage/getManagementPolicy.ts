@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the managementpolicy associated with the specified storage account.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2018-03-01-preview, 2023-01-01.
+ *
+ * Other available API versions: 2018-03-01-preview, 2023-01-01.
  */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
 
@@ -65,7 +66,8 @@ export interface GetManagementPolicyResult {
 /**
  * Gets the managementpolicy associated with the specified storage account.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2018-03-01-preview, 2023-01-01.
+ *
+ * Other available API versions: 2018-03-01-preview, 2023-01-01.
  */
 export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementPolicyResult> {
     return pulumi.output(args).apply((a: any) => getManagementPolicy(a, opts))

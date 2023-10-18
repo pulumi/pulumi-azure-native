@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Linked workspace.
-    /// Azure REST API version: 2020-05-15-preview. Prior API version in Azure Native 1.x: 2020-03-01
+    /// Azure REST API version: 2020-05-15-preview. Prior API version in Azure Native 1.x: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:LinkedWorkspace")]
     public partial class LinkedWorkspace : global::Pulumi.CustomResource

@@ -6,8 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01
- * <br/>Other available API versions: 2023-05-01-preview, 2023-08-01.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
+ *
+ * Other available API versions: 2023-05-01-preview, 2023-08-01.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

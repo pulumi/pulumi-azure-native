@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns the properties of the specified manager name.
  * Azure REST API version: 2017-06-01.
- * <br/>Other available API versions: 2016-10-01.
+ *
+ * Other available API versions: 2016-10-01.
  */
 export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerResult> {
 
@@ -76,7 +77,8 @@ export interface GetManagerResult {
 /**
  * Returns the properties of the specified manager name.
  * Azure REST API version: 2017-06-01.
- * <br/>Other available API versions: 2016-10-01.
+ *
+ * Other available API versions: 2016-10-01.
  */
 export function getManagerOutput(args: GetManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerResult> {
     return pulumi.output(args).apply((a: any) => getManager(a, opts))

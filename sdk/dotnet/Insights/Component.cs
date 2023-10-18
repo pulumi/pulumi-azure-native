@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Application Insights component definition.
-    /// Azure REST API version: 2020-02-02. Prior API version in Azure Native 1.x: 2015-05-01
-    /// &lt;br/&gt;Other available API versions: 2020-02-02-preview.
+    /// Azure REST API version: 2020-02-02. Prior API version in Azure Native 1.x: 2015-05-01.
+    /// 
+    /// Other available API versions: 2020-02-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:Component")]
     public partial class Component : global::Pulumi.CustomResource

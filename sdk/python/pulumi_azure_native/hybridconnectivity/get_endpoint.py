@@ -171,7 +171,8 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     """
     Gets the endpoint to the resource.
     Azure REST API version: 2023-03-15.
-    <br/>Other available API versions: 2022-05-01-preview.
+
+    Other available API versions: 2022-05-01-preview.
 
 
     :param str endpoint_name: The endpoint name.
@@ -204,7 +205,8 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the endpoint to the resource.
     Azure REST API version: 2023-03-15.
-    <br/>Other available API versions: 2022-05-01-preview.
+
+    Other available API versions: 2022-05-01-preview.
 
 
     :param str endpoint_name: The endpoint name.

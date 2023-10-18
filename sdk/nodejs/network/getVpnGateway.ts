@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the details of a virtual wan vpn gateway.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
  */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
 
@@ -100,7 +101,8 @@ export interface GetVpnGatewayResult {
 /**
  * Retrieves the details of a virtual wan vpn gateway.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
  */
 export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))

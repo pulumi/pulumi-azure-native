@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get the application accelerator.
         /// Azure REST API version: 2023-05-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetApplicationAcceleratorResult> InvokeAsync(GetApplicationAcceleratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationAcceleratorResult>("azure-native:appplatform:getApplicationAccelerator", args ?? new GetApplicationAcceleratorArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get the application accelerator.
         /// Azure REST API version: 2023-05-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetApplicationAcceleratorResult> Invoke(GetApplicationAcceleratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationAcceleratorResult>("azure-native:appplatform:getApplicationAccelerator", args ?? new GetApplicationAcceleratorInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
- * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01
+ * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01.
  */
 export class Transform extends pulumi.CustomResource {
     /**

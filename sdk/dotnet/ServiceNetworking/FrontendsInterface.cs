@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.ServiceNetworking
 {
     /// <summary>
     /// Frontend Subresource of Traffic Controller.
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview
-    /// &lt;br/&gt;Other available API versions: 2022-10-01-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
+    /// 
+    /// Other available API versions: 2022-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:FrontendsInterface")]
     public partial class FrontendsInterface : global::Pulumi.CustomResource

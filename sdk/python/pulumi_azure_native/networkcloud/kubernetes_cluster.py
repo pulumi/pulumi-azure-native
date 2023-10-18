@@ -228,7 +228,8 @@ class KubernetesCluster(pulumi.CustomResource):
                  __props__=None):
         """
         Azure REST API version: 2023-05-01-preview.
-        <br/>Other available API versions: 2023-07-01.
+
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,7 +254,8 @@ class KubernetesCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure REST API version: 2023-05-01-preview.
-        <br/>Other available API versions: 2023-07-01.
+
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param KubernetesClusterArgs args: The arguments to use to populate this resource's properties.

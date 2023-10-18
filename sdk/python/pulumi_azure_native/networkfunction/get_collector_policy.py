@@ -160,7 +160,8 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
     """
     Gets the collector policy in a specified Traffic Collector
     Azure REST API version: 2022-11-01.
-    <br/>Other available API versions: 2022-05-01.
+
+    Other available API versions: 2022-05-01.
 
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name
@@ -195,7 +196,8 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
     """
     Gets the collector policy in a specified Traffic Collector
     Azure REST API version: 2022-11-01.
-    <br/>Other available API versions: 2022-05-01.
+
+    Other available API versions: 2022-05-01.
 
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name

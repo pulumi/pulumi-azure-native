@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a devcenter.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Task<GetDevCenterResult> InvokeAsync(GetDevCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a devcenter.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Output<GetDevCenterResult> Invoke(GetDevCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterInvokeArgs(), options.WithDefaults());

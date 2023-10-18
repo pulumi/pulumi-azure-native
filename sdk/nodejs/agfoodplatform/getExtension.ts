@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get installed extension details by extension id.
  * Azure REST API version: 2023-06-01-preview.
- * <br/>Other available API versions: 2021-09-01-preview.
+ *
+ * Other available API versions: 2021-09-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
@@ -89,7 +90,8 @@ export interface GetExtensionResult {
 /**
  * Get installed extension details by extension id.
  * Azure REST API version: 2023-06-01-preview.
- * <br/>Other available API versions: 2021-09-01-preview.
+ *
+ * Other available API versions: 2021-09-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))

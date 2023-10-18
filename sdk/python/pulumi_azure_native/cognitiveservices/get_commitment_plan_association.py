@@ -112,7 +112,8 @@ def get_commitment_plan_association(commitment_plan_association_name: Optional[s
     """
     Gets the association of the Cognitive Services commitment plan.
     Azure REST API version: 2023-05-01.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
@@ -143,7 +144,8 @@ def get_commitment_plan_association_output(commitment_plan_association_name: Opt
     """
     Gets the association of the Cognitive Services commitment plan.
     Azure REST API version: 2023-05-01.
-    <br/>Other available API versions: 2023-10-01-preview.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account

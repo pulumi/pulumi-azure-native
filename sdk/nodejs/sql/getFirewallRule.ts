@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a firewall rule.
  * Azure REST API version: 2021-11-01.
- * <br/>Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
+ *
+ * Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
 
@@ -62,7 +63,8 @@ export interface GetFirewallRuleResult {
 /**
  * Gets a firewall rule.
  * Azure REST API version: 2021-11-01.
- * <br/>Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
+ *
+ * Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))

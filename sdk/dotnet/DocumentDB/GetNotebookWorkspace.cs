@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DocumentDB
         /// <summary>
         /// Gets the notebook workspace for a Cosmos DB account.
         /// Azure REST API version: 2023-04-15.
-        /// &lt;br/&gt;Other available API versions: 2023-09-15, 2023-09-15-preview.
+        /// 
+        /// Other available API versions: 2023-09-15, 2023-09-15-preview.
         /// </summary>
         public static Task<GetNotebookWorkspaceResult> InvokeAsync(GetNotebookWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotebookWorkspaceResult>("azure-native:documentdb:getNotebookWorkspace", args ?? new GetNotebookWorkspaceArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DocumentDB
         /// <summary>
         /// Gets the notebook workspace for a Cosmos DB account.
         /// Azure REST API version: 2023-04-15.
-        /// &lt;br/&gt;Other available API versions: 2023-09-15, 2023-09-15-preview.
+        /// 
+        /// Other available API versions: 2023-09-15, 2023-09-15-preview.
         /// </summary>
         public static Output<GetNotebookWorkspaceResult> Invoke(GetNotebookWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotebookWorkspaceResult>("azure-native:documentdb:getNotebookWorkspace", args ?? new GetNotebookWorkspaceInvokeArgs(), options.WithDefaults());

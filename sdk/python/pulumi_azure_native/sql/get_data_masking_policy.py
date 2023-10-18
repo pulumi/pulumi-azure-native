@@ -148,7 +148,8 @@ def get_data_masking_policy(data_masking_policy_name: Optional[str] = None,
     """
     Gets the database data masking policy.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str data_masking_policy_name: The name of the database for which the data masking policy applies.
@@ -185,7 +186,8 @@ def get_data_masking_policy_output(data_masking_policy_name: Optional[pulumi.Inp
     """
     Gets the database data masking policy.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str data_masking_policy_name: The name of the database for which the data masking policy applies.

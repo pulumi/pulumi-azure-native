@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the Api Version Set specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
- * <br/>Other available API versions: 2023-03-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getWorkspaceApiVersionSet(args: GetWorkspaceApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiVersionSetResult> {
 
@@ -79,7 +80,8 @@ export interface GetWorkspaceApiVersionSetResult {
 /**
  * Gets the details of the Api Version Set specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
- * <br/>Other available API versions: 2023-03-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getWorkspaceApiVersionSetOutput(args: GetWorkspaceApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiVersionSetResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceApiVersionSet(a, opts))

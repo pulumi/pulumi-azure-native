@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
     /// Azure REST API version: 2022-10-01.
-    /// &lt;br/&gt;Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+    /// 
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ConnectedEnvironmentsCertificate")]
     public partial class ConnectedEnvironmentsCertificate : global::Pulumi.CustomResource

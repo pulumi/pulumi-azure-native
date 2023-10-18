@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Task<GetRuleSetResult> InvokeAsync(GetRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Output<GetRuleSetResult> Invoke(GetRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithDefaults());

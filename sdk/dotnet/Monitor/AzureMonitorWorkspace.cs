@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Monitor
 {
     /// <summary>
     /// An Azure Monitor Workspace definition
-    /// Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview
+    /// Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:AzureMonitorWorkspace")]
     public partial class AzureMonitorWorkspace : global::Pulumi.CustomResource

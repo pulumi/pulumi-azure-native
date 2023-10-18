@@ -99,7 +99,8 @@ def get_notebook_workspace(account_name: Optional[str] = None,
     """
     Gets the notebook workspace for a Cosmos DB account.
     Azure REST API version: 2023-04-15.
-    <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
+
+    Other available API versions: 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -129,7 +130,8 @@ def get_notebook_workspace_output(account_name: Optional[pulumi.Input[str]] = No
     """
     Gets the notebook workspace for a Cosmos DB account.
     Azure REST API version: 2023-04-15.
-    <br/>Other available API versions: 2023-09-15, 2023-09-15-preview.
+
+    Other available API versions: 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.

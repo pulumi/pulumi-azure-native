@@ -530,7 +530,8 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
         """
         Represents a ScalingPlanPersonalSchedule definition.
         Azure REST API version: 2023-07-07-preview.
-        <br/>Other available API versions: 2023-09-05.
+
+        Other available API versions: 2023-09-05.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -573,7 +574,8 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
         """
         Represents a ScalingPlanPersonalSchedule definition.
         Azure REST API version: 2023-07-07-preview.
-        <br/>Other available API versions: 2023-09-05.
+
+        Other available API versions: 2023-09-05.
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanPersonalScheduleArgs args: The arguments to use to populate this resource's properties.

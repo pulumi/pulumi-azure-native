@@ -195,7 +195,8 @@ def get_appliance(resource_group_name: Optional[str] = None,
     """
     Gets the details of an Appliance with a specified resource group and name.
     Azure REST API version: 2022-10-27.
-    <br/>Other available API versions: 2021-10-31-preview.
+
+    Other available API versions: 2021-10-31-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -230,7 +231,8 @@ def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None
     """
     Gets the details of an Appliance with a specified resource group and name.
     Azure REST API version: 2022-10-27.
-    <br/>Other available API versions: 2021-10-31-preview.
+
+    Other available API versions: 2021-10-31-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

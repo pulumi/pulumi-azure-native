@@ -164,8 +164,9 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
                  __props__=None):
         """
         VpnServerConfigurationPolicyGroup Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01
-        <br/>Other available API versions: 2023-04-01, 2023-05-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01.
+
+        Other available API versions: 2023-04-01, 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,8 +187,9 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnServerConfigurationPolicyGroup Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01
-        <br/>Other available API versions: 2023-04-01, 2023-05-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01.
+
+        Other available API versions: 2023-04-01, 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationPolicyGroupArgs args: The arguments to use to populate this resource's properties.

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets details about the orchestrator instance.
  * Azure REST API version: 2021-03-15.
- * <br/>Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ *
+ * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
  */
 export function getOrchestratorInstanceServiceDetails(args: GetOrchestratorInstanceServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratorInstanceServiceDetailsResult> {
 
@@ -100,7 +101,8 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
 /**
  * Gets details about the orchestrator instance.
  * Azure REST API version: 2021-03-15.
- * <br/>Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ *
+ * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
  */
 export function getOrchestratorInstanceServiceDetailsOutput(args: GetOrchestratorInstanceServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrchestratorInstanceServiceDetailsResult> {
     return pulumi.output(args).apply((a: any) => getOrchestratorInstanceServiceDetails(a, opts))

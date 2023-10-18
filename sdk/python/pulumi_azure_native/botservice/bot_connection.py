@@ -164,8 +164,9 @@ class BotConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Bot channel resource definition
-        Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01
-        <br/>Other available API versions: 2023-09-15-preview.
+        Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Other available API versions: 2023-09-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,8 +187,9 @@ class BotConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Bot channel resource definition
-        Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01
-        <br/>Other available API versions: 2023-09-15-preview.
+        Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Other available API versions: 2023-09-15-preview.
 
         :param str resource_name: The name of the resource.
         :param BotConnectionArgs args: The arguments to use to populate this resource's properties.

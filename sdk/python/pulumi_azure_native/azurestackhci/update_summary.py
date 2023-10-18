@@ -198,7 +198,8 @@ class UpdateSummary(pulumi.CustomResource):
         """
         Get the update summaries for the cluster
         Azure REST API version: 2023-03-01.
-        <br/>Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
+
+        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,7 +223,8 @@ class UpdateSummary(pulumi.CustomResource):
         """
         Get the update summaries for the cluster
         Azure REST API version: 2023-03-01.
-        <br/>Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
+
+        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
 
         :param str resource_name: The name of the resource.
         :param UpdateSummaryArgs args: The arguments to use to populate this resource's properties.

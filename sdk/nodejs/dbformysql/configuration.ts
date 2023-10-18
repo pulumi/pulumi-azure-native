@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Configuration.
- * Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01
- * <br/>Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview.
+ * Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+ *
+ * Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview.
  */
 export class Configuration extends pulumi.CustomResource {
     /**

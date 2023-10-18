@@ -357,8 +357,9 @@ class Component(pulumi.CustomResource):
                  __props__=None):
         """
         An Application Insights component definition.
-        Azure REST API version: 2020-02-02. Prior API version in Azure Native 1.x: 2015-05-01
-        <br/>Other available API versions: 2020-02-02-preview.
+        Azure REST API version: 2020-02-02. Prior API version in Azure Native 1.x: 2015-05-01.
+
+        Other available API versions: 2020-02-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -390,8 +391,9 @@ class Component(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Application Insights component definition.
-        Azure REST API version: 2020-02-02. Prior API version in Azure Native 1.x: 2015-05-01
-        <br/>Other available API versions: 2020-02-02-preview.
+        Azure REST API version: 2020-02-02. Prior API version in Azure Native 1.x: 2015-05-01.
+
+        Other available API versions: 2020-02-02-preview.
 
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.

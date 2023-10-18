@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets the integration account callback URL.
         /// Azure REST API version: 2019-05-01.
-        /// &lt;br/&gt;Other available API versions: 2015-08-01-preview.
+        /// 
+        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Task<ListIntegrationAccountCallbackUrlResult> InvokeAsync(ListIntegrationAccountCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountCallbackUrlResult>("azure-native:logic:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets the integration account callback URL.
         /// Azure REST API version: 2019-05-01.
-        /// &lt;br/&gt;Other available API versions: 2015-08-01-preview.
+        /// 
+        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<ListIntegrationAccountCallbackUrlResult> Invoke(ListIntegrationAccountCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountCallbackUrlResult>("azure-native:logic:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlInvokeArgs(), options.WithDefaults());

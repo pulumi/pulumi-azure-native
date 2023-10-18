@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VisualStudio
 {
     /// <summary>
     /// The response to an account resource GET request.
-    /// Azure REST API version: 2017-11-01-preview. Prior API version in Azure Native 1.x: 2014-04-01-preview
+    /// Azure REST API version: 2017-11-01-preview. Prior API version in Azure Native 1.x: 2014-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:visualstudio:Account")]
     public partial class Account : global::Pulumi.CustomResource

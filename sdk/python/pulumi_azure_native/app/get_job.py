@@ -207,7 +207,8 @@ def get_job(job_name: Optional[str] = None,
     """
     Container App Job
     Azure REST API version: 2023-04-01-preview.
-    <br/>Other available API versions: 2023-05-01, 2023-05-02-preview.
+
+    Other available API versions: 2023-05-01, 2023-05-02-preview.
 
 
     :param str job_name: Job Name
@@ -243,7 +244,8 @@ def get_job_output(job_name: Optional[pulumi.Input[str]] = None,
     """
     Container App Job
     Azure REST API version: 2023-04-01-preview.
-    <br/>Other available API versions: 2023-05-01, 2023-05-02-preview.
+
+    Other available API versions: 2023-05-01, 2023-05-02-preview.
 
 
     :param str job_name: Job Name

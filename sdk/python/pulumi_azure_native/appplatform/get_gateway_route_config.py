@@ -101,7 +101,8 @@ def get_gateway_route_config(gateway_name: Optional[str] = None,
     """
     Get the Spring Cloud Gateway route configs.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str gateway_name: The name of Spring Cloud Gateway.
@@ -134,7 +135,8 @@ def get_gateway_route_config_output(gateway_name: Optional[pulumi.Input[str]] = 
     """
     Get the Spring Cloud Gateway route configs.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str gateway_name: The name of Spring Cloud Gateway.

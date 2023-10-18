@@ -232,7 +232,8 @@ def get_artifact_source(expand: Optional[str] = None,
     """
     Get artifact source.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=displayName)'
@@ -276,7 +277,8 @@ def get_artifact_source_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     """
     Get artifact source.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=displayName)'

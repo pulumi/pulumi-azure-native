@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DocumentDB
         /// <summary>
         /// Gets the MongoDB collection under an existing Azure Cosmos DB database account.
         /// Azure REST API version: 2023-04-15.
-        /// &lt;br/&gt;Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+        /// 
+        /// Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
         /// </summary>
         public static Task<GetMongoDBResourceMongoDBCollectionResult> InvokeAsync(GetMongoDBResourceMongoDBCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoDBCollectionResult>("azure-native:documentdb:getMongoDBResourceMongoDBCollection", args ?? new GetMongoDBResourceMongoDBCollectionArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DocumentDB
         /// <summary>
         /// Gets the MongoDB collection under an existing Azure Cosmos DB database account.
         /// Azure REST API version: 2023-04-15.
-        /// &lt;br/&gt;Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+        /// 
+        /// Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
         /// </summary>
         public static Output<GetMongoDBResourceMongoDBCollectionResult> Invoke(GetMongoDBResourceMongoDBCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoDBCollectionResult>("azure-native:documentdb:getMongoDBResourceMongoDBCollection", args ?? new GetMongoDBResourceMongoDBCollectionInvokeArgs(), options.WithDefaults());

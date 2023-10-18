@@ -125,7 +125,8 @@ def get_action(action_id: Optional[str] = None,
     """
     Gets the action of alert rule.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str action_id: Action ID
@@ -160,7 +161,8 @@ def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the action of alert rule.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str action_id: Action ID

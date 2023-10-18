@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure REST API version: 2023-06-01-preview.
- * <br/>Other available API versions: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-08-01-preview.
  */
 export function listWorkspaceConnectionSecrets(args: ListWorkspaceConnectionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceConnectionSecretsResult> {
 
@@ -57,7 +58,8 @@ export interface ListWorkspaceConnectionSecretsResult {
 }
 /**
  * Azure REST API version: 2023-06-01-preview.
- * <br/>Other available API versions: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-08-01-preview.
  */
 export function listWorkspaceConnectionSecretsOutput(args: ListWorkspaceConnectionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceConnectionSecretsResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceConnectionSecrets(a, opts))

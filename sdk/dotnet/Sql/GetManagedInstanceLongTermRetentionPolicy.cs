@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a managed database's long term retention policy.
         /// Azure REST API version: 2022-11-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-02-01-preview.
         /// </summary>
         public static Task<GetManagedInstanceLongTermRetentionPolicyResult> InvokeAsync(GetManagedInstanceLongTermRetentionPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceLongTermRetentionPolicyResult>("azure-native:sql:getManagedInstanceLongTermRetentionPolicy", args ?? new GetManagedInstanceLongTermRetentionPolicyArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a managed database's long term retention policy.
         /// Azure REST API version: 2022-11-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-02-01-preview.
         /// </summary>
         public static Output<GetManagedInstanceLongTermRetentionPolicyResult> Invoke(GetManagedInstanceLongTermRetentionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceLongTermRetentionPolicyResult>("azure-native:sql:getManagedInstanceLongTermRetentionPolicy", args ?? new GetManagedInstanceLongTermRetentionPolicyInvokeArgs(), options.WithDefaults());

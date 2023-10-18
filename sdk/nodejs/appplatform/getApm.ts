@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the APM by name.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
  */
 export function getApm(args: GetApmArgs, opts?: pulumi.InvokeOptions): Promise<GetApmResult> {
 
@@ -65,7 +66,8 @@ export interface GetApmResult {
 /**
  * Get the APM by name.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
  */
 export function getApmOutput(args: GetApmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApmResult> {
     return pulumi.output(args).apply((a: any) => getApm(a, opts))

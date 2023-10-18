@@ -328,7 +328,8 @@ def get_incident(incident_id: Optional[str] = None,
     """
     Gets a given incident.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str incident_id: Incident ID
@@ -377,7 +378,8 @@ def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
     """
     Gets a given incident.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str incident_id: Incident ID

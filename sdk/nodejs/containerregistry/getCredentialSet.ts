@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the specified credential set resource.
  * Azure REST API version: 2023-01-01-preview.
- * <br/>Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
  */
 export function getCredentialSet(args: GetCredentialSetArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialSetResult> {
 
@@ -82,7 +83,8 @@ export interface GetCredentialSetResult {
 /**
  * Gets the properties of the specified credential set resource.
  * Azure REST API version: 2023-01-01-preview.
- * <br/>Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
  */
 export function getCredentialSetOutput(args: GetCredentialSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialSetResult> {
     return pulumi.output(args).apply((a: any) => getCredentialSet(a, opts))

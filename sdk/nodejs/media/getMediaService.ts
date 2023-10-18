@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the details of a Media Services account
  * Azure REST API version: 2023-01-01.
- * <br/>Other available API versions: 2015-10-01.
+ *
+ * Other available API versions: 2015-10-01.
  */
 export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaServiceResult> {
 
@@ -101,7 +102,8 @@ export interface GetMediaServiceResult {
 /**
  * Get the details of a Media Services account
  * Azure REST API version: 2023-01-01.
- * <br/>Other available API versions: 2015-10-01.
+ *
+ * Other available API versions: 2015-10-01.
  */
 export function getMediaServiceOutput(args: GetMediaServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaServiceResult> {
     return pulumi.output(args).apply((a: any) => getMediaService(a, opts))

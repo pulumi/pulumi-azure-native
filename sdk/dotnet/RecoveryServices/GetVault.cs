@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Get the Vault details.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2020-02-02, 2023-06-01.
+        /// 
+        /// Other available API versions: 2020-02-02, 2023-06-01.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:recoveryservices:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Get the Vault details.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2020-02-02, 2023-06-01.
+        /// 
+        /// Other available API versions: 2020-02-02, 2023-06-01.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:recoveryservices:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Lists impacted resources in the subscription by an event (Security Advisory).
  * Azure REST API version: 2022-10-01.
- * <br/>Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
+ *
+ * Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
  */
 export function listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId(args: ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdArgs, opts?: pulumi.InvokeOptions): Promise<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> {
 
@@ -48,7 +49,8 @@ export interface ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdR
 /**
  * Lists impacted resources in the subscription by an event (Security Advisory).
  * Azure REST API version: 2022-10-01.
- * <br/>Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
+ *
+ * Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
  */
 export function listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> {
     return pulumi.output(args).apply((a: any) => listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId(a, opts))

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Security Partner Provider.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPartnerProviderResult> {
 
@@ -80,7 +81,8 @@ export interface GetSecurityPartnerProviderResult {
 /**
  * Gets the specified Security Partner Provider.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getSecurityPartnerProviderOutput(args: GetSecurityPartnerProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPartnerProviderResult> {
     return pulumi.output(args).apply((a: any) => getSecurityPartnerProvider(a, opts))

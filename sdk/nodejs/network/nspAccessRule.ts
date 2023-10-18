@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The NSP access rule resource
- * Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
+ * Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
  */
 export class NspAccessRule extends pulumi.CustomResource {
     /**

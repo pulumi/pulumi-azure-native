@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01-preview.
- * <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getFeaturesetVersion(args: GetFeaturesetVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetFeaturesetVersionResult> {
 
@@ -70,7 +71,8 @@ export interface GetFeaturesetVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01-preview.
- * <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getFeaturesetVersionOutput(args: GetFeaturesetVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturesetVersionResult> {
     return pulumi.output(args).apply((a: any) => getFeaturesetVersion(a, opts))

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get storage for a connectedEnvironment.
         /// Azure REST API version: 2022-10-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
         /// </summary>
         public static Task<GetConnectedEnvironmentsStorageResult> InvokeAsync(GetConnectedEnvironmentsStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentsStorageResult>("azure-native:app:getConnectedEnvironmentsStorage", args ?? new GetConnectedEnvironmentsStorageArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get storage for a connectedEnvironment.
         /// Azure REST API version: 2022-10-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
         /// </summary>
         public static Output<GetConnectedEnvironmentsStorageResult> Invoke(GetConnectedEnvironmentsStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsStorageResult>("azure-native:app:getConnectedEnvironmentsStorage", args ?? new GetConnectedEnvironmentsStorageInvokeArgs(), options.WithDefaults());

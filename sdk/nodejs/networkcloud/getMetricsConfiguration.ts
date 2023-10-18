@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get metrics configuration of the provided cluster.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getMetricsConfiguration(args: GetMetricsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsConfigurationResult> {
 
@@ -94,7 +95,8 @@ export interface GetMetricsConfigurationResult {
 /**
  * Get metrics configuration of the provided cluster.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getMetricsConfigurationOutput(args: GetMetricsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMetricsConfiguration(a, opts))

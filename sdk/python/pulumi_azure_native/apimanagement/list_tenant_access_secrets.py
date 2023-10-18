@@ -99,7 +99,8 @@ def list_tenant_access_secrets(access_name: Optional[str] = None,
     """
     Get tenant access information details.
     Azure REST API version: 2022-08-01.
-    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str access_name: The identifier of the Access configuration.
@@ -129,7 +130,8 @@ def list_tenant_access_secrets_output(access_name: Optional[pulumi.Input[str]] =
     """
     Get tenant access information details.
     Azure REST API version: 2022-08-01.
-    <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str access_name: The identifier of the Access configuration.

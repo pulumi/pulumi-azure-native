@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the CommunicationService and its properties.
         /// Azure REST API version: 2023-03-31.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
         /// </summary>
         public static Task<GetCommunicationServiceResult> InvokeAsync(GetCommunicationServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationServiceResult>("azure-native:communication:getCommunicationService", args ?? new GetCommunicationServiceArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the CommunicationService and its properties.
         /// Azure REST API version: 2023-03-31.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
         /// </summary>
         public static Output<GetCommunicationServiceResult> Invoke(GetCommunicationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationServiceResult>("azure-native:communication:getCommunicationService", args ?? new GetCommunicationServiceInvokeArgs(), options.WithDefaults());

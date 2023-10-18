@@ -183,7 +183,8 @@ def get_cluster(cluster_name: Optional[str] = None,
     """
     Gets information about the specified cluster.
     Azure REST API version: 2020-03-01.
-    <br/>Other available API versions: 2020-03-01-preview.
+
+    Other available API versions: 2020-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster.
@@ -217,7 +218,8 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified cluster.
     Azure REST API version: 2020-03-01.
-    <br/>Other available API versions: 2020-03-01-preview.
+
+    Other available API versions: 2020-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Express Route Circuit Connection from the specified express route circuit.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitConnectionResult> {
 
@@ -94,7 +95,8 @@ export interface GetExpressRouteCircuitConnectionResult {
 /**
  * Gets the specified Express Route Circuit Connection from the specified express route circuit.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2023-04-01, 2023-05-01.
  */
 export function getExpressRouteCircuitConnectionOutput(args: GetExpressRouteCircuitConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitConnectionResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitConnection(a, opts))

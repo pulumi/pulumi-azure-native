@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// Gets a backup policy belonging to a backup vault
         /// Azure REST API version: 2023-01-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:dataprotection:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// Gets a backup policy belonging to a backup vault
         /// Azure REST API version: 2023-01-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:dataprotection:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());

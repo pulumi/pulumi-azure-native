@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
-    /// Azure REST API version: 2019-10-01. Prior API version in Azure Native 1.x: 2019-10-01
+    /// Azure REST API version: 2019-10-01. Prior API version in Azure Native 1.x: 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:VMwareCollector")]
     public partial class VMwareCollector : global::Pulumi.CustomResource

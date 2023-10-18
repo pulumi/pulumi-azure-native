@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
  * Azure REST API version: 2022-04-30-preview.
- * <br/>Other available API versions: 2017-07-01, 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+ *
+ * Other available API versions: 2017-07-01, 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
  */
 export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceEventHubConsumerGroupResult> {
 
@@ -67,7 +68,8 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
 /**
  * Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
  * Azure REST API version: 2022-04-30-preview.
- * <br/>Other available API versions: 2017-07-01, 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+ *
+ * Other available API versions: 2017-07-01, 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
  */
 export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
     return pulumi.output(args).apply((a: any) => getIotHubResourceEventHubConsumerGroup(a, opts))

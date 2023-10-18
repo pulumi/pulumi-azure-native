@@ -184,7 +184,8 @@ def get_project_environment_type(environment_type_name: Optional[str] = None,
     """
     Gets a project environment type.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
 
 
     :param str environment_type_name: The name of the environment type.
@@ -221,7 +222,8 @@ def get_project_environment_type_output(environment_type_name: Optional[pulumi.I
     """
     Gets a project environment type.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
 
 
     :param str environment_type_name: The name of the environment type.

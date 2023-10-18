@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves details of this L3 Isolation Domain.
  * Azure REST API version: 2023-02-01-preview.
- * <br/>Other available API versions: 2023-06-15.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export function getL3IsolationDomain(args: GetL3IsolationDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetL3IsolationDomainResult> {
 
@@ -108,7 +109,8 @@ export interface GetL3IsolationDomainResult {
 /**
  * Retrieves details of this L3 Isolation Domain.
  * Azure REST API version: 2023-02-01-preview.
- * <br/>Other available API versions: 2023-06-15.
+ *
+ * Other available API versions: 2023-06-15.
  */
 export function getL3IsolationDomainOutput(args: GetL3IsolationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3IsolationDomainResult> {
     return pulumi.output(args).apply((a: any) => getL3IsolationDomain(a, opts))

@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The X509 Certificate.
- * Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01
- * <br/>Other available API versions: 2021-10-15, 2023-03-01-preview.
+ * Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
+ *
+ * Other available API versions: 2021-10-15, 2023-03-01-preview.
  */
 export class DpsCertificate extends pulumi.CustomResource {
     /**

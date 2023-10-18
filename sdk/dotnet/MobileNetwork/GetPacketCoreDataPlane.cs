@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified packet core data plane.
         /// Azure REST API version: 2023-06-01.
-        /// &lt;br/&gt;Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+        /// 
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
         /// </summary>
         public static Task<GetPacketCoreDataPlaneResult> InvokeAsync(GetPacketCoreDataPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified packet core data plane.
         /// Azure REST API version: 2023-06-01.
-        /// &lt;br/&gt;Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+        /// 
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
         /// </summary>
         public static Output<GetPacketCoreDataPlaneResult> Invoke(GetPacketCoreDataPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());

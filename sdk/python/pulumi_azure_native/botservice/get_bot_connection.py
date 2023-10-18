@@ -160,7 +160,8 @@ def get_bot_connection(connection_name: Optional[str] = None,
     """
     Get a Connection Setting registration for a Bot Service
     Azure REST API version: 2022-09-15.
-    <br/>Other available API versions: 2023-09-15-preview.
+
+    Other available API versions: 2023-09-15-preview.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.
@@ -195,7 +196,8 @@ def get_bot_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     """
     Get a Connection Setting registration for a Bot Service
     Azure REST API version: 2022-09-15.
-    <br/>Other available API versions: 2023-09-15-preview.
+
+    Other available API versions: 2023-09-15-preview.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.

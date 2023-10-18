@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified contact in a specified resource group.
  * Azure REST API version: 2022-11-01.
- * <br/>Other available API versions: 2022-03-01.
+ *
+ * Other available API versions: 2022-03-01.
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
 
@@ -125,7 +126,8 @@ export interface GetContactResult {
 /**
  * Gets the specified contact in a specified resource group.
  * Azure REST API version: 2022-11-01.
- * <br/>Other available API versions: 2022-03-01.
+ *
+ * Other available API versions: 2022-03-01.
  */
 export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
     return pulumi.output(args).apply((a: any) => getContact(a, opts))

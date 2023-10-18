@@ -163,8 +163,9 @@ class Export(pulumi.CustomResource):
                  __props__=None):
         """
         An export resource.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01
-        <br/>Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
+
+        Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,8 +186,9 @@ class Export(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An export resource.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01
-        <br/>Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
+
+        Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01.
 
         :param str resource_name: The name of the resource.
         :param ExportArgs args: The arguments to use to populate this resource's properties.

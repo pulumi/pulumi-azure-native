@@ -149,7 +149,8 @@ def get_cache_rule(cache_rule_name: Optional[str] = None,
     """
     Gets the properties of the specified cache rule resource.
     Azure REST API version: 2023-01-01-preview.
-    <br/>Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+
+    Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
 
 
     :param str cache_rule_name: The name of the cache rule.
@@ -183,7 +184,8 @@ def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the properties of the specified cache rule resource.
     Azure REST API version: 2023-01-01-preview.
-    <br/>Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+
+    Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
 
 
     :param str cache_rule_name: The name of the cache rule.

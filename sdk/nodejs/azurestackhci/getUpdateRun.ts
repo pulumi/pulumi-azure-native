@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the Update run for a specified update
  * Azure REST API version: 2023-03-01.
- * <br/>Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
+ *
+ * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
  */
 export function getUpdateRun(args: GetUpdateRunArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateRunResult> {
 
@@ -118,7 +119,8 @@ export interface GetUpdateRunResult {
 /**
  * Get the Update run for a specified update
  * Azure REST API version: 2023-03-01.
- * <br/>Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
+ *
+ * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01.
  */
 export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateRunResult> {
     return pulumi.output(args).apply((a: any) => getUpdateRun(a, opts))

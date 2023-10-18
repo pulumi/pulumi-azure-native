@@ -150,7 +150,8 @@ def get_schedule(pool_name: Optional[str] = None,
     """
     Gets a schedule resource.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
 
 
     :param str pool_name: Name of the pool.
@@ -190,7 +191,8 @@ def get_schedule_output(pool_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a schedule resource.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
 
 
     :param str pool_name: Name of the pool.

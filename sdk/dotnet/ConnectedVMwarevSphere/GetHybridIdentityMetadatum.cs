@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
         /// Azure REST API version: 2022-07-15-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<GetHybridIdentityMetadatumResult> InvokeAsync(GetHybridIdentityMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridIdentityMetadatumResult>("azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
         /// Azure REST API version: 2022-07-15-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadatumResult>("azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumInvokeArgs(), options.WithDefaults());

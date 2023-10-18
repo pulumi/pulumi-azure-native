@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * A custom certificate.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export class WebPubSubCustomCertificate extends pulumi.CustomResource {
     /**

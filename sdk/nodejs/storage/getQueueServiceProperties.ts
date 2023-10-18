@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2023-01-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function getQueueServiceProperties(args: GetQueueServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueServicePropertiesResult> {
 
@@ -61,7 +62,8 @@ export interface GetQueueServicePropertiesResult {
 /**
  * Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2023-01-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function getQueueServicePropertiesOutput(args: GetQueueServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueServicePropertiesResult> {
     return pulumi.output(args).apply((a: any) => getQueueServiceProperties(a, opts))

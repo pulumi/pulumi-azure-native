@@ -197,7 +197,8 @@ def get_virtual_network(expand: Optional[str] = None,
     """
     Get virtual network.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=externalSubnets)'
@@ -238,7 +239,8 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     """
     Get virtual network.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=externalSubnets)'

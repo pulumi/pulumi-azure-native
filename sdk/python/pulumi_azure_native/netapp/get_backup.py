@@ -210,7 +210,8 @@ def get_backup(account_name: Optional[str] = None,
     """
     Gets the specified backup of the volume
     Azure REST API version: 2022-11-01.
-    <br/>Other available API versions: 2022-11-01-preview.
+
+    Other available API versions: 2022-11-01-preview.
 
 
     :param str account_name: The name of the NetApp account
@@ -255,7 +256,8 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified backup of the volume
     Azure REST API version: 2022-11-01.
-    <br/>Other available API versions: 2022-11-01-preview.
+
+    Other available API versions: 2022-11-01-preview.
 
 
     :param str account_name: The name of the NetApp account

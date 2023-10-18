@@ -233,7 +233,8 @@ def get_disk(expand: Optional[str] = None,
     """
     Get disk.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=diskType)'
@@ -280,7 +281,8 @@ def get_disk_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Get disk.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=diskType)'

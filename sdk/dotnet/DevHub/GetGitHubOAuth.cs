@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DevHub
         /// <summary>
         /// URL used to authorize the Developer Hub GitHub App
         /// Azure REST API version: 2022-10-11-preview.
-        /// &lt;br/&gt;Other available API versions: 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2022-04-01-preview.
         /// </summary>
         public static Task<GetGitHubOAuthResult> InvokeAsync(GetGitHubOAuthArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGitHubOAuthResult>("azure-native:devhub:getGitHubOAuth", args ?? new GetGitHubOAuthArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DevHub
         /// <summary>
         /// URL used to authorize the Developer Hub GitHub App
         /// Azure REST API version: 2022-10-11-preview.
-        /// &lt;br/&gt;Other available API versions: 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2022-04-01-preview.
         /// </summary>
         public static Output<GetGitHubOAuthResult> Invoke(GetGitHubOAuthInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGitHubOAuthResult>("azure-native:devhub:getGitHubOAuth", args ?? new GetGitHubOAuthInvokeArgs(), options.WithDefaults());

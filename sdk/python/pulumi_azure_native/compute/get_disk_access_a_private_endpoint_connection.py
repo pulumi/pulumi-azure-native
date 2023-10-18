@@ -112,7 +112,8 @@ def get_disk_access_a_private_endpoint_connection(disk_access_name: Optional[str
     """
     Gets information about a private endpoint connection under a disk access resource.
     Azure REST API version: 2022-07-02.
-    <br/>Other available API versions: 2023-01-02, 2023-04-02.
+
+    Other available API versions: 2023-01-02, 2023-04-02.
 
 
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -143,7 +144,8 @@ def get_disk_access_a_private_endpoint_connection_output(disk_access_name: Optio
     """
     Gets information about a private endpoint connection under a disk access resource.
     Azure REST API version: 2022-07-02.
-    <br/>Other available API versions: 2023-01-02, 2023-04-02.
+
+    Other available API versions: 2023-01-02, 2023-04-02.
 
 
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.

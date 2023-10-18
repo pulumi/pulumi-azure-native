@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.CustomerInsights
 {
     /// <summary>
     /// The link resource format.
-    /// Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26
-    /// &lt;br/&gt;Other available API versions: 2017-01-01.
+    /// Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+    /// 
+    /// Other available API versions: 2017-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:Link")]
     public partial class Link : global::Pulumi.CustomResource

@@ -159,7 +159,8 @@ def get_workload_network_port_mirroring(port_mirroring_id: Optional[str] = None,
     """
     NSX Port Mirroring
     Azure REST API version: 2022-05-01.
-    <br/>Other available API versions: 2023-03-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str port_mirroring_id: NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
@@ -194,7 +195,8 @@ def get_workload_network_port_mirroring_output(port_mirroring_id: Optional[pulum
     """
     NSX Port Mirroring
     Azure REST API version: 2022-05-01.
-    <br/>Other available API versions: 2023-03-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str port_mirroring_id: NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name

@@ -363,7 +363,8 @@ def get_cluster(cluster_name: Optional[str] = None,
     """
     Get HCI cluster.
     Azure REST API version: 2023-03-01.
-    <br/>Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01.
+
+    Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -412,7 +413,8 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Get HCI cluster.
     Azure REST API version: 2023-03-01.
-    <br/>Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01.
+
+    Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01.
 
 
     :param str cluster_name: The name of the cluster.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getBatchDeployment(args: GetBatchDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchDeploymentResult> {
 
@@ -85,7 +86,8 @@ export interface GetBatchDeploymentResult {
 }
 /**
  * Azure REST API version: 2023-04-01.
- * <br/>Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getBatchDeploymentOutput(args: GetBatchDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getBatchDeployment(a, opts))

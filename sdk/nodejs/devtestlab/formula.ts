@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A formula for creating a VM, specifying an image base and other parameters
- * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15
- * <br/>Other available API versions: 2016-05-15.
+ * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+ *
+ * Other available API versions: 2016-05-15.
  */
 export class Formula extends pulumi.CustomResource {
     /**

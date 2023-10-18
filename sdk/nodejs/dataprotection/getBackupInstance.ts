@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a backup instance with name in a backup vault
  * Azure REST API version: 2023-01-01.
- * <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
  */
 export function getBackupInstance(args: GetBackupInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupInstanceResult> {
 
@@ -69,7 +70,8 @@ export interface GetBackupInstanceResult {
 /**
  * Gets a backup instance with name in a backup vault
  * Azure REST API version: 2023-01-01.
- * <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
  */
 export function getBackupInstanceOutput(args: GetBackupInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupInstanceResult> {
     return pulumi.output(args).apply((a: any) => getBackupInstance(a, opts))

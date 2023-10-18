@@ -183,7 +183,8 @@ def get_network_interface(network_interface_name: Optional[str] = None,
     """
     Gets a network interface
     Azure REST API version: 2022-12-15-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str network_interface_name: Name of the network interface
@@ -217,7 +218,8 @@ def get_network_interface_output(network_interface_name: Optional[pulumi.Input[s
     """
     Gets a network interface
     Azure REST API version: 2022-12-15-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str network_interface_name: Name of the network interface

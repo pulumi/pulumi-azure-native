@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get Elastic Organization To Azure Subscription Mapping details for the logged-in user.
  * Azure REST API version: 2023-06-15-preview.
- * <br/>Other available API versions: 2023-07-01-preview, 2023-10-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-10-01-preview.
  */
 export function getOrganizationElasticToAzureSubscriptionMapping(args?: GetOrganizationElasticToAzureSubscriptionMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationElasticToAzureSubscriptionMappingResult> {
     args = args || {};
@@ -35,7 +36,8 @@ export interface GetOrganizationElasticToAzureSubscriptionMappingResult {
 /**
  * Get Elastic Organization To Azure Subscription Mapping details for the logged-in user.
  * Azure REST API version: 2023-06-15-preview.
- * <br/>Other available API versions: 2023-07-01-preview, 2023-10-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview, 2023-10-01-preview.
  */
 export function getOrganizationElasticToAzureSubscriptionMappingOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationElasticToAzureSubscriptionMappingResult> {
     return pulumi.output(getOrganizationElasticToAzureSubscriptionMapping(opts))

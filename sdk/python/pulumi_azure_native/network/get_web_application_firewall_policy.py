@@ -207,7 +207,8 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
     """
     Retrieve protection policy with specified name within a resource group.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01.
 
 
     :param str policy_name: The name of the policy.
@@ -243,7 +244,8 @@ def get_web_application_firewall_policy_output(policy_name: Optional[pulumi.Inpu
     """
     Retrieve protection policy with specified name within a resource group.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01.
 
 
     :param str policy_name: The name of the policy.

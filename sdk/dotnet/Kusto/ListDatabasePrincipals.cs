@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a list of database principals of the given Kusto cluster and database.
         /// Azure REST API version: 2022-12-29.
-        /// &lt;br/&gt;Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+        /// 
+        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
         /// </summary>
         public static Task<ListDatabasePrincipalsResult> InvokeAsync(ListDatabasePrincipalsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-native:kusto:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a list of database principals of the given Kusto cluster and database.
         /// Azure REST API version: 2022-12-29.
-        /// &lt;br/&gt;Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+        /// 
+        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
         /// </summary>
         public static Output<ListDatabasePrincipalsResult> Invoke(ListDatabasePrincipalsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatabasePrincipalsResult>("azure-native:kusto:listDatabasePrincipals", args ?? new ListDatabasePrincipalsInvokeArgs(), options.WithDefaults());

@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
  * Azure REST API version: 2023-01-01-preview.
- * <br/>Other available API versions: 2023-09-01.
+ *
+ * Other available API versions: 2023-09-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

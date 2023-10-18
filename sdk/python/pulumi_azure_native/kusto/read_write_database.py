@@ -163,7 +163,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a read write database.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a read write database.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param ReadWriteDatabaseArgs args: The arguments to use to populate this resource's properties.

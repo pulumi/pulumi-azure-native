@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Returns the extended properties of a product.
         /// Azure REST API version: 2022-06-01.
-        /// &lt;br/&gt;Other available API versions: 2020-06-01-preview.
+        /// 
+        /// Other available API versions: 2020-06-01-preview.
         /// </summary>
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-native:azurestack:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Returns the extended properties of a product.
         /// Azure REST API version: 2022-06-01.
-        /// &lt;br/&gt;Other available API versions: 2020-06-01-preview.
+        /// 
+        /// Other available API versions: 2020-06-01-preview.
         /// </summary>
         public static Output<ListProductDetailsResult> Invoke(ListProductDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductDetailsResult>("azure-native:azurestack:listProductDetails", args ?? new ListProductDetailsInvokeArgs(), options.WithDefaults());

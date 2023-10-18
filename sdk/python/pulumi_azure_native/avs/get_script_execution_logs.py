@@ -256,7 +256,8 @@ def get_script_execution_logs(private_cloud_name: Optional[str] = None,
     """
     Return the logs for a script execution resource
     Azure REST API version: 2022-05-01.
-    <br/>Other available API versions: 2023-03-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -299,7 +300,8 @@ def get_script_execution_logs_output(private_cloud_name: Optional[pulumi.Input[s
     """
     Return the logs for a script execution resource
     Azure REST API version: 2022-05-01.
-    <br/>Other available API versions: 2023-03-01.
+
+    Other available API versions: 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud

@@ -112,7 +112,8 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
     """
     Retrieves the details of a VirtualHubRouteTableV2.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHubRouteTableV2.
@@ -143,7 +144,8 @@ def get_virtual_hub_route_table_v2_output(resource_group_name: Optional[pulumi.I
     """
     Retrieves the details of a VirtualHubRouteTableV2.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHubRouteTableV2.

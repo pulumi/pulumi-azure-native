@@ -52,7 +52,8 @@ def list_build_service_builder_deployments(build_service_name: Optional[str] = N
     """
     List deployments that are using the builder.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.
@@ -81,7 +82,8 @@ def list_build_service_builder_deployments_output(build_service_name: Optional[p
     """
     List deployments that are using the builder.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.

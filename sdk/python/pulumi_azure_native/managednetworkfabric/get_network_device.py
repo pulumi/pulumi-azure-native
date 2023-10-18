@@ -207,7 +207,8 @@ def get_network_device(network_device_name: Optional[str] = None,
     """
     Get the Network Device resource details.
     Azure REST API version: 2023-02-01-preview.
-    <br/>Other available API versions: 2023-06-15.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str network_device_name: Name of the Network Device
@@ -243,7 +244,8 @@ def get_network_device_output(network_device_name: Optional[pulumi.Input[str]] =
     """
     Get the Network Device resource details.
     Azure REST API version: 2023-02-01-preview.
-    <br/>Other available API versions: 2023-06-15.
+
+    Other available API versions: 2023-06-15.
 
 
     :param str network_device_name: Name of the Network Device

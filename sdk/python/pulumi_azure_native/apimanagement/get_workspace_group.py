@@ -124,7 +124,8 @@ def get_workspace_group(group_id: Optional[str] = None,
     """
     Gets the details of the group specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.
@@ -159,7 +160,8 @@ def get_workspace_group_output(group_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the group specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.

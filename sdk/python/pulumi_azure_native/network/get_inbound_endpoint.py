@@ -160,7 +160,8 @@ def get_inbound_endpoint(dns_resolver_name: Optional[str] = None,
     """
     Gets properties of an inbound endpoint for a DNS resolver.
     Azure REST API version: 2022-07-01.
-    <br/>Other available API versions: 2020-04-01-preview.
+
+    Other available API versions: 2020-04-01-preview.
 
 
     :param str dns_resolver_name: The name of the DNS resolver.
@@ -195,7 +196,8 @@ def get_inbound_endpoint_output(dns_resolver_name: Optional[pulumi.Input[str]] =
     """
     Gets properties of an inbound endpoint for a DNS resolver.
     Azure REST API version: 2022-07-01.
-    <br/>Other available API versions: 2020-04-01-preview.
+
+    Other available API versions: 2020-04-01-preview.
 
 
     :param str dns_resolver_name: The name of the DNS resolver.

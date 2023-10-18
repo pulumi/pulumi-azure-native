@@ -150,7 +150,8 @@ def get_rule(namespace_name: Optional[str] = None,
     """
     Retrieves the description for the specified rule.
     Azure REST API version: 2022-01-01-preview.
-    <br/>Other available API versions: 2022-10-01-preview.
+
+    Other available API versions: 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name
@@ -190,7 +191,8 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the description for the specified rule.
     Azure REST API version: 2022-01-01-preview.
-    <br/>Other available API versions: 2022-10-01-preview.
+
+    Other available API versions: 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name

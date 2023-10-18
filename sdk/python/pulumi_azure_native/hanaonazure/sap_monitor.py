@@ -179,7 +179,7 @@ class SapMonitor(pulumi.CustomResource):
                  __props__=None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        Azure REST API version: 2020-02-07-preview. Prior API version in Azure Native 1.x: 2020-02-07-preview
+        Azure REST API version: 2020-02-07-preview. Prior API version in Azure Native 1.x: 2020-02-07-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +201,7 @@ class SapMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        Azure REST API version: 2020-02-07-preview. Prior API version in Azure Native 1.x: 2020-02-07-preview
+        Azure REST API version: 2020-02-07-preview. Prior API version in Azure Native 1.x: 2020-02-07-preview.
 
         :param str resource_name: The name of the resource.
         :param SapMonitorArgs args: The arguments to use to populate this resource's properties.

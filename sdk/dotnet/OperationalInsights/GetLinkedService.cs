@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a linked service instance.
         /// Azure REST API version: 2020-08-01.
-        /// &lt;br/&gt;Other available API versions: 2015-11-01-preview.
+        /// 
+        /// Other available API versions: 2015-11-01-preview.
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:operationalinsights:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a linked service instance.
         /// Azure REST API version: 2020-08-01.
-        /// &lt;br/&gt;Other available API versions: 2015-11-01-preview.
+        /// 
+        /// Other available API versions: 2015-11-01-preview.
         /// </summary>
         public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:operationalinsights:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());

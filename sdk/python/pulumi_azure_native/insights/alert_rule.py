@@ -213,7 +213,7 @@ class AlertRule(pulumi.CustomResource):
                  __props__=None):
         """
         The alert rule resource.
-        Azure REST API version: 2016-03-01. Prior API version in Azure Native 1.x: 2016-03-01
+        Azure REST API version: 2016-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +237,7 @@ class AlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The alert rule resource.
-        Azure REST API version: 2016-03-01. Prior API version in Azure Native 1.x: 2016-03-01
+        Azure REST API version: 2016-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
 
         :param str resource_name: The name of the resource.
         :param AlertRuleArgs args: The arguments to use to populate this resource's properties.

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Lists recent events for the specified webhook.
         /// Azure REST API version: 2022-12-01.
-        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
         /// </summary>
         public static Task<ListWebhookEventsResult> InvokeAsync(ListWebhookEventsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-native:containerregistry:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Lists recent events for the specified webhook.
         /// Azure REST API version: 2022-12-01.
-        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
         /// </summary>
         public static Output<ListWebhookEventsResult> Invoke(ListWebhookEventsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebhookEventsResult>("azure-native:containerregistry:listWebhookEvents", args ?? new ListWebhookEventsInvokeArgs(), options.WithDefaults());

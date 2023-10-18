@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Portal
 {
     /// <summary>
     /// Cloud shell console
-    /// Azure REST API version: 2018-10-01. Prior API version in Azure Native 1.x: 2018-10-01
+    /// Azure REST API version: 2018-10-01. Prior API version in Azure Native 1.x: 2018-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:ConsoleWithLocation")]
     public partial class ConsoleWithLocation : global::Pulumi.CustomResource

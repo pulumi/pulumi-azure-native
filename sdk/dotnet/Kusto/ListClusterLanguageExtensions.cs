@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a list of language extensions that can run within KQL queries.
         /// Azure REST API version: 2022-12-29.
-        /// &lt;br/&gt;Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+        /// 
+        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
         /// </summary>
         public static Task<ListClusterLanguageExtensionsResult> InvokeAsync(ListClusterLanguageExtensionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-native:kusto:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a list of language extensions that can run within KQL queries.
         /// Azure REST API version: 2022-12-29.
-        /// &lt;br/&gt;Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+        /// 
+        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
         /// </summary>
         public static Output<ListClusterLanguageExtensionsResult> Invoke(ListClusterLanguageExtensionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterLanguageExtensionsResult>("azure-native:kusto:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsInvokeArgs(), options.WithDefaults());

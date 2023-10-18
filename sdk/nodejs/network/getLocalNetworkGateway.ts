@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified local network gateway in a resource group.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2016-06-01, 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2016-06-01, 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
 
@@ -88,7 +89,8 @@ export interface GetLocalNetworkGatewayResult {
 /**
  * Gets the specified local network gateway in a resource group.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2016-06-01, 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2016-06-01, 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
  */
 export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
     return pulumi.output(args).apply((a: any) => getLocalNetworkGateway(a, opts))

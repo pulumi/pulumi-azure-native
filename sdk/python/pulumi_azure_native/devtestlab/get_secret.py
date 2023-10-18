@@ -137,7 +137,8 @@ def get_secret(expand: Optional[str] = None,
     """
     Get secret.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=value)'
@@ -176,7 +177,8 @@ def get_secret_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Get secret.
     Azure REST API version: 2018-09-15.
-    <br/>Other available API versions: 2016-05-15.
+
+    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=value)'

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing remediation at resource group scope.
         /// Azure REST API version: 2021-10-01.
-        /// &lt;br/&gt;Other available API versions: 2018-07-01-preview.
+        /// 
+        /// Other available API versions: 2018-07-01-preview.
         /// </summary>
         public static Task<GetRemediationAtResourceGroupResult> InvokeAsync(GetRemediationAtResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing remediation at resource group scope.
         /// Azure REST API version: 2021-10-01.
-        /// &lt;br/&gt;Other available API versions: 2018-07-01-preview.
+        /// 
+        /// Other available API versions: 2018-07-01-preview.
         /// </summary>
         public static Output<GetRemediationAtResourceGroupResult> Invoke(GetRemediationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupInvokeArgs(), options.WithDefaults());

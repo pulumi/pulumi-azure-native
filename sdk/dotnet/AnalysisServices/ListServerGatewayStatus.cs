@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// <summary>
         /// Return the gateway status of the specified Analysis Services server instance.
         /// Azure REST API version: 2017-08-01.
-        /// &lt;br/&gt;Other available API versions: 2017-08-01-beta.
+        /// 
+        /// Other available API versions: 2017-08-01-beta.
         /// </summary>
         public static Task<ListServerGatewayStatusResult> InvokeAsync(ListServerGatewayStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-native:analysisservices:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// <summary>
         /// Return the gateway status of the specified Analysis Services server instance.
         /// Azure REST API version: 2017-08-01.
-        /// &lt;br/&gt;Other available API versions: 2017-08-01-beta.
+        /// 
+        /// Other available API versions: 2017-08-01-beta.
         /// </summary>
         public static Output<ListServerGatewayStatusResult> Invoke(ListServerGatewayStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServerGatewayStatusResult>("azure-native:analysisservices:listServerGatewayStatus", args ?? new ListServerGatewayStatusInvokeArgs(), options.WithDefaults());

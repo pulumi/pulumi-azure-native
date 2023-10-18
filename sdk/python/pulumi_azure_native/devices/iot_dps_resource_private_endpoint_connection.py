@@ -95,8 +95,9 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The private endpoint connection of a provisioning service
-        Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01
-        <br/>Other available API versions: 2023-03-01-preview.
+        Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
+
+        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,8 +114,9 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection of a provisioning service
-        Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01
-        <br/>Other available API versions: 2023-03-01-preview.
+        Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
+
+        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IotDpsResourcePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

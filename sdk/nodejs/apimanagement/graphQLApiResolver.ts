@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * GraphQL API Resolver details.
  * Azure REST API version: 2022-08-01.
- * <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+ *
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export class GraphQLApiResolver extends pulumi.CustomResource {
     /**

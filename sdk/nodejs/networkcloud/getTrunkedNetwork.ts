@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided trunked network.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getTrunkedNetwork(args: GetTrunkedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetTrunkedNetworkResult> {
 
@@ -109,7 +110,8 @@ export interface GetTrunkedNetworkResult {
 /**
  * Get properties of the provided trunked network.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getTrunkedNetworkOutput(args: GetTrunkedNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrunkedNetworkResult> {
     return pulumi.output(args).apply((a: any) => getTrunkedNetwork(a, opts))

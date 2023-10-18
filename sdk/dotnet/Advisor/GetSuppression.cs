@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Advisor
         /// <summary>
         /// Obtains the details of a suppression.
         /// Azure REST API version: 2023-01-01.
-        /// &lt;br/&gt;Other available API versions: 2016-07-12-preview.
+        /// 
+        /// Other available API versions: 2016-07-12-preview.
         /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Advisor
         /// <summary>
         /// Obtains the details of a suppression.
         /// Azure REST API version: 2023-01-01.
-        /// &lt;br/&gt;Other available API versions: 2016-07-12-preview.
+        /// 
+        /// Other available API versions: 2016-07-12-preview.
         /// </summary>
         public static Output<GetSuppressionResult> Invoke(GetSuppressionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionInvokeArgs(), options.WithDefaults());

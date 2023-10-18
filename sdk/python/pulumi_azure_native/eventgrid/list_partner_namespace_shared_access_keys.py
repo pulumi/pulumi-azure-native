@@ -62,7 +62,8 @@ def list_partner_namespace_shared_access_keys(partner_namespace_name: Optional[s
     """
     List the two keys used to publish to a partner namespace.
     Azure REST API version: 2022-06-15.
-    <br/>Other available API versions: 2023-06-01-preview.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -86,7 +87,8 @@ def list_partner_namespace_shared_access_keys_output(partner_namespace_name: Opt
     """
     List the two keys used to publish to a partner namespace.
     Azure REST API version: 2022-06-15.
-    <br/>Other available API versions: 2023-06-01-preview.
+
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str partner_namespace_name: Name of the partner namespace.

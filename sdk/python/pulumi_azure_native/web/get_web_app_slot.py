@@ -684,7 +684,8 @@ def get_web_app_slot(name: Optional[str] = None,
     """
     Description for Gets the details of a web, mobile, or API app.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
+
+    Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
 
 
     :param str name: Name of the app.
@@ -762,7 +763,8 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Gets the details of a web, mobile, or API app.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
+
+    Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
 
 
     :param str name: Name of the app.

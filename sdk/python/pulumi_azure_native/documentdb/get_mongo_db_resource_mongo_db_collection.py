@@ -119,7 +119,8 @@ def get_mongo_db_resource_mongo_db_collection(account_name: Optional[str] = None
     """
     Gets the MongoDB collection under an existing Azure Cosmos DB database account.
     Azure REST API version: 2023-04-15.
-    <br/>Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+
+    Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -154,7 +155,8 @@ def get_mongo_db_resource_mongo_db_collection_output(account_name: Optional[pulu
     """
     Gets the MongoDB collection under an existing Azure Cosmos DB database account.
     Azure REST API version: 2023-04-15.
-    <br/>Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+
+    Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
 
 
     :param str account_name: Cosmos DB database account name.

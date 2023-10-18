@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a CosmosDb data connection.
-    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
+    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:CosmosDbDataConnection")]
     public partial class CosmosDbDataConnection : global::Pulumi.CustomResource

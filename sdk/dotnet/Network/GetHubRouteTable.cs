@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of a RouteTable.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetHubRouteTableResult> InvokeAsync(GetHubRouteTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-native:network:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of a RouteTable.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetHubRouteTableResult> Invoke(GetHubRouteTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHubRouteTableResult>("azure-native:network:getHubRouteTable", args ?? new GetHubRouteTableInvokeArgs(), options.WithDefaults());

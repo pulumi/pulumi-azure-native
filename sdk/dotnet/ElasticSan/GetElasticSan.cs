@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Get a ElasticSan.
         /// Azure REST API version: 2021-11-20-preview.
-        /// &lt;br/&gt;Other available API versions: 2022-12-01-preview, 2023-01-01.
+        /// 
+        /// Other available API versions: 2022-12-01-preview, 2023-01-01.
         /// </summary>
         public static Task<GetElasticSanResult> InvokeAsync(GetElasticSanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticSanResult>("azure-native:elasticsan:getElasticSan", args ?? new GetElasticSanArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Get a ElasticSan.
         /// Azure REST API version: 2021-11-20-preview.
-        /// &lt;br/&gt;Other available API versions: 2022-12-01-preview, 2023-01-01.
+        /// 
+        /// Other available API versions: 2022-12-01-preview, 2023-01-01.
         /// </summary>
         public static Output<GetElasticSanResult> Invoke(GetElasticSanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticSanResult>("azure-native:elasticsan:getElasticSan", args ?? new GetElasticSanInvokeArgs(), options.WithDefaults());

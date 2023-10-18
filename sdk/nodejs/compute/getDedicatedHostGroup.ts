@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves information about a dedicated host group.
  * Azure REST API version: 2023-03-01.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> {
 
@@ -89,7 +90,8 @@ export interface GetDedicatedHostGroupResult {
 /**
  * Retrieves information about a dedicated host group.
  * Azure REST API version: 2023-03-01.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostGroupResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHostGroup(a, opts))

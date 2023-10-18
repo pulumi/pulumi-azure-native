@@ -101,7 +101,8 @@ def get_replication_fabric(fabric_name: Optional[str] = None,
     """
     Gets the details of an Azure Site Recovery fabric.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-06-01.
+
+    Other available API versions: 2023-06-01.
 
 
     :param str fabric_name: Fabric name.
@@ -134,7 +135,8 @@ def get_replication_fabric_output(fabric_name: Optional[pulumi.Input[str]] = Non
     """
     Gets the details of an Azure Site Recovery fabric.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-06-01.
+
+    Other available API versions: 2023-06-01.
 
 
     :param str fabric_name: Fabric name.

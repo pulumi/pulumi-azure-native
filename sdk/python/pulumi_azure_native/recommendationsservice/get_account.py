@@ -123,7 +123,8 @@ def get_account(account_name: Optional[str] = None,
     """
     Returns RecommendationsService Account resource for a given name.
     Azure REST API version: 2022-02-01.
-    <br/>Other available API versions: 2022-03-01-preview.
+
+    Other available API versions: 2022-03-01-preview.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.
@@ -152,7 +153,8 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Returns RecommendationsService Account resource for a given name.
     Azure REST API version: 2022-02-01.
-    <br/>Other available API versions: 2022-03-01-preview.
+
+    Other available API versions: 2022-03-01-preview.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.

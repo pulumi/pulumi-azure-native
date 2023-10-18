@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 {
     /// <summary>
     /// Represents an instance of a DNC controller.
-    /// Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15
-    /// &lt;br/&gt;Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    /// Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
+    /// 
+    /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork:ControllerDetails")]
     public partial class ControllerDetails : global::Pulumi.CustomResource

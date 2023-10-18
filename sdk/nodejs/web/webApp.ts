@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
- * <br/>Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ *
+ * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
  */
 export class WebApp extends pulumi.CustomResource {
     /**

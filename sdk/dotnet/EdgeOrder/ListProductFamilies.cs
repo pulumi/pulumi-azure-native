@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// This method provides the list of product families for the given subscription.
         /// Azure REST API version: 2021-12-01.
-        /// &lt;br/&gt;Other available API versions: 2020-12-01-preview.
+        /// 
+        /// Other available API versions: 2020-12-01-preview.
         /// </summary>
         public static Task<ListProductFamiliesResult> InvokeAsync(ListProductFamiliesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListProductFamiliesResult>("azure-native:edgeorder:listProductFamilies", args ?? new ListProductFamiliesArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// This method provides the list of product families for the given subscription.
         /// Azure REST API version: 2021-12-01.
-        /// &lt;br/&gt;Other available API versions: 2020-12-01-preview.
+        /// 
+        /// Other available API versions: 2020-12-01-preview.
         /// </summary>
         public static Output<ListProductFamiliesResult> Invoke(ListProductFamiliesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductFamiliesResult>("azure-native:edgeorder:listProductFamilies", args ?? new ListProductFamiliesInvokeArgs(), options.WithDefaults());

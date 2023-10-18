@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets details of the specified Data Lake Analytics account.
  * Azure REST API version: 2019-11-01-preview.
- * <br/>Other available API versions: 2015-10-01-preview.
+ *
+ * Other available API versions: 2015-10-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -180,7 +181,8 @@ export interface GetAccountResult {
 /**
  * Gets details of the specified Data Lake Analytics account.
  * Azure REST API version: 2019-11-01-preview.
- * <br/>Other available API versions: 2015-10-01-preview.
+ *
+ * Other available API versions: 2015-10-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

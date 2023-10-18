@@ -243,7 +243,8 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
     """
     Gets the specified Bastion Host.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -282,7 +283,8 @@ def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = Non
     """
     Gets the specified Bastion Host.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2023-04-01, 2023-05-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

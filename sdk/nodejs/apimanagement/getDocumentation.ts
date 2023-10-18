@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the Documentation specified by its identifier.
  * Azure REST API version: 2022-08-01.
- * <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+ *
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getDocumentation(args: GetDocumentationArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationResult> {
 
@@ -62,7 +63,8 @@ export interface GetDocumentationResult {
 /**
  * Gets the details of the Documentation specified by its identifier.
  * Azure REST API version: 2022-08-01.
- * <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+ *
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
  */
 export function getDocumentationOutput(args: GetDocumentationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationResult> {
     return pulumi.output(args).apply((a: any) => getDocumentation(a, opts))

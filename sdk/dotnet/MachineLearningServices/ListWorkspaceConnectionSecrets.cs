@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// 
         /// Azure REST API version: 2023-06-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-08-01-preview.
         /// </summary>
         public static Task<ListWorkspaceConnectionSecretsResult> InvokeAsync(ListWorkspaceConnectionSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceConnectionSecretsResult>("azure-native:machinelearningservices:listWorkspaceConnectionSecrets", args ?? new ListWorkspaceConnectionSecretsArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// 
         /// Azure REST API version: 2023-06-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-08-01-preview.
         /// </summary>
         public static Output<ListWorkspaceConnectionSecretsResult> Invoke(ListWorkspaceConnectionSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceConnectionSecretsResult>("azure-native:machinelearningservices:listWorkspaceConnectionSecrets", args ?? new ListWorkspaceConnectionSecretsInvokeArgs(), options.WithDefaults());

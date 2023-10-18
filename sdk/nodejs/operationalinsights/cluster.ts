@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The top level Log Analytics cluster resource container.
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01
- * <br/>Other available API versions: 2019-08-01-preview, 2020-08-01.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01.
+ *
+ * Other available API versions: 2019-08-01-preview, 2020-08-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

@@ -96,8 +96,9 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01
-        <br/>Other available API versions: 2023-11-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
+
+        Other available API versions: 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,8 +115,9 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01
-        <br/>Other available API versions: 2023-11-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
+
+        Other available API versions: 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.

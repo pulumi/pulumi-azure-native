@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the number of available IP addresses needed for the AML file system information provided.
  * Azure REST API version: 2023-05-01.
- * <br/>Other available API versions: 2023-03-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getRequiredAmlFSSubnetsSize(args?: GetRequiredAmlFSSubnetsSizeArgs, opts?: pulumi.InvokeOptions): Promise<GetRequiredAmlFSSubnetsSizeResult> {
     args = args || {};
@@ -45,7 +46,8 @@ export interface GetRequiredAmlFSSubnetsSizeResult {
 /**
  * Get the number of available IP addresses needed for the AML file system information provided.
  * Azure REST API version: 2023-05-01.
- * <br/>Other available API versions: 2023-03-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getRequiredAmlFSSubnetsSizeOutput(args?: GetRequiredAmlFSSubnetsSizeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRequiredAmlFSSubnetsSizeResult> {
     return pulumi.output(args).apply((a: any) => getRequiredAmlFSSubnetsSize(a, opts))

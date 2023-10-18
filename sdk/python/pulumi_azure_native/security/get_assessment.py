@@ -160,7 +160,8 @@ def get_assessment(assessment_name: Optional[str] = None,
     """
     Get a security assessment on your scanned resource
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2020-01-01.
+
+    Other available API versions: 2020-01-01.
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type
@@ -195,7 +196,8 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
     """
     Get a security assessment on your scanned resource
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2020-01-01.
+
+    Other available API versions: 2020-01-01.
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type

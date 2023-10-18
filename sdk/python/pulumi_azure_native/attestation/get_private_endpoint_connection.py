@@ -112,7 +112,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     """
     Gets the specified private endpoint connection associated with the attestation provider.
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2021-06-01-preview.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -143,7 +144,8 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     """
     Gets the specified private endpoint connection associated with the attestation provider.
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2021-06-01-preview.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

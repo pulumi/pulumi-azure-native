@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Event Grid Partner Destination.
-    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview
-    /// &lt;br/&gt;Other available API versions: 2021-10-15-preview.
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview.
+    /// 
+    /// Other available API versions: 2021-10-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerDestination")]
     public partial class PartnerDestination : global::Pulumi.CustomResource

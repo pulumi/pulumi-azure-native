@@ -128,7 +128,7 @@ class MediaGraph(pulumi.CustomResource):
                  __props__=None):
         """
         The Media Graph.
-        Azure REST API version: 2020-02-01-preview. Prior API version in Azure Native 1.x: 2020-02-01-preview
+        Azure REST API version: 2020-02-01-preview. Prior API version in Azure Native 1.x: 2020-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +147,7 @@ class MediaGraph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Media Graph.
-        Azure REST API version: 2020-02-01-preview. Prior API version in Azure Native 1.x: 2020-02-01-preview
+        Azure REST API version: 2020-02-01-preview. Prior API version in Azure Native 1.x: 2020-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MediaGraphArgs args: The arguments to use to populate this resource's properties.

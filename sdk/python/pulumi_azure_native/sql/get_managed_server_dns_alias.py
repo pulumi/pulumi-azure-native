@@ -99,7 +99,8 @@ def get_managed_server_dns_alias(dns_alias_name: Optional[str] = None,
     """
     Gets a server DNS alias.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str managed_instance_name: The name of the managed instance.
@@ -128,7 +129,8 @@ def get_managed_server_dns_alias_output(dns_alias_name: Optional[pulumi.Input[st
     """
     Gets a server DNS alias.
     Azure REST API version: 2021-11-01.
-    <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
 
 
     :param str managed_instance_name: The name of the managed instance.

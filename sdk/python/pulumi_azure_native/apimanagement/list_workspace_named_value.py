@@ -52,7 +52,8 @@ def list_workspace_named_value(named_value_id: Optional[str] = None,
     """
     Gets the secret of the named value specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str named_value_id: Identifier of the NamedValue.
@@ -81,7 +82,8 @@ def list_workspace_named_value_output(named_value_id: Optional[pulumi.Input[str]
     """
     Gets the secret of the named value specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
-    <br/>Other available API versions: 2023-03-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str named_value_id: Identifier of the NamedValue.

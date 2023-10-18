@@ -208,7 +208,8 @@ def get_streaming_locator(account_name: Optional[str] = None,
     """
     Get the details of a Streaming Locator in the Media Services account
     Azure REST API version: 2023-01-01.
-    <br/>Other available API versions: 2018-03-30-preview.
+
+    Other available API versions: 2018-03-30-preview.
 
 
     :param str account_name: The Media Services account name.
@@ -247,7 +248,8 @@ def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = Non
     """
     Get the details of a Streaming Locator in the Media Services account
     Azure REST API version: 2023-01-01.
-    <br/>Other available API versions: 2018-03-30-preview.
+
+    Other available API versions: 2018-03-30-preview.
 
 
     :param str account_name: The Media Services account name.

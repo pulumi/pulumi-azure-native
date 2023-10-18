@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided volume.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
 
@@ -89,7 +90,8 @@ export interface GetVolumeResult {
 /**
  * Get properties of the provided volume.
  * Azure REST API version: 2023-05-01-preview.
- * <br/>Other available API versions: 2023-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))

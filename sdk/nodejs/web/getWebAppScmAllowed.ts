@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Description for Returns whether Scm basic auth is allowed on the site or not.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01.
+ *
+ * Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01.
  */
 export function getWebAppScmAllowed(args: GetWebAppScmAllowedArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppScmAllowedResult> {
 
@@ -57,7 +58,8 @@ export interface GetWebAppScmAllowedResult {
 /**
  * Description for Returns whether Scm basic auth is allowed on the site or not.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01.
+ *
+ * Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01.
  */
 export function getWebAppScmAllowedOutput(args: GetWebAppScmAllowedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppScmAllowedResult> {
     return pulumi.output(args).apply((a: any) => getWebAppScmAllowed(a, opts))

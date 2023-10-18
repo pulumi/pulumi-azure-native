@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a Traffic Manager profile.
         /// Azure REST API version: 2022-04-01.
-        /// &lt;br/&gt;Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:network:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a Traffic Manager profile.
         /// Azure REST API version: 2022-04-01.
-        /// &lt;br/&gt;Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:network:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());

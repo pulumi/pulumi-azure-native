@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the backend specified by its identifier.
         /// Azure REST API version: 2022-08-01.
-        /// &lt;br/&gt;Other available API versions: 2016-07-07, 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2016-07-07, 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Task<GetBackendResult> InvokeAsync(GetBackendArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackendResult>("azure-native:apimanagement:getBackend", args ?? new GetBackendArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the backend specified by its identifier.
         /// Azure REST API version: 2022-08-01.
-        /// &lt;br/&gt;Other available API versions: 2016-07-07, 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2016-07-07, 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Output<GetBackendResult> Invoke(GetBackendInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackendResult>("azure-native:apimanagement:getBackend", args ?? new GetBackendInvokeArgs(), options.WithDefaults());

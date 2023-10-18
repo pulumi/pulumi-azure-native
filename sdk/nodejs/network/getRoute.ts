@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified route from a route table.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
 
@@ -78,7 +79,8 @@ export interface GetRouteResult {
 /**
  * Gets the specified route from a route table.
  * Azure REST API version: 2023-02-01.
- * <br/>Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
+ *
+ * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply((a: any) => getRoute(a, opts))

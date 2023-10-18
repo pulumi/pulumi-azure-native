@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get ArcSetting resource details of HCI Cluster.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01.
+        /// 
+        /// Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01.
         /// </summary>
         public static Task<GetArcSettingResult> InvokeAsync(GetArcSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get ArcSetting resource details of HCI Cluster.
         /// Azure REST API version: 2023-03-01.
-        /// &lt;br/&gt;Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01.
+        /// 
+        /// Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01.
         /// </summary>
         public static Output<GetArcSettingResult> Invoke(GetArcSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithDefaults());

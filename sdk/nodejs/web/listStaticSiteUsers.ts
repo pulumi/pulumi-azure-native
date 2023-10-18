@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets the list of users of a static site.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2020-10-01, 2021-02-01.
+ *
+ * Other available API versions: 2020-10-01, 2021-02-01.
  */
 export function listStaticSiteUsers(args: ListStaticSiteUsersArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteUsersResult> {
 
@@ -53,7 +54,8 @@ export interface ListStaticSiteUsersResult {
 /**
  * Description for Gets the list of users of a static site.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2020-10-01, 2021-02-01.
+ *
+ * Other available API versions: 2020-10-01, 2021-02-01.
  */
 export function listStaticSiteUsersOutput(args: ListStaticSiteUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteUsersResult> {
     return pulumi.output(args).apply((a: any) => listStaticSiteUsers(a, opts))

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the requested ExpressRoutePort resource.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetExpressRoutePortResult> InvokeAsync(GetExpressRoutePortArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the requested ExpressRoutePort resource.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetExpressRoutePortResult> Invoke(GetExpressRoutePortInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortInvokeArgs(), options.WithDefaults());

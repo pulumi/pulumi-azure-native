@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified SIM.
         /// Azure REST API version: 2023-06-01.
-        /// &lt;br/&gt;Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01.
+        /// 
+        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01.
         /// </summary>
         public static Task<GetSimResult> InvokeAsync(GetSimArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimResult>("azure-native:mobilenetwork:getSim", args ?? new GetSimArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified SIM.
         /// Azure REST API version: 2023-06-01.
-        /// &lt;br/&gt;Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01.
+        /// 
+        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01.
         /// </summary>
         public static Output<GetSimResult> Invoke(GetSimInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimResult>("azure-native:mobilenetwork:getSim", args ?? new GetSimInvokeArgs(), options.WithDefaults());

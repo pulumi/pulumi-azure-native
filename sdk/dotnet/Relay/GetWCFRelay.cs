@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Returns the description for the specified WCF relay.
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2016-07-01.
+        /// 
+        /// Other available API versions: 2016-07-01.
         /// </summary>
         public static Task<GetWCFRelayResult> InvokeAsync(GetWCFRelayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-native:relay:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Returns the description for the specified WCF relay.
         /// Azure REST API version: 2021-11-01.
-        /// &lt;br/&gt;Other available API versions: 2016-07-01.
+        /// 
+        /// Other available API versions: 2016-07-01.
         /// </summary>
         public static Output<GetWCFRelayResult> Invoke(GetWCFRelayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWCFRelayResult>("azure-native:relay:getWCFRelay", args ?? new GetWCFRelayInvokeArgs(), options.WithDefaults());

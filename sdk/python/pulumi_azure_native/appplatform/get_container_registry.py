@@ -100,7 +100,8 @@ def get_container_registry(container_registry_name: Optional[str] = None,
     """
     Get the container registries resource.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str container_registry_name: The name of the container registry.
@@ -130,7 +131,8 @@ def get_container_registry_output(container_registry_name: Optional[pulumi.Input
     """
     Get the container registries resource.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
 
 
     :param str container_registry_name: The name of the container registry.

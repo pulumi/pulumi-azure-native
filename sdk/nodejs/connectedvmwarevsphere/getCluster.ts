@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Implements cluster GET method.
  * Azure REST API version: 2022-07-15-preview.
- * <br/>Other available API versions: 2023-03-01-preview, 2023-10-01.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-10-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -112,7 +113,8 @@ export interface GetClusterResult {
 /**
  * Implements cluster GET method.
  * Azure REST API version: 2022-07-15-preview.
- * <br/>Other available API versions: 2023-03-01-preview, 2023-10-01.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-10-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

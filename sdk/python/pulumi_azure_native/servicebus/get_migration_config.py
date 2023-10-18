@@ -160,7 +160,8 @@ def get_migration_config(config_name: Optional[str] = None,
     """
     Retrieves Migration Config
     Azure REST API version: 2022-01-01-preview.
-    <br/>Other available API versions: 2022-10-01-preview.
+
+    Other available API versions: 2022-10-01-preview.
 
 
     :param str config_name: The configuration name. Should always be "$default".
@@ -195,7 +196,8 @@ def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves Migration Config
     Azure REST API version: 2022-01-01-preview.
-    <br/>Other available API versions: 2022-10-01-preview.
+
+    Other available API versions: 2022-10-01-preview.
 
 
     :param str config_name: The configuration name. Should always be "$default".

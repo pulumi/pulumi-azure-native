@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Bot.
         /// Azure REST API version: 2022-09-15.
-        /// &lt;br/&gt;Other available API versions: 2023-09-15-preview.
+        /// 
+        /// Other available API versions: 2023-09-15-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:botservice:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Bot.
         /// Azure REST API version: 2022-09-15.
-        /// &lt;br/&gt;Other available API versions: 2023-09-15-preview.
+        /// 
+        /// Other available API versions: 2023-09-15-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:botservice:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

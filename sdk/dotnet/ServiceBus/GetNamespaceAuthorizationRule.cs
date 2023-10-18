@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Gets an authorization rule for a namespace by rule name.
         /// Azure REST API version: 2022-01-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
+        /// 
+        /// Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Gets an authorization rule for a namespace by rule name.
         /// Azure REST API version: 2022-01-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
+        /// 
+        /// Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());

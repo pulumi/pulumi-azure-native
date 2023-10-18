@@ -112,7 +112,8 @@ def get_project(project_name: Optional[str] = None,
     """
     Gets a Project resource.
     Azure REST API version: 2023-03-01.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-10-01.
+
+    Other available API versions: 2023-07-01-preview, 2023-10-01.
 
 
     :param str project_name: The name of the Project resource.
@@ -143,7 +144,8 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a Project resource.
     Azure REST API version: 2023-03-01.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-10-01.
+
+    Other available API versions: 2023-07-01-preview, 2023-10-01.
 
 
     :param str project_name: The name of the Project resource.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Object model for the Azure PowerShell script.
-    /// Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01
+    /// Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:AzurePowerShellScript")]
     public partial class AzurePowerShellScript : global::Pulumi.CustomResource

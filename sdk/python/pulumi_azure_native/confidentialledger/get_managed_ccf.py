@@ -123,7 +123,8 @@ def get_managed_ccf(app_name: Optional[str] = None,
     """
     Retrieves the properties of a Managed CCF app.
     Azure REST API version: 2023-01-26-preview.
-    <br/>Other available API versions: 2023-06-28-preview.
+
+    Other available API versions: 2023-06-28-preview.
 
 
     :param str app_name: Name of the Managed CCF
@@ -152,7 +153,8 @@ def get_managed_ccf_output(app_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the properties of a Managed CCF app.
     Azure REST API version: 2023-01-26-preview.
-    <br/>Other available API versions: 2023-06-28-preview.
+
+    Other available API versions: 2023-06-28-preview.
 
 
     :param str app_name: Name of the Managed CCF

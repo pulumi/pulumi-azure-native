@@ -92,8 +92,9 @@ class NotificationRecipientEmail(pulumi.CustomResource):
                  __props__=None):
         """
         Recipient Email details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
-        <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,8 +111,9 @@ class NotificationRecipientEmail(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Recipient Email details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
-        <br/>Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NotificationRecipientEmailArgs args: The arguments to use to populate this resource's properties.

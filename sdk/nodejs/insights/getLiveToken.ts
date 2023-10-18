@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * **Gets an access token for live metrics stream data.**
  * Azure REST API version: 2021-10-14.
- * <br/>Other available API versions: 2020-06-02-preview.
+ *
+ * Other available API versions: 2020-06-02-preview.
  */
 export function getLiveToken(args: GetLiveTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveTokenResult> {
 
@@ -36,7 +37,8 @@ export interface GetLiveTokenResult {
 /**
  * **Gets an access token for live metrics stream data.**
  * Azure REST API version: 2021-10-14.
- * <br/>Other available API versions: 2020-06-02-preview.
+ *
+ * Other available API versions: 2020-06-02-preview.
  */
 export function getLiveTokenOutput(args: GetLiveTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveTokenResult> {
     return pulumi.output(args).apply((a: any) => getLiveToken(a, opts))

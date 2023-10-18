@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// <summary>
     /// Represents a migration resource.
     /// Azure REST API version: 2023-03-01-preview.
-    /// &lt;br/&gt;Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
+    /// 
+    /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Migration")]
     public partial class Migration : global::Pulumi.CustomResource

@@ -113,7 +113,7 @@ class ProviderInstance(pulumi.CustomResource):
                  __props__=None):
         """
         A provider instance associated with SAP monitor.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class ProviderInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A provider instance associated with SAP monitor.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ProviderInstanceArgs args: The arguments to use to populate this resource's properties.

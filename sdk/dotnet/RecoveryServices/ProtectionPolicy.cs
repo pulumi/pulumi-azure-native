@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Base class for backup policy. Workload-specific backup policies are derived from this class.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01
-    /// &lt;br/&gt;Other available API versions: 2016-06-01.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
+    /// 
+    /// Other available API versions: 2016-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ProtectionPolicy")]
     public partial class ProtectionPolicy : global::Pulumi.CustomResource

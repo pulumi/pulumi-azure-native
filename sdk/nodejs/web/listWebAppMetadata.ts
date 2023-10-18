@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets the metadata of an app.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2020-10-01.
+ *
+ * Other available API versions: 2020-10-01.
  */
 export function listWebAppMetadata(args: ListWebAppMetadataArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppMetadataResult> {
 
@@ -57,7 +58,8 @@ export interface ListWebAppMetadataResult {
 /**
  * Description for Gets the metadata of an app.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2020-10-01.
+ *
+ * Other available API versions: 2020-10-01.
  */
 export function listWebAppMetadataOutput(args: ListWebAppMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppMetadataResult> {
     return pulumi.output(args).apply((a: any) => listWebAppMetadata(a, opts))

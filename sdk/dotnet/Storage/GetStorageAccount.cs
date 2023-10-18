@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
+        /// 
+        /// Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
         /// Azure REST API version: 2022-09-01.
-        /// &lt;br/&gt;Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
+        /// 
+        /// Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01.
         /// </summary>
         public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());

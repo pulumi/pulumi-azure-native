@@ -123,7 +123,8 @@ def get_access_policy_assignment(access_policy_assignment_name: Optional[str] = 
     """
     Gets the list of assignments for an access policy of a redis cache
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-08-01.
+
+    Other available API versions: 2023-08-01.
 
 
     :param str access_policy_assignment_name: The name of the access policy assignment.
@@ -155,7 +156,8 @@ def get_access_policy_assignment_output(access_policy_assignment_name: Optional[
     """
     Gets the list of assignments for an access policy of a redis cache
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-08-01.
+
+    Other available API versions: 2023-08-01.
 
 
     :param str access_policy_assignment_name: The name of the access policy assignment.

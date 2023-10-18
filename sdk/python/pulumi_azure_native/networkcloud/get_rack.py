@@ -216,7 +216,8 @@ def get_rack(rack_name: Optional[str] = None,
     """
     Get properties of the provided rack.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str rack_name: The name of the rack.
@@ -253,7 +254,8 @@ def get_rack_output(rack_name: Optional[pulumi.Input[str]] = None,
     """
     Get properties of the provided rack.
     Azure REST API version: 2023-05-01-preview.
-    <br/>Other available API versions: 2023-07-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str rack_name: The name of the rack.

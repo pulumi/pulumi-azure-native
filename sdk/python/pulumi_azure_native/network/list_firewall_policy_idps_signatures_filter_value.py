@@ -51,7 +51,8 @@ def list_firewall_policy_idps_signatures_filter_value(filter_name: Optional[str]
     """
     Retrieves the current filter values for the signatures overrides
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str filter_name: Describes the name of the column which values will be returned
@@ -77,7 +78,8 @@ def list_firewall_policy_idps_signatures_filter_value_output(filter_name: Option
     """
     Retrieves the current filter values for the signatures overrides
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01.
 
 
     :param str filter_name: Describes the name of the column which values will be returned

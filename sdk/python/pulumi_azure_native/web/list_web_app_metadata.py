@@ -98,7 +98,8 @@ def list_web_app_metadata(name: Optional[str] = None,
     """
     Description for Gets the metadata of an app.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2020-10-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str name: Name of the app.
@@ -125,7 +126,8 @@ def list_web_app_metadata_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Gets the metadata of an app.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2020-10-01.
+
+    Other available API versions: 2020-10-01.
 
 
     :param str name: Name of the app.

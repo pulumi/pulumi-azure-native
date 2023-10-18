@@ -125,7 +125,8 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[st
     """
     Response for POST requests that return single SharedAccessAuthorizationRule.
     Azure REST API version: 2023-01-01-preview.
-    <br/>Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
+
+    Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
 
 
     :param str authorization_rule_name: Authorization Rule Name
@@ -160,7 +161,8 @@ def get_notification_hub_authorization_rule_output(authorization_rule_name: Opti
     """
     Response for POST requests that return single SharedAccessAuthorizationRule.
     Azure REST API version: 2023-01-01-preview.
-    <br/>Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
+
+    Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
 
 
     :param str authorization_rule_name: Authorization Rule Name

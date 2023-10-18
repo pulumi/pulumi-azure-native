@@ -124,7 +124,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     """
     Gets the specified private endpoint connection associated with the storage sync service.
     Azure REST API version: 2022-06-01.
-    <br/>Other available API versions: 2022-09-01.
+
+    Other available API versions: 2022-09-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -156,7 +157,8 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     """
     Gets the specified private endpoint connection associated with the storage sync service.
     Azure REST API version: 2022-06-01.
-    <br/>Other available API versions: 2022-09-01.
+
+    Other available API versions: 2022-09-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the specified Subscription keys.
         /// Azure REST API version: 2022-08-01.
-        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Task<ListSubscriptionSecretsResult> InvokeAsync(ListSubscriptionSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSubscriptionSecretsResult>("azure-native:apimanagement:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the specified Subscription keys.
         /// Azure REST API version: 2022-08-01.
-        /// &lt;br/&gt;Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
         /// </summary>
         public static Output<ListSubscriptionSecretsResult> Invoke(ListSubscriptionSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSubscriptionSecretsResult>("azure-native:apimanagement:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsInvokeArgs(), options.WithDefaults());

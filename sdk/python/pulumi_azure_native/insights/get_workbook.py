@@ -268,7 +268,8 @@ def get_workbook(can_fetch_content: Optional[bool] = None,
     """
     Get a single workbook by its resourceName.
     Azure REST API version: 2022-04-01.
-    <br/>Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+
+    Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
 
 
     :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
@@ -312,7 +313,8 @@ def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[bool]]
     """
     Get a single workbook by its resourceName.
     Azure REST API version: 2022-04-01.
-    <br/>Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+
+    Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
 
 
     :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.

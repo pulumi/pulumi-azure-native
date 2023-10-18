@@ -179,7 +179,8 @@ def get_incident_task(incident_id: Optional[str] = None,
     """
     Gets an incident task.
     Azure REST API version: 2023-06-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str incident_id: Incident ID
@@ -219,7 +220,8 @@ def get_incident_task_output(incident_id: Optional[pulumi.Input[str]] = None,
     """
     Gets an incident task.
     Azure REST API version: 2023-06-01-preview.
-    <br/>Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
 
 
     :param str incident_id: Incident ID

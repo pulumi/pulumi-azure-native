@@ -147,7 +147,8 @@ def get_backup_vault(resource_group_name: Optional[str] = None,
     """
     Returns a resource belonging to a resource group.
     Azure REST API version: 2023-01-01.
-    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
+
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -178,7 +179,8 @@ def get_backup_vault_output(resource_group_name: Optional[pulumi.Input[str]] = N
     """
     Returns a resource belonging to a resource group.
     Azure REST API version: 2023-01-01.
-    <br/>Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
+
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

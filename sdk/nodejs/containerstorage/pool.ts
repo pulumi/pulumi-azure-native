@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Pool resource
- * Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2023-03-01-preview
+ * Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2023-03-01-preview.
  */
 export class Pool extends pulumi.CustomResource {
     /**

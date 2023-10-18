@@ -226,8 +226,9 @@ class EventSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         Event Subscription
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
-        <br/>Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
+        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+
+        Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,8 +256,9 @@ class EventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Subscription
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
-        <br/>Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
+        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+
+        Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

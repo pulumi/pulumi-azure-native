@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ProtectionContainer")]
     public partial class ProtectionContainer : global::Pulumi.CustomResource

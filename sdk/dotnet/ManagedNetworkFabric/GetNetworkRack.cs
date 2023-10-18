@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Get Network Rack resource details.
         /// Azure REST API version: 2023-02-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-06-15.
+        /// 
+        /// Other available API versions: 2023-06-15.
         /// </summary>
         public static Task<GetNetworkRackResult> InvokeAsync(GetNetworkRackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkRackResult>("azure-native:managednetworkfabric:getNetworkRack", args ?? new GetNetworkRackArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Get Network Rack resource details.
         /// Azure REST API version: 2023-02-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-06-15.
+        /// 
+        /// Other available API versions: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkRackResult> Invoke(GetNetworkRackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkRackResult>("azure-native:managednetworkfabric:getNetworkRack", args ?? new GetNetworkRackInvokeArgs(), options.WithDefaults());

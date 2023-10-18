@@ -63,7 +63,8 @@ def list_monitored_resource(monitor_name: Optional[str] = None,
     """
     Response of a list operation.
     Azure REST API version: 2023-06-01.
-    <br/>Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -87,7 +88,8 @@ def list_monitored_resource_output(monitor_name: Optional[pulumi.Input[str]] = N
     """
     Response of a list operation.
     Azure REST API version: 2023-06-01.
-    <br/>Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

@@ -65,7 +65,8 @@ def list_list_effective_virtual_network_by_network_group(network_group_name: Opt
     """
     Lists all effective virtual networks by specified network group.
     Azure REST API version: 2022-04-01-preview.
-    <br/>Other available API versions: 2021-05-01-preview.
+
+    Other available API versions: 2021-05-01-preview.
 
 
     :param str network_group_name: The name of the network group.
@@ -95,7 +96,8 @@ def list_list_effective_virtual_network_by_network_group_output(network_group_na
     """
     Lists all effective virtual networks by specified network group.
     Azure REST API version: 2022-04-01-preview.
-    <br/>Other available API versions: 2021-05-01-preview.
+
+    Other available API versions: 2021-05-01-preview.
 
 
     :param str network_group_name: The name of the network group.

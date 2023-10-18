@@ -117,7 +117,8 @@ class UpdateRun(pulumi.CustomResource):
         """
         A multi-stage process to perform update operations across members of a Fleet.
         Azure REST API version: 2023-03-15-preview.
-        <br/>Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
+
+        Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +139,8 @@ class UpdateRun(pulumi.CustomResource):
         """
         A multi-stage process to perform update operations across members of a Fleet.
         Azure REST API version: 2023-03-15-preview.
-        <br/>Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
+
+        Other available API versions: 2023-06-15-preview, 2023-08-15-preview.
 
         :param str resource_name: The name of the resource.
         :param UpdateRunArgs args: The arguments to use to populate this resource's properties.

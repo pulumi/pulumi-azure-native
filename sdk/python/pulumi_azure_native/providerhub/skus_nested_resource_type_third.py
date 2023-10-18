@@ -139,7 +139,7 @@ class SkusNestedResourceTypeThird(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class SkusNestedResourceTypeThird(pulumi.CustomResource):
                  args: SkusNestedResourceTypeThirdArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20.
 
         :param str resource_name: The name of the resource.
         :param SkusNestedResourceTypeThirdArgs args: The arguments to use to populate this resource's properties.

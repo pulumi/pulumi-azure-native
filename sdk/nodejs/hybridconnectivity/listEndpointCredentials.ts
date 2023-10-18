@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the endpoint access credentials to the resource.
  * Azure REST API version: 2023-03-15.
- * <br/>Other available API versions: 2022-05-01-preview.
+ *
+ * Other available API versions: 2022-05-01-preview.
  */
 export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointCredentialsResult> {
 
@@ -74,7 +75,8 @@ export interface ListEndpointCredentialsResult {
 /**
  * Gets the endpoint access credentials to the resource.
  * Azure REST API version: 2023-03-15.
- * <br/>Other available API versions: 2022-05-01-preview.
+ *
+ * Other available API versions: 2022-05-01-preview.
  */
 export function listEndpointCredentialsOutput(args: ListEndpointCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listEndpointCredentials(a, opts))

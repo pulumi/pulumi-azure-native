@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Get the full endpoint URL for an event subscription for domain.
  * Azure REST API version: 2022-06-15.
- * <br/>Other available API versions: 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getDomainEventSubscriptionFullUrl(args: GetDomainEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainEventSubscriptionFullUrlResult> {
 
@@ -46,7 +47,8 @@ export interface GetDomainEventSubscriptionFullUrlResult {
 /**
  * Get the full endpoint URL for an event subscription for domain.
  * Azure REST API version: 2022-06-15.
- * <br/>Other available API versions: 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getDomainEventSubscriptionFullUrlOutput(args: GetDomainEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainEventSubscriptionFullUrlResult> {
     return pulumi.output(args).apply((a: any) => getDomainEventSubscriptionFullUrl(a, opts))

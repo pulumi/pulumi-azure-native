@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Represents a container on the  Data Box Edge/Gateway device.
         /// Azure REST API version: 2022-03-01.
-        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview, 2023-07-01.
+        /// 
+        /// Other available API versions: 2023-01-01-preview, 2023-07-01.
         /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-native:databoxedge:getContainer", args ?? new GetContainerArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Represents a container on the  Data Box Edge/Gateway device.
         /// Azure REST API version: 2022-03-01.
-        /// &lt;br/&gt;Other available API versions: 2023-01-01-preview, 2023-07-01.
+        /// 
+        /// Other available API versions: 2023-01-01-preview, 2023-07-01.
         /// </summary>
         public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());

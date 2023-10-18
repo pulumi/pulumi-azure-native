@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified static member.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetStaticMemberResult> InvokeAsync(GetStaticMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticMemberResult>("azure-native:network:getStaticMember", args ?? new GetStaticMemberArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified static member.
         /// Azure REST API version: 2023-02-01.
-        /// &lt;br/&gt;Other available API versions: 2023-04-01, 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetStaticMemberResult> Invoke(GetStaticMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticMemberResult>("azure-native:network:getStaticMember", args ?? new GetStaticMemberInvokeArgs(), options.WithDefaults());

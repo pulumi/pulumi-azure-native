@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing Secret within a profile.
  * Azure REST API version: 2023-05-01.
- * <br/>Other available API versions: 2023-07-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
 
@@ -74,7 +75,8 @@ export interface GetSecretResult {
 /**
  * Gets an existing Secret within a profile.
  * Azure REST API version: 2023-05-01.
- * <br/>Other available API versions: 2023-07-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))

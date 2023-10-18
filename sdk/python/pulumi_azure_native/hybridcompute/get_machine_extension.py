@@ -220,7 +220,8 @@ def get_machine_extension(extension_name: Optional[str] = None,
     """
     The operation to get the extension.
     Azure REST API version: 2022-12-27.
-    <br/>Other available API versions: 2019-08-02-preview, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview.
+
+    Other available API versions: 2019-08-02-preview, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview.
 
 
     :param str extension_name: The name of the machine extension.
@@ -260,7 +261,8 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = N
     """
     The operation to get the extension.
     Azure REST API version: 2022-12-27.
-    <br/>Other available API versions: 2019-08-02-preview, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview.
+
+    Other available API versions: 2019-08-02-preview, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview.
 
 
     :param str extension_name: The name of the machine extension.

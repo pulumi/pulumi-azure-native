@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Information about a partner registration.
-    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview
-    /// &lt;br/&gt;Other available API versions: 2021-10-15-preview, 2023-06-01-preview.
+    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+    /// 
+    /// Other available API versions: 2021-10-15-preview, 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerRegistration")]
     public partial class PartnerRegistration : global::Pulumi.CustomResource

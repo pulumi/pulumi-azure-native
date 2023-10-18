@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
 {
     /// <summary>
     /// Resource information with extended details.
-    /// Azure REST API version: 2021-11-30. Prior API version in Azure Native 1.x: 2018-10-31-preview
+    /// Azure REST API version: 2021-11-30. Prior API version in Azure Native 1.x: 2018-10-31-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:DedicatedHsm")]
     public partial class DedicatedHsm : global::Pulumi.CustomResource

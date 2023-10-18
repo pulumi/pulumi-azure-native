@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
  * Azure REST API version: 2023-04-15.
- * <br/>Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+ *
+ * Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
  */
 export function getDatabaseAccount(args: GetDatabaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountResult> {
 
@@ -220,7 +221,8 @@ export interface GetDatabaseAccountResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
  * Azure REST API version: 2023-04-15.
- * <br/>Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+ *
+ * Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
  */
 export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccount(a, opts))

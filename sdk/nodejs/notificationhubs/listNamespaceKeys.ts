@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  * Azure REST API version: 2023-01-01-preview.
- * <br/>Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
+ *
+ * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
  */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
 
@@ -63,7 +64,8 @@ export interface ListNamespaceKeysResult {
 /**
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  * Azure REST API version: 2023-01-01-preview.
- * <br/>Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
+ *
+ * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
  */
 export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
     return pulumi.output(args).apply((a: any) => listNamespaceKeys(a, opts))

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Returns a Cognitive Services commitment plan specified by the parameters.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetSharedCommitmentPlanResult> InvokeAsync(GetSharedCommitmentPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedCommitmentPlanResult>("azure-native:cognitiveservices:getSharedCommitmentPlan", args ?? new GetSharedCommitmentPlanArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Returns a Cognitive Services commitment plan specified by the parameters.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetSharedCommitmentPlanResult> Invoke(GetSharedCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedCommitmentPlanResult>("azure-native:cognitiveservices:getSharedCommitmentPlan", args ?? new GetSharedCommitmentPlanInvokeArgs(), options.WithDefaults());

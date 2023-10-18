@@ -459,7 +459,8 @@ def get_account(account_name: Optional[str] = None,
     """
     Gets details of the specified Data Lake Analytics account.
     Azure REST API version: 2019-11-01-preview.
-    <br/>Other available API versions: 2015-10-01-preview.
+
+    Other available API versions: 2015-10-01-preview.
 
 
     :param str account_name: The name of the Data Lake Analytics account.
@@ -516,7 +517,8 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets details of the specified Data Lake Analytics account.
     Azure REST API version: 2019-11-01-preview.
-    <br/>Other available API versions: 2015-10-01-preview.
+
+    Other available API versions: 2015-10-01-preview.
 
 
     :param str account_name: The name of the Data Lake Analytics account.

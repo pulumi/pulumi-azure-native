@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Datadog
         /// <summary>
         /// 
         /// Azure REST API version: 2022-06-01.
-        /// &lt;br/&gt;Other available API versions: 2022-08-01, 2023-01-01.
+        /// 
+        /// Other available API versions: 2022-08-01, 2023-01-01.
         /// </summary>
         public static Task<GetMonitorDefaultKeyResult> InvokeAsync(GetMonitorDefaultKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Datadog
         /// <summary>
         /// 
         /// Azure REST API version: 2022-06-01.
-        /// &lt;br/&gt;Other available API versions: 2022-08-01, 2023-01-01.
+        /// 
+        /// Other available API versions: 2022-08-01, 2023-01-01.
         /// </summary>
         public static Output<GetMonitorDefaultKeyResult> Invoke(GetMonitorDefaultKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyInvokeArgs(), options.WithDefaults());

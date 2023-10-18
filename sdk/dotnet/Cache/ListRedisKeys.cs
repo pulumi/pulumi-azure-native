@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Cache
         /// <summary>
         /// Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01.
+        /// 
+        /// Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01.
         /// </summary>
         public static Task<ListRedisKeysResult> InvokeAsync(ListRedisKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-native:cache:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Cache
         /// <summary>
         /// Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
         /// Azure REST API version: 2023-04-01.
-        /// &lt;br/&gt;Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01.
+        /// 
+        /// Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01.
         /// </summary>
         public static Output<ListRedisKeysResult> Invoke(ListRedisKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRedisKeysResult>("azure-native:cache:listRedisKeys", args ?? new ListRedisKeysInvokeArgs(), options.WithDefaults());

@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2017-08-01-preview, 2017-12-01-preview, 2021-03-01, 2021-07-01, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2017-08-01-preview, 2017-12-01-preview, 2021-03-01, 2021-07-01, 2023-02-01-preview.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
         /// Azure REST API version: 2023-05-01.
-        /// &lt;br/&gt;Other available API versions: 2017-08-01-preview, 2017-12-01-preview, 2021-03-01, 2021-07-01, 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2017-08-01-preview, 2017-12-01-preview, 2021-03-01, 2021-07-01, 2023-02-01-preview.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());

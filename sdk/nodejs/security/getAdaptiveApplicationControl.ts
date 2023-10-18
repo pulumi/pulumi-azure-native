@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an application control VM/server group.
  * Azure REST API version: 2020-01-01.
- * <br/>Other available API versions: 2015-06-01-preview.
+ *
+ * Other available API versions: 2015-06-01-preview.
  */
 export function getAdaptiveApplicationControl(args: GetAdaptiveApplicationControlArgs, opts?: pulumi.InvokeOptions): Promise<GetAdaptiveApplicationControlResult> {
 
@@ -76,7 +77,8 @@ export interface GetAdaptiveApplicationControlResult {
 /**
  * Gets an application control VM/server group.
  * Azure REST API version: 2020-01-01.
- * <br/>Other available API versions: 2015-06-01-preview.
+ *
+ * Other available API versions: 2015-06-01-preview.
  */
 export function getAdaptiveApplicationControlOutput(args: GetAdaptiveApplicationControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdaptiveApplicationControlResult> {
     return pulumi.output(args).apply((a: any) => getAdaptiveApplicationControl(a, opts))

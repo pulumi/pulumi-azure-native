@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A Streaming Locator resource
- * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01
- * <br/>Other available API versions: 2018-03-30-preview.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01.
+ *
+ * Other available API versions: 2018-03-30-preview.
  */
 export class StreamingLocator extends pulumi.CustomResource {
     /**

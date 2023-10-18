@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ResourceHealth
         /// <summary>
         /// Lists impacted resources in the subscription by an event (Security Advisory).
         /// Azure REST API version: 2022-10-01.
-        /// &lt;br/&gt;Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Task<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> InvokeAsync(ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult>("azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ResourceHealth
         /// <summary>
         /// Lists impacted resources in the subscription by an event (Security Advisory).
         /// Azure REST API version: 2022-10-01.
-        /// &lt;br/&gt;Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
         /// </summary>
         public static Output<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> Invoke(ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult>("azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdInvokeArgs(), options.WithDefaults());

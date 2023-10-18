@@ -11,8 +11,9 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Azure Migrate Project.
-    /// Azure REST API version: 2019-10-01. Prior API version in Azure Native 1.x: 2019-10-01
-    /// &lt;br/&gt;Other available API versions: 2018-02-02.
+    /// Azure REST API version: 2019-10-01. Prior API version in Azure Native 1.x: 2019-10-01.
+    /// 
+    /// Other available API versions: 2018-02-02.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Project")]
     public partial class Project : global::Pulumi.CustomResource

@@ -196,7 +196,8 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
     """
     Gets the specified service Endpoint Policies in a specified resource group.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -234,7 +235,8 @@ def get_service_endpoint_policy_output(expand: Optional[pulumi.Input[Optional[st
     """
     Gets the specified service Endpoint Policies in a specified resource group.
     Azure REST API version: 2023-02-01.
-    <br/>Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
+
+    Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01.
 
 
     :param str expand: Expands referenced resources.

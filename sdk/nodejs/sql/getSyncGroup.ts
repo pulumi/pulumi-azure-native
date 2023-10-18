@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a sync group.
  * Azure REST API version: 2021-11-01.
- * <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+ *
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
 
@@ -110,7 +111,8 @@ export interface GetSyncGroupResult {
 /**
  * Gets a sync group.
  * Azure REST API version: 2021-11-01.
- * <br/>Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+ *
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
  */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
     return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))

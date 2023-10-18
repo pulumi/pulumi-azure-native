@@ -124,7 +124,8 @@ def get_api_schema(api_id: Optional[str] = None,
     """
     Get the schema configuration at the API level.
     Azure REST API version: 2022-08-01.
-    <br/>Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview.
+
+    Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -159,7 +160,8 @@ def get_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
     """
     Get the schema configuration at the API level.
     Azure REST API version: 2022-08-01.
-    <br/>Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview.
+
+    Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

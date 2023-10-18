@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets properties of an inbound endpoint for a DNS resolver.
         /// Azure REST API version: 2022-07-01.
-        /// &lt;br/&gt;Other available API versions: 2020-04-01-preview.
+        /// 
+        /// Other available API versions: 2020-04-01-preview.
         /// </summary>
         public static Task<GetInboundEndpointResult> InvokeAsync(GetInboundEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInboundEndpointResult>("azure-native:network:getInboundEndpoint", args ?? new GetInboundEndpointArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets properties of an inbound endpoint for a DNS resolver.
         /// Azure REST API version: 2022-07-01.
-        /// &lt;br/&gt;Other available API versions: 2020-04-01-preview.
+        /// 
+        /// Other available API versions: 2020-04-01-preview.
         /// </summary>
         public static Output<GetInboundEndpointResult> Invoke(GetInboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInboundEndpointResult>("azure-native:network:getInboundEndpoint", args ?? new GetInboundEndpointInvokeArgs(), options.WithDefaults());

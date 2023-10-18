@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets properties of an outbound endpoint for a DNS resolver.
         /// Azure REST API version: 2022-07-01.
-        /// &lt;br/&gt;Other available API versions: 2020-04-01-preview.
+        /// 
+        /// Other available API versions: 2020-04-01-preview.
         /// </summary>
         public static Task<GetOutboundEndpointResult> InvokeAsync(GetOutboundEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutboundEndpointResult>("azure-native:network:getOutboundEndpoint", args ?? new GetOutboundEndpointArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets properties of an outbound endpoint for a DNS resolver.
         /// Azure REST API version: 2022-07-01.
-        /// &lt;br/&gt;Other available API versions: 2020-04-01-preview.
+        /// 
+        /// Other available API versions: 2020-04-01-preview.
         /// </summary>
         public static Output<GetOutboundEndpointResult> Invoke(GetOutboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutboundEndpointResult>("azure-native:network:getOutboundEndpoint", args ?? new GetOutboundEndpointInvokeArgs(), options.WithDefaults());

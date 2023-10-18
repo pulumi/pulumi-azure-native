@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List service SAS credentials of a specific resource.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2018-11-01, 2023-01-01.
+ *
+ * Other available API versions: 2018-11-01, 2023-01-01.
  */
 export function listStorageAccountServiceSAS(args: ListStorageAccountServiceSASArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountServiceSASResult> {
 
@@ -134,7 +135,8 @@ export interface ListStorageAccountServiceSASResult {
 /**
  * List service SAS credentials of a specific resource.
  * Azure REST API version: 2022-09-01.
- * <br/>Other available API versions: 2018-11-01, 2023-01-01.
+ *
+ * Other available API versions: 2018-11-01, 2023-01-01.
  */
 export function listStorageAccountServiceSASOutput(args: ListStorageAccountServiceSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountServiceSASResult> {
     return pulumi.output(args).apply((a: any) => listStorageAccountServiceSAS(a, opts))

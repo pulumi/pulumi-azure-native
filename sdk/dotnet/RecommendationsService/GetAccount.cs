@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns RecommendationsService Account resource for a given name.
         /// Azure REST API version: 2022-02-01.
-        /// &lt;br/&gt;Other available API versions: 2022-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-03-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:recommendationsservice:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns RecommendationsService Account resource for a given name.
         /// Azure REST API version: 2022-02-01.
-        /// &lt;br/&gt;Other available API versions: 2022-03-01-preview.
+        /// 
+        /// Other available API versions: 2022-03-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:recommendationsservice:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

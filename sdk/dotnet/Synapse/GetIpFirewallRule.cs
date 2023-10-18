@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a firewall rule
         /// Azure REST API version: 2021-06-01.
-        /// &lt;br/&gt;Other available API versions: 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Task<GetIpFirewallRuleResult> InvokeAsync(GetIpFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpFirewallRuleResult>("azure-native:synapse:getIpFirewallRule", args ?? new GetIpFirewallRuleArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a firewall rule
         /// Azure REST API version: 2021-06-01.
-        /// &lt;br/&gt;Other available API versions: 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetIpFirewallRuleResult> Invoke(GetIpFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpFirewallRuleResult>("azure-native:synapse:getIpFirewallRule", args ?? new GetIpFirewallRuleInvokeArgs(), options.WithDefaults());

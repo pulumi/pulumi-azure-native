@@ -47,7 +47,8 @@ def get_organization_api_key(email_id: Optional[str] = None,
     """
     Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
     Azure REST API version: 2023-06-01.
-    <br/>Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str email_id: The User email Id
@@ -67,7 +68,8 @@ def get_organization_api_key_output(email_id: Optional[pulumi.Input[Optional[str
     """
     Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
     Azure REST API version: 2023-06-01.
-    <br/>Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+
+    Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
 
 
     :param str email_id: The User email Id

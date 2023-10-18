@@ -9,8 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A ProactiveDetection configuration definition.
- * Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2015-05-01
- * <br/>Other available API versions: 2015-05-01.
+ * Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2015-05-01.
+ *
+ * Other available API versions: 2015-05-01.
  */
 export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
     /**

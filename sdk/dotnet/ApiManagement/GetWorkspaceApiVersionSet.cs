@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the Api Version Set specified by its identifier.
         /// Azure REST API version: 2022-09-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Task<GetWorkspaceApiVersionSetResult> InvokeAsync(GetWorkspaceApiVersionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceApiVersionSetResult>("azure-native:apimanagement:getWorkspaceApiVersionSet", args ?? new GetWorkspaceApiVersionSetArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the Api Version Set specified by its identifier.
         /// Azure REST API version: 2022-09-01-preview.
-        /// &lt;br/&gt;Other available API versions: 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview.
         /// </summary>
         public static Output<GetWorkspaceApiVersionSetResult> Invoke(GetWorkspaceApiVersionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiVersionSetResult>("azure-native:apimanagement:getWorkspaceApiVersionSet", args ?? new GetWorkspaceApiVersionSetInvokeArgs(), options.WithDefaults());

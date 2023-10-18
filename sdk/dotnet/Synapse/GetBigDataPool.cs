@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a Big Data pool.
         /// Azure REST API version: 2021-06-01.
-        /// &lt;br/&gt;Other available API versions: 2021-05-01, 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Task<GetBigDataPoolResult> InvokeAsync(GetBigDataPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-native:synapse:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a Big Data pool.
         /// Azure REST API version: 2021-06-01.
-        /// &lt;br/&gt;Other available API versions: 2021-05-01, 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Output<GetBigDataPoolResult> Invoke(GetBigDataPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBigDataPoolResult>("azure-native:synapse:getBigDataPool", args ?? new GetBigDataPoolInvokeArgs(), options.WithDefaults());

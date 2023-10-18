@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets all deployments for a remediation at management group scope.
  * Azure REST API version: 2021-10-01.
- * <br/>Other available API versions: 2018-07-01-preview.
+ *
+ * Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtManagementGroup(args: ListRemediationDeploymentsAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtManagementGroupResult> {
 
@@ -58,7 +59,8 @@ export interface ListRemediationDeploymentsAtManagementGroupResult {
 /**
  * Gets all deployments for a remediation at management group scope.
  * Azure REST API version: 2021-10-01.
- * <br/>Other available API versions: 2018-07-01-preview.
+ *
+ * Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtManagementGroupOutput(args: ListRemediationDeploymentsAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => listRemediationDeploymentsAtManagementGroup(a, opts))

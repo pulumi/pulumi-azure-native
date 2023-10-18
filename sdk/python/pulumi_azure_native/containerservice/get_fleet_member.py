@@ -136,7 +136,8 @@ def get_fleet_member(fleet_member_name: Optional[str] = None,
     """
     Get a FleetMember
     Azure REST API version: 2023-03-15-preview.
-    <br/>Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview.
+
+    Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview.
 
 
     :param str fleet_member_name: The name of the Fleet member resource.
@@ -169,7 +170,8 @@ def get_fleet_member_output(fleet_member_name: Optional[pulumi.Input[str]] = Non
     """
     Get a FleetMember
     Azure REST API version: 2023-03-15-preview.
-    <br/>Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview.
+
+    Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview.
 
 
     :param str fleet_member_name: The name of the Fleet member resource.

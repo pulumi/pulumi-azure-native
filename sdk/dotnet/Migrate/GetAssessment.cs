@@ -14,7 +14,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
         /// Azure REST API version: 2019-10-01.
-        /// &lt;br/&gt;Other available API versions: 2017-11-11-preview, 2018-02-02.
+        /// 
+        /// Other available API versions: 2017-11-11-preview, 2018-02-02.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
         /// Azure REST API version: 2019-10-01.
-        /// &lt;br/&gt;Other available API versions: 2017-11-11-preview, 2018-02-02.
+        /// 
+        /// Other available API versions: 2017-11-11-preview, 2018-02-02.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());

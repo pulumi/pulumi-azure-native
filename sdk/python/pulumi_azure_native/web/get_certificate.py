@@ -351,7 +351,8 @@ def get_certificate(name: Optional[str] = None,
     """
     Description for Get a certificate.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01.
+
+    Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01.
 
 
     :param str name: Name of the certificate.
@@ -399,7 +400,8 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get a certificate.
     Azure REST API version: 2022-09-01.
-    <br/>Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01.
+
+    Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01.
 
 
     :param str name: Name of the certificate.

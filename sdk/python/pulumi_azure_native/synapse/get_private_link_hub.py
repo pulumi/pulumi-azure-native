@@ -123,7 +123,8 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
     """
     Gets a privateLinkHub
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2021-06-01-preview.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str private_link_hub_name: Name of the privateLinkHub
@@ -152,7 +153,8 @@ def get_private_link_hub_output(private_link_hub_name: Optional[pulumi.Input[str
     """
     Gets a privateLinkHub
     Azure REST API version: 2021-06-01.
-    <br/>Other available API versions: 2021-06-01-preview.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str private_link_hub_name: Name of the privateLinkHub

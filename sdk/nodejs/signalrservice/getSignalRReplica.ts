@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the replica and its properties.
  * Azure REST API version: 2023-03-01-preview.
- * <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getSignalRReplica(args: GetSignalRReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRReplicaResult> {
 
@@ -77,7 +78,8 @@ export interface GetSignalRReplicaResult {
 /**
  * Get the replica and its properties.
  * Azure REST API version: 2023-03-01-preview.
- * <br/>Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
  */
 export function getSignalRReplicaOutput(args: GetSignalRReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRReplicaResult> {
     return pulumi.output(args).apply((a: any) => getSignalRReplica(a, opts))

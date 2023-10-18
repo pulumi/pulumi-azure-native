@@ -100,7 +100,8 @@ def get_replication_policy(policy_name: Optional[str] = None,
     """
     Gets the details of a replication policy.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-06-01.
+
+    Other available API versions: 2023-06-01.
 
 
     :param str policy_name: Replication policy name.
@@ -130,7 +131,8 @@ def get_replication_policy_output(policy_name: Optional[pulumi.Input[str]] = Non
     """
     Gets the details of a replication policy.
     Azure REST API version: 2023-04-01.
-    <br/>Other available API versions: 2023-06-01.
+
+    Other available API versions: 2023-06-01.
 
 
     :param str policy_name: Replication policy name.
