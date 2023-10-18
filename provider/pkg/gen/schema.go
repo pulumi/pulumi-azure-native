@@ -980,7 +980,7 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 	if g.apiVersion == "" {
 		fmt.Fprintf(&b, "\nAzure REST API version: %s.", defaultVersion)
 		if previousDefaultVersion != "" {
-			fmt.Fprintf(&b, " Prior API version in Azure Native 1.x: %s", previousDefaultVersion)
+			fmt.Fprintf(&b, " Prior API version in Azure Native 1.x: %s.", previousDefaultVersion)
 		}
 
 		// List other available API versions, if any.
@@ -998,12 +998,12 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 		}
 
 		if len(includedVersions) > 0 {
-			fmt.Fprintf(&b, "\n<br/>Other available API versions: %s.", strings.Join(includedVersions, ", "))
+			fmt.Fprintf(&b, "\n\nOther available API versions: %s.", strings.Join(includedVersions, ", "))
 		}
 	}
 
 	if additionalDocs != nil {
-		fmt.Fprintf(&b, "\n<p>%s</p>", *additionalDocs)
+		fmt.Fprintf(&b, "\n\n%s", *additionalDocs)
 	}
 
 	return b.String()
